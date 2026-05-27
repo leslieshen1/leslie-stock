@@ -1,0 +1,113 @@
+{
+  "code": "300223",
+  "name": "北京君正",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer2_HBM/封装/存储",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300223",
+    "name": "北京君正",
+    "market_cap": 67610000000.0,
+    "pe_ttm": null,
+    "pb": 5.35
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — 利基存储 + AIoT SoC",
+    "bottleneck_score": 52,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 ISSI 利基存储 + AIoT, AI 数据中心关联弱",
+    "thesis": "通过收购 ISSI 拿到 SRAM / DRAM / NOR 利基存储, 主要面向汽车 / 工控. AI 数据中心关联弱, AIoT SoC 角度也较窄. 676亿市值偏大.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "汽车 ISSI 客户集中"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "利基存储门槛中等"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用为主"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "未见显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "676亿 显著超 sweet spot"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "市值过大",
+      "AI 数据中心关联弱",
+      "汽车需求增速放缓"
+    ],
+    "ai_relevance": "汽车存储 + AIoT, 间接受益但非 AI capex 主线.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

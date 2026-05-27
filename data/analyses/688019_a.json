@@ -1,0 +1,112 @@
+{
+  "code": "688019",
+  "name": "安集科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688019",
+    "name": "安集科技",
+    "market_cap": 56650000000.0,
+    "pe_ttm": null,
+    "pb": 12.35
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — CMP 抛光液（半导体湿法）",
+    "bottleneck_score": 73,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国版 CMP slurry chokepoint",
+    "thesis": "安集是国内 CMP（化学机械抛光）抛光液龙头，对标美国 CMC Materials（已被 Entegris 收购）/ 日本 Fujimi。CMP 是先进制程关键工艺，每代制程抛光液配方都不同。国产化率快速提升，国内份额从 5% → 20%+。市值 567 亿略偏大但技术 chokepoint 性极强。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内 CMP slurry 第一，绑定中芯/长江存储/华虹"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "非单一原材料"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "科创板明星，覆盖较多"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "CMP slurry 配方 know-how 极高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "国产化战略 + 大基金参与"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "管理层为技术派"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 567 亿略超 sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "市值 > 500 亿",
+      "PB 12.4 高估值"
+    ],
+    "ai_relevance": "AI 芯片先进制程 + HBM 堆叠 CMP 抛光液用量大幅提升",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

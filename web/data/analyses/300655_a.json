@@ -1,0 +1,113 @@
+{
+  "code": "300655",
+  "name": "晶瑞电材",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300655",
+    "name": "晶瑞电材",
+    "market_cap": 19230000000.0,
+    "pe_ttm": null,
+    "pb": 7.47
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 光刻胶 / 电子化学品",
+    "bottleneck_score": 70,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 光刻胶国产化 chokepoint",
+    "thesis": "晶瑞主营光刻胶 + 超净高纯试剂 + 锂电池粘结剂。光刻胶是半导体国产化最艰难环节之一，国内长期依赖日本东京应化 / JSR / 信越 / 住友。晶瑞在 i 线 + KrF 有突破，ArF 仍早期。市值 192 亿在 sweet spot。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内光刻胶第一梯队但份额仍小"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "化学品周期"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖多，国际低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "光刻胶配方 + 树脂 + 光酸 know-how 极高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "国产替代核心瓶颈"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营企业"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 192 亿，sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "ArF / EUV 光刻胶仍极早期",
+      "PB 7.5 偏高",
+      "锂电副业拖累"
+    ],
+    "ai_relevance": "AI 芯片先进制程光刻胶国产化是核心 chokepoint 之一",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

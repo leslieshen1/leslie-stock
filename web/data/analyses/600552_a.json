@@ -1,0 +1,113 @@
+{
+  "code": "600552",
+  "name": "凯盛科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_玻璃基板/CoWoS-S/先进封装",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600552",
+    "name": "凯盛科技",
+    "market_cap": 18840000000.0,
+    "pe_ttm": null,
+    "pb": 4.37
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 电子玻璃 / UTG / 高纯石英砂(中建材系)",
+    "bottleneck_score": 62,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 电子玻璃 + UTG + 高纯石英砂,中建材系",
+    "thesis": "Electronic glass + UTG + 高纯石英砂 multi-business。高纯石英砂是半导体/光伏石英坩埚的关键 chokepoint(类似 $SIVE/Sibelco 在西方的逻辑),UTG 是折叠屏关键。但 SOE 治理 + 业务多线导致 thesis 不纯。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "高纯石英砂国内少数玩家,UTG 国产替代"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "高纯石英砂 2022-2023 ATH 后回落"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内 coverage 中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高纯石英砂提纯工艺有壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "中建材央企 + 半导体材料国产替代"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE 体制"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "188亿 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "SOE 治理",
+      "业务多线",
+      "高纯石英砂周期下行"
+    ],
+    "ai_relevance": "Indirect — 半导体级石英砂支撑晶圆制造,AI capex 间接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

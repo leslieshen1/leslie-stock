@@ -1,0 +1,113 @@
+{
+  "code": "002578",
+  "name": "闽发铝业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002578",
+    "name": "闽发铝业",
+    "market_cap": 3729999999.9999995,
+    "pe_ttm": null,
+    "pb": 2.47
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铝型材加工",
+    "bottleneck_score": 22,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 普通铝型材，非 AI chokepoint",
+    "thesis": "闽发铝业主营建筑/工业铝型材加工，纯加工属性，无独立矿产或战略材料 chokepoint。市值 37 亿虽属小盘但业务无 AI 关联度，纯铝产业链下游普通环节，应排除。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "铝型材高度分散市场"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铝价中位震荡"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "小盘冷门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "通用挤压工艺"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "未观察到"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值小但非关键产能"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "业务非 chokepoint",
+      "AI 关联缺失",
+      "themes 标签误导"
+    ],
+    "ai_relevance": "无明显 AI 关联",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

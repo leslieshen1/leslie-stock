@@ -1,0 +1,113 @@
+{
+  "code": "000938",
+  "name": "紫光股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_AI 服务器/液冷",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000938",
+    "name": "紫光股份",
+    "market_cap": 87380000000.0,
+    "pe_ttm": null,
+    "pb": 5.63
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 1,
+    "layer_label": "Layer 1 — AI server / networking OEM",
+    "bottleneck_score": 24,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Tsinghua Unigroup / H3C — same problem as Inspur: terminal AI assembly + enterprise networking at $11B+ mcap. H3C's switching franchise is interesting (it's actually upstream of Inspur), but the listed entity is too big and too covered to qualify as a bottleneck pick.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "H3C is a duopoly in CN enterprise switching with Huawei"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Heavy coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "400G/800G switching ASIC integration is non-trivial"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Government/SOE customer mix"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "Restructured ownership, no clean insider-buy track"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "Too large"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Mcap ~RMB 870B near macro_tailwind threshold",
+      "Layer 1 server OEM crowd",
+      "Ownership/restructuring noise"
+    ],
+    "ai_relevance": "High theme exposure via H3C switching for AI clusters, but not the choke supplier.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

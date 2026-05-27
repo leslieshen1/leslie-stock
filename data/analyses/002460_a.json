@@ -1,0 +1,113 @@
+{
+  "code": "002460",
+  "name": "赣锋锂业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002460",
+    "name": "赣锋锂业",
+    "market_cap": 157500000000.0,
+    "pe_ttm": null,
+    "pb": 3.39
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂盐/锂金属",
+    "bottleneck_score": 32,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 锂业另一极，AI 关联弱",
+    "thesis": "赣锋为锂盐 + 锂金属 + 固态电池布局综合体，全球锂业巨头之一。但锂价周期下行 + AI 关联缺失 + 市值 1575 亿超大盘 + 覆盖度极密集，完全不在 Serenity 射程。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "锂上中下游一体化"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "锂价远低于 2022 高点"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "白马覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "锂金属 + 固态电池有技术储备"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 > 1500 亿"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "市值 > 1500 亿",
+      "锂周期",
+      "AI 关联弱"
+    ],
+    "ai_relevance": "AI 数据中心储能锂电池间接拉动",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

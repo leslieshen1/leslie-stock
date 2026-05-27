@@ -1,0 +1,112 @@
+{
+  "code": "300024",
+  "name": "机器人",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300024",
+    "name": "机器人",
+    "market_cap": 26189999999.999996,
+    "pe_ttm": null,
+    "pb": 6.47
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 工业机器人 SOE（沈阳新松）",
+    "bottleneck_score": 35,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ SOE 集成商，效率低",
+    "thesis": "SIASUN — China's flagship industrial robot SOE. Despite the ticker name, it's an integrator with chronic margin issues and SOE inefficiency.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "整机厂，非关键节点"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖高，旗帜性公司"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "整机集成"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "中科院系背景"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE 无创始人增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "261 亿且非关键产能"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "SOE，财务质量长期承压",
+      "整机厂而非关键部件"
+    ],
+    "ai_relevance": "Humanoid 名义关联，实质弱",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

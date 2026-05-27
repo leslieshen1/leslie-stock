@@ -1,0 +1,113 @@
+{
+  "code": "688313",
+  "name": "仕佳光子",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688313",
+    "name": "仕佳光子",
+    "market_cap": 81630000000.0,
+    "pe_ttm": null,
+    "pb": 49.22
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — PLC / AWG / DFB 激光器芯片",
+    "bottleneck_score": 70,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 光通信芯片 chokepoint 候选",
+    "thesis": "仕佳光子 makes PLC splitters, AWG, DFB laser chips — directly in the CPO / 800G optical transceiver supply chain. Comparable to upstream of 中际旭创 / 新易盛. AI data center optics buildout 直接受益。 But 市值已 ~816 亿 + PB 49 = priced.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "为国内主要光模块厂商提供 PLC / DFB 芯片"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "光通信芯片为加工品非 commodity"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内已被充分覆盖，国际覆盖也开始增加"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "InP / GaAs 激光器外延 + 工艺壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "光通信芯片国产化扶持"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值已 ~816 亿，远超 sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "PB 49 极高估值",
+      "市值已过千亿区间",
+      "已被市场充分发现"
+    ],
+    "ai_relevance": "AI 数据中心 800G / 1.6T 光模块直接拉动 PLC 与 DFB 需求",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

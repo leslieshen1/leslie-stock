@@ -1,0 +1,111 @@
+{
+  "code": "002472",
+  "name": "双环传动",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002472",
+    "name": "双环传动",
+    "market_cap": 37140000000.0,
+    "pe_ttm": null,
+    "pb": 3.6
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 精密齿轮（汽车 + humanoid）",
+    "bottleneck_score": 52,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 主营汽车齿轮，humanoid 增量",
+    "thesis": "Vehicle gear leader pivoting toward humanoid reducer gears. Real precision DNA but humanoid revenue minimal so far.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "汽车齿轮龙头，humanoid 增量"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖高"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "齿轮精度有 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "371 亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "市值 370+ 亿，humanoid 收入占比小"
+    ],
+    "ai_relevance": "Humanoid 概念间接关联",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

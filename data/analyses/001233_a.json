@@ -1,0 +1,112 @@
+{
+  "code": "001233",
+  "name": "海安集团",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "001233",
+    "name": "海安集团",
+    "market_cap": 10230000000.0,
+    "pe_ttm": null,
+    "pb": 2.17
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 综合化工 / 半导体材料外围",
+    "bottleneck_score": 38,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 标签疑似不在射程",
+    "thesis": "Limited public information / known data on this ticker as a clear semiconductor material pure-play. Without high-confidence knowledge it doesn't pass the bottleneck checklist. Default skeptical.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "无明显头部 fab 集中绑定证据"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无明显单一关键材料 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方覆盖几乎为零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "不确定具体技术壁垒高度"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无明显披露"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 ~102 亿，属小盘"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "信息透明度低",
+      "AI 关联性不明确"
+    ],
+    "ai_relevance": "不明确，难以归类为 AI 供应链 chokepoint",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

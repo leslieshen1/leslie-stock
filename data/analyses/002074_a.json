@@ -1,0 +1,113 @@
+{
+  "code": "002074",
+  "name": "国轩高科",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_新能源车/humanoid 共性部件",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002074",
+    "name": "国轩高科",
+    "market_cap": 62650000000.0,
+    "pe_ttm": null,
+    "pb": 2.17
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — EV/ESS battery cell maker (mid-tier)",
+    "bottleneck_score": 30,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Gotion is mid-tier in a saturated cell market with VW as a strategic shareholder. Volkswagen tie gives some moat but the cell layer is exactly where Chinese overcapacity is most acute. Not an aleabit shape.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Top 6 not chokepoint"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Li cycle"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Well covered"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "LFP cells commoditizing"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "Mcap >RMB 500B threshold breached at RMB 626B"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Mcap above macro threshold",
+      "Cell oversupply",
+      "Customer concentration"
+    ],
+    "ai_relevance": "Negligible.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

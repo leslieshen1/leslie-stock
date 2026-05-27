@@ -1,0 +1,114 @@
+{
+  "code": "002812",
+  "name": "恩捷股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002812",
+    "name": "恩捷股份",
+    "market_cap": 67100000000.0,
+    "pe_ttm": null,
+    "pb": 2.62
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 湿法隔膜全球龙头",
+    "bottleneck_score": 50,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 隔膜龙头,thesis 已 priced in",
+    "thesis": "Global #1 wet-process separator. 真正的供应链汇聚但 EV 周期 derate,价格战剧烈。市值 671亿超出 sweet spot,治理曾有实控人事件 noise,thesis 不在 Serenity 射程.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "湿法隔膜全球第一,CATL/LG/松下都买"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "隔膜价格低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "全球 coverage 充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "湿法工艺/设备有壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "治理事件后实控人变化"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "671亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值 > 500亿 penalty",
+      "隔膜价格战",
+      "治理风险残留",
+      "EV 周期"
+    ],
+    "ai_relevance": "None",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

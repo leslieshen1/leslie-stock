@@ -1,0 +1,113 @@
+{
+  "code": "000977",
+  "name": "浪潮信息",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_AI 服务器/液冷",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000977",
+    "name": "浪潮信息",
+    "market_cap": 100770000000.0,
+    "pe_ttm": null,
+    "pb": 4.53
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 1,
+    "layer_label": "Layer 1 — AI server OEM (terminal AI)",
+    "bottleneck_score": 22,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Inspur is the AI server, not a chokepoint behind it. Layer 1 terminal AI at >$13B mcap with the entire street covering it — this is exactly what the framework calls crowded terminal AI. SOE structure, government customer concentration, and zero insider buying make it a beta-to-AI-capex name, not a bottleneck trade.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "It IS the assembly point, not a choke supplier into one"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Server OEM"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Universal coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Integration moat is real but commoditized vs upstream"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "On US Entity List — export control matters but cuts both ways"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE — open-market CEO buying does not apply"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "Far too large"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "Mcap >RMB 1000B",
+      "SOE structure neutralizes insider-buy signal",
+      "Layer 1 terminal AI — too crowded"
+    ],
+    "ai_relevance": "Maximum theme exposure, minimum chokepoint angle.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

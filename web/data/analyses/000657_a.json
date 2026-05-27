@@ -1,0 +1,113 @@
+{
+  "code": "000657",
+  "name": "中钨高新",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000657",
+    "name": "中钨高新",
+    "market_cap": 144190000000.0,
+    "pe_ttm": null,
+    "pb": 13.5
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 硬质合金/钨深加工",
+    "bottleneck_score": 64,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 钨深加工龙头但市值过大",
+    "thesis": "中钨高新（五矿集团旗下）为国内硬质合金 + 钨深加工龙头，主营切削刀具、矿用工具、钨粉，下游半导体设备 / 航空航天 / 模具。钨为中国战略小金属（70% 全球份额）+ 出口管制候选品种。但市值 1442 亿过大，PB 13.5 已 price-in，国资 SOE 削弱 CEO 信号。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "中国钨全球 70%+ 份额，中钨高新国内龙头"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "钨价 2025 创近十年新高"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "白马覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "硬质合金 / 数控刀具技术壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "钨战略金属 + 军工硬质合金"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "五矿（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 1442 亿远超 sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "市值 > 1000 亿",
+      "国资 SOE",
+      "PB > 13 已 price-in"
+    ],
+    "ai_relevance": "半导体设备硬质合金零部件 / 切削刀具间接",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

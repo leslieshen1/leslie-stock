@@ -1,0 +1,113 @@
+{
+  "code": "301217",
+  "name": "铜冠铜箔",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "301217",
+    "name": "铜冠铜箔",
+    "market_cap": 75850000000.0,
+    "pe_ttm": null,
+    "pb": 13.79
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 电解铜箔（高频高速 PCB / 电池）",
+    "bottleneck_score": 60,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro tailwind",
+    "thesis": "Electrolytic copper foil — genuinely Layer 4, and HVLP/RTF copper foil for high-speed PCB is the AI-server adjacency that matters. But at 758亿 it's no longer a hidden chokepoint, and the lithium-battery side is commoditized. Copper at ATH helps, but PB 13.79 reflects too much hope.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Foil into both PCB and battery channels"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "Copper near ATH supports thesis"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Well-covered"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "HVLP foil tech moat for high-speed PCB"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE-linked, no"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "758亿 exceeds sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "Market cap penalty -10",
+      "PB 13.79 stretched",
+      "Battery side commodity drag"
+    ],
+    "ai_relevance": "High — HVLP copper foil is real AI-server PCB bottleneck",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

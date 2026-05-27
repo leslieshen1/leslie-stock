@@ -1,0 +1,112 @@
+{
+  "code": "000962",
+  "name": "东方钽业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000962",
+    "name": "东方钽业",
+    "market_cap": 33770000000.0,
+    "pe_ttm": null,
+    "pb": 8.43
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钽铌（电容/超合金/半导体）",
+    "bottleneck_score": 76,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 钽 chokepoint，半导体/航天关键材料",
+    "thesis": "国内钽铌龙头，钽电容、钽溅射靶材、超合金钽用于航空发动机和半导体。钽供应集中且与刚果民主共和国 / 卢旺达冲突矿有关，中国国产钽具战略地位。AI 服务器钽电容用量持续提升。市值 338 亿正中 sweet spot。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内钽铌龙头，西部材料同业有限"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "钽价 2024-2025 处中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方机构几乎不覆盖钽细分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高纯钽粉 / 钽丝 / 钽靶材技术壁垒高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "钽用于航空发动机超合金 + 国防"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "中国有色 SOE 控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 338 亿在 sweet spot 内"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "国资",
+      "PB 8.4"
+    ],
+    "ai_relevance": "AI 服务器钽电容用量大幅提升 + 半导体钽靶材",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

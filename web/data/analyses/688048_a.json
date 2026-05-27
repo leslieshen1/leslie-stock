@@ -1,0 +1,113 @@
+{
+  "code": "688048",
+  "name": "长光华芯",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688048",
+    "name": "长光华芯",
+    "market_cap": 65710000000.0,
+    "pe_ttm": null,
+    "pb": 21.81
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 半导体激光芯片（高功率/光通信）",
+    "bottleneck_score": 65,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 激光芯片 IDM 但估值已贵",
+    "thesis": "长光华芯 = 中国版小型化的 II-VI / Lumentum，做高功率半导体激光芯片 + VCSEL + 光通信 EML/DFB 路线图。垂直 IDM。CPO / 800G / 1.6T 数据中心受益。但 PB 21、市值 ~657 亿，已被市场发现。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内激光器 / 光通信厂商核心芯片供应"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "化合物半导体外延材料价格高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖充分，国际覆盖中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "GaAs/InP 外延 + 器件 IDM，技术壁垒高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "激光武器 / 光电对抗概念也沾边"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "中科院体系国资色彩重"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 ~657 亿，已偏大"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "市值偏大",
+      "PB 22 高估值",
+      "国资背景"
+    ],
+    "ai_relevance": "AI 数据中心光模块 EML / VCSEL 直接拉动",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "code": "300251",
+  "name": "光线传媒",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300251",
+    "name": "光线传媒",
+    "market_cap": 38220000000.0,
+    "pe_ttm": null,
+    "pb": 3.98
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "Out of scope — film/entertainment",
+    "bottleneck_score": 8,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not in range",
+    "thesis": "Entertainment/film studio (Beijing Enlight). Completely misclassified under optical/CPO — '光' here means light/illumination as a brand name, not optoelectronics. Zero AI supply chain relevance.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Film/entertainment"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Covered as media name"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "IP/content"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian media"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "382亿 media stock"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Theme mislabeled — wrong industry entirely"
+    ],
+    "ai_relevance": "None — possibly AI content tooling consumer at best",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "300620",
+  "name": "光库科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300620",
+    "name": "光库科技",
+    "market_cap": 66240000000.0,
+    "pe_ttm": null,
+    "pb": 30.74
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 光纤器件 / 铌酸锂调制器",
+    "bottleneck_score": 72,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 薄膜铌酸锂 chokepoint 候选",
+    "thesis": "光库 收购 Lumentum 部分铌酸锂资产，是国内薄膜铌酸锂 (TFLN) 调制器少数玩家。TFLN 调制器对 1.6T+ 高速光通信至关重要。Niche 技术 chokepoint 候选，但 PB 31 + 市值 662 亿已偏贵。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "光模块厂商对薄膜铌酸锂调制器需求集中"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "高纯铌酸锂晶圆紧张"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内已被发现"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "TFLN 工艺全球仅少数玩家掌握"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "光通信国产化扶持"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营，无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 ~662 亿，已偏大"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "PB 31 极高估值",
+      "市值偏大",
+      "国内已充分发现"
+    ],
+    "ai_relevance": "AI 数据中心 1.6T+ 高速光通信 TFLN 调制器关键器件",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

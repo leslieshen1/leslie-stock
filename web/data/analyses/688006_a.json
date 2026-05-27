@@ -1,0 +1,113 @@
+{
+  "code": "688006",
+  "name": "杭可科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_新能源车/humanoid 共性部件",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688006",
+    "name": "杭可科技",
+    "market_cap": 21230000000.0,
+    "pe_ttm": null,
+    "pb": 3.91
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Lithium-battery formation & grading equipment",
+    "bottleneck_score": 44,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Hangke is a respected niche in battery formation/aging equipment — a legitimate sub-component bottleneck in li-ion capex — but the equipment cycle has rolled and humanoid-battery demand is a small-fraction story for years. Not the wrong company, just the wrong cycle phase.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Top 2 in CN battery formation gear"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Equipment, not materials"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Well covered"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Formation algorithms + throughput"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No standout"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "~RMB 21B in upper sweet spot"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "EV capex cycle weakness",
+      "Humanoid demand still nascent",
+      "China battery equipment overcapacity"
+    ],
+    "ai_relevance": "Indirect — robotics/humanoid theme upside is years out.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

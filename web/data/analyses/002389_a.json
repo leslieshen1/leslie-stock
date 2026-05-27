@@ -1,0 +1,180 @@
+{
+  "code": "002389",
+  "name": "航天彩虹",
+  "market": "a",
+  "industry": "国防军工-无人机",
+  "overall_score": 58.75,
+  "overall_grade": "⛔ 过滤（双重一票否决）",
+  "verdict": "段永平视角：PE 90 倍意味着假设未来 10 年净利每年涨 30%，即使彩虹-7 全卖完这种假设也不敢做。2025H1 营收 -20%、净利转亏，军工就是这样反复。我连 PE 25-30 的茅台苹果都嫌贵，会买 PE 90 倍的军工？永远不会。⛔ 估值+财务双重一票否决。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 65,
+      "grade": "警告（LLM）",
+      "details": [
+        "💬 军工+低空经济双线，但订单波动剧烈",
+        "• 沙特 40 亿订单 + 阿联酋 5.4 亿洽谈",
+        "• YH-1000S 货运无人机商业化",
+        "• 2025 H1 转亏 vs 2026 Q1 +427% — swing 严重"
+      ],
+      "flags": [
+        "🟡 故事好但业绩反复"
+      ]
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 80,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 航天科技集团+国家队身份+无人机产业链链长",
+        "• 军用无人机出口占中国 70%",
+        "• 全产业链布局（碳纤维+动力+整机）",
+        "• 彩虹-7 全球少数高空+隐身+长航时三合一",
+        "• 国家定位'无人机产业链链长'"
+      ],
+      "flags": [
+        "🟢 国家队身份不可复制"
+      ]
+    },
+    "management": {
+      "name": "管理层",
+      "score": 65,
+      "grade": "警告（LLM）",
+      "details": [
+        "💬 国企，业绩平滑/成本控制能力不足",
+        "• 三费占比 +35.86% YoY（成本失控）",
+        "• 国企天花板 + 灵魂型 CEO 缺失"
+      ],
+      "flags": [
+        "🔴 三费失控信号"
+      ]
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 50,
+      "grade": "一票否决",
+      "details": [
+        "💬 2025H1 转亏 + 业绩剧烈波动 + 综合毛利率 13.84% 暴跌 23pct",
+        "• 归母净利 -49 万（2025H1 转亏）",
+        "• 综合毛利率 13.84%（-23.16 pct）",
+        "• 三费占比 +35.86%",
+        "• ROE 接近 0"
+      ],
+      "flags": [
+        "🔴🔴 三连击：转亏 + 毛利暴跌 + 三费失控"
+      ]
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 30,
+      "grade": "一票否决",
+      "details": [
+        "💬 PE 85-91 倍极贵 + 段永平十年回本期 85+ 年",
+        "• 机构 2026 PE = 85-91 倍",
+        "• 段永平十年回本：85+ 年（远超 15 年门槛）",
+        "• 市场已 priced in 完美增长 + 全部订单"
+      ],
+      "flags": [
+        "🔴🔴🔴 BG 框架最严的一票否决"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 55,
+      "grade": "圈外",
+      "details": [
+        "💬 军工不在 Leslie 明确能力圈，业务黑箱",
+        "• 军工业务是黑箱（订单/政府/技术不公开）",
+        "• 需要懂军贸+军方采购周期"
+      ],
+      "flags": [
+        "🔴 不在能力圈"
+      ]
+    }
+  },
+  "raw_quote": {
+    "code": "002389",
+    "name": "航天彩虹",
+    "price": 28.0,
+    "change_pct": 2.5,
+    "market_cap": 28000000000.0,
+    "pe_ttm": 90.0,
+    "pb": 4.0,
+    "industry": "国防军工-无人机"
+  },
+  "sell_triggers": [
+    "2026 半年报净利不及预期（< 1.5 亿）",
+    "沙特/阿联酋订单延期或取消",
+    "PE 突破 120 倍",
+    "三费占比继续上升",
+    "军方采购预算下调"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "AI 上下游/国防",
+  "concepts": [
+    "无人机",
+    "低空经济",
+    "军贸出口",
+    "国家队",
+    "彩虹系列",
+    "AI agent"
+  ],
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 国防/UAV 子系统",
+    "bottleneck_score": 52,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国版 $SIVE × Golden Dome",
+    "thesis": "$SIVE × Golden Dome thesis — aleabit loves defense-adjacent chokepoints. 航天彩虹 is CASC subsidiary doing military UAV (彩虹 series). China defense bid not accessible to her — but the framework lens applies: concentrated government buyer + classified tech depth + small float.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "PLA + 出口（中东/非洲）是主要客户，集中度高"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "非材料密集型业务"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "军工股公开信息有限，分析师覆盖少"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "军用无人机涉密技术，外部很难评估真实能力"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "央企 CASC（中国航天科技集团）子公司，直接国防订单"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企管理层，无市场化激励"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 ~$3-4B USD 等价，在 aleabit sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "中国国防股，外资和 Serenity 这类美国 trader 完全无法交易",
+      "央企管理层 capital allocation 受限",
+      "民品（彩虹系列出口）受地缘政治影响大"
+    ],
+    "ai_relevance": "AI 在自主无人机集群作战 + ISR 数据处理领域是核心赋能技术",
+    "updated_at": "2026-05-26T20:01:39.483051"
+  }
+}

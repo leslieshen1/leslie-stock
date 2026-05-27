@@ -1,0 +1,112 @@
+{
+  "code": "688362",
+  "name": "甬矽电子",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer2_HBM/封装/存储",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688362",
+    "name": "甬矽电子",
+    "market_cap": 24960000000.0,
+    "pe_ttm": null,
+    "pb": 9.25
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — OSAT 高阶封装",
+    "bottleneck_score": 50,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 OSAT 高阶封装小厂, 但封装赛道太 crowded",
+    "thesis": "中型 OSAT, 主打 FCBGA / SiP 高阶封装. AI / HPC chiplet 趋势下有需求, 但赛道有长电 / 通富 / 华天三巨头压制, 甬矽相对小但非 chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "部分高阶 SoC 客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖中等, 西方近零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "FCBGA 门槛存在但非独家"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无明显国防关联"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营, 未见显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "249亿 接近上限"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "封装赛道 crowded",
+      "PB 9.25 估值偏高"
+    ],
+    "ai_relevance": "AI chiplet / HBM 封装 thesis 但甬矽不是国内 chokepoint, 长电 / 通富 才是.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

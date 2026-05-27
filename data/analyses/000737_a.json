@@ -1,0 +1,112 @@
+{
+  "code": "000737",
+  "name": "北方铜业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000737",
+    "name": "北方铜业",
+    "market_cap": 26889999999.999996,
+    "pe_ttm": null,
+    "pb": 3.62
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铜冶炼（中条山铜矿）",
+    "bottleneck_score": 38,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 铜冶炼小盘但非 chokepoint",
+    "thesis": "北方铜业为山西中条山铜矿改制平台，铜冶炼 + 矿山一体化。市值 269 亿在 sweet spot 内但 PB 3.62 偏高。铜需求 AI 间接叙事成立但全球铜供应分散，公司在全球份额低，纯铜冶炼无 chokepoint 锐度。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "铜全球分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "铜价 2025 中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "覆盖中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "冶炼通用"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "山西国资控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 269 亿在 sweet spot 内"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "国资 SOE",
+      "纯铜冶炼非 chokepoint"
+    ],
+    "ai_relevance": "AI 数据中心铜电缆间接",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "code": "688187",
+  "name": "时代电气",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688187",
+    "name": "时代电气",
+    "market_cap": 81060000000.0,
+    "pe_ttm": null,
+    "pb": 1.88
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 高压 IGBT + SiC（轨交 + EV）",
+    "bottleneck_score": 60,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 中车系，高压 IGBT 国家队",
+    "thesis": "CRRC subsidiary — world-class high-voltage IGBT IDM for rail + EV. Real depth but SOE-large and well-covered.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "高压 IGBT 龙头"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内外覆盖高"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高压 IGBT IDM 真深度"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "中车央企背景"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "810 亿大盘"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "市值 810 亿超出 sweet spot 上限",
+      "SOE"
+    ],
+    "ai_relevance": "AI 数据中心 + EV 高压 power 间接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

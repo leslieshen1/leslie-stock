@@ -1,0 +1,111 @@
+{
+  "code": "300580",
+  "name": "贝斯特",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300580",
+    "name": "贝斯特",
+    "market_cap": 14040000000.0,
+    "pe_ttm": null,
+    "pb": 4.18
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 精密零部件（涡轮增压器 + 行星滚柱丝杠）",
+    "bottleneck_score": 56,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 涡轮叶轮转型行星滚柱丝杠",
+    "thesis": "Pivoting from turbocharger blades to planetary roller screws for humanoid. Real precision machining DNA but small share so far.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "行星滚柱丝杠候选之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内中等覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "精密机加工 know-how 可迁移"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "140 亿 sweet spot 内"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "主营仍是涡轮增压器叶轮，humanoid 收入占比低"
+    ],
+    "ai_relevance": "Humanoid 腿部直线驱动概念",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

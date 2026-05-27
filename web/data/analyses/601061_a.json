@@ -1,0 +1,113 @@
+{
+  "code": "601061",
+  "name": "中信金属",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601061",
+    "name": "中信金属",
+    "market_cap": 66690000000.0,
+    "pe_ttm": null,
+    "pb": 2.75
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铌/有色贸易",
+    "bottleneck_score": 48,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 宏观 tailwind 但市值过大",
+    "thesis": "CITIC Metal — holds stakes in CBMM (niobium) + copper trading. Niobium is genuinely interesting strategic metal but 66.7B RMB MC + SOE ownership = already discovered macro play.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "通过 CBMM 持股，铌确实是单点供应"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "铌价坚挺但非 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖较多"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "铌冶金有壁垒，但公司是贸易+持股"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "中信系，央企，铌战略金属"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "666.9 亿 RMB 超标"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "央企",
+      "市值 666 亿超标",
+      "公司本身是贸易商不是矿主"
+    ],
+    "ai_relevance": "Indirect — niobium used in high-strength steel for some industrial applications",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

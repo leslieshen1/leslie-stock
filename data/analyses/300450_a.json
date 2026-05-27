@@ -1,0 +1,113 @@
+{
+  "code": "300450",
+  "name": "先导智能",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_新能源车/humanoid 共性部件",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300450",
+    "name": "先导智能",
+    "market_cap": 83540000000.0,
+    "pe_ttm": null,
+    "pb": 4.68
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Lithium battery production equipment leader",
+    "bottleneck_score": 36,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Wuxi Lead is THE name in Chinese battery equipment — coater leadership, CATL exposure, also moving into solid-state and humanoid lines. The technology is real but the mcap is at $11B+ and the EV capex slowdown is the dominant flow. Crowded macro trade, not a bottleneck.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "#1 in CN battery coating equipment"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Equipment"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Universal coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Coater precision is a hard moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No standout"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "Mcap >RMB 500B threshold breached at RMB 835B"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "Mcap above macro threshold",
+      "Battery capex digestion ongoing",
+      "Order book deceleration"
+    ],
+    "ai_relevance": "Tangential via solid-state batteries and humanoid lines — story not yet quantified.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

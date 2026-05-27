@@ -1,0 +1,27 @@
+# Vercel deployment ignore — only ship what we need at runtime
+
+# Skip large parquet (only used by Python scanner, not UI)
+data/*.parquet
+data/cache/
+
+# Skip scanning intermediate files
+data/aleabit_candidates.json
+data/aleabit_candidates_v2.json
+data/aleabit_excluded.json
+data/aleabit_unknown.json
+
+# Skip universe.json (UI doesn't use it)
+data/universe.json
+
+# Skip lock files
+data/analyses/*.lock
+data/analyses/*.log
+
+# Skip news raw (huge, not used in UI yet)
+data/news/
+
+# Standard
+.env*
+node_modules/
+.next/
+.git/

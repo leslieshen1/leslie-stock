@@ -1,0 +1,113 @@
+{
+  "code": "600151",
+  "name": "航天机电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600151",
+    "name": "航天机电",
+    "market_cap": 21110000000.0,
+    "pe_ttm": null,
+    "pb": 4.79
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 航天机电/光伏混合",
+    "bottleneck_score": 32,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not aleabit territory",
+    "thesis": "Half aerospace, half solar — the worst possible combo. The solar exposure caps it as macro tailwind at best, and CASC affiliation doesn't sharpen the thesis. I want a scalpel, not a Swiss Army knife with one rusty blade.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Diversified, not focused"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Mid coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Aerospace yes, solar no"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CASC"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "211亿"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "Solar drag",
+      "Mixed identity confuses valuation",
+      "SOE constraints"
+    ],
+    "ai_relevance": "Low",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

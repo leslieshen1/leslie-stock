@@ -1,0 +1,113 @@
+{
+  "code": "002363",
+  "name": "隆基机械",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002363",
+    "name": "隆基机械",
+    "market_cap": 3210000000.0,
+    "pe_ttm": null,
+    "pb": 1.47
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Auto brake-disc/casting components (mislabeled as solar)",
+    "bottleneck_score": 18,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not_aleabit_territory",
+    "thesis": "Longi Machinery is a brake-disc and auto-casting shop unrelated to Longi Green Energy or solar — the theme label is wrong. Even on its real business, no AI or chokepoint case.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Many auto-casting suppliers"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Steel/iron commodity"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Thinly covered micro-cap"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Mature casting"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "~RMB 3.2B small but not strategic"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "Theme misclassification",
+      "No AI exposure",
+      "Generic ICE-auto supplier"
+    ],
+    "ai_relevance": "None.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

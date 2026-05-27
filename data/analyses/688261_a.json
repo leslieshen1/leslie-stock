@@ -1,0 +1,111 @@
+{
+  "code": "688261",
+  "name": "东微半导",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688261",
+    "name": "东微半导",
+    "market_cap": 11040000000.0,
+    "pe_ttm": null,
+    "pb": 3.74
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 超结 MOSFET / TGBT 高压 power IC",
+    "bottleneck_score": 64,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 高压超结 MOSFET 国产替代",
+    "thesis": "Super-junction MOSFET design house — closer to a real chokepoint in 800V architectures used by EV chargers and AI data center PSUs.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国产超结 MOSFET 主流之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有，国际罕"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "超结结构设计 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国产替代受益"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "110 亿 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "fabless 受代工产能制约"
+    ],
+    "ai_relevance": "AI 数据中心 800V HVDC + EV charger 直接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

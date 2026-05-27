@@ -1,0 +1,112 @@
+{
+  "code": "600206",
+  "name": "有研新材",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600206",
+    "name": "有研新材",
+    "market_cap": 25260000000.0,
+    "pe_ttm": null,
+    "pb": 5.81
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 半导体靶材 / 稀有金属",
+    "bottleneck_score": 72,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 高纯靶材 + 稀有金属双 chokepoint",
+    "thesis": "有研新材（央企有研集团）涵盖高纯金属靶材、稀土材料、生物医用材料。靶材业务与江丰电子并列国内第一梯队，对标日本 JX 金属 / 美国 Materion / Honeywell。AI 芯片溅射靶材 + 国产替代。市值 253 亿在 sweet spot 内。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "央企靶材龙头之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "高纯金属价格中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖，国际低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "5N+ 高纯金属 + 靶材绑定"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "央企 + 国产替代战略"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企背景"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 253 亿，sweet spot"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "央企",
+      "业务多元化降低纯度"
+    ],
+    "ai_relevance": "AI 芯片溅射靶材 + 先进封装高纯材料",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

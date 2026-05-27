@@ -1,0 +1,112 @@
+{
+  "code": "002130",
+  "name": "沃尔核材",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002130",
+    "name": "沃尔核材",
+    "market_cap": 30000000000.0,
+    "pe_ttm": null,
+    "pb": 3.28
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — high-speed copper cable / PCB material",
+    "bottleneck_score": 62,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Heat-shrink and 224G high-speed copper cable supplier — direct AI server interconnect play. 300亿 cap is starting to get crowded but the AEC/copper cable angle is real. NVIDIA GB200/300 rack interconnect beneficiary. The story has been found by the market, but the underlying material moat (cross-linked polymer dielectric) is genuine.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "AEC high-speed cable into NVDA-cycle racks"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Polymer materials stable"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Heavily covered by sell-side"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "224G/448G copper cable dielectric tuning is hard"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Nuclear/radiation heat-shrink has defense exposure"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "300亿 — at upper edge of sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "Already a consensus AEC name",
+      "PB 3.3 fair but not deep value"
+    ],
+    "ai_relevance": "Direct — 224G AEC cables for AI rack interconnect",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

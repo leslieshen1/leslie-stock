@@ -1,0 +1,111 @@
+{
+  "code": "300607",
+  "name": "拓斯达",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300607",
+    "name": "拓斯达",
+    "market_cap": 16140000000.0,
+    "pe_ttm": null,
+    "pb": 5.53
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 工业机器人集成商 + 注塑机",
+    "bottleneck_score": 38,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 工业机器人集成商，非关键节点",
+    "thesis": "Industrial robot integrator — assembles other people's parts. Not a chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "集成商而非关键部件"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "集成商门槛低"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "161 亿 sweet spot 内但定位错"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "业务以注塑机辅机 + 工业机器人集成为主，humanoid 关联薄"
+    ],
+    "ai_relevance": "Humanoid 概念弱关联",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

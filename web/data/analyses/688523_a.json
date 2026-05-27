@@ -1,0 +1,112 @@
+{
+  "code": "688523",
+  "name": "航天环宇",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688523",
+    "name": "航天环宇",
+    "market_cap": 27550000000.0,
+    "pe_ttm": null,
+    "pb": 16.39
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 航天复合材料/卫星结构件",
+    "bottleneck_score": 55,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Composite structures and satellite ground stations — a Layer 3 vendor riding the commercial-space and low-orbit constellation buildout. PB 16.39 is the warning flare: market has already priced in the satellite-internet narrative. Bottleneck exists, but premium is steep.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Supplies multiple space primes for structures"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not material-driven"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Some coverage as space-economy proxy"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Composite layup + space qualification"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Aerospace/satellite government programs"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No known signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "275亿 borderline, still in sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "PB 16.39 extreme — narrative already priced",
+      "Earnings volatility"
+    ],
+    "ai_relevance": "Adjacent — satellite constellations support AI/comms infrastructure, but indirect",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

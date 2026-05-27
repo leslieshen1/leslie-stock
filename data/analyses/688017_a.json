@@ -1,0 +1,112 @@
+{
+  "code": "688017",
+  "name": "绿的谐波",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688017",
+    "name": "绿的谐波",
+    "market_cap": 61660000000.0,
+    "pe_ttm": null,
+    "pb": 17.28
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 谐波减速器（humanoid joint core）",
+    "bottleneck_score": 62,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 thesis 有效但已被市场充分发现",
+    "thesis": "China's Harmonic Drive — the closest analogue to Japan's HDS. Real chokepoint in humanoid joints, but at 600+ yi mcap and PB 17, every long/short fund in China already owns it. Crowded.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "几乎所有国产人形机器人厂商都把它列为谐波减速器主供"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "本身不直接绑材料"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内外机构全覆盖，研报量极大"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "谐波减速器精度/寿命门槛极高，柔轮材料 + 加工 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "进入军工/航天减速器供应链"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "未见显著创始人增持信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值已 600+ 亿 RMB，不是小盘"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "市值 600+ 亿，PB 17 估值极贵",
+      "humanoid 主题股，叙事溢价显著"
+    ],
+    "ai_relevance": "Humanoid robot 在 AI 物理化叙事下的核心节点，但已 priced in",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

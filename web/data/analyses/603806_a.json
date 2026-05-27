@@ -1,0 +1,113 @@
+{
+  "code": "603806",
+  "name": "福斯特",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603806",
+    "name": "福斯特",
+    "market_cap": 48290000000.0,
+    "pe_ttm": null,
+    "pb": 3.06
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Solar encapsulant film (POE/EVA)",
+    "bottleneck_score": 44,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Foster has the strongest position in solar encapsulants and that is closer to a real chokepoint than module assembly — but the AI angle is tenuous and the solar capex cycle is still digesting. Decent business, wrong narrative for an aleabit trade.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Encapsulant film is a duopoly globally"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "POE/EVA pricing pressured"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Well covered"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "POE formulation has real know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No standout"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "~RMB 48B"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Solar demand cycle drag",
+      "AI-power link is several steps removed",
+      "PB ~3 reasonable but earnings still falling"
+    ],
+    "ai_relevance": "Negligible — AI data-center power is not bought as encapsulant film.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

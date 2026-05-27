@@ -1,0 +1,113 @@
+{
+  "code": "002025",
+  "name": "航天电器",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002025",
+    "name": "航天电器",
+    "market_cap": 34130000000.0,
+    "pe_ttm": null,
+    "pb": 5.13
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 军工连接器/微特电机",
+    "bottleneck_score": 58,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 国防+商业航天叙事,SOE 主导",
+    "thesis": "Connector/micro-motor supplier into Chinese defense + commercial space stack. SOE-controlled (CASIC 系), market cap ~340亿 puts it in upper bucket. Real chokepoint in mil-spec connectors but already widely held by domestic defense funds — discovery risk priced in.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Mil-spec 连接器供 missile/航天/UAV 平台,集中度高但客户都是 SOE"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not a raw material name"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内券商重点跟踪,西方机构因军工敏感少跟,但国内 coverage 充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高可靠连接器/微特电机有显著技术壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CASIC 旗下,纯军工+航天供应链"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE,无创始人个人增持机制"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "340亿 RMB 不算小盘"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "SOE 治理结构 limits CEO skin-in-the-game",
+      "市值已经反映防务+航天 narrative",
+      "PB 5.13 偏贵"
+    ],
+    "ai_relevance": "Indirect — 卫星/低轨星座/UAV 是 AI 边缘节点的物理载体,但与 AI capex 主轴关联弱",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

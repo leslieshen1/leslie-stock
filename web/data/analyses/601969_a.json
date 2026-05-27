@@ -1,0 +1,113 @@
+{
+  "code": "601969",
+  "name": "海南矿业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601969",
+    "name": "海南矿业",
+    "market_cap": 20260000000.0,
+    "pe_ttm": null,
+    "pb": 2.97
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铁矿/油气/锂",
+    "bottleneck_score": 38,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 不在射程",
+    "thesis": "Iron ore + Mozambique oil/gas + Bougainville copper — diversified miner with 20B RMB MC. Not a chokepoint, more of a generalist resource play. Iron ore is liquid commodity, not undiscovered.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "铁矿/油气都是大宗，无供应链汇聚特征"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铁矿石远离 ATH，2024-2026 处于下行"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖，西方覆盖少"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "采矿无技术深度门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "海南国资委系，战略矿产储备"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资 SOE = no"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "202.6 亿 RMB 偏中盘"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "铁矿石/油气大宗品，无 chokepoint 属性",
+      "国资背景信号 6 fail",
+      "AI 关联几乎为零"
+    ],
+    "ai_relevance": "Negligible — iron ore / oil & gas have no AI capex linkage",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "code": "000960",
+  "name": "锡业股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000960",
+    "name": "锡业股份",
+    "market_cap": 64190000000.0,
+    "pe_ttm": null,
+    "pb": 3.16
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锡（半导体焊料/AI 芯片）",
+    "bottleneck_score": 75,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 Serenity 锡论的中国旗舰标的",
+    "thesis": "锡业股份是全球最大锡冶炼厂（全球份额 ~22%），中国是全球最大锡生产国。锡为半导体焊料核心，AI 芯片封装 + HBM 焊接锡用量持续增长，缅甸佤邦 + 印尼供应扰动持续，锡价 2024-2025 创历史新高。这是 Serenity 框架里非常典型的『原材料控制点』。市值 642 亿略偏大但锡叙事过于完美。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "全球第一锡冶炼厂，份额 22%"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "锡价 2024 突破 35000 USD/t 历史高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内大行覆盖，西方少"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "锡冶炼工艺成熟但供应集中"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "锡为战略小金属储备"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "云南锡业集团 SOE 控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 642 亿略超 sweet spot"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "市值 > 600 亿",
+      "国资"
+    ],
+    "ai_relevance": "AI 芯片 / HBM / 服务器焊料锡用量持续上行，Serenity 多次提及",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

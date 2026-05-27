@@ -1,0 +1,112 @@
+{
+  "code": "300589",
+  "name": "江龙船艇",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300589",
+    "name": "江龙船艇",
+    "market_cap": 5450000000.0,
+    "pe_ttm": null,
+    "pb": 7.84
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 公务艇 / 游艇制造",
+    "bottleneck_score": 15,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 船艇制造, 与 AI 完全无关",
+    "thesis": "公务执法艇 / 游艇 / 客船制造. 与 AI 完全无关. 不射.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "覆盖近零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "船艇制造门槛低"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "公务艇有政府订单"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但未见增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "54亿 小盘"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "业务与 AI 完全无关",
+      "PB 7.84 估值偏高"
+    ],
+    "ai_relevance": "无.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

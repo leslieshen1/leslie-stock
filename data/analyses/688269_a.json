@@ -1,0 +1,112 @@
+{
+  "code": "688269",
+  "name": "凯立新材",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688269",
+    "name": "凯立新材",
+    "market_cap": 5510000000.0,
+    "pe_ttm": null,
+    "pb": 5.01
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — precious metal catalyst material",
+    "bottleneck_score": 68,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Precious metal catalyst (Pd/Pt/Ru) supplier — pure Layer 4 material control point with narrow technical moat. Small cap (55亿) in the sweet spot, low analyst coverage. Not a direct AI play but feeds into semiconductor processes and hydrogen — the kind of obscure material name nobody talks about until the supply chain forces them to.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Niche customer base in fine chemicals/semicon"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "Pd/Pt cycles, not at ATH but volatile"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "STAR-board small cap, sparse coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Catalyst formulation IP, hard to replicate"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian industrial catalyst"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No public signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "55亿 sweet spot, China's leading precious metal catalyst player"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "PB 5.0 not cheap",
+      "PGM price exposure cuts both ways"
+    ],
+    "ai_relevance": "Indirect — catalysts used in semiconductor wet processes and hydrogen energy",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

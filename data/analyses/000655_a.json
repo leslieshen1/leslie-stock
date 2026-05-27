@@ -1,0 +1,113 @@
+{
+  "code": "000655",
+  "name": "金岭矿业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000655",
+    "name": "金岭矿业",
+    "market_cap": 4480000000.0,
+    "pe_ttm": null,
+    "pb": 1.27
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铁矿（山东）",
+    "bottleneck_score": 22,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 普通铁矿，无 AI 关联",
+    "thesis": "金岭矿业为山东省内中小型铁矿企业。铁矿与 AI chokepoint 完全无关，市值 44.8 亿虽小但业务无关键产能价值，PB 1.27 低反映了周期股本质。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "铁矿全球分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铁矿石中位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "小盘冷门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "采选通用"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "山东国资控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "小盘但非关键产能"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "AI 关联缺失",
+      "纯铁矿周期股",
+      "themes 标签误导"
+    ],
+    "ai_relevance": "无",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

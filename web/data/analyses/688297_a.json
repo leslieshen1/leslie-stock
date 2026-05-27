@@ -1,0 +1,112 @@
+{
+  "code": "688297",
+  "name": "中无人机",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688297",
+    "name": "中无人机",
+    "market_cap": 29689999999.999996,
+    "pe_ttm": null,
+    "pb": 5.31
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 军用无人机 (彩虹系列)",
+    "bottleneck_score": 35,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 军工 UAV 总装, 非 AI 数据中心 thesis",
+    "thesis": "中航工业旗下军用无人机总装 (彩虹). 国防 thesis 有效但与 AI capex / 数据中心无关. Serenity 框架不射. 央企 SOE 减分.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "客户=军方, 但与 AI 无关"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖较多"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "军用 UAV 总装门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "直接军工"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "296亿 接近上限"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "与 AI thesis 无关",
+      "央企 SOE"
+    ],
+    "ai_relevance": "几乎无. 军工 thesis 独立, 不在 AI capex chokepoint 框架.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

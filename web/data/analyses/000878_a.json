@@ -1,0 +1,113 @@
+{
+  "code": "000878",
+  "name": "云南铜业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000878",
+    "name": "云南铜业",
+    "market_cap": 43560000000.0,
+    "pe_ttm": null,
+    "pb": 2.44
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铜冶炼",
+    "bottleneck_score": 40,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 铜需求 AI 间接受益但纯冶炼非 chokepoint",
+    "thesis": "云南铜业为中铝集团旗下铜业平台，主营铜冶炼。AI 数据中心电力 + 电缆拉动铜需求是真实叙事，但铜全球供应相对分散，云铜在全球份额小，纯冶炼属性使其更接近周期股。市值 436 亿，国资 SOE。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "铜冶炼全球分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "铜价 2024-2025 中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "冶炼成熟工艺"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "中铝集团（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 436 亿略偏大"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "国资 SOE",
+      "纯铜冶炼非 chokepoint",
+      "AI 间接关联"
+    ],
+    "ai_relevance": "AI 数据中心电缆 / PCB 用铜，间接受益",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

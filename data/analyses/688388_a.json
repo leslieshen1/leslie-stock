@@ -1,0 +1,114 @@
+{
+  "code": "688388",
+  "name": "嘉元科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688388",
+    "name": "嘉元科技",
+    "market_cap": 20280000000.0,
+    "pe_ttm": null,
+    "pb": 2.51
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂电铜箔",
+    "bottleneck_score": 42,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 铜箔产能过剩,加工费触底",
+    "thesis": "Lithium battery copper foil — commodity supplier in oversupplied segment. 加工费创新低,thesis 与 AI 主轴几乎无交集,即使含一点'高端铜箔'想象也无法支撑 chokepoint thesis.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "铜箔是 commodity,多家产能"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铜价高但铜箔加工费在历史低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 coverage 充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "极薄铜箔有壁垒,主流厚度同质化"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用电池主轴"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但无明显增持信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "202亿,产能利用率低"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "铜箔行业产能过剩",
+      "加工费历史低位",
+      "EV 周期",
+      "无 AI exposure"
+    ],
+    "ai_relevance": "Almost none — AI server PCB 铜箔是另一条更高端的细分,公司主要做 EV battery copper foil",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

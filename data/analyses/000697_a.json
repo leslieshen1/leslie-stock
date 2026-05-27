@@ -1,0 +1,112 @@
+{
+  "code": "000697",
+  "name": "炼石航空",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000697",
+    "name": "炼石航空",
+    "market_cap": 18200000000.0,
+    "pe_ttm": null,
+    "pb": 5.4
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 航空发动机机匣/单晶叶片邻近",
+    "bottleneck_score": 62,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Aero-engine casings and high-temperature alloy components — this is the kind of Layer 3 process moat I respect. UK Gardner subsidiary gives international cert exposure, domestic engine program ties matter. 182亿 still in sweet spot. PB 5.4 reasonable. Real bottleneck if execution delivers.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Engine casings into multiple programs"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not commodity"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Limited"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "High-temp alloy machining + cert moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Domestic engine programs"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "Not state-owned, possible"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "182亿"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "Historical leverage",
+      "Execution risk on UK subsidiary"
+    ],
+    "ai_relevance": "Indirect — engine programs are critical infra not AI",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

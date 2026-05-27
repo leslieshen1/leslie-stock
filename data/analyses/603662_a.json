@@ -1,0 +1,111 @@
+{
+  "code": "603662",
+  "name": "柯力传感",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603662",
+    "name": "柯力传感",
+    "market_cap": 18680000000.0,
+    "pe_ttm": null,
+    "pb": 6.7
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 力传感器（6 轴力 + 应变片）",
+    "bottleneck_score": 65,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 多维力传感器 humanoid 触觉关键",
+    "thesis": "6-axis force/torque sensors are the eyes-of-the-hand for humanoid robots. ATI Industrial dominates globally. Keli is the China leader with real strain-gauge IP.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内称重/力传感器龙头，向 6 轴扩展"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内中等覆盖，西方机构低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "6 轴力传感器解耦算法 + 应变片工艺真门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "称重涉及部分军用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "186 亿 sweet spot 内"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "主营仍是工业称重，humanoid 力传感器收入占比初期"
+    ],
+    "ai_relevance": "Humanoid 灵巧手/关节力反馈直接相关",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

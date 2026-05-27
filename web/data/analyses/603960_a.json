@@ -1,0 +1,111 @@
+{
+  "code": "603960",
+  "name": "克来机电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603960",
+    "name": "克来机电",
+    "market_cap": 6320000000.0,
+    "pe_ttm": null,
+    "pb": 5.62
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 柔性自动化装配设备（汽车电子 + 机器人产线）",
+    "bottleneck_score": 48,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 宏观叙事相符但非关键节点",
+    "thesis": "Assembly automation equipment supplier — rides humanoid theme but is one of many integrators, not a chokepoint component maker.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "属设备集成商，非独家关键节点"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "非材料公司"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖，国际罕"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "柔性装配有 know-how 但非卡脖子"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用汽车电子为主"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无明显信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "63 亿小盘符合，但非关键产能"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "业务以传统汽车 ECU 装配为主，机器人为概念"
+    ],
+    "ai_relevance": "Humanoid 概念关联薄",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

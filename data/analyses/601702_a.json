@@ -1,0 +1,111 @@
+{
+  "code": "601702",
+  "name": "华峰铝业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601702",
+    "name": "华峰铝业",
+    "market_cap": 19910000000.0,
+    "pe_ttm": null,
+    "pb": 2.98
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铝热传输材料",
+    "bottleneck_score": 52,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 4 信号",
+    "thesis": "Aluminum thermal-transfer material — niche player in heat exchanger aluminum strips for autos + potentially data center cooling. 19.9B RMB MC is borderline. Cold plate / liquid cooling adjacent.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "铝热传输材料国内主要供应商之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铝价非 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖较多但西方少"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "铝热传输复合材料有一定工艺壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用为主"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "unknown",
+        "note": "未知"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "199.1 亿 RMB 接近上限"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "主要终端是 NEV 热管理，AI 数据中心液冷只是潜在拓展"
+    ],
+    "ai_relevance": "Partial — could supply cold-plate aluminum for liquid-cooled data centers, but auto thermal is current core",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

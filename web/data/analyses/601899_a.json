@@ -1,0 +1,188 @@
+{
+  "code": "601899",
+  "name": "紫金矿业",
+  "market": "a",
+  "industry": "有色金属-黄金",
+  "overall_score": 83.25,
+  "overall_grade": "🏆 重点候选",
+  "verdict": "段永平和巴菲特会重点关注。陈景河式工程师 CEO + 全球资源 + 民营机制 = 教科书级价投。当前估值不便宜但前瞻 PE 10.6 倍 + ROE 21% + FCF/净利 1.46 = 好公司在合理价格。建议现价小仓持有，跌到 ¥30 以下分批加。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 82,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 铜+金+锂三轮驱动，矿产品毛利率 61.56% 业内顶级",
+        "• 铜：电气化 + AI 算力 + 数据中心，长期需求向上",
+        "• 金：避险 + 央行连续 14 个月增持",
+        "• 锂：从底部反转，2026 产能 +380%",
+        "• 资源极长，矿石资源量 +36% 至 8550 万吨"
+      ],
+      "flags": [
+        "🟢 多金属对冲了单一商品风险",
+        "🟢 长坡厚雪，10 年视角清晰"
+      ]
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 88,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 全球矿权 + 成本曲线领先 + 民营机制 + 持续并购整合能力",
+        "• 护城河类型：资源 / 成本优势 / 规模 / 并购能力",
+        "• 卡莫阿铜矿、Las Bambas、Manono 锂矿全球布局",
+        "• 矿产品毛利率 61.56% = 业内最低成本之一",
+        "• 2026.3 拟 182 亿控股赤峰黄金"
+      ],
+      "flags": [
+        "🟢 巴菲特 100 亿打击测试扛得住"
+      ]
+    },
+    "management": {
+      "name": "管理层",
+      "score": 88,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 陈景河（创始人 CEO + 工程师）60+ 岁仍在一线，段永平最爱类型",
+        "• 历史决策 90%+ 正确：刚果、海外扩张、提前布局锂",
+        "• 资本配置：海外并购 + 同时降低负债率（-3.63 pct）",
+        "• 稳定分红 + 回购历史良好"
+      ],
+      "flags": [
+        "🟢 民营机制 + 国际化经验在 A 股稀缺",
+        "🟡 高杠杆扩张需持续监控（长期借款+应付债券 1123 亿）"
+      ]
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 85,
+      "grade": "通过",
+      "details": [
+        "💬 ROE 21% + FCF/净利 1.46 + 矿产品毛利 61.56% = 顶级",
+        "• 营收 +15.0%（2025）, 归母净利 +61.5%",
+        "• 经营 CF 754 亿 > 净利 517 亿（FCF 转化优秀）",
+        "• 资产负债率 51.56%（-3.63 pct）持续优化"
+      ],
+      "flags": [
+        "✅ ROE > 15%",
+        "✅ FCF / 净利 > 1",
+        "✅ 资负 < 70%"
+      ]
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 75,
+      "grade": "通过",
+      "details": [
+        "💬 前瞻 PE 10.6x + 18 家分析师全 buy + 目标价 +24%",
+        "• PE TTM 19.38（表面不便宜）",
+        "• PE 2026E = 10.6（明显进入便宜区间）",
+        "• 国际可比：BHP 7、Rio Tinto 6，紫金溢价合理",
+        "• 段永平十年回本法：~10.6 年达到门槛"
+      ],
+      "flags": [
+        "🟢 18 位分析师全部买入评级"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 78,
+      "grade": "在能力圈",
+      "details": [
+        "💬 在 Leslie 能源/材料/资源圈，国民级公司，研报多",
+        "• 故事简单：民营矿业龙头 + 全球资源 + 多金属对冲",
+        "• 5 分钟讲清楚",
+        "• 60% 海外资产需关注非洲/南美政治"
+      ],
+      "flags": [
+        "🟢 在 Leslie 能力圈内：能源/材料/资源"
+      ]
+    }
+  },
+  "raw_quote": {
+    "code": "601899",
+    "name": "紫金矿业",
+    "price": 37.19,
+    "change_pct": -0.69,
+    "market_cap": 987000000000.0,
+    "pe_ttm": 19.38,
+    "pb": 5.84,
+    "industry": "有色金属-黄金"
+  },
+  "sell_triggers": [
+    "陈景河退休且接班人非工程师+长期主义类型",
+    "海外重大资产被国有化",
+    "资产负债率反弹至 65%+",
+    "ROE 跌破 15% 持续 2 年",
+    "综合毛利率连续 2 季下滑 > 5pct"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "能源/材料/资源",
+  "concepts": [
+    "黄金",
+    "铜",
+    "锂矿",
+    "民营矿业",
+    "全球化",
+    "出海",
+    "新能源金属"
+  ],
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 原材料/物料控制点",
+    "bottleneck_score": 62,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 宏观顺风（市值过大）",
+    "thesis": "Copper is the new oil for AI datacenters. Every MW of compute needs ~5kg of copper for power infra. $Zijin sits at top-3 globally in copper output + scaling lithium. But at $60B+ market cap she's way past my $500M-$5B sweet spot — this is a macro tailwind play, not a chokepoint sniper.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "AI 数据中心、EV、电网、绿能全都依赖铜；紫金占全球铜矿产量 5%+"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "金价 2024-2025 持续创 ATH，铜价突破 $10K/吨高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "全球矿业最广泛覆盖标的之一，>30 家分析师跟踪"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "大宗矿业逻辑透明，ChatGPT 也能解释 polymetallic 战略"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "战略金属储备 + 国资委间接持股，但非直接国防订单"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "陈景河持股稳定但无明显市场公开增持，SOE-民企混合机制"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 60B+ USD 等价，远超 aleabit 偏好的 500M-5B 区间"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值远超 aleabit 典型仓位（她不重仓 large cap）",
+      "分析师广泛覆盖，没有信息不对称 alpha",
+      "国企混合结构，CEO 不在二级市场买股"
+    ],
+    "ai_relevance": "铜是 AI 数据中心电力基础设施的关键材料；锂支撑 humanoid robotics 电池供应链",
+    "updated_at": "2026-05-26T20:01:39.483026"
+  }
+}

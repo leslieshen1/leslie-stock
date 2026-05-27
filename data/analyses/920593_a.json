@@ -1,0 +1,113 @@
+{
+  "code": "920593",
+  "name": "鼎智科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "920593",
+    "name": "鼎智科技",
+    "market_cap": 5900000000.0,
+    "pe_ttm": null,
+    "pb": 8.05
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 微型直线马达 / 步进电机",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 humanoid 关节小盘候选",
+    "thesis": "鼎智科技 做微型直线步进电机 / 音圈电机，可用于医疗 / 仪器 / 机器人执行机构。Humanoid 关节驱动概念。市值 ~59 亿真小盘。但 humanoid 实际订单尚未规模化。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "下游为医疗 / 仪器 / 半导体设备"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无关联"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方覆盖几乎为零，北交所小盘"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "微型直线电机 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营，无显著公开增持记录"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 ~59 亿，真正小盘"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "humanoid 订单 unproven",
+      "技术非独家",
+      "北交所流动性低"
+    ],
+    "ai_relevance": "人形机器人关节驱动概念，AI embodied 间接关联",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

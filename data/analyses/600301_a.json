@@ -1,0 +1,180 @@
+{
+  "code": "600301",
+  "name": "华锡有色",
+  "market": "a",
+  "industry": "有色金属-锡",
+  "overall_score": 65.8,
+  "overall_grade": "学习池边缘",
+  "verdict": "段永平视角：资源+牌照是真东西，但'锡价 1Q26 同比 +48%、铟价 +62%'是周期上行中段，不是击球区。等下次锡价大跌 30%，公司基本面没坏，那时候是真便宜。⚠️ 警惕'朋友说有矿要并进来'这类消息驱动 — 这正是 Stop Doing List 第一条。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 62,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 周期股但锡/锑/铟有结构性需求（光伏+半导体+AI）",
+        "• 3 大矿山可采年限 20-26 年",
+        "• 矿石资源量 +36% 至 8550 万吨",
+        "• 周期性强 + 资本密集 = 差生意特征"
+      ],
+      "flags": [
+        "🟡 锡锑铟是战略稀缺金属"
+      ]
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 76,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 广西国资矿权 + 矿权整合政策 + 资源金属垄断",
+        "• 3 大矿山：铜坑、高峰锡矿、佛子冲",
+        "• 广西矿权整合（15 个矿业权）受益",
+        "• 锡锑铟战略稀缺金属"
+      ],
+      "flags": [
+        "🟢 牌照+资源护城河双重"
+      ]
+    },
+    "management": {
+      "name": "管理层",
+      "score": 66,
+      "grade": "警告（LLM）",
+      "details": [
+        "💬 广西国资，稳健但天花板",
+        "• 资本结构持续优化（负债率 -6.5 pct）",
+        "• 1Q26 末资负 30.85%",
+        "• 国企：决策效率 vs 灵魂型 CEO 缺失"
+      ],
+      "flags": [
+        "🟡 国企背景，比私营矿企质量低一档"
+      ]
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 70,
+      "grade": "通过",
+      "details": [
+        "💬 营收 +25.31%, 归母净利 +21.75%, 资负 30.85%",
+        "• 1Q26 营收 11.57 亿 (-7% YoY)",
+        "• 1Q26 净利 1.82 亿 (+18.54% YoY)",
+        "• ROE ~13% (周期股调整后达标)"
+      ],
+      "flags": [
+        "🟢 财务结构健康",
+        "🟡 单季波动剧烈"
+      ]
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 52,
+      "grade": "警告",
+      "details": [
+        "💬 PE 42.56（静态）/ 25-28（2026 预期），不便宜",
+        "• 机构目标价 ¥47.4（基于 2026 PE 20x）",
+        "• 现价 ¥54 比目标价高 14%",
+        "• 周期上行中段，估值已反映预期"
+      ],
+      "flags": [
+        "🔴 周期上行中段，估值压力大"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 65,
+      "grade": "在能力圈",
+      "details": [
+        "💬 在 Leslie 能源/材料圈内但周期股最难做",
+        "• 懂金属周期+库存周期+地缘（缅甸佤邦）",
+        "• 跌 50% 测试需要真懂周期"
+      ],
+      "flags": [
+        "🟡 周期股需要更深的能力圈认知"
+      ]
+    }
+  },
+  "raw_quote": {
+    "code": "600301",
+    "name": "华锡有色",
+    "price": 54.05,
+    "change_pct": -1.2,
+    "market_cap": 34200000000.0,
+    "pe_ttm": 42.56,
+    "pb": 5.5,
+    "industry": "有色金属-锡"
+  },
+  "sell_triggers": [
+    "锡价 LME 跌破 $26000 持续 6 个月",
+    "缅甸佤邦锡矿恢复 100% 产能",
+    "公司单季净利环比连续 2 季下滑 > 20%",
+    "实控人/国资委层面治理结构剧变",
+    "矿业事故/安全停产"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "能源/材料/资源",
+  "concepts": [
+    "锡",
+    "锑",
+    "铟",
+    "国资矿业整合",
+    "广西矿权",
+    "战略稀有金属"
+  ],
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 原材料/物料控制点",
+    "bottleneck_score": 78,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国版 $AXTI 类比",
+    "thesis": "Tin is the chokepoint material for semiconductor packaging — every chip on Earth uses tin solder for SMT assembly. Global tin supply concentrated in China + Indonesia. 华锡 is a China A-stock $2B mcap tin pure-play, almost zero analyst coverage. If you can stomach A-stock, this is the China version of my $AXTI thesis.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "全球每一颗芯片的 PCB 焊接都需要锡；台积电、三星、英特尔无一例外"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "LME 锡价 2024 突破 $35K/吨，但未到历史 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "A 股小盘有色金属，公开覆盖 < 3 家，信息不对称大"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "锡的电子级高纯精炼（5N+）有壁垒，但矿端逻辑相对透明"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "国家战略储备品种 + 出口管制讨论中"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资委间接控股的混合所有制，无显著管理层公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 ~$2B USD 等价，正好在 aleabit 偏好的 500M-5B sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "A 股流动性受限，外资难以建仓",
+      "国企背景，capital allocation 不如纯民企灵活",
+      "锡的需求也有焊接铅替代的长期不确定性"
+    ],
+    "ai_relevance": "锡是半导体后道封装/PCB SMT 焊接的关键耗材，AI 服务器爆发直接拉动锡需求",
+    "updated_at": "2026-05-26T20:01:39.483049"
+  }
+}

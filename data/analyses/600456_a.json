@@ -1,0 +1,113 @@
+{
+  "code": "600456",
+  "name": "宝钛股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600456",
+    "name": "宝钛股份",
+    "market_cap": 15810000000.0,
+    "pe_ttm": null,
+    "pb": 2.18
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钛合金（行业龙头）",
+    "bottleneck_score": 58,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 thesis 有效但已 crowded",
+    "thesis": "Baoji Titanium — flagship Chinese titanium alloy maker, military aviation supplier. Real chokepoint thesis but 158.1 亿 RMB MC + state-affiliated + heavy analyst coverage means already discovered.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内航空钛合金主要供应商，C919/军机依赖"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "海绵钛景气但非 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内军工/有色板块明星标的"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高端钛合金锻造工艺壁垒高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "陕西国资，C919/军用航空核心供应商"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "158 亿临界，产能关键"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "国资 SOE 信号 6 fail",
+      "已被国内军工资金充分发现",
+      "AI 直接关联弱"
+    ],
+    "ai_relevance": "Indirect — titanium in some aerospace/defense systems, minimal direct AI exposure",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

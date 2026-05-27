@@ -1,0 +1,112 @@
+{
+  "code": "688138",
+  "name": "清溢光电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688138",
+    "name": "清溢光电",
+    "market_cap": 10950000000.0,
+    "pe_ttm": null,
+    "pb": 3.86
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 掩膜版（半导体/显示）",
+    "bottleneck_score": 68,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 掩膜版国产替代 chokepoint",
+    "thesis": "清溢是国内掩膜版（mask）龙头，半导体 + 显示双线。掩膜版是光刻工艺核心耗材，国内长期依赖日本 Toppan / Hoya / DNP / 美国 Photronics。中国设备国产化推动 mask 国产替代。市值 110 亿正中 sweet spot。但半导体高端 mask 国产化仍偏初期，技术差距明显。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 mask 第一梯队但仍小份额"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无单一材料价格逻辑"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "国际覆盖极低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "掩膜版工艺壁垒极高 (EUV mask 是下一步)"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "半导体国产化战略"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营企业需核实"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 110 亿，sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "半导体 mask 高端国产化仍早期",
+      "显示业务低毛利"
+    ],
+    "ai_relevance": "AI 芯片国产化 + 先进制程 mask 国产替代核心瓶颈",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

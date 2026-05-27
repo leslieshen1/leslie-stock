@@ -1,0 +1,241 @@
+"""把刚才对话里 CBRS 的三方分析写入 data/analyses/CBRS_us.json。
+
+包含：
+- 段巴 BG 6 维度评分
+- raw_quote（基于 yahoo + google finance 2026-05-26 数据）
+- aleabit 字段（Serenity 瓶颈分析）
+- verdict / sell_triggers / 风险点
+"""
+from __future__ import annotations
+
+import json
+from datetime import datetime
+from pathlib import Path
+
+ROOT = Path(__file__).parent.parent
+OUT = ROOT / "data" / "analyses" / "CBRS_us.json"
+
+NOW = datetime.now().isoformat()
+
+
+def dim(score: int, summary: str, details: list[str], flags: list[str] = None,
+        moat_types: list[str] = None):
+    out = {
+        "name": summary[:20],
+        "score": score,
+        "grade": _grade(score),
+        "summary": summary,
+        "details": details,
+        "flags": flags or [],
+    }
+    if moat_types:
+        out["moat_types"] = moat_types
+    return out
+
+
+def _grade(score: int) -> str:
+    if score >= 80:
+        return "🟢 优秀"
+    if score >= 65:
+        return "🟡 良好"
+    if score >= 50:
+        return "🟠 一般"
+    return "🔴 较差"
+
+
+data = {
+    "code": "CBRS",
+    "name": "Cerebras Systems",
+    "market": "us",
+    "industry": "Semiconductors / AI Compute",
+    "sector": "AI 上下游",
+    "concepts": [
+        "AI 训练芯片",
+        "Wafer-Scale Engine",
+        "AI infra",
+        "推理加速",
+        "DARPA / Sandia",
+        "G42 / UAE 主权 AI",
+        "IPO 6 个月",
+        "Anti-NVDA",
+    ],
+    "overall_score": 46.0,
+    "overall_grade": "🔴 不在击球区",
+    "verdict": (
+        "技术真东西（WSE-3 wafer-scale 是真壁垒）、客户真东西（OpenAI/AWS/Sandia/DARPA "
+        "都签了真合同）、护城河真东西（NVDA CUDA 之外少数能做训练的厂商）。但 $56B 市值 + "
+        "P/S 110x + 86% 单一客户系（G42）三件事叠加，估值已 price in 2027-2028 极乐观情景。"
+        "段永平视角：好故事 ≠ 好生意 at this price。击球区在 $80-120（IPO 价 $185 的 50% off） "
+        "+ 客户多元化 + OpenAI 合同实质兑现，三条件全满足。当前不在。"
+    ),
+    "llm_used": True,
+    "llm_model": "claude-conversation",
+    "dimensions": {
+        "business_model": dim(
+            50,
+            "AI 训练芯片是真东西，但客户集中度爆表",
+            [
+                "WSE-3 单晶圆 4T 晶体管，世界最大 AI 芯片",
+                "OpenAI（$10B 三年合同）+ AWS + Meta + Dell 都是真订单",
+                "G42 系（MBZUAI 62% + G42 24%）合计占 2025 营收 86% — 段巴 Stop Doing 第二条",
+                "AI 资本支出是周期性的，不是消费品长坡厚雪",
+                "WSE 制造依赖 TSMC 5nm 单一代工，供应链脆弱",
+                "10 年后还在赚钱不确定，NVDA Rubin/Vera 在追赶",
+            ],
+            ["🔴 客户集中度 86%（Stop Doing 一票否决候选）",
+             "🟡 收入质量未知（take-or-pay vs usage）"],
+        ),
+        "moat": dim(
+            60,
+            "技术壁垒真，软件生态空白",
+            [
+                "WSE-3 wafer-scale 工程是真壁垒（TSMC + 几十项专利）",
+                "推理速度 / 延迟优势 vs NVDA H100 cluster",
+                "NVDA 的 CUDA 是 15+ 年护城河，Cerebras 软件栈刚起步",
+                "AMD MI300、Groq LPU、SambaNova 都在切推理市场",
+                "100 亿打击测试：NVDA 不需要做 wafer scale，靠 NVLink + CUDA 已等效",
+                "5 年护城河趋势：变窄",
+            ],
+            ["🟢 wafer-scale 技术领先", "🔴 软件生态严重落后", "🟡 5 年护城河可能变窄"],
+            moat_types=["技术专利", "客户切换成本（部分）"],
+        ),
+        "management": dim(
+            65,
+            "Andrew Feldman 是真连续创业者",
+            [
+                "CEO Andrew Feldman 卖过 SeaMicro 给 AMD（2012，$334M）成功退出",
+                "工程师创始团队（Lauterbach / James / Lie / Fricker），技术 driven",
+                "S-1 / IR 信息披露质量高",
+                "IPO 后股价 -34%（$386 → $256），市场对管理层兑现能力分歧",
+                "Feldman 仍在锁定期，无公开二级市场增持记录",
+            ],
+            ["🟢 创始人有成功 exit 记录", "🟡 IPO 锁定期，无法验证增持意愿"],
+        ),
+        "financials": dim(
+            35,
+            "现金充足但仍在烧钱",
+            [
+                "2025 营收 $510M（vs Q2 2024 季度 $68M）",
+                "Q2 2024 净亏 $33M，2024 仍是亏损年",
+                "经营现金流 +$155M（一次性 G42 预付，非常态）",
+                "FCF -$0.7M（基本打平）",
+                "IPO 募 $5.55B + 自有现金 $209M，runway 充足（按当前烧速 5+ 年）",
+                "应收账款集中度极高（86% G42 系）",
+            ],
+            ["🟢 现金充足", "🔴 仍在亏损", "🔴 应收账款集中度风险"],
+        ),
+        "valuation": dim(
+            15,
+            "P/S 110x 是泡沫定价",
+            [
+                "市值 $56.4B",
+                "PE 628（基本无意义）",
+                "P/S TTM ~110x（2025 营收 $510M）",
+                "P/S 2026E ~17x（假设 OpenAI 合同 $3.3B/yr 兑现）",
+                "P/S 2027E ~7-9x（极乐观 $6-8B 营收）",
+                "对比 NVDA P/S ~25x 且是盈利的",
+                "当前价已 price in 极乐观 2027-2028 情景",
+            ],
+            ["🔴 P/S 110x 远超 BG 击球区（<10x）",
+             "🔴 PE 628 基本无意义",
+             "🟡 P/S 2027E 9x 才进入合理"],
+        ),
+        "circle": dim(
+            55,
+            "AI infra 你懂，半导体制造细节不熟",
+            [
+                "Crypto / AI 双栖背景，对 AI 大势和大模型训练逻辑懂",
+                "半导体制造细节（晶圆良率、TSMC 产能分配、CoWoS 封装）不熟",
+                "AI 芯片竞争对比（NVDA Blackwell / Groq LPU / SambaNova）需补课",
+                "客户合同结构（take-or-pay vs commit）不熟",
+            ],
+            ["🟡 能力圈中等覆盖"],
+        ),
+    },
+    "raw_quote": {
+        "code": "CBRS",
+        "name": "Cerebras Systems",
+        "price": 256.78,
+        "change_pct": -8.90,
+        "market_cap": 56400000000.0,
+        "pe_ttm": 628.58,
+        "pb": None,
+        "industry": "Semiconductors",
+        "fifty_two_w_high": 386.34,
+        "fifty_two_w_low": 250.27,
+        "volume_avg": 3370000,
+        "ipo_price": 185.00,
+        "ipo_date": "2026-05",
+        "revenue_2025": 510000000,
+        "employees": 708,
+    },
+    "sell_triggers": [
+        "G42 项目正式延期或缩减公告",
+        "OpenAI 合同提前终止或重新议价",
+        "WSE-4 量产推迟超 12 个月",
+        "创始团队核心成员（Feldman / Lauterbach / Lie）离职",
+        "美国对阿联酋 AI 芯片出口限制收紧导致 G42 业务无法继续",
+        "NVDA Rubin/Vera 推出后 Cerebras 性能优势消失",
+        "P/S 跌破 50x 触发 BG 重新评估窗口",
+    ],
+    "updated_at": NOW,
+    "elapsed_seconds": 0,
+    "aleabit": {
+        "supply_chain_layer": 2,
+        "layer_label": "Layer 2 — AI 加速器（直接对标 NVDA H100/B200）",
+        "bottleneck_score": 58,
+        "verdict": "crowded_but_valid",
+        "verdict_label": "🚦 拥挤但 thesis 有效",
+        "thesis": (
+            "$CBRS WSE-3 is a real wafer-scale chokepoint. OpenAI signed $10B through 2028. "
+            "AWS contracted 2026. Sandia + DARPA = real defense layer. G42 owns 86% of 2025 rev. "
+            "But $56B MC 6 months post-IPO is no longer my sniper range. "
+            "Real alpha rotates upstream — TSMC 5nm wafer allocation, CoWoS-S, advanced packaging."
+        ),
+        "signals": [
+            {"name": "供应链汇聚",
+             "hit": "yes",
+             "note": "OpenAI / AWS / Meta / G42 / Sandia / DARPA 同时下注 Cerebras — aleabit 经典 signal"},
+            {"name": "材料价格 ATH",
+             "hit": "no",
+             "note": "不适用（非材料股）"},
+            {"name": "分析师覆盖率 < 3",
+             "hit": "no",
+             "note": "IPO 6 个月已被 10+ 家投行覆盖，零信息不对称"},
+            {"name": "技术深度门槛",
+             "hit": "yes",
+             "note": "WSE-3 wafer-scale 工程 ChatGPT 完全解释不清（单晶圆 215mm² + 4T 晶体管 + 良率 + 散热）"},
+            {"name": "政府 / 国防关联",
+             "hit": "yes",
+             "note": "Sandia 核武库管理 + DARPA 合同 + G42 阿联酋主权 AI（地缘政治维度）"},
+            {"name": "CEO 二级市场买入",
+             "hit": "no",
+             "note": "IPO 锁定期内，Andrew Feldman 无公开增持记录，待 2026.11 锁定期解禁后观察"},
+            {"name": "小盘 + 关键产能",
+             "hit": "no",
+             "note": "$56.4B 市值远超 aleabit $500M-$5B sweet spot — 最关键扣分项"},
+        ],
+        "signals_hit": 3,
+        "red_flags": [
+            "市值 $56B 已远超 aleabit 重仓区间",
+            "IPO 锁定期解禁（2026.11 预计）可能砸盘",
+            "86% 单一客户系（G42）是 binary 风险",
+            "P/S 110x 即使按 Serenity 标准也偏贵",
+        ],
+        "ai_relevance": (
+            "AI 训练 / 推理芯片直接对标 NVDA。WSE-3 是当前世界最大单芯片，"
+            "技术层面是真 chokepoint，但市场已充分定价。"
+            "真正的 aleabit 狙击点应该是上游：TSMC 5nm 晶圆代工、CoWoS-S 封装产能、"
+            "wafer-scale 散热方案、HBM3e 供应链。"
+        ),
+        "updated_at": NOW,
+    },
+}
+
+OUT.parent.mkdir(exist_ok=True, parents=True)
+with open(OUT, "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+
+print(f"✅ 写入 {OUT}")
+print(f"   段巴: {data['overall_score']}/100 · {data['overall_grade']}")
+print(f"   Serenity: {data['aleabit']['bottleneck_score']}/100 · {data['aleabit']['verdict_label']}")

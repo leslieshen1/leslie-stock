@@ -1,0 +1,113 @@
+{
+  "code": "002428",
+  "name": "云南锗业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002428",
+    "name": "云南锗业",
+    "market_cap": 58540000000.0,
+    "pe_ttm": null,
+    "pb": 39.84
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锗（光通信/红外/砷化镓衬底）",
+    "bottleneck_score": 78,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国版 $AXTI，纯锗 chokepoint",
+    "thesis": "云南锗业是国内最纯粹的锗概念标的，从锗矿到锗单晶、红外锗镜片、砷化镓衬底全链路。锗为中国出口管制名单核心，全球供应 65% 来自中国。585 亿市值刚过 sweet spot 但纯度足够高。这是 Serenity 最爱的那种『原材料控制点』。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内锗供应双寡头之一，全产业链"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "锗价 2023-2025 持续创新高"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方机构基本无覆盖锗细分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "区熔锗单晶 / 砷化镓衬底高技术壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "锗在出口管制名单 + 红外军工"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "云南冶金 SOE 控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 585 亿略超 sweet spot"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "市值 > 500 亿",
+      "PB 40 倍高估值",
+      "国资"
+    ],
+    "ai_relevance": "AI 数据中心光纤 + AI 光通信 + 红外感知拉动锗需求",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

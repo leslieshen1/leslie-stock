@@ -1,0 +1,114 @@
+{
+  "code": "688037",
+  "name": "芯源微",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_半导体设备",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688037",
+    "name": "芯源微",
+    "market_cap": 59220000000.00001,
+    "pe_ttm": null,
+    "pb": 21.14
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 涂胶显影/前道清洗设备",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 涂胶显影国产替代 — TEL 中国小弟",
+    "thesis": "Domestic coater/developer (TEL 的国产替代). 涂胶显影是 lithography 必备配套,真正的工艺 chokepoint。市值 592亿过线,PB 21.14 极高估值已经把'替代 TEL'故事 priced in. Thesis 有效但是 known story.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内涂胶显影几乎独家,SMIC/华虹/长江存储都是客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not material"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内热门股,西方机构也通过 TEL/ASML 对比关注"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Track 设备工程极难"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Big Fund + 国产替代"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资背景"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "592亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "PB 21.14 极高估值",
+      "市值 > 500亿 penalty",
+      "Crowded narrative",
+      "国资背景限制 skin-in-game 信号"
+    ],
+    "ai_relevance": "Indirect — AI 芯片产能扩张拉动晶圆厂 coater 需求",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

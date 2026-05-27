@@ -1,0 +1,113 @@
+{
+  "code": "688518",
+  "name": "联赢激光",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688518",
+    "name": "联赢激光",
+    "market_cap": 11230000000.0,
+    "pe_ttm": null,
+    "pb": 3.4
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 激光焊接设备（动力电池为主）",
+    "bottleneck_score": 42,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 名字带激光但下游是电池",
+    "thesis": "联赢 makes laser welding equipment primarily for power batteries (CATL / BYD lineage). Not optical communication / CPO. AI 关联通过数据中心电源间接。Theme tag 'CPO 相关' is misleading.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "动力电池厂商集中度高但非 AI chokepoint"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无关联材料"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖，国际较少"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "激光焊接工艺 know-how，非颠覆性壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著关联"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营，无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 ~112 亿"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "主题标签误导",
+      "下游不是 AI",
+      "电池设备周期向下"
+    ],
+    "ai_relevance": "弱关联，主要在动力电池设备",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

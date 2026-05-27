@@ -1,0 +1,113 @@
+{
+  "code": "002273",
+  "name": "水晶光电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_玻璃基板/CoWoS-S/先进封装",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002273",
+    "name": "水晶光电",
+    "market_cap": 55460000000.0,
+    "pe_ttm": null,
+    "pb": 5.44
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 光学滤光片 + AR/VR 光学",
+    "bottleneck_score": 50,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 光学滤光片 + AR/VR 主题,但市值偏大",
+    "thesis": "Optical filters + AR/VR optics + 车载光学。AR/VR 光学+车载激光雷达光学窗有 chokepoint 想象,但主业仍是消费光学滤光片,与 AI server / capex 关系弱。市值 554亿过线,thesis 不在 Serenity 主轴.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "光学滤光片国内龙头,Apple 供应链"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not material"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 coverage 极充分,Apple 供应链股"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "镀膜/光学有壁垒,但消费光学竞争激烈"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用消费"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "554亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "市值 > 500亿 penalty",
+      "Apple 供应链 crowded",
+      "AR/VR 量产仍未起量"
+    ],
+    "ai_relevance": "Weak — AR/VR 是 Apple 主导的 edge AI 载体,但公司层面是消费光学供应商",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

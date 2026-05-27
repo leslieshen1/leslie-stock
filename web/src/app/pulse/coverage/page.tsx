@@ -1,0 +1,284 @@
+import Link from "next/link";
+import { loadCoverage } from "@/lib/pulse-static";
+import { COMPANIES } from "@/lib/supply-chain";
+
+// 与 buildCoverageMatrix 输出兼容的本地 type
+const FUND_FIELDS = [
+  "trailingPE", "forwardPE", "priceToBook", "priceToSales",
+  "roe", "roa", "profitMargin", "operatingMargin", "grossMargin",
+  "fcfMargin", "revenueGrowth", "earningsGrowth", "debtToEquity",
+] as const;
+type FundField = (typeof FUND_FIELDS)[number];
+
+interface CoverageRowVm {
+  ticker: string;
+  ok: number;
+  error: string | null;
+  hasMetrics: { valuation_pct: boolean; momentum_20d: boolean; rsi: boolean; sentiment: boolean };
+  hasFundamentals: Record<FundField, boolean>;
+  presentFields: number;
+  totalFields: number;
+}
+
+export const metadata = {
+  title: "数据覆盖矩阵 · AI 产业链脉冲",
+};
+
+const METRIC_KEYS = ["valuation_pct", "momentum_20d", "rsi", "sentiment"] as const;
+const METRIC_LABELS: Record<(typeof METRIC_KEYS)[number], string> = {
+  valuation_pct: "估值分位",
+  momentum_20d: "20D 动量",
+  rsi: "RSI",
+  sentiment: "情绪",
+};
+
+const FUND_LABELS: Record<FundField, string> = {
+  trailingPE: "trail PE",
+  forwardPE: "fwd PE",
+  priceToBook: "P/B",
+  priceToSales: "P/S",
+  roe: "ROE",
+  roa: "ROA",
+  profitMargin: "净利率",
+  operatingMargin: "经营利润率",
+  grossMargin: "毛利率",
+  fcfMargin: "FCF margin",
+  revenueGrowth: "营收增速",
+  earningsGrowth: "盈利增速",
+  debtToEquity: "D/E",
+};
+
+function sortRows(rows: CoverageRowVm[]): CoverageRowVm[] {
+  const order = new Map<string, number>();
+  COMPANIES.forEach((c, i) => order.set(c.ticker, i));
+  return [...rows].sort((a, b) => (order.get(a.ticker) ?? 999) - (order.get(b.ticker) ?? 999));
+}
+
+export default async function CoveragePage() {
+  const cov = await loadCoverage();
+  const date = cov.snapshot_date;
+
+  // 把 JSON 行转成 VM（计算 presentFields）
+  const rowsRaw: CoverageRowVm[] = cov.rows.map((r) => {
+    const hasMetrics = {
+      valuation_pct: !!r.metrics?.valuation_pct,
+      momentum_20d:  !!r.metrics?.momentum_20d,
+      rsi:           !!r.metrics?.rsi,
+      sentiment:     !!r.metrics?.sentiment,
+    };
+    const hasFundamentals = Object.fromEntries(
+      FUND_FIELDS.map((k) => [k, !!r.fundamentals?.[k]])
+    ) as Record<FundField, boolean>;
+    const present =
+      Object.values(hasMetrics).filter(Boolean).length +
+      Object.values(hasFundamentals).filter(Boolean).length;
+    return {
+      ticker: r.ticker,
+      ok: r.ok,
+      error: r.error,
+      hasMetrics,
+      hasFundamentals,
+      presentFields: present,
+      totalFields: 4 + FUND_FIELDS.length,
+    };
+  });
+  const rows = sortRows(rowsRaw);
+  const runs = cov.runs;
+
+  // 聚合
+  const total = rows.length;
+  const fullOk = rows.filter((r) => r.ok === 1).length;
+  const partial = rows.filter((r) => r.ok === 2).length;
+  const failed = rows.filter((r) => r.ok === 0).length;
+
+  // 每个字段的全样本覆盖率
+  const fieldCoverage = (() => {
+    const all: Record<string, { label: string; count: number; pct: number }> = {};
+    METRIC_KEYS.forEach((k) => {
+      const c = rows.filter((r) => r.hasMetrics[k]).length;
+      all[`m:${k}`] = { label: METRIC_LABELS[k], count: c, pct: total ? c / total : 0 };
+    });
+    FUND_FIELDS.forEach((k) => {
+      const c = rows.filter((r) => r.hasFundamentals[k]).length;
+      all[`f:${k}`] = { label: FUND_LABELS[k], count: c, pct: total ? c / total : 0 };
+    });
+    return all;
+  })();
+
+  const tickerName = (tk: string) => COMPANIES.find((c) => c.ticker === tk)?.name ?? tk;
+  const tickerLayer = (tk: string) => COMPANIES.find((c) => c.ticker === tk)?.layer ?? "?";
+  const tickerRegion = (tk: string) => COMPANIES.find((c) => c.ticker === tk)?.region ?? "?";
+
+  return (
+    <main className="mx-auto max-w-[1480px] px-6 py-10">
+      <header className="mb-6 border-b border-zinc-200 pb-6">
+        <div className="flex items-baseline justify-between flex-wrap gap-3">
+          <div>
+            <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+              数据覆盖矩阵
+            </h1>
+            <p className="mt-1 text-sm text-zinc-500">
+              快照日期 {date ?? "—"} · 每个 ticker × 每个字段一目了然
+            </p>
+          </div>
+          <div className="flex items-center gap-3 text-xs">
+            <span className="font-mono text-zinc-400">SNAPSHOT</span>
+            <span className="inline-flex items-center gap-1.5 rounded bg-emerald-50 text-emerald-700 px-2.5 py-1 border border-emerald-200">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              完整 {fullOk}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded bg-amber-50 text-amber-700 px-2.5 py-1 border border-amber-200">
+              部分 {partial}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded bg-red-50 text-red-700 px-2.5 py-1 border border-red-200">
+              失败 {failed}
+            </span>
+            <span className="font-mono text-zinc-400">/ {total}</span>
+          </div>
+        </div>
+      </header>
+
+      {/* 最近 fetch_runs */}
+      <section className="mb-8">
+        <h2 className="text-sm font-semibold text-zinc-700 mb-2.5 font-mono uppercase tracking-wider">
+          最近抓取 · Fetch Runs
+        </h2>
+        <div className="overflow-x-auto rounded-lg border border-zinc-200">
+          <table className="w-full text-xs">
+            <thead className="bg-zinc-50 text-zinc-500">
+              <tr>
+                <th className="px-3 py-2 text-left font-medium">日期</th>
+                <th className="px-3 py-2 text-left font-medium">开始</th>
+                <th className="px-3 py-2 text-right font-medium">总数</th>
+                <th className="px-3 py-2 text-right font-medium text-emerald-600">完整</th>
+                <th className="px-3 py-2 text-right font-medium text-amber-600">部分</th>
+                <th className="px-3 py-2 text-right font-medium text-red-600">失败</th>
+                <th className="px-3 py-2 text-right font-medium">耗时</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white">
+              {runs.map((r) => (
+                <tr key={r.id} className="border-t border-zinc-100">
+                  <td className="px-3 py-2 font-mono">{r.run_date}</td>
+                  <td className="px-3 py-2 font-mono text-zinc-500">{r.started_at.replace("T", " ").slice(0, 19)}</td>
+                  <td className="px-3 py-2 text-right tabular-nums">{r.total}</td>
+                  <td className="px-3 py-2 text-right tabular-nums text-emerald-600 font-semibold">{r.ok_count}</td>
+                  <td className="px-3 py-2 text-right tabular-nums text-amber-600">{r.partial_count}</td>
+                  <td className="px-3 py-2 text-right tabular-nums text-red-600">{r.missing_count}</td>
+                  <td className="px-3 py-2 text-right font-mono text-zinc-500">{r.duration_sec?.toFixed(1)}s</td>
+                </tr>
+              ))}
+              {runs.length === 0 && (
+                <tr><td colSpan={7} className="px-3 py-6 text-center text-zinc-400">还没有 fetch 记录</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* 字段覆盖率 */}
+      <section className="mb-8">
+        <h2 className="text-sm font-semibold text-zinc-700 mb-2.5 font-mono uppercase tracking-wider">
+          每字段覆盖率
+        </h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {Object.entries(fieldCoverage).map(([k, v]) => {
+            const pct = v.pct * 100;
+            const color = pct >= 95 ? "bg-emerald-500" : pct >= 80 ? "bg-amber-500" : "bg-red-500";
+            const txtColor = pct >= 95 ? "text-emerald-700" : pct >= 80 ? "text-amber-700" : "text-red-700";
+            return (
+              <div key={k} className="rounded-lg border border-zinc-200 bg-white p-3">
+                <div className="flex items-baseline justify-between mb-1.5">
+                  <span className="text-xs text-zinc-600 truncate">{v.label}</span>
+                  <span className={`font-mono text-xs font-semibold tabular-nums ${txtColor}`}>
+                    {pct.toFixed(0)}%
+                  </span>
+                </div>
+                <div className="h-1.5 rounded-full bg-zinc-100 overflow-hidden">
+                  <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
+                </div>
+                <div className="mt-1 text-[10px] font-mono text-zinc-400">{v.count}/{total}</div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 覆盖矩阵 */}
+      <section>
+        <h2 className="text-sm font-semibold text-zinc-700 mb-2.5 font-mono uppercase tracking-wider">
+          Ticker × 字段 覆盖矩阵
+        </h2>
+        <div className="overflow-x-auto rounded-lg border border-zinc-200">
+          <table className="w-full text-[11px] font-mono">
+            <thead className="bg-zinc-50 text-zinc-500 sticky top-0">
+              <tr>
+                <th className="px-2 py-2 text-left font-medium min-w-[60px]">Ticker</th>
+                <th className="px-2 py-2 text-left font-medium min-w-[120px]">名称</th>
+                <th className="px-2 py-2 text-left font-medium">L</th>
+                <th className="px-2 py-2 text-left font-medium">区</th>
+                <th className="px-2 py-2 text-center font-medium">ok</th>
+                {METRIC_KEYS.map((k) => (
+                  <th key={k} className="px-1 py-2 text-center font-medium min-w-[40px]" title={METRIC_LABELS[k]}>
+                    {METRIC_LABELS[k].slice(0, 4)}
+                  </th>
+                ))}
+                {FUND_FIELDS.map((k) => (
+                  <th key={k} className="px-1 py-2 text-center font-medium min-w-[40px]" title={FUND_LABELS[k]}>
+                    {FUND_LABELS[k]}
+                  </th>
+                ))}
+                <th className="px-2 py-2 text-right font-medium">完整度</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white">
+              {rows.map((r) => {
+                const completeness = r.presentFields / r.totalFields;
+                const completenessColor =
+                  completeness >= 0.9 ? "text-emerald-600" :
+                  completeness >= 0.7 ? "text-amber-600" : "text-red-600";
+                return (
+                  <tr key={r.ticker} className="border-t border-zinc-100 hover:bg-zinc-50">
+                    <td className="px-2 py-1.5 font-semibold text-zinc-800">{r.ticker}</td>
+                    <td className="px-2 py-1.5 text-zinc-600 truncate max-w-[140px]">{tickerName(r.ticker)}</td>
+                    <td className="px-2 py-1.5 text-zinc-400">{tickerLayer(r.ticker)}</td>
+                    <td className="px-2 py-1.5 text-zinc-400">{tickerRegion(r.ticker)}</td>
+                    <td className="px-2 py-1.5 text-center">
+                      {r.ok === 1 ? <Cell good /> : r.ok === 2 ? <Cell partial /> : <Cell bad />}
+                    </td>
+                    {METRIC_KEYS.map((k) => (
+                      <td key={k} className="px-1 py-1.5 text-center">
+                        {r.hasMetrics[k] ? <Cell good /> : <Cell missing />}
+                      </td>
+                    ))}
+                    {FUND_FIELDS.map((k) => (
+                      <td key={k} className="px-1 py-1.5 text-center">
+                        {r.hasFundamentals[k] ? <Cell good /> : <Cell missing />}
+                      </td>
+                    ))}
+                    <td className={`px-2 py-1.5 text-right tabular-nums font-semibold ${completenessColor}`}>
+                      {(completeness * 100).toFixed(0)}%
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer className="mt-12 border-t border-zinc-200 pt-6 text-center text-xs text-zinc-400">
+        从 SQLite (data/pulse.db) 读取 · 每次 npm run fetch-pulse 更新 ·
+        缺 PE 多为亏损公司，缺其他字段需要 akshare 兜底
+      </footer>
+    </main>
+  );
+}
+
+// ---- 单元格视觉 ----
+function Cell({ good, partial, bad, missing }: { good?: boolean; partial?: boolean; bad?: boolean; missing?: boolean }) {
+  if (good) return <span className="inline-block w-3 h-3 rounded-sm bg-emerald-500" />;
+  if (partial) return <span className="inline-block w-3 h-3 rounded-sm bg-amber-500" />;
+  if (bad) return <span className="inline-block w-3 h-3 rounded-sm bg-red-500" />;
+  return <span className="inline-block w-3 h-3 rounded-sm bg-zinc-200" />;
+}

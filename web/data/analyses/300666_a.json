@@ -1,0 +1,113 @@
+{
+  "code": "300666",
+  "name": "江丰电子",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300666",
+    "name": "江丰电子",
+    "market_cap": 53770000000.00001,
+    "pe_ttm": null,
+    "pb": 10.58
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 高纯溅射靶材（半导体核心）",
+    "bottleneck_score": 76,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国版半导体靶材 chokepoint",
+    "thesis": "$AXTI thesis but for sputter targets. 江丰是国内高纯溅射靶材龙头，对标日本 JX 金属、Honeywell、Materion。绑定 TSMC / SMIC / 长江存储 / 联电。AI 芯片先进制程 + 3D NAND 多层堆叠对靶材用量爆发式增长。市值 538 亿略超 sweet spot，PB 10.6 已有定价。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "TSMC / SMIC / 长江存储 / Intel 都有用江丰靶材"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "高纯金属价格中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内深度覆盖，西方近乎为零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "5N+ 高纯金属溅射靶材技术壁垒极高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "国产替代国家战略 + 大基金"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "创始人姚力军（民营技术派），偶有增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 538 亿略超 sweet spot 上限"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "市值 > 500 亿",
+      "PB 10.6 高估值",
+      "已被市场广泛认可"
+    ],
+    "ai_relevance": "AI 芯片先进制程 / 3D NAND / HBM 高层堆叠对溅射靶材用量爆发",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

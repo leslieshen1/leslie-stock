@@ -1,0 +1,113 @@
+{
+  "code": "601606",
+  "name": "长城军工",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601606",
+    "name": "长城军工",
+    "market_cap": 26110000000.000004,
+    "pe_ttm": null,
+    "pb": 11.96
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 弹药/陆军装备",
+    "bottleneck_score": 48,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "State-owned ammunition and ordnance group — the classic SOE defense holding, not the Layer 3 bottleneck I hunt for. Big organization, multiple business lines, but lacks the focused chokepoint thesis. PB 11.96 looks like a thematic squeeze, not fundamentals.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Multi-business defense SOE, less concentrated"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Well-covered SOE defense name"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Mature munitions tech"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Direct PLA supplier"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE governance"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "261亿 borderline"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "SOE structure dilutes chokepoint thesis",
+      "PB 11.96 unjustified by ROE",
+      "Diversified business mix"
+    ],
+    "ai_relevance": "Low — traditional ordnance, no AI nexus",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

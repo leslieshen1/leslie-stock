@@ -1,0 +1,112 @@
+{
+  "code": "003009",
+  "name": "中天火箭",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "003009",
+    "name": "中天火箭",
+    "market_cap": 9170000000.0,
+    "pe_ttm": null,
+    "pb": 4.55
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 小型火箭 / 防雹增雨弹",
+    "bottleneck_score": 22,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 小型固体火箭 + 防雹增雨, 与 AI 无关",
+    "thesis": "航天科技旗下小型固体火箭 + 防雹增雨弹 + 碳碳复材. 央企军工标的, 与 AI 无关. 碳碳复材有点 Layer 4 味道但用途仍是军工.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方覆盖近零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "碳碳复材 + 火箭门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "央企"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "91亿 小盘"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "业务与 AI 关联弱",
+      "央企"
+    ],
+    "ai_relevance": "弱. 碳碳复材可勉强用于半导体热场但中天火箭主要走军工.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

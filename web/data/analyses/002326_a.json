@@ -1,0 +1,113 @@
+{
+  "code": "002326",
+  "name": "永太科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002326",
+    "name": "永太科技",
+    "market_cap": 21210000000.0,
+    "pe_ttm": null,
+    "pb": 7.63
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 含氟精细化学品 / LiPF6",
+    "bottleneck_score": 45,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 含氟化学品中段位",
+    "thesis": "Fluorine fine chemicals — LiPF6 + 医药中间体 + 农药中间体。业务结构较散,LiPF6 EV 周期重压,PB 7.63 偏高已经把'氟'反弹定价。Less differentiated than 多氟多 在 chokepoint thesis 上.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Multi-line, not a single chokepoint"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Mid-cycle"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内中等 coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "氟化工有壁垒但产品较 commodity"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "212亿 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "PB 7.63 高",
+      "LiPF6 业务拖累",
+      "业务分散"
+    ],
+    "ai_relevance": "Indirect, weak",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

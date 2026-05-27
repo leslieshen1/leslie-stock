@@ -1,0 +1,113 @@
+{
+  "code": "000021",
+  "name": "深科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer2_HBM/封装/存储",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000021",
+    "name": "深科技",
+    "market_cap": 62029999999.99999,
+    "pe_ttm": null,
+    "pb": 4.64
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — 存储模组 / 半导体封测",
+    "bottleneck_score": 48,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 存储模组 + 封测, 央企背景 + 市值大",
+    "thesis": "存储模组 (国内最大独立模组厂) + Sealand 半导体. 中航国际旗下央企. AI 服务器 DRAM / SSD 模组角度真实, 但 620亿 cap 显著偏大 + SOE 减分.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "海力士 / 美光 DDR 模组合作"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "模组封测中等门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "中航国际央企 + 自主可控"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "620亿 显著超 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "SOE 央企 → 信号6 = no",
+      "市值过大 → 减 10",
+      "毛利率偏低"
+    ],
+    "ai_relevance": "AI 服务器 DDR5 / SSD 模组组装 + 测试, 受益但 thesis 已被发现.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

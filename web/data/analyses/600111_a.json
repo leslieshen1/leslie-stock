@@ -1,0 +1,113 @@
+{
+  "code": "600111",
+  "name": "北方稀土",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600111",
+    "name": "北方稀土",
+    "market_cap": 182090000000.0,
+    "pe_ttm": null,
+    "pb": 7.12
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 稀土巨头",
+    "bottleneck_score": 38,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 宏观 tailwind 但市值过大",
+    "thesis": "Northern Rare Earth — global rare earth chokepoint exists at China level, but this 1820.9 亿 RMB SOE giant is the most discovered name in the world. Aleabit would prefer downstream NdFeB midcaps.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "全球稀土供应汇聚中国"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "镨钕价格反弹但非 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "全球关注度极高"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "分离冶炼"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "央企，稀土出口管制核心"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "1820 亿严重超标"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值 1820 亿严重超标",
+      "央企",
+      "全球已知"
+    ],
+    "ai_relevance": "Indirect — NdFeB magnets for motors/servos but not AI core",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

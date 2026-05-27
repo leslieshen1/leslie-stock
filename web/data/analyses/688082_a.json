@@ -1,0 +1,113 @@
+{
+  "code": "688082",
+  "name": "盛美上海",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_半导体设备",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688082",
+    "name": "盛美上海",
+    "market_cap": 120230000000.0,
+    "pe_ttm": null,
+    "pb": 8.74
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 半导体清洗设备",
+    "bottleneck_score": 58,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro tailwind",
+    "thesis": "Wet-clean and plating equipment — globally credible product, single-wafer wet-clean is a real bottleneck for advanced node. But 1202亿 with dual NASDAQ listing means every fund already owns it. The chokepoint is real, the asymmetry isn't.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Wet clean across major Chinese fabs + global accounts"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Full sell-side coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Single-wafer wet clean IP"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Localization mandate"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "1202亿 disqualifies"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "Market cap >1000亿 penalty -10",
+      "Consensus",
+      "Dual listing complexity"
+    ],
+    "ai_relevance": "High — wet clean is critical for advanced node yield",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

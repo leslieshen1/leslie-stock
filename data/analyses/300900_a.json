@@ -1,0 +1,112 @@
+{
+  "code": "300900",
+  "name": "广联航空",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300900",
+    "name": "广联航空",
+    "market_cap": 12640000000.0,
+    "pe_ttm": null,
+    "pb": 6.53
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 航空复合材料/UAV 部件",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Composite tooling and UAV structural parts — this is closer to the bottleneck strike zone. Small cap (126亿), niche aerospace composites, plays into UAV and commercial aviation supply chain. PB 6.53 is reasonable for the growth angle. Not yet 5 signals, but on the radar.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Composite tooling + UAV structures across multiple programs"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not material-driven"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Limited"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Composite manufacturing know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Military aviation supplier"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No known"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "126亿 prime sweet spot"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "PB 6.53 not deep value",
+      "Order book lumpiness"
+    ],
+    "ai_relevance": "Indirect — UAV/drone autonomy adjacency",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

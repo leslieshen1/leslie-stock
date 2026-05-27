@@ -1,0 +1,113 @@
+{
+  "code": "002185",
+  "name": "华天科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer2_HBM/封装/存储",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002185",
+    "name": "华天科技",
+    "market_cap": 55440000000.0,
+    "pe_ttm": null,
+    "pb": 3.09
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — OSAT 三巨头之一",
+    "bottleneck_score": 50,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 国内 OSAT 三巨头, thesis 已被市场充分发现",
+    "thesis": "国内 OSAT 三巨头 (长电 / 通富 / 华天). AI / HPC chiplet / HBM 封装 thesis 真实, 但已被市场充分发现 + 554亿 cap 偏大. 不是 hidden chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "下游分散但 AI 客户增加"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "封装材料无显著信号"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内外全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高阶封装真实门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国资背景 (甘肃天水)"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE 背景"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "554亿 超 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "SOE 背景 → 信号6 减分",
+      "市值偏大",
+      "thesis 已被发现"
+    ],
+    "ai_relevance": "AI 服务器 / HBM 封装是直接受益, 但属 crowded trade.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

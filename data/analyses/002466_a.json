@@ -1,0 +1,114 @@
+{
+  "code": "002466",
+  "name": "天齐锂业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002466",
+    "name": "天齐锂业",
+    "market_cap": 114370000000.0,
+    "pe_ttm": null,
+    "pb": 2.47
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂矿/锂盐",
+    "bottleneck_score": 32,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 锂周期股，AI 关联弱且已 crowded",
+    "thesis": "天齐锂业为锂业双寡头之一（持有泰利森 + SQM 股权）。但锂价 2024-2025 处下行周期，业绩承压，且锂电赛道与 AI capex chokepoint 几乎无关。市值 1143 亿，覆盖度极高，纯新能源车叙事。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "泰利森锂矿全球前三 + SQM 股权"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "碳酸锂价格远低于 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "覆盖极密"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "锂盐提纯有 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "未观察到显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 > 1000 亿"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "市值 > 1000 亿",
+      "锂周期下行",
+      "AI 关联缺失",
+      "覆盖密集"
+    ],
+    "ai_relevance": "数据中心储能锂需求间接拉动",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

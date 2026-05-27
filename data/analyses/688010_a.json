@@ -1,0 +1,113 @@
+{
+  "code": "688010",
+  "name": "福光股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_玻璃基板/CoWoS-S/先进封装",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688010",
+    "name": "福光股份",
+    "market_cap": 7340000000.000001,
+    "pe_ttm": null,
+    "pb": 4.28
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 光学镜头(定制+消费)",
+    "bottleneck_score": 48,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 军用光学 + 安防镜头,小盘但产业地位窄",
+    "thesis": "Custom optics for military/observation + consumer-grade lenses. 军用大口径光学有局部 chokepoint 属性但产业规模有限,与 AI 主轴关系弱。市值 73亿确实在 deep small cap 区间.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "军用定制光学少数玩家之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not material"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "国内 coverage 较少,西方几乎不跟"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "军用大口径光学有工艺壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "军方+航天定制"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "73亿 deep small cap"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "产业规模天花板",
+      "消费镜头同质化",
+      "盈利能力波动"
+    ],
+    "ai_relevance": "Weak — AI/无人系统视觉传感间接受益但占比小",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

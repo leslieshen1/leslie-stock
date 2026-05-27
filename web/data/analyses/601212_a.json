@@ -1,0 +1,113 @@
+{
+  "code": "601212",
+  "name": "白银有色",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601212",
+    "name": "白银有色",
+    "market_cap": 49390000000.0,
+    "pe_ttm": null,
+    "pb": 3.11
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铜/铅/锌/银综合冶炼",
+    "bottleneck_score": 32,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 宏观 tailwind 但市值过大",
+    "thesis": "Silver/copper/lead/zinc smelter — 49.4B RMB MC. Silver has AI-tangential demand (PV + EV electronics) but this is generic SOE smelter, not a chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "综合冶炼无汇聚"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "银价 2025-2026 强势，但公司是冶炼非矿"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "A 股有色板块标准覆盖标的"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "通用冶炼"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "甘肃国资"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资 SOE = no"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "493.9 亿 RMB 超标"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "国资 SOE",
+      "冶炼非矿，价格弹性弱",
+      "市值偏大"
+    ],
+    "ai_relevance": "Indirect — silver into PV/electronics, but not differentiated",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

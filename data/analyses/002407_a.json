@@ -1,0 +1,113 @@
+{
+  "code": "002407",
+  "name": "多氟多",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002407",
+    "name": "多氟多",
+    "market_cap": 45860000000.0,
+    "pe_ttm": null,
+    "pb": 5.37
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 氟化工 / LiPF6 / 氢氟酸 / 电子级氟化物",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 电子级氟化物有半导体 angle",
+    "thesis": "Fluorine chemistry 龙头 — LiPF6 (battery), HF, 电子级氟化物 (半导体). 电子级 BOE/HF 是半导体湿法工艺关键耗材,具备真正 chokepoint 属性。但 LiPF6 EV 周期拖累整体估值。PB 5.37 已经把氟化工反弹打了一部分,市值 458亿临界。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "电子级氟化物有国产替代深度,SMIC/中芯客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "萤石/HF 价格高但未 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内 coverage 中等,西方少跟"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "电子级 HF / NF3 / WF6 工艺有真实壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "电子化学品国产替代 fits 国家半导体战略"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著公开信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "458亿接近 sweet spot 上限"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "LiPF6 EV 业务拖累",
+      "市值偏大",
+      "估值已经反映一部分预期"
+    ],
+    "ai_relevance": "Real but indirect — 电子级氟化物是半导体制造关键耗材,AI capex 通过晶圆产能间接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

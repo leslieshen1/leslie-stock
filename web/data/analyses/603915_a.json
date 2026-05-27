@@ -1,0 +1,111 @@
+{
+  "code": "603915",
+  "name": "国茂股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603915",
+    "name": "国茂股份",
+    "market_cap": 11710000000.0,
+    "pe_ttm": null,
+    "pb": 3.09
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 通用减速机（工业级）",
+    "bottleneck_score": 42,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 通用减速机蹭 humanoid 概念",
+    "thesis": "General-purpose industrial reducers, not the high-precision RV/harmonic kind used in humanoid joints. Concept play, not chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "通用减速机竞争激烈，无独家性"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内中等覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "通用工业减速机门槛低于精密减速器"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "117 亿中等市值"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "产品定位偏低端通用，与人形 humanoid 精密需求脱节"
+    ],
+    "ai_relevance": "Humanoid 概念关联弱",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

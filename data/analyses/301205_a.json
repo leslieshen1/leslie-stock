@@ -1,0 +1,112 @@
+{
+  "code": "301205",
+  "name": "联特科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "301205",
+    "name": "联特科技",
+    "market_cap": 33389999999.999996,
+    "pe_ttm": null,
+    "pb": 20.51
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — 光模块（数据中心 + 电信）",
+    "bottleneck_score": 52,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 光模块板块 crowded",
+    "thesis": "联特科技 = 二线光模块厂商，800G 跟进。AI thesis 成立但板块已 crowded，竞争激烈。市值 ~334 亿不算最大但 PB 20。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "海外云厂商客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "整机非材料"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "封装工艺壁垒中等"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 ~334 亿"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "板块 crowded",
+      "PB 20 估值高"
+    ],
+    "ai_relevance": "AI 数据中心光模块直接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

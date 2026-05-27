@@ -1,0 +1,113 @@
+{
+  "code": "300373",
+  "name": "扬杰科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300373",
+    "name": "扬杰科技",
+    "market_cap": 50650000000.0,
+    "pe_ttm": null,
+    "pb": 5.25
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Power discrete (二极管/MOSFET/SiC)",
+    "bottleneck_score": 55,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 国内 power discrete 标的之一, 但非独家",
+    "thesis": "Mid-tier power discrete player. SiC + 海外业务故事都有, 但市值 506亿 + 同业(士兰微/华润微/斯达)竞争激烈. Thesis 不独特.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "下游分散 (汽车 / 工业 / 消费)"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "MOSFET / SiC 二极管, 中等门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用为主"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营, 历史上有过增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "506亿 超 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "市值偏大",
+      "下游分散",
+      "同业竞争激烈"
+    ],
+    "ai_relevance": "AI 数据中心 PSU 二极管/MOSFET 是消耗品, 间接受益但非 chokepoint.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

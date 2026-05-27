@@ -1,0 +1,113 @@
+{
+  "code": "002617",
+  "name": "露笑科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002617",
+    "name": "露笑科技",
+    "market_cap": 18290000000.0,
+    "pe_ttm": null,
+    "pb": 2.84
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — SiC 衬底 / 漆包线",
+    "bottleneck_score": 42,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ SiC衬底转型故事 + 漆包线主业, 业务不纯",
+    "thesis": "SiC 衬底转型故事股, 主业是漆包线 + 蓝宝石. SiC 投产屡有延期, thesis 兑现度低. 不是 chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方覆盖近零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "SiC 衬底未实质性突破"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但管理层减持历史"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "182亿 + 但产能不'关键'"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "主业是漆包线非半导体",
+      "SiC 转型兑现度低",
+      "管理层质量存疑"
+    ],
+    "ai_relevance": "如果 SiC 真做出来才有 AI 角度, 当前是 thesis 未兑现的转型股.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

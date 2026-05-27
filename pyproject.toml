@@ -1,0 +1,13 @@
+[project]
+name = "leslie-stock"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "akshare>=1.18.63",
+    "openai>=2.38.0",
+    "pandas>=3.0.3",
+    "pyarrow>=24.0.0",
+    "python-dotenv>=1.2.2",
+    "requests>=2.34.2",
+]

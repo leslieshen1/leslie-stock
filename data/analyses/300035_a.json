@@ -1,0 +1,113 @@
+{
+  "code": "300035",
+  "name": "中科电气",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300035",
+    "name": "中科电气",
+    "market_cap": 12630000000.0,
+    "pe_ttm": null,
+    "pb": 2.51
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂电负极 + 磁电设备",
+    "bottleneck_score": 45,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 二线负极 + 边缘磁电设备",
+    "thesis": "Anode + magnetic-electric equipment 双主业。负极是 commodity 区段,thesis 与 AI 无直接交集。市值 126亿在 sweet spot 但 chokepoint signal 弱.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "二线负极玩家"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "石墨低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内 coverage 一般"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Mainstream 负极同质化"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无公开显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "126亿在 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "二线负极位置",
+      "EV 周期下行",
+      "磁电设备非 AI 主线"
+    ],
+    "ai_relevance": "None",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

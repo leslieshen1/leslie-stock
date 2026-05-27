@@ -1,0 +1,112 @@
+{
+  "code": "600316",
+  "name": "洪都航空",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600316",
+    "name": "洪都航空",
+    "market_cap": 21940000000.0,
+    "pe_ttm": null,
+    "pb": 4.07
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 教练机 / 攻击机总装",
+    "bottleneck_score": 18,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 军机总装, 与 AI 无关",
+    "thesis": "中航工业旗下教练机 (L-15) + 攻击机. 与 AI capex 无关.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖较多"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "军机总装门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "央企"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "219亿"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "与 AI 无关",
+      "央企"
+    ],
+    "ai_relevance": "无.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

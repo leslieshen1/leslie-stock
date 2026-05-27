@@ -1,0 +1,113 @@
+{
+  "code": "002129",
+  "name": "TCL中环",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002129",
+    "name": "TCL中环",
+    "market_cap": 36950000000.0,
+    "pe_ttm": null,
+    "pb": 1.85
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 光伏硅片 / 半导体硅片",
+    "bottleneck_score": 38,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 太大太通用，不是 chokepoint",
+    "thesis": "光伏硅片为主，半导体硅片仅为副业。光伏行业当前过剩 + 价格战。半导体硅片业务规模小且与 SUMCO / GlobalWafers 比仍落后。市值已 ~370 亿但盈利能力恶化。Not a chokepoint, it's a commodity oversupplied giant.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "光伏硅片产能过剩，下游议价能力弱"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "硅料 / 硅片价格周期低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内外覆盖充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "12 寸半导体硅片技术尚未追平国际"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "新能源 + 半导体双重支持"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "TCL 集团旗下，无显著创始人增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 ~370 亿，业务太通用"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "光伏过剩周期",
+      "半导体硅片国产化进度慢",
+      "TCL 系而非纯小盘"
+    ],
+    "ai_relevance": "AI 间接关联弱，半导体硅片业务规模有限",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "code": "688230",
+  "name": "芯导科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688230",
+    "name": "芯导科技",
+    "market_cap": 9020000000.0,
+    "pe_ttm": null,
+    "pb": 4.01
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — TVS / 功率小信号器件",
+    "bottleneck_score": 45,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 二线 Power IC，小信号偏多",
+    "thesis": "Smaller analog/protection IC maker, less central to AI power than super-junction MOSFET or IGBT module players.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "竞争者多"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "小盘覆盖低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "TVS 设计有门槛但非卡脖子"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "90 亿 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "与 800V/SiC 主战场关联弱"
+    ],
+    "ai_relevance": "AI 关联间接",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

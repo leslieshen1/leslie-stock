@@ -1,0 +1,113 @@
+{
+  "code": "688183",
+  "name": "生益电子",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_PCB/连接器",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688183",
+    "name": "生益电子",
+    "market_cap": 88320000000.0,
+    "pe_ttm": null,
+    "pb": 14.41
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 高频高速 PCB / AI 服务器",
+    "bottleneck_score": 62,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro tailwind",
+    "thesis": "High-layer-count PCB for AI servers and switches — yes this is on the AI critical path, and yes the multilayer process is a real bottleneck. But 883亿 with PB 14 says the AI-PCB trade is fully discovered. Stay aware, don't chase here.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "AI server PCB into multiple ODMs"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Indirect copper exposure"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Hot AI-PCB name"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "High-layer-count + low-loss PCB"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Switch/server domestic"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "Group SOE-influence"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "883亿 too large"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "Market cap penalty -10",
+      "PB 14 discovered",
+      "Lead time for new AI orders"
+    ],
+    "ai_relevance": "Very high — AI-server PCB direct beneficiary",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

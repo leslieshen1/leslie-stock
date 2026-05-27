@@ -1,0 +1,112 @@
+{
+  "code": "002896",
+  "name": "中大力德",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002896",
+    "name": "中大力德",
+    "market_cap": 15860000000.0,
+    "pe_ttm": null,
+    "pb": 13.16
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 精密减速机（RV + 谐波）",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 RV/谐波双线 humanoid 候选",
+    "thesis": "Smaller-cap RV + harmonic reducer player, the budget option vs 绿的谐波.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 RV 减速器候选之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "精密减速器加工精度门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "158 亿 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "PB 13 估值贵",
+      "技术口碑次于绿的"
+    ],
+    "ai_relevance": "Humanoid 关节直接相关",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

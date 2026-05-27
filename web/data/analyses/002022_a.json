@@ -1,0 +1,111 @@
+{
+  "code": "002022",
+  "name": "科华生物",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002022",
+    "name": "科华生物",
+    "market_cap": 3000000000.0,
+    "pe_ttm": null,
+    "pb": 1.18
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "Out of scope — IVD diagnostics",
+    "bottleneck_score": 6,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not in range",
+    "thesis": "In-vitro diagnostics maker — completely unrelated to optical/CPO despite the theme tag. Pharma/medical. Zero AI supply chain bottleneck thesis. Skip.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "IVD diagnostics"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Lightly covered"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Standard IVD assays"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian medical"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "30亿 cap, wrong vertical"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Theme tag completely wrong"
+    ],
+    "ai_relevance": "None",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

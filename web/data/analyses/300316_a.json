@@ -1,0 +1,113 @@
+{
+  "code": "300316",
+  "name": "晶盛机电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300316",
+    "name": "晶盛机电",
+    "market_cap": 72810000000.0,
+    "pe_ttm": null,
+    "pb": 4.28
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 半导体长晶设备 + SiC衬底",
+    "bottleneck_score": 60,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 设备 + SiC 衬底, 但 728亿市值偏大",
+    "thesis": "China's leading crystal growth equipment maker, also entering SiC衬底. Layer 3 设备 chokepoint logic 存在, 但 728亿 cap + 光伏长晶炉业务拖累 → 不是 hidden chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 12英寸硅片厂(沪硅/中环/立昂)都依赖"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "长晶炉/抛光机/外延 设备真实门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国产替代政策受益"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但未见显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "728亿 显著超 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值过大 → 减 10",
+      "光伏业务拖累",
+      "半导体设备已 crowded"
+    ],
+    "ai_relevance": "12英寸 SiC衬底 + AI 用先进逻辑硅片需要长晶设备, 但 thesis 不独家.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

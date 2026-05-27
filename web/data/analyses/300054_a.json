@@ -1,0 +1,113 @@
+{
+  "code": "300054",
+  "name": "鼎龙股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300054",
+    "name": "鼎龙股份",
+    "market_cap": 71280000000.0,
+    "pe_ttm": null,
+    "pb": 13.05
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — CMP 抛光垫 / YPI 材料",
+    "bottleneck_score": 74,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国版半导体耗材 chokepoint",
+    "thesis": "Pure $AXTI-style play. 鼎龙是国内唯一规模化量产 CMP 抛光垫的供应商，对标 Dow / CMC。CMP pad 是先进制程必备耗材，每片晶圆消耗，长期高粘性。叠加 YPI/PSPI 高端聚酰亚胺。国际覆盖几乎为零。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内主要 logic / memory fab 都在导入其 CMP pad"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "CMP pad 为耗材，无典型 commodity 价格曲线"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方覆盖率极低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "CMP pad 配方与微孔结构控制，全球仅少数玩家"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "国家集成电路产业基金重点扶持"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营公司背景但公开增持信号一般"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 ~713 亿，已偏大"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "市值已偏大",
+      "PB 13 估值高",
+      "国内已被市场较充分发现"
+    ],
+    "ai_relevance": "AI 芯片先进制程 CMP 步骤增多，HBM / 高端 logic 制程拉动 pad 需求",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "002716",
+  "name": "湖南白银",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002716",
+    "name": "湖南白银",
+    "market_cap": 28800000000.0,
+    "pe_ttm": null,
+    "pb": 7.09
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 白银/铅锌（贵金属）",
+    "bottleneck_score": 48,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 白银宏观叙事但非 AI chokepoint",
+    "thesis": "湖南白银主营银铅锌冶炼，白银在 2024-2025 受贵金属牛市 + 光伏需求拉动。但白银供应分散，非 chokepoint 品种，PB 7.09 已反映乐观预期，与 AI capex 关联仅在导电浆/连接器层面。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "白银全球供应分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "白银 2025 价格创多年新高"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖但非热门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "冶炼工艺成熟"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "白银非战略管制品种"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "湖南有色（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 288 亿在 sweet spot 内"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "国资 SOE",
+      "白银非 chokepoint",
+      "PB 偏高已 price-in"
+    ],
+    "ai_relevance": "AI 服务器/PCB 银浆少量拉动，间接",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

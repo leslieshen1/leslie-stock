@@ -1,0 +1,113 @@
+{
+  "code": "000408",
+  "name": "藏格矿业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000408",
+    "name": "藏格矿业",
+    "market_cap": 125070000000.0,
+    "pe_ttm": null,
+    "pb": 8.18
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钾盐 + 锂 + 铜",
+    "bottleneck_score": 42,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 盐湖多金属但市值过大且 AI 关联弱",
+    "thesis": "藏格矿业拥有察尔汗盐湖钾肥 + 卤水提锂 + 巨龙铜业股权（紫金合作开发西藏铜矿）。市值 1251 亿超大盘，PB 8.18 高估，业务多元但缺单一 chokepoint 锐度，AI 关联仅锂/铜间接。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "钾锂铜三业务"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "锂下行 + 钾肥中位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "盐湖提锂有工艺"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但无显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 > 1000 亿"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "市值 > 1000 亿",
+      "业务多元缺锐度",
+      "AI 关联间接"
+    ],
+    "ai_relevance": "锂电 + 铜电缆间接",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

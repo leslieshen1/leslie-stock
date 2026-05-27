@@ -1,0 +1,113 @@
+{
+  "code": "601168",
+  "name": "西部矿业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601168",
+    "name": "西部矿业",
+    "market_cap": 77280000000.0,
+    "pe_ttm": null,
+    "pb": 3.87
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铜/铅/锌矿",
+    "bottleneck_score": 28,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 宏观 tailwind 但市值过大",
+    "thesis": "Copper/lead/zinc miner — 77.3B RMB MC. Copper has real AI capex tailwind (data center electrification) but this is mid-cap SOE, fully discovered.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "通用铜矿"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "铜价 2025-2026 强，AI capex 推动"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "标准有色板块覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "采矿"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "青海国资"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资 SOE = no"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "772.8 亿 RMB 严重超标"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "市值 772 亿超标",
+      "国资 SOE",
+      "完全 crowded"
+    ],
+    "ai_relevance": "Macro — copper demand from data center buildout, but generic exposure",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "code": "600549",
+  "name": "厦门钨业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600549",
+    "name": "厦门钨业",
+    "market_cap": 82300000000.0,
+    "pe_ttm": null,
+    "pb": 4.5
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钨+稀土+电池材料综合",
+    "bottleneck_score": 58,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 多金属综合体但缺单点 chokepoint 锐度",
+    "thesis": "钨钼龙头 + 稀土永磁 + 电池正极三业务，钨业务对硬质合金/切削刀具/半导体设备有战略价值。但 823 亿市值过大，业务过于多元化，缺乏单一 chokepoint 叙事，且国资背景。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内钨产业链最完整厂商之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "钨价 2025 创近十年新高"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "白马股，覆盖广泛"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "硬质合金 / 高纯钨粉有壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "钨稀土双战略金属，出口管制重点"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "厦门国资委控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 823 亿，远超 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值 > 800 亿",
+      "业务过于综合",
+      "国资",
+      "已被充分发现"
+    ],
+    "ai_relevance": "硬质合金刀具用于半导体设备制造，钨用于半导体溅射靶材",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

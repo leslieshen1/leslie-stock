@@ -1,0 +1,112 @@
+{
+  "code": "600703",
+  "name": "三安光电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600703",
+    "name": "三安光电",
+    "market_cap": 81670000000.0,
+    "pe_ttm": null,
+    "pb": 2.34
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — SiC/GaN 衬底 + 外延 + LED",
+    "bottleneck_score": 58,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 国产 SiC 衬底龙头但市值大",
+    "thesis": "China's biggest compound semi player — LED legacy + SiC + GaN. Real chokepoint potential in SiC wafer but already 800+ yi mcap.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内 SiC IDM 旗帜"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "SiC 衬底价格仍在调整"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内外旗舰覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "SiC 衬底/外延 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "大基金 + 国产替代"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营 + 国资混合"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "816 亿大盘"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "市值 816 亿，惩罚 -10 分",
+      "LED 拖累，盈利质量"
+    ],
+    "ai_relevance": "AI 数据中心 + EV SiC 关键节点（但 macro_tailwind 化）",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "code": "920185",
+  "name": "贝特瑞",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "920185",
+    "name": "贝特瑞",
+    "market_cap": 31520000000.0,
+    "pe_ttm": null,
+    "pb": 2.45
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂电负极材料(石墨/硅基)",
+    "bottleneck_score": 50,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 负极龙头,EV 周期主线但被充分发现",
+    "thesis": "Global #1 anode materials player. 硅基负极有 humanoid/AI server battery 增量想象空间,但本质是 EV 电池供应链,周期性强,already a household name in 中国新能源圈,完全不是 unknown.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "全球负极份额第一,松下/LG/CATL 都是客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "石墨价格在低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 coverage 极高,西方机构也跟"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "硅基负极有壁垒,人造石墨已商品化"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用 EV 主轴"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "未知,北交所迁移后股权变动"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "315亿,产能巨大但不算 niche"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "EV 周期下行压力",
+      "负极价格战",
+      "Already crowded",
+      "北交所流动性折价"
+    ],
+    "ai_relevance": "Weak — humanoid/AI server 电池增量边际很小",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

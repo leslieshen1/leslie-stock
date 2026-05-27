@@ -1,0 +1,112 @@
+{
+  "code": "300581",
+  "name": "晨曦航空",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300581",
+    "name": "晨曦航空",
+    "market_cap": 6620000000.0,
+    "pe_ttm": null,
+    "pb": 7.23
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 机载电子/航电子系统",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Airborne electronics — small-cap (66亿), narrow product mix, classic chokepoint candidate inside cockpit avionics. The defense buyer concentration is a feature, not a bug. PB 7.23 is the only friction. Watch for revenue acceleration before sizing up.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Avionics niche feeding multiple platforms"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Thin coverage at this size"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Airworthiness certification moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Military aviation"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No known"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "66亿 ultra small"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "Concentration risk on buyer side",
+      "Earnings lumpy"
+    ],
+    "ai_relevance": "Indirect — avionics edge compute",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

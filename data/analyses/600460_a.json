@@ -1,0 +1,113 @@
+{
+  "code": "600460",
+  "name": "士兰微",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600460",
+    "name": "士兰微",
+    "market_cap": 56329999999.99999,
+    "pe_ttm": null,
+    "pb": 4.62
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Power semi IDM (SiC/IGBT)",
+    "bottleneck_score": 58,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 Power semi IDM thesis valid but已被国内市场充分发现",
+    "thesis": "China's only real vertically-integrated power semi IDM (8\" + 12\" + SiC line). AI 800VDC psu / EV inverter angle is real but 563亿 cap means thesis已被 buy-side定价. Not a hidden chokepoint anymore — too many sell-side decks.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 IGBT 龙头但下游分散，海外比亚迪/华为等都有"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "8寸 IGBT 价格压力还在"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "几乎所有中资券商和大部分外资都覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "IDM 模式 + SiC衬底自产, 门槛真实存在"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国产替代政策受益但非直接军工"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "非典型 SOE 但管理层未见显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "563亿 RMB 已超 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值偏大 → 减分",
+      "已被国内 buy-side 充分发现",
+      "IGBT 库存周期波动大"
+    ],
+    "ai_relevance": "AI数据中心 800VDC PSU 需要高压 SiC MOSFET, 士兰微是少数能做的国内 IDM. 但 thesis 不'unknown'.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

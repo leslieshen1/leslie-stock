@@ -1,0 +1,112 @@
+{
+  "code": "600343",
+  "name": "航天动力",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600343",
+    "name": "航天动力",
+    "market_cap": 20980000000.0,
+    "pe_ttm": null,
+    "pb": 16.47
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 液体火箭发动机泵阀",
+    "bottleneck_score": 52,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Rocket-engine pumps and valves — narrow, technical, and behind the commercial space supply chain. PB 16.47 says the market already sniffed this out post-CASC restructuring chatter. Bottleneck is real but the price is no longer quiet.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Liquid-rocket pump/valve specialist"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Some coverage on space-economy theme"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Turbopump tolerances are no joke"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CASC core"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "209亿 still small"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "PB 16.47 — already discovered",
+      "Thematic squeeze risk"
+    ],
+    "ai_relevance": "Indirect — commercial-space buildout supports comms infra",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

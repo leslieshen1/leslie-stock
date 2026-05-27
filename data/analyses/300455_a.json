@@ -1,0 +1,112 @@
+{
+  "code": "300455",
+  "name": "航天智装",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300455",
+    "name": "航天智装",
+    "market_cap": 17750000000.0,
+    "pe_ttm": null,
+    "pb": 10.63
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 航天装备制造",
+    "bottleneck_score": 45,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Aerospace test and assembly equipment — sounds bottleneck-y in name but the business mix is broader than the ticker suggests. PB 10.63 is already priced for hope. The thesis exists, but the conviction doesn't.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Aerospace equipment supplier"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Thin"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Equipment capability"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CASC linkage"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "177亿"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "PB 10.63 rich",
+      "Mixed business signal"
+    ],
+    "ai_relevance": "Low",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

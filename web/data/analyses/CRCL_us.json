@@ -1,0 +1,187 @@
+{
+  "code": "CRCL",
+  "name": "Circle Internet",
+  "market": "us",
+  "industry": "金融科技-稳定币",
+  "overall_score": 64.15,
+  "overall_grade": "学习池",
+  "verdict": "段永平视角：'生意逻辑我懂，但你不能控制你的主要收入来源（美联储利率），这就不是好生意'。USDC 合规品牌+网络效应+Agent payments 99.8% 卡位都不错，但收入 95% 依赖国债利息 + Coinbase 分成 + PS 10x = 估值已 priced in 完美。能力圈外（如果你是 crypto 老兵则达标）。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 68,
+      "grade": "警告（LLM）",
+      "details": [
+        "💬 稳定币基础设施+Agent payments 99.8%+Visa/Intuit 嵌入",
+        "• USDC 流通 $77B (+28% YoY)",
+        "• 链上交易量 $21.5T (+263% YoY)",
+        "• 收入 95% 依赖美国短债利息 = 利率敏感性致命",
+        "• 与 Coinbase 收入分成（议价权弱）"
+      ],
+      "flags": [
+        "🟢 链上活跃度反超 USDT",
+        "🔴 命运不在自己手里"
+      ]
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 75,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 合规品牌+监管护城河+Agent payments 卡位",
+        "• USDC = 合规稳定币首选（vs USDT 灰色历史）",
+        "• Visa/Intuit/Apollo/BlackRock 真实嵌入",
+        "• x402 协议 99.8% AI agent payments 份额",
+        "• GENIUS Act/CLARITY Act 主要推动者"
+      ],
+      "flags": [
+        "🟡 USDT 网络效应仍更大",
+        "🔴 JPM Coin/CBDC 威胁"
+      ]
+    },
+    "management": {
+      "name": "管理层",
+      "score": 72,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 Jeremy Allaire（2013 创始）+ 持续监管对话",
+        "• 早期走合规路线（vs Tether 灰色）",
+        "• 推动 GENIUS/CLARITY Act",
+        "• 收入多元化战略（Arc, Agent Wallets）"
+      ],
+      "flags": [
+        "🟢 连续创业者 + 长期主义"
+      ]
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 60,
+      "grade": "警告",
+      "details": [
+        "💬 营收+20% 但净利-15% + 毛利率 27%→22% 下滑",
+        "• Q1 营收 $694M (+20% YoY)",
+        "• 调整后 EBITDA $151M (+24%, 53% margin)",
+        "• 净利 $55M (-15% YoY)",
+        "• 毛利率 22%（去年 27%）"
+      ],
+      "flags": [
+        "🔴 增长不赚钱信号",
+        "🟡 自由现金流健康"
+      ]
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 55,
+      "grade": "警告",
+      "details": [
+        "💬 PS 2026E ~10x，PE TTM 100x，已 priced in 完美预期",
+        "• 分析师目标价 $145.8 (+29% 上行)",
+        "• MS 5/19 升目标 $80→$106（仍低于现价）",
+        "• 段永平十年回本：~40 年"
+      ],
+      "flags": [
+        "🔴 估值依赖完美兑现"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 45,
+      "grade": "圈外（默认 Leslie）",
+      "details": [
+        "💬 美股+crypto+稳定币，理解门槛极高",
+        "• 美股不在 v0 能力圈",
+        "• 加密+利率+监管+链上数据多维理解",
+        "• 对 crypto 圈内人可调高到 75-80"
+      ],
+      "flags": [
+        "🔴 默认能力圈外",
+        "🟡 你 21 年进圈+项目方背景可调高"
+      ]
+    }
+  },
+  "raw_quote": {
+    "code": "CRCL",
+    "name": "Circle Internet",
+    "price": 113.12,
+    "change_pct": 1.8,
+    "market_cap": 25000000000.0,
+    "pe_ttm": 100.0,
+    "pb": 5.5,
+    "industry": "金融科技-稳定币"
+  },
+  "sell_triggers": [
+    "美联储一次降息 75bp+",
+    "Q2 2026 毛利率继续下滑 < 20%",
+    "USDC 链上交易量增速跌破 50%",
+    "JP Morgan Coin/Fed CBDC 推出",
+    "CLARITY 法案被推翻"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "互联网/金融科技",
+  "concepts": [
+    "稳定币",
+    "USDC",
+    "AI agent payments",
+    "Web3",
+    "监管套利",
+    "国债套利",
+    "Coinbase 关联"
+  ],
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "N/A — 不在 AI capex 供应链",
+    "bottleneck_score": 10,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 不在射程（crypto 协议层）",
+    "thesis": "Stablecoin issuer / payments — zero connection to AI capex or supply chain. She's openly bearish on crypto ($ETH 'terrible investment above $4K'). Pass on aleabit framework. Different thesis applies (Buffett-style: 段永平 bought CRCL).",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "稳定币业务，非物理供应链"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无相关材料"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "刚 IPO 即广泛覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "区块链协议层，她不研究"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "美国监管+stablecoin Act"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "Jeremy Allaire 锁定期"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 $10B+，且非节点逻辑"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Serenity 明确避开 crypto 协议层投资",
+      "段巴框架（段永平视角）反而更适合评估 CRCL"
+    ],
+    "ai_relevance": "无 — 这是金融基础设施，不是 AI 物理供应链",
+    "updated_at": "2026-05-26T20:01:39.483052"
+  }
+}

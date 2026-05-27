@@ -1,0 +1,112 @@
+{
+  "code": "603161",
+  "name": "科华控股",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603161",
+    "name": "科华控股",
+    "market_cap": 2700000000.0,
+    "pe_ttm": null,
+    "pb": 1.77
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "Out of scope — auto turbocharger castings",
+    "bottleneck_score": 18,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not in range",
+    "thesis": "Misclassified as optical/CPO — this is an auto turbocharger housing castings company. No real AI supply chain exposure. 27亿 cap and PB 1.8 looks cheap but it's cheap for a reason. Skip.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Auto parts, not AI"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Iron casting"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Small cap, sparse coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Commodity casting"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian auto"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "Small but not in AI capacity"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "Theme tag is wrong",
+      "ICE auto exposure in EV transition"
+    ],
+    "ai_relevance": "None",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

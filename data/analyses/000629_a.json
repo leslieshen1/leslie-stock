@@ -1,0 +1,112 @@
+{
+  "code": "000629",
+  "name": "钒钛股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000629",
+    "name": "钒钛股份",
+    "market_cap": 33730000000.0,
+    "pe_ttm": null,
+    "pb": 2.73
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钒 + 钛（攀枝花战略资源）",
+    "bottleneck_score": 62,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 钒电池储能 + 钛白战略金属",
+    "thesis": "钒钛股份（攀钢集团旗下）拥有攀枝花世界级钒钛磁铁矿。钒是钒电池储能 + 特钢添加 + 航空合金核心；钛是半导体 PVD 靶材 / 海洋工程 / 国防航空。市值 337 亿略偏大，国资 SOE 但战略资源属性强。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "攀枝花钒钛磁铁矿全球级资源"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "钒钛价格中高位但非 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "覆盖中等偏密"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "钒钛分离 / 钒电解液有 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "钒钛战略金属，航空国防应用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "攀钢（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 337 亿略偏大"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "国资 SOE",
+      "市值 > 300 亿"
+    ],
+    "ai_relevance": "钛用于半导体 PVD 靶材 / 钒电池储能数据中心间接",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

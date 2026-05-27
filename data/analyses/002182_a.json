@@ -1,0 +1,112 @@
+{
+  "code": "002182",
+  "name": "宝武镁业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002182",
+    "name": "宝武镁业",
+    "market_cap": 15600000000.0,
+    "pe_ttm": null,
+    "pb": 2.95
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 镁合金（轻量化金属）",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 镁合金小金属 + 国资支持但 AI 关联间接",
+    "thesis": "宝武镁业（原云海金属重组并入宝武集团），中国为全球镁主产国（>85% 份额），镁在汽车轻量化、3C 结构件、未来 humanoid 骨架有应用。市值 156 亿在 sweet spot 内，PB 2.95 合理。但 AI 关联仍间接（无直接半导体材料属性），更多是 humanoid / 3C 叙事。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "中国镁全球 85%+ 份额，宝武镁业为国内龙头"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "镁价 2025 中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "小金属赛道覆盖中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "镁合金压铸 / 一体化结构件有壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "镁为战略金属，国防航空有应用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "宝武集团（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 156 亿在 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "国资 SOE",
+      "AI 关联间接"
+    ],
+    "ai_relevance": "humanoid 机器人轻量化骨架 / AI 手机笔电结构件 / 数据中心结构散热间接",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

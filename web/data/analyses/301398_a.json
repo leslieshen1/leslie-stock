@@ -1,0 +1,112 @@
+{
+  "code": "301398",
+  "name": "星源卓镁",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "301398",
+    "name": "星源卓镁",
+    "market_cap": 5040000000.0,
+    "pe_ttm": null,
+    "pb": 4.57
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 镁合金压铸",
+    "bottleneck_score": 55,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 4 信号",
+    "thesis": "Magnesium alloy die-casting — 5B RMB micro cap. Magnesium is lightweight chokepoint metal (China = 85% world supply), die-casting tech for EV/3C/robotics structural parts. Fits sweet spot size.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "中国占全球镁 85%，公司是细分压铸"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "镁价 2022 见顶后回落"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "创业板小盘极冷门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "镁合金压铸有工艺壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "战略金属但民营"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "unknown",
+        "note": "民营未知"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "50.4 亿小盘完美 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "主要终端是消费电子/汽车，AI 直接关联弱",
+      "PB 4.57 偏高"
+    ],
+    "ai_relevance": "Indirect — magnesium die-cast could go into robotics/AI hardware enclosures, speculative",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

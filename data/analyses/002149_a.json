@@ -1,0 +1,112 @@
+{
+  "code": "002149",
+  "name": "西部材料",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002149",
+    "name": "西部材料",
+    "market_cap": 34660000000.0,
+    "pe_ttm": null,
+    "pb": 9.31
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钛锆稀有金属加工",
+    "bottleneck_score": 68,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 钛锆稀有金属 + 国防航空 chokepoint",
+    "thesis": "西部材料为西北有色金属研究院旗下，主营钛/锆/钨钼/稀贵金属深加工，下游航空航天 + 核工业 + 国防 + 半导体设备零部件。钛锆为战略小金属，半导体 PVD 靶材 / 蚀刻腔体用。市值 347 亿略大但 chokepoint 锐度好，PB 9.31 较高反映了战略叙事。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内航空钛材 + 锆材主要供应商之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "钛锆价格 2025 中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖但海外稀有金属冷门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "钛带 / 锆管 / 高纯靶材有高门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "航空航天 + 核工业 + 国防核心供应商"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "西北有色（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 347 亿略偏大"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "国资 SOE",
+      "PB 高估值"
+    ],
+    "ai_relevance": "半导体设备零部件 / PVD 靶材 / 国防 AI 应用",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "601026",
+  "name": "道生天合",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601026",
+    "name": "道生天合",
+    "market_cap": 11860000000.0,
+    "pe_ttm": null,
+    "pb": 4.5
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Epoxy resin / wind-blade structural adhesive",
+    "bottleneck_score": 30,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not_aleabit_territory",
+    "thesis": "Daosheng Tianhe is structural adhesives and resins for wind turbine blades plus some solar use. Solid niche chemicals shop, but the AI/data-center tag is a label stretch and the bottleneck is shared with several Chinese resin houses. Not on the target list.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Multiple resin suppliers domestically"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Epoxy stable"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Lightly covered post-IPO"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Structural adhesive formulation"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "~RMB 11.9B in range"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "AI link is decorative",
+      "Wind blade end-market cyclical",
+      "Multiple resin substitutes"
+    ],
+    "ai_relevance": "Effectively none.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "600714",
+  "name": "金瑞矿业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600714",
+    "name": "金瑞矿业",
+    "market_cap": 9210000000.0,
+    "pe_ttm": null,
+    "pb": 12.23
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锶/重晶石小矿",
+    "bottleneck_score": 42,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 部分信号",
+    "thesis": "Tiny 9.2B RMB cap, strontium/barite small miner. Niche material but limited AI linkage. PB 12.23 = wildly overvalued, market noticed something but unclear what.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "锶矿国内集中"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "锶价非 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "极冷门，几乎无覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "锶冶炼小众"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "青海国资，战略小金属"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "92.1 亿小盘 + 锶细分"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "PB 12.23 已严重高估",
+      "AI 关联非常弱",
+      "国资"
+    ],
+    "ai_relevance": "Negligible — strontium used in some electronics/ceramics but not AI-critical",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

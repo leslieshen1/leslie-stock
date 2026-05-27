@@ -1,0 +1,112 @@
+{
+  "code": "688323",
+  "name": "瑞华泰",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688323",
+    "name": "瑞华泰",
+    "market_cap": 6980000000.0,
+    "pe_ttm": null,
+    "pb": 8.05
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — PI 聚酰亚胺薄膜（电子级）",
+    "bottleneck_score": 70,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 电子级 PI 膜国产替代 chokepoint",
+    "thesis": "瑞华泰为国内电子级 PI 聚酰亚胺薄膜龙头，PI 膜下游 FPC 柔性电路 / OLED 显示 / 5G 高频通信 / AI 芯片封装。全球 PI 膜被 Kaneka/Toray/SKC Kolon/Dupont 寡头垄断，国产替代刚起步。市值 70 亿在 sweet spot 内，技术深度高。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 PI 膜头部之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "PI 膜价格中位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "科创板小盘覆盖度有限"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "PI 膜配方/拉伸工艺壁垒高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "航天/国防/半导体战略材料"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但无明确信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 70 亿在 sweet spot + 关键产能"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "PB 8 偏高",
+      "产能放量节奏"
+    ],
+    "ai_relevance": "AI 芯片先进封装 / FPC / OLED / 5G 高频 PCB 用 PI 膜",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

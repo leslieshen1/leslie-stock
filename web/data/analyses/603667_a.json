@@ -1,0 +1,112 @@
+{
+  "code": "603667",
+  "name": "五洲新春",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603667",
+    "name": "五洲新春",
+    "market_cap": 33230000000.0,
+    "pe_ttm": null,
+    "pb": 8.33
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 轴承/丝杠（humanoid 关节 + 行星滚柱丝杠）",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 行星滚柱丝杠国产替代候选",
+    "thesis": "Planetary roller screws — the critical linear actuator for humanoid robot legs. Currently Rollvis/Schaeffler dominated. Wuzhou Xinchun is one of the few credible China alternatives.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内行星滚柱丝杠 humanoid 主流候选之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内热点研报多，西方机构稀"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "行星滚柱丝杠精度/寿命/螺纹磨削是硬门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "332 亿，超出 sweet spot 上限"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "主营仍以汽车轴承为主，丝杠收入占比小",
+      "PB 8.3 偏贵"
+    ],
+    "ai_relevance": "Humanoid 腿部直线驱动核心节点",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "600845",
+  "name": "宝信软件",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_AI 服务器/液冷",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600845",
+    "name": "宝信软件",
+    "market_cap": 63300000000.0,
+    "pe_ttm": null,
+    "pb": 5.88
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "非射程 — IDC + 工业软件",
+    "bottleneck_score": 35,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not aleabit territory",
+    "thesis": "IDC + industrial software under Baowu — solid business, but not a chokepoint trade. SOE structure, large-cap (633亿), wall of coverage. Different framework entirely. Pass.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Service business"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Heavy"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Industrial software moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Baowu SOE"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "633亿"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "Not Layer 3 hardware",
+      "SOE",
+      "Crowded IDC narrative"
+    ],
+    "ai_relevance": "Mid — IDC for AI compute",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

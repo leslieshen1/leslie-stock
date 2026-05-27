@@ -1,0 +1,113 @@
+{
+  "code": "600916",
+  "name": "中国黄金",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600916",
+    "name": "中国黄金",
+    "market_cap": 13730000000.000002,
+    "pe_ttm": null,
+    "pb": 1.88
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 黄金零售/批发",
+    "bottleneck_score": 12,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 不在射程",
+    "thesis": "China Gold — gold retail/wholesale operator, not even a miner. Pure consumer/SOE play.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "零售批发"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "金价 ATH 但公司是渠道"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "覆盖中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "零售"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "央企"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "无产能"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "不是矿企是零售商",
+      "央企",
+      "无技术"
+    ],
+    "ai_relevance": "None",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

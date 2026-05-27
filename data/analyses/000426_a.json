@@ -1,0 +1,113 @@
+{
+  "code": "000426",
+  "name": "兴业银锡",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000426",
+    "name": "兴业银锡",
+    "market_cap": 73480000000.0,
+    "pe_ttm": null,
+    "pb": 6.79
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 银/锡多金属矿",
+    "bottleneck_score": 68,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 锡 + 银双概念，AI 焊料 + 光伏银",
+    "thesis": "兴业拥有内蒙古银锡多金属矿（锡量国内前列），锡焊料受益 AI 芯片封装。银也是 AI 光伏背银 + 银导电浆叙事。但 735 亿市值偏大，且 PB 6.8 高估值，部分锡 chokepoint 已被定价。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内锡矿储量靠前"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "锡价 + 银价 2024-2025 双新高"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "题材股覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "采选冶为主"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "锡战略金属"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营，需核实"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 735 亿明显偏大"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "市值 > 700 亿",
+      "PB 高",
+      "已被市场充分追捧"
+    ],
+    "ai_relevance": "锡焊料 + 银浆 AI/光伏间接",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "300548",
+  "name": "长芯博创",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300548",
+    "name": "长芯博创",
+    "market_cap": 70550000000.0,
+    "pe_ttm": null,
+    "pb": 33.74
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 光通信芯片 / DSP",
+    "bottleneck_score": 68,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 光通信 DSP 国产替代候选",
+    "thesis": "博创 (300548) 做光器件 + 高速光收发模块 + 国产光通信 DSP 路线。AI 数据中心 800G/1.6T 国产 DSP / 模块需求。但 PB 34 + 市值 ~706 亿已偏贵。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内光模块 / 数据中心客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无关联"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内充分覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "光通信 DSP / 高速封装 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "光通信国产化扶持"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 ~706 亿"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "PB 34 极高",
+      "市值偏大",
+      "国内已发现"
+    ],
+    "ai_relevance": "AI 数据中心 800G/1.6T 光模块与 DSP 直接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

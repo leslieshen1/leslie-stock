@@ -1,0 +1,112 @@
+{
+  "code": "002155",
+  "name": "湖南黄金",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002155",
+    "name": "湖南黄金",
+    "market_cap": 39820000000.0,
+    "pe_ttm": null,
+    "pb": 4.57
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 黄金 + 锑（战略小金属）",
+    "bottleneck_score": 70,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 锑出口管制 chokepoint + 黄金牛市",
+    "thesis": "湖南黄金核心看点是锑业务（国内锑龙头之一），锑为中国 2024 年新增出口管制品种，用于半导体 InSb 红外探测器 / 阻燃剂 / 国防军工弹药引信。中国占全球锑供应 50%+。黄金业务提供现金流。市值 398 亿略偏大但 chokepoint 锐度高。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "中国锑供应全球过半，湖南黄金国内份额高"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "锑价 2024-2025 因出口管制创历史新高"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖但锑细分海外几乎无人研究"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "高纯锑 / 锑化物有提纯壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "锑为中国出口管制 + 国防军工核心"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "湖南国资委控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 398 亿略偏大但在边界"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "国资 SOE",
+      "市值近 400 亿"
+    ],
+    "ai_relevance": "锑化铟 InSb 红外探测器 / AI 卫星 / 国防 AI 应用",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

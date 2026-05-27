@@ -1,0 +1,112 @@
+{
+  "code": "301040",
+  "name": "中环海陆",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "301040",
+    "name": "中环海陆",
+    "market_cap": 3320000000.0000005,
+    "pe_ttm": null,
+    "pb": 4.73
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 风电锻件 / 机械锻造",
+    "bottleneck_score": 22,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 风电机械锻件，被错误归类为半导体材料",
+    "thesis": "中环海陆是风电塔筒法兰锻件 + 海洋工程机械锻件公司，与半导体材料无关。被错误归类。市值 33 亿小但非 AI chokepoint。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "风电锻件赛道"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "钢铁锻件"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "小盘股"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "锻造工艺成熟"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无半导体国防"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "非 AI 关键产能"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "归类错误",
+      "风电而非半导体"
+    ],
+    "ai_relevance": "无",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

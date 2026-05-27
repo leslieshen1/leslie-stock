@@ -1,0 +1,112 @@
+{
+  "code": "301018",
+  "name": "申菱环境",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_AI 服务器/液冷",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "301018",
+    "name": "申菱环境",
+    "market_cap": 43480000000.0,
+    "pe_ttm": null,
+    "pb": 15.69
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 数据中心液冷 / 精密空调",
+    "bottleneck_score": 62,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Data center cooling — liquid cooling and precision HVAC for AI server farms. Right product, right cycle. 434亿 is the upper edge of sweet spot, PB 15.69 means the AI-cooling trade is being chased. Watch for entry on pullback; the bottleneck is real, the price is borderline.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Liquid cooling into top hyperscale builds"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Discovered AI-cooling name"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Thermal engineering + integration"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No known"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "434亿 borderline OK"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "PB 15.69 narrative priced",
+      "Competitive cooling segment"
+    ],
+    "ai_relevance": "Very high — direct AI data center cooling",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

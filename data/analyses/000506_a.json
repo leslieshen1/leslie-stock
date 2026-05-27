@@ -1,0 +1,113 @@
+{
+  "code": "000506",
+  "name": "招金黄金",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000506",
+    "name": "招金黄金",
+    "market_cap": 13180000000.000002,
+    "pe_ttm": null,
+    "pb": 14.83
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 黄金矿业",
+    "bottleneck_score": 32,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 黄金标的但 PB 极高且非 AI chokepoint",
+    "thesis": "招金黄金（中润资源重组）是黄金矿业小盘股，享受金价牛市但 PB 14.83 极端高估。纯黄金与 AI / 半导体无 chokepoint 关联，更多是贵金属避险叙事。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "黄金供应分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "金价 2025 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "小盘冷门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "黄金选冶成熟"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "未观察"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 132 亿 sweet spot 但非关键产能"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "PB > 14 极端高估",
+      "纯黄金",
+      "AI 关联缺失"
+    ],
+    "ai_relevance": "无 AI 关联",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

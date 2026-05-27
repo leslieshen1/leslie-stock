@@ -1,0 +1,113 @@
+{
+  "code": "002015",
+  "name": "协鑫能科",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002015",
+    "name": "协鑫能科",
+    "market_cap": 36070000000.0,
+    "pe_ttm": null,
+    "pb": 2.98
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Distributed energy / data-center power operator",
+    "bottleneck_score": 38,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "GCL Energy Technology has a genuine AI-data-center power story (gas, distributed, IDC tie-ins) which is more interesting than the solar tag suggests, but it's an operator not a component bottleneck. Theme exposure, not chokepoint trade.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Operator, not supplier"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Theme name with growing coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Project execution, not technology moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Energy permits"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "~RMB 36B"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Operator economics, not component scarcity",
+      "Group restructuring legacy",
+      "AI link is via customer mix, not product"
+    ],
+    "ai_relevance": "Theme-direct (IDC power) but not chokepoint.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

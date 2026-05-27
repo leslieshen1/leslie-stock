@@ -1,0 +1,112 @@
+{
+  "code": "600219",
+  "name": "南山铝业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600219",
+    "name": "南山铝业",
+    "market_cap": 60170000000.00001,
+    "pe_ttm": null,
+    "pb": 1.22
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 高端铝合金（航空/汽车板）",
+    "bottleneck_score": 45,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 thesis 有效但已 crowded",
+    "thesis": "Nanshan Aluminum — aerospace-grade aluminum + auto body sheet. Real high-end aluminum chokepoint thesis exists but 601.7 亿 RMB MC = fully discovered.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内航空铝主要供应商之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铝价非 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "完全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "航空铝合金有壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "C919/军机供应商"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "unknown",
+        "note": "未知"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "601.7 亿超标"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值 600 亿超标",
+      "完全 crowded"
+    ],
+    "ai_relevance": "Indirect — aerospace/auto aluminum, not directly AI",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

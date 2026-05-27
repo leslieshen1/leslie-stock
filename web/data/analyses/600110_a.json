@@ -1,0 +1,113 @@
+{
+  "code": "600110",
+  "name": "诺德股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600110",
+    "name": "诺德股份",
+    "market_cap": 17660000000.0,
+    "pe_ttm": null,
+    "pb": 3.13
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂电铜箔/PCB 铜箔",
+    "bottleneck_score": 45,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 PCB 铜箔有 AI server 边际想象",
+    "thesis": "Copper foil for batteries + PCB. PCB 铜箔(尤其 HVLP/RTF)是 AI server 高速 PCB 的关键材料,这一块有 marginal AI fit。但主营仍是 EV battery foil,被周期拖累。比嘉元有一点 AI 故事但仍未达 high-conviction 标准。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "HVLP PCB 铜箔有部分客户深度"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "铜价高位但加工费分化"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内 coverage,西方少跟"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "HVLP/HTE 铜箔有壁垒,普通箔已商品化"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无明显公开增持信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "176亿在 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "主业仍是 EV 铜箔产能过剩",
+      "AI server 铜箔占比小",
+      "盈利能力波动"
+    ],
+    "ai_relevance": "Marginal — AI server PCB 高速铜箔有真实需求增量,但公司当前占比有限",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

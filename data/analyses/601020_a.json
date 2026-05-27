@@ -1,0 +1,112 @@
+{
+  "code": "601020",
+  "name": "华钰矿业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601020",
+    "name": "华钰矿业",
+    "market_cap": 22020000000.0,
+    "pe_ttm": null,
+    "pb": 5.12
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锑/铅锌/黄金多金属",
+    "bottleneck_score": 63,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 4 信号",
+    "thesis": "Antimony + lead/zinc + gold miner — antimony is genuine chokepoint metal (China export controls 2024). 22B RMB MC, antimony is in real shortage. PB 5.12 = market already noticed.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "中国占全球锑供应 60%+，华钰是主要矿企之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "锑价 2024-2025 大幅 ATH 后回调"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内已被关注但西方少"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "锑选冶有壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "锑出口管制 2024 落地，军工/阻燃剂关键"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "unknown",
+        "note": "未知"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "220 亿临界，锑产能关键"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "AI 关联弱，更多是军工/光伏阻燃剂",
+      "锑价已经被市场发现"
+    ],
+    "ai_relevance": "Indirect — antimony in flame retardants for data center cabling, but mostly defense/PV exposure",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

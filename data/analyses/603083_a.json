@@ -1,0 +1,113 @@
+{
+  "code": "603083",
+  "name": "剑桥科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603083",
+    "name": "剑桥科技",
+    "market_cap": 71780000000.0,
+    "pe_ttm": null,
+    "pb": 9.62
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — 光模块整机（CPO/800G 相关）",
+    "bottleneck_score": 50,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 光模块板块 crowded",
+    "thesis": "剑桥科技 makes optical modules + customer-premise equipment. 在 800G / CPO 题材中算二线玩家 vs 中际旭创/新易盛。Thesis 有效但板块已被市场充分发现。Layer 2 = crowded.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "光模块下游分散到多家云厂商"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "整机 ASP 而非材料"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内外覆盖均充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "光模块组装相对开放"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 ~718 亿"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "光模块整机 crowded",
+      "市值偏大",
+      "PB 已高"
+    ],
+    "ai_relevance": "AI 数据中心光模块直接受益但板块已 priced",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

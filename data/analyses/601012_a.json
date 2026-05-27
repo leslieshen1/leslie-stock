@@ -1,0 +1,113 @@
+{
+  "code": "601012",
+  "name": "隆基绿能",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601012",
+    "name": "隆基绿能",
+    "market_cap": 112159999999.99998,
+    "pe_ttm": null,
+    "pb": 2.22
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Solar wafer/module integrated giant",
+    "bottleneck_score": 20,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Longi is the bellwether of Chinese solar — vertically integrated, fully commoditized, mcap over $15B and covered by every sell-side desk on the planet. AI-power label does not change the fact that this is the loser side of the cycle.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Hyper-competitive"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Polysilicon depressed"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Maximum coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Wafer + module commoditized"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "Mcap >RMB 1000B blows the filter"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Mcap >RMB 1000B macro penalty",
+      "Structural overcapacity",
+      "Margin headwind years ahead"
+    ],
+    "ai_relevance": "Brand-name solar exposure, not a chokepoint.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

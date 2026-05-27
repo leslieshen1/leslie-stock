@@ -1,0 +1,114 @@
+{
+  "code": "000547",
+  "name": "航天发展",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000547",
+    "name": "航天发展",
+    "market_cap": 37470000000.0,
+    "pe_ttm": null,
+    "pb": 9.93
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 电子蓝军/网络对抗",
+    "bottleneck_score": 50,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 网电对抗+UAV 叙事,SOE 重组逻辑",
+    "thesis": "Electronic warfare / network-attack-defense / UAV swarm for Chinese military. SOE (航天科工), PB 9.93 已经把'电子对抗'叙事打满。Thesis 有效但不是 Serenity 的 unknown bottleneck — 这是一个 known story.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "电子对抗细分领域少数玩家之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not material exposure"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 defense fund 重仓股,coverage 充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "电子战/网络对抗有保密+技术壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "纯军方 end-user"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE 体制"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "374亿 RMB"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "PB 9.93 估值高位",
+      "SOE",
+      "Known/crowded defense narrative",
+      "市值已偏大"
+    ],
+    "ai_relevance": "Weak — AI 用于 EW/网络对抗算法理论上有 fit,但公司层面不是 AI 受益主线",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

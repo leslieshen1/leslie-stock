@@ -1,0 +1,113 @@
+{
+  "code": "002179",
+  "name": "中航光电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002179",
+    "name": "中航光电",
+    "market_cap": 83720000000.0,
+    "pe_ttm": null,
+    "pb": 3.56
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 高端连接器 (军工 + 数据中心)",
+    "bottleneck_score": 60,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 国内连接器龙头 + AI 数据中心受益, 但市值过大",
+    "thesis": "国内高端连接器龙头. 军工 + 新能源 + 数据中心三轮驱动. AI 服务器 / 800VDC 直流配电连接器是真受益, 但 837亿市值过大 + 央企 → macro_tailwind 而非 chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 AI 服务器 + 通信都用, 但 Amphenol / TE 仍是国际主导"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铜价波动"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内全覆盖, 西方部分覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高端连接器门槛真实"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "中航工业旗下"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "837亿 显著超 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值过大 → 减 10",
+      "央企 → 信号6 = no",
+      "国际竞争激烈 (Amphenol/TE)"
+    ],
+    "ai_relevance": "中等偏强. AI 服务器铜缆 / 直流连接器 / GPU 模组连接器都有渗透.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

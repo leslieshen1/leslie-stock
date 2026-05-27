@@ -1,0 +1,113 @@
+{
+  "code": "603773",
+  "name": "沃格光电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_玻璃基板/CoWoS-S/先进封装",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603773",
+    "name": "沃格光电",
+    "market_cap": 19270000000.0,
+    "pe_ttm": null,
+    "pb": 18.22
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 玻璃基板加工 / TGV / 玻璃基载板",
+    "bottleneck_score": 70,
+    "verdict": "high_conviction",
+    "verdict_label": "🎯 玻璃基板/TGV — 真正的 unknown chokepoint",
+    "thesis": "$AXTI/$LPK analogue for glass substrate processing — TGV (Through-Glass-Via) + 玻璃基载板 + Mini/Micro-LED 基板。Intel 2027 glass core substrate roadmap + AVGO/NVDA 推动的下一代封装 → 玻璃基板是未来 5 年 advanced packaging 最关键的新材料 chokepoint 之一,A 股极少标的。PB 18.22 已经反映一部分,但市值仅 192亿,deep small cap,西方机构 zero coverage.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内 TGV 玻璃加工少数玩家,业内对接 SK/Samsung/Intel 玻璃基板路径"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Glass 不是单一商品价格"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方 zero coverage,国内 coverage 中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "TGV 工艺极难,激光+蚀刻+电镀 stack 有真实门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国家集成电路战略+国产先进封装路线图"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "192亿 sweet spot"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "PB 18.22 估值已贵",
+      "玻璃基板量产时间表仍在 2026-2028 推进",
+      "国内仍处技术验证期"
+    ],
+    "ai_relevance": "Strong — 玻璃基板是 Intel/AVGO/AMD 下一代先进封装(2.5D/3D 大芯片)的关键 chokepoint,直接绑定 AI capex",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

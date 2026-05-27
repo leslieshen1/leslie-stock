@@ -1,0 +1,113 @@
+{
+  "code": "603583",
+  "name": "捷昌驱动",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_新能源车/humanoid 共性部件",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603583",
+    "name": "捷昌驱动",
+    "market_cap": 10920000000.0,
+    "pe_ttm": null,
+    "pb": 2.32
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Linear actuator / humanoid joint drive",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth_watching",
+    "thesis": "Jiecang makes electric linear actuators for standing desks and medical beds, now repositioning as a humanoid-robot linear-joint vendor. Linear actuators are a real chokepoint sub-component for humanoids (you cannot just buy these off the shelf), and the mcap sits inside the sweet spot. Risk: the humanoid revenue is still a story. Worth a watch list slot, not a high-conviction yet.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Few CN vendors with humanoid-grade actuator stack"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Components"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Coverage rising on humanoid theme but still moderate"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Lead screw, motor pairing, control firmware integration"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No confirmed buy on record"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "~RMB 11B mcap sits in the strike zone"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "Humanoid revenue still nominal",
+      "Standing-desk core business slowing",
+      "Competition from precision-motion incumbents"
+    ],
+    "ai_relevance": "Indirect — physical-AI / humanoid theme.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

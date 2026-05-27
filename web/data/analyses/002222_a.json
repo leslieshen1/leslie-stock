@@ -1,0 +1,113 @@
+{
+  "code": "002222",
+  "name": "福晶科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002222",
+    "name": "福晶科技",
+    "market_cap": 52290000000.0,
+    "pe_ttm": null,
+    "pb": 28.6
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 非线性光学晶体 / 精密光学",
+    "bottleneck_score": 76,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国版 IPGP / Coherent 上游 chokepoint",
+    "thesis": "福晶 = 中国稀缺的非线性光学晶体 (LBO/BBO/KTP) + 精密光学元件供应商，长期供应 IPG / Coherent / 国内激光器厂商。CPO / TFLN 上游 + 激光器关键晶体。中科院体系深技术。 国际覆盖几乎为零。市值 ~523 亿 + PB 29 偏贵但仍是 chokepoint。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "全球主要激光器厂商均使用其非线性晶体"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "非线性晶体单价高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方覆盖几乎为零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "LBO/BBO 晶体生长全球 chokepoint 玩家不超过 3 家"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "中科院福建物构所背景，激光武器 / 量子科技关联"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "中科院/SOE 体系"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 ~523 亿偏大但产能仍卡位"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "PB 29 估值高",
+      "市值偏大",
+      "国资背景限制 CEO 买入信号"
+    ],
+    "ai_relevance": "AI 激光器 / TFLN 上游晶体 + 光量子 chokepoint",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

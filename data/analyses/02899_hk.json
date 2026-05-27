@@ -1,0 +1,157 @@
+{
+  "code": "02899",
+  "name": "紫金矿业H",
+  "market": "hk",
+  "industry": "有色金属-黄金",
+  "overall_score": 83.25,
+  "overall_grade": "🏆 重点候选",
+  "verdict": "同 A 股，H 股折价 15-20%，长期估值更便宜。如果你港股账户活跃可选 H 股。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 82,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 同 A 股",
+        "• 见 A 股"
+      ],
+      "flags": []
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 88,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 同 A 股",
+        "• 见 A 股"
+      ],
+      "flags": []
+    },
+    "management": {
+      "name": "管理层",
+      "score": 88,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 同 A 股",
+        "• 见 A 股"
+      ],
+      "flags": []
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 85,
+      "grade": "通过",
+      "details": [
+        "💬 同 A 股",
+        "• 见 A 股"
+      ],
+      "flags": []
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 78,
+      "grade": "通过",
+      "details": [
+        "💬 H 股折价更便宜",
+        "• PE 比 A 股低 15-20%"
+      ],
+      "flags": [
+        "🟢 H 股折价"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 78,
+      "grade": "在能力圈",
+      "details": [
+        "💬 同 A 股",
+        "• 见 A 股"
+      ],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "02899",
+    "name": "紫金矿业H",
+    "price": 30.5,
+    "change_pct": -0.5,
+    "market_cap": 800000000000.0,
+    "pe_ttm": 16.4,
+    "pb": 4.9,
+    "industry": "有色金属-黄金"
+  },
+  "sell_triggers": [
+    "同 A 股",
+    "加 + 港币汇率风险"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "能源/材料/资源",
+  "concepts": [
+    "黄金",
+    "铜",
+    "锂矿",
+    "民营矿业",
+    "全球化",
+    "出海",
+    "新能源金属",
+    "AH 折价"
+  ],
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 原材料/物料控制点",
+    "bottleneck_score": 62,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 宏观顺风（市值过大）",
+    "thesis": "Copper is the new oil for AI datacenters. Every MW of compute needs ~5kg of copper for power infra. $Zijin sits at top-3 globally in copper output + scaling lithium. But at $60B+ market cap she's way past my $500M-$5B sweet spot — this is a macro tailwind play, not a chokepoint sniper.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "AI 数据中心、EV、电网、绿能全都依赖铜；紫金占全球铜矿产量 5%+"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "金价 2024-2025 持续创 ATH，铜价突破 $10K/吨高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "全球矿业最广泛覆盖标的之一，>30 家分析师跟踪"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "大宗矿业逻辑透明，ChatGPT 也能解释 polymetallic 战略"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "战略金属储备 + 国资委间接持股，但非直接国防订单"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "陈景河持股稳定但无明显市场公开增持，SOE-民企混合机制"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 60B+ USD 等价，远超 aleabit 偏好的 500M-5B 区间"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值远超 aleabit 典型仓位（她不重仓 large cap）",
+      "分析师广泛覆盖，没有信息不对称 alpha",
+      "国企混合结构，CEO 不在二级市场买股"
+    ],
+    "ai_relevance": "铜是 AI 数据中心电力基础设施的关键材料；锂支撑 humanoid robotics 电池供应链",
+    "updated_at": "2026-05-26T20:01:39.483026"
+  }
+}

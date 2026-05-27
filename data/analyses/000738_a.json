@@ -1,0 +1,113 @@
+{
+  "code": "000738",
+  "name": "航发控制",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000738",
+    "name": "航发控制",
+    "market_cap": 27620000000.0,
+    "pe_ttm": null,
+    "pb": 2.19
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — aero-engine control systems",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "AECC subsidiary — China's monopoly aero-engine control system maker. Real chokepoint for military and commercial aviation. 276亿 cap is reasonable for the strategic role. Misclassified as humanoid but the defense aerospace bottleneck is genuine. SOE structure caps CEO insider-buy signal.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Sole supplier of FADEC into AECC engines"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Well-covered defense name"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "FADEC/engine control IP"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Core military aviation supplier"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE structure"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "276亿, near upper edge"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "SOE controlled — CEO signal blocked",
+      "Theme tag wrong (humanoid)",
+      "PE high if non-recurring"
+    ],
+    "ai_relevance": "None directly — defense aerospace",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

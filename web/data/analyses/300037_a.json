@@ -1,0 +1,113 @@
+{
+  "code": "300037",
+  "name": "新宙邦",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300037",
+    "name": "新宙邦",
+    "market_cap": 51740000000.0,
+    "pe_ttm": null,
+    "pb": 4.87
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 电解液 + 含氟精细化学品",
+    "bottleneck_score": 55,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 含氟液冷化学品有 AI 数据中心 angle",
+    "thesis": "Electrolyte (EV 周期受损) + 含氟精细化学品(氟化液 / 液冷工质)。氟化液 / dielectric fluid 用于 AI 数据中心 immersion cooling — 这是真 chokepoint angle,但占比仍小;市值 517亿过线。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "氟化液国产替代少数玩家,3M 退出留下空间"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "电解液 LiPF6 在低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 coverage 充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "含氟精细化学品工艺有真实壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "含氟特种化学品涉及一些军工应用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但无明显增持信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "517亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值 > 500亿 penalty",
+      "电解液业务拖累",
+      "氟化液占比仍小"
+    ],
+    "ai_relevance": "Real — Immersion cooling fluid 是 AI 数据中心 thermal management 的关键 chokepoint,国内少数玩家",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

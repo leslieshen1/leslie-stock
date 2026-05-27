@@ -1,0 +1,114 @@
+{
+  "code": "688126",
+  "name": "沪硅产业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688126",
+    "name": "沪硅产业",
+    "market_cap": 92510000000.0,
+    "pe_ttm": null,
+    "pb": 5.5
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 半导体大硅片（12 寸/8 寸）",
+    "bottleneck_score": 70,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中国硅片 chokepoint 但市值已高",
+    "thesis": "沪硅是国内 12 寸半导体大硅片龙头，与上海新昇 / 立昂微 / 中环领先并列国产替代主力。全球 12 寸硅片被日本信越 / SUMCO / 台湾 GlobalWafers / 德国 Siltronic 垄断，中国国产化是关键 chokepoint。但市值 925 亿偏大，已被市场充分发现。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内 12 寸硅片头部"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "硅片价格周期"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "科创板明星股，覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "12 寸 SOI / 高端硅片极高壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "国家大基金 + 半导体战略"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "上海国资 + 大基金"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 925 亿，超出 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "市值 > 900 亿",
+      "国资",
+      "覆盖密集",
+      "周期下行"
+    ],
+    "ai_relevance": "AI 芯片需求拉动 12 寸硅片，AI 服务器 SOI 硅片国产化",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "002240",
+  "name": "盛新锂能",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002240",
+    "name": "盛新锂能",
+    "market_cap": 44700000000.0,
+    "pe_ttm": null,
+    "pb": 4.16
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂盐（碳酸锂/氢氧化锂）",
+    "bottleneck_score": 35,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 锂盐与 AI chokepoint 弱关联",
+    "thesis": "锂盐生产商，主要客户为电池厂。锂供应 2024-2026 持续过剩，价格低迷。与 AI capex chokepoint 几乎无关联，更多是 EV / 储能宏观叙事。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "锂盐厂商众多"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "锂价 2024-2026 低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 EV 概念股覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "锂盐工艺较成熟"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 447 亿不算小"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "锂过剩",
+      "与 AI 无关",
+      "覆盖密集"
+    ],
+    "ai_relevance": "极弱",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

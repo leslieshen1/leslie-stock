@@ -1,0 +1,182 @@
+{
+  "code": "002709",
+  "name": "天赐材料",
+  "market": "a",
+  "industry": "新能源-电解液",
+  "overall_score": 62.1,
+  "overall_grade": "学习池偏下",
+  "verdict": "段永平视角：重资产+强周期+技术替代风险，三个特征都是我躲的。当前正在景气上升中段（六氟磷酸锂年涨 280%），这种暴涨之后大概率暴跌。机构按 '2026 +400%' 给的预测，只要锂价回调一点就破灭。不碰。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 58,
+      "grade": "警告（LLM）",
+      "details": [
+        "💬 强周期 + 重资产 + 技术替代风险（固态电池）",
+        "• 全球电解液市占 36.4%（龙头）",
+        "• 六氟磷酸锂 +280% 单年价格波动",
+        "• 在建产能 100 万吨（重资产）",
+        "• 固态电池硫化物路线长期颠覆风险"
+      ],
+      "flags": [
+        "🔴 三个差生意特征同时存在"
+      ]
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 68,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 规模+垂直整合+长协客户",
+        "• 全球电解液市占 36.4%",
+        "• 长协 294.5 万吨锁定到 2030",
+        "• 六氟磷酸锂自产自给",
+        "• 二线追赶激烈（多氟多、新宙邦）"
+      ],
+      "flags": [
+        "🟡 商品化产品技术差异化弱"
+      ]
+    },
+    "management": {
+      "name": "管理层",
+      "score": 65,
+      "grade": "警告（LLM）",
+      "details": [
+        "💬 徐金富创始人+化工背景，但 2022-2024 扩产节奏不佳",
+        "• 历史决策正确：早期切入电解液、自产六氟、固态前瞻",
+        "• 国际化布局摩洛哥（不算激进）"
+      ],
+      "flags": [
+        "🟡 中性偏正面国内民营"
+      ]
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 62,
+      "grade": "警告",
+      "details": [
+        "💬 ROE 7.55% 远低于 15% 标准 + 周期股波动剧烈",
+        "• 营收 +33%, 归母净利 +181%",
+        "• Q4 单季毛利率 30.12%（强反弹）",
+        "• ROE 2024 = 3.63%, 2025 = 7.55% 波动大"
+      ],
+      "flags": [
+        "🔴 ROE 远低于 BG 标准",
+        "🟡 周期反弹"
+      ]
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 55,
+      "grade": "警告",
+      "details": [
+        "💬 PE TTM 65（贵） vs PE 2026 = 11（依赖完美兑现）",
+        "• PE 反差 65 → 12 = 6 倍 = 完美预期",
+        "• PEG 0.37 看似漂亮但周期股不适用",
+        "• 段永平十年回本：65 年（按 2025） / 12.5 年（按 2026）"
+      ],
+      "flags": [
+        "🔴 赌的是完美兑现",
+        "🔴 下行风险更大"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 65,
+      "grade": "在能力圈",
+      "details": [
+        "💬 锂电产业链在 AI 圈内但最难做的细分",
+        "• 价格周期+库存周期+技术替代叠加",
+        "• 用过产品+跟踪 3 年+测试大概率未达"
+      ],
+      "flags": [
+        "🟡 锂电材料是最难的细分"
+      ]
+    }
+  },
+  "raw_quote": {
+    "code": "002709",
+    "name": "天赐材料",
+    "price": 43.48,
+    "change_pct": 1.2,
+    "market_cap": 88600000000.0,
+    "pe_ttm": 65.1,
+    "pb": 4.91,
+    "industry": "新能源-电解液"
+  },
+  "sell_triggers": [
+    "六氟磷酸锂价格回落至 ¥10 万以下持续 3 个月",
+    "ROE 2026 实际兑现低于 15%",
+    "全球电解液市占率跌破 30%",
+    "宁德/比亚迪自研电解液产能上线",
+    "固态电池量产装车"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "AI 上下游/能源",
+  "concepts": [
+    "锂电材料",
+    "电解液",
+    "六氟磷酸锂",
+    "固态电池",
+    "新能源车",
+    "宁德供应链"
+  ],
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 关键工艺（电解液/特种化学）",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 值得关注（humanoid 供应链）",
+    "thesis": "Lithium battery electrolytes are a hidden chokepoint for humanoid robotics + EV scale. CATL / BYD / Samsung SDI all depend on a handful of LiPF6 formulators. 天赐 is the largest China electrolyte player. Connects to my humanoid theme — but A-stock + currently in oversupply cycle.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "CATL、BYD、三星 SDI、LG 新能源全是客户；电解液产能高度集中"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "电解液价格 2023-2025 持续下跌，碳酸锂周期底部"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "锂电中游白马，覆盖充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "LiPF6 + 添加剂配方专有，新进入者很难追赶（aleabit 会喜欢这点）"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "新能源供应链国策支持，但非直接国防"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "徐金富持股稳定，无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 ~$8B USD 等价，略超 aleabit 偏好但不算 large cap"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "电解液行业产能过剩，价格仍在底部",
+      "humanoid robotics 大规模量产还需 2-3 年",
+      "A 股 + 中游材料，aleabit 一般更偏好上游"
+    ],
+    "ai_relevance": "humanoid robotics + AI 数据中心 UPS 电池供应链关键环节",
+    "updated_at": "2026-05-26T20:01:39.483050"
+  }
+}

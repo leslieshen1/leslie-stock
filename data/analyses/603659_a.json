@@ -1,0 +1,114 @@
+{
+  "code": "603659",
+  "name": "璞泰来",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603659",
+    "name": "璞泰来",
+    "market_cap": 65779999999.99999,
+    "pe_ttm": null,
+    "pb": 3.13
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 负极+涂覆隔膜+锂电设备",
+    "bottleneck_score": 48,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 一体化锂电材料,已被充分发现",
+    "thesis": "Integrated anode + coated separator + lithium equipment. 业务结构分散,任何一段都不是单点 chokepoint,且 EV 周期叠加估值已经 derate。市值 657亿过大,不在 Serenity 射程内。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "负极/涂覆隔膜都有龙头位置"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "石墨/隔膜价格疲软"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内顶级 coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "涂覆隔膜/快充负极有壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "纯民用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营,无近期显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "657亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "市值 > 500亿 penalty",
+      "EV 周期",
+      "Crowded narrative",
+      "业务分散"
+    ],
+    "ai_relevance": "Weak",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

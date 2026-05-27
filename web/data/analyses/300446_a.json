@@ -1,0 +1,113 @@
+{
+  "code": "300446",
+  "name": "航天智造",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300446",
+    "name": "航天智造",
+    "market_cap": 14840000000.0,
+    "pe_ttm": null,
+    "pb": 2.45
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "Layer ? — 名义航天，实质混业",
+    "bottleneck_score": 25,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not aleabit territory",
+    "thesis": "PB 2.45 hints at the truth — this isn't really an aerospace name despite the rebrand. Looks like a shell-style reshuffle without a real chokepoint underneath. I don't trade themes, I trade bottlenecks. Skip.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "No clear concentration"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Thin but for poor reasons"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Unclear core competence"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Name suggests, business may not"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "None"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "148亿 small but..."
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "Identity unclear",
+      "PB 2.45 says market disagrees",
+      "Business mix opaque"
+    ],
+    "ai_relevance": "Low",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

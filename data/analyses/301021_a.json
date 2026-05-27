@@ -1,0 +1,112 @@
+{
+  "code": "301021",
+  "name": "英诺激光",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "301021",
+    "name": "英诺激光",
+    "market_cap": 13440000000.0,
+    "pe_ttm": null,
+    "pb": 12.85
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 超快激光器（精密微加工）",
+    "bottleneck_score": 50,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 超快激光小盘",
+    "thesis": "英诺 做超快激光器 (picosecond / femtosecond) for PCB / display / semi 加工。市值 ~134 亿小盘。AI 关联通过先进封装 PCB / 玻璃通孔 (TGV) 加工。Niche 但不是核心 chokepoint。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "下游分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无关联"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "西方覆盖几乎为零"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "超快激光振荡器与放大器自研"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "高端装备国产化扶持"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营，无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 ~134 亿"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "下游 AI 直接关联弱",
+      "PB 13 偏高"
+    ],
+    "ai_relevance": "先进封装 TGV / TSV 加工，AI 间接关联",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

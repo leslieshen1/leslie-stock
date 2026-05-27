@@ -1,0 +1,113 @@
+{
+  "code": "688552",
+  "name": "航天南湖",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688552",
+    "name": "航天南湖",
+    "market_cap": 11710000000.0,
+    "pe_ttm": null,
+    "pb": 4.53
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — military radar / surveillance",
+    "bottleneck_score": 56,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "CASIC-affiliated military ground radar maker. Pure defense play with real strategic role. 117亿 cap fits the sweet spot. SOE structure blocks CEO signal but defense + small cap + technical depth makes this a real watch-list candidate in defense-tech basket. Not AI, but bottleneck logic still applies.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Ground radar sole-source-style positioning"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Defense small-cap, light coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Radar phased-array IP"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CASIC, military procurement"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "117亿 sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "SOE",
+      "Defense procurement lumpy",
+      "Not an AI play"
+    ],
+    "ai_relevance": "None — pure defense",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

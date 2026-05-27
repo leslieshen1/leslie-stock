@@ -1,0 +1,112 @@
+{
+  "code": "605111",
+  "name": "新洁能",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "605111",
+    "name": "新洁能",
+    "market_cap": 26260000000.000004,
+    "pe_ttm": null,
+    "pb": 6.05
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 中低压 MOSFET / IGBT fabless",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 国产 MOSFET fabless 二线",
+    "thesis": "Fabless MOSFET specialist with growing IGBT/SiC line. Less crowded than 华润微 but also less dominant.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 fabless MOSFET 二线"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内中等"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "MOSFET 设计 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国产替代"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "262 亿 sweet spot 上限"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "fabless 受代工制约",
+      "MOSFET 价格战激烈"
+    ],
+    "ai_relevance": "AI 数据中心 + 消费/工业 power 间接",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

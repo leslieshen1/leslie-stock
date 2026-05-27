@@ -1,0 +1,112 @@
+{
+  "code": "603728",
+  "name": "鸣志电器",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603728",
+    "name": "鸣志电器",
+    "market_cap": 28560000000.000004,
+    "pe_ttm": null,
+    "pb": 9.6
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 控制电机（步进/伺服）+ 人形机器人空心杯电机",
+    "bottleneck_score": 64,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 空心杯电机 humanoid 关键节点",
+    "thesis": "Hollow-cup motors for humanoid robot fingers/dexterous hands. Technical depth real — Maxon and Faulhaber dominate globally, Mingzhi is the credible China alternative.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内人形空心杯/无刷电机主要候选之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "钕铁硼有上涨但非核心驱动"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内重点覆盖，西方机构稀"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "空心杯电机绕线 / 微型化是真正技术门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "进入部分特种装备"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "285 亿，偏中盘但还在 sweet spot 上限"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "PB 9.6 已贵",
+      "Maxon 在高端市场护城河强"
+    ],
+    "ai_relevance": "Humanoid dexterous hand 直接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "code": "000901",
+  "name": "航天科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000901",
+    "name": "航天科技",
+    "market_cap": 16569999999.999998,
+    "pe_ttm": null,
+    "pb": 3.9
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 航天电子/汽车电子",
+    "bottleneck_score": 38,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not aleabit territory",
+    "thesis": "Mix of aerospace electronics and automotive components — diversification kills the bottleneck thesis. The auto side dilutes margins, the aerospace side is buried under group structure. PB 3.9 is fair, but fair doesn't mean asymmetric.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Diversified"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Mid"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Mature"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Aerospace SOE"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "165亿"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "Diversified mix",
+      "Auto exposure dilutes"
+    ],
+    "ai_relevance": "Low",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

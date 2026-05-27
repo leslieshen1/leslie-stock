@@ -1,0 +1,113 @@
+{
+  "code": "688322",
+  "name": "奥比中光-W",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688322",
+    "name": "奥比中光-W",
+    "market_cap": 47450000000.0,
+    "pe_ttm": null,
+    "pb": 15.85
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 3D 视觉传感器（机器人感知）",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 机器人 3D 视觉候选",
+    "thesis": "奥比中光 = 中国 3D 视觉感知龙头，结构光 / iToF / dToF / 双目方案。Humanoid 机器人 perception 核心传感器。直接对标 Intel RealSense / Microsoft Kinect / Apple TrueDepth。但市值 ~475 亿 + PB 16 已偏贵。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "服务多家机器人 / 智能硬件 / 支付终端客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无关联"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内充分覆盖，国际较低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "结构光 / ToF 算法 + 芯片自研"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国家级 3D 视觉企业"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营，无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 ~475 亿"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "市值偏大",
+      "PB 16 估值高",
+      "humanoid 订单尚未规模化"
+    ],
+    "ai_relevance": "humanoid / 机器人 perception 关键传感器，embodied AI 受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

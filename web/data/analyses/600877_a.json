@@ -1,0 +1,113 @@
+{
+  "code": "600877",
+  "name": "电科芯片",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600877",
+    "name": "电科芯片",
+    "market_cap": 19380000000.0,
+    "pe_ttm": null,
+    "pb": 7.74
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — CETC integrated circuits (defense chips)",
+    "bottleneck_score": 55,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "CETC chip platform — defense-grade integrated circuits, memory, and power semis. Strategic role in domestic defense electronics. 194亿 cap is reasonable. SOE structure suppresses CEO signal but the policy/defense angle is strong. Hidden bottleneck name with real chokepoint role.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Defense ICs into CETC ecosystem"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Defense-tech moderate coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Mil-spec IC capability"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CETC SOE, military supply"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "194亿 mid-cap"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "SOE blocks CEO signal",
+      "PB 7.7 already premium",
+      "Defense procurement cycles lumpy"
+    ],
+    "ai_relevance": "Indirect — defense AI compute",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "code": "300398",
+  "name": "飞凯材料",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300398",
+    "name": "飞凯材料",
+    "market_cap": 22600000000.0,
+    "pe_ttm": null,
+    "pb": 4.48
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 光纤涂覆/半导体湿化学品",
+    "bottleneck_score": 66,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 光纤涂覆 + 半导体湿化学品双向",
+    "thesis": "飞凯主营光纤光缆涂覆材料（全球份额 ~40%，国内第一） + 半导体湿电子化学品 + 显示材料。光纤涂覆是 AI 数据中心光纤需求拉动的关键环节，西方对应公司 DSM。半导体湿化学品是国产替代赛道。市值 226 亿在 sweet spot 内。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "光纤涂覆材料全球前三，国内第一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "化学品周期"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "UV 固化光纤涂覆 + 半导体湿化学品配方"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国产替代 + 战略材料"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营企业"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 226 亿，sweet spot 核心"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "业务多元化",
+      "光纤涂覆周期"
+    ],
+    "ai_relevance": "AI 数据中心光纤需求 + 800G 光模块光纤涂覆 + 半导体湿化学品",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

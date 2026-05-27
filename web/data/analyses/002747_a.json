@@ -1,0 +1,111 @@
+{
+  "code": "002747",
+  "name": "埃斯顿",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002747",
+    "name": "埃斯顿",
+    "market_cap": 27689999999.999996,
+    "pe_ttm": null,
+    "pb": 8.55
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 工业机器人整机 + 伺服系统",
+    "bottleneck_score": 45,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 国产工业机器人龙头但非关键节点",
+    "thesis": "China's most credible industrial robot OEM (post-Cloos acquisition), but integrators don't pass Serenity's chokepoint filter.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "整机厂"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖高"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "伺服 + 整机系统集成有门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "创始人吴波民营背景"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "276 亿且非关键部件"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "盈利能力承压（Cloos 整合 + 价格战）"
+    ],
+    "ai_relevance": "Humanoid 整机关联但非节点",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "code": "002184",
+  "name": "海得控制",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "002184",
+    "name": "海得控制",
+    "market_cap": 4229999999.9999995,
+    "pe_ttm": null,
+    "pb": 3.33
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — industrial automation / robot drives",
+    "bottleneck_score": 50,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Industrial automation integrator with drive/control products, exposure to robot motor controls. 42亿 cap deep in the sweet spot, sparse coverage. The bottleneck thesis is thin (integrator margins) but the small cap + humanoid optionality is the kind of asymmetric setup aleabit might track.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Servo drives into robotics"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Tiny coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Motion control middleware"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "42亿 sweet spot"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "Integrator business — margin pressure",
+      "Story-driven name historically"
+    ],
+    "ai_relevance": "Indirect — robot motion control",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

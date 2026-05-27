@@ -1,0 +1,112 @@
+{
+  "code": "600497",
+  "name": "驰宏锌锗",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600497",
+    "name": "驰宏锌锗",
+    "market_cap": 50610000000.0,
+    "pe_ttm": null,
+    "pb": 3.01
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锗（光通信/红外/光伏）",
+    "bottleneck_score": 72,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 $AXTI / 锗出口管制 chokepoint",
+    "thesis": "锗是光通信光纤、红外光学、太阳能砷化镓衬底关键材料。中国 2023 年对锗实施出口管制，全球锗供应 65% 来自中国。驰宏为国内锗主产商之一（与云南锗业并列），同时锌业务现金流稳健。市值 506 亿略偏大但锗叙事强。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "锗供应全球高度集中于中国，驰宏 + 云锗双寡头"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "锗价 2023-2025 因出口管制创历史新高"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有覆盖但西方机构基本不研究锗细分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高纯区熔锗单晶提纯技术壁垒高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "锗为中国出口管制名单核心品种"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "云南冶金（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 506 亿，刚过 sweet spot 上限"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "市值 ~500 亿临界",
+      "国资背景"
+    ],
+    "ai_relevance": "AI 数据中心光通信光纤拉动锗需求；AI 卫星 / 红外感知亦用锗",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

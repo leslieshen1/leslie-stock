@@ -1,0 +1,113 @@
+{
+  "code": "600855",
+  "name": "航天长峰",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600855",
+    "name": "航天长峰",
+    "market_cap": 8290000000.000001,
+    "pe_ttm": null,
+    "pb": 5.93
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 安防电子/医疗器械混合",
+    "bottleneck_score": 40,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not aleabit territory",
+    "thesis": "Aerospace group conglomerate with diversified electronics and medical device exposure — too sprawling for a focused bottleneck call. Small cap (82亿) is the only saving grace, but the thesis is muddled. I want concentration, not a holding company.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Diversified mix dilutes thesis"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Thin coverage, but for a reason"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Mid-tier electronics"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Aerospace SOE lineage"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE governance"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "82亿 small"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "Business mix dilution",
+      "No clear chokepoint",
+      "Mixed segments hurt margin clarity"
+    ],
+    "ai_relevance": "Low",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

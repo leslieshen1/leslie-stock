@@ -1,0 +1,113 @@
+{
+  "code": "601958",
+  "name": "金钼股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601958",
+    "name": "金钼股份",
+    "market_cap": 68310000000.0,
+    "pe_ttm": null,
+    "pb": 3.45
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钼金属（半导体/高温合金/特钢）",
+    "bottleneck_score": 62,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 战略小金属但市值偏大且国资主导",
+    "thesis": "钼是溅射靶材、高温合金、CVD 涂层关键材料。金钼为国内钼业龙头（金堆城钼业），全球钼供应集中度高。AI/半导体设备零部件耐高温合金有钼用量，但市值 683 亿偏大，国资属性削弱 CEO 信号。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内钼精矿/钼制品份额高，向半导体靶材延伸"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "钼价 2024-2025 处历史中高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内中信/中金等大行密集覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "高纯钼粉、靶材有壁垒但偏冶金"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "钼为国家战略储备金属，军工高温合金"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "陕西有色（SOE）控股"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 683 亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "市值 > 500 亿",
+      "国资 SOE",
+      "覆盖度高"
+    ],
+    "ai_relevance": "高温合金 / 半导体靶材 / CVD 涂层间接受益",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

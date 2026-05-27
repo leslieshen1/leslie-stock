@@ -1,0 +1,113 @@
+{
+  "code": "600760",
+  "name": "中航沈飞",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600760",
+    "name": "中航沈飞",
+    "market_cap": 125480000000.0,
+    "pe_ttm": null,
+    "pb": 5.45
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 战斗机总装/J-15/J-35",
+    "bottleneck_score": 48,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro tailwind",
+    "thesis": "Fighter-jet integrator — pure defense macro story, but at 1254亿 market cap with full sell-side army, it's already a consensus 'China defense' allocation. The bottleneck story stops working at this scale. Move along the supply chain for the alpha.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Sole-source fighter integrator"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Heavily covered defense bellwether"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Fighter integration extreme moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "PLA Air Force"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE governance"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "1254亿 — too large for chokepoint trade"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "Market cap >1000亿 disqualifies as bottleneck",
+      "Consensus name",
+      "PE TTM null"
+    ],
+    "ai_relevance": "Low",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

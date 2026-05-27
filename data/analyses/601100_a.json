@@ -1,0 +1,113 @@
+{
+  "code": "601100",
+  "name": "恒立液压",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_机器人核心部件（humanoid）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601100",
+    "name": "恒立液压",
+    "market_cap": 151260000000.0,
+    "pe_ttm": null,
+    "pb": 8.46
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — hydraulic components / planetary roller screw",
+    "bottleneck_score": 62,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro tailwind",
+    "thesis": "Hydraulic component leader pivoting into planetary roller screws (PRS) for humanoid robots. Real technical edge and humanoid optionality, but 1513亿 cap means the move is priced in. Excavator hydraulic core business is cyclical macro. Story is real, valuation isn't deep.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "PRS into Tesla Optimus narrative"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Steel input"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Heavily covered"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "PRS manufacturing precision is real moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Industrial"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "1513亿 cap"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "Cap >1000亿",
+      "PB 8.5",
+      "Excavator cycle drag"
+    ],
+    "ai_relevance": "Indirect — humanoid robot PRS supplier optionality",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

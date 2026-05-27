@@ -1,0 +1,188 @@
+{
+  "code": "MU",
+  "name": "美光科技",
+  "market": "us",
+  "industry": "半导体-存储芯片",
+  "overall_score": 79.75,
+  "overall_grade": "边缘重点候选（等回调）",
+  "verdict": "段永平视角：MU 的'HBM 三寡头+AI 算力卡位+FCF 爆发'逻辑能完全看懂（类似买苹果的 thesis），但段永平铁律：周期股要在底部买。当前是周期上行中段（接近顶部），大概率赞同但不参与。等回调到 $400-450 才是 BG 入场点。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 75,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 AI 算力关键上游，HBM = GPU 的命根子，2026 产能全售罄",
+        "• HBM TAM 2025 $35B → 2028 $100B+ = 3x 增长",
+        "• 客户：NVIDIA / AMD / Broadcom / Google / Meta / AWS",
+        "• HBM4 已为 NVIDIA Vera Rubin 量产；Feynman GPU 定制 HBM",
+        "• 但 DRAM/NAND 依然是强周期股（3-4 年周期）"
+      ],
+      "flags": [
+        "🟢 AI 算力刚需 + 寡头垄断",
+        "🟡 周期股属性不变"
+      ]
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 82,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 HBM 三寡头（海力士 50% + 三星 35% + 美光 15%）",
+        "• 资本壁垒：建一座 HBM 厂 $10B+",
+        "• 技术壁垒：stacked DRAM + TSV + Logic Die",
+        "• 1α DRAM + EUV 节点领先",
+        "• NVIDIA Feynman 定制 HBM 客户长期绑定"
+      ],
+      "flags": [
+        "🟢 准入门槛极高",
+        "🟡 美光老三，份额 5%→15%→25%"
+      ]
+    },
+    "management": {
+      "name": "管理层",
+      "score": 75,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 CEO Sanjay Mehrotra（SanDisk 创始人 + 业内技术老兵）",
+        "• 历史决策：减产保价（2022-2023）、HBM3e、HBM4 量产 NVIDIA",
+        "• 建厂+回购+分红平衡",
+        "• 不是创始人级控制但工程师派"
+      ],
+      "flags": [
+        "🟢 接近段永平喜欢的工程师 CEO 类型"
+      ]
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 88,
+      "grade": "通过",
+      "details": [
+        "💬 GAAP 毛利率 74.4% + 净利 +773% + EPS $12.07 单季",
+        "• 营收 Q2 $23.86B (+70% YoY)",
+        "• ROE 估算 100%+ 年化（周期顶部）",
+        "• 云存储业务 +160% YoY",
+        "• 但 FY2023 是亏损的（周期波动）"
+      ],
+      "flags": [
+        "🟢🟢 GAAP 毛利率超过 NVIDIA",
+        "🟡 周期顶部数据"
+      ]
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 80,
+      "grade": "通过",
+      "details": [
+        "💬 Forward PE 8.6-12.5x，比 NVIDIA 便宜 2.5x",
+        "• FY2026 共识：营收 $76B, EPS $34",
+        "• 分析师目标价 $249-$1000 区间",
+        "• 段永平十年回本法：8.6-12.5 年达标",
+        "• 但 YTD +70%、12 个月 +302%，已涨多"
+      ],
+      "flags": [
+        "🟢 估值便宜在 AI 主题股里罕见",
+        "🔴 入场时机不佳（接近周期顶部）"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 75,
+      "grade": "在能力圈（你 crypto+AI 圈内）",
+      "details": [
+        "💬 AI 上下游 + GPU/HBM 算力链路",
+        "• 21 年进圈 + 项目方背景，对 AI 算力敏感",
+        "• 美股 + 周期半导体 know-how 复杂",
+        "• 跌 50% 测试：周期股暴跌 60-70% 常态"
+      ],
+      "flags": [
+        "🟢 你的 AI 圈内能力圈适配"
+      ]
+    }
+  },
+  "raw_quote": {
+    "code": "MU",
+    "name": "美光科技",
+    "price": 546.0,
+    "change_pct": 0.8,
+    "market_cap": 610000000000.0,
+    "pe_ttm": 16.0,
+    "pb": 6.5,
+    "industry": "半导体-存储芯片"
+  },
+  "sell_triggers": [
+    "NVIDIA/AMD/hyperscaler 削减 AI Capex",
+    "HBM ASP 连续 2 季环比 -15%",
+    "三星 HBM4 大规模突破份额超越",
+    "GAAP 毛利率跌破 50%（周期反转）",
+    "NVIDIA Feynman 定制 HBM 合同失败"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "AI 上下游",
+  "concepts": [
+    "HBM",
+    "AI 算力",
+    "存储芯片",
+    "美国本土制造",
+    "NVIDIA 供应链",
+    "半导体周期"
+  ],
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — 模块/接口（HBM for AI compute）",
+    "bottleneck_score": 68,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 拥挤但 thesis 有效",
+    "thesis": "HBM is the bottleneck for AI compute throughput. Every NVDA H100/B200/B300 needs HBM. $MU is one of 3 HBM suppliers globally (SK Hynix / Samsung / Micron). I called $SNDK at Q3 EPS beat $13 vs est $4.21 — same memory cycle plays here. But $MU at $100B+ is already on every analyst's screen. Crowded long, not a sniper.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "NVDA + 所有 hyperscaler 都依赖 HBM3/HBM3e；MU 是 3 家供应商之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "HBM ASP 持续上涨，但 DRAM 现货价格仍有周期性"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Wall Street 几十家分析师覆盖，零信息不对称"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "HBM 堆叠 + TSV + 良率确实是 deep tech，但市场已充分理解"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CHIPS Act 大额补贴接受方 + 美国本土晶圆厂战略地位"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "Sanjay Mehrotra 主要是 stock-based comp，无显著公开买入"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 100B+ USD，远超 aleabit 偏好的 500M-5B 区间"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "市值过大 — 她不会重仓这种 large cap memory",
+      "memory 周期已被市场充分定价",
+      "她更倾向 $SNDK / $AXTI 这种更上游、更不为人知的标的"
+    ],
+    "ai_relevance": "HBM 是 AI 训练/推理的 memory bandwidth 瓶颈，但作为投资标的太 crowded",
+    "updated_at": "2026-05-26T20:01:39.483048"
+  }
+}

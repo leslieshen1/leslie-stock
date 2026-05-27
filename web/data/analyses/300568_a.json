@@ -1,0 +1,113 @@
+{
+  "code": "300568",
+  "name": "星源材质",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_电池/humanoid 化学品",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300568",
+    "name": "星源材质",
+    "market_cap": 23790000000.0,
+    "pe_ttm": null,
+    "pb": 2.44
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂电隔膜",
+    "bottleneck_score": 42,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 隔膜产能过剩",
+    "thesis": "Lithium battery separator. 隔膜行业供过于求,价格战中,即使技术有壁垒(干法/湿法/涂覆),价格无法转嫁,thesis 与 AI 主线无直接交集.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "全球前列隔膜厂"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "隔膜价格历史低位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 coverage 充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "湿法/涂覆隔膜有技术壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用 EV"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "237亿 sweet spot"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "隔膜价格战",
+      "EV 周期",
+      "产能利用率不足"
+    ],
+    "ai_relevance": "None — EV battery focus",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

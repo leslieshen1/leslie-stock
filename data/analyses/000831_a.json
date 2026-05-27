@@ -1,0 +1,113 @@
+{
+  "code": "000831",
+  "name": "中国稀土",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000831",
+    "name": "中国稀土",
+    "market_cap": 53970000000.00001,
+    "pe_ttm": null,
+    "pb": 10.91
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 中重稀土（出口管制核心）",
+    "bottleneck_score": 78,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 中重稀土 chokepoint，国家队整合平台",
+    "thesis": "中国稀土集团旗下中重稀土整合主平台（南方稀土），中重稀土镝铽用于高性能永磁、AI 机器人、风电、电动车。中国对中重稀土实施出口管制，全球 ~90% 中重稀土来自中国。540 亿市值刚过 sweet spot。这是 Serenity 非常喜欢的那种『全球唯一供应国』chokepoint。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "中重稀土全球供应 90% 在中国"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "镝铽 2025 反弹但未到 2022 高位"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖多，西方做空报告多"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "稀土分离技术 + 中重稀土深加工"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "稀土出口管制 + 国防 + 永磁电机"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企整合平台"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 540 亿略超 sweet spot"
+      }
+    ],
+    "signals_hit": 5,
+    "red_flags": [
+      "央企背景",
+      "PB 10.9 偏高",
+      "市值临界"
+    ],
+    "ai_relevance": "AI 机器人 / 伺服电机 / 数据中心永磁电机用钕铁硼 + 中重稀土镝铽添加",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "600438",
+  "name": "通威股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600438",
+    "name": "通威股份",
+    "market_cap": 69960000000.0,
+    "pe_ttm": null,
+    "pb": 2.0
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — Polysilicon / solar-grade silicon (commodity tier)",
+    "bottleneck_score": 30,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "Tongwei is the world's largest poly producer but solar-grade poly is the textbook commodity — the only thing rarer than its margins is its scarcity. A real Layer-4 candidate would be 9N+ electronic-grade poly for semi, which is a different SKU. Pass on AI-narrative basis.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Top global producer by capacity"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Polysilicon near cycle lows"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Universal coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Solar-grade is commodity vs electronic-grade"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "~RMB 700B — too large"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Mcap >RMB 500B",
+      "Commodity poly oversupply",
+      "AI link absent"
+    ],
+    "ai_relevance": "Tangential — electronic-grade poly is a different product line and small share.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

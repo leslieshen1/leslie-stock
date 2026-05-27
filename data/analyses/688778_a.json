@@ -1,0 +1,113 @@
+{
+  "code": "688778",
+  "name": "厦钨新能",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688778",
+    "name": "厦钨新能",
+    "market_cap": 34680000000.0,
+    "pe_ttm": null,
+    "pb": 3.68
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 锂电正极材料（钴酸锂/三元）",
+    "bottleneck_score": 52,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 电池正极宏观叙事符合但非 AI chokepoint",
+    "thesis": "厦钨新能是钴酸锂龙头（消费电子电池），三元材料份额靠前。但锂电正极是被市场充分研究的赛道，国内分析师覆盖密集，与 AI capex chokepoint 关联弱，更多是新能源车 / 消费电子叙事。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "钴酸锂市占率国内领先，下游为消费电池厂"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "锂钴价 2026 仍偏低位震荡"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "科创板大盘股，国内卖方覆盖密集"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "高电压钴酸锂有技术 know-how 但非极限工艺"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著国防 / 出口管制角色"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "厦钨集团（国资）控股，无显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 347 亿处于中段，非 AI 关键产能"
+      }
+    ],
+    "signals_hit": 2,
+    "red_flags": [
+      "国资背景",
+      "纯锂电赛道与 AI capex 弱相关",
+      "国内覆盖密集"
+    ],
+    "ai_relevance": "AI 服务器 / 边缘 AI 终端电池有少量拉动，但非主因",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

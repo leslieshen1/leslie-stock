@@ -1,0 +1,112 @@
+{
+  "code": "603690",
+  "name": "至纯科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_半导体设备",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "603690",
+    "name": "至纯科技",
+    "market_cap": 11680000000.0,
+    "pe_ttm": null,
+    "pb": 3.36
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 半导体湿法清洗设备 + 高纯供应系统",
+    "bottleneck_score": 65,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 湿法清洗设备 + 高纯气液系统",
+    "thesis": "Wet cleaning equipment + high-purity chemical/gas delivery systems for fabs. Niche chokepoint —— wet station 国产替代 + GAS/CHEM box 是 fab 建设必备。市值 116亿处于 sweet spot,PB 3.36 not stretched. 比 688037/688200 更接近 Serenity sweet spot.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "湿法清洗国产 top 2-3,SMIC/华虹等是客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not material"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内 coverage 中等,西方机构少跟"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Wet cleaning + 高纯气液系统集成有工程壁垒"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Big Fund / 国产替代"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著公开信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "116亿 sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "盈利波动大",
+      "竞争对手北方华创/盛美也覆盖湿法清洗"
+    ],
+    "ai_relevance": "Indirect — fab 扩产/AI 芯片 capex 拉动湿法清洗设备需求,is real demand",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

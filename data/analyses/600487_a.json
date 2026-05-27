@@ -1,0 +1,112 @@
+{
+  "code": "600487",
+  "name": "亨通光电",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600487",
+    "name": "亨通光电",
+    "market_cap": 174770000000.0,
+    "pe_ttm": null,
+    "pb": 5.39
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — optical fiber / submarine cable",
+    "bottleneck_score": 48,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro tailwind",
+    "thesis": "Same story as 中天 — optical fiber + submarine cable giant. 1748亿 cap. Bottleneck for submarine cable layout is real but the AI signal is diluted in a sprawling business. Not aleabit's hunting ground.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Submarine cable duopoly with 中天"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Commodity fiber"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Heavy sell-side coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Submarine cable manufacturing"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Strategic telecom infra"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "1748亿 — way too big"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Cap >1000亿",
+      "Diversified — AI signal diluted"
+    ],
+    "ai_relevance": "Indirect — submarine cable, AIDC fiber",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

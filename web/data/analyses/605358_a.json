@@ -1,0 +1,112 @@
+{
+  "code": "605358",
+  "name": "立昂微",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "605358",
+    "name": "立昂微",
+    "market_cap": 36010000000.0,
+    "pe_ttm": null,
+    "pb": 4.69
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 半导体硅片 + 功率器件",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 硅片国产化次梯队",
+    "thesis": "立昂主营 6/8 寸硅片 + 8 寸 RF 硅片 + 12 寸硅片小批量。与沪硅、TCL 中环硅片三国杀。AI 服务器 RF 用硅片国产化有 thesis。市值 360 亿在 sweet spot 上沿。但硅片周期 2024-2026 仍在底部。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内硅片第二梯队"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "硅片底部"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内覆盖，国际低"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "12 寸硅片技术壁垒高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "大基金 + 国产化战略"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营企业"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 360 亿临界"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "硅片周期下行",
+      "PB 4.7 偏高"
+    ],
+    "ai_relevance": "AI 服务器硅片 + RF 硅片国产化",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

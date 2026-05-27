@@ -1,0 +1,112 @@
+{
+  "code": "600584",
+  "name": "长电科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer2_HBM/封装/存储",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600584",
+    "name": "长电科技",
+    "market_cap": 137710000000.0,
+    "pe_ttm": null,
+    "pb": 4.79
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — OSAT / advanced packaging",
+    "bottleneck_score": 58,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 crowded but valid",
+    "thesis": "JCET — global top-3 OSAT, advanced packaging exposure for AI accelerators (2.5D/3D, HBM). Real packaging bottleneck capability. But 1377亿 cap and crowded sell-side mean the call is consensus. Story valid, alpha narrow.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Advanced packaging for AI chip customers"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Top-tier coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "2.5D/3D packaging, chiplet"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Big Fund backed, strategic semi"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "1377亿 cap"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "Cap >1000亿",
+      "Crowded consensus"
+    ],
+    "ai_relevance": "Direct — AI chip advanced packaging",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

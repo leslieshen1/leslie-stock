@@ -1,0 +1,113 @@
+{
+  "code": "688562",
+  "name": "航天软件",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688562",
+    "name": "航天软件",
+    "market_cap": 7559999999.999999,
+    "pe_ttm": null,
+    "pb": 4.53
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "Out of scope — aerospace industrial software",
+    "bottleneck_score": 30,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not in range",
+    "thesis": "CASC industrial software subsidiary — MES/PLM/EDA for defense aerospace. Defense-tech adjacent but software, not a supply chain bottleneck in aleabit's material/component sense. 76亿 cap and SOE structure. Defense exposure is real but the framework doesn't fit.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "Industrial software"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "Light coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "Domestic PLM/MES IP"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "CASC SOE, defense industrial software"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "76亿 sweet spot, but software"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "Software not material/component",
+      "SOE",
+      "Software gross margins not bottleneck-style"
+    ],
+    "ai_relevance": "Indirect — defense AI software adjacency",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

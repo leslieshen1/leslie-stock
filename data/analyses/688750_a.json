@@ -1,0 +1,112 @@
+{
+  "code": "688750",
+  "name": "金天钛业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688750",
+    "name": "金天钛业",
+    "market_cap": 8370000000.0,
+    "pe_ttm": null,
+    "pb": 3.38
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钛合金材料（航空/军工/医疗）",
+    "bottleneck_score": 68,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 4 信号",
+    "thesis": "Small-cap titanium alloy supplier — 8.4B RMB MC fits sweet spot. Titanium is a strategic material with aerospace/defense end-markets. Not directly AI-exposed but classic Layer 4 chokepoint profile. Less crowded than 宝钛.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "钛合金供应集中在少数几家，金天作为科创板小盘有差异化产能"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "海绵钛价格 2024-2025 周期性走强，但尚未 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "科创板小盘，西方机构几乎不覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "高端钛合金熔炼/锻造工艺壁垒高，民营难复制"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "军工/航空航天供应链关联"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "unknown",
+        "note": "民营，未知公开增持记录"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "83.7 亿 RMB MC + 钛合金细分产能"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "AI 关联度间接，需经由数据中心结构件/服务器外壳传导",
+      "PE TTM 不可得，估值不透明"
+    ],
+    "ai_relevance": "Indirect — titanium used in some HPC structural / aerospace defense systems, but not a direct AI bottleneck",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

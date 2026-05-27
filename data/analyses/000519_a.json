@@ -1,0 +1,113 @@
+{
+  "code": "000519",
+  "name": "中兵红箭",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "000519",
+    "name": "中兵红箭",
+    "market_cap": 25889999999.999996,
+    "pe_ttm": null,
+    "pb": 2.49
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 工业金刚石 + 反坦克弹药",
+    "bottleneck_score": 62,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 培育钻石/超硬材料 + 防务双驱动",
+    "thesis": "Two businesses: anti-tank munitions (defense) + industrial/synthetic diamond (Layer 4 raw material). 超硬材料 angle 是真 chokepoint —— synthetic diamond 也是半导体散热/精密加工关键。市值 258亿合理,PB 2.49 not stretched.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "工业金刚石领域少数大产能之一"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "培育钻价格 2023-2024 下跌,工业金刚石平稳"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有 coverage,西方机构基本不跟"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "HPHT/CVD 合成工艺 + 防务保密"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "兵器集团旗下,反坦克弹药主力"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "258亿在 sweet spot 上限"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "培育钻价格周期下行",
+      "SOE 治理",
+      "两个业务结合导致估值不纯"
+    ],
+    "ai_relevance": "Indirect — 工业金刚石用于半导体晶圆切割/光学元件加工",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

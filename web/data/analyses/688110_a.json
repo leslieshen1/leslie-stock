@@ -1,0 +1,113 @@
+{
+  "code": "688110",
+  "name": "东芯股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer2_HBM/封装/存储",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688110",
+    "name": "东芯股份",
+    "market_cap": 73680000000.0,
+    "pe_ttm": null,
+    "pb": 20.5
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — SLC NAND / 利基存储",
+    "bottleneck_score": 45,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 SLC NAND 利基存储, AI 边缘有需求但同业多",
+    "thesis": "SLC NAND / NOR / DDR3 利基存储. AI 服务器 / 5G 基站 / 工控有需求, 但同业 (北京君正 / 兆易) 竞争激烈, 估值高 (PB 20.5) 已 price in.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "利基市场下游分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖较多"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "存储设计有门槛但非独家"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "未见显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "736亿 显著超 sweet spot"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "市值过大 → 减 10",
+      "PB 20.5 估值离谱",
+      "利基存储非 AI 核心"
+    ],
+    "ai_relevance": "AI 服务器 BMC / 边缘启动 NAND, 但需求量小且同业替代多.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "code": "300776",
+  "name": "帝尔激光",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300776",
+    "name": "帝尔激光",
+    "market_cap": 44810000000.0,
+    "pe_ttm": null,
+    "pb": 10.12
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 光伏激光设备（非 AI 主战场）",
+    "bottleneck_score": 35,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 光伏激光与 AI 关联弱",
+    "thesis": "帝尔激光 主营光伏电池激光开槽 / SE / TOPCon / HJT 设备。Not in AI optical / compute supply chain. 光伏周期下行。主题标签误导。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "面向头部光伏电池厂商"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无关联"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内覆盖充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "光伏激光工艺 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "partial",
+        "note": "民营，无显著公开增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "市值 ~448 亿"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "光伏过剩周期",
+      "与 AI 无直接关联",
+      "主题标签误导"
+    ],
+    "ai_relevance": "几乎无 AI 直接关联",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

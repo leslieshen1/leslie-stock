@@ -1,0 +1,112 @@
+{
+  "code": "688721",
+  "name": "龙图光罩",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_半导体材料",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688721",
+    "name": "龙图光罩",
+    "market_cap": 6659999999.999999,
+    "pe_ttm": null,
+    "pb": 5.44
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 半导体光罩/掩模板",
+    "bottleneck_score": 74,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 半导体光罩国产替代 chokepoint",
+    "thesis": "龙图光罩为国内半导体光罩（Mask）龙头之一，光罩是芯片制造的关键耗材（DUV/EUV 工艺），全球被 Photronics、Toppan、DNP 寡头垄断。中国本土晶圆厂扩产 + 国产替代催化是真实叙事。市值 66 亿在 sweet spot 内，PB 5.44 反映成长预期，技术深度高。",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内光罩国产替代核心，下游中芯/华虹"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "光罩为加工服务非材料价"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "次新科创板覆盖度建立中"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "光罩工艺技术壁垒极高"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "国产半导体战略链条"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "次新股，无明确信号"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "市值 66 亿在 sweet spot + 关键产能"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "科创板高估值消化",
+      "客户集中度高"
+    ],
+    "ai_relevance": "AI 芯片 / 国产 GPU / HBM 制造光罩需求拉动",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "code": "300423",
+  "name": "昇辉科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光通信/激光（CPO 相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300423",
+    "name": "昇辉科技",
+    "market_cap": 3460000000.0,
+    "pe_ttm": null,
+    "pb": 3.0
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "Out of scope — LED lighting / smart grid",
+    "bottleneck_score": 14,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ not in range",
+    "thesis": "LED lighting and distribution-grid integration company — misclassified under optical/CPO. No real CPO or AI optical exposure. 35亿 small cap but in the wrong vertical. Pass.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "LED/grid integration"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "N/A"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "Sparse coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Integrator margin"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "Small cap, wrong vertical"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "Mislabeled theme",
+      "Integrator business model"
+    ],
+    "ai_relevance": "None",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

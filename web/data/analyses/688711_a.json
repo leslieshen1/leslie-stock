@@ -1,0 +1,111 @@
+{
+  "code": "688711",
+  "name": "宏微科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_Power semi（SiC/GaN/800VDC）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688711",
+    "name": "宏微科技",
+    "market_cap": 8059999999.999999,
+    "pe_ttm": null,
+    "pb": 7.66
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — IGBT 模块（车规 + 工业）",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 国产 IGBT 二线 + 800V 增量",
+    "thesis": "Second-tier IGBT module maker. Real fab-light play in 800V DC architecture, but Star + Inneon + StarPower own most of the volume.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "国内 IGBT 模块二线"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "国内有，国际稀"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "IGBT 模块封装 know-how"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "国产替代政策受益"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "无显著"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "80 亿小盘 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "竞争激烈，毛利率承压"
+    ],
+    "ai_relevance": "800V HVDC for AI 数据中心电源 + 车规 power 间接",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

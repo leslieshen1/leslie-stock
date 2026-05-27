@@ -1,0 +1,15 @@
+code,market,name,buy_date,buy_price,shares,position_pct,thesis,sell_conditions,notes
+# 持仓表 — Leslie 维护
+# code: A 股 6 位代码 / 港股 5 位代码（用引号防止前导 0 丢失）
+# market: a / hk
+# buy_date: YYYY-MM-DD
+# buy_price: 单股买入价（A 股人民币 / 港股港币）
+# shares: 持有股数
+# position_pct: 占总资产比例（0-100）
+# thesis: 核心买入逻辑（一句话）
+# sell_conditions: 卖出条件清单（分号分隔）
+# notes: 备注
+#
+# 下面是 mock 示例，删掉这两行换成你的真实持仓
+"00700",hk,腾讯控股,2024-10-15,425.5,200,12.0,"中国最强网络效应 + 视频号阻击字节成功 + 1000 亿回购","ARPU 连续 2 季下滑;视频号 DAU 跌破 5 亿;马化腾退休且接班人不是技术出身","核心圈仓位"
+"600519",a,贵州茅台,2024-01-20,1650.0,30,5.0,"白酒社交货币地位稳固 + 茅台镇产能稀缺 + 高股息","i 茅台批价跌破 2200;经销商体系结构性变化;丁雄军后接任人非茅台体系内","学习圈试水仓"

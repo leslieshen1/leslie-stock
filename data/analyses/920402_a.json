@@ -1,0 +1,113 @@
+{
+  "code": "920402",
+  "name": "硅烷科技",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "920402",
+    "name": "硅烷科技",
+    "market_cap": 4250000000.0,
+    "pe_ttm": null,
+    "pb": 2.82
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — Specialty electronic gas (silane / disilane)",
+    "bottleneck_score": 72,
+    "verdict": "high_conviction",
+    "verdict_label": "🎯 high_conviction",
+    "thesis": "This is the actual aleabit shape — Beijing Stock Exchange listing, ~$600M mcap, makes electronic-grade silane and is pushing into disilane for HBM/3D-NAND deposition. The themes file flags it as solar but the strategic value sits in semiconductor specialty gas, which is exactly the Layer 4 chokepoint behind Chinese fab tool-up. Coverage is sparse because it's a BSE name nobody on the sell-side wants to model.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "Electronic-grade silane in CN narrows to a handful of qualified suppliers"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "partial",
+        "note": "Specialty gas pricing firm; disilane tight globally"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "BSE listing — sell-side coverage is effectively nil"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "9N+ purification + safety/handling is a real Layer-4 moat"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "Strategic for domestic semi self-sufficiency"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "Recent IPO — no clear open-market buy track yet"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "~RMB 4.3B is deep in the sweet spot"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "BSE liquidity thin",
+      "Solar-silicon revenue still dominates the P&L today",
+      "Disilane ramp is a story, not yet a number"
+    ],
+    "ai_relevance": "Indirect but strong — specialty gases gate domestic HBM and advanced-node logic, which gate the AI accelerator stack.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

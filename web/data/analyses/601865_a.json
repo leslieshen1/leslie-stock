@@ -1,0 +1,113 @@
+{
+  "code": "601865",
+  "name": "福莱特",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601865",
+    "name": "福莱特",
+    "market_cap": 28510000000.000004,
+    "pe_ttm": null,
+    "pb": 1.29
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — Solar PV glass",
+    "bottleneck_score": 28,
+    "verdict": "macro_tailwind",
+    "verdict_label": "🌊 macro_tailwind",
+    "thesis": "PV glass duopoly with Xinyi, but the entire solar value chain is in a deep overcapacity hangover. AI data-center power demand will not show up as PV glass margins. Pass.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Duopoly with Xinyi Solar"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "PV glass at cycle lows"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "Universal sell-side coverage"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "Mature process"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "Civilian"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "No signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "~RMB 29B with capacity surplus"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "Solar cycle bottom",
+      "Capacity overhang",
+      "PB ~1.3 cheap for reason"
+    ],
+    "ai_relevance": "None meaningful.",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

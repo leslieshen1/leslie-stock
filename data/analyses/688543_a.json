@@ -1,0 +1,113 @@
+{
+  "code": "688543",
+  "name": "国科军工",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_军工/UAV（中国防务）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688543",
+    "name": "国科军工",
+    "market_cap": 11820000000.0,
+    "pe_ttm": null,
+    "pb": 5.23
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 军工子组件/特种火工品",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 worth watching",
+    "thesis": "Small-cap STAR-board defense play with niche pyrotechnic and propellant exposure — the kind of obscure subcomponent vendor that sits behind missile and UAV programs. PB 5.23 is rich, but float is tight and coverage is thin. Defense bottlenecks rarely show up on screeners; this one whispers.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "partial",
+        "note": "Niche propellant/pyrotechnics supplier into multiple defense primes"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not a commodity exposure"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "yes",
+        "note": "STAR-board small-cap defense, thin sell-side"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "Energetic materials and qualification process create moats"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Pure defense end-market"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE-linked, no signal"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "yes",
+        "note": "118亿 sweet spot, specialized line"
+      }
+    ],
+    "signals_hit": 4,
+    "red_flags": [
+      "pe_ttm null suggests volatile earnings",
+      "PB 5.23 not cheap",
+      "SOE governance limits CEO buy signal"
+    ],
+    "ai_relevance": "Indirect — defense electronics adjacency, UAV programs, but not AI-thesis core",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "code": "300891",
+  "name": "惠云钛业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "300891",
+    "name": "惠云钛业",
+    "market_cap": 3070000000.0,
+    "pe_ttm": null,
+    "pb": 2.54
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 钛白粉（颜料级）",
+    "bottleneck_score": 22,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 不在射程",
+    "thesis": "TiO2 pigment producer — 3B RMB micro cap but TiO2 is paint/coating commodity, totally unrelated to AI capex or strategic metal thesis.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "钛白粉分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "钛白粉价格弱"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "小盘冷门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "硫酸法成熟"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民营"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "unknown",
+        "note": "未知"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "30.7 亿小盘但产能非关键"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "钛白粉是涂料颜料，与 AI 无关",
+      "误归 Layer 4 战略金属"
+    ],
+    "ai_relevance": "None — TiO2 is a pigment, not strategic",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

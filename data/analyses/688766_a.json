@@ -1,0 +1,113 @@
+{
+  "code": "688766",
+  "name": "普冉股份",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer2_HBM/封装/存储",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688766",
+    "name": "普冉股份",
+    "market_cap": 62479999999.99999,
+    "pe_ttm": null,
+    "pb": 23.34
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 2,
+    "layer_label": "Layer 2 — NOR Flash / EEPROM",
+    "bottleneck_score": 48,
+    "verdict": "crowded_but_valid",
+    "verdict_label": "🚦 NOR Flash 国产替代, AI 边缘需求但同业多",
+    "thesis": "NOR Flash + EEPROM player. AI 边缘 / Smart NIC 需要小容量 NOR 启动, 但同业 (兆易 / 复旦微) 竞争激烈, 不是独家 chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "下游分散"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "NOR 价格周期"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "NOR 工艺中等门槛"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用消费为主"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营但未见显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "624亿 RMB 显著偏大"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "市值过大",
+      "PB 23.34 估值过高",
+      "NOR Flash 周期性强"
+    ],
+    "ai_relevance": "AI 服务器 BMC / Smart NIC 启动需要 NOR, 但需求量小且替代多.",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

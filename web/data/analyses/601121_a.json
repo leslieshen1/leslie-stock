@@ -1,0 +1,113 @@
+{
+  "code": "601121",
+  "name": "宝地矿业",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "601121",
+    "name": "宝地矿业",
+    "market_cap": 6740000000.000001,
+    "pe_ttm": null,
+    "pb": 1.54
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 铁矿（新疆）",
+    "bottleneck_score": 25,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 不在射程",
+    "thesis": "Xinjiang iron ore miner — 6.7B RMB small cap but iron ore is commodity with no AI relevance and no chokepoint properties.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "铁矿无汇聚"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "铁矿石下行周期"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "partial",
+        "note": "小盘冷门"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "采矿"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "partial",
+        "note": "新疆国资，战略边疆"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "国资 SOE = no"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "partial",
+        "note": "67.4 亿小盘但产能非关键"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "铁矿无 AI 关联",
+      "国资",
+      "产能非关键"
+    ],
+    "ai_relevance": "None — iron ore",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

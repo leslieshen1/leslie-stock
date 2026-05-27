@@ -1,0 +1,113 @@
+{
+  "code": "688200",
+  "name": "华峰测控",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer3_半导体设备",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "688200",
+    "name": "华峰测控",
+    "market_cap": 60279999999.99999,
+    "pe_ttm": null,
+    "pb": 14.39
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:40:08.264253",
+  "aleabit": {
+    "supply_chain_layer": 3,
+    "layer_label": "Layer 3 — 半导体模拟测试机",
+    "bottleneck_score": 62,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 模拟测试机国产化龙头",
+    "thesis": "Domestic leader in analog/mixed-signal semiconductor test handlers. 国产替代 Teradyne/Advantest 路径清晰,模拟测试机本身是 fab/封测 chokepoint。PB 14.39 已经把国产替代溢价打了不少,市值 602亿过线,but business is a real chokepoint.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "yes",
+        "note": "国内长电/通富/华天/SMIC 都是客户"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "Not a material name"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "国内 coverage 非常充分,西方 also tracks given Teradyne comparison"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "yes",
+        "note": "ATE 测试机是高门槛工程"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "yes",
+        "note": "Big Fund + 国家半导体战略"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "民营创始人但无近期显著增持"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "602亿超出 sweet spot"
+      }
+    ],
+    "signals_hit": 3,
+    "red_flags": [
+      "市值 > 500亿 penalty",
+      "PB 14.39 已贵",
+      "Already crowded thesis"
+    ],
+    "ai_relevance": "Indirect — AI 芯片需要 mixed-signal/RF test,国产 test 设备受益于 fab 扩产",
+    "updated_at": "2026-05-27T00:40:08.264253"
+  }
+}

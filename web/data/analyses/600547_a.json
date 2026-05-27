@@ -1,0 +1,113 @@
+{
+  "code": "600547",
+  "name": "山东黄金",
+  "market": "a",
+  "industry": null,
+  "sector": "Layer4_关键金属（稀有/战略）",
+  "concepts": [],
+  "overall_score": 0,
+  "overall_grade": "未评估（仅 Serenity）",
+  "verdict": "（仅 Serenity 视角）",
+  "llm_used": true,
+  "llm_model": "claude-aleabit-scan",
+  "dimensions": {
+    "business_model": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "moat": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "management": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "financials": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "valuation": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    },
+    "circle": {
+      "score": 0,
+      "grade": "—",
+      "details": [],
+      "flags": []
+    }
+  },
+  "raw_quote": {
+    "code": "600547",
+    "name": "山东黄金",
+    "market_cap": 139590000000.0,
+    "pe_ttm": null,
+    "pb": 4.36
+  },
+  "sell_triggers": [],
+  "updated_at": "2026-05-27T00:59:14.046902",
+  "aleabit": {
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 黄金矿（巨头）",
+    "bottleneck_score": 14,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 不在射程",
+    "thesis": "Shandong Gold — 1395.9 亿 RMB MC mega-cap SOE gold miner. Pure monetary play, zero AI relevance.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "黄金"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "yes",
+        "note": "金价 ATH"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "完全覆盖"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "no",
+        "note": "采金"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "央企但非国防"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "央企 SOE"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "1395.9 亿严重超标"
+      }
+    ],
+    "signals_hit": 1,
+    "red_flags": [
+      "巨头央企",
+      "市值 1400 亿超标",
+      "黄金无 AI"
+    ],
+    "ai_relevance": "None",
+    "updated_at": "2026-05-27T00:59:14.046902"
+  }
+}

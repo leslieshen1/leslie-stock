@@ -1,0 +1,181 @@
+{
+  "code": "600161",
+  "name": "天坛生物",
+  "market": "a",
+  "industry": "医药生物-生物制品",
+  "overall_score": 75.3,
+  "overall_grade": "🏆 重点候选",
+  "verdict": "段永平视角：血浆站牌照是真护城河（2001 年起国家基本停批），跟茅台'赤水河+茅台镇'不可复制同逻辑。当前 Q1 利润 -48% 看着吓人但是行业价格周期，基本面没坏。这种时候买好公司，最像段永平 2018 加仓腾讯（监管压力+短期业绩压力+商业模式没变）。建议现价小仓试水，跌到 ¥12 加仓。",
+  "llm_used": true,
+  "llm_model": "claude-conversation",
+  "dimensions": {
+    "business_model": {
+      "name": "商业模式",
+      "score": 75,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 血液制品是医药里最稳的细分之一，老龄化+重症医疗+自给率提升",
+        "• 中国血制品自给率仅 60%，进口替代空间大",
+        "• ROIC 长期稳定（不同于强周期股）",
+        "• 短期价格压力 + 增值税新政（2026.1.1 起 13%）"
+      ],
+      "flags": [
+        "🟢 长坡：老龄化主题"
+      ]
+    },
+    "moat": {
+      "name": "护城河",
+      "score": 85,
+      "grade": "通过（LLM）",
+      "details": [
+        "💬 血浆站牌照（2001 年起冻结审批）+ 行业 CR4 80% + 国药集团整合",
+        "• 在营 85 家血浆站，分布 16 省，采浆量 20% 市占率",
+        "• 国药拟 46.99 亿收购派林（21.03%）",
+        "• 整合后市占率有望 30%+，行业第一",
+        "• 巴菲特 100 亿打击测试：完全扛得住"
+      ],
+      "flags": [
+        "🟢 牌照护城河是 BG 框架最硬的一种",
+        "🟢 类比茅台白酒许可证"
+      ]
+    },
+    "management": {
+      "name": "管理层",
+      "score": 72,
+      "grade": "警告（LLM）",
+      "details": [
+        "💬 国药旗下，国企但战略清晰（收购派林、扩产）",
+        "• 收购派林是清晰的整合思路",
+        "• 极低负债（9.69%）+ 持续扩产",
+        "• 国企决策效率 / 灵魂型 CEO 缺失"
+      ],
+      "flags": [
+        "🟡 国企天花板就这样，比一般国企好"
+      ]
+    },
+    "financials": {
+      "name": "财务质量",
+      "score": 75,
+      "grade": "通过",
+      "details": [
+        "💬 资产负债率 9.69% 极健康 + 毛利率 43.81% + 现金充裕",
+        "• 营收 +9.62%，归母净利 -22%（行业价格回调）",
+        "• 2026Q1 净利 -48%（短期压力）",
+        "• ROE ~12-13%（略低于 15% 标准但稳定）"
+      ],
+      "flags": [
+        "🟢 资负 9.69% 极健康",
+        "🟡 利润短期承压"
+      ]
+    },
+    "valuation": {
+      "name": "估值",
+      "score": 70,
+      "grade": "通过",
+      "details": [
+        "💬 PE 2026E = 23x，PB 3.5x，机构增持评级",
+        "• PE 静态 35x，但 2026/2027/2028 = 29.6/23.1/18.8",
+        "• 估值随业绩释放快速回落",
+        "• 兴业证券增持评级"
+      ],
+      "flags": [
+        "🟢 当前估值反映短期压力，没反映派林整合"
+      ]
+    },
+    "circle": {
+      "name": "能力圈",
+      "score": 70,
+      "grade": "在能力圈",
+      "details": [
+        "💬 在医药生物圈内，大白马研报多",
+        "• 故事简单：国企+牌照+老龄化+进口替代",
+        "• 血液制品 know-how 需要时间学习"
+      ],
+      "flags": [
+        "🟢 在 Leslie 能力圈内：医药生物"
+      ]
+    }
+  },
+  "raw_quote": {
+    "code": "600161",
+    "name": "天坛生物",
+    "price": 16.05,
+    "change_pct": 0.06,
+    "market_cap": 28500000000.0,
+    "pe_ttm": 35.0,
+    "pb": 3.5,
+    "industry": "医药生物-生物制品"
+  },
+  "sell_triggers": [
+    "血液制品被纳入大规模集采",
+    "ROE 跌破 8% 持续 2 年",
+    "派林并购失败 / 终止",
+    "母公司中国生物战略转向",
+    "血浆站监管事件"
+  ],
+  "financials_history": {},
+  "financials": {},
+  "updated_at": "2026-05-25T20:41:36",
+  "elapsed_seconds": 0,
+  "sector": "医药生物",
+  "concepts": [
+    "血液制品",
+    "血浆站牌照",
+    "老龄化",
+    "国药集团",
+    "进口替代",
+    "资产注入"
+  ],
+  "aleabit": {
+    "supply_chain_layer": null,
+    "layer_label": "N/A — 不在 AI capex 供应链",
+    "bottleneck_score": 8,
+    "verdict": "not_aleabit_territory",
+    "verdict_label": "❌ 不在射程",
+    "thesis": "Biotech / blood products / vaccines — zero connection to AI capex, photonics, semiconductors, humanoid robotics, or any of my themes. Pass.",
+    "signals": [
+      {
+        "name": "供应链汇聚",
+        "hit": "no",
+        "note": "医药供应链，非 AI/半导体相关"
+      },
+      {
+        "name": "材料价格 ATH",
+        "hit": "no",
+        "note": "血浆/原料药价格与 AI 无关"
+      },
+      {
+        "name": "分析师覆盖率 < 3",
+        "hit": "no",
+        "note": "A 股医药白马，覆盖充分"
+      },
+      {
+        "name": "技术深度门槛",
+        "hit": "partial",
+        "note": "血制品工艺有技术壁垒，但她不研究医药"
+      },
+      {
+        "name": "政府/国防关联",
+        "hit": "no",
+        "note": "民用医药"
+      },
+      {
+        "name": "CEO 二级市场买入",
+        "hit": "no",
+        "note": "SOE（国药集团子公司）"
+      },
+      {
+        "name": "小盘 + 关键产能",
+        "hit": "no",
+        "note": "市值 ~$3B，但非 AI 节点"
+      }
+    ],
+    "signals_hit": 0,
+    "red_flags": [
+      "完全不在 aleabit 的赛道（她明确避开生物医药）",
+      "段巴框架更合适评估这只股票"
+    ],
+    "ai_relevance": "无 — 这是价投视角的标的，不是 aleabit 视角的标的",
+    "updated_at": "2026-05-26T20:01:39.483045"
+  }
+}

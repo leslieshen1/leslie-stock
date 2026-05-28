@@ -19,39 +19,35 @@ export default async function StockDetailPage({
   const initial = loadAnalysis(code, market);
 
   const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
-  const marketColor =
+  const marketTone =
     market === "a"
-      ? "bg-red-50 text-red-700"
+      ? "bg-rose-50 text-rose-700 border-rose-200"
       : market === "hk"
-      ? "bg-blue-50 text-blue-700"
-      : "bg-violet-50 text-violet-700";
+      ? "bg-blue-50 text-blue-700 border-blue-200"
+      : "bg-violet-50 text-violet-700 border-violet-200";
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-10">
-      <header className="mb-8 border-b border-zinc-200 pb-6">
-        <div className="mb-2 flex items-center gap-3 text-sm">
-          <Link href="/" className="text-zinc-500 hover:text-zinc-900">
-            ← 观察列表
-          </Link>
+    <main className="mx-auto max-w-6xl px-6 py-8">
+      {/* 面包屑 + 股票名 */}
+      <header className="mb-6">
+        <div className="mb-3 flex items-center gap-2 text-xs">
+          <Link href="/" className="text-zinc-500 hover:text-zinc-900">热力图</Link>
           <span className="text-zinc-300">/</span>
-          <Link href="/portfolio" className="text-zinc-500 hover:text-zinc-900">
-            我的持仓
-          </Link>
+          <Link href="/scan" className="text-zinc-500 hover:text-zinc-900">扫描</Link>
+          <span className="text-zinc-300">/</span>
+          <Link href="/watchlist" className="text-zinc-500 hover:text-zinc-900">观察</Link>
+          <span className="text-zinc-300">/</span>
+          <span className="text-zinc-700">{initial?.name || code}</span>
         </div>
         <div className="flex items-baseline gap-3">
           <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
             {initial?.name || code}
           </h1>
           <code className="font-mono text-base text-zinc-500">{code}</code>
-          <span
-            className={`inline-flex rounded px-1.5 py-0.5 text-xs font-medium ${marketColor}`}
-          >
+          <span className={`inline-flex rounded-md border px-2 py-0.5 text-xs font-medium ${marketTone}`}>
             {marketLabel}
           </span>
         </div>
-        {initial?.industry && (
-          <p className="mt-1 text-sm text-zinc-500">{initial.industry}</p>
-        )}
       </header>
 
       <StockDetailClient code={code} market={market} initial={initial} />

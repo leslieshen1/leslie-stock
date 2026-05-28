@@ -2,52 +2,9 @@
   "code": "688131",
   "name": "皓元医药",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688131",
     "name": "皓元医药",
@@ -55,58 +12,37 @@
     "pe_ttm": null,
     "pb": 5.02
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "supply_chain_layer": "midstream",
+    "layer_label": "中游中间体",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "值得关注",
+    "thesis": "小分子CDMO+分子砌块+药用辅料一体化，ADC/PROTAC等新型药物中间体细分领跑。GLP-1多肽中间体放量。中游服务商，瓶颈属性弱于核心原料。",
+    "signals": {
+      "supply_chain_convergence": true,
+      "material_ath": false,
+      "analyst_under_3": false,
+      "technical_depth": true,
+      "gov_defense": false,
+      "ceo_buying": false,
+      "small_cap_critical_capacity": true
+    },
+    "signals_hit": 3,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "CDMO行业产能过剩",
+      "毛利率下滑"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "AI辅助药物发现间接受益",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:49:16.896667"
+  }
 }

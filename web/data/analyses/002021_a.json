@@ -2,52 +2,9 @@
   "code": "002021",
   "name": "中捷资源",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002021",
     "name": "中捷资源",
@@ -55,58 +12,66 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
+    "supply_chain_layer": "resources_mining_upstream",
+    "layer_label": "资源/矿业上游(钴/锂/有色多元)",
+    "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "verdict_label": "not_aleabit_territory ❌",
+    "thesis": "前身缝纫机业务转型矿业资源, 业务多元但无单一关键瓶颈. 钴矿/有色金属赛道竞争激烈, 体量小不具备定价权. 资源类标的需看商品周期, 非典型 chokepoint.",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": false,
+        "note": "矿业资源参与者多, 非汇聚点"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "material_ath",
+        "hit": false,
+        "note": "钴价从 2022 高点回落, 无 ATH 信号"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under_3",
+        "hit": true,
+        "note": "壳化标的, 分析师覆盖稀薄"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "technical_depth",
+        "hit": false,
+        "note": "采矿无独占技术"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "gov_defense",
+        "hit": false,
+        "note": "无国防/政府订单背书"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "ceo_insider_buy",
+        "hit": false,
+        "note": "无公开高管增持信号"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "small_cap_critical_capacity",
+        "hit": false,
+        "note": "小市值但产能非关键"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 1,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "业务多次转型",
+      "壳特征明显",
+      "盈利能力弱"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无 AI 产业链直接关联",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:21:11.771446"
+  }
 }

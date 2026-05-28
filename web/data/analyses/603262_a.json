@@ -2,52 +2,9 @@
   "code": "603262",
   "name": "技源集团",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "603262",
     "name": "技源集团",
@@ -55,58 +12,37 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "supply_chain_layer": "upstream_nutraceutical",
+    "layer_label": "膳食补剂原料/HMB",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "细分龙头值得跟踪",
+    "thesis": "全球 HMB（β-羟基-β-甲基丁酸）原料寡头之一，运动营养+老年肌少症双驱动，原料端有专利+工艺壁垒，但市场天花板有限。",
+    "signals": {
+      "supply_chain_convergence": true,
+      "material_ath": false,
+      "analyst_under_3": true,
+      "technical_depth": true,
+      "govt_defense": false,
+      "ceo_insider_buy": false,
+      "small_cap_critical_capacity": true
+    },
+    "signals_hit": 4,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "HMB 品类教育期长",
+      "海外大客户集中"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "none",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:36:36.541724"
+  }
 }

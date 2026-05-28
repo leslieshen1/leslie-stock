@@ -2,52 +2,9 @@
   "code": "920199",
   "name": "倍益康",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "920199",
     "name": "倍益康",
@@ -55,58 +12,36 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
+    "supply_chain_layer": "downstream",
+    "layer_label": "康复理疗器械",
+    "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "verdict_label": "非瓶颈领域",
+    "thesis": "筋膜枪等康复理疗消费品,渠道型,无产业链卡点。",
+    "signals": {
+      "supply_convergence": false,
+      "material_ath": false,
+      "analyst_under_3": true,
+      "technical_depth": false,
+      "gov_defense": false,
+      "ceo_buying": false,
+      "small_cap_critical": false
+    },
+    "signals_hit": 1,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "消费品同质化"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "none",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T18:28:38.391483"
+  }
 }

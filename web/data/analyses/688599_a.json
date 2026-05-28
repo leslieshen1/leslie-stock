@@ -2,52 +2,9 @@
   "code": "688599",
   "name": "天合光能",
   "market": "a",
-  "industry": null,
   "sector": "Layer3_光伏材料（与 AI 数据中心电力相关）",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688599",
     "name": "天合光能",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 1.93
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:59:14.046902",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 3,
     "layer_label": "Layer 3 — Solar module manufacturer (commodity tier)",
@@ -108,6 +71,7 @@
       "Margin compression structural"
     ],
     "ai_relevance": "Indirect at best — AI data-center power demand is upstream of utility solar, but the value sits in inverters, grid, not modules.",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:59:14.046902"
   }
 }

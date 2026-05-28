@@ -2,52 +2,9 @@
   "code": "920249",
   "name": "利尔达",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "920249",
     "name": "利尔达",
@@ -55,58 +12,66 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 3,
+    "layer_label": "L3 — IoT 模组 / MCU 方案",
+    "bottleneck_score": 48,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 IoT 模组中游",
+    "thesis": "Lierda is an IoT module integrator (cellular + Wi-Fi + LoRa) and MCU solution distributor with deep ties to ST/Microchip. Niche position but no proprietary silicon — depends on upstream chip allocation. Beijing exchange small-cap, low coverage. Serenity-style only if AIoT edge inference module ASP re-rates.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "partial",
+        "note": "模组聚合中游"
       },
       {
         "name": "材料价格 ATH",
         "hit": "no",
-        "note": "无关"
+        "note": "芯片下行周期"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "北交所小盘"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "协议栈调优"
       },
       {
         "name": "政府/国防关联",
         "hit": "no",
-        "note": "无"
+        "note": "民用 IoT"
       },
       {
         "name": "CEO 二级市场买入",
         "hit": "no",
-        "note": "未评估"
+        "note": "无信号"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "40 亿小盘"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 1,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "上游芯片受制",
+      "毛利率薄",
+      "通信模组红海"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "AIoT 边缘模组 optional",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:24:08.399016"
+  }
 }

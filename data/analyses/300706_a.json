@@ -2,52 +2,9 @@
   "code": "300706",
   "name": "阿石创",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300706",
     "name": "阿石创",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "upstream",
+    "layer_label": "上游材料",
+    "bottleneck_score": 72,
+    "verdict": "high_conviction",
+    "verdict_label": "高确信",
+    "thesis": "PVD 靶材龙头（显示 + 半导体 + 光伏 + 数据存储）。靶材是面板/半导体薄膜沉积关键耗材，国产替代刚刚起步。江丰电子/有研新材/阿石创三足，小盘 + 关键材料 + 多链汇聚 = 典型 aleabit 模式。",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": true,
+        "note": "面板 + 半导体 + 光伏 + HDD 多链汇聚"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "material_ath",
+        "hit": false,
+        "note": "靶材价格平稳"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under_3",
+        "hit": true,
+        "note": "细分材料覆盖少"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "tech_depth",
+        "hit": true,
+        "note": "高纯金属靶材制备 + 焊接"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "gov_defense",
+        "hit": true,
+        "note": "半导体国产替代国家战略"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "ceo_buyback",
+        "hit": false,
+        "note": "未观察到"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "small_cap_critical_capacity",
+        "hit": true,
+        "note": "小盘 + 关键靶材国产替代"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 5,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "江丰碾压",
+      "毛利率低"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "medium",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:15:39.793175"
+  }
 }

@@ -153,7 +153,7 @@ export default function PortfolioPage() {
       </section>
 
       <footer className="mt-16 border-t border-zinc-200 pt-6 text-center text-xs text-zinc-400">
-        Leslie-stock · 段永平 + 巴菲特投资 DNA · v0.1
+        我不是股神 · 段永平 + 巴菲特投资 DNA · v0.5
       </footer>
     </main>
   );

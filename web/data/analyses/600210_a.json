@@ -2,52 +2,9 @@
   "code": "600210",
   "name": "紫江企业",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "600210",
     "name": "紫江企业",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "battery_aluminum_plastic_film",
+    "layer_label": "PET 包装 + 锂电铝塑膜",
+    "bottleneck_score": 60,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "瓶颈类比",
+    "thesis": "PET 瓶包装传统业务 + 锂电铝塑膜国产替代新故事。铝塑膜是软包电池关键封装材料，目前 80% 进口（DNP、昭和电工），国产替代空间大。紫江、新纶、明冠是国产化先发，但份额尚小。Serenity 视角：瓶颈位置存在，但还在'故事兑现'阶段。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": true,
+        "note": "铝塑膜国产三巨头"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
+        "name": "材料 ATH",
+        "hit": false,
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": false,
+        "note": "覆盖中等"
+      },
+      {
+        "name": "技术深度",
+        "hit": true,
+        "note": "干法/热法工艺壁垒"
+      },
+      {
+        "name": "政府国防",
+        "hit": false,
+        "note": "民用动力电池"
+      },
+      {
+        "name": "CEO 增持",
+        "hit": false,
+        "note": "未知"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": false,
+        "note": "100 亿但产能尚未规模化"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 2,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "主业 PET 利薄",
+      "铝塑膜竞争加剧"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:30:04.381546"
+  }
 }

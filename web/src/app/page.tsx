@@ -4,7 +4,9 @@ import PulseClient from "./pulse/PulseClient";
 import {
   COMPANIES_WITH_HEAT,
   enrichWithSnapshot,
+  mergeSupplement,
   type PulseSnapshot,
+  type SupplementItem,
 } from "@/lib/supply-chain";
 import { loadTrends } from "@/lib/pulse-static";
 
@@ -19,10 +21,22 @@ async function loadSnapshot(): Promise<PulseSnapshot | null> {
   }
 }
 
+async function loadSupplement(): Promise<SupplementItem[] | null> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "pulse-supplement.json");
+    const raw = await fs.readFile(p, "utf-8");
+    return JSON.parse(raw) as SupplementItem[];
+  } catch {
+    return null;
+  }
+}
+
 export default async function HomePage() {
-  const snapshot = await loadSnapshot();
-  const items = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
+  const [snapshot, supplement] = await Promise.all([loadSnapshot(), loadSupplement()]);
+  const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
+  const items = mergeSupplement(baseItems, supplement);
   const liveCount = items.filter((i) => i.dataSource === "live").length;
+  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
   const generatedAt = snapshot?.generated_at ?? null;
 
   // 30 天 trend 从静态 JSON 读
@@ -30,42 +44,25 @@ export default async function HomePage() {
 
   return (
     <main className="mx-auto max-w-[1480px] px-6 py-10">
-      <header className="mb-6 border-b border-zinc-200 pb-6">
-        <div className="flex items-baseline justify-between flex-wrap gap-3">
-          <div>
-            <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
-              AI 产业链 · 脉冲热力图
-            </h1>
-            <p className="mt-1 text-sm text-zinc-500">
-              8 层 · {items.length} 个标的 · 粒子尺寸 = 市值 · 脉冲频率 = 涨速 · 颜色 = 热度 / 三方综合
-            </p>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-mono">
-            {generatedAt ? (
-              <>
-                <span className="inline-flex items-center gap-1.5 rounded bg-emerald-50 text-emerald-700 px-2.5 py-1 border border-emerald-200">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  LIVE {liveCount}/{items.length}
-                </span>
-                <span className="text-zinc-400">
-                  · 更新于 {fmtAge(generatedAt)}
-                </span>
-              </>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 rounded bg-amber-50 text-amber-700 px-2.5 py-1 border border-amber-200">
-                MOCK 数据 · 跑 npm run fetch-pulse 接入真实
-              </span>
-            )}
-          </div>
-        </div>
-      </header>
+      <PulseClient
+        items={items}
+        trends={trends}
+        liveCount={liveCount}
+        generatedAtLabel={generatedAt ? fmtAge(generatedAt) : null}
+      />
 
-      <PulseClient items={items} trends={trends} />
-
-      <footer className="mt-12 border-t border-zinc-200 pt-6 text-center text-xs text-zinc-400">
-        {generatedAt
-          ? "数据源 yfinance · 5y daily OHLC · 估值分位 / 20D 动量分位 / RSI14 / 5D+成交量情绪 · 三方评分 = 段永平 + 巴菲特 + Serenity"
-          : "当前为 mock 热度分；运行 npm run fetch-pulse 接入真实"}
+      <footer className="mt-12 border-t border-zinc-200 pt-8 text-center">
+        <p className="text-sm font-medium text-zinc-700">
+          你不是股神，但股神陪你一起看股票。
+        </p>
+        <p className="mt-2 text-xs text-zinc-400">
+          我不是股神 · Not a Stock Guru · v0.5 · 段巴 + Serenity 三方框架 × Claude × Next.js
+        </p>
+        <p className="mt-1 text-[10px] text-zinc-400">
+          {generatedAt
+            ? "数据 = yfinance 5y OHLC + Serenity 评分（5,510 只 A 股）· 非投资建议"
+            : "mock 热度；运行 npm run fetch-pulse 接入真实"}
+        </p>
       </footer>
     </main>
   );

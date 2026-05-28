@@ -2,52 +2,9 @@
   "code": "002578",
   "name": "闽发铝业",
   "market": "a",
-  "industry": null,
   "sector": "Layer4_关键金属（稀有/战略）",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002578",
     "name": "闽发铝业",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 2.47
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:59:14.046902",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 4,
     "layer_label": "Layer 4 — 铝型材加工",
@@ -108,6 +71,7 @@
       "themes 标签误导"
     ],
     "ai_relevance": "无明显 AI 关联",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:59:14.046902"
   }
 }

@@ -2,52 +2,9 @@
   "code": "605136",
   "name": "丽人丽妆",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "605136",
     "name": "丽人丽妆",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
+    "supply_chain_layer": "ecommerce_tp",
+    "layer_label": "美妆电商代运营",
+    "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "verdict_label": "not_aleabit_territory ❌",
+    "thesis": "美妆电商代运营，品牌方收回自营 + 平台佣金挤压，赛道夕阳。",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
+        "name": "supply_chain_convergence",
         "hit": "no",
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
+        "name": "material_ath",
         "hit": "no",
-        "note": "未评估"
+        "note": "无"
       },
       {
-        "name": "小盘 + 关键产能",
+        "name": "analyst_under_3",
+        "hit": "partial",
+        "note": "覆盖少"
+      },
+      {
+        "name": "technical_depth",
         "hit": "no",
-        "note": "未评估"
+        "note": "无"
+      },
+      {
+        "name": "gov_defense",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "ceo_insider_buy",
+        "hit": "no",
+        "note": "未掌握"
+      },
+      {
+        "name": "small_cap_critical",
+        "hit": "no",
+        "note": "非关键"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 1,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "代运营赛道夕阳",
+      "品牌方自营化"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无关联",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:29:39.136845"
+  }
 }

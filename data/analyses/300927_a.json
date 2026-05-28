@@ -2,52 +2,9 @@
   "code": "300927",
   "name": "江天化学",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300927",
     "name": "江天化学",
@@ -55,58 +12,66 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "fine_chemicals_midstream",
+    "layer_label": "精细化工中游(电子化学品/光刻胶配套溶剂)",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "worth_watching 💎",
+    "thesis": "电子级溶剂(乙醇酸甲酯/特种酯类)供应商, 服务于光刻胶/电子化学品下游. 在电子化学品国产替代趋势中有受益逻辑, 但与晶瑞/江化微/上海新阳竞争. 小盘+电子化学品赛道, 题材有看点.",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": false,
+        "note": "电子化学品多家"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
+        "name": "material_ath",
+        "hit": false,
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under_3",
+        "hit": true,
+        "note": "次新小盘化工"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "technical_depth",
+        "hit": true,
+        "note": "电子级提纯工艺"
+      },
+      {
+        "name": "gov_defense",
+        "hit": false,
+        "note": "无"
+      },
+      {
+        "name": "ceo_insider_buy",
+        "hit": false,
+        "note": "无"
+      },
+      {
+        "name": "small_cap_critical_capacity",
+        "hit": true,
+        "note": "37亿+ 电子化学品产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 3,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "半导体周期",
+      "客户认证慢",
+      "竞争加剧"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "AI 芯片制造前道光刻配套间接关联",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:29:39.136845"
+  }
 }

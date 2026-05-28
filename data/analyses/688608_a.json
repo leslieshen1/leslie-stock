@@ -2,52 +2,9 @@
   "code": "688608",
   "name": "恒玄科技",
   "market": "a",
-  "industry": null,
   "sector": "Layer2_HBM/封装/存储",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688608",
     "name": "恒玄科技",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 4.28
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:40:08.264253",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 2,
     "layer_label": "Layer 2 — TWS 蓝牙 SoC",
@@ -107,6 +70,7 @@
       "消费电子周期"
     ],
     "ai_relevance": "几乎无. AI 眼镜 / AI 耳机端侧推理可能勉强搭边但属勉强.",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:40:08.264253"
   }
 }

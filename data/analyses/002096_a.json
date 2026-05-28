@@ -2,52 +2,9 @@
   "code": "002096",
   "name": "易普力",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002096",
     "name": "易普力",
@@ -55,58 +12,64 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "explosives_mining_services",
+    "layer_label": "民爆+矿山服务",
+    "bottleneck_score": 68,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "类瓶颈标的",
+    "thesis": "民爆牌照稀缺(全国 14 张)+ 国资委央企背景 + 矿山一体化服务,行业 CR5 集中,基建/铜矿/锂矿扩产驱动需求。具备牌照型瓶颈特征。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": true,
+        "note": "矿山客户汇聚"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "材料 ATH",
+        "hit": false,
+        "note": "民爆产品价格平稳"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": true,
+        "note": "覆盖度有限"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "技术深度",
+        "hit": false,
+        "note": "工程+牌照"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "政府国防",
+        "hit": true,
+        "note": "民爆受工信部管控"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "CEO 增持",
+        "hit": false,
+        "note": "央企体制"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": true,
+        "note": "牌照即关键产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 4,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "央企决策慢"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "none",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:43:32.378128"
+  }
 }

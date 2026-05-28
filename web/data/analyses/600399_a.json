@@ -2,52 +2,9 @@
   "code": "600399",
   "name": "抚顺特钢",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "600399",
     "name": "抚顺特钢",
@@ -55,58 +12,66 @@
     "pe_ttm": null,
     "pb": 1.87
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "specialty_steel_aerospace",
+    "layer_label": "航空航天特种钢 + 高温合金",
+    "bottleneck_score": 78,
+    "verdict": "high_conviction",
+    "verdict_label": "高确信瓶颈",
+    "thesis": "国内航空航天高温合金 + 超高强度钢龙头，单晶高温合金、镍基合金、不锈钢精密丝材是航发、火箭、核电的关键材料。中航重机、抚顺特钢、宝武特冶三足鼎立但抚顺特钢在航发盘片用高温合金有独家供应史。Serenity 视角：极窄需求 + 国防自主 + 替代品几乎为零 = 典型瓶颈。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": true,
+        "note": "国内高温合金三寡头"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "材料 ATH",
+        "hit": false,
+        "note": "金属价格周期"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": false,
+        "note": "覆盖较多"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "技术深度",
+        "hit": true,
+        "note": "单晶合金真空冶炼"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "政府国防",
+        "hit": true,
+        "note": "航发 + 火箭 + 核电用钢"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "CEO 增持",
+        "hit": false,
+        "note": "未知"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": false,
+        "note": "100 亿但是国内龙头规模"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 3,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "历史财务造假",
+      "国资体制",
+      "民品拖累"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "弱 - 服务器液冷高端不锈钢",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:30:04.381546"
+  }
 }

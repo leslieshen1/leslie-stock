@@ -2,52 +2,9 @@
   "code": "300810",
   "name": "中科海讯",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300810",
     "name": "中科海讯",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "defense_sonar",
+    "layer_label": "国防军工(声呐/水声装备/海军电子)",
+    "bottleneck_score": 68,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "aleabit_analogue 🪞",
+    "thesis": "中科院声学所背景, 水声信号处理细分龙头, 直接对接海军/潜艇平台. 海洋装备/反潜战备竞争中长期受益, 政府国防订单具备稀缺性. 小盘+军工+水声细分=典型 chokepoint 候选, 但订单波动大、营收兑现节奏不稳.",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": true,
+        "note": "水声装备少数玩家"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "material_ath",
+        "hit": false,
+        "note": "非材料驱动"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under_3",
+        "hit": false,
+        "note": "军工标的有一定关注"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "technical_depth",
+        "hit": true,
+        "note": "中科院声学所背景"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "gov_defense",
+        "hit": true,
+        "note": "海军装备/反潜"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "ceo_insider_buy",
+        "hit": false,
+        "note": "无信号"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "small_cap_critical_capacity",
+        "hit": true,
+        "note": "小市值+稀缺水声"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 4,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "军工订单确认节奏不稳",
+      "估值偏高"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "AI 信号处理/水下目标识别有交集, 国防 AI 应用",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:21:11.771446"
+  }
 }

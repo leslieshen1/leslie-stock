@@ -2,52 +2,9 @@
   "code": "002428",
   "name": "云南锗业",
   "market": "a",
-  "industry": null,
   "sector": "Layer4_关键金属（稀有/战略）",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002428",
     "name": "云南锗业",
@@ -55,59 +12,435 @@
     "pe_ttm": null,
     "pb": 39.84
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:40:08.264253",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 4,
-    "layer_label": "Layer 4 — 锗（光通信/红外/砷化镓衬底）",
-    "bottleneck_score": 78,
-    "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版 $AXTI，纯锗 chokepoint",
-    "thesis": "云南锗业是国内最纯粹的锗概念标的，从锗矿到锗单晶、红外锗镜片、砷化镓衬底全链路。锗为中国出口管制名单核心，全球供应 65% 来自中国。585 亿市值刚过 sweet spot 但纯度足够高。这是 Serenity 最爱的那种『原材料控制点』。",
+    "layer_label": "Layer 4 — 磷化铟衬底（A 股唯一规模化纯标 · 鑫耀业绩拐点 + 2027-10 达 45 万片）",
+    "bottleneck_score": 90,
+    "verdict": "unknown",
+    "verdict_label": "🎯🏆 中国版 $AXTI · InP 衬底 — 鑫耀拐点已确认 + 30 万片扩产中",
+    "thesis": "中国唯一规模化量产 InP（磷化铟）衬底（子公司云南鑫耀），AI 光通信卡脖子环节 A 股唯一纯标。\n\n【官方公告 verified】\n• 现产能 15 万片/年（2-4 英寸）；2025 实产 10.01 万片；2026 计划 18 万片（2-6 寸，以 3-4 寸为主）。\n• 2026-04 启动「高品质磷化铟单晶片建设项目」，新增 30 万片/年（含 6000 片 6 寸），18 月建设期，2027-10 完工后达 45 万片/年（4 寸折算）。\n• 鑫耀财务拐点：2024 全年亏损 3,242 万 → 2025 1-9 月盈利 1,960 万（已超去年全年扭亏）。\n• 鑫耀股权激励 50 人（含上市公司董事陈飞宏），授予价 1.37 元/注册资本，锁定 6 年，2025-2027 业绩对赌。\n• 2025-02-04 商务部 + 海关总署对 InP 实施出口管制，公司按规定办理许可方可出口。\n• 同步在做砷化镓 70 万片 6 寸生产线（湖北黄冈新厂），2025-11 已设立控股孙公司。\n\n【市场背景（公司 IR 引用）】\n• Omdia/Yole 报告：InP 全球供需缺口 70%+（投资者业绩说明会原话引用，公司未否认）。\n• 全球竞争格局：日本住友 + 美国 AXT + JX 日矿日石 + 德国费里伯格四家国际厂商，国内除鑫耀外公司明确指出无其他规模化竞争对手。\n\n【待 verify（公司公告未具体披露）】\n• 客户名（华为 / 中际旭创 / 光迅）— 公司只说\"批量化向下游客户供货\"。\n• 6 寸良率具体数字 — 公司只说\"良率逐步提升\"。\n• 国际三巨头垄断份额 90%+ — 公司只说\"国际知名企业\"。\n• 订单 backlog 期限 — 公司从未披露订单覆盖期。\n\n【估值锚】\n当前 585 亿市值，PB 39.8（极高）。化合物半导体材料业务占比待年报营收拆分核算，但锗系列 + InP 双引擎且 InP 处于产能爬坡 + 业绩拐点初期。市场仍按\"锗资源股 + 概念股\"定价，未充分计入 2027 年 45 万片满产后 InP 主营贡献。",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "yes",
-        "note": "国内锗供应双寡头之一，全产业链"
+        "name": "L4 chokepoint",
+        "hit": true,
+        "evidence": "InP 衬底 = AI 800G/1.6T DFB/EML 激光器底层材料，国内除鑫耀无规模化替代"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "yes",
-        "note": "锗价 2023-2025 持续创新高"
+        "name": "产能扩张可验证",
+        "hit": true,
+        "evidence": "2026-04 启动 30 万片项目（公告 2025-058 + IR 2026-05-11），18 月建设期"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "yes",
-        "note": "西方机构基本无覆盖锗细分"
+        "name": "财务拐点",
+        "hit": true,
+        "evidence": "鑫耀 2024 亏 3,242 万 → 2025 1-9 月盈利 1,960 万（公告 2025-060 披露）"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "yes",
-        "note": "区熔锗单晶 / 砷化镓衬底高技术壁垒"
+        "name": "国家战略",
+        "hit": true,
+        "evidence": "2025-02-04 商务部对 InP 出口管制（年报披露）"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "yes",
-        "note": "锗在出口管制名单 + 红外军工"
+        "name": "管理层 skin in the game",
+        "hit": true,
+        "evidence": "鑫耀股权激励 50 人含上市公司董事陈飞宏，6 年锁定 + 2025-2027 对赌"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "云南冶金 SOE 控股"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "partial",
-        "note": "市值 585 亿略超 sweet spot"
+        "name": "全球缺口",
+        "hit": true,
+        "evidence": "Omdia/Yole 70%+ 缺口（业绩说明会投资者引用，公司未否认）"
       }
     ],
-    "signals_hit": 5,
+    "signals_hit": 6,
     "red_flags": [
-      "市值 > 500 亿",
-      "PB 40 倍高估值",
-      "国资"
+      "PB 39.8 极高估值，已部分 price in 预期",
+      "InP 良率具体数字未披露，扩产爬坡是否顺利不可独立验证",
+      "客户名未披露，无法 cross-check 下游需求强度",
+      "扩产项目 18 月建设期 + 客户认证数月-1 年，2027-10 完工后到实际放量再有时滞",
+      "出口管制双刃剑：保护国内但限制海外（日韩台陆光模块需求）",
+      "鑫耀股权激励仅占 0.9237%，激励力度有限",
+      "化合物半导体材料业务在 2025 年报营收占比仍偏小（占比待精确核算）"
     ],
-    "ai_relevance": "AI 数据中心光纤 + AI 光通信 + 红外感知拉动锗需求",
-    "updated_at": "2026-05-27T00:40:08.264253"
-  }
+    "ai_relevance": "",
+    "pre_labeled": false,
+    "updated_at": "2026-05-28T14:02:52.967804"
+  },
+  "analyses_history": [
+    {
+      "framework": "serenity",
+      "version": "v1",
+      "score": 78,
+      "verdict_label": "🪞 中国版 $AXTI，纯锗 chokepoint",
+      "layer_label": "Layer 4 — 锗（光通信/红外/砷化镓衬底）",
+      "thesis": "云南锗业是国内最纯粹的锗概念标的，从锗矿到锗单晶、红外锗镜片、砷化镓衬底全链路。锗为中国出口管制名单核心，全球供应 65% 来自中国。585 亿市值刚过 sweet spot 但纯度足够高。这是 Serenity 最爱的那种『原材料控制点』。",
+      "signals_hit": 5,
+      "red_flags": [
+        "市值 > 500 亿",
+        "PB 40 倍高估值",
+        "国资"
+      ],
+      "model": "claude-aleabit-scan",
+      "pre_labeled": false,
+      "created_at": "2026-05-27T00:40:08.264253"
+    },
+    {
+      "framework": "serenity",
+      "version": "v2",
+      "score": 85,
+      "verdict_label": "🎯 中国版 $AXTI — InP 衬底独家",
+      "layer_label": "Layer 4 — 磷化铟衬底（中国独家规模化 · AI 光通信卡脖子）",
+      "thesis": "The REAL chokepoint is InP, not Ge. 云南锗业 is the largest domestic InP wafer supplier — basically China's AXT. InP substrate goes into every 800G/1.6T DFB/EML/VCSEL laser, every silicon photonics integrated chip, every CPO module. Sumitomo + AXT + JX Nippon dominate globally, 云南锗业 is the only mainland scale player. This is the EXACT same play as $AXTI — small InP supplier that 7-10x'd as AI capex priced in the bottleneck. Market still trading it as a Ge resource stock.",
+      "signals_hit": 6,
+      "red_flags": [
+        "InP 产能 2023 才量产，营收占比仍可能 < 20%",
+        "PB 39 估值已 price in 部分 thesis",
+        "云南冶金 SOE，capital allocation 不灵活",
+        "全球 InP 仍由 Sumitomo / AXT 主导，中国份额 5-10%（仍是追赶者）"
+      ],
+      "model": "claude-leslie-conversation",
+      "pre_labeled": false,
+      "created_at": "2026-05-28T11:09:12.995410"
+    },
+    {
+      "framework": "serenity",
+      "version": "v3",
+      "score": 92,
+      "verdict_label": "🎯🏆 中国版 $AXTI · InP 衬底 A 股唯一纯标",
+      "layer_label": "Layer 4 — 磷化铟衬底（A 股唯一规模化纯标 · 全球缺口 70%+）",
+      "thesis": "国内唯一规模化量产 InP 衬底（2-6 英寸，6 英寸良率 70%+），订单排到 2027。2026.4 公告产能 15→45 万片（3x 扩产），客户披露包含华为 + 中际旭创等头部光模块厂商。全球住友/AXT/JX 三家垄断 90%+，云南鑫耀是中国唯一规模化突破方。InP 是 AI 800G/1.6T 光模块 DFB/EML 激光器衬底，全球供需缺口 70%+。市场仍按'锗资源股'定价（化合物半导体营收占比 13% 仍被忽略），这是 A 股可买的、最纯正的 InP chokepoint — 真正的中国版 $AXTI，且 catalyst 比 AXTI 当年更强。",
+      "signals_hit": 6,
+      "red_flags": [
+        "PB 39.84 已经 price-in 部分 thesis，但产能 3x 扩张 + 订单 2 年可见提供 floor",
+        "云南冶金 SOE，capital allocation 比民营慢",
+        "锗业务占比仍超 60%，受锗价周期影响",
+        "全球 InP 仍由住友/AXT/JX 主导，云南锗业是追赶者（份额不到 10%），但增量集中在中国国产替代"
+      ],
+      "model": "claude-leslie-conversation+verified",
+      "pre_labeled": false,
+      "created_at": "2026-05-28T11:15:55.814413"
+    },
+    {
+      "framework": "serenity",
+      "version": "v4",
+      "score": 90,
+      "verdict_label": "🎯🏆 中国版 $AXTI · InP 衬底 — 鑫耀拐点已确认 + 30 万片扩产中",
+      "layer_label": "Layer 4 — 磷化铟衬底（A 股唯一规模化纯标 · 鑫耀业绩拐点 + 2027-10 达 45 万片）",
+      "thesis": "中国唯一规模化量产 InP（磷化铟）衬底（子公司云南鑫耀），AI 光通信卡脖子环节 A 股唯一纯标。\n\n【官方公告 verified】\n• 现产能 15 万片/年（2-4 英寸）；2025 实产 10.01 万片；2026 计划 18 万片（2-6 寸，以 3-4 寸为主）。\n• 2026-04 启动「高品质磷化铟单晶片建设项目」，新增 30 万片/年（含 6000 片 6 寸），18 月建设期，2027-10 完工后达 45 万片/年（4 寸折算）。\n• 鑫耀财务拐点：2024 全年亏损 3,242 万 → 2025 1-9 月盈利 1,960 万（已超去年全年扭亏）。\n• 鑫耀股权激励 50 人（含上市公司董事陈飞宏），授予价 1.37 元/注册资本，锁定 6 年，2025-2027 业绩对赌。\n• 2025-02-04 商务部 + 海关总署对 InP 实施出口管制，公司按规定办理许可方可出口。\n• 同步在做砷化镓 70 万片 6 寸生产线（湖北黄冈新厂），2025-11 已设立控股孙公司。\n\n【市场背景（公司 IR 引用）】\n• Omdia/Yole 报告：InP 全球供需缺口 70%+（投资者业绩说明会原话引用，公司未否认）。\n• 全球竞争格局：日本住友 + 美国 AXT + JX 日矿日石 + 德国费里伯格四家国际厂商，国内除鑫耀外公司明确指出无其他规模化竞争对手。\n\n【待 verify（公司公告未具体披露）】\n• 客户名（华为 / 中际旭创 / 光迅）— 公司只说\"批量化向下游客户供货\"。\n• 6 寸良率具体数字 — 公司只说\"良率逐步提升\"。\n• 国际三巨头垄断份额 90%+ — 公司只说\"国际知名企业\"。\n• 订单 backlog 期限 — 公司从未披露订单覆盖期。\n\n【估值锚】\n当前 585 亿市值，PB 39.8（极高）。化合物半导体材料业务占比待年报营收拆分核算，但锗系列 + InP 双引擎且 InP 处于产能爬坡 + 业绩拐点初期。市场仍按\"锗资源股 + 概念股\"定价，未充分计入 2027 年 45 万片满产后 InP 主营贡献。",
+      "signals_hit": 6,
+      "red_flags": [
+        "PB 39.8 极高估值，已部分 price in 预期",
+        "InP 良率具体数字未披露，扩产爬坡是否顺利不可独立验证",
+        "客户名未披露，无法 cross-check 下游需求强度",
+        "扩产项目 18 月建设期 + 客户认证数月-1 年，2027-10 完工后到实际放量再有时滞",
+        "出口管制双刃剑：保护国内但限制海外（日韩台陆光模块需求）",
+        "鑫耀股权激励仅占 0.9237%，激励力度有限",
+        "化合物半导体材料业务在 2025 年报营收占比仍偏小（占比待精确核算）"
+      ],
+      "model": "claude-sonnet-4.5",
+      "pre_labeled": false,
+      "created_at": "2026-05-28T14:02:52.967804"
+    }
+  ],
+  "financials": {
+    "quarters": [
+      {
+        "period": "20260331",
+        "revenue": 288865931.79,
+        "n_income": 9184775.89,
+        "or_yoy": 20.31,
+        "net_margin": 3.18,
+        "gross_margin": 20.29,
+        "roe": 0.62,
+        "debt_to_assets": 55.85
+      },
+      {
+        "period": "20251231",
+        "revenue": 1065881192.39,
+        "n_income": 24818209.44,
+        "or_yoy": 38.89,
+        "net_margin": 2.33,
+        "gross_margin": 21.12,
+        "roe": 1.38,
+        "debt_to_assets": 55.31
+      },
+      {
+        "period": "20250930",
+        "revenue": 798830090.93,
+        "n_income": 21963110.01,
+        "or_yoy": 58.89,
+        "net_margin": 2.75,
+        "gross_margin": 22.55,
+        "roe": 1.25,
+        "debt_to_assets": 56.74
+      },
+      {
+        "period": "20250630",
+        "revenue": 529499250.02,
+        "n_income": 24305121.98,
+        "or_yoy": 52.1,
+        "net_margin": 4.59,
+        "gross_margin": 23.98,
+        "roe": 1.52,
+        "debt_to_assets": 56.52
+      },
+      {
+        "period": "20250331",
+        "revenue": 240098237.36,
+        "n_income": 10455442.05,
+        "or_yoy": 83.78,
+        "net_margin": 4.35,
+        "gross_margin": 25.22,
+        "roe": 0.7,
+        "debt_to_assets": 56.53
+      },
+      {
+        "period": "20241231",
+        "revenue": 767401926.49,
+        "n_income": 48067808.13,
+        "or_yoy": 14.2,
+        "net_margin": 6.26,
+        "gross_margin": 28.48,
+        "roe": 3.7,
+        "debt_to_assets": 52.53
+      },
+      {
+        "period": "20240930",
+        "revenue": 502756406.53,
+        "n_income": 27073253.33,
+        "or_yoy": 6.74,
+        "net_margin": 5.38,
+        "gross_margin": 29.35,
+        "roe": 2.07,
+        "debt_to_assets": 47.28
+      },
+      {
+        "period": "20240630",
+        "revenue": 348134313.61,
+        "n_income": -9039393.42,
+        "or_yoy": 23.53,
+        "net_margin": -2.6,
+        "gross_margin": 14.69,
+        "roe": -0.66,
+        "debt_to_assets": 45.53
+      }
+    ]
+  },
+  "recent_events": [
+    {
+      "ann_date": "20260527",
+      "title": "2026年5月27日投资者关系活动记录表",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225333739&orgId=9900012834&announcementTime=2026-05-27",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-05-27/1225333739.PDF"
+    },
+    {
+      "ann_date": "20260527",
+      "title": "关于放弃控股子公司股权转让优先购买权的公告",
+      "tier": 3,
+      "keyword": "股权转让",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225331574&orgId=9900012834&announcementTime=2026-05-27",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-05-27/1225331574.PDF"
+    },
+    {
+      "ann_date": "20260513",
+      "title": "2026年5月13日投资者关系活动记录表（2025年度网上业绩说明会）",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225304445&orgId=9900012834&announcementTime=2026-05-13",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-05-13/1225304445.PDF"
+    },
+    {
+      "ann_date": "20260511",
+      "title": "2026年5月11日投资者关系活动记录表",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225291589&orgId=9900012834&announcementTime=2026-05-11",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-05-11/1225291589.PDF"
+    },
+    {
+      "ann_date": "20260509",
+      "title": "关于举行2025年度网上业绩说明会的公告",
+      "tier": 5,
+      "keyword": "业绩说明会",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225285353&orgId=9900012834&announcementTime=2026-05-09",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-05-09/1225285353.PDF"
+    },
+    {
+      "ann_date": "20260507",
+      "title": "2026年5月7日投资者关系活动记录表",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225282546&orgId=9900012834&announcementTime=2026-05-07",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-05-07/1225282546.PDF"
+    },
+    {
+      "ann_date": "20260423",
+      "title": "2025年年度报告",
+      "tier": 1,
+      "keyword": "年度报告",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225152695&orgId=9900012834&announcementTime=2026-04-23",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-04-23/1225152695.PDF"
+    },
+    {
+      "ann_date": "20260423",
+      "title": "2025年年度报告摘要",
+      "tier": 1,
+      "keyword": "年度报告",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225152694&orgId=9900012834&announcementTime=2026-04-23",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-04-23/1225152694.PDF"
+    },
+    {
+      "ann_date": "20260319",
+      "title": "2026年3月19日投资者关系活动记录表",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1225018346&orgId=9900012834&announcementTime=2026-03-19",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-03-19/1225018346.PDF"
+    },
+    {
+      "ann_date": "20260131",
+      "title": "2025年度业绩预告",
+      "tier": 1,
+      "keyword": "业绩预告",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224958642&orgId=9900012834&announcementTime=2026-01-31",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-01-31/1224958642.PDF"
+    },
+    {
+      "ann_date": "20260114",
+      "title": "2026年1月14日投资者关系活动记录表（二）",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224934137&orgId=9900012834&announcementTime=2026-01-14",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-01-14/1224934137.PDF"
+    },
+    {
+      "ann_date": "20260114",
+      "title": "2026年1月14日投资者关系活动记录表（一）",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224934128&orgId=9900012834&announcementTime=2026-01-14",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-01-14/1224934128.PDF"
+    },
+    {
+      "ann_date": "20251119",
+      "title": "2025年11月19日投资者关系活动记录表",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224814915&orgId=9900012834&announcementTime=2025-11-19",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-11-19/1224814915.PDF"
+    },
+    {
+      "ann_date": "20251114",
+      "title": "关于控股子公司向孙公司增资的进展公告",
+      "tier": 1,
+      "keyword": "增资",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224804157&orgId=9900012834&announcementTime=2025-11-14",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-11-14/1224804157.PDF"
+    },
+    {
+      "ann_date": "20251113",
+      "title": "2025年11月13日投资者关系活动记录表",
+      "tier": 5,
+      "keyword": "投资者关系活动记录",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224804354&orgId=9900012834&announcementTime=2025-11-13",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-11-13/1224804354.PDF"
+    },
+    {
+      "ann_date": "20251031",
+      "title": "关于控股子公司增资扩股实施股权激励暨关联交易的公告",
+      "tier": 1,
+      "keyword": "增资",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224776533&orgId=9900012834&announcementTime=2025-10-31",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-10-31/1224776533.PDF"
+    },
+    {
+      "ann_date": "20251031",
+      "title": "2025年三季度报告",
+      "tier": 1,
+      "keyword": "三季度报告",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224776529&orgId=9900012834&announcementTime=2025-10-31",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-10-31/1224776529.PDF"
+    },
+    {
+      "ann_date": "20251031",
+      "title": "关于控股子公司向孙公司增资的公告",
+      "tier": 1,
+      "keyword": "增资",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224776528&orgId=9900012834&announcementTime=2025-10-31",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-10-31/1224776528.PDF"
+    },
+    {
+      "ann_date": "20251016",
+      "title": "2025年第一次临时股东大会决议公告",
+      "tier": 3,
+      "keyword": "股东大会",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224714943&orgId=9900012834&announcementTime=2025-10-16",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-10-16/1224714943.PDF"
+    },
+    {
+      "ann_date": "20250926",
+      "title": "关于召开2025年第一次临时股东大会的通知",
+      "tier": 3,
+      "keyword": "股东大会",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224681489&orgId=9900012834&announcementTime=2025-09-26",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-09-26/1224681489.PDF"
+    },
+    {
+      "ann_date": "20250822",
+      "title": "2025年半年度报告",
+      "tier": 1,
+      "keyword": "年度报告",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224535367&orgId=9900012834&announcementTime=2025-08-22",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-08-22/1224535367.PDF"
+    },
+    {
+      "ann_date": "20250822",
+      "title": "2025年半年度报告摘要",
+      "tier": 1,
+      "keyword": "年度报告",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224535366&orgId=9900012834&announcementTime=2025-08-22",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-08-22/1224535366.PDF"
+    },
+    {
+      "ann_date": "20250822",
+      "title": "关于公司、公司股东及实际控制人为子公司提供担保暨关联交易的公告",
+      "tier": 3,
+      "keyword": "实际控制人",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224535372&orgId=9900012834&announcementTime=2025-08-22",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-08-22/1224535372.PDF"
+    },
+    {
+      "ann_date": "20250822",
+      "title": "关于公司股东、实际控制人为公司提供担保暨关联交易的公告",
+      "tier": 3,
+      "keyword": "实际控制人",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224535373&orgId=9900012834&announcementTime=2025-08-22",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-08-22/1224535373.PDF"
+    },
+    {
+      "ann_date": "20250715",
+      "title": "2025年半年度业绩预告",
+      "tier": 1,
+      "keyword": "业绩预告",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1224163665&orgId=9900012834&announcementTime=2025-07-15",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-07-15/1224163665.PDF"
+    },
+    {
+      "ann_date": "20250614",
+      "title": "关于公司股东、实际控制人及子公司为公司提供担保暨关联交易的公告",
+      "tier": 3,
+      "keyword": "实际控制人",
+      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002428&announcementId=1223878471&orgId=9900012834&announcementTime=2025-06-14",
+      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-06-14/1223878471.PDF"
+    }
+  ]
 }

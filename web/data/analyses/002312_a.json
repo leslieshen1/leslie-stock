@@ -2,52 +2,9 @@
   "code": "002312",
   "name": "川发龙蟒",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002312",
     "name": "川发龙蟒",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 4,
+    "layer_label": "磷化工/锂电材料",
+    "bottleneck_score": 48,
+    "verdict": "macro_tailwind",
+    "verdict_label": "宏观顺风",
+    "thesis": "磷酸盐+饲料级磷酸氢钙+工业级磷酸一铵,延伸至磷酸铁/LFP前驱体。磷资源是LFP电池关键卡脖子(中国磷储量占全球5%但产能占80%),磷矿出口管制可能性持续存在。但川发龙蟒磷矿资源相比云天化/兴发集团并非顶级,磷酸铁产能尚在爬坡。属于宏观顺风但非独家chokepoint。",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": false,
+        "note": "磷酸铁国内多家竞争,非独家"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "material_ath",
+        "hit": false,
+        "note": "磷矿石价格高位但未持续创ATH"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under_3",
+        "hit": false,
+        "note": "化工龙头覆盖较多"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "technical_depth",
+        "hit": false,
+        "note": "磷化工属于传统工艺,技术门槛中等"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "gov_defense",
+        "hit": true,
+        "note": "磷资源具战略属性,有出口管制可能"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "ceo_buyback",
+        "hit": false,
+        "note": "无显著增持"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "small_cap_critical",
+        "hit": true,
+        "note": "180亿,磷化工二线龙头"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 2,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "磷化工周期股",
+      "新能源转型尚未兑现"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "weak_indirect",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:59:15.775372"
+  }
 }

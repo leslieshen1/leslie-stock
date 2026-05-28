@@ -2,52 +2,9 @@
   "code": "300124",
   "name": "汇川技术",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300124",
     "name": "汇川技术",
@@ -55,58 +12,37 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "supply_chain_layer": 2,
+    "layer_label": "工业自动化",
+    "bottleneck_score": 58,
+    "verdict": "macro_tailwind",
+    "verdict_label": "宏观顺风",
+    "thesis": "国产伺服 + PLC 龙头，对标西门子/发那科。人形机器人关节驱动 + 新能源车电控供应商。aleabit themes 列表里关注的是 Harmonic Drive 类纯减速器/驱动器，汇川是综合自动化平台不是单点瓶颈。",
+    "signals": {
+      "supply_chain_convergence": true,
+      "material_ath": false,
+      "analyst_under_3": false,
+      "tech_depth_moat": true,
+      "gov_defense": false,
+      "ceo_insider_buy": false,
+      "small_cap_critical_capacity": false
+    },
+    "signals_hit": 2,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "国产替代故事被充分定价",
+      "市值 2100 亿+"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "humanoid robotics 上游驱控",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T19:08:42.593960"
+  }
 }

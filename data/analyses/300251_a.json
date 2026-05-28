@@ -2,52 +2,9 @@
   "code": "300251",
   "name": "光线传媒",
   "market": "a",
-  "industry": null,
   "sector": "Layer3_光通信/激光（CPO 相关）",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300251",
     "name": "光线传媒",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 3.98
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:59:14.046902",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": null,
     "layer_label": "Out of scope — film/entertainment",
@@ -106,6 +69,7 @@
       "Theme mislabeled — wrong industry entirely"
     ],
     "ai_relevance": "None — possibly AI content tooling consumer at best",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:59:14.046902"
   }
 }

@@ -15,9 +15,17 @@ venv/
 # Data caches (large, regeneratable)
 data/*.parquet
 data/cache/
+data/_cache/
 data/pulse.db
 data/pulse.db-*
 data/logs/
+
+# Pulse DB (running, regenerated daily)
+web/data/pulse.db
+web/data/pulse.db-*
+
+# Personal launchd config
+web/data/com.leslie.pulse.daily.plist
 
 # Node / Next.js (for web/)
 node_modules/

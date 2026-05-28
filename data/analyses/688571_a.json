@@ -2,52 +2,9 @@
   "code": "688571",
   "name": "杭华股份",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688571",
     "name": "杭华股份",
@@ -55,34 +12,41 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 3,
+    "layer_label": "L3 — 印刷油墨 / 中日合资",
+    "bottleneck_score": 40,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 印刷油墨细分",
+    "thesis": "Hanghua is a Sino-Japanese JV (中国乐凯 + DIC 大日本油墨) producing offset/UV/食品包装 inks. Specialty inks have technical depth and food packaging compliance moat, but printing is a declining/cyclical end market.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "partial",
+        "note": "特种油墨少数家"
       },
       {
         "name": "材料价格 ATH",
         "hit": "no",
-        "note": "无关"
+        "note": "颜料/树脂"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "科创小盘"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "特种油墨配方"
       },
       {
         "name": "政府/国防关联",
@@ -92,21 +56,21 @@
       {
         "name": "CEO 二级市场买入",
         "hit": "no",
-        "note": "未评估"
+        "note": "无"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "窄品类"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 3,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "印刷下游萎缩",
+      "中日合资治理"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:24:08.399016"
+  }
 }

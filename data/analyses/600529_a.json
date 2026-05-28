@@ -2,52 +2,9 @@
   "code": "600529",
   "name": "山东药玻",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "600529",
     "name": "山东药玻",
@@ -55,58 +12,64 @@
     "pe_ttm": null,
     "pb": 1.55
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "pharma_packaging",
+    "layer_label": "中硼硅模制瓶",
+    "bottleneck_score": 65,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "类瓶颈标的",
+    "thesis": "国内中硼硅药用玻璃龙头(模制瓶份额 70%+),一致性评价 + 药用玻璃替换需求,小盘+关键产能+认证壁垒,典型瓶颈位置,GLP-1 注射制剂需求催化。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": true,
+        "note": "国内 GLP-1/生物药包装汇聚"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
+        "name": "材料 ATH",
+        "hit": false,
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": false,
+        "note": "覆盖较多"
+      },
+      {
+        "name": "技术深度",
+        "hit": true,
+        "note": "中硼硅熔窑技术壁垒"
+      },
+      {
+        "name": "政府国防",
+        "hit": false,
+        "note": "无"
+      },
+      {
+        "name": "CEO 增持",
+        "hit": false,
+        "note": "未见"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": true,
+        "note": "中硼硅产能稀缺"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 3,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "认证周期长"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "none",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:43:32.378128"
+  }
 }

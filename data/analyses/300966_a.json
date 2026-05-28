@@ -2,52 +2,9 @@
   "code": "300966",
   "name": "共同药业",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300966",
     "name": "共同药业",
@@ -55,58 +12,38 @@
     "pe_ttm": null,
     "pb": 4.3
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "supply_chain_layer": "甾体激素 API",
+    "layer_label": "医药 chokepoint - 甾体药物中间体(全球供应)",
+    "bottleneck_score": 65,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "aleabit Analogue 🪞",
+    "thesis": "国内甾体激素中间体专精厂,覆盖皮质激素/性激素/孕激素全系列。Serenity 的 API 版本 - 甾体合成路线长、工艺难、全球能做的工厂有限。客户含全球大药企。小盘+技术深度+出口外销 = aleabit 模板。",
+    "signals": {
+      "supply_chain_chokepoint": true,
+      "material_ath": false,
+      "analyst_coverage_thin": true,
+      "technical_depth": true,
+      "government_defense_demand": false,
+      "ceo_insider_buying": false,
+      "small_cap_critical_capacity": true
+    },
+    "signals_hit": 4,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "甾体中间体价格周期",
+      "印度竞争",
+      "PB 4.3 估值不算便宜"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无 - 纯甾体 API,但符合 Serenity 的瓶颈逻辑",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:14:27.951398"
+  }
 }

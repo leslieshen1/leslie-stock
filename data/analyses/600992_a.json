@@ -2,52 +2,9 @@
   "code": "600992",
   "name": "贵绳股份",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "600992",
     "name": "贵绳股份",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 4,
+    "layer_label": "L4 — 国防/航天用钢丝绳",
+    "bottleneck_score": 52,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 值得观察",
+    "thesis": "Guizhou steel wire rope — 三线建设 legacy, defense and aerospace wire rope niche but SOE governance dilutes the play.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "partial",
+        "note": "特种钢丝绳少数供应商"
       },
       {
         "name": "材料价格 ATH",
         "hit": "no",
-        "note": "无关"
+        "note": "钢材"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "地方军工小盘少覆盖"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "航空/电梯/索道用绳认证门槛"
       },
       {
         "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "hit": "yes",
+        "note": "三线企业, 军工配套"
       },
       {
         "name": "CEO 二级市场买入",
         "hit": "no",
-        "note": "未评估"
+        "note": "国资控股, 无增持信号"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "30 亿但产品非独家"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 3,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "地方国资管控",
+      "军品利润率低"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "国防供应链 L4 特种钢索, 非 AI 但属于 Serenity 框架可纳入的国防节点",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:14:27.951398"
+  }
 }

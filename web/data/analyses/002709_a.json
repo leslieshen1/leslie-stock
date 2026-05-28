@@ -2,7 +2,16 @@
   "code": "002709",
   "name": "天赐材料",
   "market": "a",
-  "industry": "新能源-电解液",
+  "sector": "AI 上下游/能源",
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "002709",
+    "name": "天赐材料",
+    "market_cap": 88600000000.0,
+    "pe_ttm": 65.1,
+    "pb": 4.91
+  },
   "overall_score": 62.1,
   "overall_grade": "学习池偏下",
   "verdict": "段永平视角：重资产+强周期+技术替代风险，三个特征都是我躲的。当前正在景气上升中段（六氟磷酸锂年涨 280%），这种暴涨之后大概率暴跌。机构按 '2026 +400%' 给的预测，只要锂价回调一点就破灭。不碰。",
@@ -96,16 +105,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "002709",
-    "name": "天赐材料",
-    "price": 43.48,
-    "change_pct": 1.2,
-    "market_cap": 88600000000.0,
-    "pe_ttm": 65.1,
-    "pb": 4.91,
-    "industry": "新能源-电解液"
-  },
   "sell_triggers": [
     "六氟磷酸锂价格回落至 ¥10 万以下持续 3 个月",
     "ROE 2026 实际兑现低于 15%",
@@ -113,19 +112,7 @@
     "宁德/比亚迪自研电解液产能上线",
     "固态电池量产装车"
   ],
-  "financials_history": {},
-  "financials": {},
   "updated_at": "2026-05-25T20:41:36",
-  "elapsed_seconds": 0,
-  "sector": "AI 上下游/能源",
-  "concepts": [
-    "锂电材料",
-    "电解液",
-    "六氟磷酸锂",
-    "固态电池",
-    "新能源车",
-    "宁德供应链"
-  ],
   "aleabit": {
     "supply_chain_layer": 3,
     "layer_label": "Layer 3 — 关键工艺（电解液/特种化学）",
@@ -177,6 +164,7 @@
       "A 股 + 中游材料，aleabit 一般更偏好上游"
     ],
     "ai_relevance": "humanoid robotics + AI 数据中心 UPS 电池供应链关键环节",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T20:01:39.483050"
   }
 }

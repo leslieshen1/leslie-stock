@@ -2,52 +2,9 @@
   "code": "002688",
   "name": "金河生物",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002688",
     "name": "金河生物",
@@ -55,34 +12,41 @@
     "pe_ttm": null,
     "pb": 1.97
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 2,
+    "layer_label": "L2 — 兽用金霉素全球龙头+饲料添加剂",
+    "bottleneck_score": 62,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 aleabit 同型",
+    "thesis": "Global #1 in veterinary chlortetracycline (CTC) feed additive, plus broader feed-additive portfolio — concentrated global supply, environmental barriers protect incumbents, PB 1.97 not stretched. Niche capacity chokepoint with FDA/欧盟 registrations.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "yes",
+        "note": "金霉素全球前列"
       },
       {
         "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "hit": "partial",
+        "note": "金霉素价格周期"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "覆盖稀"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "发酵工艺+菌种"
       },
       {
         "name": "政府/国防关联",
@@ -91,22 +55,23 @@
       },
       {
         "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "民营持股"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "金霉素关键产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 4,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "金霉素价格周期",
+      "环保限产",
+      "中国出口政策"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "高 — 全球细分龙头+发酵产能, aleabit 标准模板",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:32:39.211660"
+  }
 }

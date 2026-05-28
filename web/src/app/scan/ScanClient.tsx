@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { AleabitManifestEntry } from "@/lib/data";
+import { useWatchlist } from "@/lib/useWatchlist";
 
 const VERDICTS = [
   { key: "high_conviction", label: "🎯 High Conviction", short: "H. Conv." },
@@ -246,68 +247,103 @@ function RowCard({ item: i }: { item: AleabitManifestEntry }) {
   const marketLabel = i.market === "a" ? "A股" : i.market === "hk" ? "港股" : "美股";
   const marketColor =
     i.market === "a" ? "text-red-600" : i.market === "hk" ? "text-blue-600" : "text-violet-600";
+  const { has, toggle } = useWatchlist();
+  const inList = has(i.code, i.market);
+
+  function handleStar(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggle({
+      code: i.code,
+      market: i.market,
+      name: i.name,
+      sector: i.sector,
+      score: i.score,
+      verdict: i.verdict,
+      verdict_label: i.verdict_label,
+      market_cap_yi: i.market_cap_yi,
+      layer: i.layer,
+      thesis: i.thesis,
+    });
+  }
 
   return (
-    <Link
-      href={`/stock/${i.code}?market=${i.market}`}
-      className="group block rounded-lg border border-zinc-200 bg-white px-4 py-2.5 transition hover:border-zinc-300 hover:shadow-sm"
-    >
-      <div className="flex items-center gap-4">
-        {/* 主信息 */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-baseline gap-2">
-            <h3 className="text-sm font-semibold text-zinc-900 truncate">{i.name}</h3>
-            <span className="font-mono text-xs text-zinc-400">{i.code}</span>
-            <span className={`text-[10px] font-medium ${marketColor}`}>{marketLabel}</span>
-            {i.layer && (
-              <span className="text-[10px] text-zinc-500">L{i.layer}</span>
+    <div className="group flex items-center rounded-lg border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-sm">
+      <Link
+        href={`/stock/${i.code}?market=${i.market}`}
+        className="block flex-1 min-w-0 px-4 py-2.5"
+      >
+        <div className="flex items-center gap-4">
+          {/* 主信息 */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-baseline gap-2">
+              <h3 className="text-sm font-semibold text-zinc-900 truncate">{i.name}</h3>
+              <span className="font-mono text-xs text-zinc-400">{i.code}</span>
+              <span className={`text-[10px] font-medium ${marketColor}`}>{marketLabel}</span>
+              {i.layer && (
+                <span className="text-[10px] text-zinc-500">L{i.layer}</span>
+              )}
+            </div>
+            <div className="mt-0.5 flex items-center gap-2 text-[11px] text-zinc-500">
+              {i.market_cap_yi && (
+                <span className="font-mono">
+                  {i.market_cap_yi.toFixed(0)} 亿
+                </span>
+              )}
+              {i.sector && (
+                <>
+                  <span className="text-zinc-300">·</span>
+                  <span className="truncate">{i.sector}</span>
+                </>
+              )}
+              {i.verdict_label && i.verdict !== "not_aleabit_territory" && (
+                <>
+                  <span className="text-zinc-300">·</span>
+                  <span className={verdictColor(i.verdict)}>{i.verdict_label}</span>
+                </>
+              )}
+            </div>
+            {i.thesis && i.verdict !== "not_aleabit_territory" && (
+              <p className="mt-1 truncate text-[11px] text-zinc-500 group-hover:whitespace-normal group-hover:text-zinc-700">
+                {i.thesis}
+              </p>
             )}
           </div>
-          <div className="mt-0.5 flex items-center gap-2 text-[11px] text-zinc-500">
-            {i.market_cap_yi && (
-              <span className="font-mono">
-                {i.market_cap_yi.toFixed(0)} 亿
-              </span>
-            )}
-            {i.sector && (
-              <>
-                <span className="text-zinc-300">·</span>
-                <span className="truncate">{i.sector}</span>
-              </>
-            )}
-            {i.verdict_label && i.verdict !== "not_aleabit_territory" && (
-              <>
-                <span className="text-zinc-300">·</span>
-                <span className={verdictColor(i.verdict)}>{i.verdict_label}</span>
-              </>
-            )}
-          </div>
-          {i.thesis && i.verdict !== "not_aleabit_territory" && (
-            <p className="mt-1 truncate text-[11px] text-zinc-500 group-hover:whitespace-normal group-hover:text-zinc-700">
-              {i.thesis}
-            </p>
-          )}
-        </div>
 
-        {/* 分数区 */}
-        <div className="flex shrink-0 items-center gap-3">
-          <div className="text-right">
-            <p className="text-[9px] uppercase tracking-wider text-zinc-400">信号</p>
-            <p className="font-mono text-xs text-zinc-700">{i.signals_hit}/7</p>
-          </div>
-          <div className="text-right">
-            <p className="text-[9px] uppercase tracking-wider text-violet-400">瓶颈</p>
-            <p
-              className={`font-mono text-lg font-semibold tabular-nums ${scoreColor(
-                i.score
-              )}`}
-            >
-              {i.score}
-            </p>
+          {/* 分数区 */}
+          <div className="flex shrink-0 items-center gap-3">
+            <div className="text-right">
+              <p className="text-[9px] uppercase tracking-wider text-zinc-400">信号</p>
+              <p className="font-mono text-xs text-zinc-700">{i.signals_hit}/7</p>
+            </div>
+            <div className="text-right">
+              <p className="text-[9px] uppercase tracking-wider text-violet-400">瓶颈</p>
+              <p
+                className={`font-mono text-lg font-semibold tabular-nums ${scoreColor(
+                  i.score
+                )}`}
+              >
+                {i.score}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+
+      {/* ⭐ 加入 watchlist 按钮 */}
+      <button
+        onClick={handleStar}
+        aria-label={inList ? "从 watchlist 移除" : "加入 watchlist"}
+        title={inList ? "从 watchlist 移除" : "加入 watchlist"}
+        className={`shrink-0 px-3 py-2 mr-2 rounded transition text-lg ${
+          inList
+            ? "text-amber-500 hover:text-amber-600 hover:bg-amber-50"
+            : "text-zinc-300 hover:text-amber-500 hover:bg-amber-50"
+        }`}
+      >
+        {inList ? "★" : "☆"}
+      </button>
+    </div>
   );
 }
 

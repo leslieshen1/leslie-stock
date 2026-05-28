@@ -189,10 +189,49 @@ export type AleabitAnalysis = {
   updated_at: string;
 };
 
+// ============================================================
+// 深度分析扩展（v2+ 票才有）
+// ============================================================
+
+export type AnalysisVersion = {
+  framework: "serenity" | "bg" | "news";
+  version: string;
+  score: number | null;
+  verdict_label: string;
+  layer_label: string;
+  thesis: string;
+  signals_hit: number;
+  red_flags: string[];
+  model: string;
+  pre_labeled: boolean;
+  created_at: string;
+};
+
+export type FinancialQuarter = {
+  period: string;
+  revenue: number | null;
+  n_income: number | null;
+  or_yoy: number | null;
+  net_margin: number | null;
+  gross_margin: number | null;
+  roe: number | null;
+  debt_to_assets: number | null;
+};
+
+export type RecentEvent = {
+  ann_date: string;
+  title: string;
+  tier: 1 | 2 | 3 | 4 | 5;
+  keyword: string;
+  url: string;
+  pdf_url: string | null;
+};
+
 export type Analysis = {
   code: string;
   name: string;
   market: "a" | "hk" | "us";
+  sector?: string;
   industry: string | null;
   overall_score: number;
   overall_grade: string;
@@ -213,8 +252,11 @@ export type Analysis = {
   updated_at: string;
   elapsed_seconds?: number;
   financials_history?: FinancialsHistory;
-  financials?: Record<string, number | null>;
+  financials?: { quarters: FinancialQuarter[] };
   aleabit?: AleabitAnalysis;
+  // 深度分析扩展
+  analyses_history?: AnalysisVersion[];
+  recent_events?: RecentEvent[];
 };
 
 export type NewsAnalysis = {

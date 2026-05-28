@@ -7,9 +7,12 @@ import {
   SUPPLY_EDGES,
   heatBand,
   marketPulse,
+  INDUSTRIES,
+  filterByIndustry,
   type CompanyWithHeat,
   type LayerId,
   type Region,
+  type IndustryId,
 } from "@/lib/supply-chain";
 import { tripleScore, type TripleScore, type PerspectiveScore } from "@/lib/scoring";
 
@@ -36,11 +39,16 @@ interface TrendPt { date: string; close?: number | null; heat?: number | null }
 export default function PulseClient({
   items,
   trends = {},
+  liveCount = 0,
+  generatedAtLabel = null,
 }: {
   items: CompanyWithHeat[];
   trends?: Record<string, TrendPt[]>;
+  liveCount?: number;
+  generatedAtLabel?: string | null;
 }) {
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
+  const [industry, setIndustry] = useState<IndustryId>("AI");
   const [region, setRegion] = useState<Region | "ALL">("ALL");
   const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
@@ -52,17 +60,32 @@ export default function PulseClient({
     [items],
   );
 
+  // 先按 industry 过滤（AI = 全部，其他 industry = 子集）
+  const industryItems = useMemo(
+    () => filterByIndustry(itemsScored, industry),
+    [itemsScored, industry],
+  );
+
+  // 每个 industry 的预计数量（用于按钮 badge）
+  const industryCounts = useMemo(() => {
+    const out: Record<string, number> = {};
+    for (const ind of INDUSTRIES) {
+      out[ind.id] = filterByIndustry(itemsScored, ind.id).length;
+    }
+    return out;
+  }, [itemsScored]);
+
   const filtered = useMemo(() => {
     const t = HEAT_TIERS.find((x) => x.id === tier)!;
-    return itemsScored.filter((c) => {
+    return industryItems.filter((c) => {
       if (region !== "ALL" && c.region !== region) return false;
       const score = colorMode === "heat" ? c.heat : c.triple;
       return score >= t.min && score <= t.max;
     });
-  }, [itemsScored, region, tier, colorMode]);
+  }, [industryItems, region, tier, colorMode]);
 
   const pulse = useMemo(() => {
-    const src = filtered.length ? filtered : itemsScored;
+    const src = filtered.length ? filtered : industryItems;
     // Market Pulse 大数也跟 mode 切
     if (colorMode === "heat") return marketPulse(src);
     // Triple mode 自己算
@@ -76,7 +99,7 @@ export default function PulseClient({
       coldCount: cold,
       total: src.length,
     };
-  }, [filtered, itemsScored, colorMode]);
+  }, [filtered, industryItems, colorMode]);
 
   const topHot = useMemo(() => {
     const score = (c: typeof itemsScored[number]) => (colorMode === "heat" ? c.heat : c.triple);
@@ -87,8 +110,74 @@ export default function PulseClient({
     return [...filtered].sort((a, b) => score(a) - score(b)).slice(0, 6);
   }, [filtered, colorMode]);
 
+  const currentInd = INDUSTRIES.find((x) => x.id === industry) ?? INDUSTRIES[0];
+
   return (
-    <div className="grid grid-cols-12 gap-5">
+    <>
+      {/* ===== 顶部 Industry Header（动态标题 + Tab 切换） ===== */}
+      <header className="mb-6 border-b border-zinc-200 pb-6">
+        <div className="mb-4 flex items-baseline justify-between flex-wrap gap-3">
+          <div>
+            <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+              {currentInd.emoji} {currentInd.name} · 脉冲热力图
+            </h1>
+            <p className="mt-1 text-sm text-zinc-500">
+              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 热度 / 三方综合
+            </p>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-mono">
+            {generatedAtLabel ? (
+              <>
+                <span className="inline-flex items-center gap-1.5 rounded bg-emerald-50 text-emerald-700 px-2.5 py-1 border border-emerald-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  LIVE {liveCount}/{items.length}
+                </span>
+                <span className="text-zinc-400">· 更新于 {generatedAtLabel}</span>
+              </>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 rounded bg-amber-50 text-amber-700 px-2.5 py-1 border border-amber-200">
+                MOCK 数据 · 跑 npm run fetch-pulse 接入真实
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Industry Tabs */}
+        <div className="flex flex-wrap items-center gap-2">
+          {INDUSTRIES.map((ind) => {
+            const active = industry === ind.id;
+            const isPrimary = ind.id === "AI";
+            const count = industryCounts[ind.id] ?? 0;
+            return (
+              <button
+                key={ind.id}
+                onClick={() => setIndustry(ind.id)}
+                className={`flex items-baseline gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium transition ${
+                  active
+                    ? "bg-zinc-900 text-white shadow-sm"
+                    : isPrimary
+                    ? "bg-violet-50 text-violet-700 hover:bg-violet-100 ring-1 ring-violet-200"
+                    : "bg-white text-zinc-700 hover:bg-zinc-50 ring-1 ring-zinc-200"
+                }`}
+                title={ind.desc}
+              >
+                <span>
+                  {ind.emoji} {ind.name}
+                </span>
+                <span
+                  className={`font-mono text-[10px] tabular-nums ${
+                    active ? "opacity-70" : "text-zinc-400"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </header>
+
+      <div className="grid grid-cols-12 gap-5">
       {/* ===== 左侧：过滤 + 排行 ===== */}
       <aside className="col-span-12 lg:col-span-3 space-y-4">
         {/* 全市场情绪 */}
@@ -324,7 +413,8 @@ export default function PulseClient({
           <EmptyHint />
         )}
       </aside>
-    </div>
+      </div>
+    </>
   );
 }
 

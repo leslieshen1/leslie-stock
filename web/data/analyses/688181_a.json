@@ -2,52 +2,9 @@
   "code": "688181",
   "name": "八亿时空",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688181",
     "name": "八亿时空",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "upstream",
+    "layer_label": "Liquid crystal materials + OLED/perovskite intermediates",
+    "bottleneck_score": 68,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "Aleabit analogue",
+    "thesis": "Mixed liquid crystal and OLED intermediates supplier. Domestic substitute play vs Merck/JNC. Small-cap critical material with technical depth - classic aleabit micro-chokepoint setup, though LCD demand softens vs OLED migration.",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_convergence",
+        "hit": true,
+        "note": "few qualified domestic LC mixers; BOE/CSOT funnel"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "material_ATH",
+        "hit": false,
+        "note": "specialty chemical not commodity ATH"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_lt_3",
+        "hit": true,
+        "note": "STAR small-cap, light coverage"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "technical_depth",
+        "hit": true,
+        "note": "molecular design IP, displaces Merck/JNC"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "gov_defense",
+        "hit": true,
+        "note": "domestic-substitution policy beneficiary"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "ceo_buying",
+        "hit": false,
+        "note": "no signal"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "small_cap_critical_capacity",
+        "hit": true,
+        "note": "57.9yi, key qualified supplier"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 5,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "LCD secular decline",
+      "OLED material ramp uncertain"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "indirect via display panels in edge AI devices",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:54:58.339612"
+  }
 }

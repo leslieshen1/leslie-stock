@@ -2,52 +2,9 @@
   "code": "002166",
   "name": "莱茵生物",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002166",
     "name": "莱茵生物",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": 2.08
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "plant_extract",
+    "layer_label": "植物提取 - 甜叶菊 / 大麻提取物",
+    "bottleneck_score": 38,
+    "verdict": "worth_watching",
+    "verdict_label": "可观察",
+    "thesis": "甜叶菊提取物（罗汉果苷 / 莱鲍迪苷）+ 工业大麻 CBD 提取，下游可口可乐 / 百事代糖添加。技术有特色但产能扩张过快导致产品价格承压。",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": false,
+        "note": "下游食品分散"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
+        "name": "material_ath",
+        "hit": false,
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under_3",
+        "hit": false,
+        "note": "中等覆盖"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "technical_depth",
+        "hit": true,
+        "note": "提取分离工艺"
+      },
+      {
+        "name": "gov_defense",
+        "hit": false,
+        "note": "无"
+      },
+      {
+        "name": "ceo_buying",
+        "hit": false,
+        "note": "无"
+      },
+      {
+        "name": "smallcap_critical_capacity",
+        "hit": false,
+        "note": "无"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 1,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "价格战",
+      "CBD 不确定性"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "none",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:02:03.304169"
+  }
 }

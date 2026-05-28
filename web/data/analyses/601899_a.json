@@ -2,7 +2,16 @@
   "code": "601899",
   "name": "紫金矿业",
   "market": "a",
-  "industry": "有色金属-黄金",
+  "sector": "能源/材料/资源",
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "601899",
+    "name": "紫金矿业",
+    "market_cap": 987000000000.0,
+    "pe_ttm": 19.38,
+    "pb": 5.84
+  },
   "overall_score": 83.25,
   "overall_grade": "🏆 重点候选",
   "verdict": "段永平和巴菲特会重点关注。陈景河式工程师 CEO + 全球资源 + 民营机制 = 教科书级价投。当前估值不便宜但前瞻 PE 10.6 倍 + ROE 21% + FCF/净利 1.46 = 好公司在合理价格。建议现价小仓持有，跌到 ¥30 以下分批加。",
@@ -101,16 +110,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "601899",
-    "name": "紫金矿业",
-    "price": 37.19,
-    "change_pct": -0.69,
-    "market_cap": 987000000000.0,
-    "pe_ttm": 19.38,
-    "pb": 5.84,
-    "industry": "有色金属-黄金"
-  },
   "sell_triggers": [
     "陈景河退休且接班人非工程师+长期主义类型",
     "海外重大资产被国有化",
@@ -118,20 +117,7 @@
     "ROE 跌破 15% 持续 2 年",
     "综合毛利率连续 2 季下滑 > 5pct"
   ],
-  "financials_history": {},
-  "financials": {},
   "updated_at": "2026-05-25T20:41:36",
-  "elapsed_seconds": 0,
-  "sector": "能源/材料/资源",
-  "concepts": [
-    "黄金",
-    "铜",
-    "锂矿",
-    "民营矿业",
-    "全球化",
-    "出海",
-    "新能源金属"
-  ],
   "aleabit": {
     "supply_chain_layer": 4,
     "layer_label": "Layer 4 — 原材料/物料控制点",
@@ -183,6 +169,7 @@
       "国企混合结构，CEO 不在二级市场买股"
     ],
     "ai_relevance": "铜是 AI 数据中心电力基础设施的关键材料；锂支撑 humanoid robotics 电池供应链",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T20:01:39.483026"
   }
 }

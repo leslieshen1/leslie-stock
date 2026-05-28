@@ -2,52 +2,9 @@
   "code": "000977",
   "name": "浪潮信息",
   "market": "a",
-  "industry": null,
   "sector": "Layer3_AI 服务器/液冷",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "000977",
     "name": "浪潮信息",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 4.53
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:59:14.046902",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 1,
     "layer_label": "Layer 1 — AI server OEM (terminal AI)",
@@ -108,6 +71,7 @@
       "Layer 1 terminal AI — too crowded"
     ],
     "ai_relevance": "Maximum theme exposure, minimum chokepoint angle.",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:59:14.046902"
   }
 }

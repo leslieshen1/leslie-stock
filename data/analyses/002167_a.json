@@ -2,52 +2,9 @@
   "code": "002167",
   "name": "东方锆业",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002167",
     "name": "东方锆业",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "upstream",
+    "layer_label": "上游锆系材料",
+    "bottleneck_score": 70,
+    "verdict": "high_conviction",
+    "verdict_label": "高信念瓶颈标的",
+    "thesis": "国内锆系产品龙头，锆是核电+陶瓷+航空航天+军工关键金属，中核钛白入主+军工/核工业卡位。锆英砂高度集中（澳洲铁矿同景区），中国是最大需求国但资源稀缺。典型小盘+关键金属+军工三重卡位。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": true,
+        "note": "锆资源全球高集中"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "材料 ATH",
+        "hit": false,
+        "note": "近期波动"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": true,
+        "note": "覆盖很少"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "技术深度",
+        "hit": true,
+        "note": "海绵锆/核级锆"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
+        "name": "政府国防",
+        "hit": true,
+        "note": "核电+军工"
+      },
+      {
+        "name": "CEO 增持",
+        "hit": false,
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "小盘+关键产能",
+        "hit": true,
+        "note": "百亿小盘+核级锆产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 5,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "历史亏损",
+      "锆英砂海外依赖"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "low - 半导体陶瓷靶用锆",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:30:04.381546"
+  }
 }

@@ -2,52 +2,9 @@
   "code": "300797",
   "name": "钢研纳克",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300797",
     "name": "钢研纳克",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 3,
+    "layer_label": "L3 — 金属材料分析检测仪器",
+    "bottleneck_score": 72,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🎯 类 aleabit",
+    "thesis": "Metallurgy analytical instruments (spark spectrometers, etc.) — owned by 钢铁研究总院 (China Iron & Steel Research Institute), domestic substitution for Bruker/Thermo/Hitachi in defense-relevant metals testing.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "yes",
+        "note": "国产金属分析仪器极少数"
       },
       {
         "name": "材料价格 ATH",
         "hit": "no",
-        "note": "无关"
+        "note": "—"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "小盘冷门"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "光谱仪 + 标样"
       },
       {
         "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "hit": "yes",
+        "note": "央企钢研院控股 + 军工检测"
       },
       {
         "name": "CEO 二级市场买入",
         "hit": "no",
-        "note": "未评估"
+        "note": "国资"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "国产仪器替代关键"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 5,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "仪器商业化慢",
+      "毛利波动"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "国产替代 + 半导体/航天材料检测受益",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:48:17.252229"
+  }
 }

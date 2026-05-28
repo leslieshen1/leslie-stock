@@ -2,52 +2,9 @@
   "code": "688053",
   "name": "ST思科瑞",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688053",
     "name": "ST思科瑞",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 3,
+    "layer_label": "L3 — 军工电子检测 / 第三方",
+    "bottleneck_score": 38,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 ST 军工电检 高风险",
+    "thesis": "Sciscape is a third-party military electronics testing/verification lab (元器件可靠性测试) — defense supply chain niche with strict qualification. However ST status post-IPO performance collapse — Serenity normally avoids ST but defense angle gives some optionality. Bottleneck thesis valid but ST overhang dominant.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "partial",
+        "note": "军检少数家"
       },
       {
         "name": "材料价格 ATH",
         "hit": "no",
-        "note": "无关"
+        "note": "无"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "ST 弱覆盖"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "实验室资质"
       },
       {
         "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "hit": "yes",
+        "note": "军工电检"
       },
       {
         "name": "CEO 二级市场买入",
         "hit": "no",
-        "note": "未评估"
+        "note": "无"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "小盘"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 2,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "ST 标签",
+      "业绩反复"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:24:08.399016"
+  }
 }

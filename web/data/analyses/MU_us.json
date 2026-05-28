@@ -2,7 +2,16 @@
   "code": "MU",
   "name": "美光科技",
   "market": "us",
-  "industry": "半导体-存储芯片",
+  "sector": "AI 上下游",
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "MU",
+    "name": "美光科技",
+    "market_cap": 610000000000.0,
+    "pe_ttm": 16.0,
+    "pb": 6.5
+  },
   "overall_score": 79.75,
   "overall_grade": "边缘重点候选（等回调）",
   "verdict": "段永平视角：MU 的'HBM 三寡头+AI 算力卡位+FCF 爆发'逻辑能完全看懂（类似买苹果的 thesis），但段永平铁律：周期股要在底部买。当前是周期上行中段（接近顶部），大概率赞同但不参与。等回调到 $400-450 才是 BG 入场点。",
@@ -102,16 +111,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "MU",
-    "name": "美光科技",
-    "price": 546.0,
-    "change_pct": 0.8,
-    "market_cap": 610000000000.0,
-    "pe_ttm": 16.0,
-    "pb": 6.5,
-    "industry": "半导体-存储芯片"
-  },
   "sell_triggers": [
     "NVIDIA/AMD/hyperscaler 削减 AI Capex",
     "HBM ASP 连续 2 季环比 -15%",
@@ -119,19 +118,7 @@
     "GAAP 毛利率跌破 50%（周期反转）",
     "NVIDIA Feynman 定制 HBM 合同失败"
   ],
-  "financials_history": {},
-  "financials": {},
   "updated_at": "2026-05-25T20:41:36",
-  "elapsed_seconds": 0,
-  "sector": "AI 上下游",
-  "concepts": [
-    "HBM",
-    "AI 算力",
-    "存储芯片",
-    "美国本土制造",
-    "NVIDIA 供应链",
-    "半导体周期"
-  ],
   "aleabit": {
     "supply_chain_layer": 2,
     "layer_label": "Layer 2 — 模块/接口（HBM for AI compute）",
@@ -183,6 +170,7 @@
       "她更倾向 $SNDK / $AXTI 这种更上游、更不为人知的标的"
     ],
     "ai_relevance": "HBM 是 AI 训练/推理的 memory bandwidth 瓶颈，但作为投资标的太 crowded",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T20:01:39.483048"
   }
 }

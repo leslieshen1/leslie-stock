@@ -2,52 +2,9 @@
   "code": "688577",
   "name": "浙海德曼",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688577",
     "name": "浙海德曼",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "machine_tools_cnc",
+    "layer_label": "数控车床 + 高端机床",
+    "bottleneck_score": 55,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "瓶颈类比",
+    "thesis": "国产高端数控机床（CNC 车床、车铣复合）厂商，国产替代 DMG MORI、马扎克。高端机床确实是被卡脖子领域，且海德曼在车床细分有突破。但整机厂规模有限，最关键的瓶颈（数控系统、丝杠、导轨、主轴）大多还在日德。Serenity 视角：方向对但瓶颈不在整机这一层。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": false,
+        "note": "整机厂多"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
+        "name": "材料 ATH",
+        "hit": false,
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": true,
+        "note": "覆盖少"
+      },
+      {
+        "name": "技术深度",
+        "hit": true,
+        "note": "五轴/车铣复合"
+      },
+      {
+        "name": "政府国防",
+        "hit": true,
+        "note": "军工航发用机床"
+      },
+      {
+        "name": "CEO 增持",
+        "hit": false,
+        "note": "未知"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": true,
+        "note": "100 亿小盘"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 4,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "核心部件依赖进口",
+      "民营机床盈利薄"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:30:04.381546"
+  }
 }

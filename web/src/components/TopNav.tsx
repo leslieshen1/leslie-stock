@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import SearchBox from "./SearchBox";
 
 interface DataHealth {
   liveCount: number;
@@ -43,11 +44,11 @@ export default function TopNav({ health }: { health?: DataHealth }) {
       <div className="mx-auto flex h-14 max-w-[1480px] items-center gap-6 px-6">
 
         {/* Logo */}
-        <Link href="/" className="flex items-baseline gap-1.5 shrink-0">
-          <span className="font-serif text-[19px] font-medium tracking-tight text-zinc-900" style={{fontFamily:"'Fraunces','Playfair Display',Georgia,serif"}}>
-            Leslie<span className="text-[#165DFF]">·</span>stock
+        <Link href="/" className="flex items-baseline gap-1.5 shrink-0" title="Not a Stock Guru">
+          <span className="text-[18px] font-semibold tracking-tight text-zinc-900">
+            我不是<span className="text-[#165DFF]">股神</span>
           </span>
-          <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider hidden md:inline">v0.4</span>
+          <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider hidden md:inline">v0.5</span>
         </Link>
 
         {/* 主导航 */}
@@ -77,11 +78,9 @@ export default function TopNav({ health }: { health?: DataHealth }) {
         {/* 中间 spacer */}
         <div className="flex-1" />
 
-        {/* 搜索 placeholder */}
-        <div className="hidden lg:flex items-center gap-2 rounded-md border border-zinc-200 bg-zinc-50/60 px-2.5 py-1 text-xs text-zinc-400 cursor-not-allowed select-none min-w-[180px]">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <span>搜索 ticker / 名称</span>
-          <span className="ml-auto font-mono text-[10px] text-zinc-400 border border-zinc-200 rounded px-1">⌘K</span>
+        {/* 真·搜索框（中等屏以上显示） */}
+        <div className="hidden lg:block w-[280px]">
+          <SearchBox compact placeholder="搜代码 / 名称 / 板块…" />
         </div>
 
         {/* 数据健康徽标 */}

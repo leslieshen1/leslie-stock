@@ -2,52 +2,9 @@
   "code": "603360",
   "name": "百傲化学",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "603360",
     "name": "百傲化学",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 4,
+    "layer_label": "特种化学品+半导体",
+    "bottleneck_score": 65,
+    "verdict": "worth_watching",
+    "verdict_label": "值得关注",
+    "thesis": "原工业杀菌剂(MIT/CMIT)全球细分龙头,但更关键的是2024年并购芯慧联,切入半导体设备代理+CMP抛光垫等耗材。半导体国产替代受益。CMP抛光垫是晶圆制造chokepoint之一,全球被陶氏/Cabot垄断,国产化空间大。但代理业务利润率薄,自研产能尚小,变量较大。",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": false,
+        "note": "CMP耗材国内多家竞争,尚未汇聚单一供应"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "material_ath",
+        "hit": false,
+        "note": "无显著上游材料涨价信号"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under_3",
+        "hit": true,
+        "note": "半导体业务转型期,覆盖度尚未跟上"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "technical_depth",
+        "hit": true,
+        "note": "CMP抛光垫聚氨酯配方+研磨工艺,LLM确实讲不清"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "gov_defense",
+        "hit": true,
+        "note": "半导体国产替代有政策导向,大基金间接受益"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "ceo_buyback",
+        "hit": false,
+        "note": "无显著管理层增持记录"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "small_cap_critical",
+        "hit": true,
+        "note": "180亿市值中等偏小,半导体业务占比上升"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 4,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "业务转型早期",
+      "半导体业务尚未规模化"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "moderate_indirect",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:59:15.775372"
+  }
 }

@@ -2,52 +2,9 @@
   "code": "688302",
   "name": "海创药业-U",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688302",
     "name": "海创药业-U",
@@ -55,58 +12,66 @@
     "pe_ttm": null,
     "pb": 4.07
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "upstream",
+    "layer_label": "创新药-PROTAC/AR降解",
+    "bottleneck_score": 60,
+    "verdict": "worth_watching",
+    "verdict_label": "💎",
+    "thesis": "科创板未盈利创新药，AR 降解剂前列腺癌管线全球第一梯队，PROTAC 平台为前沿技术，BD 出海可能性。",
     "signals": [
       {
         "name": "供应链汇聚",
         "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "note": "管线驱动"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
+        "name": "材料 ATH",
         "hit": "no",
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": "partial",
+        "note": "Biotech 部分覆盖"
       },
       {
-        "name": "小盘 + 关键产能",
+        "name": "技术深度",
+        "hit": "yes",
+        "note": "PROTAC/分子胶平台技术"
+      },
+      {
+        "name": "政府国防",
         "hit": "no",
-        "note": "未评估"
+        "note": "无"
+      },
+      {
+        "name": "CEO 增持",
+        "hit": "partial",
+        "note": "未核实"
+      },
+      {
+        "name": "小盘+关键产能",
+        "hit": "yes",
+        "note": "42 亿+管线稀缺性"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 3,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "未盈利",
+      "临床失败风险",
+      "现金消耗"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "AI 药物发现间接关联",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:24:08.399016"
+  }
 }

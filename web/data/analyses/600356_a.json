@@ -2,52 +2,9 @@
   "code": "600356",
   "name": "恒丰纸业",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "600356",
     "name": "恒丰纸业",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 4,
+    "layer_label": "L4 — 特种纸 (卷烟纸/格拉辛底纸/电池隔膜原纸)",
+    "bottleneck_score": 58,
+    "verdict": "worth_watching",
+    "verdict_label": "💎 值得观察",
+    "thesis": "Specialty paper — cigarette tipping paper plus glassine release liner plus lithium-battery separator base paper. Niche but multiple chokepoint adjacencies.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "partial",
+        "note": "卷烟纸+格拉辛纸国内份额高"
       },
       {
         "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "hit": "partial",
+        "note": "木浆波动"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "小盘覆盖少"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "特种纸配方"
       },
       {
         "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "hit": "partial",
+        "note": "中烟客户"
       },
       {
         "name": "CEO 二级市场买入",
         "hit": "no",
-        "note": "未评估"
+        "note": "云南国资"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "小盘+特种产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 1,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "国资管控",
+      "木浆价格风险"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "特种纸供应链 L4 — 卷烟纸+电池隔膜底纸双 chokepoint, 但烟草客户依赖",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:14:27.951398"
+  }
 }

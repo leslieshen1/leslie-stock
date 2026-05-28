@@ -2,52 +2,9 @@
   "code": "688733",
   "name": "壹石通",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688733",
     "name": "壹石通",
@@ -55,58 +12,37 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "supply_chain_layer": "upstream",
+    "layer_label": "锂电隔膜涂覆材料/氮化硅",
+    "bottleneck_score": 68,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "aleabit 风格类比",
+    "thesis": "勃姆石+氮化硅球填料，国内锂电池隔膜涂覆材料龙头；半导体散热材料氮化硅球已进入英特尔/AMD芯片封装供应链——这就是典型 chokepoint：小盘+关键中间材料+海外大厂认证壁垒。",
+    "signals": {
+      "supply_chain_convergence": true,
+      "material_ath": false,
+      "few_analysts": false,
+      "technical_depth": true,
+      "gov_defense": false,
+      "ceo_buying": false,
+      "small_cap_critical_capacity": true
+    },
+    "signals_hit": 3,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "锂电材料价格压力",
+      "氮化硅放量节奏"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "indirect",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:08:45.193749"
+  }
 }

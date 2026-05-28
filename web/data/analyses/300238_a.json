@@ -2,52 +2,9 @@
   "code": "300238",
   "name": "冠昊生物",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "300238",
     "name": "冠昊生物",
@@ -55,58 +12,38 @@
     "pe_ttm": null,
     "pb": 5.7
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "supply_chain_layer": "L3",
+    "layer_label": "生物再生材料 - 硬脑膜补片",
+    "bottleneck_score": 60,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "生物再生材料窄品类龙头",
+    "thesis": "生物再生材料平台（硬脑膜补片、宫颈/胸膜补片、人工角膜等），核心产品脑膜补片是国产替代里少有的高壁垒细分。生物材料注册壁垒高（NMPA 三类医疗器械），产品定价权强。规模小但技术深 + 分析师覆盖少，符合 Serenity 偏好的'稀缺再生医学产能'画像。Optogen 人工角膜是 optionality。",
+    "signals": {
+      "supply_convergence": true,
+      "material_ath": false,
+      "few_analysts": true,
+      "technical_depth": true,
+      "gov_defense": false,
+      "ceo_buying": false,
+      "smallcap_critical_capacity": true
+    },
+    "signals_hit": 4,
     "red_flags": [
-      "name matches obvious non-AI territory keywords"
+      "细分天花板",
+      "新产品商业化节奏慢",
+      "PB 5.7 估值偏高"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "none",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:14:27.951398"
+  }
 }

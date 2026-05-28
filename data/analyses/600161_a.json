@@ -2,7 +2,16 @@
   "code": "600161",
   "name": "天坛生物",
   "market": "a",
-  "industry": "医药生物-生物制品",
+  "sector": "医药生物",
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "600161",
+    "name": "天坛生物",
+    "market_cap": 28500000000.0,
+    "pe_ttm": 35.0,
+    "pb": 3.5
+  },
   "overall_score": 75.3,
   "overall_grade": "🏆 重点候选",
   "verdict": "段永平视角：血浆站牌照是真护城河（2001 年起国家基本停批），跟茅台'赤水河+茅台镇'不可复制同逻辑。当前 Q1 利润 -48% 看着吓人但是行业价格周期，基本面没坏。这种时候买好公司，最像段永平 2018 加仓腾讯（监管压力+短期业绩压力+商业模式没变）。建议现价小仓试水，跌到 ¥12 加仓。",
@@ -96,16 +105,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "600161",
-    "name": "天坛生物",
-    "price": 16.05,
-    "change_pct": 0.06,
-    "market_cap": 28500000000.0,
-    "pe_ttm": 35.0,
-    "pb": 3.5,
-    "industry": "医药生物-生物制品"
-  },
   "sell_triggers": [
     "血液制品被纳入大规模集采",
     "ROE 跌破 8% 持续 2 年",
@@ -113,19 +112,7 @@
     "母公司中国生物战略转向",
     "血浆站监管事件"
   ],
-  "financials_history": {},
-  "financials": {},
   "updated_at": "2026-05-25T20:41:36",
-  "elapsed_seconds": 0,
-  "sector": "医药生物",
-  "concepts": [
-    "血液制品",
-    "血浆站牌照",
-    "老龄化",
-    "国药集团",
-    "进口替代",
-    "资产注入"
-  ],
   "aleabit": {
     "supply_chain_layer": null,
     "layer_label": "N/A — 不在 AI capex 供应链",
@@ -176,6 +163,7 @@
       "段巴框架更合适评估这只股票"
     ],
     "ai_relevance": "无 — 这是价投视角的标的，不是 aleabit 视角的标的",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T20:01:39.483045"
   }
 }

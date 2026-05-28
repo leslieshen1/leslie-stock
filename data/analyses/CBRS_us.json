@@ -2,19 +2,17 @@
   "code": "CBRS",
   "name": "Cerebras Systems",
   "market": "us",
-  "industry": "Semiconductors / AI Compute",
   "sector": "AI 上下游",
-  "concepts": [
-    "AI 训练芯片",
-    "Wafer-Scale Engine",
-    "AI infra",
-    "推理加速",
-    "DARPA / Sandia",
-    "G42 / UAE 主权 AI",
-    "IPO 6 个月",
-    "Anti-NVDA"
-  ],
-  "overall_score": 46.0,
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "CBRS",
+    "name": "Cerebras Systems",
+    "market_cap": 56400000000.0,
+    "pe_ttm": 628.58,
+    "pb": null
+  },
+  "overall_score": 46,
   "overall_grade": "🔴 不在击球区",
   "verdict": "技术真东西（WSE-3 wafer-scale 是真壁垒）、客户真东西（OpenAI/AWS/Sandia/DARPA 都签了真合同）、护城河真东西（NVDA CUDA 之外少数能做训练的厂商）。但 $56B 市值 + P/S 110x + 86% 单一客户系（G42）三件事叠加，估值已 price in 2027-2028 极乐观情景。段永平视角：好故事 ≠ 好生意 at this price。击球区在 $80-120（IPO 价 $185 的 50% off） + 客户多元化 + OpenAI 合同实质兑现，三条件全满足。当前不在。",
   "llm_used": true,
@@ -133,23 +131,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "CBRS",
-    "name": "Cerebras Systems",
-    "price": 256.78,
-    "change_pct": -8.9,
-    "market_cap": 56400000000.0,
-    "pe_ttm": 628.58,
-    "pb": null,
-    "industry": "Semiconductors",
-    "fifty_two_w_high": 386.34,
-    "fifty_two_w_low": 250.27,
-    "volume_avg": 3370000,
-    "ipo_price": 185.0,
-    "ipo_date": "2026-05",
-    "revenue_2025": 510000000,
-    "employees": 708
-  },
   "sell_triggers": [
     "G42 项目正式延期或缩减公告",
     "OpenAI 合同提前终止或重新议价",
@@ -160,7 +141,6 @@
     "P/S 跌破 50x 触发 BG 重新评估窗口"
   ],
   "updated_at": "2026-05-26T21:20:51.035507",
-  "elapsed_seconds": 0,
   "aleabit": {
     "supply_chain_layer": 2,
     "layer_label": "Layer 2 — AI 加速器（直接对标 NVDA H100/B200）",
@@ -213,6 +193,7 @@
       "P/S 110x 即使按 Serenity 标准也偏贵"
     ],
     "ai_relevance": "AI 训练 / 推理芯片直接对标 NVDA。WSE-3 是当前世界最大单芯片，技术层面是真 chokepoint，但市场已充分定价。真正的 aleabit 狙击点应该是上游：TSMC 5nm 晶圆代工、CoWoS-S 封装产能、wafer-scale 散热方案、HBM3e 供应链。",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T21:20:51.035507"
   }
 }

@@ -2,52 +2,9 @@
   "code": "002258",
   "name": "利尔化学",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002258",
     "name": "利尔化学",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "specialty_chemicals_agrochem",
+    "layer_label": "草铵膦原药 + 农药中间体",
+    "bottleneck_score": 62,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "瓶颈类比",
+    "thesis": "草铵膦原药全球产能第一梯队，与拜耳、Lier 寡头格局。草铵膦替代草甘膦的长期趋势 + 转基因作物推广是基本面，但农化周期波动大。Serenity 会看：草铵膦产能集中度 + 关键中间体 MDP（甲基亚膦酸二乙酯）的卡位。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": true,
+        "note": "草铵膦全球三寡头"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "材料 ATH",
+        "hit": false,
+        "note": "草铵膦价格周期性"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": false,
+        "note": "覆盖较多"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "技术深度",
+        "hit": true,
+        "note": "MDP 工艺壁垒"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "政府国防",
+        "hit": false,
+        "note": "民用农化"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "CEO 增持",
+        "hit": false,
+        "note": "未知"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": false,
+        "note": "100 亿 + 是国内产能龙头"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 2,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "农化价格周期",
+      "新产能投放压价"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "无",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:30:04.381546"
+  }
 }

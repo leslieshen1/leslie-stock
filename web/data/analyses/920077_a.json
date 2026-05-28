@@ -2,52 +2,9 @@
   "code": "920077",
   "name": "吉林碳谷",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "920077",
     "name": "吉林碳谷",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "upstream",
+    "layer_label": "上游碳纤维原丝",
+    "bottleneck_score": 72,
+    "verdict": "high_conviction",
+    "verdict_label": "高信念瓶颈标的",
+    "thesis": "全球第二、中国最大碳纤维原丝（PAN 基）生产商，碳纤维 = 风电叶片+航空航天+军工+氢能瓶式高压瓶的关键卡脖子材料。北交所小盘，机构覆盖低，原丝是碳纤维产业链最难突破的环节，技术与设备双壁垒。典型 aleabit 瓶颈结构：上游材料卡位+小盘+小众覆盖+军民两用。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": true,
+        "note": "全球碳纤维原丝供应高度集中"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "name": "材料 ATH",
+        "hit": false,
+        "note": "周期下行中"
       },
       {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "name": "分析师 <3",
+        "hit": true,
+        "note": "北交所覆盖稀缺"
       },
       {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "name": "技术深度",
+        "hit": true,
+        "note": "PAN 原丝工艺壁垒极高"
       },
       {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "name": "政府国防",
+        "hit": true,
+        "note": "军工/航天/低空经济"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "CEO 增持",
+        "hit": false,
+        "note": "无公开信号"
       },
       {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "name": "小盘+关键产能",
+        "hit": true,
+        "note": "百亿小盘+全国 50%+ 原丝产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 5,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "碳纤维价格周期低位",
+      "下游需求扩张缓慢"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "medium - 数据中心/低空飞行器等 AI 时代基础设施用碳纤维",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T17:30:04.381546"
+  }
 }

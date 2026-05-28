@@ -2,7 +2,16 @@
   "code": "600301",
   "name": "华锡有色",
   "market": "a",
-  "industry": "有色金属-锡",
+  "sector": "能源/材料/资源",
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "600301",
+    "name": "华锡有色",
+    "market_cap": 34200000000.0,
+    "pe_ttm": 42.56,
+    "pb": 5.5
+  },
   "overall_score": 65.8,
   "overall_grade": "学习池边缘",
   "verdict": "段永平视角：资源+牌照是真东西，但'锡价 1Q26 同比 +48%、铟价 +62%'是周期上行中段，不是击球区。等下次锡价大跌 30%，公司基本面没坏，那时候是真便宜。⚠️ 警惕'朋友说有矿要并进来'这类消息驱动 — 这正是 Stop Doing List 第一条。",
@@ -94,16 +103,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "600301",
-    "name": "华锡有色",
-    "price": 54.05,
-    "change_pct": -1.2,
-    "market_cap": 34200000000.0,
-    "pe_ttm": 42.56,
-    "pb": 5.5,
-    "industry": "有色金属-锡"
-  },
   "sell_triggers": [
     "锡价 LME 跌破 $26000 持续 6 个月",
     "缅甸佤邦锡矿恢复 100% 产能",
@@ -111,19 +110,7 @@
     "实控人/国资委层面治理结构剧变",
     "矿业事故/安全停产"
   ],
-  "financials_history": {},
-  "financials": {},
   "updated_at": "2026-05-25T20:41:36",
-  "elapsed_seconds": 0,
-  "sector": "能源/材料/资源",
-  "concepts": [
-    "锡",
-    "锑",
-    "铟",
-    "国资矿业整合",
-    "广西矿权",
-    "战略稀有金属"
-  ],
   "aleabit": {
     "supply_chain_layer": 4,
     "layer_label": "Layer 4 — 原材料/物料控制点",
@@ -175,6 +162,7 @@
       "锡的需求也有焊接铅替代的长期不确定性"
     ],
     "ai_relevance": "锡是半导体后道封装/PCB SMT 焊接的关键耗材，AI 服务器爆发直接拉动锡需求",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T20:01:39.483049"
   }
 }

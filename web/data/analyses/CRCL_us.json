@@ -2,7 +2,16 @@
   "code": "CRCL",
   "name": "Circle Internet",
   "market": "us",
-  "industry": "金融科技-稳定币",
+  "sector": "互联网/金融科技",
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "CRCL",
+    "name": "Circle Internet",
+    "market_cap": 25000000000.0,
+    "pe_ttm": 100.0,
+    "pb": 5.5
+  },
   "overall_score": 64.15,
   "overall_grade": "学习池",
   "verdict": "段永平视角：'生意逻辑我懂，但你不能控制你的主要收入来源（美联储利率），这就不是好生意'。USDC 合规品牌+网络效应+Agent payments 99.8% 卡位都不错，但收入 95% 依赖国债利息 + Coinbase 分成 + PS 10x = 估值已 priced in 完美。能力圈外（如果你是 crypto 老兵则达标）。",
@@ -101,16 +110,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "CRCL",
-    "name": "Circle Internet",
-    "price": 113.12,
-    "change_pct": 1.8,
-    "market_cap": 25000000000.0,
-    "pe_ttm": 100.0,
-    "pb": 5.5,
-    "industry": "金融科技-稳定币"
-  },
   "sell_triggers": [
     "美联储一次降息 75bp+",
     "Q2 2026 毛利率继续下滑 < 20%",
@@ -118,20 +117,7 @@
     "JP Morgan Coin/Fed CBDC 推出",
     "CLARITY 法案被推翻"
   ],
-  "financials_history": {},
-  "financials": {},
   "updated_at": "2026-05-25T20:41:36",
-  "elapsed_seconds": 0,
-  "sector": "互联网/金融科技",
-  "concepts": [
-    "稳定币",
-    "USDC",
-    "AI agent payments",
-    "Web3",
-    "监管套利",
-    "国债套利",
-    "Coinbase 关联"
-  ],
   "aleabit": {
     "supply_chain_layer": null,
     "layer_label": "N/A — 不在 AI capex 供应链",
@@ -182,6 +168,7 @@
       "段巴框架（段永平视角）反而更适合评估 CRCL"
     ],
     "ai_relevance": "无 — 这是金融基础设施，不是 AI 物理供应链",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T20:01:39.483052"
   }
 }

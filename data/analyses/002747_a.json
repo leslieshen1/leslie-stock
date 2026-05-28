@@ -2,52 +2,9 @@
   "code": "002747",
   "name": "埃斯顿",
   "market": "a",
-  "industry": null,
   "sector": "Layer3_机器人核心部件（humanoid）",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002747",
     "name": "埃斯顿",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 8.55
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:40:08.264253",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 3,
     "layer_label": "Layer 3 — 工业机器人整机 + 伺服系统",
@@ -106,6 +69,7 @@
       "盈利能力承压（Cloos 整合 + 价格战）"
     ],
     "ai_relevance": "Humanoid 整机关联但非节点",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:40:08.264253"
   }
 }

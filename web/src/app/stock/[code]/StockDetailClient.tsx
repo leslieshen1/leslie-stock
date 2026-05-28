@@ -1,8 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import FinancialsCharts from "@/components/FinancialsCharts";
-import type { Analysis, DimensionScore, AleabitAnalysis, AleabitSignal } from "@/lib/data";
+import { useState, useMemo } from "react";
+import {
+  LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip,
+  ResponsiveContainer, ReferenceLine, CartesianGrid,
+} from "recharts";
+import type {
+  Analysis, AleabitSignal, AnalysisVersion, FinancialQuarter, RecentEvent,
+} from "@/lib/data";
 
 type Props = {
   code: string;
@@ -10,580 +15,523 @@ type Props = {
   initial: Analysis | null;
 };
 
-type PerspectiveTab = "bg" | "aleabit" | "combined";
-
 export default function StockDetailClient({ code, market, initial }: Props) {
-  const [data, setData] = useState<Analysis | null>(initial);
-  const [status, setStatus] = useState<
-    "idle" | "starting" | "pending" | "ok" | "error"
-  >(initial ? "ok" : "idle");
-  const [elapsed, setElapsed] = useState(0);
-  const [tab, setTab] = useState<PerspectiveTab>("bg");
-  const startedAtRef = useRef<number | null>(null);
-  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
 
-  useEffect(() => {
-    return () => {
-      if (pollRef.current) clearInterval(pollRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (status === "pending" || status === "starting") {
-      const tick = setInterval(() => {
-        if (startedAtRef.current) {
-          setElapsed(Math.floor((Date.now() - startedAtRef.current) / 1000));
-        }
-      }, 1000);
-      return () => clearInterval(tick);
-    }
-  }, [status]);
-
-  async function generate(force = false) {
-    setStatus("starting");
-    startedAtRef.current = Date.now();
-    setElapsed(0);
-
-    try {
-      const resp = await fetch(
-        `/api/analyze/${code}?market=${market}${force ? "&force=1" : ""}`,
-        { method: "POST" }
-      );
-      const body = await resp.json();
-      if (body.status === "ok" && body.data) {
-        setData(body.data);
-        setStatus("ok");
-        return;
-      }
-      setStatus("pending");
-      pollRef.current = setInterval(pollOnce, 3000);
-    } catch (e) {
-      console.error(e);
-      setStatus("error");
-    }
-  }
-
-  async function pollOnce() {
-    try {
-      const resp = await fetch(`/api/analyze/${code}?market=${market}`);
-      if (resp.status === 404) return;
-      const body = await resp.json();
-      if (body.status === "ok" && body.data) {
-        setData(body.data);
-        setStatus("ok");
-        if (pollRef.current) clearInterval(pollRef.current);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  if (!data && status === "idle") {
+  if (!initial) {
     return (
-      <div className="rounded-xl border border-dashed border-zinc-300 bg-white p-12 text-center">
-        <p className="mb-2 text-lg text-zinc-700">还没分析过这只股票</p>
-        <p className="mb-6 text-sm text-zinc-500">
-          点击下面按钮，调用 <strong>GLM-5.1</strong>{" "}
-          按 BG_DNA 框架（段永平 + 巴菲特）做深度评估。耗时约 60-120 秒。
-        </p>
-        <button
-          onClick={() => generate(false)}
-          className="rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium text-white hover:bg-zinc-700 transition"
-        >
-          🤖 生成 BG 深度分析
-        </button>
-      </div>
-    );
-  }
-
-  if (!data && (status === "starting" || status === "pending")) {
-    return (
-      <div className="rounded-xl border border-zinc-200 bg-white p-12 text-center">
-        <div className="mb-4 inline-block h-8 w-8 animate-spin rounded-full border-4 border-zinc-200 border-t-zinc-900" />
-        <p className="mb-2 text-lg text-zinc-700">GLM-5.1 正在分析中…</p>
+      <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-12 text-center">
+        <p className="mb-2 text-lg text-zinc-700">还没分析过 {code}</p>
         <p className="text-sm text-zinc-500">
-          已耗时 {elapsed} 秒（通常 60-120 秒完成）
+          回去搜索其他票，或者跟我说&ldquo;深度分析 {code}&rdquo;。
         </p>
       </div>
     );
   }
 
-  if (!data && status === "error") {
-    return (
-      <div className="rounded-xl border border-rose-300 bg-rose-50 p-8 text-center">
-        <p className="mb-4 text-rose-700">分析失败 — 请重试</p>
-        <button
-          onClick={() => generate(true)}
-          className="rounded-lg bg-rose-600 px-4 py-2 text-sm font-medium text-white"
-        >
-          重试
-        </button>
-      </div>
-    );
-  }
+  const a = initial.aleabit;
+  const history = initial.analyses_history || [];
+  const serenityHistory = history.filter((h) => h.framework === "serenity");
+  const latestSerenity = serenityHistory[serenityHistory.length - 1];
 
-  const hasAleabit = !!data!.aleabit;
+  // 选中版本（默认最新）
+  const currentVersion = useMemo(() => {
+    if (selectedVersion) {
+      const v = serenityHistory.find((h) => h.version === selectedVersion);
+      if (v) return v;
+    }
+    return latestSerenity || null;
+  }, [selectedVersion, serenityHistory, latestSerenity]);
+
+  const score = currentVersion?.score ?? a?.bottleneck_score ?? 0;
+  const verdict = currentVersion?.verdict_label || a?.verdict_label || "";
+  const layer = currentVersion?.layer_label || a?.layer_label || "";
+  const thesis = currentVersion?.thesis || a?.thesis || "";
+  const signals = a?.signals || [];
+  const redFlags = currentVersion?.red_flags || a?.red_flags || [];
+  const signalsHit = currentVersion?.signals_hit || a?.signals_hit || 0;
+
+  const mc = initial.raw_quote?.market_cap as number | null | undefined;
+  const pe = initial.raw_quote?.pe_ttm as number | null | undefined;
+  const pb = initial.raw_quote?.pb as number | null | undefined;
+  const mcStr = mc ? `${(mc / 1e8).toFixed(1)} 亿` : "—";
+
+  const ticker = code; // for external links
+  const isSH = market === "a" && code.startsWith("6");
+  const xueqiuPrefix = market === "a" ? (isSH ? "SH" : "SZ") : market === "hk" ? "" : "";
+  const eastPrefix = isSH ? "SH" : "SZ";
 
   return (
-    <>
-      {/* 三视角 Tab 切换 */}
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <div className="inline-flex rounded-lg border border-zinc-200 bg-white p-1">
-          <PerspectiveTabButton active={tab === "bg"} onClick={() => setTab("bg")}>
-            💎 段巴框架
-          </PerspectiveTabButton>
-          <PerspectiveTabButton
-            active={tab === "aleabit"}
-            onClick={() => setTab("aleabit")}
-            disabled={!hasAleabit}
-          >
-            🎯 Serenity 瓶颈
-          </PerspectiveTabButton>
-          <PerspectiveTabButton
-            active={tab === "combined"}
-            onClick={() => setTab("combined")}
-          >
-            ⚖️ 综合判断
-          </PerspectiveTabButton>
-        </div>
-        <p className="text-xs text-zinc-400">
-          更新于 {new Date(data!.updated_at).toLocaleString("zh-CN")} ·
-          <button
-            onClick={() => generate(true)}
-            disabled={status === "pending" || status === "starting"}
-            className="ml-1 text-blue-600 hover:text-blue-800 disabled:text-zinc-400"
-          >
-            {status === "pending" || status === "starting"
-              ? `重新生成中…（${elapsed}s）`
-              : "🔄 重新生成"}
-          </button>
-        </p>
-      </div>
+    <div className="space-y-8">
+      {/* ============ HERO ============ */}
+      <section className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-white via-white to-violet-50/40 p-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr] md:items-start">
+          {/* 大评分 */}
+          <div className="flex items-center gap-6">
+            <div className="text-center">
+              <div className={`font-mono text-6xl font-bold tracking-tight ${scoreColor(score)}`}>
+                {score || "—"}
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-wider text-zinc-400">
+                Bottleneck Score
+              </div>
+            </div>
+            <div className="h-20 w-px bg-zinc-200" />
+            <div>
+              <p className="text-xs uppercase tracking-wider text-zinc-400">Signals</p>
+              <p className="mt-1 font-mono text-3xl font-semibold text-zinc-800">
+                {signalsHit}<span className="text-base text-zinc-400">/{signals.length || 6}</span>
+              </p>
+              <p className="mt-3 text-xs uppercase tracking-wider text-zinc-400">Red Flags</p>
+              <p className="mt-1 font-mono text-2xl font-semibold text-rose-600">
+                {redFlags.length}
+              </p>
+            </div>
+          </div>
 
-      {tab === "bg" && <BGPerspective data={data!} />}
-      {tab === "aleabit" && (
-        hasAleabit ? <AleabitPerspective a={data!.aleabit!} /> : <AleabitMissing />
-      )}
-      {tab === "combined" && <CombinedPerspective data={data!} />}
-    </>
-  );
-}
+          {/* 右侧文字 */}
+          <div>
+            {verdict && (
+              <p className="mb-3 text-2xl font-semibold leading-snug text-zinc-900">
+                {verdict}
+              </p>
+            )}
+            {layer && (
+              <p className="mb-4 text-sm leading-relaxed text-violet-700">
+                {layer}
+              </p>
+            )}
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+              <span className="text-zinc-500">市值 <span className="font-mono text-zinc-800">{mcStr}</span></span>
+              {pe != null && <span className="text-zinc-500">PE <span className="font-mono text-zinc-800">{pe.toFixed(1)}</span></span>}
+              {pb != null && <span className="text-zinc-500">PB <span className="font-mono text-zinc-800">{pb.toFixed(1)}</span></span>}
+              {initial.sector && <span className="text-zinc-500">{initial.sector}</span>}
+            </div>
 
-// ============================================================
-// 视角 1: 段巴框架（原有内容）
-// ============================================================
-
-function BGPerspective({ data }: { data: Analysis }) {
-  return (
-    <>
-      <div className="mb-6 flex items-baseline justify-between rounded-xl border border-zinc-200 bg-white px-6 py-4">
-        <div>
-          <p className="text-xs uppercase tracking-wider text-zinc-400">BG 综合得分</p>
-          <p className={`mt-1 font-mono text-3xl font-semibold ${scoreColor(data.overall_score)}`}>
-            {data.overall_score.toFixed(1)}
-            <span className="ml-1 text-base text-zinc-400">/100</span>
-          </p>
-          <p className="mt-1 text-sm text-zinc-600">{data.overall_grade}</p>
-        </div>
-        <div className="text-right">
-          {data.llm_used && (
-            <p className="mb-2 inline-flex rounded bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
-              GLM-{data.llm_model?.includes("5") ? "5.1" : "4.5"} 已分析
-            </p>
-          )}
-        </div>
-      </div>
-
-      {data.verdict && (
-        <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-6">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-amber-800">
-            段永平 / 巴菲特视角 · GLM-5.1
-          </p>
-          <p className="text-zinc-800 leading-relaxed">{data.verdict}</p>
-        </div>
-      )}
-
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <DimensionCard label="1. 商业模式" d={data.dimensions.business_model} />
-        <DimensionCard label="2. 护城河" d={data.dimensions.moat} />
-        <DimensionCard label="3. 管理层" d={data.dimensions.management} />
-        <DimensionCard label="4. 财务质量" d={data.dimensions.financials} />
-        <DimensionCard label="5. 估值" d={data.dimensions.valuation} />
-        <DimensionCard label="6. 能力圈" d={data.dimensions.circle} />
-      </div>
-
-      {data.raw_quote && (
-        <div className="mt-8 rounded-xl border border-zinc-200 bg-white p-6">
-          <p className="mb-3 text-sm font-semibold text-zinc-700">实时行情</p>
-          <div className="grid grid-cols-2 gap-3 text-sm md:grid-cols-4">
-            <Stat label="现价" value={fmt(data.raw_quote.price)} />
-            <Stat
-              label="今涨幅"
-              value={fmt(data.raw_quote.change_pct, "%")}
-              color={signedColor(data.raw_quote.change_pct as number)}
-            />
-            <Stat label="PE TTM" value={fmt(data.raw_quote.pe_ttm)} />
-            <Stat label="PB" value={fmt(data.raw_quote.pb)} />
+            {/* External links */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              <ExtLink href={`http://www.cninfo.com.cn/new/disclosure/stock?stockCode=${ticker}`} label="巨潮 F10" />
+              {market === "a" && (
+                <>
+                  <ExtLink href={`https://xueqiu.com/S/${xueqiuPrefix}${ticker}`} label="雪球" />
+                  <ExtLink href={`https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=${eastPrefix}${ticker}`} label="东方财富 F10" />
+                </>
+              )}
+              {market === "hk" && <ExtLink href={`https://xueqiu.com/S/${ticker}`} label="雪球 HK" />}
+              {market === "us" && <ExtLink href={`https://xueqiu.com/S/${ticker}`} label="雪球 US" />}
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* ============ 评分演化 Timeline ============ */}
+      {serenityHistory.length > 1 && (
+        <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+          <header className="mb-5 flex items-baseline justify-between">
+            <h2 className="text-base font-semibold text-zinc-800">📈 评分演化</h2>
+            <p className="text-xs text-zinc-500">
+              {serenityHistory.length} 个版本 · 点击切换查看历史 thesis
+            </p>
+          </header>
+          <VersionTimeline
+            versions={serenityHistory}
+            current={currentVersion}
+            onSelect={(v) => setSelectedVersion(v)}
+          />
+        </section>
       )}
 
-      {data.financials_history && (
-        <div className="mt-8">
-          <h2 className="mb-3 text-base font-semibold text-zinc-800">5 年财务走势</h2>
-          <FinancialsCharts history={data.financials_history} />
-        </div>
+      {/* ============ 当前 thesis ============ */}
+      {thesis && (
+        <section className="rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50/50 to-white p-6">
+          <header className="mb-4 flex items-baseline justify-between">
+            <h2 className="text-base font-semibold text-zinc-800">
+              💡 Thesis {currentVersion && <span className="ml-2 text-xs text-violet-600">({currentVersion.version})</span>}
+            </h2>
+            {currentVersion && (
+              <p className="text-xs text-zinc-500">
+                {currentVersion.model || "—"} · {(currentVersion.created_at || "").slice(0, 10)}
+              </p>
+            )}
+          </header>
+          <div className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-zinc-800">
+            {thesis}
+          </div>
+        </section>
       )}
 
-      {data.sell_triggers && data.sell_triggers.length > 0 && (
-        <div className="mt-8 rounded-xl border border-rose-200 bg-rose-50 p-6">
-          <p className="mb-3 text-sm font-semibold text-rose-800">🚨 卖出触发条件</p>
-          <ul className="space-y-1.5 text-sm text-rose-900">
-            {data.sell_triggers.map((t, i) => (
-              <li key={i}>• {t}</li>
+      {/* ============ Signals 网格 ============ */}
+      {signals.length > 0 && (
+        <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+          <header className="mb-5 flex items-baseline justify-between">
+            <h2 className="text-base font-semibold text-zinc-800">✓ 瓶颈信号</h2>
+            <p className="text-xs text-zinc-500">
+              命中 <span className="font-mono font-semibold text-emerald-600">{signalsHit}</span> / {signals.length}
+            </p>
+          </header>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {signals.map((s, i) => (
+              <SignalCard key={i} s={s} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ============ Red Flags ============ */}
+      {redFlags.length > 0 && (
+        <section className="rounded-2xl border border-rose-200 bg-rose-50/60 p-6">
+          <header className="mb-4">
+            <h2 className="text-base font-semibold text-rose-800">⚠️ Red Flags</h2>
+            <p className="text-xs text-rose-600">v{currentVersion?.version || "—"} 标注的风险点（{redFlags.length} 条）</p>
+          </header>
+          <ul className="space-y-2.5">
+            {redFlags.map((f, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm leading-relaxed text-rose-900">
+                <span className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
+                <span>{f}</span>
+              </li>
             ))}
           </ul>
-        </div>
-      )}
-    </>
-  );
-}
-
-// ============================================================
-// 视角 2: Serenity (aleabit) 瓶颈狙击
-// ============================================================
-
-function AleabitPerspective({ a }: { a: AleabitAnalysis }) {
-  return (
-    <>
-      <div className="mb-6 flex items-baseline justify-between rounded-xl border border-violet-200 bg-gradient-to-br from-violet-50 to-fuchsia-50 px-6 py-4">
-        <div>
-          <p className="text-xs uppercase tracking-wider text-violet-500">
-            Bottleneck Score · Serenity Framework
-          </p>
-          <p className={`mt-1 font-mono text-3xl font-semibold ${bottleneckColor(a.bottleneck_score)}`}>
-            {a.bottleneck_score}
-            <span className="ml-1 text-base text-violet-400">/100</span>
-          </p>
-          <p className="mt-1 text-sm text-violet-700">{a.verdict_label}</p>
-        </div>
-        <div className="text-right">
-          <p className="mb-1 text-xs uppercase tracking-wider text-violet-400">供应链层级</p>
-          <p className="font-mono text-lg font-semibold text-violet-800">
-            {a.supply_chain_layer ? `Layer ${a.supply_chain_layer}` : "N/A"}
-          </p>
-          <p className="text-xs text-violet-500">{a.layer_label}</p>
-        </div>
-      </div>
-
-      <div className="mb-6 rounded-xl border border-zinc-200 bg-white p-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-          Serenity Thesis · @aleabitoreddit voice
-        </p>
-        <p className="font-mono text-sm text-zinc-800 leading-relaxed">{a.thesis}</p>
-      </div>
-
-      <div className="mb-6 rounded-xl border border-zinc-200 bg-white p-6">
-        <div className="mb-4 flex items-baseline justify-between">
-          <p className="text-sm font-semibold text-zinc-800">7 项瓶颈信号</p>
-          <p className="text-xs text-zinc-500">
-            命中 <span className="font-mono font-semibold text-violet-700">{a.signals_hit}</span> / 7
-          </p>
-        </div>
-        <ul className="space-y-3">
-          {a.signals.map((s, i) => (
-            <SignalRow key={i} s={s} />
-          ))}
-        </ul>
-      </div>
-
-      {a.red_flags.length > 0 && (
-        <div className="mb-6 rounded-xl border border-rose-200 bg-rose-50 p-6">
-          <p className="mb-3 text-sm font-semibold text-rose-800">⚠️ Red Flags</p>
-          <ul className="space-y-1.5 text-sm text-rose-900">
-            {a.red_flags.map((f, i) => (
-              <li key={i}>• {f}</li>
-            ))}
-          </ul>
-        </div>
+        </section>
       )}
 
-      <div className="rounded-xl border border-sky-200 bg-sky-50 p-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-sky-700">
-          AI 资本支出关联
-        </p>
-        <p className="text-sm text-sky-900 leading-relaxed">{a.ai_relevance}</p>
-      </div>
+      {/* ============ 财务面 ============ */}
+      {initial.financials?.quarters && initial.financials.quarters.length > 0 && (
+        <FinancialsSection quarters={initial.financials.quarters} />
+      )}
 
-      <p className="mt-6 text-center text-xs text-zinc-400">
-        基于 Serenity 公开框架的风格复刻 · NOT 投资建议 ·
-        bottleneck_score 命中度 = (yes × 1 + partial × 0.5) / 7 × 100
+      {/* ============ 关键公告 ============ */}
+      {initial.recent_events && initial.recent_events.length > 0 && (
+        <EventsSection events={initial.recent_events} code={code} market={market} />
+      )}
+
+      {/* ============ AI 资本支出关联（如有）============ */}
+      {a?.ai_relevance && (
+        <section className="rounded-2xl border border-sky-200 bg-sky-50/60 p-6">
+          <h2 className="mb-2 text-base font-semibold text-sky-800">🤖 AI 资本支出关联</h2>
+          <p className="text-sm leading-relaxed text-sky-900">{a.ai_relevance}</p>
+        </section>
+      )}
+
+      {/* ============ Disclaimer ============ */}
+      <p className="text-center text-xs text-zinc-400">
+        基于 Serenity / 段巴 BG / aleabit 公开框架的风格复刻 · NOT 投资建议 ·
+        数据源：巨潮 公告 + Tushare 财务 + 手动 fact-check
       </p>
-    </>
+    </div>
   );
 }
 
-function SignalRow({ s }: { s: AleabitSignal }) {
-  const icon = s.hit === "yes" ? "✓" : s.hit === "partial" ? "◐" : "✗";
-  const color =
-    s.hit === "yes"
-      ? "text-emerald-600 bg-emerald-50 border-emerald-200"
-      : s.hit === "partial"
-      ? "text-amber-600 bg-amber-50 border-amber-200"
-      : "text-zinc-400 bg-zinc-50 border-zinc-200";
+// ============================================================
+// 版本时间线
+// ============================================================
+
+function VersionTimeline({
+  versions, current, onSelect,
+}: {
+  versions: AnalysisVersion[];
+  current: AnalysisVersion | null;
+  onSelect: (v: string) => void;
+}) {
+  return (
+    <div>
+      <div className="flex flex-wrap items-stretch gap-2">
+        {versions.map((v, i) => {
+          const isCurrent = current?.version === v.version;
+          const prev = versions[i - 1];
+          const delta = prev && v.score != null && prev.score != null ? v.score - prev.score : null;
+          return (
+            <button
+              key={v.version}
+              onClick={() => onSelect(v.version)}
+              className={`flex-1 min-w-[140px] rounded-xl border p-3 text-left transition ${
+                isCurrent
+                  ? "border-violet-500 bg-violet-50 shadow-sm"
+                  : "border-zinc-200 bg-white hover:border-zinc-400 hover:bg-zinc-50"
+              }`}
+            >
+              <div className="flex items-baseline justify-between">
+                <span className={`font-mono text-xs uppercase tracking-wider ${isCurrent ? "text-violet-700" : "text-zinc-400"}`}>
+                  {v.version}
+                </span>
+                {delta !== null && delta !== 0 && (
+                  <span className={`font-mono text-xs ${delta > 0 ? "text-emerald-600" : "text-rose-600"}`}>
+                    {delta > 0 ? "+" : ""}{delta}
+                  </span>
+                )}
+              </div>
+              <div className={`mt-1 font-mono text-2xl font-semibold ${scoreColor(v.score || 0)}`}>
+                {v.score ?? "—"}
+              </div>
+              <div className="mt-1 line-clamp-2 text-xs leading-snug text-zinc-600">
+                {v.verdict_label}
+              </div>
+              <div className="mt-2 font-mono text-[10px] text-zinc-400">
+                {(v.created_at || "").slice(0, 10)}
+                {v.pre_labeled && <span className="ml-1 text-amber-600">[pre]</span>}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// Signal Card
+// ============================================================
+
+function SignalCard({ s }: { s: AleabitSignal }) {
+  const hit = s.hit === "yes" || (s.hit as unknown) === true || (s.hit as unknown) === 1;
+  const partial = s.hit === "partial";
+  const icon = hit ? "✓" : partial ? "◐" : "✗";
+  const tone = hit
+    ? "border-emerald-200 bg-emerald-50/60"
+    : partial
+    ? "border-amber-200 bg-amber-50/60"
+    : "border-zinc-200 bg-zinc-50/60";
+  const iconTone = hit
+    ? "bg-emerald-500 text-white"
+    : partial
+    ? "bg-amber-500 text-white"
+    : "bg-zinc-300 text-white";
+
+  // v2+ 用了 evidence 字段
+  const evidence = (s as unknown as { evidence?: string }).evidence;
+  const note = evidence || s.note;
 
   return (
-    <li className="flex items-start gap-3">
-      <span
-        className={`shrink-0 inline-flex h-6 w-6 items-center justify-center rounded-full border font-mono text-xs ${color}`}
-      >
+    <div className={`flex items-start gap-3 rounded-xl border p-3 ${tone}`}>
+      <span className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${iconTone}`}>
         {icon}
       </span>
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-zinc-800">{s.name}</p>
-        <p className="mt-0.5 text-xs text-zinc-600 leading-relaxed">{s.note}</p>
+      <div className="min-w-0 flex-1">
+        <p className="text-sm font-medium text-zinc-900">{s.name}</p>
+        {note && <p className="mt-1 text-xs leading-relaxed text-zinc-600">{note}</p>}
       </div>
+    </div>
+  );
+}
+
+// ============================================================
+// 财务面（8 季 + chart + table）
+// ============================================================
+
+function FinancialsSection({ quarters }: { quarters: FinancialQuarter[] }) {
+  const data = useMemo(
+    () =>
+      [...quarters].reverse().map((q) => ({
+        period: q.period.slice(2, 6) + "Q" + Math.ceil(parseInt(q.period.slice(4, 6)) / 3),
+        rawPeriod: q.period,
+        revenue: q.revenue ? Math.round(q.revenue / 1e8 * 100) / 100 : null,
+        roe: q.roe,
+        net_margin: q.net_margin,
+        gross_margin: q.gross_margin,
+        or_yoy: q.or_yoy,
+        debt: q.debt_to_assets,
+      })),
+    [quarters]
+  );
+
+  return (
+    <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+      <header className="mb-5 flex items-baseline justify-between">
+        <h2 className="text-base font-semibold text-zinc-800">💰 财务面（{quarters.length} 季）</h2>
+        <p className="text-xs text-zinc-500">来源 Tushare fina_indicator + income</p>
+      </header>
+
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* 营收 + YoY% */}
+        <div>
+          <p className="mb-1 text-xs font-medium text-zinc-600">营收（亿元） + YoY%</p>
+          <ResponsiveContainer width="100%" height={180}>
+            <BarChart data={data} margin={{ top: 8, right: 10, bottom: 0, left: -20 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" />
+              <XAxis dataKey="period" tick={{ fontSize: 11, fill: "#a1a1aa" }} />
+              <YAxis tick={{ fontSize: 11, fill: "#a1a1aa" }} />
+              <Tooltip
+                formatter={(v, n) => [v as number, n === "revenue" ? "营收(亿)" : (n as string)]}
+                contentStyle={{ fontSize: 12, borderRadius: 8 }}
+              />
+              <Bar dataKey="revenue" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* ROE + 净利率 + 毛利率 */}
+        <div>
+          <p className="mb-1 text-xs font-medium text-zinc-600">ROE · 净利率 · 毛利率（%）</p>
+          <ResponsiveContainer width="100%" height={180}>
+            <LineChart data={data} margin={{ top: 8, right: 10, bottom: 0, left: -20 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" />
+              <XAxis dataKey="period" tick={{ fontSize: 11, fill: "#a1a1aa" }} />
+              <YAxis tick={{ fontSize: 11, fill: "#a1a1aa" }} />
+              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8 }} />
+              <ReferenceLine y={0} stroke="#e4e4e7" />
+              <Line type="monotone" dataKey="roe" stroke="#10b981" strokeWidth={2} dot={{ r: 3 }} name="ROE" />
+              <Line type="monotone" dataKey="net_margin" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 3 }} name="净利率" />
+              <Line type="monotone" dataKey="gross_margin" stroke="#3b82f6" strokeWidth={2} dot={{ r: 3 }} name="毛利率" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* 表格 */}
+      <div className="mt-6 overflow-x-auto">
+        <table className="w-full min-w-[640px] text-sm">
+          <thead>
+            <tr className="border-b border-zinc-200 text-left text-xs text-zinc-500">
+              <th className="py-2 pr-3">Period</th>
+              <th className="py-2 pr-3 text-right">营收 (亿)</th>
+              <th className="py-2 pr-3 text-right">YoY%</th>
+              <th className="py-2 pr-3 text-right">净利率%</th>
+              <th className="py-2 pr-3 text-right">毛利率%</th>
+              <th className="py-2 pr-3 text-right">ROE%</th>
+              <th className="py-2 pr-3 text-right">负债率%</th>
+            </tr>
+          </thead>
+          <tbody>
+            {quarters.map((q) => (
+              <tr key={q.period} className="border-b border-zinc-100 text-zinc-700">
+                <td className="py-2 pr-3 font-mono text-xs">{q.period}</td>
+                <td className="py-2 pr-3 text-right font-mono">{fmtYi(q.revenue)}</td>
+                <td className={`py-2 pr-3 text-right font-mono ${signedColor(q.or_yoy)}`}>{fmtNum(q.or_yoy, 1)}</td>
+                <td className={`py-2 pr-3 text-right font-mono ${signedColor(q.net_margin)}`}>{fmtNum(q.net_margin, 1)}</td>
+                <td className="py-2 pr-3 text-right font-mono">{fmtNum(q.gross_margin, 1)}</td>
+                <td className="py-2 pr-3 text-right font-mono">{fmtNum(q.roe, 1)}</td>
+                <td className="py-2 pr-3 text-right font-mono">{fmtNum(q.debt_to_assets, 1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// 公告 events
+// ============================================================
+
+const TIER_META = {
+  1: { label: "业绩 / 资本运作", color: "rose", emoji: "🔥" },
+  2: { label: "产能 / 战略合作", color: "amber", emoji: "📊" },
+  3: { label: "股东动作", color: "blue", emoji: "👥" },
+  4: { label: "风险", color: "zinc", emoji: "⚠️" },
+  5: { label: "IR / 调研记录", color: "violet", emoji: "💬" },
+} as const;
+
+function EventsSection({ events, code, market }: { events: RecentEvent[]; code: string; market: string }) {
+  const grouped = useMemo(() => {
+    const g: Record<number, RecentEvent[]> = { 1: [], 2: [], 3: [], 4: [], 5: [] };
+    for (const e of events) g[e.tier]?.push(e);
+    return g;
+  }, [events]);
+
+  return (
+    <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+      <header className="mb-5 flex items-baseline justify-between">
+        <h2 className="text-base font-semibold text-zinc-800">📢 关键公告（最近 1 年）</h2>
+        <p className="text-xs text-zinc-500">
+          共 {events.length} 条 · 数据源：巨潮资讯（Tushare anns_d）
+        </p>
+      </header>
+
+      <div className="space-y-5">
+        {[1, 2, 3, 4, 5].map((tier) => {
+          const items = grouped[tier];
+          if (!items || items.length === 0) return null;
+          const meta = TIER_META[tier as 1 | 2 | 3 | 4 | 5];
+          return (
+            <div key={tier}>
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-base">{meta.emoji}</span>
+                <h3 className="text-sm font-semibold text-zinc-700">
+                  Tier {tier} — {meta.label}
+                </h3>
+                <span className="font-mono text-xs text-zinc-400">{items.length} 条</span>
+              </div>
+              <ul className="space-y-1.5">
+                {items.slice(0, 12).map((e, i) => (
+                  <EventRow key={i} event={e} />
+                ))}
+              </ul>
+              {items.length > 12 && (
+                <p className="mt-2 font-mono text-xs text-zinc-400">
+                  +{items.length - 12} 条更多（去巨潮 F10 看完整列表）
+                </p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function EventRow({ event }: { event: RecentEvent }) {
+  const link = event.pdf_url || event.url;
+  return (
+    <li className="flex items-center gap-3 rounded-lg py-1 px-2 text-sm transition hover:bg-zinc-50">
+      <span className="shrink-0 text-xs">{event.pdf_url ? "📄" : "🌐"}</span>
+      <span className="shrink-0 font-mono text-xs text-zinc-400">{event.ann_date}</span>
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="min-w-0 flex-1 truncate text-zinc-700 hover:text-violet-700 hover:underline"
+        title={event.title}
+      >
+        {event.title}
+      </a>
+      {event.keyword && (
+        <span className="hidden shrink-0 rounded bg-zinc-100 px-1.5 py-0.5 font-mono text-[10px] text-zinc-500 sm:inline-block">
+          {event.keyword}
+        </span>
+      )}
     </li>
   );
 }
 
-function AleabitMissing() {
+// ============================================================
+// 小工具
+// ============================================================
+
+function ExtLink({ href, label }: { href: string; label: string }) {
   return (
-    <div className="rounded-xl border border-dashed border-violet-300 bg-violet-50 p-12 text-center">
-      <p className="mb-3 text-lg text-violet-800">还没生成 Serenity 瓶颈分析</p>
-      <p className="text-sm text-violet-600">
-        这只股票还没有 aleabit 风格的瓶颈狙击评估。
-        <br />
-        和我对话说&ldquo;按 Serenity 框架分析这只股&rdquo;，我会做出来。
-      </p>
-    </div>
-  );
-}
-
-// ============================================================
-// 视角 3: 综合判断
-// ============================================================
-
-function CombinedPerspective({ data }: { data: Analysis }) {
-  const a = data.aleabit;
-  const bgScore = data.overall_score;
-  const bsScore = a?.bottleneck_score ?? 0;
-  const bothStrong = bgScore >= 75 && bsScore >= 65;
-  const bgOnly = bgScore >= 75 && bsScore < 50;
-  const aleabitOnly = bsScore >= 65 && bgScore < 60;
-
-  let verdict: string;
-  let verdictTone: string;
-  let verdictIcon: string;
-  if (bothStrong) {
-    verdict = "两个框架都看好 — 罕见的高确信度标的。段巴会买做长期，Serenity 会做 alpha 仓位。";
-    verdictTone = "border-emerald-300 bg-emerald-50 text-emerald-900";
-    verdictIcon = "🎯";
-  } else if (bgOnly) {
-    verdict = "段巴框架看好，但不在 Serenity 的 AI 供应链射程内 — 适合稳健长持仓位，不是 alpha 进取仓位。";
-    verdictTone = "border-amber-300 bg-amber-50 text-amber-900";
-    verdictIcon = "💎";
-  } else if (aleabitOnly) {
-    verdict = "Serenity 瓶颈信号强，但段巴框架估值或商业模式有保留 — 短期 thesis trade，不适合长期重仓。";
-    verdictTone = "border-violet-300 bg-violet-50 text-violet-900";
-    verdictIcon = "🎲";
-  } else {
-    verdict = "两个框架都没有高确信度信号 — 继续观察，不主动加仓。";
-    verdictTone = "border-zinc-300 bg-zinc-50 text-zinc-700";
-    verdictIcon = "🟡";
-  }
-
-  return (
-    <>
-      <div className={`mb-6 rounded-xl border-2 p-6 ${verdictTone}`}>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider opacity-70">
-          综合判断
-        </p>
-        <p className="text-lg font-semibold leading-relaxed">
-          {verdictIcon} {verdict}
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="rounded-xl border border-amber-200 bg-white p-6">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-amber-700">
-            💎 段巴框架（长期价值）
-          </p>
-          <p className={`mb-2 font-mono text-3xl font-semibold ${scoreColor(bgScore)}`}>
-            {bgScore.toFixed(1)}
-            <span className="ml-1 text-base text-zinc-400">/100</span>
-          </p>
-          <p className="mb-3 text-sm text-zinc-600">{data.overall_grade}</p>
-          {data.verdict && (
-            <p className="text-sm text-zinc-700 leading-relaxed line-clamp-4">
-              {data.verdict}
-            </p>
-          )}
-        </div>
-
-        <div className="rounded-xl border border-violet-200 bg-white p-6">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-700">
-            🎯 Serenity 瓶颈（AI 供应链 alpha）
-          </p>
-          {a ? (
-            <>
-              <p className={`mb-2 font-mono text-3xl font-semibold ${bottleneckColor(bsScore)}`}>
-                {bsScore}
-                <span className="ml-1 text-base text-violet-400">/100</span>
-              </p>
-              <p className="mb-3 text-sm text-violet-700">{a.verdict_label}</p>
-              <p className="text-sm text-zinc-700 leading-relaxed line-clamp-4">
-                {a.thesis}
-              </p>
-            </>
-          ) : (
-            <p className="text-sm text-zinc-400">— 暂无 aleabit 分析 —</p>
-          )}
-        </div>
-      </div>
-
-      <div className="mt-8 rounded-xl border border-zinc-200 bg-white p-6">
-        <p className="mb-3 text-sm font-semibold text-zinc-700">两个视角对比</p>
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-zinc-200 text-left text-xs text-zinc-500">
-              <th className="py-2">维度</th>
-              <th className="py-2 text-amber-700">段巴框架</th>
-              <th className="py-2 text-violet-700">Serenity 瓶颈</th>
-            </tr>
-          </thead>
-          <tbody className="text-zinc-700">
-            <tr className="border-b border-zinc-100">
-              <td className="py-2 text-zinc-500">看什么</td>
-              <td className="py-2">商业模式 / 护城河 / 估值</td>
-              <td className="py-2">AI capex 供应链节点</td>
-            </tr>
-            <tr className="border-b border-zinc-100">
-              <td className="py-2 text-zinc-500">时间框架</td>
-              <td className="py-2">5-10 年</td>
-              <td className="py-2">月到季度，重磅 1-2 年</td>
-            </tr>
-            <tr className="border-b border-zinc-100">
-              <td className="py-2 text-zinc-500">仓位风格</td>
-              <td className="py-2">能力圈内重仓长持</td>
-              <td className="py-2">高 beta 小盘 alpha 狙击</td>
-            </tr>
-            <tr>
-              <td className="py-2 text-zinc-500">关键风险</td>
-              <td className="py-2">估值 / 一票否决 (Stop Doing)</td>
-              <td className="py-2">thesis 兑现时间不确定</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </>
-  );
-}
-
-// ============================================================
-// 共享组件
-// ============================================================
-
-function PerspectiveTabButton({
-  active,
-  onClick,
-  disabled,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  disabled?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`rounded-md px-4 py-1.5 text-sm font-medium transition ${
-        active
-          ? "bg-zinc-900 text-white"
-          : disabled
-          ? "text-zinc-300 cursor-not-allowed"
-          : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50"
-      }`}
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-900"
     >
-      {children}
-    </button>
-  );
-}
-
-function DimensionCard({ label, d }: { label: string; d: DimensionScore }) {
-  return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-5">
-      <div className="mb-3 flex items-baseline justify-between">
-        <h3 className="font-semibold text-zinc-800">{label}</h3>
-        <div className="text-right">
-          <p className={`font-mono text-2xl font-semibold ${scoreColor(d.score)}`}>
-            {d.score > 0 ? d.score.toFixed(0) : "—"}
-          </p>
-          <p className="text-xs text-zinc-500">{d.grade}</p>
-        </div>
-      </div>
-      {d.flags.length > 0 && (
-        <ul className="mb-2 space-y-1 text-sm">
-          {d.flags.map((f, i) => (
-            <li key={i} className="text-zinc-700">
-              {f}
-            </li>
-          ))}
-        </ul>
-      )}
-      <ul className="space-y-1 text-sm text-zinc-600">
-        {d.details.slice(0, 6).map((det, i) => (
-          <li key={i}>{det}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function Stat({
-  label,
-  value,
-  color,
-}: {
-  label: string;
-  value: string;
-  color?: string;
-}) {
-  return (
-    <div>
-      <p className="text-xs text-zinc-500">{label}</p>
-      <p className={`mt-0.5 font-mono text-base font-medium ${color || "text-zinc-800"}`}>
-        {value}
-      </p>
-    </div>
+      {label} <span className="text-zinc-400">↗</span>
+    </a>
   );
 }
 
 function scoreColor(score: number): string {
+  if (score >= 90) return "text-violet-700";
   if (score >= 80) return "text-emerald-600";
-  if (score >= 65) return "text-amber-600";
+  if (score >= 70) return "text-amber-600";
   if (score >= 50) return "text-orange-600";
   return "text-zinc-500";
 }
 
-function bottleneckColor(score: number): string {
-  if (score >= 75) return "text-violet-700";
-  if (score >= 55) return "text-violet-500";
-  if (score >= 30) return "text-zinc-500";
-  return "text-zinc-400";
-}
-
 function signedColor(v: number | null | undefined): string {
-  if (typeof v !== "number") return "text-zinc-800";
-  if (v > 0) return "text-rose-600";
-  if (v < 0) return "text-emerald-600";
-  return "text-zinc-800";
+  if (v == null) return "text-zinc-400";
+  if (v > 0) return "text-emerald-700";
+  if (v < 0) return "text-rose-600";
+  return "text-zinc-700";
 }
 
-function fmt(v: unknown, suffix = ""): string {
-  if (v === null || v === undefined || v === "-") return "—";
-  if (typeof v === "number") return v.toFixed(2) + suffix;
-  return String(v) + suffix;
+function fmtYi(v: number | null | undefined): string {
+  if (v == null) return "—";
+  return v.toFixed(2);
+}
+
+function fmtNum(v: number | null | undefined, decimals = 2): string {
+  if (v == null) return "—";
+  return v.toFixed(decimals);
 }

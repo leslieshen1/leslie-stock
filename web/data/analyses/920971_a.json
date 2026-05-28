@@ -2,52 +2,9 @@
   "code": "920971",
   "name": "天马新材",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "920971",
     "name": "天马新材",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 4,
+    "layer_label": "Layer 4 — 球形氧化铝/氮化硅粉",
+    "bottleneck_score": 66,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🎯 Aleabit Analogue",
+    "thesis": "球形氧化铝、球形氮化铝、氮化硅微粉——半导体封装散热与功率器件基板的关键填料。日企（电气化学、东丽）主导，国产替代赛道；北交所小盘冷门，符合 Serenity 的 L4 关键粉体 + 国产替代 + 低覆盖 paradigm。",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "yes",
+        "note": "球形 Al2O3/AlN/Si3N4 全球少数企业，下游导热胶 + 高导热基板高度集中"
       },
       {
         "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "hit": "partial",
+        "note": "高纯氮化硅粉跟随 AI 散热景气抬升"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "北交所新股，覆盖极少"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "球化工艺 + 高纯 + 粒径分布控制"
       },
       {
         "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "hit": "partial",
+        "note": "高端粉体涉军工电子"
       },
       {
         "name": "CEO 二级市场买入",
         "hit": "no",
-        "note": "未评估"
+        "note": "待查"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "<50 亿，导热填料国产替代关键产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 6,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "北交所流动性",
+      "客户验证周期长"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "中（AI 服务器/GPU 散热导热填料 + 功率器件基板）",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T14:35:18.736170"
+  }
 }

@@ -240,11 +240,16 @@ export interface Fundamentals {
 // 自动计算所有公司的 heat（默认 mock）
 export interface CompanyWithHeat extends Company {
   heat: number;
-  dataSource: "live" | "mock";
+  dataSource: "live" | "mock" | "serenity";
   livePrice?: number;
   liveBar?: string;
   fundamentals?: Fundamentals;
   valuationMethod?: "pe_history" | "price_history";
+  // industry 标签（来自 pulse-supplement）
+  industries?: IndustryId[];
+  // Serenity 评分（如果是 supplement 来源）
+  serenityScore?: number;
+  thesis?: string;
 }
 
 export const COMPANIES_WITH_HEAT: CompanyWithHeat[] = COMPANIES.map((c) => ({
@@ -386,6 +391,244 @@ export const SUPPLY_EDGES: Edge[] = [
   // 福晶激光晶体 → 光模块 / 激光器
   E("002222", "300308", 2), E("002222", "COHR", 2), E("002222", "300502", 2),
 ];
+
+// ---------------- 产业链切换 ----------------
+export type IndustryId = "AI" | "humanoid" | "defense" | "rare-metals" | "biotech";
+
+export interface Industry {
+  id: IndustryId;
+  name: string;
+  emoji: string;
+  desc: string;
+  // tickers 为空 = 包含所有（用于默认 AI）
+  tickers?: string[];
+}
+
+export const INDUSTRIES: Industry[] = [
+  {
+    id: "AI",
+    name: "AI 产业链",
+    emoji: "🤖",
+    desc: "L0 能源 → L7 端侧的 8 层全景",
+    // 不指定 tickers = 包含所有 COMPANIES
+  },
+  {
+    id: "humanoid",
+    name: "人形机器人",
+    emoji: "🦾",
+    desc: "减速器 / 丝杠 / 伺服 / 稀土永磁 / 传感器 / 整机",
+    tickers: [
+      "TSLA",
+      "002050", "688017", "601689", // 机器人零部件三剑客
+      "000831", // 中国稀土（永磁）
+      "000970", // 中科三环
+      "300748", // 金力永磁
+      "300127", // 银河磁体
+      "600366", // 宁波韵升
+      "300553", // 集智股份（动平衡机+humanoid）
+      "688322", // 奥比中光-W（3D 视觉传感）
+      "002472", // 双环传动（减速器齿轮）
+      "688686", // 奥普特（机器视觉）
+      "300420", // — TBD
+      "601877", // 正泰电器
+      "688322", "688400", // 机器视觉
+    ],
+  },
+  {
+    id: "defense",
+    name: "国防 / 军工",
+    emoji: "🛡️",
+    desc: "航发 / 雷达 / 隐身材料 / IMU / 特种 IC / UAV",
+    tickers: [
+      "688122", // 西部超导
+      "688708", // 佳驰科技
+      "688281", // 华秦科技
+      "600893", // 航发动力
+      "600765", // 中航重机
+      "300034", // 钢研高纳
+      "300855", // 图南股份
+      "688563", // 航材股份
+      "688510", // 航亚科技
+      "688237", // 超卓航科
+      "688231", // 隆达股份
+      "300775", // 三角防务
+      "002296", // 兴森 — TBD
+      "002414", // 高德红外
+      "688002", // 睿创微纳
+      "688272", // 富吉瑞
+      "300516", // 久之洋
+      "002389", // 航天彩虹
+      "688297", // 中无人机
+      "600038", // 中直股份
+      "302132", // 中航成飞
+      "000768", // 中航西飞
+      "688522", // 纳睿雷达
+      "688683", // — TBD
+      "600562", // 国睿科技
+      "002025", // 航天电器
+      "688582", // 芯动联科 IMU
+      "003031", // 中瓷电子
+      "002049", // 紫光国微
+      "002246", // 北化股份
+      "000733", // 振华科技
+      "688709", // 成都华微
+      "603712", // 七一二
+      "001270", // 铖昌科技
+      "300447", // 全信股份
+      "688682", // 霍莱沃
+      "002025", "600372", // 中航机载
+    ],
+  },
+  {
+    id: "rare-metals",
+    name: "稀有 / 战略金属",
+    emoji: "⚛️",
+    desc: "稀土 / 锗 / 锡 / 钨 / 钽 / 铟 / 镓 / 铂族",
+    tickers: [
+      "000831", // 中国稀土
+      "600259", // 中稀有色
+      "600392", // 盛和资源
+      "002428", // 云南锗业
+      "600497", // 驰宏锌锗
+      "600301", // 华锡有色
+      "000960", // 锡业股份
+      "002378", // 章源钨业
+      "002842", // 翔鹭钨业
+      "000657", // 中钨高新
+      "000962", // 东方钽业
+      "002155", // 湖南黄金
+      "002709", // 天赐材料
+      "601899", // 紫金矿业
+      "600988", // 赤峰黄金
+      "603799", // 华友钴业
+      "603993", // 洛阳钼业
+      "600459", // 贵研铂业
+      "600160", // 巨化股份（氟化）
+      "300618", // 寒锐钴业
+      "600188", // — TBD
+      "000538", // — TBD
+      "600188", // — TBD
+      "300677", // 英科医疗
+    ],
+  },
+  {
+    id: "biotech",
+    name: "生物医药",
+    emoji: "🧬",
+    desc: "创新药 / CRO / API / IVD / 医械 / 培养基",
+    tickers: [
+      "688506", // 百利天恒（ADC）
+      "688271", // 联影医疗
+      "688114", // 华大智造
+      "688293", // 奥浦迈（细胞培养基）
+      "688137", // 近岸蛋白（mRNA 原料酶）
+      "002675", // 东诚药业（核药）
+      "688278", // 特宝生物
+      "300401", // 花园生物（VD3）
+      "300285", // — 已在 AI（MLCC 粉体）
+      "600161", // 天坛生物
+      "300601", // — TBD
+      "002252", // 上海莱士
+      "000403", // 派林生物
+      "601607", // — TBD
+      "002007", // — TBD
+      "688617", // 惠泰医疗
+      "688050", // 爱博医疗
+      "688212", // 澳华内镜
+      "688301", // 奕瑞科技（X 射线探测器）
+      "688151", // — TBD
+      "300463", // — TBD
+      "002030", // — TBD
+      "688235", // — TBD
+      "300782", // — 已在 AI
+      "300601", // — TBD
+      "603259", // — TBD
+      "300759", // — TBD
+      "603392", // — TBD
+      "688331", // 荣昌生物
+    ],
+  },
+];
+
+export function getIndustry(id: IndustryId): Industry {
+  return INDUSTRIES.find((x) => x.id === id) ?? INDUSTRIES[0];
+}
+
+export function filterByIndustry<T extends { ticker: string; industries?: IndustryId[] }>(
+  items: T[],
+  id: IndustryId,
+): T[] {
+  if (id === "AI") return items; // AI = 全部
+  return items.filter((c) => {
+    // 优先看公司自带的 industries tag
+    if (c.industries && c.industries.includes(id)) return true;
+    // fallback：检查 INDUSTRIES.tickers 列表
+    const ind = getIndustry(id);
+    return ind.tickers?.includes(c.ticker) ?? false;
+  });
+}
+
+// ---------------- Supplement Companies（来自 aleabit_manifest） ----------------
+// pulse-supplement.json 的每条记录
+export interface SupplementItem {
+  ticker: string;
+  name: string;
+  layer: LayerId;
+  segment: string;
+  region: Region;
+  marketCapB: number;
+  moat: 1 | 2 | 3 | 4 | 5;
+  valuationPct: number;
+  momentum20d: number;
+  rsi: number;
+  sentiment: number;
+  industries: IndustryId[];
+  _serenity_score?: number;
+  _verdict?: string;
+  _thesis?: string;
+}
+
+/** 把 supplement 合并到 items 之后。supplement 的 dataSource = "serenity"。
+ *  现有 items 的 industries 默认设为 ["AI"]（如果没设过）。 */
+export function mergeSupplement(
+  items: CompanyWithHeat[],
+  supplement: SupplementItem[] | null,
+): CompanyWithHeat[] {
+  // 给现有 items 默认 industries: ["AI"]
+  const augmented = items.map((c) => ({
+    ...c,
+    industries: c.industries ?? (["AI"] as IndustryId[]),
+  }));
+  if (!supplement) return augmented;
+  const existing = new Set(augmented.map((c) => c.ticker));
+  const extra: CompanyWithHeat[] = [];
+  for (const s of supplement) {
+    if (existing.has(s.ticker)) continue;
+    const inputs = {
+      valuationPct: s.valuationPct,
+      momentum20d: s.momentum20d,
+      rsi: s.rsi,
+      sentiment: s.sentiment,
+    };
+    extra.push({
+      id: `${s.layer}-${s.ticker}-${s.name}`.replace(/\s+/g, ""),
+      ticker: s.ticker,
+      name: s.name,
+      layer: s.layer,
+      segment: s.segment,
+      region: s.region,
+      marketCapB: s.marketCapB,
+      moat: s.moat,
+      ...inputs,
+      heat: computeHeat(inputs),
+      dataSource: "serenity",
+      industries: s.industries,
+      serenityScore: s._serenity_score,
+      thesis: s._thesis,
+    });
+  }
+  return [...augmented, ...extra];
+}
 
 // 全市场情绪聚合
 export function marketPulse(items: CompanyWithHeat[] = COMPANIES_WITH_HEAT) {

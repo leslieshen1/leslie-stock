@@ -2,52 +2,9 @@
   "code": "688584",
   "name": "上海合晶",
   "market": "a",
-  "industry": null,
   "sector": "Layer4_半导体材料",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "688584",
     "name": "上海合晶",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 4.35
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:59:14.046902",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 4,
     "layer_label": "Layer 4 — 半导体硅外延片",
@@ -107,6 +70,7 @@
       "全球硅片周期波动"
     ],
     "ai_relevance": "AI 芯片 / 国产 GPU / 功率半导体外延片需求",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:59:14.046902"
   }
 }

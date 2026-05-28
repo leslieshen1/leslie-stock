@@ -2,52 +2,9 @@
   "code": "001306",
   "name": "夏厦精密",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "001306",
     "name": "夏厦精密",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": "L2",
+    "layer_label": "精密齿轮/谐波减速器",
+    "bottleneck_score": 46,
+    "verdict": "worth_watching",
+    "verdict_label": "Worth Watching",
+    "thesis": "精密齿轮 + 人形机器人谐波减速器概念股，机器人主题受益但减速器赛道绿的/来福谐波领先。",
     "signals": [
       {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "name": "supply_chain_convergence",
+        "hit": "partial",
+        "note": "机器人减速器"
       },
       {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
+        "name": "material_ath",
         "hit": "no",
         "note": "无"
       },
       {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "name": "analyst_under3",
+        "hit": "partial",
+        "note": "一般"
       },
       {
-        "name": "小盘 + 关键产能",
+        "name": "technical_depth",
+        "hit": "partial",
+        "note": "精密齿轮 know-how"
+      },
+      {
+        "name": "gov_defense",
         "hit": "no",
-        "note": "未评估"
+        "note": "民用"
+      },
+      {
+        "name": "ceo_buying",
+        "hit": "no",
+        "note": "无"
+      },
+      {
+        "name": "small_cap_capacity",
+        "hit": "partial",
+        "note": "小盘"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 4,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "机器人订单兑现慢",
+      "估值已含预期"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "medium",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T14:35:18.736170"
+  }
 }

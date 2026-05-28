@@ -2,52 +2,9 @@
   "code": "002407",
   "name": "多氟多",
   "market": "a",
-  "industry": null,
   "sector": "Layer4_电池/humanoid 化学品",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002407",
     "name": "多氟多",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 5.37
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:40:08.264253",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 4,
     "layer_label": "Layer 4 — 氟化工 / LiPF6 / 氢氟酸 / 电子级氟化物",
@@ -108,6 +71,7 @@
       "估值已经反映一部分预期"
     ],
     "ai_relevance": "Real but indirect — 电子级氟化物是半导体制造关键耗材,AI capex 通过晶圆产能间接受益",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:40:08.264253"
   }
 }

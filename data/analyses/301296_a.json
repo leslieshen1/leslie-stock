@@ -2,52 +2,9 @@
   "code": "301296",
   "name": "新巨丰",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "301296",
     "name": "新巨丰",
@@ -55,58 +12,65 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
+    "supply_chain_layer": 3,
+    "layer_label": "L3 — 无菌液态包装 (国产替代利乐)",
+    "bottleneck_score": 68,
+    "verdict": "aleabit_analogue",
+    "verdict_label": "🪞 产业链 chokepoint",
+    "thesis": "China's domestic-substitute for Tetra Pak in aseptic brick packaging — Yili captive, just bought Greatview (纷美). Real chokepoint in dairy packaging.",
     "signals": [
       {
         "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
+        "hit": "yes",
+        "note": "伊利占大比例营收, 收购纷美包装后双寡头"
       },
       {
         "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
+        "hit": "partial",
+        "note": "原纸+铝箔+聚乙烯多层复合"
       },
       {
         "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "包装小盘覆盖中等"
       },
       {
         "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "无菌灌装设备+多层复合, 利乐垄断 60 年"
       },
       {
         "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
+        "hit": "partial",
+        "note": "国产替代政策"
       },
       {
         "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "partial",
+        "note": "民营, 收购纷美显主动扩张"
       },
       {
         "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
+        "hit": "yes",
+        "note": "30 亿盘+液态奶包装关键产能"
       }
     ],
-    "signals_hit": 0,
+    "signals_hit": 4,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "伊利依赖度高",
+      "液态奶消费下滑"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "食品工业 chokepoint — 国产替代利乐, 食品安全战略节点",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T15:14:27.951398"
+  }
 }

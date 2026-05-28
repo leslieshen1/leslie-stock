@@ -2,7 +2,16 @@
   "code": "002389",
   "name": "航天彩虹",
   "market": "a",
-  "industry": "国防军工-无人机",
+  "sector": "AI 上下游/国防",
+  "concepts": [],
+  "industry": null,
+  "raw_quote": {
+    "code": "002389",
+    "name": "航天彩虹",
+    "market_cap": 28000000000.0,
+    "pe_ttm": 90.0,
+    "pb": 4.0
+  },
   "overall_score": 58.75,
   "overall_grade": "⛔ 过滤（双重一票否决）",
   "verdict": "段永平视角：PE 90 倍意味着假设未来 10 年净利每年涨 30%，即使彩虹-7 全卖完这种假设也不敢做。2025H1 营收 -20%、净利转亏，军工就是这样反复。我连 PE 25-30 的茅台苹果都嫌贵，会买 PE 90 倍的军工？永远不会。⛔ 估值+财务双重一票否决。",
@@ -94,16 +103,6 @@
       ]
     }
   },
-  "raw_quote": {
-    "code": "002389",
-    "name": "航天彩虹",
-    "price": 28.0,
-    "change_pct": 2.5,
-    "market_cap": 28000000000.0,
-    "pe_ttm": 90.0,
-    "pb": 4.0,
-    "industry": "国防军工-无人机"
-  },
   "sell_triggers": [
     "2026 半年报净利不及预期（< 1.5 亿）",
     "沙特/阿联酋订单延期或取消",
@@ -111,19 +110,7 @@
     "三费占比继续上升",
     "军方采购预算下调"
   ],
-  "financials_history": {},
-  "financials": {},
   "updated_at": "2026-05-25T20:41:36",
-  "elapsed_seconds": 0,
-  "sector": "AI 上下游/国防",
-  "concepts": [
-    "无人机",
-    "低空经济",
-    "军贸出口",
-    "国家队",
-    "彩虹系列",
-    "AI agent"
-  ],
   "aleabit": {
     "supply_chain_layer": 3,
     "layer_label": "Layer 3 — 国防/UAV 子系统",
@@ -175,6 +162,7 @@
       "民品（彩虹系列出口）受地缘政治影响大"
     ],
     "ai_relevance": "AI 在自主无人机集群作战 + ISR 数据处理领域是核心赋能技术",
+    "pre_labeled": false,
     "updated_at": "2026-05-26T20:01:39.483051"
   }
 }

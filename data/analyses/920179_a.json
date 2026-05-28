@@ -2,52 +2,9 @@
   "code": "920179",
   "name": "凯德石英",
   "market": "a",
-  "industry": null,
   "sector": "",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "—",
-  "verdict": "（批量预标，未做段巴 BG 评估）",
-  "llm_used": false,
-  "llm_model": "pre-label",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "920179",
     "name": "凯德石英",
@@ -55,58 +12,37 @@
     "pe_ttm": null,
     "pb": null
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
+  "updated_at": "",
   "aleabit": {
-    "supply_chain_layer": null,
-    "layer_label": "N/A — 不在 AI capex 供应链",
-    "bottleneck_score": 5,
-    "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
-    "thesis": "Not in Serenity's AI capex supply chain universe. Pass.",
-    "signals": [
-      {
-        "name": "供应链汇聚",
-        "hit": "no",
-        "note": "不在 AI / 半导体供应链"
-      },
-      {
-        "name": "材料价格 ATH",
-        "hit": "no",
-        "note": "无关"
-      },
-      {
-        "name": "分析师覆盖率 < 3",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "技术深度门槛",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "政府/国防关联",
-        "hit": "no",
-        "note": "无"
-      },
-      {
-        "name": "CEO 二级市场买入",
-        "hit": "no",
-        "note": "未评估"
-      },
-      {
-        "name": "小盘 + 关键产能",
-        "hit": "no",
-        "note": "未评估"
-      }
-    ],
-    "signals_hit": 0,
+    "supply_chain_layer": "upstream_semi_consumable",
+    "layer_label": "上游半导体石英件",
+    "bottleneck_score": 78,
+    "verdict": "high_conviction",
+    "verdict_label": "高确信",
+    "thesis": "半导体石英制品,刻蚀+扩散炉用石英舟/石英管/石英环。28nm以下先进制程石英件国产替代,绑定北方华创/中微/拓荆。半导体设备关键耗材+国产替代+小盘+北交所,典型aleabit-style supply chain bottleneck。原材料高纯石英砂稀缺(尤维科/挪威Norsk Mineral)+加工工艺壁垒。",
+    "signals": {
+      "supply_convergence": true,
+      "material_ath": true,
+      "analyst_under_3": true,
+      "tech_depth_moat": true,
+      "gov_defense": true,
+      "ceo_buying": false,
+      "small_cap_critical_capacity": true
+    },
+    "signals_hit": 6,
     "red_flags": [
-      "名称无 AI / 半导体 / 制造关键词"
+      "北交所流动性折价",
+      "高纯石英砂供应紧张"
     ],
-    "ai_relevance": "—",
-    "updated_at": "2026-05-27T00:46:45.846584",
-    "pre_labeled": true
-  },
-  "updated_at": "2026-05-27T00:46:45.846584"
+    "ai_relevance": "indirect",
+    "pre_labeled": false,
+    "updated_at": "2026-05-27T16:41:18.175016"
+  }
 }

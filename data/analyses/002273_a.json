@@ -2,52 +2,9 @@
   "code": "002273",
   "name": "水晶光电",
   "market": "a",
-  "industry": null,
   "sector": "Layer4_玻璃基板/CoWoS-S/先进封装",
   "concepts": [],
-  "overall_score": 0,
-  "overall_grade": "未评估（仅 Serenity）",
-  "verdict": "（仅 Serenity 视角，未做段巴 BG 评估）",
-  "llm_used": true,
-  "llm_model": "claude-aleabit-scan",
-  "dimensions": {
-    "business_model": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "moat": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "management": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "financials": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "valuation": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    },
-    "circle": {
-      "score": 0,
-      "grade": "—",
-      "details": [],
-      "flags": []
-    }
-  },
+  "industry": null,
   "raw_quote": {
     "code": "002273",
     "name": "水晶光电",
@@ -55,8 +12,14 @@
     "pe_ttm": null,
     "pb": 5.44
   },
+  "overall_score": 0,
+  "overall_grade": "—",
+  "verdict": "",
+  "llm_used": false,
+  "llm_model": "",
+  "dimensions": {},
   "sell_triggers": [],
-  "updated_at": "2026-05-27T00:40:08.264253",
+  "updated_at": "",
   "aleabit": {
     "supply_chain_layer": 3,
     "layer_label": "Layer 3 — 光学滤光片 + AR/VR 光学",
@@ -108,6 +71,7 @@
       "AR/VR 量产仍未起量"
     ],
     "ai_relevance": "Weak — AR/VR 是 Apple 主导的 edge AI 载体,但公司层面是消费光学供应商",
+    "pre_labeled": false,
     "updated_at": "2026-05-27T00:40:08.264253"
   }
 }

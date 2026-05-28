@@ -4,8 +4,8 @@ import TopNav from "@/components/TopNav";
 import { loadCoverage } from "@/lib/pulse-static";
 
 export const metadata: Metadata = {
-  title: "Leslie-stock · AI Pulse",
-  description: "段永平 + 巴菲特方法论 · AI 产业链脉冲 + A/港/美股价值投资",
+  title: "我不是股神 · Not a Stock Guru",
+  description: "AI 驱动的全景股票可视化平台。你不是股神，但股神陪你一起看股票。段巴 + Serenity 三方框架 · A 股 / 港股 / 美股 / 加密。",
 };
 
 // 全局数据健康（读 coverage.json）

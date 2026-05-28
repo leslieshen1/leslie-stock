@@ -228,6 +228,69 @@ export default function PulseField({
       // 层背景线 + 标签
       const LIVE = layersRef.current;
       const laneH = h / LIVE.length;
+
+      // ===== 产业链上下游主轴（spine）：左侧垂直轴 + 节点 + 箭头流向 =====
+      const spineX = 22;
+      const spinePulseT = (t / 2200) % 1; // 0..1 循环
+      // 主轴垂直线（贯穿所有节点中心）
+      ctx.strokeStyle = "rgba(180, 200, 255, 0.18)";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(spineX, laneH * 0.5);
+      ctx.lineTo(spineX, h - laneH * 0.5);
+      ctx.stroke();
+
+      // 节点间的「流光」 — 一个亮点沿主轴从上往下走（上游→下游）
+      if (LIVE.length > 1) {
+        const flowY = laneH * 0.5 + (h - laneH) * spinePulseT;
+        const flowGrad = ctx.createRadialGradient(spineX, flowY, 0, spineX, flowY, 14);
+        flowGrad.addColorStop(0, "rgba(180, 220, 255, 0.65)");
+        flowGrad.addColorStop(1, "rgba(180, 220, 255, 0)");
+        ctx.fillStyle = flowGrad;
+        ctx.beginPath();
+        ctx.arc(spineX, flowY, 14, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 节点 + 向下箭头
+      for (let i = 0; i < LIVE.length; i++) {
+        const cy = i * laneH + laneH * 0.5;
+        const L = LIVE[i];
+        const dim = highlightRef.current && highlightRef.current !== L.id;
+        // 节点圈
+        ctx.fillStyle = dim ? "rgba(180, 200, 255, 0.3)" : "rgba(180, 220, 255, 0.85)";
+        ctx.beginPath();
+        ctx.arc(spineX, cy, 4, 0, Math.PI * 2);
+        ctx.fill();
+        // 节点外圈光晕
+        ctx.strokeStyle = dim ? "rgba(180, 200, 255, 0.12)" : "rgba(180, 220, 255, 0.35)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(spineX, cy, 7, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // 向下箭头（最后一层不画）
+        if (i < LIVE.length - 1) {
+          const arrowY = cy + laneH * 0.5;
+          ctx.fillStyle = dim ? "rgba(180, 200, 255, 0.18)" : "rgba(180, 220, 255, 0.55)";
+          ctx.beginPath();
+          ctx.moveTo(spineX - 3.5, arrowY - 3);
+          ctx.lineTo(spineX + 3.5, arrowY - 3);
+          ctx.lineTo(spineX, arrowY + 2);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      // 顶部「上游」/ 底部「下游 / 应用」标签
+      ctx.fillStyle = "rgba(180, 220, 255, 0.55)";
+      ctx.font = "9px 'JetBrains Mono', monospace";
+      ctx.textBaseline = "top";
+      ctx.fillText("上游", spineX - 9, 6);
+      ctx.textBaseline = "bottom";
+      ctx.fillText("下游", spineX - 9, h - 6);
+
+      // ===== Layer 背景分隔线 + 标签 =====
       for (let i = 0; i < LIVE.length; i++) {
         const yTop = i * laneH;
         const L = LIVE[i];
@@ -235,17 +298,17 @@ export default function PulseField({
         ctx.strokeStyle = dim ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.065)";
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(0, yTop);
+        ctx.moveTo(40, yTop); // 从 spine 右侧起，避免与轴重叠
         ctx.lineTo(w, yTop);
         ctx.stroke();
 
         ctx.fillStyle = dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.55)";
         ctx.font = "10px 'JetBrains Mono', monospace";
         ctx.textBaseline = "top";
-        ctx.fillText(L.id, 16, yTop + 10);
+        ctx.fillText(L.id, 40, yTop + 10);
         ctx.font = "13px 'Inter', system-ui, sans-serif";
         ctx.fillStyle = dim ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.85)";
-        ctx.fillText(L.name, 40, yTop + 8);
+        ctx.fillText(L.name, 70, yTop + 8);
       }
 
       // 鼠标命中

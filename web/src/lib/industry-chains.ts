@@ -8,11 +8,14 @@
 //
 // 每个 industry 自己的 layer id 用 namespace 前缀（RM- / HM- / DF- / BT-）避免和 AI 的 L0-L7 冲突。
 
-import type { Layer, IndustryId, CompanyWithHeat } from "./supply-chain";
+import type { Layer, IndustryId, CompanyWithHeat, Edge } from "./supply-chain";
 
 export interface IndustryLayer extends Omit<Layer, "id"> {
   id: string; // 不强制 LayerId，每个 industry 自己的命名空间
 }
+
+// 边构造器
+const E = (from: string, to: string, strength: 1 | 2 | 3 = 2): Edge => ({ from, to, strength });
 
 // ============================================================
 // 各 industry 的 layer 结构
@@ -231,12 +234,86 @@ export const INDUSTRY_TICKER_LAYER: Record<Exclude<IndustryId, "AI">, Record<str
 };
 
 // ============================================================
+// 各 industry 的上下游 edges（hover 时高亮显示）
+// ============================================================
+
+export const RARE_METALS_EDGES: Edge[] = [
+  // 矿山 → 冶炼
+  E("000831", "600259", 3),   // 中国稀土 → 中稀有色（稀土冶炼）
+  E("600392", "600259", 2),   // 盛和资源 → 中稀有色
+  // 冶炼 → 深加工
+  E("600497", "002428", 3),   // 驰宏锌锗 → 云南锗业（锗联产）
+  E("603799", "002709", 2),   // 华友钴业 → 天赐材料（钴 → 锂电材料）
+  E("300618", "002709", 2),   // 寒锐钴业 → 天赐材料
+];
+
+export const HUMANOID_EDGES: Edge[] = [
+  // 永磁 → 整机
+  E("300748", "TSLA", 3),     // 金力永磁 → Tesla Optimus
+  E("000970", "TSLA", 2),     // 中科三环 → Tesla
+  E("300127", "TSLA", 2),     // 银河磁体
+  // 减速器 → 整机
+  E("688017", "TSLA", 3),     // 绿的谐波 → Tesla
+  E("002472", "TSLA", 2),     // 双环传动
+  // 丝杠 / 关节 → 整机
+  E("002050", "TSLA", 3),     // 三花智控 → Tesla
+  E("601689", "TSLA", 2),     // 拓普集团
+  // 传感器 → 整机
+  E("688322", "TSLA", 2),     // 奥比中光
+  E("688686", "TSLA", 1),     // 奥普特
+];
+
+export const DEFENSE_EDGES: Edge[] = [
+  // 特材 → 航发
+  E("688122", "600893", 3),   // 西部超导（钛合金）→ 航发动力
+  E("300034", "688510", 2),   // 钢研高纳（高温合金）→ 航亚科技（叶片）
+  E("300855", "688510", 2),   // 图南股份 → 航亚科技
+  E("688563", "600893", 2),   // 航材股份 → 航发动力
+  E("688231", "600893", 2),   // 隆达股份 → 航发动力
+  // 航发 → 整机平台
+  E("688510", "600893", 3),   // 航亚科技（叶片）→ 航发动力
+  E("600765", "600893", 2),   // 中航重机（锻造）→ 航发动力
+  E("300775", "600893", 2),   // 三角防务 → 航发动力
+  E("600893", "302132", 3),   // 航发动力 → 中航成飞
+  E("600893", "000768", 2),   // 航发动力 → 中航西飞
+  E("600893", "600038", 2),   // 航发动力 → 中直股份
+  // 军用电子 → UAV / 整机
+  E("688582", "002389", 2),   // 芯动联科（IMU）→ 航天彩虹（UAV）
+  E("688582", "688297", 2),   // 芯动联科 → 中无人机
+  E("002414", "002389", 2),   // 高德红外 → 航天彩虹
+  E("002025", "302132", 2),   // 航天电器（连接器）→ 中航成飞
+  E("000733", "302132", 1),   // 振华科技 → 战机
+  E("002049", "302132", 1),   // 紫光国微（军工 FPGA）→ 战机
+];
+
+export const BIOTECH_EDGES: Edge[] = [
+  // 试剂 → 创新药
+  E("688293", "688506", 3),   // 奥浦迈（培养基）→ 百利天恒（ADC）
+  E("688137", "688506", 2),   // 近岸蛋白（mRNA 酶）→ 百利天恒
+  E("688293", "688331", 2),   // 奥浦迈 → 荣昌生物（ADC）
+  E("688137", "688331", 2),   // 近岸蛋白 → 荣昌生物
+];
+
+export const INDUSTRY_EDGES: Record<Exclude<IndustryId, "AI">, Edge[]> = {
+  "rare-metals": RARE_METALS_EDGES,
+  "humanoid":    HUMANOID_EDGES,
+  "defense":     DEFENSE_EDGES,
+  "biotech":     BIOTECH_EDGES,
+};
+
+// ============================================================
 // Helpers
 // ============================================================
 
 export function getLayersFor(industry: IndustryId): IndustryLayer[] | null {
   if (industry === "AI") return null; // 调用方用 supply-chain.LAYERS
   return INDUSTRY_LAYERS[industry] ?? null;
+}
+
+/** 返回当前 industry 的 ticker→ticker edges；AI 返回 null（调用方用 SUPPLY_EDGES）。 */
+export function getEdgesFor(industry: IndustryId): Edge[] | null {
+  if (industry === "AI") return null;
+  return INDUSTRY_EDGES[industry] ?? [];
 }
 
 /** 返回这只票在指定 industry 视角下的 layer id；不在产业链里 = null（PulseField 应隐藏它）。 */

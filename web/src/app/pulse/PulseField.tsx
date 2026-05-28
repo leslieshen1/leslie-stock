@@ -336,34 +336,39 @@ export default function PulseField({
         if (p.y < laneTopB || p.y > laneBot) p.vy *= -1;
       }
 
-      // ===== 连线：仅 hover/selected 节点的关系 =====
+      // ===== 连线：默认所有上下游 edges 微亮显示 + hover/selected 节点对应连线高亮 =====
       const focusTicker =
         (hoverRef.current && hoverRef.current.data.ticker) ||
         (selectedIdRef.current
           ? particlesRef.current.find((p) => p.data.id === selectedIdRef.current)?.data.ticker ?? null
           : null);
 
-      if (focusTicker) {
-        const tm = tickerMapRef.current;
-        for (const e of edges) {
-          if (e.from !== focusTicker && e.to !== focusTicker) continue;
-          const a = tm.get(e.from);
-          const b = tm.get(e.to);
-          if (!a || !b) continue;
-          const sa = scoreOf(a);
-          const sb = scoreOf(b);
-          const midS = (sa + sb) / 2;
+      const tm = tickerMapRef.current;
+      for (const e of edges) {
+        const a = tm.get(e.from);
+        const b = tm.get(e.to);
+        if (!a || !b) continue;
+        const isFocused = focusTicker && (e.from === focusTicker || e.to === focusTicker);
+        // 默认 baseline，focus 时 + 0.45
+        const baseAlpha = isFocused
+          ? 0.20 + 0.06 * e.strength
+          : (focusTicker ? 0.025 : 0.06 + 0.015 * e.strength);
+        const sa = scoreOf(a);
+        const sb = scoreOf(b);
+        const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+        grad.addColorStop(0, colorOf(sa, baseAlpha));
+        grad.addColorStop(1, colorOf(sb, baseAlpha));
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = isFocused ? 0.8 + e.strength * 0.4 : 0.5;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+
+        // 流光粒子（focus 时显示）
+        if (isFocused) {
           const pulseT = ((t / 1600) % 1);
-          const baseAlpha = 0.18 + 0.06 * e.strength;
-          const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-          grad.addColorStop(0, colorOf(sa, baseAlpha));
-          grad.addColorStop(1, colorOf(sb, baseAlpha));
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 0.8 + e.strength * 0.4;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
+          const midS = (sa + sb) / 2;
           const fx = a.x + (b.x - a.x) * pulseT;
           const fy = a.y + (b.y - a.y) * pulseT;
           ctx.fillStyle = colorOf(midS, 0.95);

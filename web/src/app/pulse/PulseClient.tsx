@@ -16,6 +16,7 @@ import {
 } from "@/lib/supply-chain";
 import {
   getLayersFor,
+  getEdgesFor,
   remapItemsForIndustry,
 } from "@/lib/industry-chains";
 import { tripleScore, type TripleScore, type PerspectiveScore } from "@/lib/scoring";
@@ -106,6 +107,12 @@ export default function PulseClient({
     const ind = getLayersFor(industry);
     if (ind) return ind.map((L) => ({ id: L.id, name: L.name }));
     return LAYERS.map((L) => ({ id: L.id, name: L.name }));
+  }, [industry]);
+
+  // 当前 industry 的 edges（hover 时显示上下游连线）
+  const activeEdges = useMemo(() => {
+    const ind = getEdgesFor(industry);
+    return ind ?? SUPPLY_EDGES;
   }, [industry]);
 
   const filtered = useMemo(() => {
@@ -360,7 +367,7 @@ export default function PulseClient({
 
         <PulseField
           items={filtered}
-          edges={SUPPLY_EDGES}
+          edges={activeEdges}
           marketAvg={pulse.avgHeat}
           colorMode={colorMode}
           onSelect={setSelected}

@@ -14,6 +14,10 @@ import {
   type Region,
   type IndustryId,
 } from "@/lib/supply-chain";
+import {
+  getLayersFor,
+  remapItemsForIndustry,
+} from "@/lib/industry-chains";
 import { tripleScore, type TripleScore, type PerspectiveScore } from "@/lib/scoring";
 
 const REGIONS: { id: Region | "ALL"; label: string }[] = [
@@ -70,26 +74,39 @@ export default function PulseClient({
     }
   }, [highlightTicker, items]);
 
+  // 切换 industry 时清空 layer focus（旧 layer id 在新 industry 里无效）
+  useEffect(() => {
+    setHighlightLayer(null);
+  }, [industry]);
+
   // 给每只 item 计算 triple score（只算一次，cache 住）
   const itemsScored = useMemo(
     () => items.map((c) => ({ ...c, triple: tripleScore(c).average })),
     [items],
   );
 
-  // 先按 industry 过滤（AI = 全部，其他 industry = 子集）
-  const industryItems = useMemo(
-    () => filterByIndustry(itemsScored, industry),
-    [itemsScored, industry],
-  );
+  // 先按 industry 过滤（AI = 全部，其他 industry = 子集 + 重映射 layer 到该 industry 的层级体系）
+  const industryItems = useMemo(() => {
+    const f = filterByIndustry(itemsScored, industry);
+    return remapItemsForIndustry(f, industry);
+  }, [itemsScored, industry]);
 
-  // 每个 industry 的预计数量（用于按钮 badge）
+  // 每个 industry 的预计数量（用于按钮 badge）— 也用 remap 后数量，让 badge 反映实际产业链可见公司数
   const industryCounts = useMemo(() => {
     const out: Record<string, number> = {};
     for (const ind of INDUSTRIES) {
-      out[ind.id] = filterByIndustry(itemsScored, ind.id).length;
+      const f = filterByIndustry(itemsScored, ind.id);
+      out[ind.id] = remapItemsForIndustry(f, ind.id).length;
     }
     return out;
   }, [itemsScored]);
+
+  // 当前 industry 的 layers（非 AI 用 industry-chains.ts 里定义的）
+  const activeLayers = useMemo(() => {
+    const ind = getLayersFor(industry);
+    if (ind) return ind.map((L) => ({ id: L.id, name: L.name }));
+    return LAYERS.map((L) => ({ id: L.id, name: L.name }));
+  }, [industry]);
 
   const filtered = useMemo(() => {
     const t = HEAT_TIERS.find((x) => x.id === tier)!;
@@ -291,12 +308,12 @@ export default function PulseClient({
                 !highlightLayer ? "bg-zinc-900 text-white" : "text-zinc-600 hover:bg-zinc-50"
               }`}
             >
-              全部 8 层
+              全部 {activeLayers.length} 层
             </button>
-            {LAYERS.map((L) => (
+            {activeLayers.map((L) => (
               <button
                 key={L.id}
-                onClick={() => setHighlightLayer(L.id === highlightLayer ? null : L.id)}
+                onClick={() => setHighlightLayer(L.id === highlightLayer ? null : (L.id as LayerId))}
                 className={`text-left px-2.5 py-1.5 rounded-md text-xs transition ${
                   highlightLayer === L.id
                     ? "bg-zinc-900 text-white"
@@ -349,6 +366,7 @@ export default function PulseClient({
           onSelect={setSelected}
           selectedId={selected?.id ?? null}
           highlightLayer={highlightLayer}
+          layers={activeLayers}
         />
 
         {/* 排行榜 */}
@@ -451,7 +469,17 @@ function DetailPanel({
   onSelect: (c: CompanyWithHeat) => void;
   trend: TrendPt[];
 }) {
-  const layer = LAYERS.find((L) => L.id === c.layer)!;
+  // c.layer 可能是 AI 的 L0-L7 或某个 industry 的（如 RM-D / DF-M）— 用宽容 lookup
+  const layer = useMemo(() => {
+    const allLayers: { id: string; name: string }[] = [
+      ...LAYERS,
+      ...(getLayersFor("rare-metals") ?? []),
+      ...(getLayersFor("humanoid") ?? []),
+      ...(getLayersFor("defense") ?? []),
+      ...(getLayersFor("biotech") ?? []),
+    ];
+    return allLayers.find((L) => L.id === c.layer) ?? { id: c.layer, name: "—" };
+  }, [c.layer]);
   const ts = useMemo(() => tripleScore(c), [c]);
   const [tab, setTab] = useState<"heat" | "triple">("heat");
 

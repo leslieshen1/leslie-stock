@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import {
-  LAYERS,
+  LAYERS as DEFAULT_LAYERS,
   type CompanyWithHeat,
-  type LayerId,
+  type Layer,
   type Edge,
 } from "@/lib/supply-chain";
 
@@ -36,7 +36,9 @@ interface Props {
   colorMode: ColorMode;
   onSelect: (c: CompanyWithHeat | null) => void;
   selectedId: string | null;
-  highlightLayer: LayerId | null;
+  highlightLayer: string | null;
+  /** 当前 industry 的 layers（不传 = 用默认 AI L0-L7）。layer.id 必须和 item.layer 对得上。 */
+  layers?: { id: string; name: string }[];
 }
 
 // ===================== 8 档色阶（冷端拉黑） =====================
@@ -103,14 +105,21 @@ function tripleColor(score: number, alpha: number): string {
 export default function PulseField({
   items, edges, marketAvg, colorMode,
   onSelect, selectedId, highlightLayer,
+  layers,
 }: Props) {
+  // 当前 industry 的 layers（不传 = AI 默认）
+  const LAYERS_LIVE: { id: string; name: string }[] = layers && layers.length > 0
+    ? layers
+    : (DEFAULT_LAYERS as Layer[]).map((L) => ({ id: L.id, name: L.name }));
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const hoverRef = useRef<Particle | null>(null);
   const selectedIdRef = useRef<string | null>(selectedId);
-  const highlightRef = useRef<LayerId | null>(highlightLayer);
+  const highlightRef = useRef<string | null>(highlightLayer);
   const colorModeRef = useRef<ColorMode>(colorMode);
+  const layersRef = useRef(LAYERS_LIVE);
   const rafRef = useRef<number | null>(null);
   const mouseRef = useRef<{ x: number; y: number } | null>(null);
   const sizeRef = useRef({ w: 0, h: 0 });
@@ -119,6 +128,7 @@ export default function PulseField({
   useEffect(() => { selectedIdRef.current = selectedId; }, [selectedId]);
   useEffect(() => { highlightRef.current = highlightLayer; }, [highlightLayer]);
   useEffect(() => { colorModeRef.current = colorMode; }, [colorMode]);
+  useEffect(() => { layersRef.current = LAYERS_LIVE; }, [LAYERS_LIVE]);
 
   // 每个粒子在当前 mode 下的实际颜色 score
   // heat mode: 直接用 heat (高=过热=红)
@@ -131,13 +141,14 @@ export default function PulseField({
   }
 
   function layoutParticles(w: number, h: number) {
-    const laneH = h / LAYERS.length;
+    const LIVE = layersRef.current;
+    const laneH = h / LIVE.length;
     const padX = 100;
     const usableW = w - padX - 30;
 
     const now = performance.now();
     const parts: Particle[] = items.map((data) => {
-      const layerIdx = LAYERS.findIndex((L) => L.id === data.layer);
+      const layerIdx = LIVE.findIndex((L) => L.id === data.layer);
       const laneTop = layerIdx * laneH;
       const sameLayer = items.filter((x) => x.layer === data.layer);
       const sameIdx = sameLayer.indexOf(data);
@@ -215,10 +226,11 @@ export default function PulseField({
       ctx.fillRect(0, 0, w, h);
 
       // 层背景线 + 标签
-      const laneH = h / LAYERS.length;
-      for (let i = 0; i < LAYERS.length; i++) {
+      const LIVE = layersRef.current;
+      const laneH = h / LIVE.length;
+      for (let i = 0; i < LIVE.length; i++) {
         const yTop = i * laneH;
-        const L = LAYERS[i];
+        const L = LIVE[i];
         const dim = highlightRef.current && highlightRef.current !== L.id;
         ctx.strokeStyle = dim ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.065)";
         ctx.lineWidth = 1;
@@ -248,7 +260,7 @@ export default function PulseField({
         p.x += p.vx;
         p.y += p.vy;
 
-        const layerIdx = LAYERS.findIndex((L) => L.id === p.data.layer);
+        const layerIdx = LIVE.findIndex((L) => L.id === p.data.layer);
         const laneTop = layerIdx * laneH;
         const laneTopB = laneTop + 22;
         const laneBot = (layerIdx + 1) * laneH - 8;

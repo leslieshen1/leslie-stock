@@ -31,7 +31,11 @@ async function loadSupplement(): Promise<SupplementItem[] | null> {
   }
 }
 
-export default async function HomePage() {
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ industry?: string; highlight?: string }>;
+}) {
   const [snapshot, supplement] = await Promise.all([loadSnapshot(), loadSupplement()]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
   const items = mergeSupplement(baseItems, supplement);
@@ -42,6 +46,15 @@ export default async function HomePage() {
   // 30 天 trend 从静态 JSON 读
   const trends = await loadTrends();
 
+  // URL params: ?industry=rare-metals&highlight=002428
+  const sp = await searchParams;
+  const ALLOWED_INDUSTRIES = ["AI", "humanoid", "defense", "rare-metals", "biotech"] as const;
+  const initialIndustry =
+    sp.industry && ALLOWED_INDUSTRIES.includes(sp.industry as typeof ALLOWED_INDUSTRIES[number])
+      ? (sp.industry as typeof ALLOWED_INDUSTRIES[number])
+      : undefined;
+  const initialHighlight = sp.highlight;
+
   return (
     <main className="mx-auto max-w-[1480px] px-6 py-10">
       <PulseClient
@@ -49,6 +62,8 @@ export default async function HomePage() {
         trends={trends}
         liveCount={liveCount}
         generatedAtLabel={generatedAt ? fmtAge(generatedAt) : null}
+        initialIndustry={initialIndustry}
+        initialHighlight={initialHighlight}
       />
 
       <footer className="mt-12 border-t border-zinc-200 pt-8 text-center">

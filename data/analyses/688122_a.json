@@ -77,22 +77,6 @@
   "analyses_history": [
     {
       "framework": "serenity",
-      "version": "v1",
-      "score": 82,
-      "verdict_label": "高确信度",
-      "layer_label": "钛合金+超导材料",
-      "thesis": "高端钛合金军工航空主力供应商(歼20/C919/航发)+ MRI/可控核聚变 NbTi/Nb3Sn 超导线材国内独家。军工+核聚变+商飞三大主线,典型小盘卡位关键材料。",
-      "signals_hit": 4,
-      "red_flags": [
-        "军工订单节奏",
-        "钛价波动"
-      ],
-      "model": "pre-label",
-      "pre_labeled": false,
-      "created_at": "2026-05-27T18:22:58.051621"
-    },
-    {
-      "framework": "serenity",
       "version": "v2",
       "score": 82,
       "verdict_label": "🎯 ITER 唯一商业化 NbTi 衬底 — 2026 拐点年但 H2 已失速",

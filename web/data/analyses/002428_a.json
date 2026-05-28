@@ -76,59 +76,6 @@
   "analyses_history": [
     {
       "framework": "serenity",
-      "version": "v1",
-      "score": 78,
-      "verdict_label": "🪞 中国版 $AXTI，纯锗 chokepoint",
-      "layer_label": "Layer 4 — 锗（光通信/红外/砷化镓衬底）",
-      "thesis": "云南锗业是国内最纯粹的锗概念标的，从锗矿到锗单晶、红外锗镜片、砷化镓衬底全链路。锗为中国出口管制名单核心，全球供应 65% 来自中国。585 亿市值刚过 sweet spot 但纯度足够高。这是 Serenity 最爱的那种『原材料控制点』。",
-      "signals_hit": 5,
-      "red_flags": [
-        "市值 > 500 亿",
-        "PB 40 倍高估值",
-        "国资"
-      ],
-      "model": "claude-aleabit-scan",
-      "pre_labeled": false,
-      "created_at": "2026-05-27T00:40:08.264253"
-    },
-    {
-      "framework": "serenity",
-      "version": "v2",
-      "score": 85,
-      "verdict_label": "🎯 中国版 $AXTI — InP 衬底独家",
-      "layer_label": "Layer 4 — 磷化铟衬底（中国独家规模化 · AI 光通信卡脖子）",
-      "thesis": "The REAL chokepoint is InP, not Ge. 云南锗业 is the largest domestic InP wafer supplier — basically China's AXT. InP substrate goes into every 800G/1.6T DFB/EML/VCSEL laser, every silicon photonics integrated chip, every CPO module. Sumitomo + AXT + JX Nippon dominate globally, 云南锗业 is the only mainland scale player. This is the EXACT same play as $AXTI — small InP supplier that 7-10x'd as AI capex priced in the bottleneck. Market still trading it as a Ge resource stock.",
-      "signals_hit": 6,
-      "red_flags": [
-        "InP 产能 2023 才量产，营收占比仍可能 < 20%",
-        "PB 39 估值已 price in 部分 thesis",
-        "云南冶金 SOE，capital allocation 不灵活",
-        "全球 InP 仍由 Sumitomo / AXT 主导，中国份额 5-10%（仍是追赶者）"
-      ],
-      "model": "claude-leslie-conversation",
-      "pre_labeled": false,
-      "created_at": "2026-05-28T11:09:12.995410"
-    },
-    {
-      "framework": "serenity",
-      "version": "v3",
-      "score": 92,
-      "verdict_label": "🎯🏆 中国版 $AXTI · InP 衬底 A 股唯一纯标",
-      "layer_label": "Layer 4 — 磷化铟衬底（A 股唯一规模化纯标 · 全球缺口 70%+）",
-      "thesis": "国内唯一规模化量产 InP 衬底（2-6 英寸，6 英寸良率 70%+），订单排到 2027。2026.4 公告产能 15→45 万片（3x 扩产），客户披露包含华为 + 中际旭创等头部光模块厂商。全球住友/AXT/JX 三家垄断 90%+，云南鑫耀是中国唯一规模化突破方。InP 是 AI 800G/1.6T 光模块 DFB/EML 激光器衬底，全球供需缺口 70%+。市场仍按'锗资源股'定价（化合物半导体营收占比 13% 仍被忽略），这是 A 股可买的、最纯正的 InP chokepoint — 真正的中国版 $AXTI，且 catalyst 比 AXTI 当年更强。",
-      "signals_hit": 6,
-      "red_flags": [
-        "PB 39.84 已经 price-in 部分 thesis，但产能 3x 扩张 + 订单 2 年可见提供 floor",
-        "云南冶金 SOE，capital allocation 比民营慢",
-        "锗业务占比仍超 60%，受锗价周期影响",
-        "全球 InP 仍由住友/AXT/JX 主导，云南锗业是追赶者（份额不到 10%），但增量集中在中国国产替代"
-      ],
-      "model": "claude-leslie-conversation+verified",
-      "pre_labeled": false,
-      "created_at": "2026-05-28T11:15:55.814413"
-    },
-    {
-      "framework": "serenity",
       "version": "v4",
       "score": 90,
       "verdict_label": "🎯🏆 中国版 $AXTI · InP 衬底 — 鑫耀拐点已确认 + 30 万片扩产中",

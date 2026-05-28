@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip,
@@ -8,6 +9,32 @@ import {
 import type {
   Analysis, AleabitSignal, AnalysisVersion, FinancialQuarter, RecentEvent,
 } from "@/lib/data";
+import { INDUSTRIES, type IndustryId } from "@/lib/supply-chain";
+
+// 从 INDUSTRIES.tickers 反查 + sector 关键词 fallback
+const SECTOR_KW: { kw: string[]; id: IndustryId; emoji: string; name: string }[] = [
+  { kw: ["稀有", "金属", "锗", "稀土", "钨", "钽", "锡", "铟"], id: "rare-metals", emoji: "⚛️", name: "稀有 / 战略金属" },
+  { kw: ["军工", "国防", "航发", "导弹", "雷达"], id: "defense", emoji: "🛡️", name: "国防 / 军工" },
+  { kw: ["医药", "生物", "CRO", "医械"], id: "biotech", emoji: "🧬", name: "生物医药" },
+  { kw: ["机器人", "humanoid", "人形"], id: "humanoid", emoji: "🦾", name: "人形机器人" },
+];
+
+function lookupIndustry(code: string, sector?: string): { id: IndustryId; emoji: string; name: string } {
+  // 优先看 INDUSTRIES.tickers
+  for (const ind of INDUSTRIES) {
+    if (ind.tickers?.includes(code)) {
+      return { id: ind.id, emoji: ind.emoji, name: ind.name };
+    }
+  }
+  // fallback by sector keywords
+  const s = (sector || "").toLowerCase();
+  for (const m of SECTOR_KW) {
+    if (m.kw.some((k) => s.includes(k.toLowerCase()))) {
+      return { id: m.id, emoji: m.emoji, name: m.name };
+    }
+  }
+  return { id: "AI", emoji: "🤖", name: "AI 产业链" };
+}
 
 type Props = {
   code: string;
@@ -61,6 +88,10 @@ export default function StockDetailClient({ code, market, initial }: Props) {
   const xueqiuPrefix = market === "a" ? (isSH ? "SH" : "SZ") : market === "hk" ? "" : "";
   const eastPrefix = isSH ? "SH" : "SZ";
 
+  // 产业链热力图跳转
+  const ind = lookupIndustry(code, initial.sector);
+  const heatmapHref = `/?industry=${ind.id}&highlight=${code}`;
+
   return (
     <div className="space-y-8">
       {/* ============ HERO ============ */}
@@ -108,8 +139,21 @@ export default function StockDetailClient({ code, market, initial }: Props) {
               {initial.sector && <span className="text-zinc-500">{initial.sector}</span>}
             </div>
 
+            {/* 产业链热力图入口 — 最显眼，蓝紫色 */}
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <Link
+                href={heatmapHref}
+                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:shadow-md hover:from-violet-700 hover:to-fuchsia-700"
+                title={`在「${ind.name}」热力图中查看`}
+              >
+                <span className="text-base">{ind.emoji}</span>
+                <span>在「{ind.name}」热力图查看</span>
+                <span className="opacity-70 transition group-hover:translate-x-0.5">→</span>
+              </Link>
+            </div>
+
             {/* External links */}
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap gap-2">
               <ExtLink href={`http://www.cninfo.com.cn/new/disclosure/stock?stockCode=${ticker}`} label="巨潮 F10" />
               {market === "a" && (
                 <>

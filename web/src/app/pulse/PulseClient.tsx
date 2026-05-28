@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PulseField from "./PulseField";
 import {
   LAYERS,
@@ -41,18 +41,34 @@ export default function PulseClient({
   trends = {},
   liveCount = 0,
   generatedAtLabel = null,
+  initialIndustry,
+  initialHighlight,
 }: {
   items: CompanyWithHeat[];
   trends?: Record<string, TrendPt[]>;
   liveCount?: number;
   generatedAtLabel?: string | null;
+  initialIndustry?: IndustryId;
+  initialHighlight?: string;
 }) {
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
-  const [industry, setIndustry] = useState<IndustryId>("AI");
+  const [industry, setIndustry] = useState<IndustryId>(initialIndustry ?? "AI");
   const [region, setRegion] = useState<Region | "ALL">("ALL");
   const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
   const [colorMode, setColorMode] = useState<"heat" | "triple">("heat");
+  // 从详情页跳转过来时高亮的 ticker
+  const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
+
+  // 跳转过来时自动打开对应公司的 detail drawer
+  useEffect(() => {
+    if (!highlightTicker) return;
+    const target = items.find((x) => x.ticker === highlightTicker);
+    if (target) {
+      setSelected(target);
+      setHighlightTicker(null); // 只触发一次
+    }
+  }, [highlightTicker, items]);
 
   // 给每只 item 计算 triple score（只算一次，cache 住）
   const itemsScored = useMemo(

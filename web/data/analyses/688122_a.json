@@ -61,6 +61,9 @@
     ],
     "signals_hit": 5,
     "red_flags": [
+      "无做空对手盘 — 顶部全靠主力派发，散户接力，没有空头托底，下跌也是单边",
+      "涨停板 → 信息不连续定价，利空时一字跌停，流动性瞬间归零，出不掉",
+      "估值无锚 — 没有空头制衡，PB/PE 可长期严重偏离基本面（既能炒上天也能跌穿）",
       "2025 H2 急剧失速：H1 归母 +56.72% → 全年 +4.95%，原因未充分披露",
       "扣非净利润 -3.42%（vs 营收 +13.55%）— 真实经营利润倒退，价格端被压",
       "miss 卖方预期 25%（实际 8.4 亿 vs 民生预测 11.32 亿）",
@@ -84,6 +87,9 @@
       "thesis": "中国唯一商业化 NbTi 低温超导线材供应商，国际上唯一 NbTi 锭棒 + 线材 + 磁体全流程企业 — Serenity Layer 4 真 chokepoint。但 2025 H2 急剧失速 + 业绩 miss 卖方预期 25%，timing 风险显著。\n\n【三大业务结构（2025 年报 verified）】\n• 高端钛合金 27.93 亿（56.3%）· +1.48% · 毛利 39.95%（+1.28pp）· 销量 8,070 吨 · 军机航空主导\n• 超导产品 15.99 亿（32.2%）· +22.70% · 毛利 28.27%（-1.95pp）· 销量 2,909 吨（+24.13%）· ITER + 半导体 MCZ + MRI\n• 高性能高温合金 5.71 亿（11.5%）· +74.65% 🔥 · 毛利 23.64%（+1.39pp）· 销量 2,317 吨（+93.35%）· 航空发动机\n\n【核聚变 chokepoint 实锤】\n• ITER 国际热核聚变实验堆 NbTi 超导线材唯一国内供应商\n• CRAFT（聚变堆主机关键系统综合研究设施）已交付\n• BEST 聚变项目批量供货中（2025 H2 进入）\n• 单根长度 9 万米多芯 NbTi 超导线材（性能达 ITER 要求）\n• MCZ 超导磁体已 export 韩国、芬兰半导体项目（出口管制下还能出货）\n• 磁悬浮 400 米跑道 700 km/h 世界纪录用其超导磁体\n\n【2026 拐点 catalysts】\n• 2025-12 落地 13 亿核聚变平台招标（\"板块爆发直接催化剂\"）\n• 2026 ITER 项目核心部件交付节点\n• 定增项目：钛合金产能 → 1 万吨（vs 2025 销量 8,070 吨）· 高温合金产能 → 6,000 吨（vs 2025 销量 2,317 吨，+159% 空间）\n• 卖方一致预期 2026 营收 +31% / 归母净利 +40%+\n\n【⚠️ Timing 风险（决定 v2 不加分的原因）】\n• 2025 H1 归母净利 +56.72% → 全年 +4.95% → **H2 急剧失速**\n• 2025 全年扣非净利润 -3.42%（营收 +13.55% 但利润倒退 → 价格端被压）\n• 业绩快报 miss 民生预期 25%（实际 8.4 亿 vs 预测 11.32 亿）\n• 控股股东西北有色院减持 0.96%（2026-05-11 起）— 软利空但 insider sell 信号\n• 钛合金（56% 大头）+1.48% 几乎停滞 — 军机需求节奏不稳\n• 境外营收 -16.22% + 境外毛利率仅 4.95%（出口管制 + 价格战）\n\n【待 verify 的关键 metrics（决定 v3 加分还是减分）】\n• Q1/Q2 2026 财报：H2 失速是周期性回调还是趋势性？\n• 13 亿核聚变招标中标份额 + 单价\n• 定增扩产到位时间表 + 客户认证进度\n• 钛合金军机需求是否回暖\n• 海绵钛原材料价格趋势（成本占钛合金成本 59.4%）\n\n【估值锚】\n当前 428 亿市值，2025 PE ~51 / PB ~6 / ROE 12.17%（持平）。卖方 2026 PE 24-29X。不是印钞机 ROE 水平，但有 2026 拐点期权。",
       "signals_hit": 5,
       "red_flags": [
+        "无做空对手盘 — 顶部全靠主力派发，散户接力，没有空头托底，下跌也是单边",
+        "涨停板 → 信息不连续定价，利空时一字跌停，流动性瞬间归零，出不掉",
+        "估值无锚 — 没有空头制衡，PB/PE 可长期严重偏离基本面（既能炒上天也能跌穿）",
         "2025 H2 急剧失速：H1 归母 +56.72% → 全年 +4.95%，原因未充分披露",
         "扣非净利润 -3.42%（vs 营收 +13.55%）— 真实经营利润倒退，价格端被压",
         "miss 卖方预期 25%（实际 8.4 亿 vs 民生预测 11.32 亿）",
@@ -96,112 +102,6 @@
       "model": "claude-sonnet-4.5",
       "pre_labeled": false,
       "created_at": "2026-05-28T16:34:15.212468"
-    }
-  ],
-  "recent_events": [
-    {
-      "ann_date": "20260513",
-      "title": "关于参加“2026年陕西辖区上市公司投资者集体接待日暨2025年度业绩说明会”的公告",
-      "tier": 5,
-      "keyword": "业绩说明会",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1225301011&orgId=9900026771&announcementTime=2026-05-13",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-05-13/1225301011.PDF"
-    },
-    {
-      "ann_date": "20260424",
-      "title": "2025年年度报告",
-      "tier": 1,
-      "keyword": "年度报告",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1225162778&orgId=9900026771&announcementTime=2026-04-24",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-04-24/1225162778.PDF"
-    },
-    {
-      "ann_date": "20260424",
-      "title": "2025年年度报告摘要",
-      "tier": 1,
-      "keyword": "年度报告",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1225163023&orgId=9900026771&announcementTime=2026-04-24",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-04-24/1225163023.PDF"
-    },
-    {
-      "ann_date": "20260424",
-      "title": "信永中和会计师事务所(特殊普通合伙)对西部超导材料科技股份有限公司2025年年度报告出具的审计报告",
-      "tier": 1,
-      "keyword": "年度报告",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1225162654&orgId=9900026771&announcementTime=2026-04-24",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-04-24/1225162654.PDF"
-    },
-    {
-      "ann_date": "20260415",
-      "title": "股东减持股份计划公告",
-      "tier": 3,
-      "keyword": "股东减持",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1225101381&orgId=9900026771&announcementTime=2026-04-15",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225101381.PDF"
-    },
-    {
-      "ann_date": "20260228",
-      "title": "2025年度业绩快报公告",
-      "tier": 1,
-      "keyword": "业绩快报",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1224987022&orgId=9900026771&announcementTime=2026-02-28",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2026-02-28/1224987022.PDF"
-    },
-    {
-      "ann_date": "20251030",
-      "title": "2025年第三季度报告",
-      "tier": 1,
-      "keyword": "三季度报告",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1224764985&orgId=9900026771&announcementTime=2025-10-30",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-10-30/1224764985.PDF"
-    },
-    {
-      "ann_date": "20251022",
-      "title": "关于召开2025年半年度业绩说明会的公告",
-      "tier": 5,
-      "keyword": "业绩说明会",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1224722653&orgId=9900026771&announcementTime=2025-10-22",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-10-22/1224722653.PDF"
-    },
-    {
-      "ann_date": "20250828",
-      "title": "2025年半年度报告摘要",
-      "tier": 1,
-      "keyword": "年度报告",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1224588992&orgId=9900026771&announcementTime=2025-08-28",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-08-28/1224588992.PDF"
-    },
-    {
-      "ann_date": "20250828",
-      "title": "2025年半年度报告",
-      "tier": 1,
-      "keyword": "年度报告",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1224588993&orgId=9900026771&announcementTime=2025-08-28",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-08-28/1224588993.PDF"
-    },
-    {
-      "ann_date": "20250626",
-      "title": "2024年年度股东大会决议公告",
-      "tier": 3,
-      "keyword": "股东大会",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1223981771&orgId=9900026771&announcementTime=2025-06-26",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-06-26/1223981771.PDF"
-    },
-    {
-      "ann_date": "20250620",
-      "title": "2024年年度股东大会会议资料",
-      "tier": 3,
-      "keyword": "股东大会",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1223933607&orgId=9900026771&announcementTime=2025-06-20",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-06-20/1223933607.PDF"
-    },
-    {
-      "ann_date": "20250605",
-      "title": "关于召开2024年年度股东大会的通知",
-      "tier": 3,
-      "keyword": "股东大会",
-      "url": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=688122&announcementId=1223763044&orgId=9900026771&announcementTime=2025-06-05",
-      "pdf_url": "http://static.cninfo.com.cn/finalpage/2025-06-05/1223763044.PDF"
     }
   ]
 }

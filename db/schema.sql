@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS stocks (
     pb REAL,
     industries TEXT,                         -- JSON array of IndustryId
     expected_layer INTEGER,                  -- 候选时预期 layer 1-4
+    market_archetype TEXT,                   -- 底层市场原型：meme(A股) / contract(美股) / semi_meme(港股)
     first_seen_at TEXT NOT NULL,             -- 首次入库
     updated_at TEXT NOT NULL,                -- 最近更新
     UNIQUE(code, market)
@@ -51,6 +52,9 @@ CREATE TABLE IF NOT EXISTS analyses (
     signals_hit INTEGER,
     red_flags TEXT,                          -- JSON array
     ai_relevance TEXT,
+    -- Market archetype (底层评分准则)
+    lifecycle_stage TEXT,                    -- A股 meme game 题材生命周期：incubation/ignition/markup/distribution/decay
+    archetype_read TEXT,                     -- JSON: archetype 视角的底层判读（meme: 主力/派发/连续性; contract: 对手盘/正和）
     -- BG specific fields (when framework='bg')
     bg_dimensions TEXT,                      -- JSON: {business_model, moat, ...}
     bg_sell_triggers TEXT,                   -- JSON array

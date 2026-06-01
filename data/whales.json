@@ -24,6 +24,8 @@
      "rank_in_portfolio": 1,
      "change_type": "trim",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -37,6 +39,8 @@
      "rank_in_portfolio": 2,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -50,6 +54,8 @@
      "rank_in_portfolio": 3,
      "change_type": "add",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -63,6 +69,8 @@
      "rank_in_portfolio": 4,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -76,6 +84,8 @@
      "rank_in_portfolio": 5,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -89,6 +99,8 @@
      "rank_in_portfolio": 6,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -102,6 +114,8 @@
      "rank_in_portfolio": 7,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -115,6 +129,8 @@
      "rank_in_portfolio": 8,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -128,6 +144,8 @@
      "rank_in_portfolio": 9,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -141,6 +159,8 @@
      "rank_in_portfolio": 10,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -154,6 +174,8 @@
      "rank_in_portfolio": 11,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -167,6 +189,8 @@
      "rank_in_portfolio": 12,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -180,6 +204,8 @@
      "rank_in_portfolio": 13,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     },
     {
@@ -193,6 +219,8 @@
      "rank_in_portfolio": 14,
      "change_type": "new",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "13F"
     }
    ]
@@ -221,6 +249,8 @@
      "rank_in_portfolio": 1,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -234,6 +264,8 @@
      "rank_in_portfolio": 2,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -247,6 +279,8 @@
      "rank_in_portfolio": 3,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -260,6 +294,8 @@
      "rank_in_portfolio": 4,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -273,6 +309,8 @@
      "rank_in_portfolio": 5,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -286,6 +324,8 @@
      "rank_in_portfolio": 6,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -299,6 +339,8 @@
      "rank_in_portfolio": 7,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -312,6 +354,8 @@
      "rank_in_portfolio": 8,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -325,6 +369,8 @@
      "rank_in_portfolio": 9,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -338,6 +384,8 @@
      "rank_in_portfolio": 10,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     }
    ]
@@ -366,6 +414,8 @@
      "rank_in_portfolio": 1,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -379,6 +429,8 @@
      "rank_in_portfolio": 2,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -392,6 +444,8 @@
      "rank_in_portfolio": 3,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -405,6 +459,8 @@
      "rank_in_portfolio": 4,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -418,6 +474,8 @@
      "rank_in_portfolio": 5,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -431,6 +489,8 @@
      "rank_in_portfolio": 6,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -444,6 +504,8 @@
      "rank_in_portfolio": 7,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -457,6 +519,8 @@
      "rank_in_portfolio": 8,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -470,6 +534,8 @@
      "rank_in_portfolio": 9,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -483,6 +549,8 @@
      "rank_in_portfolio": 10,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     }
    ]
@@ -511,6 +579,8 @@
      "rank_in_portfolio": 1,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -524,6 +594,8 @@
      "rank_in_portfolio": 2,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -537,6 +609,8 @@
      "rank_in_portfolio": 3,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -550,6 +624,8 @@
      "rank_in_portfolio": 4,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -563,6 +639,8 @@
      "rank_in_portfolio": 5,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -576,6 +654,8 @@
      "rank_in_portfolio": 6,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -589,6 +669,8 @@
      "rank_in_portfolio": 7,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -602,6 +684,8 @@
      "rank_in_portfolio": 8,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -615,6 +699,8 @@
      "rank_in_portfolio": 9,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
     },
     {
@@ -628,7 +714,279 @@
      "rank_in_portfolio": 10,
      "change_type": "hold",
      "change_pct": null,
+     "amount_range": null,
+     "trade_date": null,
      "source": "fund_report"
+    }
+   ]
+  },
+  {
+   "slug": "pelosi",
+   "name": "佩洛西",
+   "name_en": "Nancy Pelosi",
+   "entity": "美众议院 · 民主党 · 加州",
+   "type": "politician",
+   "archetype": "contract",
+   "country": "US",
+   "aum_usd": null,
+   "holdings_count": 7,
+   "notable_for": "散户跟单招牌 — 丈夫 Paul 做期权,大科技股回报惊人;近期 $69M 调仓大科技(NVDA 9 笔/AAPL 7 笔)",
+   "latest_period": "2026Q1",
+   "holdings": [
+    {
+     "ticker": "AB",
+     "market": "us",
+     "stock_name": "AllianceBernstein",
+     "period": "2026-01-16",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "$1M–5M",
+     "trade_date": "2026-01-16",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "GOOGL",
+     "market": "us",
+     "stock_name": "Alphabet",
+     "period": "2026-01-16",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "$500K–1M",
+     "trade_date": "2026-01-16",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "AMZN",
+     "market": "us",
+     "stock_name": "Amazon",
+     "period": "2026-01-16",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "$500K–1M",
+     "trade_date": "2026-01-16",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "NVDA",
+     "market": "us",
+     "stock_name": "英伟达",
+     "period": "2026-01",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "(9 笔调仓)",
+     "trade_date": "2026-01",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "GOOGL",
+     "market": "us",
+     "stock_name": "Alphabet",
+     "period": "2025-12-30",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "trim",
+     "change_pct": null,
+     "amount_range": "$1M–5M",
+     "trade_date": "2025-12-30",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "AAPL",
+     "market": "us",
+     "stock_name": "苹果",
+     "period": "2025-12-24",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "trim",
+     "change_pct": null,
+     "amount_range": "$5M–25M",
+     "trade_date": "2025-12-24",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "AMZN",
+     "market": "us",
+     "stock_name": "Amazon",
+     "period": "2025-12-24",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "trim",
+     "change_pct": null,
+     "amount_range": "$1M–5M",
+     "trade_date": "2025-12-24",
+     "source": "capitol_trades"
+    }
+   ]
+  },
+  {
+   "slug": "david-taylor",
+   "name": "David Taylor",
+   "name_en": "David Taylor",
+   "entity": "美众议院 · 共和党 · 俄亥俄",
+   "type": "politician",
+   "archetype": "contract",
+   "country": "US",
+   "aum_usd": null,
+   "holdings_count": 6,
+   "notable_for": "2026-05 卖科技(GOOGL/AAPL)买防御(AT&T/家得宝/工业)",
+   "latest_period": "2026Q2",
+   "holdings": [
+    {
+     "ticker": "GOOGL",
+     "market": "us",
+     "stock_name": "Alphabet",
+     "period": "2026-05-15",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "trim",
+     "change_pct": null,
+     "amount_range": "$15K–50K",
+     "trade_date": "2026-05-15",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "AAPL",
+     "market": "us",
+     "stock_name": "苹果",
+     "period": "2026-05-15",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "trim",
+     "change_pct": null,
+     "amount_range": "$1K–15K",
+     "trade_date": "2026-05-15",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "T",
+     "market": "us",
+     "stock_name": "AT&T",
+     "period": "2026-05-15",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "$1K–15K",
+     "trade_date": "2026-05-15",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "HD",
+     "market": "us",
+     "stock_name": "家得宝",
+     "period": "2026-05-15",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "$1K–15K",
+     "trade_date": "2026-05-15",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "MEDP",
+     "market": "us",
+     "stock_name": "Medpace",
+     "period": "2026-05-15",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "$1K–15K",
+     "trade_date": "2026-05-15",
+     "source": "capitol_trades"
+    },
+    {
+     "ticker": "PH",
+     "market": "us",
+     "stock_name": "Parker-Hannifin",
+     "period": "2026-05-15",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "add",
+     "change_pct": null,
+     "amount_range": "$1K–15K",
+     "trade_date": "2026-05-15",
+     "source": "capitol_trades"
+    }
+   ]
+  },
+  {
+   "slug": "trump",
+   "name": "特朗普",
+   "name_en": "Donald Trump",
+   "entity": "美国总统 · 政商名人",
+   "type": "politician",
+   "archetype": "contract",
+   "country": "US",
+   "aum_usd": null,
+   "holdings_count": 2,
+   "notable_for": "Trump Media(DJT)最大股东 ~53%;家族 crypto:World Liberty Financial + $TRUMP memecoin",
+   "latest_period": "2026",
+   "holdings": [
+    {
+     "ticker": "DJT",
+     "market": "us",
+     "stock_name": "Trump Media",
+     "period": "2026",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "hold",
+     "change_pct": null,
+     "amount_range": "~53% · 1.15 亿股",
+     "trade_date": "2026",
+     "source": "public_disclosure"
+    },
+    {
+     "ticker": "WLF",
+     "market": "us",
+     "stock_name": "World Liberty Financial",
+     "period": "2026",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": null,
+     "rank_in_portfolio": null,
+     "change_type": "hold",
+     "change_pct": null,
+     "amount_range": "家族 crypto/DeFi",
+     "trade_date": "2026",
+     "source": "public_disclosure"
     }
    ]
   }
@@ -644,7 +1002,35 @@
     "pct": 36.72,
     "rank": 1,
     "change_type": "trim",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
+   },
+   {
+    "investor": "David Taylor",
+    "slug": "david-taylor",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 共和党 · 俄亥俄",
+    "pct": null,
+    "rank": null,
+    "change_type": "trim",
+    "amount_range": "$1K–15K",
+    "trade_date": "2026-05-15",
+    "period": "2026-05-15"
+   },
+   {
+    "investor": "佩洛西",
+    "slug": "pelosi",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 民主党 · 加州",
+    "pct": null,
+    "rank": null,
+    "change_type": "trim",
+    "amount_range": "$5M–25M",
+    "trade_date": "2025-12-24",
+    "period": "2025-12-24"
    }
   ],
   "BRK.B": [
@@ -657,6 +1043,8 @@
     "pct": 21.91,
     "rank": 2,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -670,7 +1058,22 @@
     "pct": 12.07,
     "rank": 3,
     "change_type": "add",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
+   },
+   {
+    "investor": "佩洛西",
+    "slug": "pelosi",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 民主党 · 加州",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "(9 笔调仓)",
+    "trade_date": "2026-01",
+    "period": "2026-01"
    }
   ],
   "PDD": [
@@ -683,6 +1086,8 @@
     "pct": 10.09,
     "rank": 4,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -696,6 +1101,8 @@
     "pct": 6.34,
     "rank": 5,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -709,6 +1116,8 @@
     "pct": 4.5,
     "rank": 6,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -722,6 +1131,8 @@
     "pct": 2.8,
     "rank": 7,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -735,6 +1146,8 @@
     "pct": 0.8,
     "rank": 8,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -748,6 +1161,8 @@
     "pct": 0.4,
     "rank": 9,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -761,6 +1176,8 @@
     "pct": 0.1,
     "rank": 10,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -774,6 +1191,8 @@
     "pct": 0.1,
     "rank": 11,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -787,6 +1206,8 @@
     "pct": 0.1,
     "rank": 12,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -800,6 +1221,8 @@
     "pct": 0.1,
     "rank": 13,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -813,6 +1236,8 @@
     "pct": 0.05,
     "rank": 14,
     "change_type": "new",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -826,6 +1251,8 @@
     "pct": 9.93,
     "rank": 1,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    },
    {
@@ -837,6 +1264,8 @@
     "pct": 9.91,
     "rank": 1,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -850,6 +1279,8 @@
     "pct": 9.9,
     "rank": 2,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    },
    {
@@ -861,6 +1292,8 @@
     "pct": 5.52,
     "rank": 8,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -874,6 +1307,8 @@
     "pct": 9.87,
     "rank": 3,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    },
    {
@@ -885,6 +1320,8 @@
     "pct": 5.12,
     "rank": 9,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -898,6 +1335,8 @@
     "pct": 9.6,
     "rank": 4,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -911,6 +1350,8 @@
     "pct": 9.56,
     "rank": 5,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -924,6 +1365,8 @@
     "pct": 9.28,
     "rank": 6,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -937,6 +1380,8 @@
     "pct": 9.27,
     "rank": 7,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    },
    {
@@ -948,6 +1393,8 @@
     "pct": 7.11,
     "rank": 6,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -961,6 +1408,8 @@
     "pct": 9.22,
     "rank": 8,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -974,6 +1423,8 @@
     "pct": 4.39,
     "rank": 9,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -987,6 +1438,8 @@
     "pct": 3.96,
     "rank": 10,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1000,6 +1453,8 @@
     "pct": 10.08,
     "rank": 1,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    },
    {
@@ -1011,6 +1466,8 @@
     "pct": 7.39,
     "rank": 4,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1024,6 +1481,8 @@
     "pct": 9.74,
     "rank": 2,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1037,6 +1496,8 @@
     "pct": 7.56,
     "rank": 3,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1050,6 +1511,8 @@
     "pct": 7.15,
     "rank": 4,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1063,6 +1526,8 @@
     "pct": 6.47,
     "rank": 5,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1076,6 +1541,8 @@
     "pct": 6.37,
     "rank": 6,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1089,6 +1556,8 @@
     "pct": 5.76,
     "rank": 7,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1102,6 +1571,8 @@
     "pct": 5.72,
     "rank": 8,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1115,6 +1586,8 @@
     "pct": 5.68,
     "rank": 9,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1128,6 +1601,8 @@
     "pct": 3.16,
     "rank": 10,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1141,6 +1616,8 @@
     "pct": 9.23,
     "rank": 2,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1154,6 +1631,8 @@
     "pct": 7.48,
     "rank": 3,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1167,6 +1646,8 @@
     "pct": 7.37,
     "rank": 5,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1180,6 +1661,8 @@
     "pct": 5.56,
     "rank": 7,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
    }
   ],
@@ -1193,7 +1676,183 @@
     "pct": 4.96,
     "rank": 10,
     "change_type": "hold",
+    "amount_range": null,
+    "trade_date": null,
     "period": "2026Q1"
+   }
+  ],
+  "AB": [
+   {
+    "investor": "佩洛西",
+    "slug": "pelosi",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 民主党 · 加州",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "$1M–5M",
+    "trade_date": "2026-01-16",
+    "period": "2026-01-16"
+   }
+  ],
+  "GOOGL": [
+   {
+    "investor": "David Taylor",
+    "slug": "david-taylor",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 共和党 · 俄亥俄",
+    "pct": null,
+    "rank": null,
+    "change_type": "trim",
+    "amount_range": "$15K–50K",
+    "trade_date": "2026-05-15",
+    "period": "2026-05-15"
+   },
+   {
+    "investor": "佩洛西",
+    "slug": "pelosi",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 民主党 · 加州",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "$500K–1M",
+    "trade_date": "2026-01-16",
+    "period": "2026-01-16"
+   },
+   {
+    "investor": "佩洛西",
+    "slug": "pelosi",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 民主党 · 加州",
+    "pct": null,
+    "rank": null,
+    "change_type": "trim",
+    "amount_range": "$1M–5M",
+    "trade_date": "2025-12-30",
+    "period": "2025-12-30"
+   }
+  ],
+  "AMZN": [
+   {
+    "investor": "佩洛西",
+    "slug": "pelosi",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 民主党 · 加州",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "$500K–1M",
+    "trade_date": "2026-01-16",
+    "period": "2026-01-16"
+   },
+   {
+    "investor": "佩洛西",
+    "slug": "pelosi",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 民主党 · 加州",
+    "pct": null,
+    "rank": null,
+    "change_type": "trim",
+    "amount_range": "$1M–5M",
+    "trade_date": "2025-12-24",
+    "period": "2025-12-24"
+   }
+  ],
+  "T": [
+   {
+    "investor": "David Taylor",
+    "slug": "david-taylor",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 共和党 · 俄亥俄",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "$1K–15K",
+    "trade_date": "2026-05-15",
+    "period": "2026-05-15"
+   }
+  ],
+  "HD": [
+   {
+    "investor": "David Taylor",
+    "slug": "david-taylor",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 共和党 · 俄亥俄",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "$1K–15K",
+    "trade_date": "2026-05-15",
+    "period": "2026-05-15"
+   }
+  ],
+  "MEDP": [
+   {
+    "investor": "David Taylor",
+    "slug": "david-taylor",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 共和党 · 俄亥俄",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "$1K–15K",
+    "trade_date": "2026-05-15",
+    "period": "2026-05-15"
+   }
+  ],
+  "PH": [
+   {
+    "investor": "David Taylor",
+    "slug": "david-taylor",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美众议院 · 共和党 · 俄亥俄",
+    "pct": null,
+    "rank": null,
+    "change_type": "add",
+    "amount_range": "$1K–15K",
+    "trade_date": "2026-05-15",
+    "period": "2026-05-15"
+   }
+  ],
+  "DJT": [
+   {
+    "investor": "特朗普",
+    "slug": "trump",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美国总统 · 政商名人",
+    "pct": null,
+    "rank": null,
+    "change_type": "hold",
+    "amount_range": "~53% · 1.15 亿股",
+    "trade_date": "2026",
+    "period": "2026"
+   }
+  ],
+  "WLF": [
+   {
+    "investor": "特朗普",
+    "slug": "trump",
+    "type": "politician",
+    "archetype": "contract",
+    "entity": "美国总统 · 政商名人",
+    "pct": null,
+    "rank": null,
+    "change_type": "hold",
+    "amount_range": "家族 crypto/DeFi",
+    "trade_date": "2026",
+    "period": "2026"
    }
   ]
  }

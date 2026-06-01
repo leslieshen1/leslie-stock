@@ -396,9 +396,11 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
         {holders.map((h, i) => {
           const cm = CHANGE_META[h.change_type || "hold"];
           const tm = TYPE_META[h.type];
+          const isPolitician = h.type === "politician";
           const barW = ((h.pct || 0) / maxPct) * 100;
-          // 仓位语境:超小仓 = 试探仓
-          const isProbe = (h.pct || 0) < 1 && h.type === "superinvestor";
+          // 议员:买卖方向色
+          const buy = h.change_type === "add" || h.change_type === "new";
+          const sell = h.change_type === "trim" || h.change_type === "exit";
           return (
             <div key={i} className="flex items-center gap-3">
               <Link
@@ -408,18 +410,33 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
               >
                 {tm.emoji} {h.investor}
               </Link>
-              <div className="relative h-5 flex-1 overflow-hidden rounded bg-zinc-100">
-                <div
-                  className={`absolute inset-y-0 left-0 rounded ${
-                    h.type === "superinvestor" ? "bg-blue-400/70" : "bg-violet-400/70"
-                  }`}
-                  style={{ width: `${barW}%` }}
-                />
-              </div>
-              <span className="w-12 shrink-0 text-right font-mono text-sm text-zinc-700">{h.pct}%</span>
-              <span className={`w-14 shrink-0 rounded border px-1 py-0.5 text-center text-[10px] font-medium ${cm.tone}`}>
-                {cm.label}
-              </span>
+              {isPolitician ? (
+                <>
+                  <span className={`w-12 shrink-0 rounded border px-1 py-0.5 text-center text-[10px] font-medium ${
+                    buy ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                    : sell ? "bg-rose-50 text-rose-700 border-rose-200"
+                    : "bg-zinc-50 text-zinc-500 border-zinc-200"}`}>
+                    {buy ? "买入" : sell ? "卖出" : "持有"}
+                  </span>
+                  <span className="flex-1 font-mono text-xs text-zinc-700">{h.amount_range}</span>
+                  <span className="shrink-0 font-mono text-[10px] text-zinc-400">{h.trade_date}</span>
+                </>
+              ) : (
+                <>
+                  <div className="relative h-5 flex-1 overflow-hidden rounded bg-zinc-100">
+                    <div
+                      className={`absolute inset-y-0 left-0 rounded ${
+                        h.type === "superinvestor" ? "bg-blue-400/70" : "bg-violet-400/70"
+                      }`}
+                      style={{ width: `${barW}%` }}
+                    />
+                  </div>
+                  <span className="w-12 shrink-0 text-right font-mono text-sm text-zinc-700">{h.pct}%</span>
+                  <span className={`w-14 shrink-0 rounded border px-1 py-0.5 text-center text-[10px] font-medium ${cm.tone}`}>
+                    {cm.label}
+                  </span>
+                </>
+              )}
             </div>
           );
         })}

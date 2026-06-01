@@ -71,7 +71,9 @@ export default function WhalesClient({ investors }: { investors: Investor[] }) {
                   <span className="font-medium text-zinc-800">{inv.name}</span>
                   <span className={`rounded border px-1.5 py-0.5 text-[10px] font-medium ${cm.tone}`}>{cm.label}</span>
                   <span className="text-zinc-700">{h.stock_name}</span>
-                  <span className="font-mono text-xs text-zinc-400">{h.pct_of_portfolio}%</span>
+                  <span className="font-mono text-xs text-zinc-400">
+                    {inv.type === "politician" ? h.amount_range : `${h.pct_of_portfolio}%`}
+                  </span>
                 </div>
               );
             })}
@@ -121,35 +123,10 @@ function InvestorCard({ inv }: { inv: Investor }) {
 
       <div className="space-y-1.5">
         {inv.holdings.slice(0, 10).map((h, i) => {
-          const cm = CHANGE_META[h.change_type || "hold"];
-          const barW = ((h.pct_of_portfolio || 0) / maxPct) * 100;
           const clickable = h.market === "a";
-          const inner = (
-            <div className="flex items-center gap-2.5">
-              <span className="w-4 shrink-0 text-right font-mono text-[10px] text-zinc-300">{h.rank_in_portfolio}</span>
-              <span className={`w-20 shrink-0 truncate text-sm ${clickable ? "text-zinc-800 group-hover:text-violet-700" : "text-zinc-700"}`}>
-                {h.stock_name}
-              </span>
-              {/* 占比条 */}
-              <div className="relative h-4 flex-1 overflow-hidden rounded bg-zinc-100">
-                <div
-                  className={`absolute inset-y-0 left-0 rounded ${
-                    inv.type === "superinvestor" ? "bg-blue-400/70" : "bg-violet-400/70"
-                  }`}
-                  style={{ width: `${barW}%` }}
-                />
-              </div>
-              <span className="w-12 shrink-0 text-right font-mono text-xs text-zinc-600">
-                {h.pct_of_portfolio}%
-              </span>
-              {h.change_type && h.change_type !== "hold" && (
-                <span className={`w-12 shrink-0 rounded border px-1 py-0.5 text-center text-[9px] font-medium ${cm.tone}`}>
-                  {cm.label}
-                </span>
-              )}
-              {(!h.change_type || h.change_type === "hold") && <span className="w-12 shrink-0" />}
-            </div>
-          );
+          const inner = inv.type === "politician"
+            ? <TradeRow h={h} />
+            : <HoldingBar h={h} maxPct={maxPct} isSuper={inv.type === "superinvestor"} clickable={clickable} />;
           return clickable ? (
             <Link key={i} href={`/stock/${h.ticker}?market=a`} className="group block rounded px-1 py-0.5 transition hover:bg-zinc-50">
               {inner}
@@ -160,6 +137,47 @@ function InvestorCard({ inv }: { inv: Investor }) {
         })}
       </div>
     </section>
+  );
+}
+
+// 基金 / 13F:占比条
+function HoldingBar({ h, maxPct, isSuper, clickable }: { h: Holding; maxPct: number; isSuper: boolean; clickable: boolean }) {
+  const cm = CHANGE_META[h.change_type || "hold"];
+  const barW = ((h.pct_of_portfolio || 0) / maxPct) * 100;
+  return (
+    <div className="flex items-center gap-2.5">
+      <span className="w-4 shrink-0 text-right font-mono text-[10px] text-zinc-300">{h.rank_in_portfolio}</span>
+      <span className={`w-20 shrink-0 truncate text-sm ${clickable ? "text-zinc-800 group-hover:text-violet-700" : "text-zinc-700"}`}>
+        {h.stock_name}
+      </span>
+      <div className="relative h-4 flex-1 overflow-hidden rounded bg-zinc-100">
+        <div className={`absolute inset-y-0 left-0 rounded ${isSuper ? "bg-blue-400/70" : "bg-violet-400/70"}`} style={{ width: `${barW}%` }} />
+      </div>
+      <span className="w-12 shrink-0 text-right font-mono text-xs text-zinc-600">{h.pct_of_portfolio}%</span>
+      {h.change_type && h.change_type !== "hold" ? (
+        <span className={`w-12 shrink-0 rounded border px-1 py-0.5 text-center text-[9px] font-medium ${cm.tone}`}>{cm.label}</span>
+      ) : <span className="w-12 shrink-0" />}
+    </div>
+  );
+}
+
+// 议员:交易流水（买卖 + 金额区间 + 日期）
+function TradeRow({ h }: { h: Holding }) {
+  const buy = h.change_type === "add" || h.change_type === "new";
+  const sell = h.change_type === "trim" || h.change_type === "exit";
+  const dirTone = buy ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+    : sell ? "bg-rose-50 text-rose-700 border-rose-200"
+    : "bg-zinc-50 text-zinc-500 border-zinc-200";
+  const dirLabel = buy ? "买入" : sell ? "卖出" : "持有";
+  return (
+    <div className="flex items-center gap-2.5">
+      <span className={`w-10 shrink-0 rounded border px-1 py-0.5 text-center text-[10px] font-medium ${dirTone}`}>{dirLabel}</span>
+      <span className="flex-1 truncate text-sm text-zinc-800">
+        <span className="font-mono text-xs text-zinc-400">{h.ticker}</span> {h.stock_name}
+      </span>
+      <span className="shrink-0 font-mono text-xs text-zinc-700">{h.amount_range}</span>
+      <span className="w-16 shrink-0 text-right font-mono text-[10px] text-zinc-400">{h.trade_date}</span>
+    </div>
   );
 }
 

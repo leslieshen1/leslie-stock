@@ -376,8 +376,10 @@ def export_whales():
             inv_id = d.pop("id")
             holds = conn.execute("""
                 SELECT ticker, market, stock_name, period, shares, market_value,
-                       pct_of_portfolio, rank_in_portfolio, change_type, change_pct, source
-                FROM holdings WHERE investor_id=? ORDER BY rank_in_portfolio
+                       pct_of_portfolio, rank_in_portfolio, change_type, change_pct,
+                       amount_range, trade_date, source
+                FROM holdings WHERE investor_id=?
+                ORDER BY COALESCE(rank_in_portfolio, 999), trade_date DESC
             """, (inv_id,)).fetchall()
             h_list = [dict(h) for h in holds]
             d["holdings"] = h_list
@@ -392,11 +394,13 @@ def export_whales():
                     "pct": h["pct_of_portfolio"],
                     "rank": h["rank_in_portfolio"],
                     "change_type": h["change_type"],
+                    "amount_range": h["amount_range"],
+                    "trade_date": h["trade_date"],
                     "period": h["period"],
                 })
-        # 个股 holders 按仓位占比降序
+        # 个股 holders 排序：先按仓位占比（基金/13F），议员（pct=null）排后按日期
         for k in by_ticker:
-            by_ticker[k].sort(key=lambda x: x["pct"] or 0, reverse=True)
+            by_ticker[k].sort(key=lambda x: (x["pct"] or 0, x.get("trade_date") or ""), reverse=True)
 
         payload = {"investors": out_investors, "by_ticker": by_ticker}
 

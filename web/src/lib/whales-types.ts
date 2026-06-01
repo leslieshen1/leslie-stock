@@ -13,10 +13,12 @@ export type Holding = {
   rank_in_portfolio: number | null;
   change_type: ChangeType | null;
   change_pct: number | null;
+  amount_range?: string | null;   // 议员交易金额区间("$1M–5M")
+  trade_date?: string | null;     // 议员交易日
   source: string;
 };
 
-export type InvestorType = "superinvestor" | "fund" | "hot_money" | "northbound";
+export type InvestorType = "superinvestor" | "fund" | "politician" | "hot_money" | "northbound";
 
 export type Investor = {
   slug: string;
@@ -42,6 +44,8 @@ export type TickerHolder = {
   pct: number | null;
   rank: number | null;
   change_type: ChangeType | null;
+  amount_range?: string | null;
+  trade_date?: string | null;
   period: string;
 };
 
@@ -61,6 +65,7 @@ export const CHANGE_META: Record<ChangeType, { label: string; tone: string }> = 
 export const TYPE_META: Record<InvestorType, { label: string; emoji: string }> = {
   superinvestor: { label: "美股大佬", emoji: "🇺🇸" },
   fund:          { label: "A股顶流", emoji: "🏦" },
+  politician:    { label: "政客 / 议员", emoji: "🏛️" },
   hot_money:     { label: "游资席位", emoji: "🎰" },
   northbound:    { label: "北向资金", emoji: "🌊" },
 };

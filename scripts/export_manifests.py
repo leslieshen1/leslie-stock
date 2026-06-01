@@ -353,6 +353,60 @@ def export_top_serenity(n: int = 100):
     return len(records)
 
 
+def export_whales():
+    """investors + holdings → whales.json（聪明钱 tab + 个股「谁在持仓」section）。
+
+    输出:
+      - investors[]: 每个名人 + 其 holdings
+      - by_ticker{}: ticker → [{investor, pct, change_type}]，个股页 O(1) 反查
+    """
+    with connect(readonly=True) as conn:
+        investors = conn.execute("""
+            SELECT id, slug, name, name_en, entity, type, archetype, country,
+                   aum_usd, holdings_count, notable_for, latest_period
+            FROM investors ORDER BY
+              CASE type WHEN 'superinvestor' THEN 0 WHEN 'fund' THEN 1 ELSE 2 END,
+              COALESCE(aum_usd, 0) DESC
+        """).fetchall()
+
+        out_investors = []
+        by_ticker: dict[str, list] = {}
+        for inv in investors:
+            d = dict(inv)
+            inv_id = d.pop("id")
+            holds = conn.execute("""
+                SELECT ticker, market, stock_name, period, shares, market_value,
+                       pct_of_portfolio, rank_in_portfolio, change_type, change_pct, source
+                FROM holdings WHERE investor_id=? ORDER BY rank_in_portfolio
+            """, (inv_id,)).fetchall()
+            h_list = [dict(h) for h in holds]
+            d["holdings"] = h_list
+            out_investors.append(d)
+            for h in holds:
+                by_ticker.setdefault(h["ticker"], []).append({
+                    "investor": inv["name"],
+                    "slug": inv["slug"],
+                    "type": inv["type"],
+                    "archetype": inv["archetype"],
+                    "entity": inv["entity"],
+                    "pct": h["pct_of_portfolio"],
+                    "rank": h["rank_in_portfolio"],
+                    "change_type": h["change_type"],
+                    "period": h["period"],
+                })
+        # 个股 holders 按仓位占比降序
+        for k in by_ticker:
+            by_ticker[k].sort(key=lambda x: x["pct"] or 0, reverse=True)
+
+        payload = {"investors": out_investors, "by_ticker": by_ticker}
+
+    for out in [DATA_DIR / "whales.json", WEB_DATA / "whales.json"]:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    return len(out_investors), sum(len(v) for v in by_ticker.values())
+
+
 def main():
     print("📤 Exporting from SQLite...")
     manifest_n = export_aleabit_manifest()
@@ -364,6 +418,9 @@ def main():
 
     top_n = export_top_serenity()
     print(f"  ✓ top_serenity.json: {top_n} 条")
+
+    n_inv, n_pos = export_whales()
+    print(f"  ✓ whales.json: {n_inv} investors · {n_pos} 持仓关系")
 
     print()
     print("✅ 完成")

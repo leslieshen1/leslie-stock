@@ -1,0 +1,1200 @@
+{
+ "investors": [
+  {
+   "slug": "duan-yongping",
+   "name": "段永平",
+   "name_en": "Duan Yongping",
+   "entity": "H&H International Investment",
+   "type": "superinvestor",
+   "archetype": "contract",
+   "country": "US",
+   "aum_usd": 20004000000.0,
+   "holdings_count": 14,
+   "notable_for": "步步高 / OPPO / vivo 创始人;价投教父,长持苹果伯克希尔;Q1 首度建仓 Circle",
+   "latest_period": "2026Q1",
+   "holdings": [
+    {
+     "ticker": "AAPL",
+     "market": "us",
+     "stock_name": "苹果",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 36.72,
+     "rank_in_portfolio": 1,
+     "change_type": "trim",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "BRK.B",
+     "market": "us",
+     "stock_name": "伯克希尔",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 21.91,
+     "rank_in_portfolio": 2,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "NVDA",
+     "market": "us",
+     "stock_name": "英伟达",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 12.07,
+     "rank_in_portfolio": 3,
+     "change_type": "add",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "PDD",
+     "market": "us",
+     "stock_name": "拼多多",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 10.09,
+     "rank_in_portfolio": 4,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "TSLA",
+     "market": "us",
+     "stock_name": "特斯拉",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 6.34,
+     "rank_in_portfolio": 5,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "GOOG",
+     "market": "us",
+     "stock_name": "谷歌",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 4.5,
+     "rank_in_portfolio": 6,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "OXY",
+     "market": "us",
+     "stock_name": "西方石油",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 2.8,
+     "rank_in_portfolio": 7,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "UNH",
+     "market": "us",
+     "stock_name": "联合健康",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 0.8,
+     "rank_in_portfolio": 8,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "PLTR",
+     "market": "us",
+     "stock_name": "Palantir",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 0.4,
+     "rank_in_portfolio": 9,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "CRCL",
+     "market": "us",
+     "stock_name": "Circle",
+     "period": "2026Q1",
+     "shares": 200000.0,
+     "market_value": 19080000.0,
+     "pct_of_portfolio": 0.1,
+     "rank_in_portfolio": 10,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "SNPS",
+     "market": "us",
+     "stock_name": "新思科技",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 0.1,
+     "rank_in_portfolio": 11,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "CRWD",
+     "market": "us",
+     "stock_name": "CrowdStrike",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 0.1,
+     "rank_in_portfolio": 12,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "SNOW",
+     "market": "us",
+     "stock_name": "Snowflake",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 0.1,
+     "rank_in_portfolio": 13,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    },
+    {
+     "ticker": "INOD",
+     "market": "us",
+     "stock_name": "Innodata",
+     "period": "2026Q1",
+     "shares": null,
+     "market_value": null,
+     "pct_of_portfolio": 0.05,
+     "rank_in_portfolio": 14,
+     "change_type": "new",
+     "change_pct": null,
+     "source": "13F"
+    }
+   ]
+  },
+  {
+   "slug": "zhang-kun",
+   "name": "张坤",
+   "name_en": null,
+   "entity": "易方达蓝筹精选",
+   "type": "fund",
+   "archetype": "meme",
+   "country": "CN",
+   "aum_usd": null,
+   "holdings_count": 10,
+   "notable_for": "易方达顶流,白酒 + 互联网长持,千亿规模",
+   "latest_period": "2026Q1",
+   "holdings": [
+    {
+     "ticker": "600519",
+     "market": "a",
+     "stock_name": "贵州茅台",
+     "period": "2026Q1",
+     "shares": 183.2,
+     "market_value": 265640.0,
+     "pct_of_portfolio": 9.91,
+     "rank_in_portfolio": 1,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "000858",
+     "market": "a",
+     "stock_name": "五粮液",
+     "period": "2026Q1",
+     "shares": 2568.0,
+     "market_value": 265197.36,
+     "pct_of_portfolio": 9.9,
+     "rank_in_portfolio": 2,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "000568",
+     "market": "a",
+     "stock_name": "泸州老窖",
+     "period": "2026Q1",
+     "shares": 2525.0,
+     "market_value": 264317.0,
+     "pct_of_portfolio": 9.87,
+     "rank_in_portfolio": 3,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "000700",
+     "market": "a",
+     "stock_name": "腾讯控股",
+     "period": "2026Q1",
+     "shares": 601.8,
+     "market_value": 257177.91,
+     "pct_of_portfolio": 9.6,
+     "rank_in_portfolio": 4,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "009987",
+     "market": "a",
+     "stock_name": "百胜中国",
+     "period": "2026Q1",
+     "shares": 752.39,
+     "market_value": 256029.99,
+     "pct_of_portfolio": 9.56,
+     "rank_in_portfolio": 5,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "000883",
+     "market": "a",
+     "stock_name": "中国海洋石油",
+     "period": "2026Q1",
+     "shares": 10060.0,
+     "market_value": 248709.36,
+     "pct_of_portfolio": 9.28,
+     "rank_in_portfolio": 6,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "600809",
+     "market": "a",
+     "stock_name": "山西汾酒",
+     "period": "2026Q1",
+     "shares": 1736.0,
+     "market_value": 248352.8,
+     "pct_of_portfolio": 9.27,
+     "rank_in_portfolio": 7,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "009988",
+     "market": "a",
+     "stock_name": "阿里巴巴-W",
+     "period": "2026Q1",
+     "shares": 2350.0,
+     "market_value": 246916.97,
+     "pct_of_portfolio": 9.22,
+     "rank_in_portfolio": 8,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "006618",
+     "market": "a",
+     "stock_name": "京东健康",
+     "period": "2026Q1",
+     "shares": 2830.0,
+     "market_value": 117591.1,
+     "pct_of_portfolio": 4.39,
+     "rank_in_portfolio": 9,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "002027",
+     "market": "a",
+     "stock_name": "分众传媒",
+     "period": "2026Q1",
+     "shares": 16200.0,
+     "market_value": 106110.0,
+     "pct_of_portfolio": 3.96,
+     "rank_in_portfolio": 10,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    }
+   ]
+  },
+  {
+   "slug": "ge-lan",
+   "name": "葛兰",
+   "name_en": null,
+   "entity": "中欧医疗健康",
+   "type": "fund",
+   "archetype": "meme",
+   "country": "CN",
+   "aum_usd": null,
+   "holdings_count": 10,
+   "notable_for": "中欧医药女神,CXO + 创新药 + 医疗服务",
+   "latest_period": "2026Q1",
+   "holdings": [
+    {
+     "ticker": "603259",
+     "market": "a",
+     "stock_name": "药明康德",
+     "period": "2026Q1",
+     "shares": 2596.71,
+     "market_value": 254737.3,
+     "pct_of_portfolio": 10.08,
+     "rank_in_portfolio": 1,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "600276",
+     "market": "a",
+     "stock_name": "恒瑞医药",
+     "period": "2026Q1",
+     "shares": 4456.62,
+     "market_value": 246094.34,
+     "pct_of_portfolio": 9.74,
+     "rank_in_portfolio": 2,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "300759",
+     "market": "a",
+     "stock_name": "康龙化成",
+     "period": "2026Q1",
+     "shares": 6829.52,
+     "market_value": 191089.85,
+     "pct_of_portfolio": 7.56,
+     "rank_in_portfolio": 3,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "002821",
+     "market": "a",
+     "stock_name": "凯莱英",
+     "period": "2026Q1",
+     "shares": 1631.9,
+     "market_value": 180765.01,
+     "pct_of_portfolio": 7.15,
+     "rank_in_portfolio": 4,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "002653",
+     "market": "a",
+     "stock_name": "海思科",
+     "period": "2026Q1",
+     "shares": 3010.83,
+     "market_value": 163427.69,
+     "pct_of_portfolio": 6.47,
+     "rank_in_portfolio": 5,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "688506",
+     "market": "a",
+     "stock_name": "百利天恒",
+     "period": "2026Q1",
+     "shares": 579.42,
+     "market_value": 161079.98,
+     "pct_of_portfolio": 6.37,
+     "rank_in_portfolio": 6,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "002422",
+     "market": "a",
+     "stock_name": "科伦药业",
+     "period": "2026Q1",
+     "shares": 4193.33,
+     "market_value": 145466.47,
+     "pct_of_portfolio": 5.76,
+     "rank_in_portfolio": 7,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "002294",
+     "market": "a",
+     "stock_name": "信立泰",
+     "period": "2026Q1",
+     "shares": 2357.48,
+     "market_value": 144537.15,
+     "pct_of_portfolio": 5.72,
+     "rank_in_portfolio": 8,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "300347",
+     "market": "a",
+     "stock_name": "泰格医药",
+     "period": "2026Q1",
+     "shares": 2664.43,
+     "market_value": 143426.34,
+     "pct_of_portfolio": 5.68,
+     "rank_in_portfolio": 9,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "688578",
+     "market": "a",
+     "stock_name": "艾力斯",
+     "period": "2026Q1",
+     "shares": 831.4,
+     "market_value": 79814.1,
+     "pct_of_portfolio": 3.16,
+     "rank_in_portfolio": 10,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    }
+   ]
+  },
+  {
+   "slug": "liu-yanchun",
+   "name": "刘彦春",
+   "name_en": null,
+   "entity": "景顺长城新兴成长",
+   "type": "fund",
+   "archetype": "meme",
+   "country": "CN",
+   "aum_usd": null,
+   "holdings_count": 10,
+   "notable_for": "景顺长城,消费 + 医药白马成长",
+   "latest_period": "2026Q1",
+   "holdings": [
+    {
+     "ticker": "600519",
+     "market": "a",
+     "stock_name": "贵州茅台",
+     "period": "2026Q1",
+     "shares": 90.96,
+     "market_value": 131892.0,
+     "pct_of_portfolio": 9.93,
+     "rank_in_portfolio": 1,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "002311",
+     "market": "a",
+     "stock_name": "海大集团",
+     "period": "2026Q1",
+     "shares": 2460.0,
+     "market_value": 122532.6,
+     "pct_of_portfolio": 9.23,
+     "rank_in_portfolio": 2,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "000333",
+     "market": "a",
+     "stock_name": "美的集团",
+     "period": "2026Q1",
+     "shares": 1300.0,
+     "market_value": 99255.0,
+     "pct_of_portfolio": 7.48,
+     "rank_in_portfolio": 3,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "603259",
+     "market": "a",
+     "stock_name": "药明康德",
+     "period": "2026Q1",
+     "shares": 1000.0,
+     "market_value": 98100.05,
+     "pct_of_portfolio": 7.39,
+     "rank_in_portfolio": 4,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "601888",
+     "market": "a",
+     "stock_name": "中国中免",
+     "period": "2026Q1",
+     "shares": 1390.0,
+     "market_value": 97828.2,
+     "pct_of_portfolio": 7.37,
+     "rank_in_portfolio": 5,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "600809",
+     "market": "a",
+     "stock_name": "山西汾酒",
+     "period": "2026Q1",
+     "shares": 660.0,
+     "market_value": 94419.6,
+     "pct_of_portfolio": 7.11,
+     "rank_in_portfolio": 6,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "603899",
+     "market": "a",
+     "stock_name": "晨光股份",
+     "period": "2026Q1",
+     "shares": 2920.0,
+     "market_value": 73788.4,
+     "pct_of_portfolio": 5.56,
+     "rank_in_portfolio": 7,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "000858",
+     "market": "a",
+     "stock_name": "五粮液",
+     "period": "2026Q1",
+     "shares": 710.0,
+     "market_value": 73321.7,
+     "pct_of_portfolio": 5.52,
+     "rank_in_portfolio": 8,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "000568",
+     "market": "a",
+     "stock_name": "泸州老窖",
+     "period": "2026Q1",
+     "shares": 650.0,
+     "market_value": 68042.0,
+     "pct_of_portfolio": 5.12,
+     "rank_in_portfolio": 9,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    },
+    {
+     "ticker": "300760",
+     "market": "a",
+     "stock_name": "迈瑞医疗",
+     "period": "2026Q1",
+     "shares": 400.0,
+     "market_value": 65864.0,
+     "pct_of_portfolio": 4.96,
+     "rank_in_portfolio": 10,
+     "change_type": "hold",
+     "change_pct": null,
+     "source": "fund_report"
+    }
+   ]
+  }
+ ],
+ "by_ticker": {
+  "AAPL": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 36.72,
+    "rank": 1,
+    "change_type": "trim",
+    "period": "2026Q1"
+   }
+  ],
+  "BRK.B": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 21.91,
+    "rank": 2,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "NVDA": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 12.07,
+    "rank": 3,
+    "change_type": "add",
+    "period": "2026Q1"
+   }
+  ],
+  "PDD": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 10.09,
+    "rank": 4,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "TSLA": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 6.34,
+    "rank": 5,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "GOOG": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 4.5,
+    "rank": 6,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "OXY": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 2.8,
+    "rank": 7,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "UNH": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 0.8,
+    "rank": 8,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "PLTR": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 0.4,
+    "rank": 9,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "CRCL": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 0.1,
+    "rank": 10,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "SNPS": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 0.1,
+    "rank": 11,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "CRWD": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 0.1,
+    "rank": 12,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "SNOW": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 0.1,
+    "rank": 13,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "INOD": [
+   {
+    "investor": "段永平",
+    "slug": "duan-yongping",
+    "type": "superinvestor",
+    "archetype": "contract",
+    "entity": "H&H International Investment",
+    "pct": 0.05,
+    "rank": 14,
+    "change_type": "new",
+    "period": "2026Q1"
+   }
+  ],
+  "600519": [
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 9.93,
+    "rank": 1,
+    "change_type": "hold",
+    "period": "2026Q1"
+   },
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.91,
+    "rank": 1,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "000858": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.9,
+    "rank": 2,
+    "change_type": "hold",
+    "period": "2026Q1"
+   },
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 5.52,
+    "rank": 8,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "000568": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.87,
+    "rank": 3,
+    "change_type": "hold",
+    "period": "2026Q1"
+   },
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 5.12,
+    "rank": 9,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "000700": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.6,
+    "rank": 4,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "009987": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.56,
+    "rank": 5,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "000883": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.28,
+    "rank": 6,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "600809": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.27,
+    "rank": 7,
+    "change_type": "hold",
+    "period": "2026Q1"
+   },
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 7.11,
+    "rank": 6,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "009988": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 9.22,
+    "rank": 8,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "006618": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 4.39,
+    "rank": 9,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "002027": [
+   {
+    "investor": "张坤",
+    "slug": "zhang-kun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "易方达蓝筹精选",
+    "pct": 3.96,
+    "rank": 10,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "603259": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 10.08,
+    "rank": 1,
+    "change_type": "hold",
+    "period": "2026Q1"
+   },
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 7.39,
+    "rank": 4,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "600276": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 9.74,
+    "rank": 2,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "300759": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 7.56,
+    "rank": 3,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "002821": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 7.15,
+    "rank": 4,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "002653": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 6.47,
+    "rank": 5,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "688506": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 6.37,
+    "rank": 6,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "002422": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 5.76,
+    "rank": 7,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "002294": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 5.72,
+    "rank": 8,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "300347": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 5.68,
+    "rank": 9,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "688578": [
+   {
+    "investor": "葛兰",
+    "slug": "ge-lan",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "中欧医疗健康",
+    "pct": 3.16,
+    "rank": 10,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "002311": [
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 9.23,
+    "rank": 2,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "000333": [
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 7.48,
+    "rank": 3,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "601888": [
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 7.37,
+    "rank": 5,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "603899": [
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 5.56,
+    "rank": 7,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ],
+  "300760": [
+   {
+    "investor": "刘彦春",
+    "slug": "liu-yanchun",
+    "type": "fund",
+    "archetype": "meme",
+    "entity": "景顺长城新兴成长",
+    "pct": 4.96,
+    "rank": 10,
+    "change_type": "hold",
+    "period": "2026Q1"
+   }
+  ]
+ }
+}

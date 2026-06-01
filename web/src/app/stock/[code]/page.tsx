@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { loadAnalysis } from "@/lib/data";
+import { getStockHolders } from "@/lib/whales";
 import StockDetailClient from "./StockDetailClient";
 
 export default async function StockDetailPage({
@@ -17,6 +18,7 @@ export default async function StockDetailPage({
     | "hk"
     | "us";
   const initial = loadAnalysis(code, market);
+  const holders = getStockHolders(code);
 
   const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
   const marketTone =
@@ -50,7 +52,7 @@ export default async function StockDetailPage({
         </div>
       </header>
 
-      <StockDetailClient code={code} market={market} initial={initial} />
+      <StockDetailClient code={code} market={market} initial={initial} holders={holders} />
     </main>
   );
 }

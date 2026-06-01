@@ -21,6 +21,7 @@ interface NavItem {
 
 const NAV: NavItem[] = [
   { href: "/",          label: "热力图",  en: "Heatmap",  match: (p) => p === "/" || p.startsWith("/pulse") },
+  { href: "/whales",    label: "聪明钱",  en: "Whales",   match: (p) => p.startsWith("/whales") },
   { href: "/watchlist", label: "观察",    en: "Watchlist",match: (p) => p.startsWith("/watchlist") },
   { href: "/scan",      label: "扫描",    en: "Scan",     match: (p) => p.startsWith("/scan") },
   { href: "/portfolio", label: "持仓",    en: "Portfolio",match: (p) => p.startsWith("/portfolio") },

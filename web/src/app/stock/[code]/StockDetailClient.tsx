@@ -10,6 +10,7 @@ import type {
   Analysis, AleabitSignal, AnalysisVersion, FinancialQuarter, RecentEvent,
 } from "@/lib/data";
 import { INDUSTRIES, type IndustryId } from "@/lib/supply-chain";
+import { type TickerHolder, CHANGE_META, TYPE_META } from "@/lib/whales-types";
 
 // 从 INDUSTRIES.tickers 反查 + sector 关键词 fallback
 const SECTOR_KW: { kw: string[]; id: IndustryId; emoji: string; name: string }[] = [
@@ -40,9 +41,10 @@ type Props = {
   code: string;
   market: "a" | "hk" | "us";
   initial: Analysis | null;
+  holders?: TickerHolder[];
 };
 
-export default function StockDetailClient({ code, market, initial }: Props) {
+export default function StockDetailClient({ code, market, initial, holders = [] }: Props) {
   const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
 
   if (!initial) {
@@ -239,6 +241,9 @@ export default function StockDetailClient({ code, market, initial }: Props) {
         </section>
       )}
 
+      {/* ============ 谁在持仓 ============ */}
+      <HoldersSection holders={holders} market={market} />
+
       {/* ============ 财务面 ============ */}
       {initial.financials?.quarters && initial.financials.quarters.length > 0 && (
         <FinancialsSection quarters={initial.financials.quarters} />
@@ -355,6 +360,76 @@ function SignalCard({ s }: { s: AleabitSignal }) {
         {note && <p className="mt-1 text-xs leading-relaxed text-zinc-600">{note}</p>}
       </div>
     </div>
+  );
+}
+
+// ============================================================
+// 谁在持仓（聪明钱）
+// ============================================================
+
+function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: string }) {
+  if (holders.length === 0) {
+    // 空 = 信号:机构白马不碰,纯题材/游资盘（A 股 meme 视角）
+    return (
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+        <h2 className="mb-2 text-base font-semibold text-zinc-800">🐋 谁在持仓</h2>
+        <p className="text-sm leading-relaxed text-zinc-500">
+          {market === "a"
+            ? "顶流基金 / 名人持仓里暂未出现这只 —— 机构白马不重仓,偏题材 / 游资盘(meme game 的典型特征)。"
+            : "暂无已收录的名人 / 机构持仓数据。"}
+        </p>
+      </section>
+    );
+  }
+
+  const maxPct = Math.max(...holders.map((h) => h.pct || 0), 1);
+
+  return (
+    <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+      <header className="mb-4 flex items-baseline justify-between">
+        <h2 className="text-base font-semibold text-zinc-800">🐋 谁在持仓</h2>
+        <Link href="/whales" className="text-xs text-violet-600 hover:underline">
+          全部聪明钱 →
+        </Link>
+      </header>
+      <div className="space-y-2.5">
+        {holders.map((h, i) => {
+          const cm = CHANGE_META[h.change_type || "hold"];
+          const tm = TYPE_META[h.type];
+          const barW = ((h.pct || 0) / maxPct) * 100;
+          // 仓位语境:超小仓 = 试探仓
+          const isProbe = (h.pct || 0) < 1 && h.type === "superinvestor";
+          return (
+            <div key={i} className="flex items-center gap-3">
+              <Link
+                href={`/whales`}
+                className="w-28 shrink-0 truncate text-sm font-medium text-zinc-800 hover:text-violet-700"
+                title={h.entity || ""}
+              >
+                {tm.emoji} {h.investor}
+              </Link>
+              <div className="relative h-5 flex-1 overflow-hidden rounded bg-zinc-100">
+                <div
+                  className={`absolute inset-y-0 left-0 rounded ${
+                    h.type === "superinvestor" ? "bg-blue-400/70" : "bg-violet-400/70"
+                  }`}
+                  style={{ width: `${barW}%` }}
+                />
+              </div>
+              <span className="w-12 shrink-0 text-right font-mono text-sm text-zinc-700">{h.pct}%</span>
+              <span className={`w-14 shrink-0 rounded border px-1 py-0.5 text-center text-[10px] font-medium ${cm.tone}`}>
+                {cm.label}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      {holders.some((h) => (h.pct || 0) < 1 && h.type === "superinvestor") && (
+        <p className="mt-3 text-xs text-zinc-400">
+          ⚠️ 占比 &lt;1% 多为试探仓 / 研究标记,非重仓 conviction —— 看占比,别看名单。
+        </p>
+      )}
+    </section>
   );
 }
 

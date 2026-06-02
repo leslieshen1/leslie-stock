@@ -79,6 +79,14 @@ export default function HowToBuyPage() {
           <p className="mt-4 text-xs text-zinc-400">
             结构:Binance(界面)+ Nest Trading(broker)+ Alpaca(托管/分红)。真股托管,非自托管。
           </p>
+          <a
+            href="https://www.bsmkweb.cc/register?ref=152171685"
+            target="_blank" rel="noopener noreferrer"
+            className="mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-amber-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-600"
+          >
+            注册 Binance <span className="opacity-80">→</span>
+          </a>
+          <p className="mt-1.5 text-center text-[10px] text-zinc-400">邀请链接 · 含返佣 · 仅非中国大陆地区</p>
         </section>
 
         {/* Bitget */}
@@ -108,6 +116,14 @@ export default function HowToBuyPage() {
           <p className="mt-4 text-xs text-zinc-400">
             覆盖 Solana / Base / BNB Chain。自托管 = 你掌握私钥,但也自负保管责任。
           </p>
+          <a
+            href="https://partner.hdmune.cn/bg/5A85GS"
+            target="_blank" rel="noopener noreferrer"
+            className="mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-600"
+          >
+            注册 Bitget <span className="opacity-80">→</span>
+          </a>
+          <p className="mt-1.5 text-center text-[10px] text-zinc-400">邀请链接 · 含返佣 · 仅非中国大陆地区</p>
         </section>
       </div>
 

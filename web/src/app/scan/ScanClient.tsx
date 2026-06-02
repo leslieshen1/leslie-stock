@@ -24,7 +24,26 @@ const SCORE_BUCKETS = [
 
 type SortKey = "score" | "mcap" | "name";
 
-export default function ScanClient({ items }: { items: AleabitManifestEntry[] }) {
+export type UsStock = {
+  sym: string;
+  name: string;
+  price: number | null;
+  pct: number | null;
+  mcapB: number | null;
+  sector: string;
+  industry: string;
+  vol: number | null;
+  country: string;
+};
+
+export default function ScanClient({
+  items,
+  usStocks = [],
+}: {
+  items: AleabitManifestEntry[];
+  usStocks?: UsStock[];
+}) {
+  const [market, setMarket] = useState<"a" | "us">("a");
   // 默认筛选：score >= 60，隐藏批量预标的
   const [scoreBuckets, setScoreBuckets] = useState<Set<string>>(
     new Set(SCORE_BUCKETS.filter((b) => b.default).map((b) => b.key))
@@ -102,6 +121,30 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
 
   return (
     <>
+      {/* 市场切换 */}
+ <div className="mb-5 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
+        <button
+          onClick={() => setMarket("a")}
+          className={`rounded-md px-4 py-1.5 font-medium transition ${
+ market === "a" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+          }`}
+        >
+          A 股 · 瓶颈狙击
+        </button>
+        <button
+          onClick={() => setMarket("us")}
+          className={`rounded-md px-4 py-1.5 font-medium transition ${
+ market === "us" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+          }`}
+        >
+          美股 · 全市场 {usStocks.length > 0 ? usStocks.length : ""}
+        </button>
+      </div>
+
+      {market === "us" ? (
+        <UsScanView stocks={usStocks} />
+      ) : (
+      <>
       {/* 顶部统计 */}
  <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-6">
         {SCORE_BUCKETS.map((b) => {
@@ -264,7 +307,241 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
  <p className="py-12 text-center text-sm text-faint">没有符合条件的股票</p>
         )}
       </div>
+      </>
+      )}
     </>
+  );
+}
+
+// ============================================================
+// 美股全市场视图（市值 / 动量,不走 Serenity 评分）
+// ============================================================
+
+type UsSortKey = "mcap" | "up" | "down" | "vol";
+
+function UsScanView({ stocks }: { stocks: UsStock[] }) {
+  const [search, setSearch] = useState("");
+  const [sectorSet, setSectorSet] = useState<Set<string>>(new Set());
+  const [capTier, setCapTier] = useState<"all" | "large" | "mid" | "small">("all");
+  const [sortBy, setSortBy] = useState<UsSortKey>("mcap");
+
+  const sectors = useMemo(() => {
+    const freq = new Map<string, number>();
+    stocks.forEach((s) => {
+      if (s.sector) freq.set(s.sector, (freq.get(s.sector) || 0) + 1);
+    });
+    return Array.from(freq.entries()).sort((a, b) => b[1] - a[1]);
+  }, [stocks]);
+
+  const filtered = useMemo(() => {
+    let r = stocks;
+    if (sectorSet.size > 0) r = r.filter((s) => sectorSet.has(s.sector));
+    if (capTier !== "all") {
+      r = r.filter((s) => {
+        const c = s.mcapB ?? 0;
+        if (capTier === "large") return c >= 10;
+        if (capTier === "mid") return c >= 2 && c < 10;
+        return c < 2;
+      });
+    }
+    if (search.trim()) {
+      const q = search.trim().toLowerCase();
+      r = r.filter(
+        (s) =>
+          s.sym.toLowerCase().includes(q) ||
+          s.name.toLowerCase().includes(q) ||
+          s.industry.toLowerCase().includes(q)
+      );
+    }
+    r = [...r];
+    if (sortBy === "mcap") r.sort((a, b) => (b.mcapB ?? 0) - (a.mcapB ?? 0));
+    else if (sortBy === "up") r.sort((a, b) => (b.pct ?? -999) - (a.pct ?? -999));
+    else if (sortBy === "down") r.sort((a, b) => (a.pct ?? 999) - (b.pct ?? 999));
+    else if (sortBy === "vol") r.sort((a, b) => (b.vol ?? 0) - (a.vol ?? 0));
+    return r;
+  }, [stocks, sectorSet, capTier, search, sortBy]);
+
+  const up = stocks.filter((s) => (s.pct ?? 0) > 0).length;
+  const down = stocks.filter((s) => (s.pct ?? 0) < 0).length;
+
+  function toggleSector(name: string) {
+    const next = new Set(sectorSet);
+    if (next.has(name)) next.delete(name);
+    else next.add(name);
+    setSectorSet(next);
+  }
+
+  const CAP_TIERS: { key: typeof capTier; label: string }[] = [
+    { key: "all", label: "全部市值" },
+    { key: "large", label: "大盘 ≥$10B" },
+    { key: "mid", label: "中盘 $2–10B" },
+    { key: "small", label: "小盘 <$2B" },
+  ];
+
+  return (
+    <>
+      {/* 涨跌统计 */}
+ <div className="mb-4 flex flex-wrap items-center gap-4 text-sm">
+ <span className="text-muted">全市场 <span className="font-mono font-semibold text-ink">{stocks.length}</span> 只</span>
+ <span className="text-up">↑ {up} 涨</span>
+ <span className="text-down">↓ {down} 跌</span>
+ <span className="text-faint">数据 = Nasdaq 全市场快照（与币安美股同源 Alpaca 池）</span>
+      </div>
+
+      {/* 筛选条 */}
+ <div className="sticky top-2 z-10 mb-4 rounded-xl border border-line bg-surface/95 p-4 backdrop-blur">
+ <div className="mb-3 flex flex-wrap items-center gap-2">
+          <input
+ type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+ placeholder="搜代码 / 公司 / 行业…"
+ className="flex-1 min-w-[180px] rounded-lg border border-line px-3 py-1.5 text-sm focus:border-faint focus:outline-none"
+          />
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as UsSortKey)}
+ className="rounded-lg border border-line px-3 py-1.5 text-sm"
+          >
+ <option value="mcap">按市值</option>
+ <option value="up">涨幅榜</option>
+ <option value="down">跌幅榜</option>
+ <option value="vol">成交量</option>
+          </select>
+          {(sectorSet.size > 0 || capTier !== "all" || search) && (
+            <button
+              onClick={() => { setSectorSet(new Set()); setCapTier("all"); setSearch(""); }}
+ className="rounded-lg border border-line px-3 py-1.5 text-sm text-muted hover:bg-surface-2"
+            >
+              清除筛选
+            </button>
+          )}
+        </div>
+
+        {/* 市值档 */}
+ <div className="mb-2 flex flex-wrap items-center gap-1.5">
+ <span className="mr-1 text-xs text-muted">市值:</span>
+          {CAP_TIERS.map((t) => (
+            <button
+              key={t.key}
+              onClick={() => setCapTier(t.key)}
+              className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+ capTier === t.key ? "bg-surface-3 text-white" : "bg-surface-2 text-muted hover:bg-line"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* 行业 */}
+ <div className="flex flex-wrap items-center gap-1.5">
+ <span className="mr-1 text-xs text-muted">行业:</span>
+          {sectors.map(([name, count]) => {
+            const active = sectorSet.has(name);
+            return (
+              <button
+                key={name}
+                onClick={() => toggleSector(name)}
+                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+ active ? "bg-accent text-black" : "bg-surface-2 text-muted hover:bg-line"
+                }`}
+              >
+                {name} <span className="tnum opacity-50">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+ <p className="mb-3 text-xs text-muted">
+ 显示 <span className="font-mono font-semibold text-ink">{filtered.length}</span> / {stocks.length} 只
+      </p>
+
+ <div className="space-y-2">
+        {filtered.slice(0, 200).map((s) => (
+          <UsRowCard key={s.sym} s={s} />
+        ))}
+        {filtered.length > 200 && (
+ <p className="py-4 text-center text-xs text-faint">…还有 {filtered.length - 200} 只未显示，请收紧筛选</p>
+        )}
+        {filtered.length === 0 && (
+ <p className="py-12 text-center text-sm text-faint">没有符合条件的股票</p>
+        )}
+      </div>
+    </>
+  );
+}
+
+function UsRowCard({ s }: { s: UsStock }) {
+  const { has, toggle } = useWatchlist();
+  const inList = has(s.sym, "us");
+  const up = (s.pct ?? 0) >= 0;
+
+  function handleStar(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggle({
+      code: s.sym,
+      market: "us",
+      name: s.name,
+      sector: s.sector,
+      score: 0,
+      verdict: "",
+      verdict_label: "",
+      market_cap_yi: s.mcapB != null ? s.mcapB * 10 : null,
+      layer: null,
+      thesis: "",
+    });
+  }
+
+  return (
+ <div className="group flex items-center rounded-lg border border-line bg-surface transition hover:border-line-2">
+      <Link href={`/stock/${s.sym}?market=us`} className="block flex-1 min-w-0 px-4 py-2.5">
+ <div className="flex items-center gap-4">
+ <div className="flex-1 min-w-0">
+ <div className="flex items-baseline gap-2">
+ <h3 className="truncate text-sm font-semibold text-ink">{s.name || s.sym}</h3>
+ <span className="font-mono text-xs text-faint">{s.sym}</span>
+ <span className="text-[10px] font-medium text-accent">美股</span>
+            </div>
+ <div className="mt-0.5 flex items-center gap-2 text-[11px] text-muted">
+              {s.mcapB != null && (
+ <span className="font-mono">${s.mcapB >= 1000 ? `${(s.mcapB / 1000).toFixed(2)}T` : `${s.mcapB.toFixed(1)}B`}</span>
+              )}
+              {s.sector && (
+                <>
+ <span className="text-faint">·</span>
+ <span className="truncate">{s.industry || s.sector}</span>
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* 价格 + 涨跌 */}
+ <div className="flex shrink-0 items-center gap-4">
+            {s.price != null && (
+ <span className="font-mono text-sm tabular-nums text-ink">${s.price.toFixed(2)}</span>
+            )}
+            {s.pct != null && (
+              <span className={`w-16 text-right font-mono text-sm font-semibold tabular-nums ${up ? "text-up" : "text-down"}`}>
+                {up ? "+" : ""}{s.pct.toFixed(2)}%
+              </span>
+            )}
+          </div>
+        </div>
+      </Link>
+
+      <button
+        onClick={handleStar}
+ aria-label={inList ? "从 watchlist 移除" : "加入 watchlist"}
+        className={`mr-2 shrink-0 rounded px-3 py-2 text-lg transition ${
+ inList ? "text-accent hover:bg-accent-soft" : "text-faint hover:text-accent hover:bg-accent-soft"
+        }`}
+      >
+        {inList ? "★" : "☆"}
+      </button>
+    </div>
   );
 }
 

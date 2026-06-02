@@ -44,6 +44,19 @@ def run_quotes() -> bool:
     return ok
 
 
+def run_us_stocks() -> bool:
+    """Nasdaq screener 全美股 → us-stocks.json（scan 美股视图,日更)。"""
+    step("美股全市场（Nasdaq screener）")
+    t = time.time()
+    r = subprocess.run(
+        [sys.executable, "-m", "fetchers.us_stocks"],
+        cwd=str(ROOT),
+    )
+    ok = r.returncode == 0
+    print(f"  {'✓' if ok else '⚠️'} us_stocks ({time.time()-t:.0f}s)")
+    return ok
+
+
 def run_funds() -> bool:
     """akshare A股基金重仓 → DB（季度更，地域敏感）。"""
     step("A股基金重仓（akshare · 季度）")
@@ -86,6 +99,7 @@ def main():
     else:
         if not args.no_quotes:
             results["quotes"] = run_quotes()
+            results["us_stocks"] = run_us_stocks()
         if args.funds:
             results["funds"] = run_funds()
         results["export"] = run_export()

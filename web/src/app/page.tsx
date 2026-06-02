@@ -31,12 +31,27 @@ async function loadSupplement(): Promise<SupplementItem[] | null> {
   }
 }
 
+export type PulseTimeline = {
+  weeks: string[];
+  stocks: Record<string, { heat: (number | null)[]; close: (number | null)[] }>;
+};
+
+async function loadTimeline(): Promise<PulseTimeline | null> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "pulse-timeline.json");
+    const raw = await fs.readFile(p, "utf-8");
+    return JSON.parse(raw) as PulseTimeline;
+  } catch {
+    return null;
+  }
+}
+
 export default async function HomePage({
   searchParams,
 }: {
   searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
-  const [snapshot, supplement] = await Promise.all([loadSnapshot(), loadSupplement()]);
+  const [snapshot, supplement, timeline] = await Promise.all([loadSnapshot(), loadSupplement(), loadTimeline()]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
   const items = mergeSupplement(baseItems, supplement);
  const liveCount = items.filter((i) => i.dataSource === "live").length;
@@ -60,6 +75,7 @@ export default async function HomePage({
       <PulseClient
         items={items}
         trends={trends}
+        timeline={timeline}
         liveCount={liveCount}
         generatedAtLabel={generatedAt ? fmtAge(generatedAt) : null}
         initialIndustry={initialIndustry}

@@ -1,15 +1,8 @@
-import type { DilutionFlag } from "@/lib/dilution";
+import { type DilutionFlag, dilutionMagnitude } from "@/lib/dilution-types";
 
 export default function DilutionWarning({ flag }: { flag: DilutionFlag }) {
   const active = flag.tier === "active";
-  const facts: string[] = [];
-  if (flag.capacity_usd) {
-    const cap = flag.capacity_usd >= 1e9
-      ? `$${(flag.capacity_usd / 1e9).toFixed(1)}B`
-      : `$${(flag.capacity_usd / 1e6).toFixed(0)}M`;
-    facts.push(`货架额度 ${cap}`);
-  }
-  if (flag.ratio) facts.push(`≈ 当前市值的 ${flag.ratio} 倍`);
+  const facts: string[] = [dilutionMagnitude(flag)];
   if (flag.atm_1y) facts.push(`近 1 年 ${flag.atm_1y} 份 424B5 增发招股书`);
   if (flag.last_takedown) facts.push(`最近一次 ${flag.last_takedown}`);
   if (flag.foreign) facts.push("外国发行人(20-F/F-3)");

@@ -131,16 +131,12 @@ def main():
                 last_td, td_idx = d, i
                 break  # recent 倒序,第一个最新
 
-        # 只标 active:近 1 年真有 424B5/424B3 提款 = 正在 ATM/增发(用户要的就是这个)。
-        # "有货架但没近期提款"太普遍(小盘标配),不算红旗。
-        if atm_1y >= 1:
-            tier = "active"
-        else:
-            return None
+        if atm_1y < 1:
+            return None                          # 近 1 年没真提款 = 没在增发
 
-        # 额度(仅 active,抓最新 424B5 原文取最大美元)
-        capacity = ratio = None
-        if tier == "active" and td_idx is not None:
+        # 抓 ATM 额度(招股书 'up to $X')
+        capacity = None
+        if td_idx is not None:
             try:
                 acc = rec["accessionNumber"][td_idx].replace("-", "")
                 doc = rec["primaryDocument"][td_idx]
@@ -152,16 +148,26 @@ def main():
                     txt = requests.get(url, headers=UA, timeout=25).text
                     dc.write_text(txt[:600_000], encoding="utf-8")
                 capacity = atm_capacity(txt)
-                mc = by_sym[sym]["mcapB"]
-                if capacity and mc and mc > 0:
-                    ratio = round(capacity / (mc * 1e9), 1)
             except Exception:
                 pass
 
+        mc = by_sym[sym]["mcapB"]
+        nano = mc is None or mc < 0.05           # 市值 < $50M
+        # 稀释倍数 = 货架额度 / 市值。市值越小倍数越大(正是印股票的本质),不设下限。
+        # 市值四舍五入到 0 的(如 WOK)算不出,留 None,靠 nano+货架 兜底。
+        ratio = round(capacity / (mc * 1e9), 1) if (capacity and mc and mc > 0) else None
+
+        # 印股票 = 货架/ATM 能把整个公司稀释数倍(高倍数),或 nano + 有货架弹药。
+        # 真公司(几十亿市值)做常规 ATM,倍数很小 → 不算,不打旗。
+        predatory = (ratio is not None and ratio >= 2) or (nano and has_shelf)
+        if not predatory:
+            return None
+
         return sym, {
-            "tier": tier, "shelf": has_shelf, "atm_1y": atm_1y,
+            "tier": "active", "shelf": has_shelf, "atm_1y": atm_1y,
             "followon_1y": followon_1y, "foreign": foreign,
-            "capacity_usd": capacity, "ratio": ratio, "last_takedown": last_td,
+            "capacity_usd": capacity, "ratio": ratio, "mcap_b": mc,
+            "last_takedown": last_td,
         }
 
     # 并发(SEC 限 10 req/s,8 worker 安全)；已缓存的 CIK 瞬间跳过

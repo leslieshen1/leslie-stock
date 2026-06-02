@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { AleabitManifestEntry } from "@/lib/data";
-import type { DilutionFlag } from "@/lib/dilution";
+import { type DilutionFlag, dilutionMagnitude } from "@/lib/dilution-types";
 import { useWatchlist } from "@/lib/useWatchlist";
 
 const VERDICTS = [
@@ -481,7 +481,7 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
                 {label}
               </button>
             ))}
- <span className="text-[10px] text-faint">SEC 货架注册 + ATM 增发(可随时砸盘)</span>
+ <span className="text-[10px] text-faint">货架额度 ≫ 市值,可近乎无限增发(SEC EDGAR · 已排除大公司常规融资)</span>
           </div>
         )}
 
@@ -611,22 +611,15 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
 }
 
 export function DilutionBadge({ flag, big = false }: { flag: DilutionFlag; big?: boolean }) {
-  const active = flag.tier === "active";
-  const label = active ? "增发中" : "货架";
-  const parts: string[] = [];
-  if (flag.capacity_usd) parts.push(`货架 $${(flag.capacity_usd / 1e6).toFixed(0)}M`);
-  if (flag.ratio) parts.push(`市值的 ${flag.ratio}x`);
-  if (flag.atm_1y) parts.push(`近1年 ${flag.atm_1y} 份 424B5`);
-  if (flag.foreign) parts.push("外国发行人");
-  const tip = `SEC ${flag.shelf ? "S-3/F-3 货架注册" : "连续增发"} · ${parts.join(" · ") || "可随时 ATM 增发"}`;
+  const tip = `印股票/稀释:${dilutionMagnitude(flag)}${flag.atm_1y ? ` · 近1年${flag.atm_1y}份424B5` : ""}${flag.foreign ? " · 外国发行人" : ""}`;
   return (
     <span
       title={tip}
-      className={`shrink-0 rounded font-medium ${big ? "px-2 py-0.5 text-xs" : "px-1.5 text-[10px]"} ${
- active ? "bg-down-soft text-down border border-down/30" : "bg-accent-soft text-accent border border-accent/30"
+      className={`shrink-0 rounded border border-down/30 bg-down-soft font-medium text-down ${
+        big ? "px-2 py-0.5 text-xs" : "px-1.5 text-[10px]"
       }`}
     >
-      {label}
+      印股票
     </span>
   );
 }

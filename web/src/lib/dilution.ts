@@ -1,17 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { DilutionFlag } from "./dilution-types";
 
-/** 印股票 / 稀释红旗。来自 fetchers/dilution_flags.py(SEC EDGAR 货架 + ATM)。 */
-export type DilutionFlag = {
-  tier: "active" | "armed";
-  shelf: boolean;
-  atm_1y: number;
-  followon_1y: number;
-  foreign: boolean;
-  capacity_usd: number | null;
-  ratio: number | null;
-  last_takedown: string | null;
-};
+export type { DilutionFlag } from "./dilution-types";
 
 export function loadDilutionFlags(): Record<string, DilutionFlag> {
   const candidates = [

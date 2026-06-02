@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { AleabitManifestEntry } from "@/lib/data";
+import type { DilutionFlag } from "@/lib/dilution";
 import { useWatchlist } from "@/lib/useWatchlist";
 
 const VERDICTS = [
@@ -40,9 +41,11 @@ export type UsStock = {
 export default function ScanClient({
   items,
   usStocks = [],
+  dilutionFlags = {},
 }: {
   items: AleabitManifestEntry[];
   usStocks?: UsStock[];
+  dilutionFlags?: Record<string, DilutionFlag>;
 }) {
   const [market, setMarket] = useState<"a" | "us">("us");
   // 默认筛选：score >= 60，隐藏批量预标的
@@ -143,7 +146,7 @@ export default function ScanClient({
       </div>
 
       {market === "us" ? (
-        <UsScanView stocks={usStocks} />
+        <UsScanView stocks={usStocks} flags={dilutionFlags} />
       ) : (
       <>
       {/* 顶部统计 */}
@@ -335,18 +338,21 @@ function fmtVol(v: number | null): string {
   return String(v);
 }
 
-function UsScanView({ stocks }: { stocks: UsStock[] }) {
+function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string, DilutionFlag> }) {
   const router = useRouter();
   const { has, toggle } = useWatchlist();
   const [search, setSearch] = useState("");
   const [sectorSet, setSectorSet] = useState<Set<string>>(new Set());
   const [capTier, setCapTier] = useState<"all" | "large" | "mid" | "small">("all");
+  const [dilu, setDilu] = useState<"all" | "only" | "hide">("all");
   const [sortCol, setSortCol] = useState<UsSortCol>("mcap");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [page, setPage] = useState(0);
 
+  const flagCount = Object.keys(flags).length;
+
   // 任何筛选 / 排序变化 → 回第一页
-  useEffect(() => { setPage(0); }, [search, sectorSet, capTier, sortCol, sortDir]);
+  useEffect(() => { setPage(0); }, [search, sectorSet, capTier, dilu, sortCol, sortDir]);
 
   const sectors = useMemo(() => {
     const freq = new Map<string, number>();
@@ -367,6 +373,8 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
         return c < 2;
       });
     }
+    if (dilu === "only") r = r.filter((s) => flags[s.sym]);
+    else if (dilu === "hide") r = r.filter((s) => !flags[s.sym]);
     if (search.trim()) {
       const q = search.trim().toLowerCase();
       r = r.filter(
@@ -383,7 +391,7 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
       const bv = sortCol === "price" ? b.price : sortCol === "pct" ? b.pct : sortCol === "vol" ? b.vol : b.mcapB;
       return ((av ?? -Infinity) - (bv ?? -Infinity)) * dir;
     });
-  }, [stocks, sectorSet, capTier, search, sortCol, sortDir]);
+  }, [stocks, sectorSet, capTier, dilu, flags, search, sortCol, sortDir]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / US_PAGE_SIZE));
   const safePage = Math.min(page, totalPages - 1);
@@ -448,15 +456,34 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
  placeholder="搜代码 / 公司 / 行业…"
  className="flex-1 min-w-[180px] rounded-lg border border-line px-3 py-1.5 text-sm focus:border-faint focus:outline-none"
           />
-          {(sectorSet.size > 0 || capTier !== "all" || search) && (
+          {(sectorSet.size > 0 || capTier !== "all" || dilu !== "all" || search) && (
             <button
-              onClick={() => { setSectorSet(new Set()); setCapTier("all"); setSearch(""); }}
+              onClick={() => { setSectorSet(new Set()); setCapTier("all"); setDilu("all"); setSearch(""); }}
  className="rounded-lg border border-line px-3 py-1.5 text-sm text-muted hover:bg-surface-2"
             >
               清除筛选
             </button>
           )}
         </div>
+
+        {/* 印股票 / 稀释风险 */}
+        {flagCount > 0 && (
+ <div className="mb-2 flex flex-wrap items-center gap-1.5">
+ <span className="mr-1 text-xs text-down">⚠ 印股票风险:</span>
+            {([["all", "全部"], ["only", `只看(${flagCount})`], ["hide", "隐藏风险"]] as const).map(([k, label]) => (
+              <button
+                key={k}
+                onClick={() => setDilu(k)}
+                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+ dilu === k ? "bg-down-soft text-down border border-down/40" : "bg-surface-2 text-muted hover:bg-line"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+ <span className="text-[10px] text-faint">SEC 货架注册 + ATM 增发(可随时砸盘)</span>
+          </div>
+        )}
 
         {/* 市值档 */}
  <div className="mb-2 flex flex-wrap items-center gap-1.5">
@@ -514,6 +541,7 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
               const rank = safePage * US_PAGE_SIZE + idx + 1;
               const inList = has(s.sym, "us");
               const isUp = (s.pct ?? 0) >= 0;
+              const flag = flags[s.sym];
               return (
                 <tr
                   key={s.sym}
@@ -522,8 +550,9 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
                 >
  <td className="px-3 py-2 text-right font-mono text-xs text-faint tabular-nums">{rank}</td>
  <td className="px-3 py-2">
- <div className="flex items-baseline gap-2 max-w-[170px] sm:max-w-[300px]">
+ <div className="flex items-baseline gap-2 max-w-[180px] sm:max-w-[340px]">
  <span className="shrink-0 font-mono font-semibold text-ink">{s.sym}</span>
+                      {flag && <DilutionBadge flag={flag} />}
  <span className="truncate text-muted">{s.name || s.sym}</span>
                     </div>
                   </td>
@@ -578,6 +607,27 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
         </div>
       </div>
     </>
+  );
+}
+
+export function DilutionBadge({ flag, big = false }: { flag: DilutionFlag; big?: boolean }) {
+  const active = flag.tier === "active";
+  const label = active ? "增发中" : "货架";
+  const parts: string[] = [];
+  if (flag.capacity_usd) parts.push(`货架 $${(flag.capacity_usd / 1e6).toFixed(0)}M`);
+  if (flag.ratio) parts.push(`市值的 ${flag.ratio}x`);
+  if (flag.atm_1y) parts.push(`近1年 ${flag.atm_1y} 份 424B5`);
+  if (flag.foreign) parts.push("外国发行人");
+  const tip = `SEC ${flag.shelf ? "S-3/F-3 货架注册" : "连续增发"} · ${parts.join(" · ") || "可随时 ATM 增发"}`;
+  return (
+    <span
+      title={tip}
+      className={`shrink-0 rounded font-medium ${big ? "px-2 py-0.5 text-xs" : "px-1.5 text-[10px]"} ${
+ active ? "bg-down-soft text-down border border-down/30" : "bg-accent-soft text-accent border border-accent/30"
+      }`}
+    >
+      {label}
+    </span>
   );
 }
 

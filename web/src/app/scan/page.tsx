@@ -2,6 +2,7 @@ import Link from "next/link";
 import fs from "node:fs";
 import path from "node:path";
 import { loadAleabitManifest } from "@/lib/data";
+import { loadDilutionFlags } from "@/lib/dilution";
 import ScanClient, { type UsStock } from "./ScanClient";
 
 function loadUsStocks(): UsStock[] {
@@ -24,6 +25,7 @@ function loadUsStocks(): UsStock[] {
 export default function ScanPage() {
   const items = loadAleabitManifest();
   const usStocks = loadUsStocks();
+  const dilutionFlags = loadDilutionFlags();
 
   return (
  <main className="mx-auto max-w-7xl px-6 py-10">
@@ -49,7 +51,7 @@ export default function ScanPage() {
         </div>
       </header>
 
-      <ScanClient items={items} usStocks={usStocks} />
+      <ScanClient items={items} usStocks={usStocks} dilutionFlags={dilutionFlags} />
 
  <footer className="mt-16 border-t border-line pt-6 text-center text-xs text-faint">
         我不是股神 · Not a Stock Guru · A股 Serenity 框架 + 美股 Nasdaq 全市场（非投资建议）

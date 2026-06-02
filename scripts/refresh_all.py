@@ -57,6 +57,19 @@ def run_us_stocks() -> bool:
     return ok
 
 
+def run_dilution() -> bool:
+    """SEC EDGAR 印股票/稀释红旗 → dilution-flags.json(周更,慢)。"""
+    step("印股票/稀释红旗（SEC EDGAR · 周更）")
+    t = time.time()
+    r = subprocess.run(
+        [sys.executable, "-m", "fetchers.dilution_flags"],
+        cwd=str(ROOT),
+    )
+    ok = r.returncode == 0
+    print(f"  {'✓' if ok else '⚠️'} dilution_flags ({time.time()-t:.0f}s)")
+    return ok
+
+
 def run_funds() -> bool:
     """akshare A股基金重仓 → DB（季度更，地域敏感）。"""
     step("A股基金重仓（akshare · 季度）")
@@ -87,6 +100,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--export", action="store_true", help="只 export（最快）")
     ap.add_argument("--funds", action="store_true", help="额外刷 A股基金（季度）")
+    ap.add_argument("--dilution", action="store_true", help="额外刷印股票/稀释红旗（周更,慢）")
     ap.add_argument("--no-quotes", action="store_true", help="跳过行情")
     args = ap.parse_args()
 
@@ -102,6 +116,8 @@ def main():
             results["us_stocks"] = run_us_stocks()
         if args.funds:
             results["funds"] = run_funds()
+        if args.dilution:
+            results["dilution"] = run_dilution()
         results["export"] = run_export()
 
     # 汇总

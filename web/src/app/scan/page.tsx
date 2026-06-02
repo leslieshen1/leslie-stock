@@ -43,7 +43,7 @@ export default function ScanPage() {
               全市场扫描
             </h1>
  <p className="mt-1 text-sm text-muted">
-              A 股 {items.length} 只 · 瓶颈狙击评分　|　美股 {usStocks.length} 只 · 市值 / 动量
+              美股 {usStocks.length} 只 · 市值 / 动量　|　A 股 {items.length} 只 · 瓶颈狙击评分
             </p>
           </div>
         </div>

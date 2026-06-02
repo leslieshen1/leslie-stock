@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -97,10 +98,15 @@ def main():
     rows = fetch_rows()
     print(f"   原始 {len(rows)} 条")
 
+    # 权证 / 单元份额 / 认购权(SPAC 衍生份额,不是股票)
+    WUR = re.compile(r"\b(Warrants?|Units?|Rights?)\b", re.IGNORECASE)
+
     stocks = []
     for r in rows:
         sym = (r.get("symbol") or "").strip().upper()
-        if not sym or "^" in sym or "/" in sym:  # 跳过指数/异常符号
+        if not sym or "^" in sym or "/" in sym:  # 跳过指数/优先股/异常符号
+            continue
+        if WUR.search(r.get("name", "")):  # 跳过 SPAC 权证/单元/认购权份额
             continue
         mcap = _f(r.get("marketCap"))
         stocks.append({

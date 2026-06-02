@@ -44,7 +44,7 @@ export default function ScanClient({
   items: AleabitManifestEntry[];
   usStocks?: UsStock[];
 }) {
-  const [market, setMarket] = useState<"a" | "us">("a");
+  const [market, setMarket] = useState<"a" | "us">("us");
   // 默认筛选：score >= 60，隐藏批量预标的
   const [scoreBuckets, setScoreBuckets] = useState<Set<string>>(
     new Set(SCORE_BUCKETS.filter((b) => b.default).map((b) => b.key))
@@ -122,16 +122,8 @@ export default function ScanClient({
 
   return (
     <>
-      {/* 市场切换 */}
+      {/* 市场切换（默认美股） */}
  <div className="mb-5 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
-        <button
-          onClick={() => setMarket("a")}
-          className={`rounded-md px-4 py-1.5 font-medium transition ${
- market === "a" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
-          }`}
-        >
-          A 股 · 瓶颈狙击
-        </button>
         <button
           onClick={() => setMarket("us")}
           className={`rounded-md px-4 py-1.5 font-medium transition ${
@@ -139,6 +131,14 @@ export default function ScanClient({
           }`}
         >
           美股 · 全市场 {usStocks.length > 0 ? usStocks.length : ""}
+        </button>
+        <button
+          onClick={() => setMarket("a")}
+          className={`rounded-md px-4 py-1.5 font-medium transition ${
+ market === "a" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+          }`}
+        >
+          A 股 · 瓶颈狙击
         </button>
       </div>
 
@@ -500,7 +500,7 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
  <thead className="border-b border-line bg-surface text-left text-xs">
             <tr>
  <th className="px-3 py-2 text-right font-medium text-muted">#</th>
-              <Th col="name" label="名称 / 代码" />
+              <Th col="name" label="代码 / 名称" />
  <Th col="price" label="价格" className="text-right" />
  <Th col="pct" label="涨跌%" className="text-right" />
  <Th col="mcap" label="市值" className="text-right" />
@@ -522,9 +522,9 @@ function UsScanView({ stocks }: { stocks: UsStock[] }) {
                 >
  <td className="px-3 py-2 text-right font-mono text-xs text-faint tabular-nums">{rank}</td>
  <td className="px-3 py-2">
- <div className="flex items-baseline gap-2">
- <span className="truncate font-medium text-ink">{s.name || s.sym}</span>
- <span className="shrink-0 font-mono text-xs text-faint">{s.sym}</span>
+ <div className="flex items-baseline gap-2 max-w-[170px] sm:max-w-[300px]">
+ <span className="shrink-0 font-mono font-semibold text-ink">{s.sym}</span>
+ <span className="truncate text-muted">{s.name || s.sym}</span>
                     </div>
                   </td>
  <td className="px-3 py-2 text-right font-mono tabular-nums text-ink">

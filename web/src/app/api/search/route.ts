@@ -19,6 +19,43 @@ type ManifestItem = {
 // 缓存 manifest（mtime 失效）
 let CACHE: { items: ManifestItem[]; mtime: number } | null = null;
 
+// 美股全市场（us-stocks.json）— 也进搜索
+type UsRaw = { sym: string; name: string; mcapB: number | null; sector: string; industry: string };
+let US_CACHE: { items: ManifestItem[]; mtime: number } | null = null;
+
+function loadUsStocks(): ManifestItem[] {
+  const candidates = [
+    path.join(process.cwd(), "public", "data", "us-stocks.json"),
+    path.resolve(process.cwd(), "..", "web", "public", "data", "us-stocks.json"),
+  ];
+  for (const p of candidates) {
+    if (!fs.existsSync(p)) continue;
+    const stat = fs.statSync(p);
+    if (US_CACHE && US_CACHE.mtime === stat.mtimeMs) return US_CACHE.items;
+    try {
+      const j = JSON.parse(fs.readFileSync(p, "utf-8")) as { stocks?: UsRaw[] };
+      const items: ManifestItem[] = (j.stocks || []).map((u) => ({
+        code: u.sym,
+        name: u.name,
+        market: "us",
+        market_cap_yi: u.mcapB != null ? u.mcapB * 10 : null,
+        sector: u.sector || "",
+        layer: null,
+        score: 0,
+        verdict: "",
+        verdict_label: "",
+        signals_hit: 0,
+        thesis: u.industry || "",
+      }));
+      US_CACHE = { items, mtime: stat.mtimeMs };
+      return items;
+    } catch {
+      // try next path
+    }
+  }
+  return [];
+}
+
 function loadManifest(): ManifestItem[] {
   const candidates = [
     path.join(process.cwd(), "data", "aleabit_manifest.json"),
@@ -49,13 +86,20 @@ export async function GET(req: Request) {
     return NextResponse.json({ results: [] });
   }
 
-  const items = loadManifest();
-  if (items.length === 0) {
+  const manifest = loadManifest();
+  if (manifest.length === 0) {
     return NextResponse.json({
       results: [],
       warning: "manifest 不存在；运行 uv run python -m scripts.export_manifests",
     });
   }
+
+  // 合并美股全市场（去重：manifest 已有的 US 票优先用 manifest 版本）
+  const manifestUsCodes = new Set(
+    manifest.filter((i) => i.market === "us").map((i) => i.code.toUpperCase())
+  );
+  const usExtra = loadUsStocks().filter((u) => !manifestUsCodes.has(u.code.toUpperCase()));
+  const items = [...manifest, ...usExtra];
 
   // 评分优先级：
   // 1. code 完全匹配

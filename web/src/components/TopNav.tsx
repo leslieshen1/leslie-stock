@@ -25,6 +25,7 @@ const NAV: NavItem[] = [
   { href: "/watchlist", label: "观察",    en: "Watchlist",match: (p) => p.startsWith("/watchlist") },
   { href: "/scan",      label: "扫描",    en: "Scan",     match: (p) => p.startsWith("/scan") },
   { href: "/portfolio", label: "持仓",    en: "Portfolio",match: (p) => p.startsWith("/portfolio") },
+  { href: "/how-to-buy",label: "买美股",  en: "Buy",      match: (p) => p.startsWith("/how-to-buy") },
 ];
 
 export default function TopNav({ health }: { health?: DataHealth }) {

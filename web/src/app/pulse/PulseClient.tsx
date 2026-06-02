@@ -182,8 +182,8 @@ export default function PulseClient({
           </div>
         </div>
 
-        {/* Industry Tabs */}
- <div className="flex flex-wrap items-center gap-2">
+        {/* Industry Tabs — 手机横滑,桌面换行 */}
+ <div className="flex flex-nowrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap items-center gap-2">
           {INDUSTRIES.map((ind) => {
             const active = industry === ind.id;
  const isPrimary = ind.id === "AI";
@@ -192,7 +192,7 @@ export default function PulseClient({
               <button
                 key={ind.id}
                 onClick={() => setIndustry(ind.id)}
-                className={`flex items-baseline gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium transition ${
+                className={`flex shrink-0 items-baseline gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium transition ${
                   active
  ? "bg-surface-3 text-white "
                     : isPrimary

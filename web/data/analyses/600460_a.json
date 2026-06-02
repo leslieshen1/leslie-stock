@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — Power semi IDM (SiC/IGBT)",
     "bottleneck_score": 58,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 Power semi IDM thesis valid but已被国内市场充分发现",
+    "verdict_label": "Power semi IDM thesis valid but已被国内市场充分发现",
     "thesis": "China's only real vertically-integrated power semi IDM (8\" + 12\" + SiC line). AI 800VDC psu / EV inverter angle is real but 563亿 cap means thesis已被 buy-side定价. Not a hidden chokepoint anymore — too many sell-side decks.",
     "signals": [
       {

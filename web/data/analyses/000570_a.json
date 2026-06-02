@@ -25,7 +25,7 @@
     "layer_label": "L4 — 单缸柴油机 / 农机动力",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Single-cylinder diesel engines for small agricultural machinery — mature, low-margin, declining as electrification takes share. No chokepoint.",
     "signals": [
       {

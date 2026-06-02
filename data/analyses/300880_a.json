@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "智能电表/物联表，市政公用类，无 chokepoint 属性。",
     "signals": [
       {

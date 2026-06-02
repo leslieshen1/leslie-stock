@@ -25,7 +25,7 @@
     "layer_label": "L3 — 工业超声/相控阵无损检测仪",
     "bottleneck_score": 68,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 aleabit 同型",
+    "verdict_label": "aleabit 同型",
     "thesis": "Industrial ultrasonic and phased-array non-destructive testing instruments — domestic replacement of Olympus/GE; technology-deep niche serving aerospace, pipeline, rail and nuclear inspection. Small-cap + technical depth + government/defense customer mix = textbook aleabit chokepoint analogue.",
     "signals": [
       {

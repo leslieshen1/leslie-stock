@@ -25,7 +25,7 @@
     "layer_label": "卫材打孔无纺布",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "卫材无纺布面层，宝洁/金佰利供应商，但材料技术门槛中等，且下游议价强。",
     "signals": [
       {

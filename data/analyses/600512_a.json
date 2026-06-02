@@ -25,7 +25,7 @@
     "layer_label": "基建(路桥施工)",
     "bottleneck_score": 16,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "路桥工程承包, 基建投资放缓+地方债务压力. 完全竞争, 非 chokepoint.",
     "signals": [
       {

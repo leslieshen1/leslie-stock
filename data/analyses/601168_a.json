@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 铜/铅/锌矿",
     "bottleneck_score": 28,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 宏观 tailwind 但市值过大",
+    "verdict_label": "宏观 tailwind 但市值过大",
     "thesis": "Copper/lead/zinc miner — 77.3B RMB MC. Copper has real AI capex tailwind (data center electrification) but this is mid-cap SOE, fully discovered.",
     "signals": [
       {

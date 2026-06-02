@@ -25,7 +25,7 @@
     "layer_label": "L4 — 家电 PCM 板 / 覆膜钢板",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "PCM coated steel for home appliances — commodity material, white-goods cycle exposed.",
     "signals": [
       {

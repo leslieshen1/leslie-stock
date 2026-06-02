@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 3D 视觉传感器（机器人感知）",
     "bottleneck_score": 58,
     "verdict": "worth_watching",
-    "verdict_label": "💎 机器人 3D 视觉候选",
+    "verdict_label": "机器人 3D 视觉候选",
     "thesis": "奥比中光 = 中国 3D 视觉感知龙头，结构光 / iToF / dToF / 双目方案。Humanoid 机器人 perception 核心传感器。直接对标 Intel RealSense / Microsoft Kinect / Apple TrueDepth。但市值 ~475 亿 + PB 16 已偏贵。",
     "signals": [
       {

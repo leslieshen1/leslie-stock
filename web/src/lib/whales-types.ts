@@ -55,17 +55,17 @@ export type WhalesData = {
 };
 
 export const CHANGE_META: Record<ChangeType, { label: string; tone: string }> = {
-  new:  { label: "新建仓", tone: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-  add:  { label: "加仓",   tone: "bg-blue-50 text-blue-700 border-blue-200" },
-  trim: { label: "减仓",   tone: "bg-amber-50 text-amber-700 border-amber-200" },
-  exit: { label: "清仓",   tone: "bg-rose-50 text-rose-700 border-rose-200" },
-  hold: { label: "持有",   tone: "bg-zinc-50 text-zinc-500 border-zinc-200" },
+  new:  { label: "新建仓", tone: "text-up border-up/25 bg-up-soft" },
+  add:  { label: "加仓",   tone: "text-up border-up/25 bg-up-soft" },
+  trim: { label: "减仓",   tone: "text-down border-down/25 bg-down-soft" },
+  exit: { label: "清仓",   tone: "text-down border-down/25 bg-down-soft" },
+  hold: { label: "持有",   tone: "text-faint border-line bg-surface-2" },
 };
 
-export const TYPE_META: Record<InvestorType, { label: string; emoji: string }> = {
-  superinvestor: { label: "美股大佬", emoji: "🇺🇸" },
-  fund:          { label: "A股顶流", emoji: "🏦" },
-  politician:    { label: "政客 / 议员", emoji: "🏛️" },
-  hot_money:     { label: "游资席位", emoji: "🎰" },
-  northbound:    { label: "北向资金", emoji: "🌊" },
+export const TYPE_META: Record<InvestorType, { label: string }> = {
+  superinvestor: { label: "美股大佬" },
+  fund:          { label: "A股顶流" },
+  politician:    { label: "政客 / 议员" },
+  hot_money:     { label: "游资席位" },
+  northbound:    { label: "北向资金" },
 };

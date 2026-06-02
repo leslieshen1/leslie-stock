@@ -25,7 +25,7 @@
     "layer_label": "广告 - 电梯/楼宇数字广告",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "电梯/楼宇数字广告。分众阴影下生存,广告业务弱。无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

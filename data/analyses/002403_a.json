@@ -25,7 +25,7 @@
     "layer_label": "炊具+工业机器人尝试",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "炊具主业弱+机器人题材未兑现,排除",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 改性塑料/童车材料",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "改性工程塑料，名字含'新材'但主业偏童车/工业件，无 chokepoint。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 激光焊接设备（动力电池为主）",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 名字带激光但下游是电池",
+    "verdict_label": "名字带激光但下游是电池",
     "thesis": "联赢 makes laser welding equipment primarily for power batteries (CATL / BYD lineage). Not optical communication / CPO. AI 关联通过数据中心电源间接。Theme tag 'CPO 相关' is misleading.",
     "signals": [
       {

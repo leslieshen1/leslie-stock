@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 电解铝 + 高纯铝",
     "bottleneck_score": 45,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 电解铝 + 高纯铝叙事但市值偏大",
+    "verdict_label": "电解铝 + 高纯铝叙事但市值偏大",
     "thesis": "天山铝业为新疆电解铝龙头，自备煤电一体化成本优势；近年延伸高纯铝（电子级铝箔）业务。AI 关联点在高纯铝/电池铝箔。但电解铝整体非 chokepoint，市值 712 亿超过 sweet spot。",
     "signals": [
       {

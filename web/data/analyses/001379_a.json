@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 17,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "汽车/机械紧固件，商品化金属件，与 AI 链无关。",
     "signals": [
       {

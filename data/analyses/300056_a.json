@@ -25,7 +25,7 @@
     "layer_label": "工业除尘+陶瓷膜",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "环保设备+陶瓷膜，业务分散，亏损周期。",
     "signals": [
       {

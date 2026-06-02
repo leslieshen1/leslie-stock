@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 汽车智能装配产线",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "汽车焊装/装配自动化产线集成，项目制+客户集中，无 chokepoint 属性。",
     "signals": [
       {

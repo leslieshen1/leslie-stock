@@ -25,7 +25,7 @@
     "layer_label": "ST-家居",
     "bottleneck_score": 8,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "ST 家居出口，排除。",
     "signals": [
       {

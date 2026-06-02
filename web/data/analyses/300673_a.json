@@ -25,7 +25,7 @@
     "layer_label": "宠物食品中游(咬胶/宠物零食 ODM)",
     "bottleneck_score": 40,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "宠物食品(咬胶/零食) ODM, 客户为海外宠物品牌. 海外订单 + 越南/柬埔寨产能布局应对关税, 中宠/乖宝同台. 非独占 chokepoint.",
     "signals": [
       {

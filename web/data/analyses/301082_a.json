@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 特种电缆",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "矿物绝缘 + 核电特种电缆，利基但市场容量有限。",
     "signals": [
       {

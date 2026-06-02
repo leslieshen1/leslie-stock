@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 北斗导航芯片 + 模组",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 北斗导航 + 汽车智能驾驶, 与 AI capex 关联弱",
+    "verdict_label": "北斗导航 + 汽车智能驾驶, 与 AI capex 关联弱",
     "thesis": "北斗导航芯片 + 高精度模组 + 汽车智能驾驶天线. 国防 thesis 有效但与 AI 数据中心 capex 无关. 不射.",
     "signals": [
       {

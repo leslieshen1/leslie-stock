@@ -25,7 +25,7 @@
     "layer_label": "区域燃气",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "区域天然气分销,公用事业",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "N/A — 粮油加工(京粮集团)",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Grain and oil processing under Beijing Grain group — commodity ag-processing, defensive but no chokepoint.",
     "signals": [
       {

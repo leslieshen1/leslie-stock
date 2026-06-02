@@ -25,7 +25,7 @@
     "layer_label": "N/A — 冷链冻品贸易 + 教辅",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Guangdong cold-chain frozen meat trading plus textbook distribution SOE — low-margin distribution.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 17,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "安防视频监控集成，项目制 IT，无 chokepoint 属性。",
     "signals": [
       {

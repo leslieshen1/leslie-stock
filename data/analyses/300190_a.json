@@ -25,7 +25,7 @@
     "layer_label": "渗滤液+有机废弃物处理",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "垃圾渗滤液处理+有机废弃物，环保 EPC，区域订单依赖。",
     "signals": [
       {

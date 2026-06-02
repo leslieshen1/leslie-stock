@@ -25,7 +25,7 @@
     "layer_label": "L4 — 电脑横机/智能针织机",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Computerized knitting machines — competes with Japanese Shima Seiki, weak cycle.",
     "signals": [
       {

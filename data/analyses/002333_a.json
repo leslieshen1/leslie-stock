@@ -25,7 +25,7 @@
     "layer_label": "工业制造(铝型材/门窗)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "铝合金型材, 业务转型多元化但缺乏聚焦. 房地产门窗需求疲软, 行业产能过剩, 完全竞争, 非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "N/A — 中药注射剂/化学注射剂",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "TCM injectables (灯盏花素 etc.) plus chemical injections — collective procurement headwind, declining therapy class.",
     "signals": [
       {

@@ -134,10 +134,10 @@ export default function PulseField({
   // heat mode: 直接用 heat (高=过热=红)
   // triple mode: 直接用 triple (高=优质=绿/金)
   function scoreOf(p: Particle): number {
-    return colorModeRef.current === "heat" ? p.data.heat : p.data.triple;
+ return colorModeRef.current === "heat" ? p.data.heat : p.data.triple;
   }
   function colorOf(score: number, alpha: number): string {
-    return colorModeRef.current === "heat" ? heatColor(score, alpha) : tripleColor(score, alpha);
+ return colorModeRef.current === "heat" ? heatColor(score, alpha) : tripleColor(score, alpha);
   }
 
   function layoutParticles(w: number, h: number) {
@@ -186,7 +186,7 @@ export default function PulseField({
     const canvas = canvasRef.current;
     const wrap = wrapRef.current;
     if (!canvas || !wrap) return;
-    const ctx = canvas.getContext("2d");
+ const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     function resize() {
@@ -213,16 +213,16 @@ export default function PulseField({
     }
     function onLeave() { mouseRef.current = null; hoverRef.current = null; }
     function onClick() { onSelect(hoverRef.current ? hoverRef.current.data : null); }
-    canvas.addEventListener("mousemove", onMove);
-    canvas.addEventListener("mouseleave", onLeave);
-    canvas.addEventListener("click", onClick);
+ canvas.addEventListener("mousemove", onMove);
+ canvas.addEventListener("mouseleave", onLeave);
+ canvas.addEventListener("click", onClick);
 
     function tick(t: number) {
       if (!ctx) return;
       const { w, h } = sizeRef.current;
 
       // 拖尾背景：从 0.20 调到 0.45，让画面更快擦除（不再糊）
-      ctx.fillStyle = "rgba(6, 8, 16, 0.45)";
+ ctx.fillStyle = "rgba(6, 8, 16, 0.45)";
       ctx.fillRect(0, 0, w, h);
 
       // 层背景线 + 标签
@@ -233,7 +233,7 @@ export default function PulseField({
       const spineX = 22;
       const spinePulseT = (t / 2200) % 1; // 0..1 循环
       // 主轴垂直线（贯穿所有节点中心）
-      ctx.strokeStyle = "rgba(180, 200, 255, 0.18)";
+ ctx.strokeStyle = "rgba(180, 200, 255, 0.18)";
       ctx.lineWidth = 1.2;
       ctx.beginPath();
       ctx.moveTo(spineX, laneH * 0.5);
@@ -244,8 +244,8 @@ export default function PulseField({
       if (LIVE.length > 1) {
         const flowY = laneH * 0.5 + (h - laneH) * spinePulseT;
         const flowGrad = ctx.createRadialGradient(spineX, flowY, 0, spineX, flowY, 14);
-        flowGrad.addColorStop(0, "rgba(180, 220, 255, 0.65)");
-        flowGrad.addColorStop(1, "rgba(180, 220, 255, 0)");
+ flowGrad.addColorStop(0, "rgba(180, 220, 255, 0.65)");
+ flowGrad.addColorStop(1, "rgba(180, 220, 255, 0)");
         ctx.fillStyle = flowGrad;
         ctx.beginPath();
         ctx.arc(spineX, flowY, 14, 0, Math.PI * 2);
@@ -258,12 +258,12 @@ export default function PulseField({
         const L = LIVE[i];
         const dim = highlightRef.current && highlightRef.current !== L.id;
         // 节点圈
-        ctx.fillStyle = dim ? "rgba(180, 200, 255, 0.3)" : "rgba(180, 220, 255, 0.85)";
+ ctx.fillStyle = dim ? "rgba(180, 200, 255, 0.3)" : "rgba(180, 220, 255, 0.85)";
         ctx.beginPath();
         ctx.arc(spineX, cy, 4, 0, Math.PI * 2);
         ctx.fill();
         // 节点外圈光晕
-        ctx.strokeStyle = dim ? "rgba(180, 200, 255, 0.12)" : "rgba(180, 220, 255, 0.35)";
+ ctx.strokeStyle = dim ? "rgba(180, 200, 255, 0.12)" : "rgba(180, 220, 255, 0.35)";
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(spineX, cy, 7, 0, Math.PI * 2);
@@ -272,7 +272,7 @@ export default function PulseField({
         // 向下箭头（最后一层不画）
         if (i < LIVE.length - 1) {
           const arrowY = cy + laneH * 0.5;
-          ctx.fillStyle = dim ? "rgba(180, 200, 255, 0.18)" : "rgba(180, 220, 255, 0.55)";
+ ctx.fillStyle = dim ? "rgba(180, 200, 255, 0.18)" : "rgba(180, 220, 255, 0.55)";
           ctx.beginPath();
           ctx.moveTo(spineX - 3.5, arrowY - 3);
           ctx.lineTo(spineX + 3.5, arrowY - 3);
@@ -283,31 +283,31 @@ export default function PulseField({
       }
 
       // 顶部「上游」/ 底部「下游 / 应用」标签
-      ctx.fillStyle = "rgba(180, 220, 255, 0.55)";
-      ctx.font = "9px 'JetBrains Mono', monospace";
-      ctx.textBaseline = "top";
-      ctx.fillText("上游", spineX - 9, 6);
-      ctx.textBaseline = "bottom";
-      ctx.fillText("下游", spineX - 9, h - 6);
+ ctx.fillStyle = "rgba(180, 220, 255, 0.55)";
+ ctx.font = "9px 'JetBrains Mono', monospace";
+ ctx.textBaseline = "top";
+ ctx.fillText("上游", spineX - 9, 6);
+ ctx.textBaseline = "bottom";
+ ctx.fillText("下游", spineX - 9, h - 6);
 
       // ===== Layer 背景分隔线 + 标签 =====
       for (let i = 0; i < LIVE.length; i++) {
         const yTop = i * laneH;
         const L = LIVE[i];
         const dim = highlightRef.current && highlightRef.current !== L.id;
-        ctx.strokeStyle = dim ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.065)";
+ ctx.strokeStyle = dim ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.065)";
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(40, yTop); // 从 spine 右侧起，避免与轴重叠
         ctx.lineTo(w, yTop);
         ctx.stroke();
 
-        ctx.fillStyle = dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.55)";
-        ctx.font = "10px 'JetBrains Mono', monospace";
-        ctx.textBaseline = "top";
+ ctx.fillStyle = dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.55)";
+ ctx.font = "10px 'JetBrains Mono', monospace";
+ ctx.textBaseline = "top";
         ctx.fillText(L.id, 40, yTop + 10);
-        ctx.font = "13px 'Inter', system-ui, sans-serif";
-        ctx.fillStyle = dim ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.85)";
+ ctx.font = "13px 'Inter', system-ui, sans-serif";
+ ctx.fillStyle = dim ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.85)";
         ctx.fillText(L.name, 70, yTop + 8);
       }
 
@@ -429,7 +429,7 @@ export default function PulseField({
 
         // 选中外圈
         if (isSelected) {
-          ctx.strokeStyle = "rgba(255,255,255,0.95)";
+ ctx.strokeStyle = "rgba(255,255,255,0.95)";
           ctx.lineWidth = 1.6;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.baseR + 7, 0, Math.PI * 2);
@@ -438,12 +438,12 @@ export default function PulseField({
 
         // 大粒子（市值 ≥ $200B）显示 ticker 标签（淡入）
         if (p.data.marketCapB >= 200 && !dim && appearProgress >= 0.6) {
-          ctx.font = "9px 'JetBrains Mono', monospace";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "top";
+ ctx.font = "9px 'JetBrains Mono', monospace";
+ ctx.textAlign = "center";
+ ctx.textBaseline = "top";
           ctx.fillStyle = `rgba(255,255,255,${0.55 * introAlpha * focusFade})`;
           ctx.fillText(p.data.ticker, p.x, p.y + p.baseR + 4);
-          ctx.textAlign = "start";
+ ctx.textAlign = "start";
         }
 
         // hover 检测
@@ -463,9 +463,9 @@ export default function PulseField({
       if (nearest && m) {
         const ns = scoreOf(nearest);
         const tip = `${nearest.data.ticker}  ·  ${nearest.data.name}`;
-        const label = colorModeRef.current === "heat" ? "热度" : "三方";
+ const label = colorModeRef.current === "heat" ? "热度" : "三方";
         const tip2 = `${label} ${ns} · ${nearest.data.region} · $${nearest.data.marketCapB}B`;
-        ctx.font = "12px 'Inter', system-ui, sans-serif";
+ ctx.font = "12px 'Inter', system-ui, sans-serif";
         const w1 = ctx.measureText(tip).width;
         const w2 = ctx.measureText(tip2).width;
         const boxW = Math.max(w1, w2) + 16;
@@ -474,15 +474,15 @@ export default function PulseField({
         let ty = nearest.y - boxH - 10;
         if (tx + boxW > w) tx = nearest.x - boxW - 14;
         if (ty < 0) ty = nearest.y + 14;
-        ctx.fillStyle = "rgba(6,8,16,0.94)";
+ ctx.fillStyle = "rgba(6,8,16,0.94)";
         ctx.strokeStyle = colorOf(ns, 0.92);
         ctx.lineWidth = 1;
         ctx.fillRect(tx, ty, boxW, boxH);
         ctx.strokeRect(tx, ty, boxW, boxH);
-        ctx.fillStyle = "#fff";
-        ctx.textBaseline = "top";
+ ctx.fillStyle = "#fff";
+ ctx.textBaseline = "top";
         ctx.fillText(tip, tx + 8, ty + 6);
-        ctx.fillStyle = "rgba(255,255,255,0.65)";
+ ctx.fillStyle = "rgba(255,255,255,0.65)";
         ctx.fillText(tip2, tx + 8, ty + 21);
       }
 
@@ -490,7 +490,7 @@ export default function PulseField({
       // （之前会让整个画面颤动，干扰阅读）
 
       // cursor
-      if (canvas) canvas.style.cursor = nearest ? "pointer" : "default";
+ if (canvas) canvas.style.cursor = nearest ? "pointer" : "default";
 
       rafRef.current = requestAnimationFrame(tick);
     }
@@ -498,11 +498,11 @@ export default function PulseField({
 
     return () => {
       ro.disconnect();
-      canvas.removeEventListener("mousemove", onMove);
-      canvas.removeEventListener("mouseleave", onLeave);
-      canvas.removeEventListener("click", onClick);
+ canvas.removeEventListener("mousemove", onMove);
+ canvas.removeEventListener("mouseleave", onLeave);
+ canvas.removeEventListener("click", onClick);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      if (wrap) wrap.style.transform = "";
+ if (wrap) wrap.style.transform = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items, edges, marketAvg, onSelect]);
@@ -510,10 +510,10 @@ export default function PulseField({
   return (
     <div
       ref={wrapRef}
-      className="relative h-[720px] w-full overflow-hidden rounded-2xl bg-[#06080F] origin-center will-change-transform"
+ className="relative h-[720px] w-full overflow-hidden rounded-2xl bg-[#06080F] origin-center will-change-transform"
     >
-      <canvas ref={canvasRef} className="block h-full w-full" />
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
+ <canvas ref={canvasRef} className="block h-full w-full" />
+ <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
     </div>
   );
 }

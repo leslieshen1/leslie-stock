@@ -25,7 +25,7 @@
     "layer_label": "盐化工+磷石膏综合",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "盐化工+磷石膏循环，磷酸铁切入新能源，业务杂。",
     "signals": [
       {

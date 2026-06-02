@@ -25,7 +25,7 @@
     "layer_label": "房地产(湖北区域开发)",
     "bottleneck_score": 10,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "区域房企, 地产行业系统性困境, 高负债. 完全规避.",
     "signals": [
       {

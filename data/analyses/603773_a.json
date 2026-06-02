@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 玻璃基板加工 / TGV / 玻璃基载板",
     "bottleneck_score": 70,
     "verdict": "high_conviction",
-    "verdict_label": "🎯 玻璃基板/TGV — 真正的 unknown chokepoint",
+    "verdict_label": "玻璃基板/TGV — 真正的 unknown chokepoint",
     "thesis": "$AXTI/$LPK analogue for glass substrate processing — TGV (Through-Glass-Via) + 玻璃基载板 + Mini/Micro-LED 基板。Intel 2027 glass core substrate roadmap + AVGO/NVDA 推动的下一代封装 → 玻璃基板是未来 5 年 advanced packaging 最关键的新材料 chokepoint 之一,A 股极少标的。PB 18.22 已经反映一部分,但市值仅 192亿,deep small cap,西方机构 zero coverage.",
     "signals": [
       {

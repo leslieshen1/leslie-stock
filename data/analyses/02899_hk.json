@@ -13,7 +13,7 @@
     "pb": 4.9
   },
   "overall_score": 83.25,
-  "overall_grade": "🏆 重点候选",
+  "overall_grade": "重点候选",
   "verdict": "同 A 股，H 股折价 15-20%，长期估值更便宜。如果你港股账户活跃可选 H 股。",
   "llm_used": true,
   "llm_model": "claude-conversation",
@@ -91,7 +91,7 @@
     "layer_label": "Layer 4 — 原材料/物料控制点",
     "bottleneck_score": 62,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 宏观顺风（市值过大）",
+    "verdict_label": "宏观顺风（市值过大）",
     "thesis": "Copper is the new oil for AI datacenters. Every MW of compute needs ~5kg of copper for power infra. $Zijin sits at top-3 globally in copper output + scaling lithium. But at $60B+ market cap she's way past my $500M-$5B sweet spot — this is a macro tailwind play, not a chokepoint sniper.",
     "signals": [
       {

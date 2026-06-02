@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — Specialty electronic gas (silane / disilane)",
     "bottleneck_score": 72,
     "verdict": "high_conviction",
-    "verdict_label": "🎯 high_conviction",
+    "verdict_label": "high_conviction",
     "thesis": "This is the actual aleabit shape — Beijing Stock Exchange listing, ~$600M mcap, makes electronic-grade silane and is pushing into disilane for HBM/3D-NAND deposition. The themes file flags it as solar but the strategic value sits in semiconductor specialty gas, which is exactly the Layer 4 chokepoint behind Chinese fab tool-up. Coverage is sparse because it's a BSE name nobody on the sell-side wants to model.",
     "signals": [
       {

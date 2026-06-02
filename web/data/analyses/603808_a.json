@@ -25,7 +25,7 @@
     "layer_label": "N/A — 高端女装",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "High-end womenswear — consumer fashion, brand portfolio cyclical, no chokepoint.",
     "signals": [
       {

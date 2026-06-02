@@ -25,7 +25,7 @@
     "layer_label": "影视传媒下游(电影制作发行)",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "影视制作发行公司, 历史项目包括《战狼2》《流浪地球》. 单片业绩波动巨大, 现金流不稳定. 非 chokepoint, 非典型 aleabit.",
     "signals": [
       {

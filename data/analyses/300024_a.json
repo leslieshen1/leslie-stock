@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 工业机器人 SOE（沈阳新松）",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ SOE 集成商，效率低",
+    "verdict_label": "SOE 集成商，效率低",
     "thesis": "SIASUN — China's flagship industrial robot SOE. Despite the ticker name, it's an integrator with chronic margin issues and SOE inefficiency.",
     "signals": [
       {

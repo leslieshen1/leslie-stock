@@ -25,7 +25,7 @@
     "layer_label": "L3 — 钛/锆/镍特种压力容器",
     "bottleneck_score": 65,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 钛锆特装备稀缺",
+    "verdict_label": "钛锆特装备稀缺",
     "thesis": "Baose makes titanium / zirconium / nickel-based pressure vessels and reactors for chemicals, pharma, nuclear and aerospace — niche specialty engineering with material chokepoint. Customers include nuclear (中核 / 中广核), pharma APIs, and PTA reactors. Limited domestic competitors with similar qualification. Defense / nuclear angle gives policy tailwind.",
     "signals": [
       {

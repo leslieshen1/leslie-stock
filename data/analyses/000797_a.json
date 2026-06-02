@@ -25,7 +25,7 @@
     "layer_label": "N/A — 海外工程承包",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Overseas construction contractor (mainly Africa) plus property — geopolitical and FX risk, no chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "ST-网络安全/审计设备",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "ST 困境股,网安业务模糊,排除",
     "signals": [
       {

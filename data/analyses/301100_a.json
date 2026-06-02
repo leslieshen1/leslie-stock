@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 电力开关柜",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "开关柜/电力设备，电网集采依赖，标品同质化。",
     "signals": [
       {

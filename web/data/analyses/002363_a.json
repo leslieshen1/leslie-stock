@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — Auto brake-disc/casting components (mislabeled as solar)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "Longi Machinery is a brake-disc and auto-casting shop unrelated to Longi Green Energy or solar — the theme label is wrong. Even on its real business, no AI or chokepoint case.",
     "signals": [
       {

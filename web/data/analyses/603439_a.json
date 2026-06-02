@@ -25,7 +25,7 @@
     "layer_label": "L5 — 中药 (开喉剑等)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "TCM (throat sword spray) — consumer pharma, no chokepoint.",
     "signals": [
       {

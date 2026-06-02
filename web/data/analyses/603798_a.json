@@ -25,7 +25,7 @@
     "layer_label": "汽车润滑油后市场",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "民营润滑油，被中石化/壳牌挤压，非 chokepoint。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "工业安全(矿山/燃气/管廊安全监控)",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "矿山安全监控系统+燃气安全, 受煤矿智能化政策推动. 行业参与者多, 区域属性强, 利润不稳定. 非典型 chokepoint.",
     "signals": [
       {

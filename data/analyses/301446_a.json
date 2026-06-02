@@ -25,7 +25,7 @@
     "layer_label": "L3 — 液压硬管+卡套接头(航空/工程机械/船舶)",
     "bottleneck_score": 65,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 aleabit 同型",
+    "verdict_label": "aleabit 同型",
     "thesis": "Hydraulic tube assemblies and bite-type fittings serving aerospace (商飞 C919/AG600), engineering machinery and naval applications. Aero qualification is a multi-year moat, defense-adjacent demand is the kicker. Small-cap + niche + qualification chokepoint = aleabit profile.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 17,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "通信网络监测/采集软件，运营商集采链下游 IT，无供应链 chokepoint。",
     "signals": [
       {

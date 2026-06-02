@@ -25,7 +25,7 @@
     "layer_label": "医药 chokepoint - 甾体药物中间体(全球供应)",
     "bottleneck_score": 65,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit Analogue 🪞",
+    "verdict_label": "aleabit Analogue",
     "thesis": "国内甾体激素中间体专精厂,覆盖皮质激素/性激素/孕激素全系列。Serenity 的 API 版本 - 甾体合成路线长、工艺难、全球能做的工厂有限。客户含全球大药企。小盘+技术深度+出口外销 = aleabit 模板。",
     "signals": {
       "supply_chain_chokepoint": true,

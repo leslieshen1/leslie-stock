@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 航天电子 / 测控通信",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 军工测控通信, 与 AI capex 无关 + 大市值",
+    "verdict_label": "军工测控通信, 与 AI capex 无关 + 大市值",
     "thesis": "航天科技旗下电子设备 (惯导 / 测控 / 连接器). 央企军工标的, 与 AI 数据中心 thesis 无关. 728亿市值偏大.",
     "signals": [
       {

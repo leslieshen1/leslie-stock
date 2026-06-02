@@ -25,7 +25,7 @@
     "layer_label": "N/A — 焦炭 + 钢铁",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Coke and steel commodity producer — pure cyclical, no chokepoint.",
     "signals": [
       {

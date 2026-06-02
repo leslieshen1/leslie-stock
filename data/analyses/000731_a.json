@@ -25,7 +25,7 @@
     "layer_label": "化工 - 尿素/甲醇/复合肥",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 尿素甲醇大宗",
+    "verdict_label": "尿素甲醇大宗",
     "thesis": "西南尿素+甲醇龙头之一，受天然气+煤炭原料+农化周期波动。大宗品无溢价。",
     "signals": [
       {

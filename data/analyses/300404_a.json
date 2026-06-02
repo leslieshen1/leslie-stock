@@ -25,7 +25,7 @@
     "layer_label": "中药/化药 CRO",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Mid-tier CRO. Crowded sub-sector, weak pricing power. Not a chokepoint.",
     "signals": [
       {

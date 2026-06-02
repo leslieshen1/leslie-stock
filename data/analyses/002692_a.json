@@ -25,7 +25,7 @@
     "layer_label": "电缆中游(电力电缆/特种电缆)",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "电力电缆制造商, 行业参与者数百家, 红海竞争. 与远东/宝胜/中天科技不可同日而语. 非 chokepoint.",
     "signals": [
       {

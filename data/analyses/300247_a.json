@@ -25,7 +25,7 @@
     "layer_label": "大健康消费下游(运动器材/健康产品)",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "原英唐智控/融捷股份关联体系, 转型大健康但业务边界模糊, 跑步机/电子血压等消费产品. 无技术或材料瓶颈, 非 chokepoint.",
     "signals": [
       {

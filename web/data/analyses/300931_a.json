@@ -25,7 +25,7 @@
     "layer_label": "L4 — 中小型电梯整机",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Mid-tier elevator assembler — competes against 三菱/通力/迅达 and 康力. Real estate downcycle headwind, no proprietary moat.",
     "signals": [
       {

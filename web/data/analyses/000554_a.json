@@ -25,7 +25,7 @@
     "layer_label": "能源 - 山东成品油零售",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 加油站零售壳",
+    "verdict_label": "加油站零售壳",
     "thesis": "中石化下属山东加油站零售，份额小、毛利薄、新能源车长期挤压。中石化集团下属壳意义大于经营。",
     "signals": [
       {

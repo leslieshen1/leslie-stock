@@ -25,7 +25,7 @@
     "layer_label": "ST-合成氨与三聚氰胺",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "ST 困境股,化肥同质产品无壁垒,排除",
     "signals": [
       {

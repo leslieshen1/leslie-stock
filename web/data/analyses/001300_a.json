@@ -25,7 +25,7 @@
     "layer_label": "蹦床/健身器材出口",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Trampoline / fitness OEM for US retailers. Consumer, trade-tariff exposed, no chokepoint.",
     "signals": [
       {

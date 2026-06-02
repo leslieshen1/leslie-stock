@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 通信电缆",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "传统通信电缆，常年壳资源，无 chokepoint。",
     "signals": [
       {

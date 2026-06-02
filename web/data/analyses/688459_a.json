@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "铁路轨道探伤检测设备及服务，国铁集团客户单一，无 chokepoint 属性。",
     "signals": [
       {

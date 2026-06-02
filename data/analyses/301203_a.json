@@ -25,7 +25,7 @@
     "layer_label": "环保中游(底泥/污泥处置)",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "底泥/污泥处理工程服务商, 项目制收入波动大, 应收账款风险. 环保细分有一定技术但非独占, 政府结算账期长.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "N/A — 中成药区域 OTC",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Regional TCM OTC maker — 盘龙七片 small brand, no real moat.",
     "signals": [
       {

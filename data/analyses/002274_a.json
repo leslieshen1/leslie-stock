@@ -25,7 +25,7 @@
     "layer_label": "L2 — 化肥/液氨/三聚氰胺",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Compound fertilizer + liquid ammonia + melamine — commodity chemical.",
     "signals": [
       {

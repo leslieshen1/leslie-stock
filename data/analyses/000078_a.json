@@ -25,7 +25,7 @@
     "layer_label": "N/A — ST 医药商业(危机企业)",
     "bottleneck_score": 8,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "ST-status pharma distribution with severe receivables and liquidity issues — distressed, not investable on fundamentals.",
     "signals": [
       {

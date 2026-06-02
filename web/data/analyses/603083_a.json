@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 光模块整机（CPO/800G 相关）",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 光模块板块 crowded",
+    "verdict_label": "光模块板块 crowded",
     "thesis": "剑桥科技 makes optical modules + customer-premise equipment. 在 800G / CPO 题材中算二线玩家 vs 中际旭创/新易盛。Thesis 有效但板块已被市场充分发现。Layer 2 = crowded.",
     "signals": [
       {

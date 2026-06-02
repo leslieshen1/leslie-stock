@@ -25,7 +25,7 @@
     "layer_label": "医药 - 儿童感冒退烧药+辅助生殖",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "儿童药(瑞芝清布洛芬)+辅助生殖业务转型。出生率下行 + 集采压力。无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

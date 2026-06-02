@@ -25,7 +25,7 @@
     "layer_label": "网络可视化/DPI/网安监管设备",
     "bottleneck_score": 55,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 aleabit 类比",
+    "verdict_label": "aleabit 类比",
     "thesis": "DPI / lawful-intercept / network visibility appliances. Quasi-licensed customer pool (operators + security agencies). High tech depth, low coverage, domestic chokepoint replacing Cisco-class gear. AI traffic explosion = upgrade cycle. This is the kind of gov-cyber chokepoint she could write a thesis on.",
     "signals": [
       {

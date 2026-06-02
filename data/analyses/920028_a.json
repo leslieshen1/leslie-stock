@@ -25,7 +25,7 @@
     "layer_label": "制造 - 北交所工业（披露有限）",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 北交所信息有限",
+    "verdict_label": "北交所信息有限",
     "thesis": "北交所小盘，公开信息较少，默认归入一般制造业。无明显瓶颈识别。",
     "signals": [
       {

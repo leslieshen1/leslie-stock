@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — TWS 蓝牙 SoC",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ TWS 耳机芯片, 非 AI 数据中心射程",
+    "verdict_label": "TWS 耳机芯片, 非 AI 数据中心射程",
     "thesis": "TWS 蓝牙 SoC 龙头. 业务面向消费电子 (耳机/手表), 与 AI capex 几乎无关. 不在 Serenity 框架里.",
     "signals": [
       {

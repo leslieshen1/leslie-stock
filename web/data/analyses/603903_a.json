@@ -25,7 +25,7 @@
     "layer_label": "环保 - 工业/市政水处理",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "工业/市政水处理工程公司。PPP 模式后遗症+应收账款问题。环保工程不是 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

@@ -25,7 +25,7 @@
     "layer_label": "岩土工程-地基处理",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "地基工程服务,项目制,无 chokepoint 属性",
     "signals": [
       {

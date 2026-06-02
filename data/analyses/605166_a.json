@@ -25,7 +25,7 @@
     "layer_label": "化工材料(尼龙 6 切片/PA6)",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "PA6 切片产能扩张型企业, 行业产能严重过剩, 毛利薄如纸. 民用纺丝级聚酰胺, 非高端工程塑料, 无定价权, 非 chokepoint.",
     "signals": [
       {

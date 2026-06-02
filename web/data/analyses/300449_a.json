@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 安防视频监控",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "中小安防 NVR/DVR，海康宇视价格战夹缝，困境股属性。",
     "signals": [
       {

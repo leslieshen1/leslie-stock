@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 铝型材加工",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 普通铝型材，非 AI chokepoint",
+    "verdict_label": "普通铝型材，非 AI chokepoint",
     "thesis": "闽发铝业主营建筑/工业铝型材加工，纯加工属性，无独立矿产或战略材料 chokepoint。市值 37 亿虽属小盘但业务无 AI 关联度，纯铝产业链下游普通环节，应排除。",
     "signals": [
       {

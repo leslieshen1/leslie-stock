@@ -25,7 +25,7 @@
     "layer_label": "工业 - 通风换气设备",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 通风设备一般制造",
+    "verdict_label": "通风设备一般制造",
     "thesis": "新风/换气扇/通风设备，下游建筑+商用。地产下行承压，无技术瓶颈。数据中心通风是潜在边际，但占比小。",
     "signals": [
       {

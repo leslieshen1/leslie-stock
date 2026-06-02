@@ -25,7 +25,7 @@
     "layer_label": "工业驱动中游(电动汽车电控/工业变频器)",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "新能源商用车电控系统供应商, 客户为东风/福田等. 商用车电动化渗透率提升受益, 但电控领域汇川/英搏尔/欣锐科技同台竞争, 技术壁垒中等. 商用车市场体量有限.",
     "signals": [
       {

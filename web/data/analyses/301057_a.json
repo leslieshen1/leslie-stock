@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "原液着色涤纶纤维，化纤纺织链，与 AI 链无关。",
     "signals": [
       {

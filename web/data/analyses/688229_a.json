@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "APM 应用性能监控软件，企业 SaaS，无 chokepoint 属性。",
     "signals": [
       {

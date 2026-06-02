@@ -25,7 +25,7 @@
     "layer_label": "含乳饮料",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "甜牛奶单品依赖，渠道下沉的区域饮料。消费防御，无 bottleneck。",
     "signals": [
       {

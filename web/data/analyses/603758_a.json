@@ -25,7 +25,7 @@
     "layer_label": "汽车发动机部件",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "发动机缸体,长城汽车配套,新能源冲击",
     "signals": [
       {

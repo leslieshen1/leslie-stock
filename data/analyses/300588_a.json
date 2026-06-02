@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "公安/政务信息化项目商，纯 IT 集成，无供应链 chokepoint。",
     "signals": [
       {

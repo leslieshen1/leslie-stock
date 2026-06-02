@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 证件 IT/身份识别",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "身份证/护照证件 IT 设备，政务订单，非 AI 物理瓶颈。",
     "signals": [
       {

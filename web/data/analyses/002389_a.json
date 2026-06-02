@@ -13,8 +13,8 @@
     "pb": 4.0
   },
   "overall_score": 58.75,
-  "overall_grade": "⛔ 过滤（双重一票否决）",
-  "verdict": "段永平视角：PE 90 倍意味着假设未来 10 年净利每年涨 30%，即使彩虹-7 全卖完这种假设也不敢做。2025H1 营收 -20%、净利转亏，军工就是这样反复。我连 PE 25-30 的茅台苹果都嫌贵，会买 PE 90 倍的军工？永远不会。⛔ 估值+财务双重一票否决。",
+  "overall_grade": "过滤（双重一票否决）",
+  "verdict": "段永平视角：PE 90 倍意味着假设未来 10 年净利每年涨 30%，即使彩虹-7 全卖完这种假设也不敢做。2025H1 营收 -20%、净利转亏，军工就是这样反复。我连 PE 25-30 的茅台苹果都嫌贵，会买 PE 90 倍的军工？永远不会。 估值+财务双重一票否决。",
   "llm_used": true,
   "llm_model": "claude-conversation",
   "dimensions": {
@@ -116,7 +116,7 @@
     "layer_label": "Layer 3 — 国防/UAV 子系统",
     "bottleneck_score": 52,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版 $SIVE × Golden Dome",
+    "verdict_label": "中国版 $SIVE × Golden Dome",
     "thesis": "$SIVE × Golden Dome thesis — aleabit loves defense-adjacent chokepoints. 航天彩虹 is CASC subsidiary doing military UAV (彩虹 series). China defense bid not accessible to her — but the framework lens applies: concentrated government buyer + classified tech depth + small float.",
     "signals": [
       {

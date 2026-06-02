@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 微型直线马达 / 步进电机",
     "bottleneck_score": 60,
     "verdict": "worth_watching",
-    "verdict_label": "💎 humanoid 关节小盘候选",
+    "verdict_label": "humanoid 关节小盘候选",
     "thesis": "鼎智科技 做微型直线步进电机 / 音圈电机，可用于医疗 / 仪器 / 机器人执行机构。Humanoid 关节驱动概念。市值 ~59 亿真小盘。但 humanoid 实际订单尚未规模化。",
     "signals": [
       {

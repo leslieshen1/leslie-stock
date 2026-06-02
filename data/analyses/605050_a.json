@@ -25,7 +25,7 @@
     "layer_label": "L4 — 钢材剪切配送",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Steel sheet processing/distribution — commodity logistics middleman.",
     "signals": [
       {

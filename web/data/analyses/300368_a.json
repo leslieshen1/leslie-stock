@@ -25,7 +25,7 @@
     "layer_label": "L4 — 金融设备/ATM/清分机",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Financial equipment — declining ATM market, weak performance history.",
     "signals": [
       {

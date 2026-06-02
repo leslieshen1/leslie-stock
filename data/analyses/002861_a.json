@@ -25,7 +25,7 @@
     "layer_label": "消费电子(耳机线材/TWS)",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "耳机线材/TWS ODM, 消费电子代工业态, 客户集中且毛利低. 苹果链/智能眼镜概念性关联但实质贡献小, 非 chokepoint.",
     "signals": [
       {

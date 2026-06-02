@@ -25,7 +25,7 @@
     "layer_label": "电子 - 消费电子配件/电源",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 充电桩/线缆配件中等机会",
+    "verdict_label": "充电桩/线缆配件中等机会",
     "thesis": "消费电子配件（HDMI/Type-C/电源转换/车载）+ 部分储能/光伏接口。受益AI数据中心电源+车载3C，但客户分散，议价权一般。",
     "signals": [
       {

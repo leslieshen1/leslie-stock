@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 锂电隔膜",
     "bottleneck_score": 42,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 隔膜产能过剩",
+    "verdict_label": "隔膜产能过剩",
     "thesis": "Lithium battery separator. 隔膜行业供过于求,价格战中,即使技术有壁垒(干法/湿法/涂覆),价格无法转嫁,thesis 与 AI 主线无直接交集.",
     "signals": [
       {

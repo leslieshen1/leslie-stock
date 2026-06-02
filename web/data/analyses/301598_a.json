@@ -25,7 +25,7 @@
     "layer_label": "汽车测试设备-液压伺服",
     "bottleneck_score": 62,
     "verdict": "high_conviction",
-    "verdict_label": "🎯",
+    "verdict_label": "",
     "thesis": "国内少数能做整车 NVH/疲劳试验台的厂商,绑定主机厂研发体系,液压伺服核心部件需国产替代;次新小盘+设备国产化是典型 chokepoint 候选",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "L4 — 工业管接件 / 流体连接",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Industrial fluid couplings and fittings — fragmented competition, no monopoly tech.",
     "signals": [
       {

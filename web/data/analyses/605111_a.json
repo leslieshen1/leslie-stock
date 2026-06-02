@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 中低压 MOSFET / IGBT fabless",
     "bottleneck_score": 58,
     "verdict": "worth_watching",
-    "verdict_label": "💎 国产 MOSFET fabless 二线",
+    "verdict_label": "国产 MOSFET fabless 二线",
     "thesis": "Fabless MOSFET specialist with growing IGBT/SiC line. Less crowded than 华润微 but also less dominant.",
     "signals": [
       {

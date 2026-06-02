@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — AI server liquid cooling / data center thermal",
     "bottleneck_score": 58,
     "verdict": "worth_watching",
-    "verdict_label": "💎 worth_watching",
+    "verdict_label": "worth_watching",
     "thesis": "Pure-play liquid cooling at sub-$2B mcap with a wind-power-converter cooling pedigree that they're pivoting into AI data center cold-plate and CDU work. The chokepoint is real — thermal density in 100kW+ racks is the actual bottleneck behind H20/Ascend deployment in China — but Gaolan is the smaller second mover behind Yingweike, and the AI revenue mix is still single digits.",
     "signals": [
       {

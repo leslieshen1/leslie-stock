@@ -25,7 +25,7 @@
     "layer_label": "消费电子下游(显示器/智能终端代工)",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "老牌深圳本土消费电子, 长期边缘化, 业务规模小, 经营不稳. 非 chokepoint.",
     "signals": [
       {

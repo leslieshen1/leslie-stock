@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 半导体前驱体材料 / 光刻胶 / 电子特气",
     "bottleneck_score": 76,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版高纯半导体材料平台",
+    "verdict_label": "中国版高纯半导体材料平台",
     "thesis": "Multi-product $AXTI analogue. 雅克 covers 前驱体 (high-k / DRAM / 3D NAND 用)、电子特气、光刻胶、SiP 封装材料，是稀缺的国产半导体材料平台。前驱体业务直接锁定海力士/三星 HBM 供应链。Limited western coverage.",
     "signals": [
       {

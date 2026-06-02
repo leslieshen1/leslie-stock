@@ -25,7 +25,7 @@
     "layer_label": "消费 - 中高端女装(Teenie Weenie等)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "女装多品牌运营(VGRASS/Teenie Weenie)。线下零售下行+消费降级。无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

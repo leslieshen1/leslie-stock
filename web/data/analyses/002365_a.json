@@ -25,7 +25,7 @@
     "layer_label": "精细化工上游(牛磺酸/化学品中间体)",
     "bottleneck_score": 62,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit_analogue 🪞",
+    "verdict_label": "aleabit_analogue",
     "thesis": "全球牛磺酸第一大生产商, 市占率超 40%. 牛磺酸作为功能饮料(红牛)/婴儿配方奶粉/宠物食品/医药中间体的关键原料, 工艺壁垒高 + 环保审批严格 + 客户认证周期长. 小盘+全球定价权, 符合 aleabit 瓶颈狙击范式. 但下游需求与功能饮料/宠物食品周期挂钩.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "零售/奢侈品代理(困境)",
     "bottleneck_score": 8,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Distressed luxury retail rollup, repeated restructurings. No chokepoint, no IP moat — pure consumer middleman. Serenity hunts upstream nodes, not downstream retail shells.",
     "signals": [
       {

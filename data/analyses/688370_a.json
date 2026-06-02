@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 危废处理",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "危废处置环保服务，区域牌照型业务，无 AI chokepoint。",
     "signals": [
       {

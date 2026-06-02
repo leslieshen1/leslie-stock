@@ -25,7 +25,7 @@
     "layer_label": "L4 — 建筑五金",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Construction hardware — property cycle drag, no chokepoint.",
     "signals": [
       {

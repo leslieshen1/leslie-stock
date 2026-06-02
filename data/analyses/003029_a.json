@@ -25,7 +25,7 @@
     "layer_label": "网络安全/PKI/电子认证",
     "bottleneck_score": 35,
     "verdict": "worth_watching",
-    "verdict_label": "💎 值得观察",
+    "verdict_label": "值得观察",
     "thesis": "PKI / digital cert / cryptographic infra for gov & banks. Niche security infra with regulatory moat (commercial cipher license). Gov-adjacent. Not a hardware chokepoint, but quasi-licensed.",
     "signals": [
       {

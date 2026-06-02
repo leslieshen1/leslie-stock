@@ -25,7 +25,7 @@
     "layer_label": "综合 - 华晨系汽车经销/能源",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 华晨遗留壳",
+    "verdict_label": "华晨遗留壳",
     "thesis": "原华晨系平台，汽车经销+部分能源资产。华晨破产重整后留下的复杂壳，无清晰主业逻辑。PB 5.45偏高反映净资产薄。",
     "signals": [
       {

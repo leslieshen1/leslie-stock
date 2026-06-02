@@ -25,7 +25,7 @@
     "layer_label": "纺织服装垂直一体化(衬衫)",
     "bottleneck_score": 26,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Vertically integrated shirt manufacturer for global brands. Solid niche but commoditized — not chokepoint.",
     "signals": [
       {

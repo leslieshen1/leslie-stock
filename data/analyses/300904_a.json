@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 风电齿轮箱/偏航变桨",
     "bottleneck_score": 26,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "风电偏航变桨减速器，下游风电整机内卷，无 chokepoint 属性。",
     "signals": [
       {

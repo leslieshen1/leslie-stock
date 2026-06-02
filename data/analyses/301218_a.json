@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "智慧水务/智能航道集成，市政 IT 项目，无 chokepoint 属性。",
     "signals": [
       {

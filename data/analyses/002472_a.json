@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 精密齿轮（汽车 + humanoid）",
     "bottleneck_score": 52,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 主营汽车齿轮，humanoid 增量",
+    "verdict_label": "主营汽车齿轮，humanoid 增量",
     "thesis": "Vehicle gear leader pivoting toward humanoid reducer gears. Real precision DNA but humanoid revenue minimal so far.",
     "signals": [
       {

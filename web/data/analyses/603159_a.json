@@ -25,7 +25,7 @@
     "layer_label": "工业塑料管/特种管材",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "PE/PVC pipe maker. Construction-tied commodity. No chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "IVD chokepoint - G 试验/GM 试验真菌检测",
     "bottleneck_score": 60,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit Analogue 🪞",
+    "verdict_label": "aleabit Analogue",
     "thesis": "北交所小盘,深耕侵袭性真菌(G/GM 试验)+病原微生物快诊。在医院真菌感染检测细分有 80%+ 市占率(国产替代海外 Fungitell 等)。小盘+稀缺细分+国产替代 = aleabit 模板。",
     "signals": {
       "supply_chain_chokepoint": true,

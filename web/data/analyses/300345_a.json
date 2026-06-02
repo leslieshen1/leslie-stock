@@ -25,7 +25,7 @@
     "layer_label": "光伏产业链(硅片代工/N 型硅片)",
     "bottleneck_score": 26,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "原研磨材料+转型光伏硅片代工, 切入时机不佳, 硅片产能严重过剩+价格腰斩. 持续亏损. 非 chokepoint.",
     "signals": [
       {

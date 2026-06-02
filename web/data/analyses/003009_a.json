@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 小型火箭 / 防雹增雨弹",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 小型固体火箭 + 防雹增雨, 与 AI 无关",
+    "verdict_label": "小型固体火箭 + 防雹增雨, 与 AI 无关",
     "thesis": "航天科技旗下小型固体火箭 + 防雹增雨弹 + 碳碳复材. 央企军工标的, 与 AI 无关. 碳碳复材有点 Layer 4 味道但用途仍是军工.",
     "signals": [
       {

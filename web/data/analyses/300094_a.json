@@ -25,7 +25,7 @@
     "layer_label": "农业 - 对虾养殖加工出口",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 水产周期波动",
+    "verdict_label": "水产周期波动",
     "thesis": "对虾养殖+预制菜尝试。养殖盈利极度波动，预制菜竞争激烈无差异化。PB 35.39 显示净资产快被掏空。",
     "signals": [
       {

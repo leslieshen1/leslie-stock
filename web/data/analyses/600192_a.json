@@ -25,7 +25,7 @@
     "layer_label": "工业制造(电气控制/电机/西北区域)",
     "bottleneck_score": 26,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "西北区域电气企业, 产品线多但缺乏聚焦. 业绩长期低迷, 国资改革预期, 非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 半导体电子特气/前驱体材料",
     "bottleneck_score": 72,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版半导体材料 chokepoint",
+    "verdict_label": "中国版半导体材料 chokepoint",
     "thesis": "$AXTI thesis but for MO source / electronic specialty gases. 南大光电 is one of China's few qualified suppliers of high-purity MO source for compound semi epitaxy and ArF photoresist precursors. Critical localization play under export-control pressure, near-zero western coverage.",
     "signals": [
       {

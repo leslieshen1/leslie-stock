@@ -25,7 +25,7 @@
     "layer_label": "区域百货",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "甘肃百货零售,业态衰退",
     "signals": [
       {

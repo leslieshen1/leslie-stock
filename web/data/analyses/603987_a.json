@@ -25,7 +25,7 @@
     "layer_label": "医疗器械 - 注射针/穿刺类耗材",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 注射器/针类耗材",
+    "verdict_label": "注射器/针类耗材",
     "thesis": "注射针/穿刺针/胰岛素笔针等低值耗材龙头之一。GLP-1+糖尿病针类长期顺风，但集采压价持续。",
     "signals": [
       {

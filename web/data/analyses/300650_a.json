@@ -25,7 +25,7 @@
     "layer_label": "LED 商显+电子元器件分销",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "原 LED 商显招牌主业转型电子分销，毛利低，无 chokepoint。",
     "signals": [
       {

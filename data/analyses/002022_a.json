@@ -25,7 +25,7 @@
     "layer_label": "Out of scope — IVD diagnostics",
     "bottleneck_score": 6,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not in range",
+    "verdict_label": "not in range",
     "thesis": "In-vitro diagnostics maker — completely unrelated to optical/CPO despite the theme tag. Pharma/medical. Zero AI supply chain bottleneck thesis. Skip.",
     "signals": [
       {

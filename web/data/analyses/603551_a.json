@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "浴霸/集成吊顶小家电，C 端消费品，与 AI 链无关。",
     "signals": [
       {

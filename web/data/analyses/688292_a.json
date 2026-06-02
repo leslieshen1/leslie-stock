@@ -25,7 +25,7 @@
     "layer_label": "DPI/网络流量分析",
     "bottleneck_score": 50,
     "verdict": "worth_watching",
-    "verdict_label": "💎 值得观察",
+    "verdict_label": "值得观察",
     "thesis": "DPI + 5G/AI traffic analytics for operators. Same neighborhood as 中新赛克 but smaller, more telco-dependent. Niche IP, low coverage. Watchlist on AI-traffic upgrade cycle.",
     "signals": [
       {

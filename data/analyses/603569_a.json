@@ -25,7 +25,7 @@
     "layer_label": "整车物流+海外业务",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "整车物流,中国汽车出海有题材但物流服务无 chokepoint",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "家纺下游(床上用品品牌)",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "家纺品牌, 与罗莱/水星/富安娜同台. 直播带货 + 渠道转型, 但行业天花板下移. 非 chokepoint.",
     "signals": [
       {

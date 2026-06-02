@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 主轴 + 机器人减速器/丝杠",
     "bottleneck_score": 48,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 业务跨度大，humanoid 标签",
+    "verdict_label": "业务跨度大，humanoid 标签",
     "thesis": "From machine-tool spindles into robotic components — diversified, not a focused chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "教辅图书出版",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "教辅出版小盘,业务下行+AI 替代风险,排除",
     "signals": [
       {

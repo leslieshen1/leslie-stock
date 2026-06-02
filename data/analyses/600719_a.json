@@ -25,7 +25,7 @@
     "layer_label": "公用事业下游(大连区域集中供热)",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "大连区域集中供热, 公用事业属性, 价格管制. 非 chokepoint. 注: 2024 有重组洽洽食品大股东注入预期波动.",
     "signals": [
       {

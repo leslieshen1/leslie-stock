@@ -25,7 +25,7 @@
     "layer_label": "医药 chokepoint - 核苷类 API(抗病毒/CDK抑制剂中间体)",
     "bottleneck_score": 68,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit Analogue 🪞",
+    "verdict_label": "aleabit Analogue",
     "thesis": "核苷类原料药+中间体专精厂,产品包括阿昔洛韦/利巴韦林/恩替卡韦等核心抗病毒 API。Serenity 套路的 API 版本 - 在'核苷类化学合成'细分专精,下游对接全球仿制药 + 部分创新药中间体。小盘 31 亿 + niche + 出口管制(部分核苷类品种受出口限制)= 标准 aleabit 模板。",
     "signals": {
       "supply_chain_chokepoint": true,

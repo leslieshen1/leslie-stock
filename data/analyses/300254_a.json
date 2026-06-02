@@ -25,7 +25,7 @@
     "layer_label": "医药 - 仿制药/原料药",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 仿制药红海",
+    "verdict_label": "仿制药红海",
     "thesis": "中小仿制药+部分原料药+保健品组合。集采压价持续，无独家品种。PB 7.56 估值偏高，盈利能力弱。",
     "signals": [
       {

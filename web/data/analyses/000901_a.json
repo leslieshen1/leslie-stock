@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 航天电子/汽车电子",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not aleabit territory",
+    "verdict_label": "not aleabit territory",
     "thesis": "Mix of aerospace electronics and automotive components — diversification kills the bottleneck thesis. The auto side dilutes margins, the aerospace side is buried under group structure. PB 3.9 is fair, but fair doesn't mean asymmetric.",
     "signals": [
       {

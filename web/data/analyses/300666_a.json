@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 高纯溅射靶材（半导体核心）",
     "bottleneck_score": 76,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版半导体靶材 chokepoint",
+    "verdict_label": "中国版半导体靶材 chokepoint",
     "thesis": "$AXTI thesis but for sputter targets. 江丰是国内高纯溅射靶材龙头，对标日本 JX 金属、Honeywell、Materion。绑定 TSMC / SMIC / 长江存储 / 联电。AI 芯片先进制程 + 3D NAND 多层堆叠对靶材用量爆发式增长。市值 538 亿略超 sweet spot，PB 10.6 已有定价。",
     "signals": [
       {

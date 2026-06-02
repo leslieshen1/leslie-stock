@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 高压 IGBT + SiC（轨交 + EV）",
     "bottleneck_score": 60,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 中车系，高压 IGBT 国家队",
+    "verdict_label": "中车系，高压 IGBT 国家队",
     "thesis": "CRRC subsidiary — world-class high-voltage IGBT IDM for rail + EV. Real depth but SOE-large and well-covered.",
     "signals": [
       {

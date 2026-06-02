@@ -25,7 +25,7 @@
     "layer_label": "医药 - 仿制药+长效微球研发",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 长效注射剂研发期权",
+    "verdict_label": "长效注射剂研发期权",
     "thesis": "仿制药基础盘+长效注射微球（曲安奈德/丙氨瑞林等）研发。微球工艺有壁垒，但商业化进度+集采压价制约。",
     "signals": [
       {

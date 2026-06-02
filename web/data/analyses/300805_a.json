@@ -25,7 +25,7 @@
     "layer_label": "营销服务",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "营销服务，纯人力业务，无供应链护城河。",
     "signals": [
       {

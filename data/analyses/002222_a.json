@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 非线性光学晶体 / 精密光学",
     "bottleneck_score": 76,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版 IPGP / Coherent 上游 chokepoint",
+    "verdict_label": "中国版 IPGP / Coherent 上游 chokepoint",
     "thesis": "福晶 = 中国稀缺的非线性光学晶体 (LBO/BBO/KTP) + 精密光学元件供应商，长期供应 IPG / Coherent / 国内激光器厂商。CPO / TFLN 上游 + 激光器关键晶体。中科院体系深技术。 国际覆盖几乎为零。市值 ~523 亿 + PB 29 偏贵但仍是 chokepoint。",
     "signals": [
       {

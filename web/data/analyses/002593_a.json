@@ -25,7 +25,7 @@
     "layer_label": "汽车钢制车轮/集装箱",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Commodity steel wheels for commercial vehicles. Cyclical, no IP moat, fragmented competition. Not a chokepoint.",
     "signals": [
       {

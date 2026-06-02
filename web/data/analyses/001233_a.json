@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 综合化工 / 半导体材料外围",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 标签疑似不在射程",
+    "verdict_label": "标签疑似不在射程",
     "thesis": "Limited public information / known data on this ticker as a clear semiconductor material pure-play. Without high-confidence knowledge it doesn't pass the bottleneck checklist. Default skeptical.",
     "signals": [
       {

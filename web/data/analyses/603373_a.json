@@ -25,7 +25,7 @@
     "layer_label": "安保服务",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "金融押运+安保服务,劳动密集型",
     "signals": [
       {

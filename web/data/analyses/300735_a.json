@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — EMS 电子制造代工",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ EMS 代工不是 chokepoint",
+    "verdict_label": "EMS 代工不是 chokepoint",
     "thesis": "光弘 是手机 / 通信设备 EMS 代工。Not a chokepoint, low margin commodity manufacturing. 主题标签把它放进 CPO 完全误导。",
     "signals": [
       {

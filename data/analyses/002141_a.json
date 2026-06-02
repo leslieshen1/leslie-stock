@@ -25,7 +25,7 @@
     "layer_label": "综合下游(漆包线/原稀土业务剥离)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "原漆包线业务+多次转型(稀土/电池), 业务定位不清晰, 经营波动大. 非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 氯碱化工",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "氯碱基础化工（烧碱/氯产品），周期大宗。",
     "signals": [
       {

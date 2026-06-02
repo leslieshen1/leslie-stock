@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 锂电正极材料（钴酸锂/三元）",
     "bottleneck_score": 52,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 电池正极宏观叙事符合但非 AI chokepoint",
+    "verdict_label": "电池正极宏观叙事符合但非 AI chokepoint",
     "thesis": "厦钨新能是钴酸锂龙头（消费电子电池），三元材料份额靠前。但锂电正极是被市场充分研究的赛道，国内分析师覆盖密集，与 AI capex chokepoint 关联弱，更多是新能源车 / 消费电子叙事。",
     "signals": [
       {

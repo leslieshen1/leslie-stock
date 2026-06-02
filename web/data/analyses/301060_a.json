@@ -25,7 +25,7 @@
     "layer_label": "ICL 第三方医检",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "第三方医检 ICL，金域/迪安/艾迪康三强格局，后位者价格战。",
     "signals": [
       {

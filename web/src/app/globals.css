@@ -1,20 +1,61 @@
 @import "tailwindcss";
 
+/* ============================================================
+   深色精致设计系统 — Linear 结构 + 苹果暗色质感 + Claude 赤陶橙
+   ============================================================ */
 :root {
-  --background: #fafafa;
-  --foreground: #18181b;
+  --background: #0a0b0d;
+  --foreground: #e8e9ec;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, monospace;
+  --font-sans: -apple-system, "SF Pro Text", "PingFang SC", system-ui, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "Geist Mono", Menlo, monospace;
+
+  /* 表面层次（明度递进建立深度，不靠阴影）*/
+  --color-base: #0a0b0d;          /* 主背景 */
+  --color-surface: #131418;       /* 卡片 */
+  --color-surface-2: #1a1c22;     /* 悬浮 / 二级 */
+  --color-surface-3: #22242b;     /* 三级 / hover */
+
+  /* 边框（极细低对比）*/
+  --color-line: #222429;
+  --color-line-2: #2e3036;
+
+  /* 文字层次 */
+  --color-ink: #e8e9ec;           /* 主 */
+  --color-muted: #8b8e98;         /* 次 */
+  --color-faint: #565963;         /* 弱 */
+
+  /* 强调色 — Claude 赤陶橙（深色适配）*/
+  --color-accent: #d98a6a;
+  --color-accent-soft: #2a1f1a;   /* 橙的暗背景（badge）*/
+
+  /* 涨跌（国际 / crypto 惯例：绿涨红跌）*/
+  --color-up: #2ebd85;
+  --color-down: #f6465d;
+  --color-up-soft: #11211b;
+  --color-down-soft: #251418;
 }
+
+html { color-scheme: dark; }
 
 body {
   font-family: var(--font-sans);
+  background: var(--color-base);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv01", "ss01";
 }
+
+/* 等宽数字 — 表格 / 价格对齐 */
+.tnum { font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+
+/* 极细滚动条（Linear 感）*/
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-line-2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3d44; }
 
 /* Markdown 渲染样式（用于盘后简报） */
 .prose-leslie {

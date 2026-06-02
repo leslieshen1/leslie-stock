@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 光刻胶 / 电子化学品",
     "bottleneck_score": 70,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 光刻胶国产化 chokepoint",
+    "verdict_label": "光刻胶国产化 chokepoint",
     "thesis": "晶瑞主营光刻胶 + 超净高纯试剂 + 锂电池粘结剂。光刻胶是半导体国产化最艰难环节之一，国内长期依赖日本东京应化 / JSR / 信越 / 住友。晶瑞在 i 线 + KrF 有突破，ArF 仍早期。市值 192 亿在 sweet spot。",
     "signals": [
       {

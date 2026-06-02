@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 超结 MOSFET / TGBT 高压 power IC",
     "bottleneck_score": 64,
     "verdict": "worth_watching",
-    "verdict_label": "💎 高压超结 MOSFET 国产替代",
+    "verdict_label": "高压超结 MOSFET 国产替代",
     "thesis": "Super-junction MOSFET design house — closer to a real chokepoint in 800V architectures used by EV chargers and AI data center PSUs.",
     "signals": [
       {

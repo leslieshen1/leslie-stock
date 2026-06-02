@@ -25,7 +25,7 @@
     "layer_label": "工业自动化 - 汽车白车身焊装产线",
     "bottleneck_score": 42,
     "verdict": "worth_watching",
-    "verdict_label": "Worth Watching 💎",
+    "verdict_label": "Worth Watching",
     "thesis": "汽车白车身焊装自动化系统集成(收购了美国 Paslin)。下游含特斯拉/通用/福特等北美车厂。汽车产线 capex+北美回流但订单波动大,被吉林国资收购后整合中。",
     "signals": {
       "supply_chain_chokepoint": false,

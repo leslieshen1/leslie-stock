@@ -25,7 +25,7 @@
     "layer_label": "上海百货零售/旧改",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "上海老牌百货+商业地产，零售红海+电商冲击，无 chokepoint。",
     "signals": [
       {

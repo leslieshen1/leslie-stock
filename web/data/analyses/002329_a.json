@@ -25,7 +25,7 @@
     "layer_label": "综合下游(乳业+光伏多元化)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "广西区域乳业+跨界光伏, 业务多元定位不清. 非 chokepoint.",
     "signals": [
       {

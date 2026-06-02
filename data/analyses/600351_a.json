@@ -25,7 +25,7 @@
     "layer_label": "N/A — 中成药+化药(普药)",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Generic TCM and chemical drugs — collective procurement pressure, no dominant molecule franchise.",
     "signals": [
       {

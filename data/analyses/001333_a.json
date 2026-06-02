@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 粉末涂料",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "粉末涂料，传统建材/家电涂料，无 chokepoint。",
     "signals": [
       {

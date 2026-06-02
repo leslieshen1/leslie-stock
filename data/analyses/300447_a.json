@@ -25,7 +25,7 @@
     "layer_label": "军用线缆/连接器上游",
     "bottleneck_score": 72,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit 类比 🪞",
+    "verdict_label": "aleabit 类比",
     "thesis": "军用高端线缆+光通信组件,航空军工核心配套,小盘关键产能,光通信+军工双线",
     "signals": [
       {

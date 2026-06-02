@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 消费电子 EMS",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "通信/IoT 类电子代工 (EMS)，低毛利 OEM，无供应链 chokepoint。",
     "signals": [
       {

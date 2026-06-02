@@ -25,7 +25,7 @@
     "layer_label": "工业包装 - 食品/化工纸塑包装",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "做食品/化工/水泥纸塑工业包装。中游加工,无独占技术。下游分散,Serenity 不会看 - 没有 chokepoint 属性。",
     "signals": {
       "supply_chain_chokepoint": false,

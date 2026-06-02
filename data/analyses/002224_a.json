@@ -25,7 +25,7 @@
     "layer_label": "L4 — V 带 / 工业橡胶传动",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Industrial V-belt manufacturer — commodity rubber transmission, fragmented.",
     "signals": [
       {

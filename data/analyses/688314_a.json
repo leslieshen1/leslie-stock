@@ -25,7 +25,7 @@
     "layer_label": "高值耗材 chokepoint - 3D 打印 PEEK 颅骨植入",
     "bottleneck_score": 60,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit Analogue 🪞",
+    "verdict_label": "aleabit Analogue",
     "thesis": "国产 3D 打印 PEEK 颅骨修补植入物龙头(国内首批拿到 NMPA 注册证)。PEEK 是医用聚醚醚酮,只有 Solvay/Victrex 等几家能稳定供应医疗级原料,且 3D 打印 PEEK 加工有壁垒。小盘+稀缺资质+技术深度+进口替代 = aleabit 模板。",
     "signals": {
       "supply_chain_chokepoint": true,

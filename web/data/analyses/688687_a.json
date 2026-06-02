@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 创新药/重组干扰素",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "干扰素/抗病毒生物药企业，医药主题不属于 chokepoint 框架。",
     "signals": [
       {

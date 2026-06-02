@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 微型马达/振动器",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "微型电机和触觉振动器，消费电子配件，技术门槛中等、客户高度内卷。",
     "signals": [
       {

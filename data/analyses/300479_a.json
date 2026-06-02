@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 身份识别/政务终端",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "身份证读卡器/政务终端，政务支出收缩，无 chokepoint。",
     "signals": [
       {

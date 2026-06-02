@@ -25,7 +25,7 @@
     "layer_label": "L3 — 金属材料分析检测仪器",
     "bottleneck_score": 72,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🎯 类 aleabit",
+    "verdict_label": "类 aleabit",
     "thesis": "Metallurgy analytical instruments (spark spectrometers, etc.) — owned by 钢铁研究总院 (China Iron & Steel Research Institute), domestic substitution for Bruker/Thermo/Hitachi in defense-relevant metals testing.",
     "signals": [
       {

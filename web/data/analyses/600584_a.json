@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — OSAT / advanced packaging",
     "bottleneck_score": 58,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 crowded but valid",
+    "verdict_label": "crowded but valid",
     "thesis": "JCET — global top-3 OSAT, advanced packaging exposure for AI accelerators (2.5D/3D, HBM). Real packaging bottleneck capability. But 1377亿 cap and crowded sell-side mean the call is consensus. Story valid, alpha narrow.",
     "signals": [
       {

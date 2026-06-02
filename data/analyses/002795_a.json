@@ -25,7 +25,7 @@
     "layer_label": "原阀门+医疗肿瘤跨界",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "原管道阀门+跨界肿瘤医疗，跨界失败案例，主业弱。",
     "signals": [
       {

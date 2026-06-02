@@ -25,7 +25,7 @@
     "layer_label": "生物制药老牌",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "老牌生物制药壳化严重，PB 偏高估值无支撑。",
     "signals": [
       {

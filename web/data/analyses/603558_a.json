@@ -25,7 +25,7 @@
     "layer_label": "棉袜/无缝内衣 OEM",
     "bottleneck_score": 26,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Socks/seamless apparel for global brands (Uniqlo etc). Solid niche OEM but commoditized — not a chokepoint.",
     "signals": [
       {

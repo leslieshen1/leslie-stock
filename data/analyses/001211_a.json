@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 餐具/家居",
     "bottleneck_score": 10,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "竹木餐具家居用品，消费日用，与硬科技无关。",
     "signals": [
       {

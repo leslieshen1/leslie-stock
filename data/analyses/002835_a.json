@@ -25,7 +25,7 @@
     "layer_label": "安防 - 海外品牌 ODM",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "安防摄像机海外品牌 ODM,绕开美国制裁名单做海外贴牌。海康/大华阴影下生存,毛利率被压。无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

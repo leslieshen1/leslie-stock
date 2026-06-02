@@ -25,7 +25,7 @@
     "layer_label": "L3 — 卫生用品热熔胶",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Hot-melt adhesives for diapers/sanitary products — commodity adhesive, customer concentrated in P&G/恒安.",
     "signals": [
       {

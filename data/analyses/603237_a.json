@@ -25,7 +25,7 @@
     "layer_label": "消费 - 粽子季节性食品+月饼",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "粽子龙头品牌,季节性强。月饼/速冻食品延伸但增长瓶颈明显。消费品无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

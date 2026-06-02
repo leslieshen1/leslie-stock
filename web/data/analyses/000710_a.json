@@ -25,7 +25,7 @@
     "layer_label": "医药 - 基因测序/NIPT服务",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ NIPT竞争+测序仪受制",
+    "verdict_label": "NIPT竞争+测序仪受制",
     "thesis": "NIPT产前筛查曾经龙头之一，但被华大/Illumina夹击+集采压价。测序仪上游受Illumina/MGI制约。技术非独占。",
     "signals": [
       {

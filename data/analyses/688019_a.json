@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — CMP 抛光液（半导体湿法）",
     "bottleneck_score": 73,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版 CMP slurry chokepoint",
+    "verdict_label": "中国版 CMP slurry chokepoint",
     "thesis": "安集是国内 CMP（化学机械抛光）抛光液龙头，对标美国 CMC Materials（已被 Entegris 收购）/ 日本 Fujimi。CMP 是先进制程关键工艺，每代制程抛光液配方都不同。国产化率快速提升，国内份额从 5% → 20%+。市值 567 亿略偏大但技术 chokepoint 性极强。",
     "signals": [
       {

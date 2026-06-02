@@ -25,7 +25,7 @@
     "layer_label": "信创中游(国产操作系统/麒麟 OS 衍生)",
     "bottleneck_score": 68,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit_analogue 🪞",
+    "verdict_label": "aleabit_analogue",
     "thesis": "国产操作系统(麒麟系)+信创安全产品, 政府/军工/电力等关键行业信创采购受益. 信创替代是政策驱动的强制 chokepoint, 麒麟体系(包含天津麒麟/国防科大背景)在政府/军工有独占地位. 小盘+政府订单+信创替代符合多个信号.",
     "signals": [
       {

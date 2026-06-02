@@ -25,7 +25,7 @@
     "layer_label": "L3 — 矿用非公路自卸车 + 国机集团",
     "bottleneck_score": 62,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 矿卡 + 央企",
+    "verdict_label": "矿卡 + 央企",
     "thesis": "Beifang/Inner Mongolia North Hauler is China's only large-scale producer of mining off-highway dump trucks (>100-ton) — direct competition with Caterpillar/Komatsu/BelAZ. State-owned (国机集团) with autonomous mining truck integration. Critical for coal/iron ore mine logistics. Small cap (40 亿), low coverage, technical depth. Real Serenity-style chokepoint with mining capex cycle catalyst.",
     "signals": [
       {

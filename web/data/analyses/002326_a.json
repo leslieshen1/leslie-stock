@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 含氟精细化学品 / LiPF6",
     "bottleneck_score": 45,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 含氟化学品中段位",
+    "verdict_label": "含氟化学品中段位",
     "thesis": "Fluorine fine chemicals — LiPF6 + 医药中间体 + 农药中间体。业务结构较散,LiPF6 EV 周期重压,PB 7.63 偏高已经把'氟'反弹定价。Less differentiated than 多氟多 在 chokepoint thesis 上.",
     "signals": [
       {

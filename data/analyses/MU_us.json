@@ -124,7 +124,7 @@
     "layer_label": "Layer 2 — 模块/接口（HBM for AI compute）",
     "bottleneck_score": 68,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 拥挤但 thesis 有效",
+    "verdict_label": "拥挤但 thesis 有效",
     "thesis": "HBM is the bottleneck for AI compute throughput. Every NVDA H100/B200/B300 needs HBM. $MU is one of 3 HBM suppliers globally (SK Hynix / Samsung / Micron). I called $SNDK at Q3 EPS beat $13 vs est $4.21 — same memory cycle plays here. But $MU at $100B+ is already on every analyst's screen. Crowded long, not a sniper.",
     "signals": [
       {

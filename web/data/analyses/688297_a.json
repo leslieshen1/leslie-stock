@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 军用无人机 (彩虹系列)",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 军工 UAV 总装, 非 AI 数据中心 thesis",
+    "verdict_label": "军工 UAV 总装, 非 AI 数据中心 thesis",
     "thesis": "中航工业旗下军用无人机总装 (彩虹). 国防 thesis 有效但与 AI capex / 数据中心无关. Serenity 框架不射. 央企 SOE 减分.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "生物制药(神经生长因子)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Single-asset pharma (mNGF). Domestic-only revenue, repeated declines from medical insurance pricing pressure. Not a supply-chain chokepoint.",
     "signals": [
       {

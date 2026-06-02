@@ -25,7 +25,7 @@
     "layer_label": "教育+印刷(STEAM 教育/出版印刷)",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "印刷主业+少儿编程教育转型, 双主业均面临挑战. 印刷行业萎缩, 编程教育受双减影响. 业务方向多次摇摆, 非 chokepoint.",
     "signals": [
       {

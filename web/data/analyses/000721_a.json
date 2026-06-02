@@ -25,7 +25,7 @@
     "layer_label": "餐饮下游(西安区域老字号餐饮)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "西安区域老字号餐饮(德发长/老孙家), 长期亏损/微利. 非 chokepoint.",
     "signals": [
       {

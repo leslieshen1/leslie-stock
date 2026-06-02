@@ -25,7 +25,7 @@
     "layer_label": "长江航运",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "长江散货+集装箱航运，PB 9.42 异常偏高（可能资产重置预期）。基本面弱。",
     "signals": [
       {

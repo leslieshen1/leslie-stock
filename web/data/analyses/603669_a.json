@@ -25,7 +25,7 @@
     "layer_label": "N/A — 注射剂仿制药",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Generic injectables — fully exposed to volume-based procurement.",
     "signals": [
       {

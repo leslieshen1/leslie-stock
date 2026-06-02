@@ -25,7 +25,7 @@
     "layer_label": "制造 - 工业部件（披露有限）",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 一般制造小盘",
+    "verdict_label": "一般制造小盘",
     "thesis": "近年新股，浙江一般制造业，公开材料有限。默认归入一般工业部件类。",
     "signals": [
       {

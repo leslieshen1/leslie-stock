@@ -25,7 +25,7 @@
     "layer_label": "医药(海洋生物制药/小标的)",
     "bottleneck_score": 14,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "经营低迷+多次重组传闻, 业务空心化. 非 chokepoint, 偏壳特征.",
     "signals": [
       {

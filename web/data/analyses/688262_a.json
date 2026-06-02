@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 国产 CPU IP / 汽车 MCU",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 国产 PowerPC / 汽车 MCU, 非 AI 主线",
+    "verdict_label": "国产 PowerPC / 汽车 MCU, 非 AI 主线",
     "thesis": "国产 CPU IP (PowerPC) + 汽车 MCU + 信创. 业务与 AI 数据中心 thesis 关联弱, 信创角度可勉强搭边但非 chokepoint.",
     "signals": [
       {

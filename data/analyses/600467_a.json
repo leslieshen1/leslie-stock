@@ -25,7 +25,7 @@
     "layer_label": "农业 - 海参养殖加工",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 海参消费萎缩",
+    "verdict_label": "海参消费萎缩",
     "thesis": "山东海参龙头之一，但海参消费长期低迷+反腐+礼品需求弱。养殖大宗化，气候/赤潮风险大。",
     "signals": [
       {

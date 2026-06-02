@@ -25,7 +25,7 @@
     "layer_label": "广告/汽车经销 - 北京公交媒体+宝马4S",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "北京公交车广告 + 宝马 4S 店经销。公交媒体衰退+豪华车经销盈利能力下降。无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

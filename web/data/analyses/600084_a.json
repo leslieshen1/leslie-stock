@@ -25,7 +25,7 @@
     "layer_label": "ST困境",
     "bottleneck_score": 5,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "ST退市风险",
     "signals": [
       {

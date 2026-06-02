@@ -25,7 +25,7 @@
     "layer_label": "区域传媒+教育",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "传媒+地方教育,排除",
     "signals": [
       {

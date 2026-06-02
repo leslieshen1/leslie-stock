@@ -25,7 +25,7 @@
     "layer_label": "影视剧制作",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "TV drama producer. Hit-driven, content cycle, no chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 工业机器人集成商 + 注塑机",
     "bottleneck_score": 38,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 工业机器人集成商，非关键节点",
+    "verdict_label": "工业机器人集成商，非关键节点",
     "thesis": "Industrial robot integrator — assembles other people's parts. Not a chokepoint.",
     "signals": [
       {

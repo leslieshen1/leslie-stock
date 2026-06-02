@@ -13,7 +13,7 @@
     "pb": null
   },
   "overall_score": 46,
-  "overall_grade": "🔴 不在击球区",
+  "overall_grade": "不在击球区",
   "verdict": "技术真东西（WSE-3 wafer-scale 是真壁垒）、客户真东西（OpenAI/AWS/Sandia/DARPA 都签了真合同）、护城河真东西（NVDA CUDA 之外少数能做训练的厂商）。但 $56B 市值 + P/S 110x + 86% 单一客户系（G42）三件事叠加，估值已 price in 2027-2028 极乐观情景。段永平视角：好故事 ≠ 好生意 at this price。击球区在 $80-120（IPO 价 $185 的 50% off） + 客户多元化 + OpenAI 合同实质兑现，三条件全满足。当前不在。",
   "llm_used": true,
   "llm_model": "claude-conversation",
@@ -146,7 +146,7 @@
     "layer_label": "Layer 2 — AI 加速器（直接对标 NVDA H100/B200）",
     "bottleneck_score": 58,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 拥挤但 thesis 有效",
+    "verdict_label": "拥挤但 thesis 有效",
     "thesis": "$CBRS WSE-3 is a real wafer-scale chokepoint. OpenAI signed $10B through 2028. AWS contracted 2026. Sandia + DARPA = real defense layer. G42 owns 86% of 2025 rev. But $56B MC 6 months post-IPO is no longer my sniper range. Real alpha rotates upstream — TSMC 5nm wafer allocation, CoWoS-S, advanced packaging.",
     "signals": [
       {

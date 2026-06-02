@@ -25,7 +25,7 @@
     "layer_label": "ST 电源/铅酸(困境)",
     "bottleneck_score": 6,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "*ST lead-acid battery shell. Distressed, not a thesis.",
     "signals": [
       {

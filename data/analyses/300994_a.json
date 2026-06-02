@@ -25,7 +25,7 @@
     "layer_label": "N/A — 自行车 OEM 出口",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Bicycle OEM exporter — commodity, Vietnamese competition.",
     "signals": [
       {

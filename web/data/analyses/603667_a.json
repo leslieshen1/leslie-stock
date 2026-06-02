@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 轴承/丝杠（humanoid 关节 + 行星滚柱丝杠）",
     "bottleneck_score": 60,
     "verdict": "worth_watching",
-    "verdict_label": "💎 行星滚柱丝杠国产替代候选",
+    "verdict_label": "行星滚柱丝杠国产替代候选",
     "thesis": "Planetary roller screws — the critical linear actuator for humanoid robot legs. Currently Rollvis/Schaeffler dominated. Wuzhou Xinchun is one of the few credible China alternatives.",
     "signals": [
       {

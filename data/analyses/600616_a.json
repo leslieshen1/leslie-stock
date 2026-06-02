@@ -25,7 +25,7 @@
     "layer_label": "消费 - 上海地方黄酒(石库门/和酒)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "上海地方黄酒品牌(石库门/和酒)。黄酒区域消费品,无 chokepoint 属性。区域龙头但增长乏力。",
     "signals": {
       "supply_chain_chokepoint": false,

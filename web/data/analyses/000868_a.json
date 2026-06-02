@@ -25,7 +25,7 @@
     "layer_label": "客车整车",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "客车行业过剩,无 chokepoint",
     "signals": [
       {

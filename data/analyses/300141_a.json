@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 电力设备/充电桩",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "中低压电气 + 充电桩，赛道拥挤无 chokepoint。",
     "signals": [
       {

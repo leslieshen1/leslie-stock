@@ -25,7 +25,7 @@
     "layer_label": "汽车注塑件",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "汽车塑料零部件,内卷严重",
     "signals": [
       {

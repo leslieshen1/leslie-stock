@@ -25,7 +25,7 @@
     "layer_label": "N/A — 上海徐家汇商圈百货",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Shanghai department store — pure retail real estate, no chokepoint.",
     "signals": [
       {

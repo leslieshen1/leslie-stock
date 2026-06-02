@@ -25,7 +25,7 @@
     "layer_label": "汽车/电力配件 - 高端密封件",
     "bottleneck_score": 50,
     "verdict": "worth_watching",
-    "verdict_label": "Worth Watching 💎",
+    "verdict_label": "Worth Watching",
     "thesis": "给新能源车电池包/电力电容器/通信基站做高端橡胶密封件。客户含 CATL/比亚迪/华为,有 niche 壁垒。但密封件相对成熟,毛利率不高。",
     "signals": {
       "supply_chain_chokepoint": false,

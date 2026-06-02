@@ -25,7 +25,7 @@
     "layer_label": "造纸 - 再生纸/废纸利用",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 再生纸竞争",
+    "verdict_label": "再生纸竞争",
     "thesis": "再生纸/废纸回收造纸，受废纸进口限制+包装纸周期波动。无技术稀缺。",
     "signals": [
       {

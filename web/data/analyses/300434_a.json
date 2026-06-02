@@ -25,7 +25,7 @@
     "layer_label": "化药+维生素 K1",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "化药+维生素 K1，业务杂，估值低 PB 1.6 但缺乏催化。",
     "signals": [
       {

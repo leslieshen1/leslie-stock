@@ -25,7 +25,7 @@
     "layer_label": "服装品牌(休闲)",
     "bottleneck_score": 10,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Declining apparel brand. No chokepoint. Distressed turnaround story at best.",
     "signals": [
       {

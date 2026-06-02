@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 化妆品包材",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "化妆品塑料包材，消费品，与瓶颈策略无关。",
     "signals": [
       {

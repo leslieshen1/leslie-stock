@@ -25,7 +25,7 @@
     "layer_label": "L3 — PCB / 液晶背光板",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "PCB and LCD backlight modules — competes against 鹏鼎/东山/沪电, mid-tier player, no AI/HDI/sub-strate leadership.",
     "signals": [
       {

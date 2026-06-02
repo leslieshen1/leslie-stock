@@ -25,7 +25,7 @@
     "layer_label": "L5 — 出境游零售",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Outbound tourism — consumer service, cyclical.",
     "signals": [
       {

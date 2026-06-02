@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 力传感器（6 轴力 + 应变片）",
     "bottleneck_score": 65,
     "verdict": "worth_watching",
-    "verdict_label": "💎 多维力传感器 humanoid 触觉关键",
+    "verdict_label": "多维力传感器 humanoid 触觉关键",
     "thesis": "6-axis force/torque sensors are the eyes-of-the-hand for humanoid robots. ATI Industrial dominates globally. Keli is the China leader with real strain-gauge IP.",
     "signals": [
       {

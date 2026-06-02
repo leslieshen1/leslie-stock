@@ -25,7 +25,7 @@
     "layer_label": "消费 - 体育器材",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 体育器材小盘",
+    "verdict_label": "体育器材小盘",
     "thesis": "篮球架/排球设备等体育器材，下游学校+体育馆。无技术壁垒，订单依赖财政。",
     "signals": [
       {

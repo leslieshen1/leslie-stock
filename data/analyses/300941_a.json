@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 支付终端",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "金融 POS 终端/支付软件，消费/金融 IT，无关 AI 物理瓶颈。",
     "signals": [
       {

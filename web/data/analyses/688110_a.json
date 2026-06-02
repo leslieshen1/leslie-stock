@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — SLC NAND / 利基存储",
     "bottleneck_score": 45,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 SLC NAND 利基存储, AI 边缘有需求但同业多",
+    "verdict_label": "SLC NAND 利基存储, AI 边缘有需求但同业多",
     "thesis": "SLC NAND / NOR / DDR3 利基存储. AI 服务器 / 5G 基站 / 工控有需求, 但同业 (北京君正 / 兆易) 竞争激烈, 估值高 (PB 20.5) 已 price in.",
     "signals": [
       {

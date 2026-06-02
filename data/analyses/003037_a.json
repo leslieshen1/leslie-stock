@@ -25,7 +25,7 @@
     "layer_label": "预应力混凝土管桩",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "管桩 PHC，地产基建周期下行，红海。",
     "signals": [
       {

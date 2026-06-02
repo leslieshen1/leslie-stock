@@ -25,7 +25,7 @@
     "layer_label": "消费餐饮(中餐连锁/食品)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "区域中餐连锁(安徽), 餐饮行业完全竞争. 大众餐饮消费降级压力大, 非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 锂电铜箔/PCB 铜箔",
     "bottleneck_score": 45,
     "verdict": "worth_watching",
-    "verdict_label": "💎 PCB 铜箔有 AI server 边际想象",
+    "verdict_label": "PCB 铜箔有 AI server 边际想象",
     "thesis": "Copper foil for batteries + PCB. PCB 铜箔(尤其 HVLP/RTF)是 AI server 高速 PCB 的关键材料,这一块有 marginal AI fit。但主营仍是 EV battery foil,被周期拖累。比嘉元有一点 AI 故事但仍未达 high-conviction 标准。",
     "signals": [
       {

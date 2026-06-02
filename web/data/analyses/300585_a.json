@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 汽车换挡器",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "汽车换挡操纵器，传统汽车零部件，有钙钛矿炒作前科但落地慢。",
     "signals": [
       {

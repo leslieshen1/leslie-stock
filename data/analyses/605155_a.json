@@ -25,7 +25,7 @@
     "layer_label": "消费/建筑配件 - 阳光面料",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "户外遮阳面料(阳光面料)出口为主。下游需求与海外住宅装修相关,贸易摩擦敏感。无产业 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

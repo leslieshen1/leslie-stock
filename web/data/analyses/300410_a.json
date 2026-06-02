@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — PCB/锂电检测设备",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "PCB 自动检测设备 + 锂电涂布检测，下游内卷且历史业绩波动大，无 chokepoint 属性。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "L3 — 石化/催化剂/加油站",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Petrochemical catalysts + gas stations — small player, mixed business.",
     "signals": [
       {

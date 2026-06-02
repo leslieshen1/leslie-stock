@@ -25,7 +25,7 @@
     "layer_label": "黑芝麻糊+食品",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "传统食品+多元化，无 chokepoint。",
     "signals": [
       {

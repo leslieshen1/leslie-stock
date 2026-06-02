@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — ETC/车路协同",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "ETC 后市场+车路协同，政策驱动 cyclical，非物理 chokepoint。",
     "signals": [
       {

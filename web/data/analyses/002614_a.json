@@ -25,7 +25,7 @@
     "layer_label": "消费 - 按摩椅出口OEM/品牌",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 消费品OEM",
+    "verdict_label": "消费品OEM",
     "thesis": "按摩椅龙头之一（OGAWA品牌），全球前列但行业不增长。关税敞口+消费疲软，无关键技术瓶颈。",
     "signals": [
       {

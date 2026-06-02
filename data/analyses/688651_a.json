@@ -25,7 +25,7 @@
     "layer_label": "网络安全 chokepoint - 网络空间资产测绘+卫星互联网安全",
     "bottleneck_score": 68,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit Analogue 🪞",
+    "verdict_label": "aleabit Analogue",
     "thesis": "国内网络空间资产测绘细分龙头(类比国外 Censys/Shadowserver),且布局卫星互联网安全(地面终端+空间链路安全监测)。客户含国安/工信部/运营商。政府/国防需求 + 卫星互联网新兴赛道 + 小盘,符合 aleabit 套路。",
     "signals": {
       "supply_chain_chokepoint": true,

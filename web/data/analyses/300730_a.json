@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 16,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "政企信息化服务商，项目制低毛利，无 chokepoint 属性。",
     "signals": [
       {

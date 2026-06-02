@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 控制电机（步进/伺服）+ 人形机器人空心杯电机",
     "bottleneck_score": 64,
     "verdict": "worth_watching",
-    "verdict_label": "💎 空心杯电机 humanoid 关键节点",
+    "verdict_label": "空心杯电机 humanoid 关键节点",
     "thesis": "Hollow-cup motors for humanoid robot fingers/dexterous hands. Technical depth real — Maxon and Faulhaber dominate globally, Mingzhi is the credible China alternative.",
     "signals": [
       {

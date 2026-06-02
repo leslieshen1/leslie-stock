@@ -25,7 +25,7 @@
     "layer_label": "综合 - 新疆贸易/能源/地产控股",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 杂业控股",
+    "verdict_label": "杂业控股",
     "thesis": "新疆混合业务（能源贸易/物流/地产），无主业聚焦、无技术护城河。能源贸易毛利薄，地产承压。",
     "signals": [
       {

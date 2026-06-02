@@ -25,7 +25,7 @@
     "layer_label": "消费 - 床垫品牌",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "ST 床垫公司,大股东减持/财务问题。Serenity 不碰 ST。",
     "signals": {
       "supply_chain_chokepoint": false,

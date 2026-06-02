@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 17,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "水利水电及市政机电设备承包，工程类公司，与 AI 链无关。",
     "signals": [
       {

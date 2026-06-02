@@ -25,7 +25,7 @@
     "layer_label": "定制衣柜家居",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "定制家居,地产链下行,排除",
     "signals": [
       {

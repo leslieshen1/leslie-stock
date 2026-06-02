@@ -25,7 +25,7 @@
     "layer_label": "L3 — 油田化学品 / 聚丙烯酰胺",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Oilfield chemicals — polyacrylamide for EOR, commodity chemical, depends on PetroChina/Sinopec capex.",
     "signals": [
       {

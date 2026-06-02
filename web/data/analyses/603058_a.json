@@ -25,7 +25,7 @@
     "layer_label": "烟标印刷+智能包装",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "烟标+包装印刷，依赖中烟系统，转型缓慢。",
     "signals": [
       {

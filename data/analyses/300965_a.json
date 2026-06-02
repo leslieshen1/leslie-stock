@@ -25,7 +25,7 @@
     "layer_label": "航空机载电子(显控/作动)",
     "bottleneck_score": 62,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 aleabit 类比",
+    "verdict_label": "aleabit 类比",
     "thesis": "Military/civil avionics — flight-control electronics, displays, actuators. Limited qualified suppliers (security-clearance gated), domestic substitution narrative. Small cap, gov/defense, low coverage. This is the shape of a Serenity-style trade — defense chokepoint on certified electronics — though the financials are lumpy on procurement cycles.",
     "signals": [
       {

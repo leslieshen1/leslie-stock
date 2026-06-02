@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 轮胎机械",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "轮胎成型设备，传统机械 cyclical，与 AI/半导体无关。",
     "signals": [
       {

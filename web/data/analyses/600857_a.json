@@ -25,7 +25,7 @@
     "layer_label": "零售 - 宁波本地百货+泽熙概念股(历史)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "宁波本地百货,曾因泽熙徐翔概念股出名。百货业弱+无主业增长。无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

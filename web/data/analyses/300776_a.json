@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 光伏激光设备（非 AI 主战场）",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 光伏激光与 AI 关联弱",
+    "verdict_label": "光伏激光与 AI 关联弱",
     "thesis": "帝尔激光 主营光伏电池激光开槽 / SE / TOPCon / HJT 设备。Not in AI optical / compute supply chain. 光伏周期下行。主题标签误导。",
     "signals": [
       {

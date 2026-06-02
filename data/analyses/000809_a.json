@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "能源/重组类，与 AI 供应链无关。",
     "signals": [
       {

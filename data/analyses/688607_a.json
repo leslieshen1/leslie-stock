@@ -25,7 +25,7 @@
     "layer_label": "L3 — 医用 X 射线平板探测器",
     "bottleneck_score": 68,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🎯 类 aleabit",
+    "verdict_label": "类 aleabit",
     "thesis": "Medical X-ray flat panel detectors — domestic substitution for Trixell/Varex/Canon, niche high-barrier component.",
     "signals": [
       {

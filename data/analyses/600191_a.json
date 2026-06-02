@@ -25,7 +25,7 @@
     "layer_label": "糖业",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "甜菜糖,小盘农业,波动大",
     "signals": [
       {

@@ -14,7 +14,7 @@
   },
   "overall_score": 65.8,
   "overall_grade": "学习池边缘",
-  "verdict": "段永平视角：资源+牌照是真东西，但'锡价 1Q26 同比 +48%、铟价 +62%'是周期上行中段，不是击球区。等下次锡价大跌 30%，公司基本面没坏，那时候是真便宜。⚠️ 警惕'朋友说有矿要并进来'这类消息驱动 — 这正是 Stop Doing List 第一条。",
+  "verdict": "段永平视角：资源+牌照是真东西，但'锡价 1Q26 同比 +48%、铟价 +62%'是周期上行中段，不是击球区。等下次锡价大跌 30%，公司基本面没坏，那时候是真便宜。 警惕'朋友说有矿要并进来'这类消息驱动 — 这正是 Stop Doing List 第一条。",
   "llm_used": true,
   "llm_model": "claude-conversation",
   "dimensions": {
@@ -116,7 +116,7 @@
     "layer_label": "Layer 4 — 原材料/物料控制点",
     "bottleneck_score": 78,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 中国版 $AXTI 类比",
+    "verdict_label": "中国版 $AXTI 类比",
     "thesis": "Tin is the chokepoint material for semiconductor packaging — every chip on Earth uses tin solder for SMT assembly. Global tin supply concentrated in China + Indonesia. 华锡 is a China A-stock $2B mcap tin pure-play, almost zero analyst coverage. If you can stomach A-stock, this is the China version of my $AXTI thesis.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "医疗信息化 - 电子病历EMR",
     "bottleneck_score": 48,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 医院HIS/EMR内卷",
+    "verdict_label": "医院HIS/EMR内卷",
     "thesis": "电子病历软件商，与卫宁/东软/创业慧康竞争。医疗IT受医院投入紧缩+集采压价，订单不稳。",
     "signals": [
       {

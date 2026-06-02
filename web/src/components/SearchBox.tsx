@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 type SearchResult = {
   code: string;
   name: string;
-  market: "a" | "hk" | "us";
+ market: "a" | "hk" | "us";
   market_cap_yi: number | null;
   sector: string;
   layer: number | null;
@@ -23,7 +23,7 @@ type Props = {
 };
 
 export default function SearchBox({ compact = false, placeholder }: Props) {
-  const [q, setQ] = useState("");
+ const [q, setQ] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -61,86 +61,86 @@ export default function SearchBox({ compact = false, placeholder }: Props) {
         setOpen(false);
       }
     }
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
+ document.addEventListener("mousedown", onClick);
+ return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
   // 快捷键：cmd/ctrl + K 聚焦
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+ if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         inputRef.current?.focus();
       }
     }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+ window.addEventListener("keydown", onKey);
+ return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   function go(r: SearchResult) {
     router.push(`/stock/${r.code}?market=${r.market}`);
     setOpen(false);
-    setQ("");
+ setQ("");
   }
 
   function onKey(e: React.KeyboardEvent) {
     if (!open || results.length === 0) return;
-    if (e.key === "ArrowDown") {
+ if (e.key === "ArrowDown") {
       e.preventDefault();
       setActive((i) => Math.min(i + 1, results.length - 1));
-    } else if (e.key === "ArrowUp") {
+ } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActive((i) => Math.max(i - 1, 0));
-    } else if (e.key === "Enter") {
+ } else if (e.key === "Enter") {
       e.preventDefault();
       go(results[active]);
-    } else if (e.key === "Escape") {
+ } else if (e.key === "Escape") {
       setOpen(false);
     }
   }
 
-  const wrapClass = compact ? "relative w-full max-w-md" : "relative w-full";
+ const wrapClass = compact ? "relative w-full max-w-md" : "relative w-full";
   const inputClass = compact
-    ? "w-full rounded-lg border border-zinc-200 bg-zinc-50 py-1.5 pl-9 pr-12 text-sm placeholder-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-100 focus:bg-white"
-    : "w-full rounded-lg border border-zinc-200 bg-white py-2 pl-10 pr-12 text-sm placeholder-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-100";
+ ? "w-full rounded-lg border border-line bg-surface py-1.5 pl-9 pr-12 text-sm placeholder-faint focus:border-faint focus:outline-none focus:ring-2 focus:ring-surface-2 focus:bg-surface"
+ : "w-full rounded-lg border border-line bg-surface py-2 pl-10 pr-12 text-sm placeholder-faint focus:border-faint focus:outline-none focus:ring-2 focus:ring-surface-2";
 
   return (
     <div className={wrapClass} ref={containerRef}>
-      <div className="relative">
+ <div className="relative">
         <svg
-          className={`absolute ${compact ? "left-2.5 h-3.5 w-3.5" : "left-3 h-4 w-4"} top-1/2 -translate-y-1/2 text-zinc-400`}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
+ className={`absolute ${compact ? "left-2.5 h-3.5 w-3.5" : "left-3 h-4 w-4"} top-1/2 -translate-y-1/2 text-faint`}
+ viewBox="0 0 24 24"
+ fill="none"
+ stroke="currentColor"
+ strokeWidth="2"
         >
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+ <circle cx="11" cy="11" r="8" />
+ <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
         <input
           ref={inputRef}
-          type="text"
+ type="text"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onFocus={() => q && setOpen(true)}
           onKeyDown={onKey}
-          placeholder={placeholder || "搜代码 / 名称 / 板块 / thesis…"}
+ placeholder={placeholder || "搜代码 / 名称 / 板块 / thesis…"}
           className={inputClass}
         />
         {loading ? (
-          <div className="absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 animate-spin rounded-full border-2 border-zinc-200 border-t-zinc-500" />
+ <div className="absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 animate-spin rounded-full border-2 border-line border-t-muted" />
         ) : (
-          <kbd className="absolute right-2 top-1/2 -translate-y-1/2 hidden md:inline-flex font-mono text-[10px] text-zinc-400 bg-zinc-100 border border-zinc-200 rounded px-1.5 py-0.5">
+ <kbd className="absolute right-2 top-1/2 -translate-y-1/2 hidden md:inline-flex font-mono text-[10px] text-faint bg-surface-2 border border-line rounded px-1.5 py-0.5">
             ⌘K
           </kbd>
         )}
       </div>
 
       {open && (
-        <div className="absolute left-0 right-0 top-full mt-2 z-50 max-h-[420px] overflow-auto rounded-lg border border-zinc-200 bg-white shadow-lg">
+ <div className="absolute left-0 right-0 top-full mt-2 z-50 max-h-[420px] overflow-auto rounded-lg border border-line bg-surface ">
           {results.length === 0 ? (
-            <div className="px-4 py-3 text-sm text-zinc-500">
-              {q ? "没找到匹配" : "输入代码 / 名字 / 板块"}
+ <div className="px-4 py-3 text-sm text-muted">
+ {q ? "没找到匹配" : "输入代码 / 名字 / 板块"}
             </div>
           ) : (
             results.map((r, i) => (
@@ -149,40 +149,40 @@ export default function SearchBox({ compact = false, placeholder }: Props) {
                 onClick={() => go(r)}
                 onMouseEnter={() => setActive(i)}
                 className={`flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left text-sm transition ${
-                  i === active ? "bg-zinc-50" : "hover:bg-zinc-50"
+ i === active ? "bg-surface" : "hover:bg-surface-2"
                 }`}
               >
-                <div className="flex items-center gap-2.5 min-w-0">
+ <div className="flex items-center gap-2.5 min-w-0">
                   <span
                     className={`shrink-0 inline-flex rounded px-1.5 py-0.5 text-[10px] font-medium ${
-                      r.market === "a"
-                        ? "bg-red-50 text-red-700"
-                        : r.market === "hk"
-                        ? "bg-blue-50 text-blue-700"
-                        : "bg-violet-50 text-violet-700"
+ r.market === "a"
+ ? "bg-red-50 text-down"
+ : r.market === "hk"
+ ? "bg-surface-2 text-accent"
+ : "bg-surface-2 text-accent"
                     }`}
                   >
-                    {r.market === "a" ? "A" : r.market === "hk" ? "HK" : "US"}
+ {r.market === "a" ? "A" : r.market === "hk" ? "HK" : "US"}
                   </span>
-                  <div className="min-w-0">
-                    <div className="flex items-baseline gap-1.5">
-                      <p className="font-medium text-zinc-900 truncate">{r.name}</p>
-                      <p className="font-mono text-xs text-zinc-400">{r.code}</p>
+ <div className="min-w-0">
+ <div className="flex items-baseline gap-1.5">
+ <p className="font-medium text-ink truncate">{r.name}</p>
+ <p className="font-mono text-xs text-faint">{r.code}</p>
                     </div>
                     {(r.sector || r.thesis) && (
-                      <p className="text-[11px] text-zinc-500 truncate">
+ <p className="text-[11px] text-muted truncate">
                         {r.sector}
-                        {r.sector && r.thesis && " · "}
+ {r.sector && r.thesis && " · "}
                         {r.thesis && (
-                          <span className="text-zinc-400">{r.thesis.slice(0, 60)}</span>
+ <span className="text-faint">{r.thesis.slice(0, 60)}</span>
                         )}
                       </p>
                     )}
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-2 text-[10px]">
+ <div className="shrink-0 flex items-center gap-2 text-[10px]">
                   {r.market_cap_yi && (
-                    <span className="text-zinc-400 font-mono">
+ <span className="text-faint font-mono">
                       {r.market_cap_yi >= 1000
                         ? `${(r.market_cap_yi / 1000).toFixed(1)}千亿`
                         : `${r.market_cap_yi.toFixed(0)}亿`}
@@ -192,12 +192,12 @@ export default function SearchBox({ compact = false, placeholder }: Props) {
                     <span
                       className={`font-mono font-semibold ${
                         r.score >= 70
-                          ? "text-violet-700"
+ ? "text-accent"
                           : r.score >= 60
-                          ? "text-violet-600"
+ ? "text-accent"
                           : r.score >= 50
-                          ? "text-amber-600"
-                          : "text-zinc-400"
+ ? "text-accent"
+ : "text-faint"
                       }`}
                     >
                       {r.score}

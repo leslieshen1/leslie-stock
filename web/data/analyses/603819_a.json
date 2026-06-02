@@ -25,7 +25,7 @@
     "layer_label": "工业电机零部件 - 大型发电机/电动机定转子",
     "bottleneck_score": 48,
     "verdict": "worth_watching",
-    "verdict_label": "Worth Watching 💎",
+    "verdict_label": "Worth Watching",
     "thesis": "大型发电机/牵引电机定转子铁芯。客户含 CRRC 等高铁电机厂、风电齿轮箱厂。专用件 niche+下游头部集中。",
     "signals": {
       "supply_chain_chokepoint": false,

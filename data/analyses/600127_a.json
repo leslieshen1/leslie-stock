@@ -25,7 +25,7 @@
     "layer_label": "粮食加工(大米)",
     "bottleneck_score": 16,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Rice processing SOE. Margins razor-thin, policy-driven. PB ~6 looks rich for a no-moat staple. Not chokepoint.",
     "signals": [
       {

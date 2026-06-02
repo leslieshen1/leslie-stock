@@ -25,7 +25,7 @@
     "layer_label": "传统广电 - 陕西有线电视运营",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "陕西有线电视运营商。用户持续流失,转型乏力。中国广电 5G 概念但 700MHz 频谱已被中国移动租用,实际利润空间小。",
     "signals": {
       "supply_chain_chokepoint": false,

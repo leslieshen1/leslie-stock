@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 利基存储 + AIoT SoC",
     "bottleneck_score": 52,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 ISSI 利基存储 + AIoT, AI 数据中心关联弱",
+    "verdict_label": "ISSI 利基存储 + AIoT, AI 数据中心关联弱",
     "thesis": "通过收购 ISSI 拿到 SRAM / DRAM / NOR 利基存储, 主要面向汽车 / 工控. AI 数据中心关联弱, AIoT SoC 角度也较窄. 676亿市值偏大.",
     "signals": [
       {

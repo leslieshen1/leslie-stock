@@ -25,7 +25,7 @@
     "layer_label": "分子诊断试剂/IVD",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Molecular diagnostics (HPV etc). Post-COVID normalization, IVD pricing pressure. PB 1.07 cheap, but no chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "L5 — ST (壳)",
     "bottleneck_score": 5,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "ST status — distressed shell.",
     "signals": [
       {

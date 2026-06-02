@@ -25,7 +25,7 @@
     "layer_label": "医药(原料药+制剂/骨科)",
     "bottleneck_score": 36,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "原料药+骨科制剂(氨基葡萄糖/硫酸软骨素), 集采压力下毛利受压. 非独家品种, 非 chokepoint.",
     "signals": [
       {

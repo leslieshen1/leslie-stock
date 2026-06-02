@@ -13,7 +13,7 @@
     "pb": 3.5
   },
   "overall_score": 75.3,
-  "overall_grade": "🏆 重点候选",
+  "overall_grade": "重点候选",
   "verdict": "段永平视角：血浆站牌照是真护城河（2001 年起国家基本停批），跟茅台'赤水河+茅台镇'不可复制同逻辑。当前 Q1 利润 -48% 看着吓人但是行业价格周期，基本面没坏。这种时候买好公司，最像段永平 2018 加仓腾讯（监管压力+短期业绩压力+商业模式没变）。建议现价小仓试水，跌到 ¥12 加仓。",
   "llm_used": true,
   "llm_model": "claude-conversation",
@@ -118,7 +118,7 @@
     "layer_label": "N/A — 不在 AI capex 供应链",
     "bottleneck_score": 8,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
+    "verdict_label": "不在射程",
     "thesis": "Biotech / blood products / vaccines — zero connection to AI capex, photonics, semiconductors, humanoid robotics, or any of my themes. Pass.",
     "signals": [
       {

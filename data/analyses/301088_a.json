@@ -25,7 +25,7 @@
     "layer_label": "电商女装",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "淘系女装,缺乏壁垒,排除",
     "signals": [
       {

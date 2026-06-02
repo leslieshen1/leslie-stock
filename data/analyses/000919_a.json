@@ -25,7 +25,7 @@
     "layer_label": "中成药+医院运营",
     "bottleneck_score": 26,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Hospital ops + TCM. PB 1.07 = cheap but value-trap shape. Stable but no chokepoint.",
     "signals": [
       {

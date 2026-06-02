@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — LED 显示屏",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "LED 显示屏 + 数字营销，赛道拥挤 + 历史商誉。",
     "signals": [
       {

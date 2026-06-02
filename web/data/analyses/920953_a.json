@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "北交所小盘软件，非物理 chokepoint。",
     "signals": [
       {

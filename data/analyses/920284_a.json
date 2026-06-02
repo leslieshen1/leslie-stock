@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 粉体设备",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "粉体输送/混合设备，下游含锂电材料/医药，但非 chokepoint 设备。",
     "signals": [
       {

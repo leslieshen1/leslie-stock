@@ -25,7 +25,7 @@
     "layer_label": "N/A — 农资流通+汽车 4S(浙江省属)",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Zhejiang state agro-input distributor plus auto 4S dealership — multi-business conglomerate, no single chokepoint asset.",
     "signals": [
       {

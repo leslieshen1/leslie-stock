@@ -25,7 +25,7 @@
     "layer_label": "新能源 - 光伏支架(出口)",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "光伏支架,海外销售为主(尤其欧洲分布式)。光伏产业链过剩+欧洲补贴退坡。支架不是 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

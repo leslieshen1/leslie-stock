@@ -25,7 +25,7 @@
     "layer_label": "*ST-精密铝合金",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "*ST 退市边缘,排除",
     "signals": [
       {

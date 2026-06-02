@@ -25,7 +25,7 @@
     "layer_label": "办公椅 OEM 出口",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "办公椅 OEM,关税/航运风险,无 chokepoint",
     "signals": [
       {

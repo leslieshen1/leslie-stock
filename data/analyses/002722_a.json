@@ -25,7 +25,7 @@
     "layer_label": "纺织专用器材 - 棉/化纤梳理针布",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "纺织梳理针布(纺纱必备耗材),细分龙头但纺织业下行。针布是 niche 但下游需求疲软,无明显增长 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

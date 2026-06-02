@@ -25,7 +25,7 @@
     "layer_label": "导航 - 北斗高精度GNSS接收机",
     "bottleneck_score": 65,
     "verdict": "worth_watching",
-    "verdict_label": "💎 北斗高精度GNSS细分",
+    "verdict_label": "北斗高精度GNSS细分",
     "thesis": "高精度北斗/GNSS板卡+接收机，下游测绘/农机自动驾驶/形变监测/无人机/精准农业。国产替代+北斗自主可控双逻辑。",
     "signals": [
       {

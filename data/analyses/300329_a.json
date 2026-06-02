@@ -25,7 +25,7 @@
     "layer_label": "消费 - 钢琴/乐器制造",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 乐器制造夕阳",
+    "verdict_label": "乐器制造夕阳",
     "thesis": "钢琴制造，受少子化+电钢琴替代+课外培训整顿三重打击。需求长期萎缩，无技术瓶颈。",
     "signals": [
       {

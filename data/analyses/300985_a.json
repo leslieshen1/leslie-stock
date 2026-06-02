@@ -25,7 +25,7 @@
     "layer_label": "LNG/CNG 车用气瓶",
     "bottleneck_score": 40,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "天然气重卡气瓶，受 LNG 价差驱动，氢气瓶切入但技术非顶级。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "百货零售/物业(上海国企)",
     "bottleneck_score": 14,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "SOE department store + real estate. Pure value/SOE-reform story. Not a chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 色选机/智能分选",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "色选机/物料分选设备，农产品加工/再生资源，非 AI 链。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 消费音响",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "消费级音响品牌，B2C 终端非 chokepoint。",
     "signals": [
       {

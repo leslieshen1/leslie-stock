@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — TVS / 功率小信号器件",
     "bottleneck_score": 45,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 二线 Power IC，小信号偏多",
+    "verdict_label": "二线 Power IC，小信号偏多",
     "thesis": "Smaller analog/protection IC maker, less central to AI power than super-junction MOSFET or IGBT module players.",
     "signals": [
       {

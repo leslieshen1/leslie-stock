@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 光纤激光器（工业切割）",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 工业激光与 AI 关联弱",
+    "verdict_label": "工业激光与 AI 关联弱",
     "thesis": "锐科 是国内光纤激光器龙头，下游 95% 是工业切割 / 焊接。Not optical comm / CPO. AI 关联极弱。光纤激光器行业当前价格战激烈。",
     "signals": [
       {

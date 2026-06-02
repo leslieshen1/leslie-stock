@@ -25,7 +25,7 @@
     "layer_label": "建筑 - PC 构件预制",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "装配式建筑 PC 构件预制。地产下行+装配式渗透率不及预期。无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

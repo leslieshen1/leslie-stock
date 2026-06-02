@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 纯碱/氯化铵化工",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "纯碱/氯化铵传统化工，cyclical，无 AI/科技 chokepoint。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "测试测量仪器(消费电子产线)",
     "bottleneck_score": 48,
     "verdict": "worth_watching",
-    "verdict_label": "💎 值得观察",
+    "verdict_label": "值得观察",
     "thesis": "Custom automated test equipment for consumer electronics — Apple-chain exposure. Niche niche but heavily Apple-dependent and replaceable by Keysight/NI. Not a chokepoint, but small-cap test gear sometimes inflects on AI hardware ATE demand.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — IGBT 模块（车规 + 工业）",
     "bottleneck_score": 60,
     "verdict": "worth_watching",
-    "verdict_label": "💎 国产 IGBT 二线 + 800V 增量",
+    "verdict_label": "国产 IGBT 二线 + 800V 增量",
     "thesis": "Second-tier IGBT module maker. Real fab-light play in 800V DC architecture, but Star + Inneon + StarPower own most of the volume.",
     "signals": [
       {

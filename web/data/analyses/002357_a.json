@@ -25,7 +25,7 @@
     "layer_label": "交通运输下游(四川区域客运/物流)",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "四川区域客运+物流, 高铁/网约车冲击, 业绩长期萎缩. 非 chokepoint.",
     "signals": [
       {

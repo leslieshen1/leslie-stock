@@ -25,7 +25,7 @@
     "layer_label": "N/A — 深圳物业地产开发",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Shenzhen-based property development and management — real-estate cycle drag, no chokepoint.",
     "signals": [
       {

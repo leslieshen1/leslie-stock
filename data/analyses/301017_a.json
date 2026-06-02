@@ -25,7 +25,7 @@
     "layer_label": "医药零售",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "区域药店连锁,门诊统筹压力",
     "signals": [
       {

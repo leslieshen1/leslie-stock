@@ -25,7 +25,7 @@
     "layer_label": "食品加工下游(调味品/香菇酱)",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "河南区域调味品企业, 主打香菇酱+花椒油. 区域品牌, 渠道有限, 与海天/千禾/恒顺无可比性. 非 chokepoint, 消费品打法不在 aleabit 框架内.",
     "signals": [
       {

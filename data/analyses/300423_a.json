@@ -25,7 +25,7 @@
     "layer_label": "Out of scope — LED lighting / smart grid",
     "bottleneck_score": 14,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not in range",
+    "verdict_label": "not in range",
     "thesis": "LED lighting and distribution-grid integration company — misclassified under optical/CPO. No real CPO or AI optical exposure. 35亿 small cap but in the wrong vertical. Pass.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — OSAT 高阶封装",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 OSAT 高阶封装小厂, 但封装赛道太 crowded",
+    "verdict_label": "OSAT 高阶封装小厂, 但封装赛道太 crowded",
     "thesis": "中型 OSAT, 主打 FCBGA / SiP 高阶封装. AI / HPC chiplet 趋势下有需求, 但赛道有长电 / 通富 / 华天三巨头压制, 甬矽相对小但非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "L4 — 通信测试 / 教育",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Telecom network testing software plus vocational education — fragmented, low gross margin, no chokepoint.",
     "signals": [
       {

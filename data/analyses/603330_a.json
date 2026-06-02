@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 热熔胶/特种胶膜",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "热熔胶膜 + 软包电池铝塑膜尝试，但铝塑膜还在导入期且日韩龙头垄断。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "金融(类金融/小贷+融资租赁)",
     "bottleneck_score": 14,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "类金融业务收缩, 多次重组未果. 非 chokepoint, 壳化特征明显.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — LNG 罐式集装箱",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "罐式集装箱/LNG 储罐/冷链装备，工业品 cyclical，与 AI 链无关。",
     "signals": [
       {

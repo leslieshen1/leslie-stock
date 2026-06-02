@@ -25,7 +25,7 @@
     "layer_label": "制造 - 工业制造（具体子行业披露有限）",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 北交所中性制造",
+    "verdict_label": "北交所中性制造",
     "thesis": "北交所小盘制造业，公开信息较少，无法识别明确瓶颈赛道。默认归入一般制造。",
     "signals": [
       {

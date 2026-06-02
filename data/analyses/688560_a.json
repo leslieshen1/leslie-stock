@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 光伏背板 + 铝塑膜",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "光伏背板转型铝塑膜，背板赛道惨烈，铝塑膜尚未规模化。",
     "signals": [
       {

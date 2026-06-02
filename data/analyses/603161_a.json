@@ -25,7 +25,7 @@
     "layer_label": "Out of scope — auto turbocharger castings",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not in range",
+    "verdict_label": "not in range",
     "thesis": "Misclassified as optical/CPO — this is an auto turbocharger housing castings company. No real AI supply chain exposure. 27亿 cap and PB 1.8 looks cheap but it's cheap for a reason. Skip.",
     "signals": [
       {

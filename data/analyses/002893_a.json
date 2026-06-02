@@ -25,7 +25,7 @@
     "layer_label": "公用 - 城市供热运营",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "城市供热运营商,京能集团参与。区域公用事业,价格管制,无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

@@ -25,7 +25,7 @@
     "layer_label": "全屋定制家居",
     "bottleneck_score": 16,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Custom home furniture. Real-estate cycle tied, consumer discretionary. No chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "医药商业下游(医药流通/抗肿瘤药代理)",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "区域医药流通+抗肿瘤药代理, 业务模式同质化, 利润率薄. 非 chokepoint.",
     "signals": [
       {

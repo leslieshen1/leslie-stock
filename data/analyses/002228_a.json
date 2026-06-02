@@ -25,7 +25,7 @@
     "layer_label": "瓦楞纸箱包装",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "瓦楞纸箱龙头之一，但行业完全竞争，原纸成本压制。",
     "signals": [
       {

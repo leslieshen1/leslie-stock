@@ -25,7 +25,7 @@
     "layer_label": "L3 — 中文字库 (字体 IP)",
     "bottleneck_score": 58,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 产业链 chokepoint",
+    "verdict_label": "产业链 chokepoint",
     "thesis": "Chinese typeface IP — only a handful of players (汉仪 方正 文鼎). Mobile/AIGC font licensing real chokepoint, Adobe-like moat in Chinese.",
     "signals": [
       {

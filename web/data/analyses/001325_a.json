@@ -25,7 +25,7 @@
     "layer_label": "汽车产业链中游(冲压模具/车身覆盖件)",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "汽车冲压模具行业参与者众多, 技术壁垒中等. 客户绑定吉利等自主车企, 但模具/冲压件并非整车制造的卡脖子环节. 业绩随汽车销量波动, 缺乏定价权.",
     "signals": [
       {

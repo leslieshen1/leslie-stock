@@ -25,7 +25,7 @@
     "layer_label": "皮革专业市场",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "传统专业市场,业态衰退",
     "signals": [
       {

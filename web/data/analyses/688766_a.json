@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — NOR Flash / EEPROM",
     "bottleneck_score": 48,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 NOR Flash 国产替代, AI 边缘需求但同业多",
+    "verdict_label": "NOR Flash 国产替代, AI 边缘需求但同业多",
     "thesis": "NOR Flash + EEPROM player. AI 边缘 / Smart NIC 需要小容量 NOR 启动, 但同业 (兆易 / 复旦微) 竞争激烈, 不是独家 chokepoint.",
     "signals": [
       {

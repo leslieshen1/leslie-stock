@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 主战坦克 / 装甲车",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 坦克装甲车总装, 与 AI thesis 无关",
+    "verdict_label": "坦克装甲车总装, 与 AI thesis 无关",
     "thesis": "中国主战坦克 / 装甲车主机厂 (兵装集团). 国防 thesis 有效但与 AI capex 无关. 不在 Serenity 框架.",
     "signals": [
       {

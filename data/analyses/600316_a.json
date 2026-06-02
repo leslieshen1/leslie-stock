@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 教练机 / 攻击机总装",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 军机总装, 与 AI 无关",
+    "verdict_label": "军机总装, 与 AI 无关",
     "thesis": "中航工业旗下教练机 (L-15) + 攻击机. 与 AI capex 无关.",
     "signals": [
       {

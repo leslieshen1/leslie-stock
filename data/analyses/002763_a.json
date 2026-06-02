@@ -25,7 +25,7 @@
     "layer_label": "消费 - 内衣品牌（曼妮芬等）",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 内衣品牌竞争",
+    "verdict_label": "内衣品牌竞争",
     "thesis": "曼妮芬等内衣品牌矩阵，受新消费品牌+电商冲击+渠道萎缩。无瓶颈属性。",
     "signals": [
       {

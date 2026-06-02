@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 煤炭/焦化",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
+    "verdict_label": "不在射程",
     "thesis": "Coal + coking — not a metal play at all, this is misclassified. Coal is opposite of AI chokepoint theme.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 丙纶纤维",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "丙纶差别化纤维，纺织化纤无 chokepoint 属性。",
     "signals": [
       {

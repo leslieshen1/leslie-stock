@@ -25,7 +25,7 @@
     "layer_label": "L3 — 惯导 + 卫星导航 + 无人系统",
     "bottleneck_score": 70,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🎯 类 aleabit",
+    "verdict_label": "类 aleabit",
     "thesis": "MEMS inertial nav + satellite positioning + UAV systems — defense-grade tech, small cap with government orders. Classic chokepoint setup.",
     "signals": [
       {

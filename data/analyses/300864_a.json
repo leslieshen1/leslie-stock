@@ -25,7 +25,7 @@
     "layer_label": "环保咨询-土壤地下水修复",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "南京大学系环保咨询,土壤修复 EPC 项目制,无产品 chokepoint 属性",
     "signals": [
       {

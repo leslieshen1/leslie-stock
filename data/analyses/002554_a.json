@@ -25,7 +25,7 @@
     "layer_label": "油气工程+EPC",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "油气工程，EPC 模式现金流差，技术非独占。",
     "signals": [
       {

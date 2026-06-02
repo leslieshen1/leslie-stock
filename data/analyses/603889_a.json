@@ -25,7 +25,7 @@
     "layer_label": "毛纺中游",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "精纺羊毛纱线龙头,纺织出口承压",
     "signals": [
       {

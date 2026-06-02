@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 光伏硅片 / 半导体硅片",
     "bottleneck_score": 38,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 太大太通用，不是 chokepoint",
+    "verdict_label": "太大太通用，不是 chokepoint",
     "thesis": "光伏硅片为主，半导体硅片仅为副业。光伏行业当前过剩 + 价格战。半导体硅片业务规模小且与 SUMCO / GlobalWafers 比仍落后。市值已 ~370 亿但盈利能力恶化。Not a chokepoint, it's a commodity oversupplied giant.",
     "signals": [
       {

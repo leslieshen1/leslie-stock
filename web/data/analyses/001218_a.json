@@ -25,7 +25,7 @@
     "layer_label": "化工 - 表面活性剂/日化原料",
     "bottleneck_score": 40,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 日化中间品",
+    "verdict_label": "日化中间品",
     "thesis": "AES/AOS等表面活性剂，下游为日化龙头（蓝月亮/立白/宝洁）。客户集中度高但产品同质，议价弱。",
     "signals": [
       {

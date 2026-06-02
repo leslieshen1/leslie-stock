@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 通用减速机（工业级）",
     "bottleneck_score": 42,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 通用减速机蹭 humanoid 概念",
+    "verdict_label": "通用减速机蹭 humanoid 概念",
     "thesis": "General-purpose industrial reducers, not the high-precision RV/harmonic kind used in humanoid joints. Concept play, not chokepoint.",
     "signals": [
       {

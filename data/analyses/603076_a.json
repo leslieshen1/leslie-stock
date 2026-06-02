@@ -25,7 +25,7 @@
     "layer_label": "啤酒装备+精酿 - 啤酒酿造设备+鲜啤运营",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "啤酒酿造装备(全球市占率前列)+'鲜啤30公里'自营品牌。酿造设备业务全球 niche 有壁垒,但鲜啤自营烧钱、商业模型未完全跑通。综合估值不便宜。",
     "signals": {
       "supply_chain_chokepoint": false,

@@ -25,7 +25,7 @@
     "layer_label": "医药商业(高值耗材分销)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Medical-device distributor. Volume-margin compressed by procurement reforms. Not chokepoint material.",
     "signals": [
       {

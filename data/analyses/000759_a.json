@@ -25,7 +25,7 @@
     "layer_label": "消费 - 区域商超连锁",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 传统商超困境",
+    "verdict_label": "传统商超困境",
     "thesis": "湖北区域商超龙头，受电商+社区团购双重冲击。属于完全竞争+技术替代，无瓶颈可言。",
     "signals": [
       {

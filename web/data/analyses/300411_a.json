@@ -25,7 +25,7 @@
     "layer_label": "工业制造(工业风机/防爆风机)",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "工业风机/核电风机/船舶风机, 风机技术中等壁垒. 历史财务造假后元气未恢复, 公司治理有瑕疵. 国防核电概念但订单兑现度不稳, 非 chokepoint.",
     "signals": [
       {

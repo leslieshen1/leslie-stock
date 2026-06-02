@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — LED 照明",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "通用 LED 照明，消费/地产，竞争激烈。",
     "signals": [
       {

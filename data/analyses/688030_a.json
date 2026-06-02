@@ -25,7 +25,7 @@
     "layer_label": "网络安全 - 防火墙/边界安全",
     "bottleneck_score": 52,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 信创赛道但竞争激烈",
+    "verdict_label": "信创赛道但竞争激烈",
     "thesis": "防火墙国产替代二线厂商。信创+数据安全长期顺风，但被深信服/奇安信/启明星辰压制。技术不算稀缺，更接近渠道与合规博弈。",
     "signals": [
       {

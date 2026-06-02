@@ -25,7 +25,7 @@
     "layer_label": "影视娱乐",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "影视制作,行业景气低",
     "signals": [
       {

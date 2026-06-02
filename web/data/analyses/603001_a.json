@@ -25,7 +25,7 @@
     "layer_label": "男鞋零售",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "传统男鞋品牌，电商+新品牌冲击，无 chokepoint。",
     "signals": [
       {

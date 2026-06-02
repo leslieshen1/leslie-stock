@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 光伏接线盒/连接器",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "光伏接线盒/连接器，光伏链下行，组件厂集采压价。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "阀门中游",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "通用阀门,内外销并重,无明显瓶颈",
     "signals": [
       {

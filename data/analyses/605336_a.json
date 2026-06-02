@@ -25,7 +25,7 @@
     "layer_label": "N/A — 变压器 / ST 困境",
     "bottleneck_score": 8,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "ST distribution transformer maker — distress.",
     "signals": [
       {

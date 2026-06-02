@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 数据备份软件",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "数据备份/容灾软件，软件 SaaS，非物理 chokepoint。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "交通工程设计咨询",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Regional transportation design institute. Services player tied to local infra spend — no IP chokepoint, no export angle, no AI/tech relevance.",
     "signals": [
       {

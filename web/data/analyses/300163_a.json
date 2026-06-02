@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 户外遮阳面料",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "户外遮阳面料 + 锂电涉足但非主业，名字含'新材'但与半导体/AI 完全不相关。",
     "signals": [
       {

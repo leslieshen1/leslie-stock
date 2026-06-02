@@ -25,7 +25,7 @@
     "layer_label": "L4 — 特种电缆",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Specialty cables — generic player, financial stress history.",
     "signals": [
       {

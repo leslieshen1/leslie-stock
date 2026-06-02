@@ -25,7 +25,7 @@
     "layer_label": "环保工程 - 工业节能/智慧楼宇",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "节能环保集成商,业务杂。曾被中央汇金间接持股但运营乏力。无 chokepoint 属性。",
     "signals": {
       "supply_chain_chokepoint": false,

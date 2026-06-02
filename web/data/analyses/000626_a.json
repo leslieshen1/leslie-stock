@@ -25,7 +25,7 @@
     "layer_label": "大宗商品贸易",
     "bottleneck_score": 14,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Commodities trader / supply-chain middleman. Pure volume-thin-margin business. Not a chokepoint — it's the layer that depends on chokepoints.",
     "signals": [
       {

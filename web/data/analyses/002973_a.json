@@ -25,7 +25,7 @@
     "layer_label": "L5 — 环卫服务/城市保洁",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Urban sanitation services — public services.",
     "signals": [
       {

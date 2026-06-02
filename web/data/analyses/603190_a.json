@@ -25,7 +25,7 @@
     "layer_label": "汽车产业链(精密锻件/重卡零部件)",
     "bottleneck_score": 36,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "商用车精密锻件供应商, 主要客户为陕汽/中国重汽等. 重卡周期下行, 锻件技术壁垒中等, 行业竞争激烈, 非 chokepoint.",
     "signals": [
       {

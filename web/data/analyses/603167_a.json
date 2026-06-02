@@ -25,7 +25,7 @@
     "layer_label": "渤海湾客滚运输",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "渤海湾客滚船运营，区域龙头但成长有限。",
     "signals": [
       {

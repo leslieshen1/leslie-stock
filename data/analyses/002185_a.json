@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — OSAT 三巨头之一",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 国内 OSAT 三巨头, thesis 已被市场充分发现",
+    "verdict_label": "国内 OSAT 三巨头, thesis 已被市场充分发现",
     "thesis": "国内 OSAT 三巨头 (长电 / 通富 / 华天). AI / HPC chiplet / HBM 封装 thesis 真实, 但已被市场充分发现 + 554亿 cap 偏大. 不是 hidden chokepoint.",
     "signals": [
       {

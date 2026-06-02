@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 压力/温度校准仪器",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 计量仪器，与 humanoid 无关",
+    "verdict_label": "计量仪器，与 humanoid 无关",
     "thesis": "Pressure/temperature calibration instruments — themed into 'humanoid' by index makers but not in the actual robot BOM.",
     "signals": [
       {

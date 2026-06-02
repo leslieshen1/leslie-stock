@@ -25,7 +25,7 @@
     "layer_label": "N/A — IVD 体外诊断(POCT/抗原)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "POCT/antigen IVD — COVID-era profit collapsed to baseline; PB 0.75 reflects de-rating, but no clear new chokepoint engine.",
     "signals": [
       {

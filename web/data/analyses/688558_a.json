@@ -25,7 +25,7 @@
     "layer_label": "数控机床中游",
     "bottleneck_score": 60,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit 类比 🪞",
+    "verdict_label": "aleabit 类比",
     "thesis": "数控机床国产替代,出口受益,小盘高端机床,关键设备国产化推进",
     "signals": [
       {

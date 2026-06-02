@@ -25,7 +25,7 @@
     "layer_label": "IVD 集约化服务",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "IVD 集约化代理服务，集采下渠道价值削弱。",
     "signals": [
       {

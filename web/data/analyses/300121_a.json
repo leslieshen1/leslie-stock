@@ -25,7 +25,7 @@
     "layer_label": "L3 — 橡胶助剂 (不溶性硫磺)",
     "bottleneck_score": 65,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🎯 类 aleabit",
+    "verdict_label": "类 aleabit",
     "thesis": "Rubber accelerator/insoluble sulfur — global #2 in insoluble sulfur (after Eastman/Flexsys), niche specialty chemical critical for tire production.",
     "signals": [
       {

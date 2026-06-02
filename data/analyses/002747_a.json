@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 工业机器人整机 + 伺服系统",
     "bottleneck_score": 45,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 国产工业机器人龙头但非关键节点",
+    "verdict_label": "国产工业机器人龙头但非关键节点",
     "thesis": "China's most credible industrial robot OEM (post-Cloos acquisition), but integrators don't pass Serenity's chokepoint filter.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "出版发行(教材/区域)",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "内蒙古教材发行国资, 区域垄断教材但天花板有限. 高股息防御属性, 但非 chokepoint.",
     "signals": [
       {

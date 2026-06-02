@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — Solar module manufacturer (commodity tier)",
     "bottleneck_score": 32,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 macro_tailwind",
+    "verdict_label": "macro_tailwind",
     "thesis": "Trina is a Tier-1 module maker — capacity-rich, margin-poor, fully commoditized. The data-center-power tag is a stretch: even if AI grid demand re-rates solar, the module layer is where everyone competes and nobody earns. Not a chokepoint.",
     "signals": [
       {

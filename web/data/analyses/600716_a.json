@@ -25,7 +25,7 @@
     "layer_label": "房地产(江苏区域)",
     "bottleneck_score": 10,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "区域房企, 地产系统性困境. 完全规避.",
     "signals": [
       {

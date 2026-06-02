@@ -25,7 +25,7 @@
     "layer_label": "综合 - ST困境企业",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ ST困境无瓶颈",
+    "verdict_label": "ST困境无瓶颈",
     "thesis": "ST企业，治理/经营双重风险。任何叙事在退市风险前无意义。",
     "signals": [
       {

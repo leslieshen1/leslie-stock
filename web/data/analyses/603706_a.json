@@ -25,7 +25,7 @@
     "layer_label": "新疆昌吉燃气运营",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "新疆区域燃气运营，特许经营但成长有限。",
     "signals": [
       {

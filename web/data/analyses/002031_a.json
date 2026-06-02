@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 轮胎模具 + RV 减速器（转型）",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 主营轮胎模具，humanoid 概念蹭",
+    "verdict_label": "主营轮胎模具，humanoid 概念蹭",
     "thesis": "Tire mold maker that sprinkled in robotics rhetoric. Not a real chokepoint.",
     "signals": [
       {

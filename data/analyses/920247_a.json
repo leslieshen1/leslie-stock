@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 橡胶密封材料",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "特种橡胶/密封材料，北交所小盘工业件，分散下游。",
     "signals": [
       {

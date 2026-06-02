@@ -25,7 +25,7 @@
     "layer_label": "轻工设计院",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "轻工行业设计院，技术咨询为主，央企背景但工程咨询红海。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "纺织(丝绸/服装出口)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "丝绸纺织出口, 传统出口型行业. 海外需求疲软+劳动力成本上升+东南亚替代. 困境型, 非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "零售下游(山东区域百货/超市连锁)",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "山东青岛区域零售连锁, 业务包含百货/超市/物流地产. 区域龙头但无技术或供应链瓶颈, 受电商冲击 + 区域消费弱复苏双重压力. 非 aleabit 关注范畴.",
     "signals": [
       {

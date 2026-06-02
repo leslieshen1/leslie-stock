@@ -118,7 +118,7 @@
     "layer_label": "Layer 3 — 关键工艺（电解液/特种化学）",
     "bottleneck_score": 58,
     "verdict": "worth_watching",
-    "verdict_label": "💎 值得关注（humanoid 供应链）",
+    "verdict_label": "值得关注（humanoid 供应链）",
     "thesis": "Lithium battery electrolytes are a hidden chokepoint for humanoid robotics + EV scale. CATL / BYD / Samsung SDI all depend on a handful of LiPF6 formulators. 天赐 is the largest China electrolyte player. Connects to my humanoid theme — but A-stock + currently in oversupply cycle.",
     "signals": [
       {

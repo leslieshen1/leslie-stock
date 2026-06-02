@@ -25,7 +25,7 @@
     "layer_label": "ST 困境 - 输送带制造",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "ST 风险股,做工业输送带。基本面差+退市风险。Serenity 不会碰 ST。",
     "signals": {
       "supply_chain_chokepoint": false,

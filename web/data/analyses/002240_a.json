@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 锂盐（碳酸锂/氢氧化锂）",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 锂盐与 AI chokepoint 弱关联",
+    "verdict_label": "锂盐与 AI chokepoint 弱关联",
     "thesis": "锂盐生产商，主要客户为电池厂。锂供应 2024-2026 持续过剩，价格低迷。与 AI capex chokepoint 几乎无关联，更多是 EV / 储能宏观叙事。",
     "signals": [
       {

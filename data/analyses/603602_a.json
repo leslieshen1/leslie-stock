@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 通信网络工程",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "运营商通信工程服务，劳务密集型，非 chokepoint。",
     "signals": [
       {

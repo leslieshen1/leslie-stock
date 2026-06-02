@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 精密齿轮/减速机部件",
     "bottleneck_score": 50,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 humanoid 齿轮供应商之一",
+    "verdict_label": "humanoid 齿轮供应商之一",
     "thesis": "Precision gear maker — supplies into reducer makers. Component-of-component, less of a chokepoint than direct reducer makers.",
     "signals": [
       {

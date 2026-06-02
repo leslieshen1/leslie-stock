@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 航天机电/光伏混合",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not aleabit territory",
+    "verdict_label": "not aleabit territory",
     "thesis": "Half aerospace, half solar — the worst possible combo. The solar exposure caps it as macro tailwind at best, and CASC affiliation doesn't sharpen the thesis. I want a scalpel, not a Swiss Army knife with one rusty blade.",
     "signals": [
       {

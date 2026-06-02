@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 电梯门系统配件",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "电梯门机系统厂商，地产链 cyclical，无 AI/半导体 chokepoint。",
     "signals": [
       {

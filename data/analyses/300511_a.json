@@ -25,7 +25,7 @@
     "layer_label": "食用菌工厂化",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "金针菇/真姬菇工厂化种植，行业产能过剩+菇价低迷。",
     "signals": [
       {

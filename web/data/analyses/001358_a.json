@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 哌嗪化工",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "哌嗪系列精细化工，医药中间体/农药，与 AI 链无直接关系。",
     "signals": [
       {

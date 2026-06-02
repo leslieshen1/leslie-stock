@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 印刷包装设备",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "胶印/包装印刷机，传统机械，无关 AI 链。",
     "signals": [
       {

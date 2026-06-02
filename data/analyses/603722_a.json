@@ -25,7 +25,7 @@
     "layer_label": "光学级 COC/COP 单体",
     "bottleneck_score": 78,
     "verdict": "high_conviction",
-    "verdict_label": "🎯",
+    "verdict_label": "",
     "thesis": "国内极少数能产业化光学级 COC(环烯烃共聚物)单体的厂商,COC 是手机摄像头镜头/光刻胶/医药包材的关键塑料,长期被日本三井/瑞翁/JSR 垄断;典型小盘+材料卡脖子+出口管制反制题材,Serenity 风格 chokepoint",
     "signals": [
       {

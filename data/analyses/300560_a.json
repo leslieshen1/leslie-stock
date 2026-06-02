@@ -25,7 +25,7 @@
     "layer_label": "通信工程服务/网络优化",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Telecom engineering services. Carrier-capex-tied, no IP, no chokepoint.",
     "signals": [
       {

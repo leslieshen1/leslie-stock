@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 锂电池电芯",
     "bottleneck_score": 24,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "原大富科技子链转型锂电池电芯，产能小、二线，处于亏损放量阶段，无 chokepoint 属性。",
     "signals": [
       {

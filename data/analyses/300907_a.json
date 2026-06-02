@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 微特电机",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "家电/汽车微特电机 ODM，技术门槛中等且竞争激烈，无 chokepoint 属性。",
     "signals": [
       {

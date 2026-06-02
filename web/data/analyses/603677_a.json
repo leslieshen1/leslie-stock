@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 家电零部件",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "家电小型电机/变速箱齿轮，传统机械配套，无 chokepoint。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "浮法玻璃，建材 cyclical，与 AI 链无关。",
     "signals": [
       {

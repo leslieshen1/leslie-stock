@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 钛白粉",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 钛白粉化工，非 AI chokepoint",
+    "verdict_label": "钛白粉化工，非 AI chokepoint",
     "thesis": "金浦钛业主营钛白粉（涂料/塑料/造纸颜料），与战略钛金属（海绵钛/钛靶材）属于完全不同的产业链。钛白粉是大宗化工品，与 AI 无关，市值 26 亿小盘但 PB 4.21 偏高。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "新能源车产业链(电驱动总成/电机)",
     "bottleneck_score": 40,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "新能源车电驱动供应商, 海外客户(菲亚特/广汽)+国内. 电驱动是车企自研重点, 第三方供应商被挤压, 行业内卷严重. 持续亏损, 估值不便宜, 非典型 chokepoint.",
     "signals": [
       {

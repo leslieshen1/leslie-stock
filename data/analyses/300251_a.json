@@ -25,7 +25,7 @@
     "layer_label": "Out of scope — film/entertainment",
     "bottleneck_score": 8,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not in range",
+    "verdict_label": "not in range",
     "thesis": "Entertainment/film studio (Beijing Enlight). Completely misclassified under optical/CPO — '光' here means light/illumination as a brand name, not optoelectronics. Zero AI supply chain relevance.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "保税仓储/跨境物流",
     "bottleneck_score": 24,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Bonded-warehouse logistics serving cross-border ecom. Real-estate + service hybrid. No chokepoint dynamics.",
     "signals": [
       {

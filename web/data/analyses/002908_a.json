@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 社保卡/读卡器",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "社保卡/政务卡，政务 IT，非硬科技 chokepoint。",
     "signals": [
       {

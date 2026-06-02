@@ -25,7 +25,7 @@
     "layer_label": "智慧建筑 - 楼宇对讲+智慧医院信息系统",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "智能楼宇对讲+智慧医院信息系统。受地产周期拖累,智慧医院增速尚可但不是 chokepoint。集成商角色,没有独占技术。",
     "signals": {
       "supply_chain_chokepoint": false,

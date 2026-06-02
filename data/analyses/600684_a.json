@@ -25,7 +25,7 @@
     "layer_label": "广州物业管理",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "地产物业，转型物管，红海低利润。",
     "signals": [
       {

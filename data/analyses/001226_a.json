@@ -25,7 +25,7 @@
     "layer_label": "工程机械配件",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "工程机械结构件/铸件供应商。中游加工类，下游周期性强，技术壁垒一般。",
     "signals": [
       {

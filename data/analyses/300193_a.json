@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 焊接设备",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "中低端逆变焊机出口商，国际同行众多，与 AI 链无关。",
     "signals": [
       {

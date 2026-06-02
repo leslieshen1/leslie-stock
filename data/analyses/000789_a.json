@@ -25,7 +25,7 @@
     "layer_label": "建材(水泥/江西区域)",
     "bottleneck_score": 24,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "江西区域水泥, 地产链困境+基建放缓+产能过剩. 高股息防御属性但增长无望, 非 chokepoint.",
     "signals": [
       {

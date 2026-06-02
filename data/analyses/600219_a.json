@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 高端铝合金（航空/汽车板）",
     "bottleneck_score": 45,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 thesis 有效但已 crowded",
+    "verdict_label": "thesis 有效但已 crowded",
     "thesis": "Nanshan Aluminum — aerospace-grade aluminum + auto body sheet. Real high-end aluminum chokepoint thesis exists but 601.7 亿 RMB MC = fully discovered.",
     "signals": [
       {

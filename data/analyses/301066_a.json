@@ -25,7 +25,7 @@
     "layer_label": "消费品牌(丝绸文创)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "丝绸+文创品牌, 业务规模小. AI 绘画+丝绸蹭概念, 缺乏可持续业绩支撑. 非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "特种不锈钢管(核电/化工/油气)",
     "bottleneck_score": 65,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 aleabit 类比",
+    "verdict_label": "aleabit 类比",
     "thesis": "Specialty stainless tubing for nuclear, petrochem, offshore. Long qualification cycles, ASME/nuclear-grade certs = de facto licensed capacity. Nuclear restart + ethylene capex + LNG = converging demand. Few global qualified suppliers. This is the kind of unsexy material chokepoint Serenity respects — though not AI-related, it's the same shape of trade.",
     "signals": [
       {

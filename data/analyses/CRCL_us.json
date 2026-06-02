@@ -123,7 +123,7 @@
     "layer_label": "N/A — 不在 AI capex 供应链",
     "bottleneck_score": 10,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程（crypto 协议层）",
+    "verdict_label": "不在射程（crypto 协议层）",
     "thesis": "Stablecoin issuer / payments — zero connection to AI capex or supply chain. She's openly bearish on crypto ($ETH 'terrible investment above $4K'). Pass on aleabit framework. Different thesis applies (Buffett-style: 段永平 bought CRCL).",
     "signals": [
       {

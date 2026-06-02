@@ -25,7 +25,7 @@
     "layer_label": "L3 — IoT 模组 / MCU 方案",
     "bottleneck_score": 48,
     "verdict": "worth_watching",
-    "verdict_label": "💎 IoT 模组中游",
+    "verdict_label": "IoT 模组中游",
     "thesis": "Lierda is an IoT module integrator (cellular + Wi-Fi + LoRa) and MCU solution distributor with deep ties to ST/Microchip. Niche position but no proprietary silicon — depends on upstream chip allocation. Beijing exchange small-cap, low coverage. Serenity-style only if AIoT edge inference module ASP re-rates.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "粉末冶金+盐业",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "粉末冶金+食盐业务,业务杂",
     "signals": [
       {

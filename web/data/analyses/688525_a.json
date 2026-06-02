@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — memory module / eMMC / SSD",
     "bottleneck_score": 48,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 crowded but valid",
+    "verdict_label": "crowded but valid",
     "thesis": "Memory module maker (Biwin) — eMMC/SSD/embedded storage. Layer 2 module assembly, not a real Layer 4 bottleneck. NAND price cycle beneficiary, but 1478亿 cap and PB 17 mean the cycle is fully priced. Not aleabit's preferred Layer 4 hunt.",
     "signals": [
       {

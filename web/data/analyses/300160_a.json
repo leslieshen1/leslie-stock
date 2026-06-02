@@ -25,7 +25,7 @@
     "layer_label": "家电玻璃+光伏玻璃",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "家电玻璃为主,光伏玻璃过剩,无 chokepoint",
     "signals": [
       {

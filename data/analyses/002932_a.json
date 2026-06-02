@@ -25,7 +25,7 @@
     "layer_label": "*ST 困境",
     "bottleneck_score": 10,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "*ST 排除",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 消费类锂电池",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "TWS 耳机/可穿戴小型锂电池，下游消费电子，国内同行多，无 chokepoint 属性。",
     "signals": [
       {

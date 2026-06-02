@@ -25,7 +25,7 @@
     "layer_label": "工业服务(辐照灭菌服务)",
     "bottleneck_score": 62,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit_analogue 🪞",
+    "verdict_label": "aleabit_analogue",
     "thesis": "国内辐照灭菌服务龙头, 应用医疗器械灭菌/食品保鲜/化妆品. 钴-60 资源稀缺(国内基本垄断, 进口依赖中核+俄罗斯), 行业 CR3 高, 牌照壁垒, 设备投资重. 准入壁垒+稀缺资源+小盘 = 较典型 chokepoint.",
     "signals": [
       {

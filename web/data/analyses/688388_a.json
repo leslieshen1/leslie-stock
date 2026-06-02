@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 锂电铜箔",
     "bottleneck_score": 42,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 铜箔产能过剩,加工费触底",
+    "verdict_label": "铜箔产能过剩,加工费触底",
     "thesis": "Lithium battery copper foil — commodity supplier in oversupplied segment. 加工费创新低,thesis 与 AI 主轴几乎无交集,即使含一点'高端铜箔'想象也无法支撑 chokepoint thesis.",
     "signals": [
       {

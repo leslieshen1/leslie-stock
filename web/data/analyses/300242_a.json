@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "互联网营销/广告，非硬科技，无 chokepoint。",
     "signals": [
       {

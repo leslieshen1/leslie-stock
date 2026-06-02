@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 工业机器人整机",
     "bottleneck_score": 42,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 机器人整机 crowded",
+    "verdict_label": "机器人整机 crowded",
     "thesis": "埃夫特 做工业机器人本体 (six-axis arm)。整机商业模式，重资产、低毛利、海外四大家族 (Fanuc/ABB/KUKA/Yaskawa) 卡位。Not a chokepoint, more like a system integrator. AI 关联间接。",
     "signals": [
       {

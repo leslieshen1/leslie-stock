@@ -25,7 +25,7 @@
     "layer_label": "B2B 电商平台中游(化工/纺织行业资讯+交易)",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "化工/纺织行业 B2B 资讯平台, 互联网股转型多次, 业务规模有限. 非 chokepoint.",
     "signals": [
       {

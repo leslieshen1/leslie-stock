@@ -25,7 +25,7 @@
     "layer_label": "工业制造(钢丝网骨架塑料复合管)",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "复合管材应用市政/油气/化工, 行业参与者多. 管材技术壁垒中等, 受基建投资和原油价格影响. 非典型 chokepoint.",
     "signals": [
       {

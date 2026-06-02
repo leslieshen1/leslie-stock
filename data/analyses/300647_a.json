@@ -25,7 +25,7 @@
     "layer_label": "L4 — 散热模组 (LED 散热/锂电热管理)",
     "bottleneck_score": 38,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 题材正确但不锐",
+    "verdict_label": "题材正确但不锐",
     "thesis": "Thermal modules — pivoted from LED heatsinks to lithium battery thermal management plus AI server hype, story not yet revenue.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — Power IDM（功率器件 + SiC）",
     "bottleneck_score": 50,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 SOE Power IDM，规模大但 crowded",
+    "verdict_label": "SOE Power IDM，规模大但 crowded",
     "thesis": "China Resources Micro — full IDM doing MOSFET + SiC. SOE-backed, broad portfolio, hard to call a chokepoint.",
     "signals": [
       {

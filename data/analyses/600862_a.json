@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 航空预浸料 / 复合材料",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 军用复合材料, 国防独家但 AI 关联弱",
+    "verdict_label": "军用复合材料, 国防独家但 AI 关联弱",
     "thesis": "中航工业旗下航空预浸料 / 复合材料 (碳纤维预浸料), 军机机体材料. Layer 4 材料但走军工方向, AI 关联弱. 不射.",
     "signals": [
       {

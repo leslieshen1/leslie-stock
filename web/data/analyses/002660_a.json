@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — LED 驱动电源",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "LED 驱动电源 + 储能 PCS，赛道拥挤同业多，无 chokepoint 属性。",
     "signals": [
       {

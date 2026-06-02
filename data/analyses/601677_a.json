@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 铝板带箔加工",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
+    "verdict_label": "不在射程",
     "thesis": "Aluminum sheet/strip/foil processor — commodity-grade. 23.8B RMB MC, PB 1.2 shows the market sees no chokepoint here. Generic processing, low AI relevance.",
     "signals": [
       {

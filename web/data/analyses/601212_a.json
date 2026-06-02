@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 铜/铅/锌/银综合冶炼",
     "bottleneck_score": 32,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 宏观 tailwind 但市值过大",
+    "verdict_label": "宏观 tailwind 但市值过大",
     "thesis": "Silver/copper/lead/zinc smelter — 49.4B RMB MC. Silver has AI-tangential demand (PV + EV electronics) but this is generic SOE smelter, not a chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "农业节水灌溉",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "节水灌溉 EPC，政策驱动但应收账款重，无 chokepoint。",
     "signals": [
       {

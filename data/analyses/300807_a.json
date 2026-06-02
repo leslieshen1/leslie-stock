@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 公交智能调度",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "公交车载终端 + 调度系统，地方公交财务承压。",
     "signals": [
       {

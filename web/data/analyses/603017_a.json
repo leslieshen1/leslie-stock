@@ -25,7 +25,7 @@
     "layer_label": "工程设计(建筑设计/工业设计)",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "建筑工程设计院, 受地产+基建下行冲击. 行业完全竞争, 非 chokepoint.",
     "signals": [
       {

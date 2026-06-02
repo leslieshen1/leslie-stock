@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 高频高速 PCB / AI 服务器",
     "bottleneck_score": 62,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 macro tailwind",
+    "verdict_label": "macro tailwind",
     "thesis": "High-layer-count PCB for AI servers and switches — yes this is on the AI critical path, and yes the multilayer process is a real bottleneck. But 883亿 with PB 14 says the AI-PCB trade is fully discovered. Stay aware, don't chase here.",
     "signals": [
       {

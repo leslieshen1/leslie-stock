@@ -25,7 +25,7 @@
     "layer_label": "宠物消费 - 宠物尿垫/纸尿裤(出口)",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "宠物卫生用品(尿垫/纸尿裤)出口为主,客户含全球宠物连锁。宠物经济主题,但产品同质化、毛利不高、出口贸易壁垒风险。",
     "signals": {
       "supply_chain_chokepoint": false,

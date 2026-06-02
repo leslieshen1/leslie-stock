@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 铁路检测",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "铁路接触网/线路检测设备，铁总集采依赖，无 AI 链。",
     "signals": [
       {

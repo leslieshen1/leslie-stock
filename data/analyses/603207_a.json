@@ -25,7 +25,7 @@
     "layer_label": "特色 OTC 制药",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "开塞露/甘油栓等基础 OTC 龙头。细分小品类隐形冠军，但产品技术门槛低、需求稳定但缺乏 chokepoint 弹性。属于消费防御型，不是 aleabit 风格。",
     "signals": [
       {

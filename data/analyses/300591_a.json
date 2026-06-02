@@ -25,7 +25,7 @@
     "layer_label": "消费 - 皮具/警用装备",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 皮具+小额警用",
+    "verdict_label": "皮具+小额警用",
     "thesis": "皮具+部分警用装备代工。警用业务有政府属性但规模小、低毛利、可替代性强。皮具消费疲弱。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "工程胎",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "全钢工程胎,海外出口受贸易摩擦影响",
     "signals": [
       {

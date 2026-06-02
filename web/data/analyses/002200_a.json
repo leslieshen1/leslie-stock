@@ -25,7 +25,7 @@
     "layer_label": "综合 - ST 交通投资",
     "bottleneck_score": 10,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ ST 困境",
+    "verdict_label": "ST 困境",
     "thesis": "*ST标的，退市风险压倒一切，不适合任何长期逻辑评估。",
     "signals": [
       {

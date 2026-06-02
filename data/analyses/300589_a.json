@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 公务艇 / 游艇制造",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 船艇制造, 与 AI 完全无关",
+    "verdict_label": "船艇制造, 与 AI 完全无关",
     "thesis": "公务执法艇 / 游艇 / 客船制造. 与 AI 完全无关. 不射.",
     "signals": [
       {

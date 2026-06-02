@@ -25,7 +25,7 @@
     "layer_label": "建筑装饰(园林景观)",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "园林景观工程, 高度依赖地产/政府投资. 过去几年大幅亏损, 应收账款减值严重. 行业彻底困境, 非 chokepoint.",
     "signals": [
       {

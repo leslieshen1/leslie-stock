@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — ALPD 激光显示（投影 / 车载 HUD）",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 激光显示与 AI 关联弱",
+    "verdict_label": "激光显示与 AI 关联弱",
     "thesis": "光峰 做 ALPD 激光显示技术，用于影院投影 / 智能投影 / 车载 HUD。Not in AI compute / data center optics chain. 主题标签误导。",
     "signals": [
       {

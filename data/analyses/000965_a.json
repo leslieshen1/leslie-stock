@@ -25,7 +25,7 @@
     "layer_label": "天津区域地产",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "地产排除",
     "signals": [
       {

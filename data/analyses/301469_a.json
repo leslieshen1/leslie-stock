@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 离型纸/格拉辛",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "离型原纸/格拉辛纸，包装材料无 chokepoint。",
     "signals": [
       {

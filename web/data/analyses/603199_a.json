@@ -25,7 +25,7 @@
     "layer_label": "旅游下游(安徽九华山景区运营)",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "九华山景区门票+索道+酒店, 区域旅游资源型公司. 资源具备稀缺性但属于消费场景, 非工业 chokepoint. 后疫情复苏受益但行业增速有限.",
     "signals": [
       {

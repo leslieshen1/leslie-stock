@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 风电锻件 / 机械锻造",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 风电机械锻件，被错误归类为半导体材料",
+    "verdict_label": "风电机械锻件，被错误归类为半导体材料",
     "thesis": "中环海陆是风电塔筒法兰锻件 + 海洋工程机械锻件公司，与半导体材料无关。被错误归类。市值 33 亿小但非 AI chokepoint。",
     "signals": [
       {

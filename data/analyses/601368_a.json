@@ -25,7 +25,7 @@
     "layer_label": "N/A — 区域供水公用",
     "bottleneck_score": 20,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Guangxi Nanning regional water utility — regulated utility, PB 0.86 cheap, but no chokepoint thesis (Serenity prefers tradable choke points not regulated utilities).",
     "signals": [
       {

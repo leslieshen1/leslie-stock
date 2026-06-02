@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 黄金零售/批发",
     "bottleneck_score": 12,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 不在射程",
+    "verdict_label": "不在射程",
     "thesis": "China Gold — gold retail/wholesale operator, not even a miner. Pure consumer/SOE play.",
     "signals": [
       {

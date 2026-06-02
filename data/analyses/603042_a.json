@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 通信设备配套",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "通信网络配套（光纤连接、机柜），传统电信侧需求，无 AI 算力 chokepoint。",
     "signals": [
       {

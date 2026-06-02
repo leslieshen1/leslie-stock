@@ -25,7 +25,7 @@
     "layer_label": "L4 — 家具滑轨 / 五金件",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非领地",
+    "verdict_label": "非领地",
     "thesis": "Furniture slide rails and hardware — Tier-3 furniture component, fragmented.",
     "signals": [
       {

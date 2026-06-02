@@ -25,7 +25,7 @@
     "layer_label": "N/A — 沿海煤炭散货海运",
     "bottleneck_score": 30,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 宏观顺风",
+    "verdict_label": "宏观顺风",
     "thesis": "Coastal coal bulk shipping (Ningbo) — leverages BDI/coal-shipping rate cycle and Yangtze power-coal demand; cyclical commodity transport, no firm-specific moat.",
     "signals": [
       {

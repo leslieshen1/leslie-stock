@@ -25,7 +25,7 @@
     "layer_label": "二房东园区运营",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "园区物业租赁，二房东模式，写字楼空置率高。",
     "signals": [
       {

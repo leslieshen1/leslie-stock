@@ -25,7 +25,7 @@
     "layer_label": "生物燃料中游(餐厨垃圾处理/UCO 提炼)",
     "bottleneck_score": 60,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit_analogue 🪞",
+    "verdict_label": "aleabit_analogue",
     "thesis": "国内餐厨垃圾收运 + UCO(地沟油)提炼 + SAF(可持续航空燃料)原料出口龙头之一. 欧盟 ReFuelEU 强制 SAF 掺混驱动, 中国 UCO 是全球 SAF 原料关键供给国. 山高在山东多城市有特许经营权, 牌照+渠道壁垒高. 小盘+关键产能符合 aleabit 范式.",
     "signals": [
       {

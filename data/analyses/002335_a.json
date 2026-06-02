@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — AIDC UPS / data center power",
     "bottleneck_score": 58,
     "verdict": "macro_tailwind",
-    "verdict_label": "🌊 macro tailwind",
+    "verdict_label": "macro tailwind",
     "thesis": "Misclassified as optical — actually a data-center UPS and power conversion player. Real AIDC exposure but 326亿 cap puts it past the sweet spot, and the UPS market is competitive with 维谛/华为 dominating. Macro AI infrastructure beneficiary, not a tight bottleneck.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 锂电/汽车装备",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "动力电池/汽车产线智能装备，下游产能过剩，cyclical 设备。",
     "signals": [
       {

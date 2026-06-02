@@ -25,7 +25,7 @@
     "layer_label": "下游分销",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "钢材分销服务商,典型贸易型公司",
     "signals": [
       {

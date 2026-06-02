@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 云计算/超融合",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "云服务/超融合软件，IT 服务非物理 chokepoint，持续亏损。",
     "signals": [
       {

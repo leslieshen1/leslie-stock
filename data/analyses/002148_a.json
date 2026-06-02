@@ -25,7 +25,7 @@
     "layer_label": "—",
     "bottleneck_score": 16,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "移动互联网应用/游戏，软件服务，无供应链 chokepoint。",
     "signals": [
       {

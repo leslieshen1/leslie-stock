@@ -25,7 +25,7 @@
     "layer_label": "功率半导体 Pin-Fin 散热基板",
     "bottleneck_score": 72,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 aleabit 类比",
+    "verdict_label": "aleabit 类比",
     "thesis": "This is exactly the Serenity setup. Pin-Fin baseplates for IGBT/SiC power modules — the thermal chokepoint for EV inverters, wind, and increasingly 800VDC data-center power. Customers converge to Infineon / Fuji / Semikron / BYD Semi. Small cap, critical capacity, low coverage, 直接相关 humanoid/power semi theme she trades.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 模拟 IC（信号链）",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 通用模拟 IC，非 chokepoint",
+    "verdict_label": "通用模拟 IC，非 chokepoint",
     "thesis": "晶华微是消费电子 / 家电模拟信号链 IC 设计公司，被错误归类为『半导体材料』。模拟 IC 设计赛道竞争极度激烈，与 AI capex chokepoint 无关。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "基建配件 - 公路安全设施",
     "bottleneck_score": 30,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "北交所小盘,公路安全设施(波形护栏/防眩板)。基建项目周期股,无 chokepoint。",
     "signals": {
       "supply_chain_chokepoint": false,

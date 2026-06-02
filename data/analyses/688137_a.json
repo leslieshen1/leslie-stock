@@ -25,7 +25,7 @@
     "layer_label": "生物试剂 chokepoint - mRNA 原料酶+重组蛋白",
     "bottleneck_score": 70,
     "verdict": "aleabit_analogue",
-    "verdict_label": "aleabit Analogue 🪞",
+    "verdict_label": "aleabit Analogue",
     "thesis": "国产 mRNA 上游原料酶(T7 RNA polymerase/帽子类似物/UTP等)+科研用重组蛋白。Serenity 模板生物版 - mRNA 疫苗+CAR-T+基因治疗都需要这类原料酶,全球能做高纯度的厂家很少(Thermo/Aldevron/CellScript等)。新冠后估值杀过头,长期国产替代逻辑+CDMO 客户拓展空间在。小盘+生物科研试剂 chokepoint = aleabit 标的。",
     "signals": {
       "supply_chain_chokepoint": true,

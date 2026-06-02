@@ -25,7 +25,7 @@
     "layer_label": "建筑施工",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "非领域 ❌",
+    "verdict_label": "非领域",
     "thesis": "地方建筑国企,地产产业链承压",
     "signals": [
       {

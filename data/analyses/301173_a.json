@@ -25,7 +25,7 @@
     "layer_label": "汽车 - 汽车天窗/玻璃顶",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 汽车天窗细分",
+    "verdict_label": "汽车天窗细分",
     "thesis": "汽车天窗+全景天窗+智能玻璃顶。新势力车型天窗渗透率上升，但面对韦巴斯托/英纳法竞争，国产化路上博弈。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "光伏中游(组件接线盒/分布式逆变器配套)",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "光伏组件接线盒细分供应商, 客户为隆基/晶澳等. 光伏产业链严重过剩, 接线盒环节竞争充分, 通灵股份等同台. 非独占 chokepoint.",
     "signals": [
       {

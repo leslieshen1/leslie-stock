@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — EEPROM / DDR5 SPD",
     "bottleneck_score": 68,
     "verdict": "aleabit_analogue",
-    "verdict_label": "🪞 DDR5 SPD 全球前三, 真 AI 服务器 chokepoint",
+    "verdict_label": "DDR5 SPD 全球前三, 真 AI 服务器 chokepoint",
     "thesis": "Aleabit-style hidden chokepoint. EEPROM 全球第三 + DDR5 SPD 全球前三, 每根 DDR5 内存条都需要 SPD 芯片. AI 服务器 DDR5 用量翻倍 = 直接受益. 西方覆盖近零, 245亿 小盘, sweet spot.",
     "signals": [
       {

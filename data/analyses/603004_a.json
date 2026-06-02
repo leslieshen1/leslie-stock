@@ -25,7 +25,7 @@
     "layer_label": "Layer 4 — 染料中间体/医药中间体",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 化工染料/医药中间体，与 AI 无关",
+    "verdict_label": "化工染料/医药中间体，与 AI 无关",
     "thesis": "鼎龙科技（注意区分鼎龙股份 300054 半导体材料）主营染料及医药中间体。与 AI capex chokepoint 无关，被错误归类为半导体材料。市值 49 亿小但非关键产能。",
     "signals": [
       {

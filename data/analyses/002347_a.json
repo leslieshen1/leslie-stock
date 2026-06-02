@@ -25,7 +25,7 @@
     "layer_label": "冶金传动联轴器(困境)",
     "bottleneck_score": 28,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 非 aleabit 领域",
+    "verdict_label": "非 aleabit 领域",
     "thesis": "Heavy-machinery couplings for steel mills. Steel-cycle tied, multi-year troubled. Not a chokepoint.",
     "signals": [
       {

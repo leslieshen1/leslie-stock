@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — CIS / 晶圆级封装",
     "bottleneck_score": 50,
     "verdict": "crowded_but_valid",
-    "verdict_label": "🚦 CIS 晶圆级封装龙头, AI 关联弱",
+    "verdict_label": "CIS 晶圆级封装龙头, AI 关联弱",
     "thesis": "Wafer-level packaging for CIS (相机芯片). 业务面向手机 / 汽车 / 安防摄像头, 与 AI 数据中心 thesis 关联弱. 是 Layer 2 但走错方向.",
     "signals": [
       {

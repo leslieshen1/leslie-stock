@@ -25,7 +25,7 @@
     "layer_label": "食品 - 功能糖/低聚果糖/赤藓糖醇",
     "bottleneck_score": 42,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 代糖产能过剩",
+    "verdict_label": "代糖产能过剩",
     "thesis": "赤藓糖醇+功能糖。曾因元气森林概念上涨，但代糖产能过剩+价格暴跌，竞争激烈。",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 物流仓储自动化",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "智能仓储/物流系统集成，工程项目制，非 chokepoint。",
     "signals": [
       {

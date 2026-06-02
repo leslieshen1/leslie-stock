@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 聚氨酯树脂",
     "bottleneck_score": 38,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "聚氨酯树脂中间体，鞋材/合成革，与 AI 无关。",
     "signals": [
       {

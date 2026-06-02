@@ -25,7 +25,7 @@
     "layer_label": "Layer 3 — 微特电机（空心杯/无刷）",
     "bottleneck_score": 58,
     "verdict": "worth_watching",
-    "verdict_label": "💎 微特电机 humanoid 候选",
+    "verdict_label": "微特电机 humanoid 候选",
     "thesis": "Micro motor specialist, second tier behind Mingzhi for humanoid dexterous hand applications.",
     "signals": [
       {

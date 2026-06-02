@@ -25,7 +25,7 @@
     "layer_label": "纺织印染中游(色纱)",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "色纱(筒子纱染色)制造, 行业分散, 环保压力大. 非 chokepoint.",
     "signals": [
       {

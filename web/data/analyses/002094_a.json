@@ -25,7 +25,7 @@
     "layer_label": "消费综合下游(原蜡烛+化妆品/酒类)",
     "bottleneck_score": 18,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "not_aleabit_territory ❌",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "原蜡烛业务+化妆品/酒类转型, 业务多元但盈利能力弱. 非 chokepoint.",
     "signals": [
       {

@@ -25,7 +25,7 @@
     "layer_label": "食品包装装备 - 饮料/食用油灌装线",
     "bottleneck_score": 35,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "液体灌装设备(饮料/调味品/食用油)。下游饮料 capex 趋缓,国内市场卷,海外有点拓展。无 chokepoint 属性。",
     "signals": {
       "supply_chain_chokepoint": false,

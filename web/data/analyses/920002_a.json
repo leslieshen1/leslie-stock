@@ -25,7 +25,7 @@
     "layer_label": "汽车/工业轴承",
     "bottleneck_score": 40,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "北交所小盘轴承，下游汽车竞争激烈，技术非顶级，红海中游。",
     "signals": [
       {

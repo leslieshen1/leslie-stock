@@ -25,7 +25,7 @@
     "layer_label": "Layer 1 — 铸造材料",
     "bottleneck_score": 22,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ not_aleabit_territory",
+    "verdict_label": "not_aleabit_territory",
     "thesis": "铸造覆膜砂等铸造材料，传统机械链上游，无 chokepoint。",
     "signals": [
       {

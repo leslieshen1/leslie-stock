@@ -25,7 +25,7 @@
     "layer_label": "纺织材料 - 再生涤纶短纤",
     "bottleneck_score": 32,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "Not aleabit Territory ❌",
+    "verdict_label": "Not aleabit Territory",
     "thesis": "再生涤纶纤维(PET 瓶片再生),纺织原料。ESG/可循环主题但产品同质化严重。",
     "signals": {
       "supply_chain_chokepoint": false,

@@ -25,7 +25,7 @@
     "layer_label": "消费 - 上海百货商业",
     "bottleneck_score": 15,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ 百货商业衰退",
+    "verdict_label": "百货商业衰退",
     "thesis": "上海老牌百货公司，业态衰退。资产价值可能高于经营价值，属于壳/资产重估题材。",
     "signals": [
       {

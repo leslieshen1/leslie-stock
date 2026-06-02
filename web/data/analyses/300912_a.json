@@ -25,7 +25,7 @@
     "layer_label": "Layer 2 — 柴油机尾气处理",
     "bottleneck_score": 25,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌ Not Territory",
+    "verdict_label": "Not Territory",
     "thesis": "柴油机后处理（SCR/DPF），商用车环保耗材，cyclical。",
     "signals": [
       {

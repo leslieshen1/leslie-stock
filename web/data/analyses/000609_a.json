@@ -25,7 +25,7 @@
     "layer_label": "ST-地产+医药",
     "bottleneck_score": 6,
     "verdict": "not_aleabit_territory",
-    "verdict_label": "❌",
+    "verdict_label": "",
     "thesis": "ST 困境+地产，排除。",
     "signals": [
       {

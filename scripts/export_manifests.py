@@ -38,7 +38,7 @@ def export_aleabit_manifest():
     with connect(readonly=True) as conn:
         rows = conn.execute("""
             SELECT s.code, s.name, s.market,
-                   s.market_cap, s.market_cap_usd, s.sector,
+                   s.market_cap, s.market_cap_usd, s.sector, s.concepts,
                    a.score, a.verdict, a.verdict_label,
                    a.layer, a.signals_hit, a.thesis, a.pre_labeled
             FROM stocks s
@@ -53,12 +53,17 @@ def export_aleabit_manifest():
         thesis = r["thesis"] or ""
         if len(thesis) > 120:
             thesis = thesis[:120] + "…"
+        try:
+            concepts = json.loads(r["concepts"]) if r["concepts"] else []
+        except Exception:
+            concepts = []
         records.append({
             "code": r["code"],
             "name": r["name"],
             "market": r["market"],
             "market_cap_yi": round(mcap_yi, 1) if mcap_yi else None,
             "sector": r["sector"] or "",
+            "concepts": concepts[:10],
             "layer": r["layer"],
             "score": r["score"] or 0,
             "verdict": r["verdict"] or "unknown",

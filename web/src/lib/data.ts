@@ -377,6 +377,7 @@ export type AleabitManifestEntry = {
   market: "a" | "hk" | "us";
   market_cap_yi: number | null;
   sector: string;
+  concepts?: string[];
   layer: 1 | 2 | 3 | 4 | null;
   score: number;
   verdict: AleabitAnalysis["verdict"];

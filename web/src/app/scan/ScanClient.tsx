@@ -31,18 +31,27 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
   );
   const [verdictSet, setVerdictSet] = useState<Set<string>>(new Set());
   const [layerSet, setLayerSet] = useState<Set<string>>(new Set());
-  const [sectorSet, setSectorSet] = useState<Set<string>>(new Set());
+  const [conceptSet, setConceptSet] = useState<Set<string>>(new Set());
  const [sortBy, setSortBy] = useState<SortKey>("score");
  const [search, setSearch] = useState("");
+ const [conceptSearch, setConceptSearch] = useState("");
 
-  // 提取 sector 列表
-  const allSectors = useMemo(() => {
-    const set = new Set<string>();
+  // 提取概念列表，按出现频率排序（热门概念优先）
+  const allConcepts = useMemo(() => {
+    const freq = new Map<string, number>();
     items.forEach((i) => {
-      if (i.sector) set.add(i.sector);
+      (i.concepts || []).forEach((c) => freq.set(c, (freq.get(c) || 0) + 1));
     });
-    return Array.from(set).sort();
+    return Array.from(freq.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ name, count }));
   }, [items]);
+
+  const visibleConcepts = useMemo(() => {
+    const q = conceptSearch.trim().toLowerCase();
+    const list = q ? allConcepts.filter((c) => c.name.toLowerCase().includes(q)) : allConcepts;
+    return list.slice(0, q ? 60 : 40);
+  }, [allConcepts, conceptSearch]);
 
   const filtered = useMemo(() => {
     let r = items;
@@ -62,8 +71,8 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
     if (layerSet.size > 0) {
  r = r.filter((i) => layerSet.has(String(i.layer ?? "null")));
     }
-    if (sectorSet.size > 0) {
-      r = r.filter((i) => sectorSet.has(i.sector));
+    if (conceptSet.size > 0) {
+      r = r.filter((i) => (i.concepts || []).some((c) => conceptSet.has(c)));
     }
     if (search.trim()) {
       const q = search.trim().toLowerCase();
@@ -71,7 +80,7 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
         (i) =>
           i.code.toLowerCase().includes(q) ||
           i.name.toLowerCase().includes(q) ||
-          i.sector.toLowerCase().includes(q)
+          (i.concepts || []).some((c) => c.toLowerCase().includes(q))
       );
     }
 
@@ -82,7 +91,7 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
  else if (sortBy === "name") r.sort((a, b) => a.name.localeCompare(b.name));
 
     return r;
-  }, [items, scoreBuckets, verdictSet, layerSet, sectorSet, search, sortBy]);
+  }, [items, scoreBuckets, verdictSet, layerSet, conceptSet, search, sortBy]);
 
   function toggle(set: Set<string>, key: string, setter: (s: Set<string>) => void) {
     const next = new Set(set);
@@ -142,7 +151,7 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
             onClick={() => {
               setVerdictSet(new Set());
               setLayerSet(new Set());
-              setSectorSet(new Set());
+              setConceptSet(new Set());
  setSearch("");
             }}
  className="rounded-lg border border-line px-3 py-1.5 text-sm text-muted hover:bg-surface-2"
@@ -193,38 +202,44 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
           })}
         </div>
 
-        {/* Sector 筛选 — 板块多,限高可滚动不占屏 */}
-        {allSectors.length > 0 && (
- <div className="flex items-start gap-2">
- <span className="shrink-0 pt-1.5 text-xs text-muted">板块</span>
- <div className="flex max-h-[58px] flex-1 flex-wrap items-center gap-1.5 overflow-y-auto rounded-lg border border-line bg-base/40 p-1.5 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded [&::-webkit-scrollbar-thumb]:bg-line-2">
-              {allSectors.map((s) => {
-                const active = sectorSet.has(s);
- const display = s.length > 20 ? s.slice(0, 18) + "…" : s;
+        {/* 概念筛选 — 热门优先 + 搜索 + 限高滚动(同花顺标准概念) */}
+        {allConcepts.length > 0 && (
+ <div>
+ <div className="mb-1.5 flex items-center gap-2">
+ <span className="shrink-0 text-xs text-muted">概念</span>
+              <input
+                value={conceptSearch}
+                onChange={(e) => setConceptSearch(e.target.value)}
+                placeholder={`搜概念（共 ${allConcepts.length}）…`}
+ className="w-40 rounded-md border border-line bg-base px-2 py-1 text-xs text-ink placeholder:text-faint focus:border-line-2 focus:outline-none"
+              />
+              {conceptSet.size > 0 && (
+                <button
+                  onClick={() => setConceptSet(new Set())}
+ className="text-xs text-accent hover:underline"
+                >
+                  清除{conceptSet.size}
+                </button>
+              )}
+            </div>
+ <div className="flex max-h-[76px] flex-wrap items-center gap-1.5 overflow-y-auto rounded-lg border border-line bg-base/40 p-1.5 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded [&::-webkit-scrollbar-thumb]:bg-line-2">
+              {visibleConcepts.map((c) => {
+                const active = conceptSet.has(c.name);
                 return (
                   <button
-                    key={s}
-                    onClick={() => toggle(sectorSet, s, setSectorSet)}
-                    title={s}
+                    key={c.name}
+                    onClick={() => toggle(conceptSet, c.name, setConceptSet)}
                     className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] transition ${
                       active
  ? "bg-accent text-black"
  : "bg-surface-2 text-muted hover:bg-line"
                     }`}
                   >
-                    {display}
+                    {c.name} <span className="tnum opacity-50">{c.count}</span>
                   </button>
                 );
               })}
             </div>
-            {sectorSet.size > 0 && (
-              <button
-                onClick={() => setSectorSet(new Set())}
-                className="shrink-0 pt-1.5 text-xs text-accent hover:underline"
-              >
-                清除{sectorSet.size}
-              </button>
-            )}
           </div>
         )}
       </div>

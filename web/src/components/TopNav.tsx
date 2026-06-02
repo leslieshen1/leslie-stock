@@ -43,25 +43,25 @@ export default function TopNav({ health }: { health?: DataHealth }) {
 
   return (
  <header className="sticky top-0 z-40 border-b border-line bg-base/80 backdrop-blur-xl">
- <div className="mx-auto flex h-14 max-w-[1480px] items-center gap-6 px-6">
+ <div className="mx-auto flex h-14 max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
 
         {/* Logo */}
  <Link href="/" className="flex items-baseline gap-1.5 shrink-0" title="Not a Stock Guru">
- <span className="text-[17px] font-semibold tracking-tight text-ink">
+ <span className="text-[15px] sm:text-[17px] font-semibold tracking-tight text-ink whitespace-nowrap">
  我不是<span className="text-accent">股神</span>
           </span>
  <span className="tnum text-[10px] text-faint uppercase tracking-widest hidden md:inline">v0.6</span>
         </Link>
 
-        {/* 主导航 */}
- <nav className="flex items-center gap-0.5 ml-1">
+        {/* 主导航 — 手机可横向滑动 */}
+ <nav className="flex flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-1">
           {NAV.map((item) => {
             const active = item.match(pathname);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-3 py-1.5 rounded-lg text-[13px] font-medium transition ${
+                className={`relative shrink-0 px-2 py-1.5 rounded-lg text-[13px] font-medium transition sm:px-3 ${
                   active
  ? "text-ink bg-surface-2"
  : "text-muted hover:text-ink hover:bg-surface"
@@ -74,19 +74,16 @@ export default function TopNav({ health }: { health?: DataHealth }) {
           })}
         </nav>
 
-        {/* 中间 spacer */}
- <div className="flex-1" />
-
         {/* 搜索框 */}
- <div className="hidden lg:block w-[260px]">
+ <div className="hidden lg:block w-[260px] shrink-0">
  <SearchBox compact placeholder="搜代码 / 名称 / 板块…" />
         </div>
 
-        {/* 数据健康徽标 */}
+        {/* 数据健康徽标 — 手机隐藏省宽 */}
         {health && (
           <Link
  href="/pulse/coverage"
- className="flex items-center gap-2 text-xs transition hover:opacity-80"
+ className="hidden sm:flex shrink-0 items-center gap-2 text-xs transition hover:opacity-80"
  title="数据覆盖矩阵"
           >
  <span className="inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-2 py-1 tnum text-[11px] text-muted">

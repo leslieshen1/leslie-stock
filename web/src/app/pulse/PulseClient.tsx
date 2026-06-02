@@ -155,13 +155,13 @@ export default function PulseClient({
   return (
     <>
       {/* ===== 顶部 Industry Header（动态标题 + Tab 切换） ===== */}
- <header className="mb-6 border-b border-line pb-6">
- <div className="mb-4 flex items-baseline justify-between flex-wrap gap-3">
+ <header className="mb-4 sm:mb-6 border-b border-line pb-4 sm:pb-6">
+ <div className="mb-3 sm:mb-4 flex items-baseline justify-between flex-wrap gap-2 sm:gap-3">
           <div>
- <h1 className="text-3xl font-semibold tracking-tight text-ink">
+ <h1 className="text-xl sm:text-3xl font-semibold tracking-tight text-ink">
               {currentInd.name} · 脉冲热力图
             </h1>
- <p className="mt-1 text-sm text-muted">
+ <p className="mt-1 text-xs sm:text-sm text-muted">
               {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 热度 / 三方综合
             </p>
           </div>
@@ -336,7 +336,7 @@ export default function PulseClient({
       </aside>
 
       {/* ===== 中间：粒子场 + 排行 ===== */}
- <section className="col-span-12 lg:col-span-6 space-y-4">
+ <section className="order-first lg:order-none col-span-12 lg:col-span-6 space-y-4">
         {/* 染色 mode 切换 + 色阶条 */}
  <div className="bg-surface border border-line rounded-xl px-3 py-3 space-y-3">
  <div className="flex items-center justify-between">

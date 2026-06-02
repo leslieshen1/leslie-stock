@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Play, Pause } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import PulseField from "./PulseField";
 import {
   LAYERS,
@@ -42,11 +41,9 @@ const HEAT_TIERS = [
 ];
 
 interface TrendPt { date: string; close?: number | null; heat?: number | null }
-interface Timeline { weeks: string[]; stocks: Record<string, { heat: (number | null)[]; close: (number | null)[] }> }
 export default function PulseClient({
   items,
   trends = {},
-  timeline = null,
   liveCount = 0,
   generatedAtLabel = null,
   initialIndustry,
@@ -54,7 +51,6 @@ export default function PulseClient({
 }: {
   items: CompanyWithHeat[];
   trends?: Record<string, TrendPt[]>;
-  timeline?: Timeline | null;
   liveCount?: number;
   generatedAtLabel?: string | null;
   initialIndustry?: IndustryId;
@@ -68,33 +64,6 @@ export default function PulseClient({
  const [colorMode, setColorMode] = useState<"heat" | "triple">("heat");
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
-  // 周度演化时间轴 — 共享浮点进度(PulseField rAF 连续插值,平滑流动)
-  const weekCount = timeline?.weeks.length ?? 0;
-  const progressRef = useRef<number>(Math.max(0, weekCount - 1));
-  const [playing, setPlaying] = useState(false);
-  const [weekIdx, setWeekIdx] = useState<number>(Math.max(0, weekCount - 1)); // 仅用于日期显示
-  const isLatestWeek = weekIdx >= weekCount - 1;
-
-  // ticker → 每周热度数组(传给 PulseField 插值)
-  const timelineHeat = useMemo(() => {
-    if (!timeline) return null;
-    const m: Record<string, (number | null)[]> = {};
-    for (const [tk, v] of Object.entries(timeline.stocks)) m[tk] = v.heat;
-    return m;
-  }, [timeline]);
-
-  // 播放时:rAF 跟随 progressRef 更新日期显示(整周变才 setState,节流)
-  useEffect(() => {
-    if (!playing) return;
-    let raf = 0; let lastFloor = -1;
-    const loop = () => {
-      const fl = Math.floor(progressRef.current);
-      if (fl !== lastFloor) { lastFloor = fl; setWeekIdx(fl); }
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
-  }, [playing]);
 
   // 跳转过来时自动打开对应公司的 detail drawer
   useEffect(() => {
@@ -396,35 +365,6 @@ export default function PulseClient({
           <ColorScale mode={colorMode} />
         </div>
 
-        {/* 周度演化时间轴 — 拖动看产业链热度如何随周变化 */}
-        {timeline && colorMode === "heat" && weekCount > 1 && (
-          <div className="flex items-center gap-3 rounded-xl border border-line bg-surface px-3 py-2">
-            <button
-              onClick={() => setPlaying((p) => !p)}
-              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-2 text-ink transition hover:bg-surface-3"
-              aria-label={playing ? "暂停" : "播放"}
-            >
-              {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-            </button>
-            <input
-              type="range"
-              min={0}
-              max={weekCount - 1}
-              value={weekIdx}
-              onChange={(e) => { const v = +e.target.value; setPlaying(false); progressRef.current = v; setWeekIdx(v); }}
-              className="h-1 flex-1 cursor-pointer appearance-none rounded-full bg-surface-2 accent-[var(--color-accent)]"
-            />
-            <span className="tnum w-[88px] shrink-0 text-right text-xs text-muted">
-              {timeline.weeks[weekIdx]}
-            </span>
-            {!isLatestWeek && (
-              <button onClick={() => { setPlaying(false); progressRef.current = weekCount - 1; setWeekIdx(weekCount - 1); }} className="shrink-0 text-xs text-accent hover:underline">
-                最新
-              </button>
-            )}
-          </div>
-        )}
-
         <PulseField
           items={filtered}
           edges={activeEdges}
@@ -434,10 +374,6 @@ export default function PulseClient({
           selectedId={selected?.id ?? null}
           highlightLayer={highlightLayer}
           layers={activeLayers}
-          timelineHeat={timelineHeat}
-          progressRef={progressRef}
-          playing={playing}
-          weekCount={weekCount}
         />
 
         {/* 排行榜 */}

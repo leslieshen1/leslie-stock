@@ -39,11 +39,6 @@ interface Props {
   highlightLayer: string | null;
   /** 当前 industry 的 layers（不传 = 用默认 AI L0-L7）。layer.id 必须和 item.layer 对得上。 */
   layers?: { id: string; name: string }[];
-  /** 周度演化:ticker → 每周热度数组。配合 progressRef 连续插值,平滑流动。 */
-  timelineHeat?: Record<string, (number | null)[]> | null;
-  progressRef?: { current: number };
-  playing?: boolean;
-  weekCount?: number;
 }
 
 // ===================== 8 档色阶（冷端拉黑） =====================
@@ -111,7 +106,6 @@ export default function PulseField({
   items, edges, marketAvg, colorMode,
   onSelect, selectedId, highlightLayer,
   layers,
-  timelineHeat, progressRef, playing = false, weekCount = 0,
 }: Props) {
   // 当前 industry 的 layers（不传 = AI 默认）
   const LAYERS_LIVE: { id: string; name: string }[] = layers && layers.length > 0
@@ -131,34 +125,14 @@ export default function PulseField({
   const sizeRef = useRef({ w: 0, h: 0 });
   const tickerMapRef = useRef<Map<string, Particle>>(new Map());
 
-  const timelineHeatRef = useRef(timelineHeat);
-  const playingRef = useRef(playing);
-  const weekCountRef = useRef(weekCount);
-
   useEffect(() => { selectedIdRef.current = selectedId; }, [selectedId]);
   useEffect(() => { highlightRef.current = highlightLayer; }, [highlightLayer]);
   useEffect(() => { colorModeRef.current = colorMode; }, [colorMode]);
   useEffect(() => { layersRef.current = LAYERS_LIVE; }, [LAYERS_LIVE]);
-  useEffect(() => { timelineHeatRef.current = timelineHeat; }, [timelineHeat]);
-  useEffect(() => { playingRef.current = playing; }, [playing]);
-  useEffect(() => { weekCountRef.current = weekCount; }, [weekCount]);
 
   // 每个粒子在当前 mode 下的实际颜色 score
-  // heat mode + timeline: 按连续进度在相邻周间插值(平滑流动)
-  // triple mode: 直接用 triple
   function scoreOf(p: Particle): number {
- if (colorModeRef.current === "triple") return p.data.triple;
-    const th = timelineHeatRef.current?.[p.data.ticker];
-    const pr = progressRef?.current;
-    if (th && th.length && pr != null) {
-      const lo = Math.floor(pr);
-      const hi = Math.min(th.length - 1, lo + 1);
-      const f = pr - lo;
-      const a = th[lo] ?? p.data.heat;
-      const b = th[hi] ?? a;
-      return a + (b - a) * f;
-    }
- return p.data.heat;
+ return colorModeRef.current === "triple" ? p.data.triple : p.data.heat;
   }
   function colorOf(score: number, alpha: number): string {
  return colorModeRef.current === "heat" ? heatColor(score, alpha) : tripleColor(score, alpha);
@@ -244,12 +218,6 @@ export default function PulseField({
     function tick(t: number) {
       if (!ctx) return;
       const { w, h } = sizeRef.current;
-
-      // 周度演化:播放时连续推进进度(每帧 ~0.022 周,半年约 20 秒播完),粒子热度随之插值流动
-      if (playingRef.current && progressRef && weekCountRef.current > 1) {
-        progressRef.current += 0.022;
-        if (progressRef.current >= weekCountRef.current - 1) progressRef.current = 0;
-      }
 
       // 拖尾背景：从 0.20 调到 0.45，让画面更快擦除（不再糊）
  ctx.fillStyle = "rgba(6, 8, 16, 0.45)";

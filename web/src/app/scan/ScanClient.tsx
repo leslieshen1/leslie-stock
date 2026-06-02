@@ -193,28 +193,38 @@ export default function ScanClient({ items }: { items: AleabitManifestEntry[] })
           })}
         </div>
 
-        {/* Sector 筛选 */}
+        {/* Sector 筛选 — 板块多,限高可滚动不占屏 */}
         {allSectors.length > 0 && (
- <div className="flex flex-wrap items-center gap-1.5">
- <span className="mr-1 text-xs text-muted">板块:</span>
-            {allSectors.map((s) => {
-              const active = sectorSet.has(s);
- const display = s.length > 24 ? s.slice(0, 22) + "…" : s;
-              return (
-                <button
-                  key={s}
-                  onClick={() => toggle(sectorSet, s, setSectorSet)}
-                  title={s}
-                  className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
-                    active
- ? "bg-surface-3 text-white"
+ <div className="flex items-start gap-2">
+ <span className="shrink-0 pt-1.5 text-xs text-muted">板块</span>
+ <div className="flex max-h-[58px] flex-1 flex-wrap items-center gap-1.5 overflow-y-auto rounded-lg border border-line bg-base/40 p-1.5 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded [&::-webkit-scrollbar-thumb]:bg-line-2">
+              {allSectors.map((s) => {
+                const active = sectorSet.has(s);
+ const display = s.length > 20 ? s.slice(0, 18) + "…" : s;
+                return (
+                  <button
+                    key={s}
+                    onClick={() => toggle(sectorSet, s, setSectorSet)}
+                    title={s}
+                    className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] transition ${
+                      active
+ ? "bg-accent text-black"
  : "bg-surface-2 text-muted hover:bg-line"
-                  }`}
-                >
-                  {display}
-                </button>
-              );
-            })}
+                    }`}
+                  >
+                    {display}
+                  </button>
+                );
+              })}
+            </div>
+            {sectorSet.size > 0 && (
+              <button
+                onClick={() => setSectorSet(new Set())}
+                className="shrink-0 pt-1.5 text-xs text-accent hover:underline"
+              >
+                清除{sectorSet.size}
+              </button>
+            )}
           </div>
         )}
       </div>

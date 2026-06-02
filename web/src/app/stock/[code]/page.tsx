@@ -37,7 +37,7 @@ export default async function StockDetailPage({
  <span className="text-faint">/</span>
  <Link href="/scan" className="text-muted hover:text-ink">扫描</Link>
  <span className="text-faint">/</span>
- <Link href="/watchlist" className="text-muted hover:text-ink">观察</Link>
+ <Link href="/portfolio" className="text-muted hover:text-ink">观察</Link>
  <span className="text-faint">/</span>
  <span className="text-muted">{initial?.name || code}</span>
         </div>

@@ -33,7 +33,7 @@ export default function ScanPage() {
             ← 脉冲热力图
           </Link>
  <span className="text-faint">/</span>
- <Link href="/watchlist" className="text-accent hover:text-accent font-medium">
+ <Link href="/portfolio" className="text-accent hover:text-accent font-medium">
              我的观察列表
           </Link>
         </div>

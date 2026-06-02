@@ -9,6 +9,7 @@ import {
   type Analysis,
   type NewsAnalysis,
 } from "@/lib/data";
+import PortfolioTabs from "./PortfolioTabs";
 
 export default function PortfolioPage() {
   const positions = loadPortfolio();
@@ -22,30 +23,15 @@ export default function PortfolioPage() {
     news: loadNewsAnalysis(p.code, p.market),
   }));
 
-  return (
- <main className="mx-auto max-w-6xl px-6 py-10">
- <header className="mb-10 flex items-baseline justify-between border-b border-line pb-6">
-        <div>
- <h1 className="text-3xl font-semibold tracking-tight text-ink">
-            我的持仓
-          </h1>
- <p className="mt-1 text-sm text-muted">
-            追踪持仓盈亏与 AI 观点
-          </p>
-        </div>
- <div className="text-right">
- <p className="text-xs uppercase tracking-wider text-faint">今日</p>
- <p className="text-lg font-medium text-muted">{today}</p>
-        </div>
-      </header>
-
+  const holdings = (
+    <>
  <section className="mb-10">
  <h2 className="mb-4 text-lg font-medium text-muted">持仓总览</h2>
         {positions.length === 0 ? (
  <div className="rounded-xl border border-dashed border-line-2 bg-surface p-12 text-center">
  <p className="mb-1 text-muted">持仓管理即将上线</p>
  <p className="text-sm text-faint">
-              先用<Link href="/watchlist" className="text-accent hover:underline">观察列表</Link>追踪你关注的票
+              先在上方「观察列表」里追踪你关注的票
             </p>
           </div>
         ) : (
@@ -141,6 +127,25 @@ export default function PortfolioPage() {
           </div>
         )}
       </section>
+    </>
+  );
+
+  return (
+ <main className="mx-auto max-w-6xl px-6 py-10">
+ <header className="mb-8 flex items-baseline justify-between border-b border-line pb-6">
+        <div>
+ <h1 className="text-3xl font-semibold tracking-tight text-ink">我的组合</h1>
+ <p className="mt-1 text-sm text-muted">
+            观察列表 + 持仓,都在这里。观察仅存于你这个浏览器（localStorage）
+          </p>
+        </div>
+ <div className="text-right">
+ <p className="text-xs uppercase tracking-wider text-faint">今日</p>
+ <p className="text-lg font-medium text-muted">{today}</p>
+        </div>
+      </header>
+
+      <PortfolioTabs holdings={holdings} />
 
  <footer className="mt-16 border-t border-line pt-6 text-center text-xs text-faint">
         我不是股神 · 段永平 + 巴菲特投资 DNA · v0.5

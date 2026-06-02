@@ -91,7 +91,7 @@ export default function WatchlistSidebar() {
         </div>
 
  <footer className="border-t border-line px-4 py-2.5">
- <Link href="/watchlist" onClick={() => setOpen(false)} className="inline-flex items-center gap-1 text-xs text-accent hover:underline">
+ <Link href="/portfolio" onClick={() => setOpen(false)} className="inline-flex items-center gap-1 text-xs text-accent hover:underline">
  完整观察页 <ChevronRight className="h-3 w-3" />
           </Link>
         </footer>

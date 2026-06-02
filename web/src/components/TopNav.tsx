@@ -17,15 +17,15 @@ interface NavItem {
   label: string;
   en: string;
   match: (p: string) => boolean;
+  cta?: boolean;
 }
 
 const NAV: NavItem[] = [
  { href: "/", label: "热力图", en: "Heatmap", match: (p) => p === "/" || p.startsWith("/pulse") },
+ { href: "/scan", label: "列表", en: "List", match: (p) => p.startsWith("/scan") },
  { href: "/whales", label: "聪明钱", en: "Whales", match: (p) => p.startsWith("/whales") },
- { href: "/watchlist", label: "观察", en: "Watchlist",match: (p) => p.startsWith("/watchlist") },
- { href: "/scan", label: "扫描", en: "Scan", match: (p) => p.startsWith("/scan") },
- { href: "/portfolio", label: "持仓", en: "Portfolio",match: (p) => p.startsWith("/portfolio") },
- { href: "/how-to-buy", label: "买美股", en: "Buy", match: (p) => p.startsWith("/how-to-buy") },
+ { href: "/how-to-buy", label: "买美股", en: "Buy US", match: (p) => p.startsWith("/how-to-buy"), cta: true },
+ { href: "/portfolio", label: "我的", en: "Portfolio", match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist") },
 ];
 
 export default function TopNav({ health }: { health?: DataHealth }) {
@@ -57,15 +57,16 @@ export default function TopNav({ health }: { health?: DataHealth }) {
  <nav className="flex flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-1">
           {NAV.map((item) => {
             const active = item.match(pathname);
+            const cls = item.cta
+ ? "bg-accent text-black hover:bg-accent/90"
+              : active
+ ? "text-ink bg-surface-2"
+ : "text-muted hover:text-ink hover:bg-surface";
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative shrink-0 px-2 py-1.5 rounded-lg text-[13px] font-medium transition sm:px-3 ${
-                  active
- ? "text-ink bg-surface-2"
- : "text-muted hover:text-ink hover:bg-surface"
-                }`}
+                className={`relative shrink-0 px-2 py-1.5 rounded-lg text-[13px] font-medium transition sm:px-3 ${cls}`}
               >
  <span className="hidden md:inline">{item.en}</span>
  <span className="md:hidden">{item.label}</span>

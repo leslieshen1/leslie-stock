@@ -250,7 +250,7 @@ function BottleneckView({ items }: { items: EnrichedWatchItem[] }) {
 
   return (
     <>
- <div className="mb-6 rounded-xl border border-accent/30 p-5 text-sm text-accent">
+ <div className="mb-6 rounded-xl border border-accent/30 bg-surface p-5 text-sm text-accent">
  <p className="mb-1 font-semibold">
           Serenity (@aleabitoreddit) · &ldquo;Trading Unknown Bottlenecks&rdquo;
         </p>

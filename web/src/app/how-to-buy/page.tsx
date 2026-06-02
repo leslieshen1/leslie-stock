@@ -53,10 +53,9 @@ export default function HowToBuyPage() {
  <h2 className="mb-4 text-xl font-semibold text-ink">两条主流路径</h2>
  <div className="mb-10 grid grid-cols-1 gap-5 md:grid-cols-2">
         {/* Binance */}
- <section className="rounded-2xl border border-accent/30 p-6">
+ <section className="rounded-2xl border border-accent/30 bg-surface p-6">
  <div className="mb-3 flex items-center gap-2">
- <span className="text-xl"></span>
- <h3 className="text-lg font-semibold text-ink">Binance</h3>
+  <h3 className="text-lg font-semibold text-ink">Binance</h3>
  <span className="rounded bg-accent-soft px-1.5 py-0.5 text-[10px] font-medium text-accent">2026.06 新上线</span>
           </div>
  <p className="mb-4 text-sm leading-relaxed text-muted">
@@ -82,18 +81,17 @@ export default function HowToBuyPage() {
           <a
  href="https://www.bsmkweb.cc/register?ref=152171685"
  target="_blank" rel="noopener noreferrer"
- className="mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-600"
+ className="mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#F0B90B] px-4 py-2.5 text-sm font-semibold text-black transition hover:opacity-90"
           >
- 注册 Binance <span className="opacity-80">→</span>
+ 注册 Binance <span className="opacity-70">→</span>
           </a>
  <p className="mt-1.5 text-center text-[10px] text-faint">邀请链接 · 含返佣 · 仅非中国大陆地区</p>
         </section>
 
         {/* Bitget */}
- <section className="rounded-2xl border border-line p-6">
+ <section className="rounded-2xl border border-line bg-surface p-6">
  <div className="mb-3 flex items-center gap-2">
- <span className="text-xl"></span>
- <h3 className="text-lg font-semibold text-ink">Bitget</h3>
+  <h3 className="text-lg font-semibold text-ink">Bitget</h3>
  <span className="rounded bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium text-accent">已上线 · 自托管</span>
           </div>
  <p className="mb-4 text-sm leading-relaxed text-muted">
@@ -119,16 +117,16 @@ export default function HowToBuyPage() {
           <a
  href="https://partner.hdmune.cn/bg/5A85GS"
  target="_blank" rel="noopener noreferrer"
- className="mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-600"
+ className="mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#00E0CA] px-4 py-2.5 text-sm font-semibold text-black transition hover:opacity-90"
           >
- 注册 Bitget <span className="opacity-80">→</span>
+ 注册 Bitget <span className="opacity-70">→</span>
           </a>
  <p className="mt-1.5 text-center text-[10px] text-faint">邀请链接 · 含返佣 · 仅非中国大陆地区</p>
         </section>
       </div>
 
       {/* RWA 闭环 */}
- <section className="mb-10 rounded-2xl border border-accent/30 p-6">
+ <section className="mb-10 rounded-2xl border border-accent/30 bg-surface p-6">
  <h2 className="mb-2 text-base font-semibold text-accent"> 这其实就是「链上美元买链上股票」</h2>
  <p className="text-sm leading-relaxed text-muted">
           你用 <strong>USDC</strong>(链上美元)买 <strong>CRCLx</strong>(Circle 的代币化股票)——

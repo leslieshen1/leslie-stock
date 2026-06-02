@@ -97,7 +97,7 @@ export default function StockDetailClient({ code, market, initial, holders = [] 
   return (
  <div className="space-y-8">
       {/* ============ HERO ============ */}
- <section className="rounded-2xl border border-line p-8">
+ <section className="rounded-2xl border border-line bg-surface p-8">
  <div className="grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr] md:items-start">
           {/* 大评分 */}
  <div className="flex items-center gap-6">
@@ -188,7 +188,7 @@ export default function StockDetailClient({ code, market, initial, holders = [] 
 
       {/* ============ 当前 thesis ============ */}
       {thesis && (
- <section className="rounded-2xl border border-accent/30 p-6">
+ <section className="rounded-2xl border border-accent/30 bg-surface p-6">
  <header className="mb-4 flex items-baseline justify-between">
  <h2 className="text-base font-semibold text-ink">
  Thesis {currentVersion && <span className="ml-2 text-xs text-accent">({currentVersion.version})</span>}
@@ -227,7 +227,7 @@ export default function StockDetailClient({ code, market, initial, holders = [] 
  <section className="rounded-2xl border border-down/30 bg-down-soft/60 p-6">
  <header className="mb-4">
  <h2 className="text-base font-semibold text-down"> Red Flags</h2>
- <p className="text-xs text-down">v{currentVersion?.version || "—"} 标注的风险点（{redFlags.length} 条）</p>
+ <p className="text-xs text-down">{currentVersion?.version || "—"} 标注的风险点（{redFlags.length} 条）</p>
           </header>
  <ul className="space-y-2.5">
             {redFlags.map((f, i) => (

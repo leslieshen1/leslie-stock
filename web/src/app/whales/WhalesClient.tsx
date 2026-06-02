@@ -46,7 +46,7 @@ export default function WhalesClient({ investors }: { investors: Investor[] }) {
  <span className="text-sm text-faint">Smart Money · {investors[0]?.latest_period || ""}</span>
         </div>
  <p className="mt-1.5 text-sm text-muted">
-          看占比,不看名单 —— 段永平 0.1% 的 Circle 是试探仓,不是 conviction。
+          看仓位占比与变动,不只看谁持有 —— 重仓、试探、派发,是完全不同的信号。
         </p>
       </header>
 

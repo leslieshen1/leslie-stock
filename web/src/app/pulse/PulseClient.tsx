@@ -176,7 +176,7 @@ export default function PulseClient({
               </>
             ) : (
  <span className="inline-flex items-center gap-1.5 rounded bg-accent-soft text-accent px-2.5 py-1 border border-accent/30">
-                MOCK 数据 · 跑 npm run fetch-pulse 接入真实
+                示意数据 · 待接入实时行情
               </span>
             )}
           </div>

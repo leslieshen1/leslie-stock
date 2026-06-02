@@ -30,7 +30,7 @@ export default function PortfolioPage() {
             我的持仓
           </h1>
  <p className="mt-1 text-sm text-muted">
-            手动维护 · core/portfolio.csv
+            追踪持仓盈亏与 AI 观点
           </p>
         </div>
  <div className="text-right">
@@ -42,13 +42,10 @@ export default function PortfolioPage() {
  <section className="mb-10">
  <h2 className="mb-4 text-lg font-medium text-muted">持仓总览</h2>
         {positions.length === 0 ? (
- <div className="rounded-xl border border-dashed border-line-2 bg-surface p-10 text-center">
- <p className="text-muted">
- 还没有持仓。编辑{" "}
- <code className="rounded bg-surface-2 px-2 py-0.5 font-mono text-xs">
-                core/portfolio.csv
- </code>{" "}
-              添加你的持仓。
+ <div className="rounded-xl border border-dashed border-line-2 bg-surface p-12 text-center">
+ <p className="mb-1 text-muted">持仓管理即将上线</p>
+ <p className="text-sm text-faint">
+              先用<Link href="/watchlist" className="text-accent hover:underline">观察列表</Link>追踪你关注的票
             </p>
           </div>
         ) : (
@@ -132,7 +129,6 @@ export default function PortfolioPage() {
  <span className="ml-2 text-sm text-faint">· {briefing.date}</span>
             )}
           </h2>
- <p className="text-xs text-faint">由 daily_briefing.py 自动生成</p>
         </div>
         {briefing ? (
           <article
@@ -140,14 +136,8 @@ export default function PortfolioPage() {
             dangerouslySetInnerHTML={{ __html: briefing.html }}
           />
         ) : (
- <div className="rounded-xl border border-dashed border-line-2 bg-surface p-10 text-center">
- <p className="text-muted">
- 暂无简报。运行{" "}
- <code className="rounded bg-surface-2 px-2 py-0.5 font-mono text-xs">
-                uv run python -m monitor.daily_briefing
- </code>{" "}
-              生成。
-            </p>
+ <div className="rounded-xl border border-dashed border-line-2 bg-surface p-12 text-center">
+ <p className="text-muted">盘后简报即将上线</p>
           </div>
         )}
       </section>

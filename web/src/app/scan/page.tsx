@@ -19,11 +19,11 @@ export default function ScanPage() {
         </div>
  <div className="flex items-baseline justify-between">
           <div>
- <h1 className="text-3xl font-semibold tracking-tight text-ink">
-              Serenity 瓶颈狙击 · A 股全市场扫描
+ <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink">
+              瓶颈狙击 · A 股全市场扫描
             </h1>
  <p className="mt-1 text-sm text-muted">
-              基于 @aleabitoreddit 的方法论 · 通用 chokepoint 框架（任何产业链） · 共 {items.length} 只 A 股 · 点 ☆ 加入观察列表
+              产业链卡脖子视角 · 全市场 {items.length} 只 A 股按瓶颈分打分
             </p>
           </div>
         </div>

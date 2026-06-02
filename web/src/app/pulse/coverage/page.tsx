@@ -268,7 +268,7 @@ export default async function CoveragePage() {
       </section>
 
  <footer className="mt-12 border-t border-line pt-6 text-center text-xs text-faint">
-        从 SQLite (data/pulse.db) 读取 · 每次 npm run fetch-pulse 更新 ·
+        行情数据每日更新 ·
         缺 PE 多为亏损公司，缺其他字段需要 akshare 兜底
       </footer>
     </main>

@@ -76,7 +76,7 @@ export default async function HomePage({
  <p className="mt-1 text-[10px] text-faint">
           {generatedAt
  ? "数据 = yfinance 5y OHLC + Serenity 评分（5,510 只 A 股）· 非投资建议"
- : "mock 热度；运行 npm run fetch-pulse 接入真实"}
+ : "示意数据,待接入实时行情"}
         </p>
       </footer>
     </main>

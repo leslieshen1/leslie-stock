@@ -48,12 +48,56 @@ export default function StockDetailClient({ code, market, initial, holders = [] 
   const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
 
   if (!initial) {
+    const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
+    const isSH = market === "a" && code.startsWith("6");
+    const xqSym = market === "a" ? `${isSH ? "SH" : "SZ"}${code}` : code;
+    const links: { label: string; href: string }[] =
+      market === "us"
+        ? [
+            { label: "雪球", href: `https://xueqiu.com/S/${code}` },
+            { label: "Yahoo Finance", href: `https://finance.yahoo.com/quote/${code}` },
+            { label: "TradingView", href: `https://www.tradingview.com/symbols/${code}/` },
+          ]
+        : market === "hk"
+        ? [
+            { label: "雪球", href: `https://xueqiu.com/S/${code}` },
+            { label: "富途", href: `https://www.futunn.com/stock/${code}-HK` },
+          ]
+        : [
+            { label: "雪球", href: `https://xueqiu.com/S/${xqSym}` },
+            { label: "东方财富", href: `https://quote.eastmoney.com/${isSH ? "sh" : "sz"}${code}.html` },
+          ];
+
     return (
- <div className="rounded-2xl border border-dashed border-line-2 bg-surface p-12 text-center">
- <p className="mb-2 text-lg text-muted">还没分析过 {code}</p>
- <p className="text-sm text-muted">
-          回去搜索其他票，或者跟我说&ldquo;深度分析 {code}&rdquo;。
-        </p>
+      <div className="space-y-8">
+        <section className="rounded-2xl border border-line bg-surface p-8 text-center">
+          <p className="mb-1.5 text-base font-medium text-ink">暂无深度分析</p>
+          <p className="mx-auto mb-6 max-w-md text-sm leading-relaxed text-muted">
+            深度分析目前重点覆盖 A 股，{marketLabel}标的还在排队。先去这些地方看行情与基本面：
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {links.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-line bg-surface-2 px-3.5 py-1.5 text-sm text-ink transition hover:border-accent/40 hover:text-accent"
+              >
+                {l.label} ↗
+              </a>
+            ))}
+            <Link
+              href="/"
+              className="rounded-lg border border-line px-3.5 py-1.5 text-sm text-muted transition hover:text-ink"
+            >
+              ← 回热力图
+            </Link>
+          </div>
+        </section>
+
+        {/* 即使没有深度分析，也展示已收录的聪明钱持仓（美股大票常有 13F / 议员数据） */}
+        {holders.length > 0 && <HoldersSection holders={holders} market={market} />}
       </div>
     );
   }

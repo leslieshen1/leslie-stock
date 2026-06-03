@@ -2,6 +2,7 @@
 
   python scripts/refresh.py             # 抓最新美股行情入库 → 派生全部前端 JSON
   python scripts/refresh.py --no-fetch  # 跳过抓取,只从现有库重新派生
+  python scripts/refresh.py --deploy    # 上面 + 提交(只传变了的 JSON,跳过 13M 库)+ Vercel 部署
 
 流程:
   1. fetchers.us_stocks  → leslie.db.us_market(最新行情)
@@ -35,8 +36,21 @@ def main():
     print("\n=== 2) 从 leslie.db 派生全部前端 JSON ===")
     run([sys.executable, "scripts/build_json.py"])
 
-    print("\n✅ 一站式更新完成。leslie.db = 真相源,前端 JSON 已最新。")
-    print("   部署: cd web && vercel --prod --yes --archive=tgz")
+    print("\n✅ 数据已最新(leslie.db = 真相源)。")
+
+    if "--deploy" in sys.argv:
+        env = {**os.environ, "PYTHONPATH": str(ROOT)}
+        print("\n=== 3) 上线(只提交变了的前端 JSON,跳过 13M 的库) ===")
+        subprocess.run(["git", "add", "web/public/data"], cwd=str(ROOT), env=env)
+        # 没变化也不报错
+        subprocess.run(["git", "commit", "-q", "-m", "refresh: 最新行情/热度(库→JSON)"],
+                       cwd=str(ROOT), env=env)
+        subprocess.run(["git", "push", "origin", "main"], cwd=str(ROOT), env=env)
+        print("   Vercel 部署中…")
+        subprocess.run(["vercel", "--prod", "--yes", "--archive=tgz"], cwd=str(ROOT / "web"), env=env)
+        print("\n✅ 已上线。db 本身没进 git(可从 JSON 重建);五方分析有变动时再单独备份库。")
+    else:
+        print("   要上线: python scripts/refresh.py --deploy")
 
 
 if __name__ == "__main__":

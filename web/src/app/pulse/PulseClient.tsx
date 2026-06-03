@@ -82,6 +82,9 @@ export default function PulseClient({
   initialHighlight,
   panelSummary = {},
   masterOrder = [],
+  coveredCount = 0,
+  analyzedAtLabel = null,
+  priceAgeLabel = null,
 }: {
   items: CompanyWithHeat[];
   trends?: Record<string, TrendPt[]>;
@@ -91,6 +94,9 @@ export default function PulseClient({
   initialHighlight?: string;
   panelSummary?: Record<string, { sc: (number | null)[]; div: number }>;
   masterOrder?: string[];
+  coveredCount?: number;
+  analyzedAtLabel?: string | null;
+  priceAgeLabel?: string | null;
 }) {
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
  const [industry, setIndustry] = useState<IndustryId>(initialIndustry ?? "AI");
@@ -211,13 +217,14 @@ export default function PulseClient({
             </p>
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">
-            {generatedAtLabel ? (
+            {coveredCount > 0 ? (
               <>
  <span className="inline-flex items-center gap-1.5 rounded bg-up-soft text-up px-2.5 py-1 border border-up/30">
  <span className="h-1.5 w-1.5 rounded-full bg-up" />
-                  LIVE {liveCount}/{items.length}
+                  判读 {coveredCount}/{items.length}
                 </span>
- <span className="text-faint">· 更新于 {generatedAtLabel}</span>
+ {analyzedAtLabel && <span className="text-faint">· {analyzedAtLabel}判读</span>}
+ {priceAgeLabel && <span className="text-faint/70">· 行情 {priceAgeLabel}</span>}
               </>
             ) : (
  <span className="inline-flex items-center gap-1.5 rounded bg-accent-soft text-accent px-2.5 py-1 border border-accent/30">

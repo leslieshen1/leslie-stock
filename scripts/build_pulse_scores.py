@@ -25,6 +25,11 @@ def main():
     usm = json.load(open(USM, encoding="utf-8"))
     order = usm["order"]
     si = order.index("serenity")
+    # 分析数据的生成时间(热力图徽章用 = 真正驱动上色的数据何时判读)
+    try:
+        analyzed_at = json.load(open(USM.parent / "us-analyses.json", encoding="utf-8")).get("generated_at")
+    except Exception:
+        analyzed_at = None
 
     stocks: dict = dict(usm["stocks"])  # US 五方
     us_n = len(stocks)
@@ -42,8 +47,8 @@ def main():
         stocks[code] = {"sc": sc, "div": 0}
         a_n += 1
 
-    OUT.write_text(json.dumps({"order": order, "stocks": stocks}, ensure_ascii=False), encoding="utf-8")
-    print(f"✓ pulse-scores.json: US 五方 {us_n} + A股 Serenity {a_n} = {len(stocks)} (order={order})")
+    OUT.write_text(json.dumps({"order": order, "generated_at": analyzed_at, "stocks": stocks}, ensure_ascii=False), encoding="utf-8")
+    print(f"✓ pulse-scores.json: US 五方 {us_n} + A股 Serenity {a_n} = {len(stocks)} · 判读于 {analyzed_at}")
 
 
 if __name__ == "__main__":

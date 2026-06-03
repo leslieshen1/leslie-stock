@@ -31,7 +31,7 @@ async function loadSupplement(): Promise<SupplementItem[] | null> {
   }
 }
 
-type PanelSummary = { order: string[]; stocks: Record<string, { sc: (number | null)[]; div: number }> };
+type PanelSummary = { order: string[]; generated_at?: string | null; stocks: Record<string, { sc: (number | null)[]; div: number }> };
 // 热力图真分源:US 五方 + A股 Serenity(scripts/build_pulse_scores.py 合成),取代 mock 评分
 async function loadPanelSummary(): Promise<PanelSummary> {
   try {
@@ -62,6 +62,9 @@ export default async function HomePage({
   for (const [k, v] of Object.entries(panelSummary.stocks)) {
     if (nodeTickers.has(k)) scopedScores[k] = v;
   }
+  // 徽章口径:真正驱动上色的是"分析判读覆盖",不是旧价格快照
+  const coveredCount = Object.keys(scopedScores).length;
+  const analyzedAtLabel = panelSummary.generated_at ? fmtAge(panelSummary.generated_at) : null;
  const liveCount = items.filter((i) => i.dataSource === "live").length;
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
   const generatedAt = snapshot?.generated_at ?? null;
@@ -89,6 +92,9 @@ export default async function HomePage({
         initialHighlight={initialHighlight}
         panelSummary={scopedScores}
         masterOrder={panelSummary.order}
+        coveredCount={coveredCount}
+        analyzedAtLabel={analyzedAtLabel}
+        priceAgeLabel={generatedAt ? fmtAge(generatedAt) : null}
       />
 
  <footer className="mt-12 border-t border-line pt-8 text-center">

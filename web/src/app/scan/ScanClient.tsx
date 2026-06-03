@@ -38,16 +38,28 @@ export type UsStock = {
   country: string;
 };
 
-export default function ScanClient({
-  items,
-  usStocks = [],
-  dilutionFlags = {},
-}: {
-  items: AleabitManifestEntry[];
-  usStocks?: UsStock[];
-  dilutionFlags?: Record<string, DilutionFlag>;
-}) {
+export default function ScanClient() {
   const [market, setMarket] = useState<"a" | "us">("us");
+  // 数据客户端按需 fetch(静态 JSON,浏览器会缓存),避免 SSR 把 4MB 塞进 HTML
+  const [items, setItems] = useState<AleabitManifestEntry[]>([]);
+  const [usStocks, setUsStocks] = useState<UsStock[]>([]);
+  const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    let alive = true;
+    Promise.all([
+      fetch("/data/aleabit_manifest.json").then((r) => r.json()).catch(() => []),
+      fetch("/data/us-stocks.json").then((r) => r.json()).then((j) => j.stocks || j).catch(() => []),
+      fetch("/data/dilution-flags.json").then((r) => r.json()).then((j) => j.flags || {}).catch(() => ({})),
+    ]).then(([a, u, d]) => {
+      if (!alive) return;
+      setItems(a as AleabitManifestEntry[]);
+      setUsStocks(u as UsStock[]);
+      setDilutionFlags(d as Record<string, DilutionFlag>);
+      setLoading(false);
+    });
+    return () => { alive = false; };
+  }, []);
   // 默认筛选：score >= 60，隐藏批量预标的
   const [scoreBuckets, setScoreBuckets] = useState<Set<string>>(
     new Set(SCORE_BUCKETS.filter((b) => b.default).map((b) => b.key))
@@ -144,6 +156,10 @@ export default function ScanClient({
           A 股 · 瓶颈狙击
         </button>
       </div>
+
+      {loading && (
+ <p className="mb-4 animate-pulse text-sm text-muted">⏳ 全市场数据加载中…</p>
+      )}
 
       {market === "us" ? (
         <UsScanView stocks={usStocks} flags={dilutionFlags} />

@@ -31,6 +31,17 @@ def classify_industries(name: str, thesis: str, layer_label: str, sector: str) -
     text = f"{name} {thesis} {layer_label} {sector}".lower()
     industries: list[str] = []
 
+    # AI（AI 算力供应链）— 之前缺这个分类,导致 AI 相关标的全被漏掉
+    if any(k in text for k in [
+        "ai 芯片", "ai芯片", "gpu", "asic", "fpga", "hbm", "算力", "数据中心",
+        "光模块", "光通信", "光器件", "cpo", "半导体", "晶圆", "封装", "封测",
+        "服务器", "pcb", "ccl", "覆铜板", "交换机", "液冷", "eda", "存储",
+        "ddr", "nand", "大模型", "推理", "cuda", "neocloud", "hyperscaler",
+        "加速计算", "compute", "accelerat", "foundry", "semiconductor", "memory",
+        "ai 应用", "ai算力", "data center", "电子特气", "光刻", "刻蚀", "硅片",
+    ]):
+        industries.append("AI")
+
     # humanoid（人形机器人）
     if any(k in text for k in [
         "humanoid", "机器人", "减速器", "丝杠", "伺服", "灵巧手",
@@ -74,7 +85,7 @@ def classify_industries(name: str, thesis: str, layer_label: str, sector: str) -
 
 
 # Layer 智能归类（基于 thesis / layer_label / sector）
-def classify_layer(layer_num, layer_label: str, thesis: str, name: str) -> str:
+def classify_layer(layer_num, layer_label: str, thesis: str, name: str, default: str = "L1") -> str:
     text = f"{name} {thesis} {layer_label}".lower()
 
     # L0 能源底座
@@ -149,7 +160,48 @@ def classify_layer(layer_num, layer_label: str, thesis: str, name: str) -> str:
     if layer_num == 2: return "L2"
     if layer_num == 3: return "L1"
     if layer_num == 4: return "L1"
-    return "L1"
+    return default
+
+
+US_ANALYSES = ROOT / "web" / "public" / "data" / "us-analyses.json"
+
+
+def composite_score(panel: dict):
+    vals = [m.get("score") for m in panel.values()
+            if isinstance(m, dict) and isinstance(m.get("score"), (int, float))]
+    return round(sum(vals) / len(vals)) if vals else None
+
+
+def build_us_entries(existing: set) -> list:
+    """把已五方分析、且属于某条产业链的美股补进热力图(银行/零售等不匹配的不进)。"""
+    if not US_ANALYSES.exists():
+        return []
+    data = json.load(open(US_ANALYSES, encoding="utf-8")).get("stocks", {})
+    out = []
+    for sym, v in data.items():
+        if sym in existing:
+            continue
+        chain = v.get("chain") or {}
+        name = v.get("name", sym)
+        industries = classify_industries(name, chain.get("role", ""), chain.get("industry", ""), v.get("sector", ""))
+        if not industries:
+            continue  # 不属于任何链的美股(银行/零售…)→ 留在 List,不进产业链图
+        tier = chain.get("layer", "")
+        tier_l = "L1" if "上游" in tier else "L3" if "中游" in tier else "L5" if "下游" in tier else "L4"
+        layer = classify_layer(None, "", f"{chain.get('industry','')} {chain.get('role','')}", name, default=tier_l)
+        score = composite_score(v.get("panel") or {}) or 60
+        mcap = min(max(v.get("mcapB") or 1, 0.5), 4000)
+        out.append({
+            "ticker": sym, "name": name, "layer": layer,
+            "segment": (chain.get("industry", "") or "")[:40], "region": "US",
+            "marketCapB": round(mcap, 1),
+            "moat": min(5, max(3, score // 20 + 1)),
+            "valuationPct": score, "momentum20d": score,
+            "rsi": min(80, max(40, score)), "sentiment": score,
+            "industries": industries, "_serenity_score": score,
+            "_verdict": "", "_thesis": (chain.get("role", "") or "")[:120],
+        })
+    return out
 
 
 def main():
@@ -223,7 +275,12 @@ def main():
             "_thesis": (it.get("thesis", "")[:120]),
         })
 
+    # 补美股(已五方 + 属于某条链)
+    us_entries = build_us_entries(existing | {k["ticker"] for k in kept})
+    kept.extend(us_entries)
+
     print(f"\n过滤后：")
+    print(f"  A股保留：{len(kept) - len(us_entries)} 只 + 美股补充：{len(us_entries)} 只")
     print(f"  保留：{len(kept)} 只")
     print(f"  跳过（已在 COMPANIES）：{skipped_existing}")
     print(f"  跳过（分数 < 50 或 not_territory）：{skipped_low_score}")

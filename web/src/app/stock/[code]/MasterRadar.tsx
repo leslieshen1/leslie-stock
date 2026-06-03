@@ -55,15 +55,18 @@ export default function MasterRadar({ panel }: { panel: UsPanel["panel"] }) {
         return <line key={`a${i}`} x1={CX} y1={CY} x2={x} y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth={1} />;
       })}
 
-      {/* 评分多边形 */}
-      <polygon points={dataPoly} fill="url(#mr-fill)" stroke="#e0734d" strokeWidth={1.7}
-               strokeLinejoin="round" filter="url(#mr-glow)" />
-
-      {/* 顶点(按分上色) */}
-      {rows.map((r, i) => {
-        const [x, y] = pt((r.score ?? 0) / 100, i);
-        return <circle key={`v${i}`} cx={x} cy={y} r={r.score == null ? 2 : 3.6} fill={color(r.score)} />;
-      })}
+      {/* 从中心弹出的动效(纯 CSS,服务端渲染也能跑) */}
+      <style>{`@keyframes mrPop{from{opacity:0;transform:scale(.25)}to{opacity:1;transform:scale(1)}}.mr-data{transform-box:view-box;transform-origin:${CX}px ${CY}px;animation:mrPop .7s cubic-bezier(.2,.8,.25,1) both}`}</style>
+      <g className="mr-data">
+        {/* 评分多边形 */}
+        <polygon points={dataPoly} fill="url(#mr-fill)" stroke="#e0734d" strokeWidth={1.7}
+                 strokeLinejoin="round" filter="url(#mr-glow)" />
+        {/* 顶点(按分上色) */}
+        {rows.map((r, i) => {
+          const [x, y] = pt((r.score ?? 0) / 100, i);
+          return <circle key={`v${i}`} cx={x} cy={y} r={r.score == null ? 2 : 3.6} fill={color(r.score)} />;
+        })}
+      </g>
 
       {/* 中心:分歧度 */}
       <text x={CX} y={CY - 3} textAnchor="middle" fill="#6b7484" style={{ fontSize: 8, letterSpacing: 1 }}>分歧</text>

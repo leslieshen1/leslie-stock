@@ -351,26 +351,24 @@ type UsSortCol = "name" | "price" | "pct" | "mcap" | "vol" | "div";
 const US_PAGE_SIZE = 50;
 
 const MASTER_NAME: Record<string, string> = Object.fromEntries(MASTERS.map((m) => [m.key, m.name]));
-function dotColor(s: number | null | undefined): string {
-  if (s == null) return "bg-line/60";
-  if (s >= 70) return "bg-up";
-  if (s >= 55) return "bg-accent";
-  if (s >= 40) return "bg-muted";
-  return "bg-down";
-}
-// 五方小圆点:每点=一位大师的评分(绿≥70/橙≥55/灰≥40/红<40,空=未判读)
+// 五方迷你雷达:形状即分歧(饱满=共识,尖刺=打架,大=全员看好)。悬停看具体分。
 function MasterDots({ sum, order }: { sum?: { sc: (number | null)[]; div: number }; order: string[] }) {
   if (!sum || !sum.sc?.some((x) => x != null)) return <span className="text-xs text-faint">—</span>;
+  const sc = sum.sc;
+  const N = sc.length, C = 13, R = 11;
+  const pt = (f: number, i: number): [number, number] => {
+    const a = ((i * 360) / N - 90) * (Math.PI / 180);
+    return [C + R * f * Math.cos(a), C + R * f * Math.sin(a)];
+  };
+  const grid = sc.map((_, i) => pt(1, i).join(",")).join(" ");
+  const poly = sc.map((s, i) => pt((s ?? 0) / 100, i).join(",")).join(" ");
+  const tip = sc.map((s, i) => `${MASTER_NAME[order[i]] ?? order[i]} ${s ?? "—"}`).join(" · ") + ` · 分歧 ${sum.div}`;
   return (
-    <span className="inline-flex items-center gap-[3px] align-middle" title={`五方分歧 ${sum.div}`}>
-      {sum.sc.map((s, i) => (
-        <span
-          key={i}
-          title={`${MASTER_NAME[order[i]] ?? order[i]}: ${s ?? "—"}`}
-          className={`inline-block h-2 w-2 rounded-full ${dotColor(s)}`}
-        />
-      ))}
-    </span>
+    <svg viewBox="0 0 26 26" className="inline-block h-7 w-7 align-middle" aria-label={tip}>
+      <title>{tip}</title>
+      <polygon points={grid} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth={0.5} />
+      <polygon points={poly} fill="rgba(224,115,77,0.28)" stroke="#e0734d" strokeWidth={0.9} strokeLinejoin="round" />
+    </svg>
   );
 }
 

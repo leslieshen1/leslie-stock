@@ -25,6 +25,7 @@ import { MASTERS } from "@/lib/masters";
 // ===== 镜头注册表:热度 + 综合 + 5 位大师(masters.ts) + 分歧 =====
 type LensMeta = { key: string; label: string; sub: string; ramp: "heat" | "triple"; hi: string; lo: string };
 const LENSES: LensMeta[] = [
+  { key: "heat", label: "短期热度", sub: "短期 价格 + 动量 + RSI + 情绪(行情面)", ramp: "heat", hi: "过热", lo: "深价值" },
   { key: "triple", label: "综合", sub: "已判读各方真实评分均值(A股 = Serenity 瓶颈分)", ramp: "triple", hi: "高信念", lo: "回避" },
   ...MASTERS.map((m): LensMeta => ({ key: m.key, label: m.name, sub: m.school, ramp: "triple", hi: "高信念", lo: "看空/回避" })),
   { key: "divergence", label: "分歧", sub: "5 方评分极差 · 越大越撕裂(分歧即信号)", ramp: "heat", hi: "最撕裂", lo: "共识" },
@@ -111,7 +112,7 @@ export default function PulseClient({
  const [region, setRegion] = useState<Region | "ALL">("US");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
- const [colorMode, setColorMode] = useState<string>("serenity");
+ const [colorMode, setColorMode] = useState<string>("heat");
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
 
@@ -225,7 +226,7 @@ export default function PulseClient({
               {currentInd.name} · 脉冲热力图
             </h1>
  <p className="mt-1 text-xs sm:text-sm text-muted">
-              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(综合 / 大师 / 分歧 · 真实判读,无 mock)
+              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(短期热度 / 综合 / 大师 / 分歧)
             </p>
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">

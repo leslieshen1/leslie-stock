@@ -1,13 +1,6 @@
 import Link from "next/link";
 import type { UsPanel, Stance } from "@/lib/us-panel";
-
-const MASTERS: { key: keyof UsPanel["panel"]; name: string; tag: string }[] = [
-  { key: "buffett", name: "巴菲特", tag: "价值 · 护城河" },
-  { key: "duan", name: "段永平", tag: "价值 · 商业模式" },
-  { key: "serenity", name: "Serenity", tag: "alpha · 供应链瓶颈" },
-  { key: "druckenmiller", name: "德鲁肯米勒", tag: "alpha · 宏观流动性" },
-  { key: "sentiment", name: "情绪资金面", tag: "盘口 · 资金流" },
-];
+import { MASTERS } from "@/lib/masters";
 
 function scoreColor(s: number): string {
   if (s >= 70) return "text-up";
@@ -22,13 +15,13 @@ function scoreBar(s: number): string {
   return "bg-down";
 }
 
-function StanceCard({ name, tag, st }: { name: string; tag: string; st: Stance }) {
+function StanceCard({ name, school, st }: { name: string; school: string; st: Stance }) {
   return (
     <div className="rounded-xl border border-line bg-surface p-4">
       <div className="mb-2 flex items-baseline justify-between gap-2">
         <div>
           <span className="text-sm font-semibold text-ink">{name}</span>
-          <span className="ml-2 text-[10px] text-faint">{tag}</span>
+          <span className="ml-2 text-[10px] text-faint">{school}</span>
         </div>
         <span className={`font-mono text-lg font-semibold tabular-nums ${scoreColor(st.score)}`}>{st.score}</span>
       </div>
@@ -40,6 +33,21 @@ function StanceCard({ name, tag, st }: { name: string; tag: string; st: Stance }
       </div>
       <p className="mt-2 text-sm font-medium leading-snug text-ink">{st.judgment}</p>
       <p className="mt-1 text-xs leading-relaxed text-muted">{st.reasoning}</p>
+    </div>
+  );
+}
+
+function EmptyCard({ name, school }: { name: string; school: string }) {
+  return (
+    <div className="rounded-xl border border-dashed border-line-2 bg-base/30 p-4">
+      <div className="mb-2 flex items-baseline justify-between gap-2">
+        <div>
+          <span className="text-sm font-semibold text-muted">{name}</span>
+          <span className="ml-2 text-[10px] text-faint">{school}</span>
+        </div>
+        <span className="text-xs text-faint">未覆盖</span>
+      </div>
+      <p className="text-xs text-faint">这只票还没跑过{name}的判读。</p>
     </div>
   );
 }
@@ -61,18 +69,24 @@ function ChainChips({ syms }: { syms?: string[] }) {
   );
 }
 
-export default function FiveMasterPanel({ data }: { data: UsPanel }) {
+export default function MasterPanel({ data }: { data: UsPanel }) {
+  const covered = MASTERS.filter((m) => data.panel[m.key]).length;
   return (
     <section className="mb-8">
       <header className="mb-3 flex items-baseline gap-3">
-        <h2 className="text-lg font-semibold text-ink">五方独立判读</h2>
+        <h2 className="text-lg font-semibold text-ink">{covered} 方独立判读</h2>
         <span className="text-xs text-faint">各用各的标尺,可以互相打架——分歧本身是信号</span>
       </header>
 
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {MASTERS.map((m) => (
-          <StanceCard key={m.key} name={m.name} tag={m.tag} st={data.panel[m.key]} />
-        ))}
+        {MASTERS.map((m) => {
+          const st = data.panel[m.key];
+          return st ? (
+            <StanceCard key={m.key} name={m.name} school={m.school} st={st} />
+          ) : (
+            <EmptyCard key={m.key} name={m.name} school={m.school} />
+          );
+        })}
 
         {/* 产业链定位 */}
         <div className="rounded-xl border border-line bg-base/40 p-4">
@@ -97,7 +111,7 @@ export default function FiveMasterPanel({ data }: { data: UsPanel }) {
 
       {data.divergence && (
         <div className="mt-3 rounded-xl border border-accent/30 bg-accent-soft p-3">
-          <span className="text-xs font-semibold text-accent">⚖ 五方分歧　</span>
+          <span className="text-xs font-semibold text-accent">⚖ 分歧　</span>
           <span className="text-sm leading-relaxed text-ink">{data.divergence}</span>
         </div>
       )}

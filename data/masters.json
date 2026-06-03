@@ -1,0 +1,55 @@
+{
+  "_doc": "股神注册表 — 单一真相源。加一个股神 = 在 masters[] 加一条 + 写一份 skill SKILL.md + 后台按该 key 补跑(append 进每只票的 panel)。前端 web/src/lib/masters.ts 是其展示子集。order 决定面板/筛选里的排序。",
+  "masters": [
+    {
+      "key": "buffett",
+      "name": "巴菲特",
+      "school": "价值 · 护城河",
+      "group": "value",
+      "order": 1,
+      "skill": "skills/buffett/SKILL.md",
+      "verdicts": ["伟大生意·合理价买入", "伟大生意·太贵观察", "平庸生意·无宽护城河", "长期不可预测·避开", "价值陷阱·避开"],
+      "dimensions": ["护城河", "长期经济性可预测性", "管理层", "安全边际/价格"]
+    },
+    {
+      "key": "duan",
+      "name": "段永平",
+      "school": "价值 · 商业模式",
+      "group": "value",
+      "order": 2,
+      "skill": "skills/duan-yongping/SKILL.md",
+      "verdicts": ["顶级好生意·重仓", "好生意·等合理价", "商业模式一般·不值得", "文化不本分·避开"],
+      "dimensions": ["商业模式", "企业文化/本分", "十年确定性", "价格"]
+    },
+    {
+      "key": "serenity",
+      "name": "Serenity",
+      "school": "alpha · 供应链瓶颈",
+      "group": "alpha",
+      "order": 3,
+      "skill": "skills/serenity/SKILL.md",
+      "verdicts": ["high conviction", "worth watching", "crowded but valid", "not a bottleneck"],
+      "dimensions": ["瓶颈位置", "下游资本流", "错杀/小盘", "动量/资金"]
+    },
+    {
+      "key": "druckenmiller",
+      "name": "德鲁肯米勒",
+      "school": "alpha · 宏观流动性",
+      "group": "alpha",
+      "order": 4,
+      "skill": "skills/druckenmiller/SKILL.md",
+      "verdicts": ["顺风重仓", "趋势在·标准仓", "逆流·不碰", "趋势已转·砍或空"],
+      "dimensions": ["流动性/宏观顺风", "载体弹性", "边际变化/催化", "赔率不对称"]
+    },
+    {
+      "key": "sentiment",
+      "name": "情绪资金面",
+      "school": "盘口 · 资金流",
+      "group": "flow",
+      "order": 5,
+      "skill": "skills/sentiment-flow/SKILL.md",
+      "verdicts": ["情绪顺风·顺势", "冰点+资金进·反向埋伏", "过热拥挤·见顶警惕", "无情绪无资金·没戏"],
+      "dimensions": ["资金流向", "情绪位置", "催化/预期差", "拥挤度"]
+    }
+  ]
+}

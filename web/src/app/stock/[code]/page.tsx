@@ -5,7 +5,7 @@ import { loadDilutionFlags } from "@/lib/dilution";
 import { loadUsPanel } from "@/lib/us-panel";
 import StockDetailClient from "./StockDetailClient";
 import DilutionWarning from "./DilutionWarning";
-import FiveMasterPanel from "./FiveMasterPanel";
+import MasterPanel from "./MasterPanel";
 
 export default async function StockDetailPage({
   params,
@@ -61,7 +61,7 @@ export default async function StockDetailPage({
 
       {dilution && <DilutionWarning flag={dilution} />}
 
-      {usPanel && <FiveMasterPanel data={usPanel} />}
+      {usPanel && <MasterPanel data={usPanel} />}
 
       <StockDetailClient code={code} market={market} initial={initial} holders={holders} hasPanel={!!usPanel} />
     </main>

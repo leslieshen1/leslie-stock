@@ -7,13 +7,8 @@ export type UsPanel = {
   name?: string;
   mcapB?: number | null;
   sector?: string;
-  panel: {
-    buffett: Stance;
-    duan: Stance;
-    serenity: Stance;
-    druckenmiller: Stance;
-    sentiment: Stance;
-  };
+  // 开放式:masterKey → 该方判读。加股神=加一个 key,老数据缺哪方=显示"未覆盖"
+  panel: Record<string, Stance | undefined>;
   chain: {
     industry: string;
     layer: string;

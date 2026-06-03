@@ -31,6 +31,18 @@ async function loadSupplement(): Promise<SupplementItem[] | null> {
   }
 }
 
+type IndustryLayerDef = { id: string; name: string; summary?: string };
+type IndustryDef = { id: string; name: string; desc: string; layers: IndustryLayerDef[] };
+type IndustryMap = { industries: IndustryDef[]; placement: Record<string, Record<string, string>> };
+async function loadIndustryMap(): Promise<IndustryMap> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "industry-map.json");
+    return JSON.parse(await fs.readFile(p, "utf-8")) as IndustryMap;
+  } catch {
+    return { industries: [], placement: {} };
+  }
+}
+
 type PanelSummary = { order: string[]; generated_at?: string | null; stocks: Record<string, { sc: (number | null)[]; div: number }> };
 // 热力图真分源:US 五方 + A股 Serenity(scripts/build_pulse_scores.py 合成),取代 mock 评分
 async function loadPanelSummary(): Promise<PanelSummary> {
@@ -48,19 +60,24 @@ export default async function HomePage({
 }: {
   searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
-  const [snapshot, supplement, panelSummary] = await Promise.all([
+  const [snapshot, supplement, panelSummary, industryMap] = await Promise.all([
     loadSnapshot(),
     loadSupplement(),
     loadPanelSummary(),
+    loadIndustryMap(),
   ]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
   const items = mergeSupplement(baseItems, supplement);
 
-  // 真分只裁剪出热力图节点用到的(避免把 6886 条全塞进 client payload)
+  // 真分 + 产业链放置都只裁剪出热力图节点用到的(避免全量塞进 client payload)
   const nodeTickers = new Set(items.map((i) => i.ticker));
   const scopedScores: Record<string, { sc: (number | null)[]; div: number }> = {};
   for (const [k, v] of Object.entries(panelSummary.stocks)) {
     if (nodeTickers.has(k)) scopedScores[k] = v;
+  }
+  const scopedPlacement: Record<string, Record<string, string>> = {};
+  for (const [k, v] of Object.entries(industryMap.placement)) {
+    if (nodeTickers.has(k)) scopedPlacement[k] = v;
   }
   // 徽章口径:真正驱动上色的是"分析判读覆盖",不是旧价格快照
   const coveredCount = Object.keys(scopedScores).length;
@@ -95,6 +112,8 @@ export default async function HomePage({
         coveredCount={coveredCount}
         analyzedAtLabel={analyzedAtLabel}
         priceAgeLabel={generatedAt ? fmtAge(generatedAt) : null}
+        chainIndustries={industryMap.industries}
+        chainPlacement={scopedPlacement}
       />
 
  <footer className="mt-12 border-t border-line pt-8 text-center">

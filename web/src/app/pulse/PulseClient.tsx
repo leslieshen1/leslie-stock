@@ -53,6 +53,10 @@ function lensRampOf(lens: string): "heat" | "triple" {
   return LENS_BY_KEY[lens]?.ramp ?? "triple";
 }
 
+// ===== 产业链(数据驱动,来自 industry-map.json;AI 用 supply-chain 的 L0-L7)=====
+type ChainLayerDef = { id: string; name: string; summary?: string };
+type ChainDef = { id: string; name: string; desc: string; layers: ChainLayerDef[] };
+
 const REGIONS: { id: Region | "ALL"; label: string }[] = [
  { id: "ALL", label: "全部" },
  { id: "US", label: "美股" },
@@ -85,21 +89,25 @@ export default function PulseClient({
   coveredCount = 0,
   analyzedAtLabel = null,
   priceAgeLabel = null,
+  chainIndustries = [],
+  chainPlacement = {},
 }: {
   items: CompanyWithHeat[];
   trends?: Record<string, TrendPt[]>;
   liveCount?: number;
   generatedAtLabel?: string | null;
-  initialIndustry?: IndustryId;
+  initialIndustry?: string;
   initialHighlight?: string;
   panelSummary?: Record<string, { sc: (number | null)[]; div: number }>;
   masterOrder?: string[];
   coveredCount?: number;
   analyzedAtLabel?: string | null;
   priceAgeLabel?: string | null;
+  chainIndustries?: ChainDef[];
+  chainPlacement?: Record<string, Record<string, string>>;
 }) {
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
- const [industry, setIndustry] = useState<IndustryId>(initialIndustry ?? "AI");
+ const [industry, setIndustry] = useState<string>(initialIndustry ?? "AI");
  const [region, setRegion] = useState<Region | "ALL">("US");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
@@ -128,34 +136,38 @@ export default function PulseClient({
     [items, panelSummary, masterOrder],
   );
 
-  // 先按 industry 过滤（AI = 全部，其他 industry = 子集 + 重映射 layer 到该 industry 的层级体系）
-  const industryItems = useMemo(() => {
-    const f = filterByIndustry(itemsScored, industry);
-    return remapItemsForIndustry(f, industry);
-  }, [itemsScored, industry]);
+  // 产业 tab 定义:AI 用 supply-chain 的 L0-L7;其余链来自 industry-map(数据驱动)
+  const industryDefs = useMemo<ChainDef[]>(() => [
+    { id: "AI", name: "AI 产业链", desc: "L0 能源 → L7 端侧 · 8 层全景", layers: LAYERS.map((L) => ({ id: L.id, name: L.name })) },
+    ...chainIndustries,
+  ], [chainIndustries]);
 
-  // 每个 industry 的预计数量（用于按钮 badge）— 也用 remap 后数量，让 badge 反映实际产业链可见公司数
+  // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层
+  const industryItems = useMemo(() => {
+    if (industry === "AI") return itemsScored;
+    return itemsScored
+      .filter((c) => chainPlacement[c.ticker]?.[industry])
+      .map((c) => ({ ...c, layer: chainPlacement[c.ticker][industry] as typeof c.layer }));
+  }, [itemsScored, industry, chainPlacement]);
+
+  // 每个 industry 的数量（tab badge）
   const industryCounts = useMemo(() => {
-    const out: Record<string, number> = {};
-    for (const ind of INDUSTRIES) {
-      const f = filterByIndustry(itemsScored, ind.id);
-      out[ind.id] = remapItemsForIndustry(f, ind.id).length;
+    const out: Record<string, number> = { AI: itemsScored.length };
+    for (const def of industryDefs) {
+      if (def.id === "AI") continue;
+      out[def.id] = itemsScored.filter((c) => chainPlacement[c.ticker]?.[def.id]).length;
     }
     return out;
-  }, [itemsScored]);
+  }, [itemsScored, industryDefs, chainPlacement]);
 
-  // 当前 industry 的 layers（非 AI 用 industry-chains.ts 里定义的）
+  // 当前 industry 的 layers
   const activeLayers = useMemo(() => {
-    const ind = getLayersFor(industry);
-    if (ind) return ind.map((L) => ({ id: L.id, name: L.name }));
-    return LAYERS.map((L) => ({ id: L.id, name: L.name }));
-  }, [industry]);
+    const def = industryDefs.find((d) => d.id === industry) ?? industryDefs[0];
+    return def.layers.map((L) => ({ id: L.id, name: L.name }));
+  }, [industry, industryDefs]);
 
-  // 当前 industry 的 edges（hover 时显示上下游连线）
-  const activeEdges = useMemo(() => {
-    const ind = getEdgesFor(industry);
-    return ind ?? SUPPLY_EDGES;
-  }, [industry]);
+  // 当前 industry 的 edges（仅 AI 有策展上下游连线;数据驱动链暂无）
+  const activeEdges = useMemo(() => (industry === "AI" ? SUPPLY_EDGES : []), [industry]);
 
   const filtered = useMemo(() => {
     const t = HEAT_TIERS.find((x) => x.id === tier)!;
@@ -201,7 +213,7 @@ export default function PulseClient({
   const topHot = useMemo(() => ranked.slice(0, 8).map((x) => x.c), [ranked]);
   const topCold = useMemo(() => ranked.slice(-6).reverse().map((x) => x.c), [ranked]);
 
-  const currentInd = INDUSTRIES.find((x) => x.id === industry) ?? INDUSTRIES[0];
+  const currentInd = industryDefs.find((x) => x.id === industry) ?? industryDefs[0];
 
   return (
     <>
@@ -236,7 +248,7 @@ export default function PulseClient({
 
         {/* Industry Tabs — 手机横滑,桌面换行 */}
  <div className="flex flex-nowrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap items-center gap-2">
-          {INDUSTRIES.map((ind) => {
+          {industryDefs.map((ind) => {
             const active = industry === ind.id;
  const isPrimary = ind.id === "AI";
             const count = industryCounts[ind.id] ?? 0;

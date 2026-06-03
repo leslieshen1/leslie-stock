@@ -164,6 +164,14 @@ def classify_layer(layer_num, layer_label: str, thesis: str, name: str, default:
 
 
 US_ANALYSES = ROOT / "web" / "public" / "data" / "us-analyses.json"
+IMAP = ROOT / "web" / "public" / "data" / "industry-map.json"
+
+
+def load_placement() -> dict:
+    """industry-map.json 的 placement = 每只票属于哪些产业链(权威归类源)。"""
+    if not IMAP.exists():
+        return {}
+    return json.load(open(IMAP, encoding="utf-8")).get("placement", {})
 
 
 def composite_score(panel: dict):
@@ -172,8 +180,8 @@ def composite_score(panel: dict):
     return round(sum(vals) / len(vals)) if vals else None
 
 
-def build_us_entries(existing: set) -> list:
-    """把已五方分析、且属于某条产业链的美股补进热力图(银行/零售等不匹配的不进)。"""
+def build_us_entries(existing: set, placement: dict) -> list:
+    """把已五方分析、且属于某条产业链(industry-map)的美股补进热力图(银行/零售等不进)。"""
     if not US_ANALYSES.exists():
         return []
     data = json.load(open(US_ANALYSES, encoding="utf-8")).get("stocks", {})
@@ -181,11 +189,11 @@ def build_us_entries(existing: set) -> list:
     for sym, v in data.items():
         if sym in existing:
             continue
-        chain = v.get("chain") or {}
-        name = v.get("name", sym)
-        industries = classify_industries(name, chain.get("role", ""), chain.get("industry", ""), v.get("sector", ""))
+        industries = list(placement.get(sym, {}).keys())
         if not industries:
             continue  # 不属于任何链的美股(银行/零售…)→ 留在 List,不进产业链图
+        chain = v.get("chain") or {}
+        name = v.get("name", sym)
         tier = chain.get("layer", "")
         tier_l = "L1" if "上游" in tier else "L3" if "中游" in tier else "L5" if "下游" in tier else "L4"
         layer = classify_layer(None, "", f"{chain.get('industry','')} {chain.get('role','')}", name, default=tier_l)
@@ -213,7 +221,8 @@ def main():
         items = json.load(f)
 
     existing = existing_tickers()
-    print(f"现有 supply-chain.ts 中已有 {len(existing)} 个 ticker")
+    placement = load_placement()
+    print(f"现有 supply-chain.ts 中已有 {len(existing)} 个 ticker · industry-map 放置 {len(placement)} 只")
 
     # 过滤：score >= 50 且 verdict != not_aleabit_territory 且 ticker 不重复
     kept = []
@@ -232,13 +241,8 @@ def main():
             skipped_existing += 1
             continue
 
-        # 归类 industry
-        industries = classify_industries(
-            it.get("name", ""),
-            it.get("thesis", ""),
-            it.get("layer_label", ""),
-            it.get("sector", ""),
-        )
+        # 归类 industry(用 industry-map 的权威 placement —— 覆盖全部 8 条链)
+        industries = list(placement.get(code, {}).keys())
         if not industries:
             skipped_no_industry += 1
             continue
@@ -276,7 +280,7 @@ def main():
         })
 
     # 补美股(已五方 + 属于某条链)
-    us_entries = build_us_entries(existing | {k["ticker"] for k in kept})
+    us_entries = build_us_entries(existing | {k["ticker"] for k in kept}, placement)
     kept.extend(us_entries)
 
     print(f"\n过滤后：")

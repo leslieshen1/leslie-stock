@@ -24423,5 +24423,310 @@
   "_serenity_score": 45,
   "_verdict": "",
   "_thesis": "全球三大血浆分馏寡头之一，自营美国采血中心网络并将血浆分馏成 IG/白蛋白等终端药品"
+ },
+ {
+  "ticker": "LEGN",
+  "name": "Legend Biotech Corporation",
+  "layer": "L3",
+  "segment": "细胞疗法 / CAR-T 多发性骨髓瘤(BCMA 靶点)",
+  "region": "US",
+  "marketCapB": 6.7,
+  "moat": 3,
+  "valuationPct": 51,
+  "momentum20d": 51,
+  "rsi": 51,
+  "sentiment": 51,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 51,
+  "_verdict": "",
+  "_thesis": "研发并(与 J&J 五五分成)商业化同类最佳 BCMA CAR-T 疗法 Carvykti(cilta-cel),负责细胞工程与自体制造"
+ },
+ {
+  "ticker": "SYNA",
+  "name": "Synaptics Incorporated Common Stock $0.001 Par Value",
+  "layer": "L2",
+  "segment": "半导体 / 人机接口 + Edge AI 与 IoT 无线连接 SoC",
+  "region": "US",
+  "marketCapB": 5.6,
+  "moat": 3,
+  "valuationPct": 40,
+  "momentum20d": 40,
+  "rsi": 40,
+  "sentiment": 40,
+  "industries": [
+   "consumer"
+  ],
+  "_serenity_score": 40,
+  "_verdict": "",
+  "_thesis": "无晶圆芯片设计商，提供触控/显示驱动、指纹传感，以及边缘 AI 处理器与 Wi-Fi/蓝牙/Thread 连接性 SoC，卖给消费电子、PC、汽车与 IoT 设备厂商"
+ },
+ {
+  "ticker": "VCTR",
+  "name": "Victory Capital Holdings Inc. Class A",
+  "layer": "L5",
+  "segment": "资产管理 / 多精品店投资管理(主动管理 + ETF + 模型组合)",
+  "region": "US",
+  "marketCapB": 5.3,
+  "moat": 3,
+  "valuationPct": 51,
+  "momentum20d": 51,
+  "rsi": 51,
+  "sentiment": 51,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 51,
+  "_verdict": "",
+  "_thesis": "把多家投资精品店收入囊中、统一中后台并极致削减成本的资产管理控股平台,赚 AUM 管理费"
+ },
+ {
+  "ticker": "SEI",
+  "name": "Solaris Energy Infrastructure Inc. Class A",
+  "layer": "L0",
+  "segment": "AI数据中心电力 / 分布式移动发电(behind-the-meter powe",
+  "region": "US",
+  "marketCapB": 5.3,
+  "moat": 3,
+  "valuationPct": 54,
+  "momentum20d": 54,
+  "rsi": 54,
+  "sentiment": 54,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 54,
+  "_verdict": "",
+  "_thesis": "把可快速部署的移动燃气涡轮/发电机组租给等不及电网接入的数据中心与工业客户,卡在'发电设备'与'电力终端需求'之间提供即插即用的离网电力"
+ },
+ {
+  "ticker": "GNTX",
+  "name": "Gentex Corporation",
+  "layer": "L7",
+  "segment": "汽车电子/电致变色光学器件(auto-dimming mirror + dimm",
+  "region": "US",
+  "marketCapB": 5.3,
+  "moat": 4,
+  "valuationPct": 61,
+  "momentum20d": 61,
+  "rsi": 61,
+  "sentiment": 61,
+  "industries": [
+   "ev",
+   "consumer"
+  ],
+  "_serenity_score": 61,
+  "_verdict": "",
+  "_thesis": "Tier-1供应商:把电致变色玻璃、摄像头/传感和算法集成为自动调光后视镜、Full Display Mirror、HomeLink及调光天窗/舷窗,直供全球整车厂"
+ },
+ {
+  "ticker": "TKC",
+  "name": "Turkcell Iletisim Hizmetleri AS",
+  "layer": "L4",
+  "segment": "电信运营/新兴市场无线通信(土耳其旗舰移动+宽带+Paycell金融+数据中心)",
+  "region": "US",
+  "marketCapB": 5.2,
+  "moat": 3,
+  "valuationPct": 39,
+  "momentum20d": 39,
+  "rsi": 40,
+  "sentiment": 39,
+  "industries": [
+   "defense"
+  ],
+  "_serenity_score": 39,
+  "_verdict": "",
+  "_thesis": "土耳其最大移动网络运营商,买入设备/频谱、向消费者和企业卖移动/宽带/数字与金融服务,处在电信价值链的服务交付末端"
+ },
+ {
+  "ticker": "IRDM",
+  "name": "Iridium Communications Inc",
+  "layer": "L7",
+  "segment": "卫星通信 / Direct-to-Device(卫星直连手机)与全球 L 频段 ",
+  "region": "US",
+  "marketCapB": 5.2,
+  "moat": 3,
+  "valuationPct": 58,
+  "momentum20d": 58,
+  "rsi": 58,
+  "sentiment": 58,
+  "industries": [
+   "consumer"
+  ],
+  "_serenity_score": 58,
+  "_verdict": "",
+  "_thesis": "自建并运营全球唯一覆盖两极的 66 星 LEO 星座,卖语音/数据/IoT 连接服务,并向运营商与设备商授权 D2D(NB-IoT NTN)接入"
+ },
+ {
+  "ticker": "HASI",
+  "name": "HA Sustainable Infrastructure Capital Inc.",
+  "layer": "L5",
+  "segment": "清洁能源 / 可持续基础设施融资(能源转型 capex 的资本供给侧)",
+  "region": "US",
+  "marketCapB": 5.2,
+  "moat": 3,
+  "valuationPct": 43,
+  "momentum20d": 43,
+  "rsi": 43,
+  "sentiment": 43,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 43,
+  "_verdict": "",
+  "_thesis": "给行为节能、并网风光储、RNG 等清洁能源项目做结构化融资与共同投资、再通过证券化退出赚利差与费用的专业金主"
+ },
+ {
+  "ticker": "RITM",
+  "name": "Rithm Capital Corp.",
+  "layer": "L3",
+  "segment": "按揭金融/特殊金融 + 另类资产管理(MSR、住房信贷、bridge lendi",
+  "region": "US",
+  "marketCapB": 5.2,
+  "moat": 3,
+  "valuationPct": 45,
+  "momentum20d": 45,
+  "rsi": 45,
+  "sentiment": 45,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 45,
+  "_verdict": "",
+  "_thesis": "通过 Newrez 做美国前五的按揭发起与服务、持有巨额 MSR 资产负债表,并经 Sculptor/Genesis 向收费型另类资管转型的混合型金融控股"
+ },
+ {
+  "ticker": "FLNC",
+  "name": "Fluence Energy Inc. Class A",
+  "layer": "L0",
+  "segment": "电网级储能(BESS)/ AI数据中心供电 / 电气化",
+  "region": "US",
+  "marketCapB": 5.1,
+  "moat": 3,
+  "valuationPct": 49,
+  "momentum20d": 49,
+  "rsi": 49,
+  "sentiment": 49,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 49,
+  "_verdict": "",
+  "_thesis": "把上游LFP电芯+PCS集成为集装箱式储能系统,叠加Fluence OS/Mosaic软件卖给公用事业与电网开发商的系统集成商"
+ },
+ {
+  "ticker": "ACHR",
+  "name": "Archer Aviation Inc. Class A",
+  "layer": "L5",
+  "segment": "eVTOL / 城市空中交通 (UAM) + 低空经济 + 国防无人系统",
+  "region": "US",
+  "marketCapB": 5.1,
+  "moat": 3,
+  "valuationPct": 35,
+  "momentum20d": 35,
+  "rsi": 40,
+  "sentiment": 35,
+  "industries": [
+   "defense"
+  ],
+  "_serenity_score": 35,
+  "_verdict": "",
+  "_thesis": "eVTOL 整机厂:设计并力图量产 Midnight 载人电动垂直起降飞行器,运营空中出租与防务平台,处在航空电动化产业链的终端总装/品牌环节"
+ },
+ {
+  "ticker": "VSEC",
+  "name": "VSE Corporation",
+  "layer": "L3",
+  "segment": "航空售后市场(aftermarket):零件分销 + MRO 维修大修",
+  "region": "US",
+  "marketCapB": 5.1,
+  "moat": 3,
+  "valuationPct": 56,
+  "momentum20d": 56,
+  "rsi": 56,
+  "sentiment": 56,
+  "industries": [
+   "defense"
+  ],
+  "_serenity_score": 56,
+  "_verdict": "",
+  "_thesis": "把OEM航空零件(发动机/机体)做独家授权分销并提供MRO服务,服务公务机/通航及商用机队的售后维修需求"
+ },
+ {
+  "ticker": "CRSP",
+  "name": "CRISPR Therapeutics AG",
+  "layer": "L5",
+  "segment": "基因编辑/细胞与基因疗法(CRISPR gene editing)",
+  "region": "US",
+  "marketCapB": 5.0,
+  "moat": 3,
+  "valuationPct": 37,
+  "momentum20d": 37,
+  "rsi": 40,
+  "sentiment": 37,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 37,
+  "_verdict": "",
+  "_thesis": "用 CRISPR/Cas9 开发并(与 Vertex 合作)商业化终端基因疗法(Casgevy 镰刀型贫血/β-地贫),并推进 CAR-T 与 in vivo 心血管管线的终端药企"
+ },
+ {
+  "ticker": "PRM",
+  "name": "Perimeter Solutions SA",
+  "layer": "L3",
+  "segment": "山火抑制/航空灭火剂 + 润滑油添加剂(P2S5);气候灾害防护主题",
+  "region": "US",
+  "marketCapB": 5.0,
+  "moat": 4,
+  "valuationPct": 61,
+  "momentum20d": 61,
+  "rsi": 61,
+  "sentiment": 61,
+  "industries": [
+   "defense"
+  ],
+  "_serenity_score": 61,
+  "_verdict": "",
+  "_thesis": "把磷化工原料配方成 Phos-Chek 阻燃剂与 P2S5 添加剂,供给政府航空消防与下游润滑油客户,卡在认证+配方的窄口上"
+ },
+ {
+  "ticker": "OMAB",
+  "name": "Grupo Aeroportuario del Centro Norte S.A.B. de C.V. ADS",
+  "layer": "L5",
+  "segment": "墨西哥机场基础设施 / nearshoring 近岸外包客流",
+  "region": "US",
+  "marketCapB": 5.0,
+  "moat": 4,
+  "valuationPct": 61,
+  "momentum20d": 61,
+  "rsi": 61,
+  "sentiment": 61,
+  "industries": [
+   "defense"
+  ],
+  "_serenity_score": 61,
+  "_verdict": "",
+  "_thesis": "持联邦特许经营、运营墨西哥北中部13座机场(蒙特雷为核心)的区域垄断航空+商业地产运营商"
+ },
+ {
+  "ticker": "CWEN",
+  "name": "Clearway Energy Inc. Class C",
+  "layer": "L0",
+  "segment": "清洁能源/合约化发电 yieldco(风电+光伏+储能+部分燃气,长约PPA现金",
+  "region": "US",
+  "marketCapB": 5.0,
+  "moat": 3,
+  "valuationPct": 43,
+  "momentum20d": 43,
+  "rsi": 43,
+  "sentiment": 43,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 43,
+  "_verdict": "",
+  "_thesis": "买入已签长期购电协议的风/光/储发电资产并持有运营,把稳定合约现金流打包成高股息分配给股东的收益型平台"
  }
 ]

@@ -2,8 +2,10 @@ import Link from "next/link";
 import { loadAnalysis } from "@/lib/data";
 import { getStockHolders } from "@/lib/whales";
 import { loadDilutionFlags } from "@/lib/dilution";
+import { loadUsPanel } from "@/lib/us-panel";
 import StockDetailClient from "./StockDetailClient";
 import DilutionWarning from "./DilutionWarning";
+import FiveMasterPanel from "./FiveMasterPanel";
 
 export default async function StockDetailPage({
   params,
@@ -22,6 +24,7 @@ export default async function StockDetailPage({
   const initial = loadAnalysis(code, market);
   const holders = getStockHolders(code);
   const dilution = market === "us" ? loadDilutionFlags()[code.toUpperCase()] : undefined;
+  const usPanel = market === "us" ? loadUsPanel(code) : null;
 
  const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
   const marketTone =
@@ -56,6 +59,8 @@ export default async function StockDetailPage({
       </header>
 
       {dilution && <DilutionWarning flag={dilution} />}
+
+      {usPanel && <FiveMasterPanel data={usPanel} />}
 
       <StockDetailClient code={code} market={market} initial={initial} holders={holders} />
     </main>

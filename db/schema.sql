@@ -204,3 +204,16 @@ SELECT
 FROM stocks s
 LEFT JOIN v_latest_analysis a
     ON s.id = a.stock_id AND a.framework = 'serenity';
+
+-- ============================================================
+-- 美股侧(SoT)。前端 us-stocks / us-analyses / dilution-flags 全部由此派生。
+-- us_analyses / dilution 整条 entry 存 JSON(保真 panel/chain,前端结构不变)。
+-- ============================================================
+CREATE TABLE IF NOT EXISTS us_market (
+    sym TEXT PRIMARY KEY,
+    name TEXT, price REAL, pct REAL, mcapB REAL,
+    sector TEXT, industry TEXT, vol REAL, country TEXT
+);
+CREATE TABLE IF NOT EXISTS us_analyses (sym TEXT PRIMARY KEY, data TEXT);
+CREATE TABLE IF NOT EXISTS dilution (sym TEXT PRIMARY KEY, data TEXT);
+CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT);

@@ -124,12 +124,32 @@ def main():
     # 按市值降序(无市值沉底)
     stocks.sort(key=lambda x: x["mcapB"] or 0, reverse=True)
 
+    gen = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-        "count": len(stocks),
-        "stocks": stocks,
+        "generated_at": gen, "count": len(stocks), "stocks": stocks,
     }, ensure_ascii=False), encoding="utf-8")
+
+    # 写入 SoT 库(leslie.db)—— refresh/build_json 之后从库派生 us-stocks.json
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(ROOT))
+        from db import connect, init_schema
+        init_schema()
+        c = connect()
+        c.executemany(
+            """INSERT INTO us_market(sym,name,price,pct,mcapB,sector,industry,vol,country)
+               VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(sym) DO UPDATE SET
+               name=excluded.name,price=excluded.price,pct=excluded.pct,mcapB=excluded.mcapB,
+               sector=excluded.sector,industry=excluded.industry,vol=excluded.vol,country=excluded.country""",
+            [(s.get("sym"), s.get("name"), s.get("price"), s.get("pct"), s.get("mcapB"),
+              s.get("sector"), s.get("industry"), s.get("vol"), s.get("country")) for s in stocks])
+        c.execute("INSERT INTO meta(key,value) VALUES('us_market_generated_at',?) "
+                  "ON CONFLICT(key) DO UPDATE SET value=excluded.value", (gen,))
+        c.commit()
+        print(f"   ↳ 入库 leslie.db.us_market: {len(stocks)}")
+    except Exception as e:
+        print(f"   ↳ 入库跳过: {e}")
 
     sectors = {}
     for s in stocks:

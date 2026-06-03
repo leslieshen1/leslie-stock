@@ -48,3 +48,7 @@ logs/
 
 # 旧分析归档(canonical 在 data/analyses/,已跟踪)
 /data/analyses_v1/
+
+# SQLite WAL 临时文件
+data/*.db-wal
+data/*.db-shm

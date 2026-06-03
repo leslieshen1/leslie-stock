@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import type { AleabitManifestEntry } from "@/lib/data";
 import { type DilutionFlag, dilutionMagnitude } from "@/lib/dilution-types";
 import { useWatchlist } from "@/lib/useWatchlist";
+import { MASTERS } from "@/lib/masters";
 
 const VERDICTS = [
  { key: "high_conviction", label: " High Conviction", short: "H. Conv." },
@@ -38,12 +39,19 @@ export type UsStock = {
   country: string;
 };
 
+// scan 用的轻量五方摘要(build_panel_summary.py 生成)。sc 按 order 顺序,缺为 null;div=max-min 分歧度
+export type UsPanelSummary = {
+  order: string[];
+  stocks: Record<string, { sc: (number | null)[]; div: number }>;
+};
+
 export default function ScanClient() {
   const [market, setMarket] = useState<"a" | "us">("us");
   // 数据客户端按需 fetch(静态 JSON,浏览器会缓存),避免 SSR 把 4MB 塞进 HTML
   const [items, setItems] = useState<AleabitManifestEntry[]>([]);
   const [usStocks, setUsStocks] = useState<UsStock[]>([]);
   const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
+  const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     let alive = true;
@@ -51,11 +59,13 @@ export default function ScanClient() {
       fetch("/data/aleabit_manifest.json").then((r) => r.json()).catch(() => []),
       fetch("/data/us-stocks.json").then((r) => r.json()).then((j) => j.stocks || j).catch(() => []),
       fetch("/data/dilution-flags.json").then((r) => r.json()).then((j) => j.flags || {}).catch(() => ({})),
-    ]).then(([a, u, d]) => {
+      fetch("/data/us-panel-summary.json").then((r) => r.json()).catch(() => ({ order: [], stocks: {} })),
+    ]).then(([a, u, d, p]) => {
       if (!alive) return;
       setItems(a as AleabitManifestEntry[]);
       setUsStocks(u as UsStock[]);
       setDilutionFlags(d as Record<string, DilutionFlag>);
+      setUsPanels(p as UsPanelSummary);
       setLoading(false);
     });
     return () => { alive = false; };
@@ -162,7 +172,7 @@ export default function ScanClient() {
       )}
 
       {market === "us" ? (
-        <UsScanView stocks={usStocks} flags={dilutionFlags} />
+        <UsScanView stocks={usStocks} flags={dilutionFlags} panels={usPanels} />
       ) : (
       <>
       {/* 顶部统计 */}
@@ -337,8 +347,32 @@ export default function ScanClient() {
 // 美股全市场视图（市值 / 动量,不走 Serenity 评分）
 // ============================================================
 
-type UsSortCol = "name" | "price" | "pct" | "mcap" | "vol";
+type UsSortCol = "name" | "price" | "pct" | "mcap" | "vol" | "div";
 const US_PAGE_SIZE = 50;
+
+const MASTER_NAME: Record<string, string> = Object.fromEntries(MASTERS.map((m) => [m.key, m.name]));
+function dotColor(s: number | null | undefined): string {
+  if (s == null) return "bg-line/60";
+  if (s >= 70) return "bg-up";
+  if (s >= 55) return "bg-accent";
+  if (s >= 40) return "bg-muted";
+  return "bg-down";
+}
+// 五方小圆点:每点=一位大师的评分(绿≥70/橙≥55/灰≥40/红<40,空=未判读)
+function MasterDots({ sum, order }: { sum?: { sc: (number | null)[]; div: number }; order: string[] }) {
+  if (!sum || !sum.sc?.some((x) => x != null)) return <span className="text-xs text-faint">—</span>;
+  return (
+    <span className="inline-flex items-center gap-[3px] align-middle" title={`五方分歧 ${sum.div}`}>
+      {sum.sc.map((s, i) => (
+        <span
+          key={i}
+          title={`${MASTER_NAME[order[i]] ?? order[i]}: ${s ?? "—"}`}
+          className={`inline-block h-2 w-2 rounded-full ${dotColor(s)}`}
+        />
+      ))}
+    </span>
+  );
+}
 
 function fmtCap(b: number | null): string {
   if (b == null) return "—";
@@ -354,21 +388,28 @@ function fmtVol(v: number | null): string {
   return String(v);
 }
 
-function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string, DilutionFlag> }) {
+function UsScanView({ stocks, flags, panels }: { stocks: UsStock[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary }) {
   const router = useRouter();
   const { has, toggle } = useWatchlist();
   const [search, setSearch] = useState("");
   const [sectorSet, setSectorSet] = useState<Set<string>>(new Set());
   const [capTier, setCapTier] = useState<"all" | "large" | "mid" | "small">("all");
   const [dilu, setDilu] = useState<"all" | "only" | "hide">("all");
+  const [panelF, setPanelF] = useState<"all" | "covered" | "diverge">("all");
   const [sortCol, setSortCol] = useState<UsSortCol>("mcap");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [page, setPage] = useState(0);
 
   const flagCount = Object.keys(flags).length;
+  const order = panels.order.length ? panels.order : MASTERS.map((m) => m.key);
+  const coveredCount = useMemo(() => stocks.filter((s) => panels.stocks[s.sym]).length, [stocks, panels]);
+  const divergeCount = useMemo(
+    () => stocks.filter((s) => (panels.stocks[s.sym]?.div ?? 0) >= 40).length,
+    [stocks, panels]
+  );
 
   // 任何筛选 / 排序变化 → 回第一页
-  useEffect(() => { setPage(0); }, [search, sectorSet, capTier, dilu, sortCol, sortDir]);
+  useEffect(() => { setPage(0); }, [search, sectorSet, capTier, dilu, panelF, sortCol, sortDir]);
 
   const sectors = useMemo(() => {
     const freq = new Map<string, number>();
@@ -391,6 +432,8 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
     }
     if (dilu === "only") r = r.filter((s) => flags[s.sym]);
     else if (dilu === "hide") r = r.filter((s) => !flags[s.sym]);
+    if (panelF === "covered") r = r.filter((s) => panels.stocks[s.sym]);
+    else if (panelF === "diverge") r = r.filter((s) => (panels.stocks[s.sym]?.div ?? 0) >= 40);
     if (search.trim()) {
       const q = search.trim().toLowerCase();
       r = r.filter(
@@ -403,11 +446,13 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
     const dir = sortDir === "asc" ? 1 : -1;
     return [...r].sort((a, b) => {
       if (sortCol === "name") return a.name.localeCompare(b.name) * dir;
+      if (sortCol === "div")
+        return ((panels.stocks[a.sym]?.div ?? -1) - (panels.stocks[b.sym]?.div ?? -1)) * dir;
       const av = sortCol === "price" ? a.price : sortCol === "pct" ? a.pct : sortCol === "vol" ? a.vol : a.mcapB;
       const bv = sortCol === "price" ? b.price : sortCol === "pct" ? b.pct : sortCol === "vol" ? b.vol : b.mcapB;
       return ((av ?? -Infinity) - (bv ?? -Infinity)) * dir;
     });
-  }, [stocks, sectorSet, capTier, dilu, flags, search, sortCol, sortDir]);
+  }, [stocks, sectorSet, capTier, dilu, panelF, panels, flags, search, sortCol, sortDir]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / US_PAGE_SIZE));
   const safePage = Math.min(page, totalPages - 1);
@@ -501,6 +546,25 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
           </div>
         )}
 
+        {/* 五方独立判读 / 分歧 */}
+        {coveredCount > 0 && (
+          <div className="mb-2 flex flex-wrap items-center gap-1.5">
+            <span className="mr-1 text-xs text-accent">⬡ 五方判读:</span>
+            {([["all", "全部"], ["covered", `已判读(${coveredCount})`], ["diverge", `分歧大(${divergeCount})`]] as const).map(([k, label]) => (
+              <button
+                key={k}
+                onClick={() => setPanelF(k)}
+                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+                  panelF === k ? "bg-accent text-black" : "bg-surface-2 text-muted hover:bg-line"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+            <span className="text-[10px] text-faint">分歧 = 5 位大师评分极差,越大说明"该不该买"本身就有争议;点列头「五方」按分歧排序</span>
+          </div>
+        )}
+
         {/* 市值档 */}
  <div className="mb-2 flex flex-wrap items-center gap-1.5">
  <span className="mr-1 text-xs text-muted">市值:</span>
@@ -547,6 +611,7 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
  <Th col="price" label="价格" className="text-right" />
  <Th col="pct" label="涨跌%" className="text-right" />
  <Th col="mcap" label="市值" className="text-right" />
+ <Th col="div" label="五方" className="text-center" />
  <Th col="vol" label="成交量" className="hidden text-right sm:table-cell" />
  <th className="hidden px-3 py-2 font-medium text-muted md:table-cell">行业</th>
  <th className="px-2 py-2"></th>
@@ -579,6 +644,7 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
                     {s.pct != null ? `${isUp ? "+" : ""}${s.pct.toFixed(2)}%` : "—"}
                   </td>
  <td className="px-3 py-2 text-right font-mono tabular-nums text-muted">{fmtCap(s.mcapB)}</td>
+ <td className="px-3 py-2 text-center"><MasterDots sum={panels.stocks[s.sym]} order={order} /></td>
  <td className="hidden px-3 py-2 text-right font-mono tabular-nums text-muted sm:table-cell">{fmtVol(s.vol)}</td>
  <td className="hidden max-w-[200px] truncate px-3 py-2 text-xs text-muted md:table-cell">{s.industry || s.sector}</td>
  <td className="px-2 py-2">
@@ -601,7 +667,7 @@ function UsScanView({ stocks, flags }: { stocks: UsStock[]; flags: Record<string
               );
             })}
             {pageItems.length === 0 && (
-              <tr><td colSpan={8} className="py-12 text-center text-sm text-faint">没有符合条件的股票</td></tr>
+              <tr><td colSpan={9} className="py-12 text-center text-sm text-faint">没有符合条件的股票</td></tr>
             )}
           </tbody>
         </table>

@@ -37,6 +37,9 @@ def main():
                 subprocess.run([sys.executable, str(ROOT / "scripts" / "ingest_one_master.py"), out, master])
             else:
                 subprocess.run([sys.executable, str(ROOT / "scripts" / "ingest_us_panel.py"), out])
+    # 入库后刷新 scan 用的五方摘要(圆点/分歧列读它)
+    if outs:
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "build_panel_summary.py")])
 
     us = json.load(open(US, encoding="utf-8"))["stocks"]
     dbs = json.load(open(DB, encoding="utf-8"))["stocks"] if DB.exists() else {}

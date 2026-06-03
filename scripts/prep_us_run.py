@@ -43,6 +43,7 @@ def main():
         subprocess.run([sys.executable, str(ROOT / "scripts" / "build_pulse_scores.py")])
         subprocess.run([sys.executable, str(ROOT / "scripts" / "build_industry_map.py")])
         subprocess.run([sys.executable, str(ROOT / "scripts" / "build_pulse_supplement.py")])
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "build_us_heat.py")])
 
     us = json.load(open(US, encoding="utf-8"))["stocks"]
     dbs = json.load(open(DB, encoding="utf-8"))["stocks"] if DB.exists() else {}

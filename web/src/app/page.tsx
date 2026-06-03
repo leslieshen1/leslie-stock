@@ -43,6 +43,16 @@ async function loadIndustryMap(): Promise<IndustryMap> {
   }
 }
 
+type UsHeat = { generated_at?: string | null; stocks: Record<string, number> };
+async function loadUsHeat(): Promise<UsHeat> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "us-heat.json");
+    return JSON.parse(await fs.readFile(p, "utf-8")) as UsHeat;
+  } catch {
+    return { stocks: {} };
+  }
+}
+
 type PanelSummary = { order: string[]; generated_at?: string | null; stocks: Record<string, { sc: (number | null)[]; div: number }> };
 // 热力图真分源:US 五方 + A股 Serenity(scripts/build_pulse_scores.py 合成),取代 mock 评分
 async function loadPanelSummary(): Promise<PanelSummary> {
@@ -60,14 +70,18 @@ export default async function HomePage({
 }: {
   searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
-  const [snapshot, supplement, panelSummary, industryMap] = await Promise.all([
+  const [snapshot, supplement, panelSummary, industryMap, usHeat] = await Promise.all([
     loadSnapshot(),
     loadSupplement(),
     loadPanelSummary(),
     loadIndustryMap(),
+    loadUsHeat(),
   ]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
-  const items = mergeSupplement(baseItems, supplement);
+  // 短期热度:用最新 us-stocks 行情(6104 只今日)覆盖美股节点 heat,取代 7天前119只旧快照
+  const items = mergeSupplement(baseItems, supplement).map((it) =>
+    usHeat.stocks[it.ticker] != null ? { ...it, heat: usHeat.stocks[it.ticker] } : it
+  );
 
   // 真分 + 产业链放置都只裁剪出热力图节点用到的(避免全量塞进 client payload)
   const nodeTickers = new Set(items.map((i) => i.ticker));
@@ -82,6 +96,10 @@ export default async function HomePage({
   // 徽章口径:真正驱动上色的是"分析判读覆盖",不是旧价格快照
   const coveredCount = Object.keys(scopedScores).length;
   const analyzedAtLabel = panelSummary.generated_at ? fmtAge(panelSummary.generated_at) : null;
+  // 短期热度行情的新鲜度(us-stocks 生成时间,格式 "YYYY-MM-DD HH:mm UTC")
+  const heatAge = usHeat.generated_at
+    ? fmtAge(usHeat.generated_at.replace(" UTC", "Z").replace(" ", "T"))
+    : null;
  const liveCount = items.filter((i) => i.dataSource === "live").length;
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
   const generatedAt = snapshot?.generated_at ?? null;
@@ -111,7 +129,7 @@ export default async function HomePage({
         masterOrder={panelSummary.order}
         coveredCount={coveredCount}
         analyzedAtLabel={analyzedAtLabel}
-        priceAgeLabel={generatedAt ? fmtAge(generatedAt) : null}
+        priceAgeLabel={heatAge}
         chainIndustries={industryMap.industries}
         chainPlacement={scopedPlacement}
       />

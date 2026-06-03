@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { UsPanel, Stance } from "@/lib/us-panel";
 import { MASTERS } from "@/lib/masters";
+import MasterRadar from "./MasterRadar";
 
 function scoreColor(s: number): string {
   if (s >= 70) return "text-up";
@@ -78,6 +79,25 @@ export default function MasterPanel({ data }: { data: UsPanel }) {
         <span className="text-xs text-faint">各用各的标尺,可以互相打架——分歧本身是信号</span>
       </header>
 
+      {/* 雷达图 hero:5 方评分即 5 维,形状本身就是分歧 */}
+      <div className="mb-4 flex flex-col items-center gap-2 rounded-2xl border border-line bg-base/40 p-4 sm:flex-row sm:gap-5">
+        <div className="shrink-0">
+          <MasterRadar panel={data.panel} />
+        </div>
+        <div className="flex-1 self-stretch sm:border-l sm:border-line sm:pl-5">
+          {data.divergence ? (
+            <>
+              <div className="text-xs font-semibold text-accent">⚖ 他们在哪儿打架</div>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink">{data.divergence}</p>
+            </>
+          ) : (
+            <p className="text-sm leading-relaxed text-muted">
+              离中心越远 = 那一方越看好;形状越尖、越不规则 = 分歧越大。饱满的五边形才是全员共识。
+            </p>
+          )}
+        </div>
+      </div>
+
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {MASTERS.map((m) => {
           const st = data.panel[m.key];
@@ -109,12 +129,6 @@ export default function MasterPanel({ data }: { data: UsPanel }) {
         </div>
       </div>
 
-      {data.divergence && (
-        <div className="mt-3 rounded-xl border border-accent/30 bg-accent-soft p-3">
-          <span className="text-xs font-semibold text-accent">⚖ 分歧　</span>
-          <span className="text-sm leading-relaxed text-ink">{data.divergence}</span>
-        </div>
-      )}
     </section>
   );
 }

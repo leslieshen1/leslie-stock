@@ -21,10 +21,11 @@ export default async function StockDetailPage({
  | "a"
  | "hk"
  | "us";
-  const initial = loadAnalysis(code, market);
+  const usPanel = market === "us" ? loadUsPanel(code) : null;
+  // 有五方面板时,旧的单一框架深度分析(MU/CRCL/CBRS)退场,不再并存矛盾
+  const initial = usPanel ? null : loadAnalysis(code, market);
   const holders = getStockHolders(code);
   const dilution = market === "us" ? loadDilutionFlags()[code.toUpperCase()] : undefined;
-  const usPanel = market === "us" ? loadUsPanel(code) : null;
 
  const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
   const marketTone =
@@ -62,7 +63,7 @@ export default async function StockDetailPage({
 
       {usPanel && <FiveMasterPanel data={usPanel} />}
 
-      <StockDetailClient code={code} market={market} initial={initial} holders={holders} />
+      <StockDetailClient code={code} market={market} initial={initial} holders={holders} hasPanel={!!usPanel} />
     </main>
   );
 }

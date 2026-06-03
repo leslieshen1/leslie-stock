@@ -42,9 +42,10 @@ type Props = {
  market: "a" | "hk" | "us";
   initial: Analysis | null;
   holders?: TickerHolder[];
+  hasPanel?: boolean;
 };
 
-export default function StockDetailClient({ code, market, initial, holders = [] }: Props) {
+export default function StockDetailClient({ code, market, initial, holders = [], hasPanel = false }: Props) {
   const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
 
   if (!initial) {
@@ -71,9 +72,11 @@ export default function StockDetailClient({ code, market, initial, holders = [] 
     return (
       <div className="space-y-8">
         <section className="rounded-2xl border border-line bg-surface p-8 text-center">
-          <p className="mb-1.5 text-base font-medium text-ink">暂无深度分析</p>
+          <p className="mb-1.5 text-base font-medium text-ink">{hasPanel ? "外部资料 & 持仓" : "暂无深度分析"}</p>
           <p className="mx-auto mb-6 max-w-md text-sm leading-relaxed text-muted">
-            深度分析目前重点覆盖 A 股，{marketLabel}标的还在排队。先去这些地方看行情与基本面：
+            {hasPanel
+              ? "五方独立判读见上。也可以去这些地方核对行情与基本面:"
+              : `深度分析目前重点覆盖 A 股，${marketLabel}标的还在排队。先去这些地方看行情与基本面：`}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {links.map((l) => (

@@ -1,5 +1,5 @@
 {
-  "_doc": "股神注册表 — 单一真相源。加一个股神 = 在 masters[] 加一条 + 写一份 skill SKILL.md + 后台按该 key 补跑(append 进每只票的 panel)。前端 web/src/lib/masters.ts 是其展示子集。order 决定面板/筛选里的排序。",
+  "_doc": "股神注册表 — 单一真相源。加一个股神 = 在 masters[] 加一条(含 prompt)+ 写一份 skill SKILL.md + 后台用 scripts/us_one_master.workflow.js 按该 key 补跑(append 进每只票的 panel,不重跑别人)+ ingest_one_master.py 合并。前端 web/src/lib/masters.ts 是其展示子集。order 决定排序。",
   "masters": [
     {
       "key": "buffett",
@@ -9,7 +9,8 @@
       "order": 1,
       "skill": "skills/buffett/SKILL.md",
       "verdicts": ["伟大生意·合理价买入", "伟大生意·太贵观察", "平庸生意·无宽护城河", "长期不可预测·避开", "价值陷阱·避开"],
-      "dimensions": ["护城河", "长期经济性可预测性", "管理层", "安全边际/价格"]
+      "dimensions": ["护城河", "长期经济性可预测性", "管理层", "安全边际/价格"],
+      "prompt": "用沃伦·巴菲特的视角:只在乎持久护城河(品牌/转换成本/网络/成本/规模)、owner earnings、长期经济性可不可预测、管理层是否理性坦诚、以及相对内在价值的安全边际。看懂之后判断这门生意有没有宽护城河、值不值合理价;贵=再好也只观察;本质不可预测=避开。不谈短期催化/宏观。"
     },
     {
       "key": "duan",
@@ -19,7 +20,8 @@
       "order": 2,
       "skill": "skills/duan-yongping/SKILL.md",
       "verdicts": ["顶级好生意·重仓", "好生意·等合理价", "商业模式一般·不值得", "文化不本分·避开"],
-      "dimensions": ["商业模式", "企业文化/本分", "十年确定性", "价格"]
+      "dimensions": ["商业模式", "企业文化/本分", "十年确定性", "价格"],
+      "prompt": "用段永平的视角:最看商业模式(定价权/可持续/十年存续)和企业文化(本分),价格最不重要。看懂之后诚实判断这是不是一门十年好生意、文化本不本分;顶级好生意才重仓,模式差再便宜也不要,文化不本分一票否决。不画 DCF、不预测宏观、不说看不懂。"
     },
     {
       "key": "serenity",
@@ -29,7 +31,8 @@
       "order": 3,
       "skill": "skills/serenity/SKILL.md",
       "verdicts": ["high conviction", "worth watching", "crowded but valid", "not a bottleneck"],
-      "dimensions": ["瓶颈位置", "下游资本流", "错杀/小盘", "动量/资金"]
+      "dimensions": ["瓶颈位置", "下游资本流", "错杀/小盘", "动量/资金"],
+      "prompt": "用 Serenity(@aleabit)的视角:自下而上抠供应链单点瓶颈+下游 capex 洪流+被错杀小盘,反明牌(NVDA 太挤就不碰)。判断它在不在卡脖子位置、下游的钱在不在往这涌、是不是还没被重定价的小盘。明牌大盘=not a bottleneck。必须点明它是高波动小盘的风险。不谈护城河/估值。"
     },
     {
       "key": "druckenmiller",
@@ -39,7 +42,8 @@
       "order": 4,
       "skill": "skills/druckenmiller/SKILL.md",
       "verdicts": ["顺风重仓", "趋势在·标准仓", "逆流·不碰", "趋势已转·砍或空"],
-      "dimensions": ["流动性/宏观顺风", "载体弹性", "边际变化/催化", "赔率不对称"]
+      "dimensions": ["流动性/宏观顺风", "载体弹性", "边际变化/催化", "赔率不对称"],
+      "prompt": "用德鲁肯米勒的视角:自上而下只看流动性与大趋势,不看护城河/估值。判断这笔交易顺不顺流动性的风、是不是表达该宏观判断涨最猛的高弹性载体、边际在变什么催化、赔率是否不对称。逆流动性大潮=不碰;趋势已转=砍或反手空。纪律:错了快砍。"
     },
     {
       "key": "sentiment",
@@ -49,7 +53,8 @@
       "order": 5,
       "skill": "skills/sentiment-flow/SKILL.md",
       "verdicts": ["情绪顺风·顺势", "冰点+资金进·反向埋伏", "过热拥挤·见顶警惕", "无情绪无资金·没戏"],
-      "dimensions": ["资金流向", "情绪位置", "催化/预期差", "拥挤度"]
+      "dimensions": ["资金流向", "情绪位置", "催化/预期差", "拥挤度"],
+      "prompt": "用情绪资金面的视角:只读盘口众生与资金流(13F/议员/北向/期权gamma/funding)、情绪周期(冰点→狂热)、拥挤度、催化预期差。判断钱在进还是出、聪明钱vs散户、情绪在哪一段、拥不拥挤;死水无资金=没戏。不谈生意质量。必须点明情绪反转极快的风险。"
     }
   ]
 }

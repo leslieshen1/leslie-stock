@@ -45,3 +45,6 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# 旧分析归档(canonical 在 data/analyses/,已跟踪)
+/data/analyses_v1/

@@ -94,7 +94,7 @@ export default function PulseClient({
 }) {
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
  const [industry, setIndustry] = useState<IndustryId>(initialIndustry ?? "AI");
- const [region, setRegion] = useState<Region | "ALL">("ALL");
+ const [region, setRegion] = useState<Region | "ALL">("US");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
  const [colorMode, setColorMode] = useState<string>("serenity");

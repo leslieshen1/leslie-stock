@@ -20,6 +20,36 @@ import {
   remapItemsForIndustry,
 } from "@/lib/industry-chains";
 import { tripleScore, type TripleScore, type PerspectiveScore } from "@/lib/scoring";
+import { MASTERS } from "@/lib/masters";
+
+// ===== 镜头注册表:热度 + 综合 + 5 位大师(masters.ts) + 分歧 =====
+type LensMeta = { key: string; label: string; sub: string; ramp: "heat" | "triple"; hi: string; lo: string };
+const LENSES: LensMeta[] = [
+  { key: "heat", label: "热度", sub: "短期 价格 + 动量 + RSI + 情绪", ramp: "heat", hi: "过热", lo: "深价值" },
+  { key: "triple", label: "综合", sub: "基本面 + 估值 + 护城河 综合", ramp: "triple", hi: "顶级", lo: "基本面差" },
+  ...MASTERS.map((m): LensMeta => ({ key: m.key, label: m.name, sub: m.school, ramp: "triple", hi: "高信念", lo: "看空/回避" })),
+  { key: "divergence", label: "分歧", sub: "5 方评分极差 · 越大越撕裂(分歧即信号)", ramp: "heat", hi: "最撕裂", lo: "共识" },
+];
+const LENS_BY_KEY: Record<string, LensMeta> = Object.fromEntries(LENSES.map((l) => [l.key, l]));
+
+type MastersJoin = { byKey: Record<string, number | null>; div: number };
+function toByKey(sum: { sc: (number | null)[]; div: number } | undefined, order: string[]): MastersJoin | undefined {
+  if (!sum) return undefined;
+  const byKey: Record<string, number | null> = {};
+  order.forEach((k, i) => { byKey[k] = sum.sc[i] ?? null; });
+  return { byKey, div: sum.div };
+}
+// 某只票在某镜头下的值(null = 该镜头未覆盖)
+function lensValueOf(c: { heat: number; triple: number; masters?: MastersJoin }, lens: string): number | null {
+  if (lens === "heat") return c.heat;
+  if (lens === "triple") return c.triple;
+  if (!c.masters) return null;
+  if (lens === "divergence") return c.masters.div;
+  return c.masters.byKey[lens] ?? null;
+}
+function lensRampOf(lens: string): "heat" | "triple" {
+  return LENS_BY_KEY[lens]?.ramp ?? "triple";
+}
 
 const REGIONS: { id: Region | "ALL"; label: string }[] = [
  { id: "ALL", label: "全部" },
@@ -48,6 +78,8 @@ export default function PulseClient({
   generatedAtLabel = null,
   initialIndustry,
   initialHighlight,
+  panelSummary = {},
+  masterOrder = [],
 }: {
   items: CompanyWithHeat[];
   trends?: Record<string, TrendPt[]>;
@@ -55,13 +87,15 @@ export default function PulseClient({
   generatedAtLabel?: string | null;
   initialIndustry?: IndustryId;
   initialHighlight?: string;
+  panelSummary?: Record<string, { sc: (number | null)[]; div: number }>;
+  masterOrder?: string[];
 }) {
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
  const [industry, setIndustry] = useState<IndustryId>(initialIndustry ?? "AI");
  const [region, setRegion] = useState<Region | "ALL">("ALL");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
- const [colorMode, setColorMode] = useState<"heat" | "triple">("heat");
+ const [colorMode, setColorMode] = useState<string>("heat");
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
 
@@ -82,8 +116,8 @@ export default function PulseClient({
 
   // 给每只 item 计算 triple score(热度的周度插值在 PulseField 内部做,这里只算静态布局)
   const itemsScored = useMemo(
-    () => items.map((c) => ({ ...c, triple: tripleScore(c).average })),
-    [items],
+    () => items.map((c) => ({ ...c, triple: tripleScore(c).average, masters: toByKey(panelSummary[c.ticker], masterOrder) })),
+    [items, panelSummary, masterOrder],
   );
 
   // 先按 industry 过滤（AI = 全部，其他 industry = 子集 + 重映射 layer 到该 industry 的层级体系）
@@ -118,37 +152,46 @@ export default function PulseClient({
   const filtered = useMemo(() => {
     const t = HEAT_TIERS.find((x) => x.id === tier)!;
     return industryItems.filter((c) => {
- if (region !== "ALL" && c.region !== region) return false;
- const score = colorMode === "heat" ? c.heat : c.triple;
+      if (region !== "ALL" && c.region !== region) return false;
+      const score = lensValueOf(c, colorMode);
+      if (score == null) return tier === "all"; // 未覆盖:默认档显示(灰),选具体档则隐藏
       return score >= t.min && score <= t.max;
     });
   }, [industryItems, region, tier, colorMode]);
 
+  // 当前镜头下"有判读"的可见标的数
+  const coveredInView = useMemo(
+    () => filtered.filter((c) => lensValueOf(c, colorMode) != null).length,
+    [filtered, colorMode],
+  );
+
   const pulse = useMemo(() => {
     const src = filtered.length ? filtered : industryItems;
-    // Market Pulse 大数也跟 mode 切
- if (colorMode === "heat") return marketPulse(src);
-    // Triple mode 自己算
-    const avg = Math.round(src.reduce((s, x) => s + x.triple, 0) / src.length);
-    const hot = src.filter((x) => x.triple >= 70).length;
-    const cold = src.filter((x) => x.triple < 40).length;
+    if (colorMode === "heat") return marketPulse(src);
+    // 其他镜头:用 lens 值,只统计有判读的
+    const vals = src.map((x) => lensValueOf(x, colorMode)).filter((v): v is number => v != null);
+    const n = vals.length || 1;
+    const avg = Math.round(vals.reduce((s, v) => s + v, 0) / n);
+    const hot = vals.filter((v) => v >= 70).length;
+    const cold = vals.filter((v) => v < 40).length;
     return {
       avgHeat: avg,
  band: { label: avg >= 70 ? "整体优质" : avg >= 50 ? "平均水平" : avg >= 35 ? "整体偏弱" : "整体差", tone: "fair" as const },
       hotCount: hot,
       coldCount: cold,
-      total: src.length,
+      total: vals.length,
     };
   }, [filtered, industryItems, colorMode]);
 
-  const topHot = useMemo(() => {
- const score = (c: typeof itemsScored[number]) => (colorMode === "heat" ? c.heat : c.triple);
-    return [...filtered].sort((a, b) => score(b) - score(a)).slice(0, 8);
+  // 排行:未覆盖排除,按 lens 值排序
+  const ranked = useMemo(() => {
+    return filtered
+      .map((c) => ({ c, v: lensValueOf(c, colorMode) }))
+      .filter((x): x is { c: typeof x.c; v: number } => x.v != null)
+      .sort((a, b) => b.v - a.v);
   }, [filtered, colorMode]);
-  const topCold = useMemo(() => {
- const score = (c: typeof itemsScored[number]) => (colorMode === "heat" ? c.heat : c.triple);
-    return [...filtered].sort((a, b) => score(a) - score(b)).slice(0, 6);
-  }, [filtered, colorMode]);
+  const topHot = useMemo(() => ranked.slice(0, 8).map((x) => x.c), [ranked]);
+  const topCold = useMemo(() => ranked.slice(-6).reverse().map((x) => x.c), [ranked]);
 
   const currentInd = INDUSTRIES.find((x) => x.id === industry) ?? INDUSTRIES[0];
 
@@ -162,7 +205,7 @@ export default function PulseClient({
               {currentInd.name} · 脉冲热力图
             </h1>
  <p className="mt-1 text-xs sm:text-sm text-muted">
-              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 热度 / 三方综合
+              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(热度 / 大师 / 分歧)
             </p>
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">
@@ -224,10 +267,10 @@ export default function PulseClient({
  <div className="rounded-xl border border-line bg-surface p-5">
  <div className="flex items-baseline justify-between mb-2">
  <div className="text-xs uppercase tracking-wider text-faint font-mono">
- Market {colorMode === "heat" ? "Pulse" : "Quality"}
+ Market · {LENS_BY_KEY[colorMode]?.label ?? colorMode} 镜头
             </div>
  <div className="text-[10px] font-mono text-faint">
- {colorMode === "heat" ? "短期热度" : "三方综合"}
+ {colorMode === "heat" ? "短期热度" : colorMode === "triple" ? "综合" : coveredInView + " 已判读"}
             </div>
           </div>
  <div className="flex items-baseline gap-2">
@@ -243,7 +286,7 @@ export default function PulseClient({
             <div>
  <div className="text-xl font-semibold text-down tabular-nums">{pulse.hotCount}</div>
  <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">
- {colorMode === "heat" ? "过热" : "顶级"}
+ {LENS_BY_KEY[colorMode]?.hi ?? "高"}
               </div>
             </div>
             <div>
@@ -253,7 +296,7 @@ export default function PulseClient({
             <div>
  <div className="text-xl font-semibold text-accent tabular-nums">{pulse.coldCount}</div>
  <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">
- {colorMode === "heat" ? "深价值" : "基本面差"}
+ {LENS_BY_KEY[colorMode]?.lo ?? "低"}
               </div>
             </div>
           </div>
@@ -337,32 +380,29 @@ export default function PulseClient({
 
       {/* ===== 中间：粒子场 + 排行 ===== */}
  <section className="order-first lg:order-none col-span-12 lg:col-span-6 space-y-4">
-        {/* 染色 mode 切换 + 色阶条 */}
- <div className="bg-surface border border-line rounded-xl px-3 py-3 space-y-3">
- <div className="flex items-center justify-between">
- <div className="flex items-center gap-1 p-1 rounded-lg bg-surface-2">
+        {/* 镜头选择 + 色阶条 */}
+        <div className="bg-surface border border-line rounded-xl px-3 py-3 space-y-2">
+          <div className="flex flex-wrap items-center gap-1 p-1 rounded-lg bg-surface-2">
+            {LENSES.map((l) => (
               <button
- onClick={() => setColorMode("heat")}
-                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition ${
- colorMode === "heat" ? "bg-surface text-ink" : "text-muted hover:text-ink"
+                key={l.key}
+                onClick={() => setColorMode(l.key)}
+                title={l.sub}
+                className={`px-2.5 py-1.5 rounded-md text-xs font-semibold transition ${
+                  colorMode === l.key ? "bg-surface text-ink" : "text-muted hover:text-ink"
                 }`}
               >
-                 短期热度
+                {l.label}
               </button>
-              <button
- onClick={() => setColorMode("triple")}
-                className={`px-3 py-1.5 rounded-md text-xs font-semibold transition ${
- colorMode === "triple" ? "bg-surface text-ink" : "text-muted hover:text-ink"
-                }`}
-              >
-                 三方综合
-              </button>
-            </div>
- <div className="text-[10px] font-mono text-faint">
- {colorMode === "heat" ? "短期 价格 + 动量 + RSI + 情绪" : "基本面 + 估值 + 护城河 综合"}
-            </div>
+            ))}
           </div>
-          <ColorScale mode={colorMode} />
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[10px] font-mono text-faint truncate">{LENS_BY_KEY[colorMode]?.sub}</span>
+            {colorMode !== "heat" && colorMode !== "triple" && (
+              <span className="text-[10px] font-mono text-faint shrink-0">{coveredInView}/{filtered.length} 已判读 · 灰=未判读</span>
+            )}
+          </div>
+          <ColorScale lens={colorMode} />
         </div>
 
         <PulseField
@@ -370,6 +410,7 @@ export default function PulseClient({
           edges={activeEdges}
           marketAvg={pulse.avgHeat}
           colorMode={colorMode}
+          lensLabel={LENS_BY_KEY[colorMode]?.label ?? colorMode}
           onSelect={setSelected}
           selectedId={selected?.id ?? null}
           highlightLayer={highlightLayer}
@@ -381,15 +422,15 @@ export default function PulseClient({
  <div className="rounded-xl border border-line bg-surface p-4">
  <div className="flex items-baseline justify-between mb-3">
  <h3 className="text-sm font-semibold text-ink">
- {colorMode === "heat" ? " 最热 TOP 8" : " 最优质 TOP 8"}
+ 高分 TOP 8
               </h3>
  <span className="text-[10px] font-mono text-faint uppercase tracking-wider">
- {colorMode === "heat" ? "Overheat" : "Best Quality"}
+ {LENS_BY_KEY[colorMode]?.label ?? colorMode}
               </span>
             </div>
  <div className="space-y-1">
               {topHot.map((c, i) => {
- const v = colorMode === "heat" ? c.heat : c.triple;
+ const v = lensValueOf(c, colorMode) ?? 0;
                 return (
                   <button
                     key={c.id}
@@ -410,15 +451,15 @@ export default function PulseClient({
  <div className="rounded-xl border border-line bg-surface p-4">
  <div className="flex items-baseline justify-between mb-3">
  <h3 className="text-sm font-semibold text-ink">
- {colorMode === "heat" ? "❄️ 最冷 TOP 6" : " 最差 TOP 6"}
+ 低分 TOP 6
               </h3>
  <span className="text-[10px] font-mono text-faint uppercase tracking-wider">
- {colorMode === "heat" ? "Deep Value" : "Worst Quality"}
+ {LENS_BY_KEY[colorMode]?.label ?? colorMode}
               </span>
             </div>
  <div className="space-y-1">
               {topCold.map((c, i) => {
- const v = colorMode === "heat" ? c.heat : c.triple;
+ const v = lensValueOf(c, colorMode) ?? 0;
                 return (
                   <button
                     key={c.id}
@@ -460,7 +501,7 @@ export default function PulseClient({
 }
 
 // ---- 详情面板 ----
-interface ScoredItem extends CompanyWithHeat { triple: number }
+interface ScoredItem extends CompanyWithHeat { triple: number; masters?: MastersJoin }
 function DetailPanel({
   c,
   allItems,
@@ -472,7 +513,7 @@ function DetailPanel({
   c: CompanyWithHeat;
   allItems: ScoredItem[];
   edges: typeof SUPPLY_EDGES;
- colorMode: "heat" | "triple";
+ colorMode: string;
   onSelect: (c: CompanyWithHeat) => void;
   trend: TrendPt[];
 }) {
@@ -747,7 +788,7 @@ function UpDownStreamBlock({
 }: {
   upstream: ScoredItem[];
   downstream: ScoredItem[];
- colorMode: "heat" | "triple";
+ colorMode: string;
   onSelect: (c: CompanyWithHeat) => void;
 }) {
   return (
@@ -781,8 +822,9 @@ function UpDownStreamBlock({
   );
 }
 
-function ChainRow({ c, mode, onClick }: { c: ScoredItem; mode: "heat" | "triple"; onClick: (c: CompanyWithHeat) => void }) {
- const v = mode === "heat" ? c.heat : c.triple;
+function ChainRow({ c, mode, onClick }: { c: ScoredItem; mode: string; onClick: (c: CompanyWithHeat) => void }) {
+ const v = lensValueOf(c, mode);
+ const color = v == null ? "hsl(220, 10%, 46%)" : scoreHex(v, mode);
   return (
     <button
       onClick={() => onClick(c)}
@@ -790,12 +832,12 @@ function ChainRow({ c, mode, onClick }: { c: ScoredItem; mode: "heat" | "triple"
     >
       <span
  className="w-2 h-2 rounded-full shrink-0"
-        style={{ background: scoreHex(v, mode) }}
+        style={{ background: color }}
       />
  <span className="font-mono text-[10px] font-semibold text-muted w-12 shrink-0 truncate">{c.ticker}</span>
  <span className="text-[11px] text-muted flex-1 truncate">{c.name}</span>
- <span className="font-mono text-[10px] font-semibold tabular-nums" style={{ color: scoreHex(v, mode) }}>
-        {v}
+ <span className="font-mono text-[10px] font-semibold tabular-nums" style={{ color }}>
+        {v == null ? "—" : v}
       </span>
     </button>
   );
@@ -1045,20 +1087,27 @@ function hex(stops: typeof HEX_STOPS, score: number): string {
 }
 function heatHex(heat: number): string { return hex(HEX_STOPS, heat); }
 function tripleHex(score: number): string { return hex(TRIPLE_HEX_STOPS, score); }
-function scoreHex(score: number, mode: "heat" | "triple"): string {
- return mode === "heat" ? heatHex(score) : tripleHex(score);
+function scoreHex(score: number, lens: string): string {
+ return lensRampOf(lens) === "heat" ? heatHex(score) : tripleHex(score);
 }
 
 // ---- 色阶条（颜色 legend）----
-function ColorScale({ mode }: { mode: "heat" | "triple" }) {
+function ColorScale({ lens }: { lens: string }) {
   // 用 25 个采样点画 CSS 渐变（足够平滑）
   const stops = Array.from({ length: 25 }, (_, i) => {
     const v = (i / 24) * 100;
-    return `${scoreHex(v, mode)} ${(i / 24) * 100}%`;
+    return `${scoreHex(v, lens)} ${(i / 24) * 100}%`;
  }).join(", ");
   const gradient = `linear-gradient(to right, ${stops})`;
 
- const ticks = mode === "heat"
+ const ticks = lens === "divergence"
+    ? [
+ { v: 0,   label: "共识", color: "#3F1A8C" },
+ { v: 40,  label: "分歧", color: "#1A8E72" },
+ { v: 70,  label: "撕裂", color: "#DC4914" },
+ { v: 100, label: "极撕裂", color: "#C4126B" },
+      ]
+    : lensRampOf(lens) === "heat"
     ? [
  { v: 0,   label: "深价值", color: "#3F1A8C" },
  { v: 30,  label: "偏冷", color: "#1E5BCC" },
@@ -1068,11 +1117,11 @@ function ColorScale({ mode }: { mode: "heat" | "triple" }) {
  { v: 100, label: "过热警告", color: "#C4126B" },
       ]
     : [
- { v: 0,   label: "基本面差", color: "#D11E2C" },
- { v: 30,  label: "弱", color: "#E16C1C" },
- { v: 55,  label: "合理", color: "#3B82B8" },
- { v: 75,  label: "好", color: "#1B8964" },
- { v: 100, label: "顶级", color: "#0D8C76" },
+ { v: 0,   label: "回避", color: "#D11E2C" },
+ { v: 30,  label: "偏空", color: "#E16C1C" },
+ { v: 55,  label: "中性", color: "#3B82B8" },
+ { v: 75,  label: "看多", color: "#1B8964" },
+ { v: 100, label: "高信念", color: "#0D8C76" },
       ];
 
   return (

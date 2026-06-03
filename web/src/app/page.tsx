@@ -31,12 +31,27 @@ async function loadSupplement(): Promise<SupplementItem[] | null> {
   }
 }
 
+type PanelSummary = { order: string[]; stocks: Record<string, { sc: (number | null)[]; div: number }> };
+async function loadPanelSummary(): Promise<PanelSummary> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "us-panel-summary.json");
+    const raw = await fs.readFile(p, "utf-8");
+    return JSON.parse(raw) as PanelSummary;
+  } catch {
+    return { order: [], stocks: {} };
+  }
+}
+
 export default async function HomePage({
   searchParams,
 }: {
   searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
-  const [snapshot, supplement] = await Promise.all([loadSnapshot(), loadSupplement()]);
+  const [snapshot, supplement, panelSummary] = await Promise.all([
+    loadSnapshot(),
+    loadSupplement(),
+    loadPanelSummary(),
+  ]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
   const items = mergeSupplement(baseItems, supplement);
  const liveCount = items.filter((i) => i.dataSource === "live").length;
@@ -64,6 +79,8 @@ export default async function HomePage({
         generatedAtLabel={generatedAt ? fmtAge(generatedAt) : null}
         initialIndustry={initialIndustry}
         initialHighlight={initialHighlight}
+        panelSummary={panelSummary.stocks}
+        masterOrder={panelSummary.order}
       />
 
  <footer className="mt-12 border-t border-line pt-8 text-center">

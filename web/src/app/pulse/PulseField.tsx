@@ -23,10 +23,12 @@ interface Particle {
   crossPhase: number;
 }
 
-export type ColorMode = "heat" | "triple";
+// 镜头 key:heat=短期热度 · triple=综合 · <master key>=单大师评分 · divergence=分歧
+export type ColorMode = string;
 
 interface ScoredCompany extends CompanyWithHeat {
-  triple: number;     // 三方综合平均分 0-100
+  triple: number;     // 综合平均分 0-100
+  masters?: { byKey: Record<string, number | null>; div: number }; // 五方摘要(key→分),uncovered 时缺
 }
 
 interface Props {
@@ -39,6 +41,8 @@ interface Props {
   highlightLayer: string | null;
   /** 当前 industry 的 layers（不传 = 用默认 AI L0-L7）。layer.id 必须和 item.layer 对得上。 */
   layers?: { id: string; name: string }[];
+  /** 当前镜头显示名(tooltip 用) */
+  lensLabel?: string;
 }
 
 // ===================== 8 档色阶（冷端拉黑） =====================
@@ -105,7 +109,7 @@ function tripleColor(score: number, alpha: number): string {
 export default function PulseField({
   items, edges, marketAvg, colorMode,
   onSelect, selectedId, highlightLayer,
-  layers,
+  layers, lensLabel = "热度",
 }: Props) {
   // 当前 industry 的 layers（不传 = AI 默认）
   const LAYERS_LIVE: { id: string; name: string }[] = layers && layers.length > 0
@@ -119,6 +123,7 @@ export default function PulseField({
   const selectedIdRef = useRef<string | null>(selectedId);
   const highlightRef = useRef<string | null>(highlightLayer);
   const colorModeRef = useRef<ColorMode>(colorMode);
+  const lensLabelRef = useRef<string>(lensLabel);
   const layersRef = useRef(LAYERS_LIVE);
   const rafRef = useRef<number | null>(null);
   const mouseRef = useRef<{ x: number; y: number } | null>(null);
@@ -128,14 +133,35 @@ export default function PulseField({
   useEffect(() => { selectedIdRef.current = selectedId; }, [selectedId]);
   useEffect(() => { highlightRef.current = highlightLayer; }, [highlightLayer]);
   useEffect(() => { colorModeRef.current = colorMode; }, [colorMode]);
+  useEffect(() => { lensLabelRef.current = lensLabel; }, [lensLabel]);
   useEffect(() => { layersRef.current = LAYERS_LIVE; }, [LAYERS_LIVE]);
 
-  // 每个粒子在当前 mode 下的实际颜色 score
-  function scoreOf(p: Particle): number {
- return colorModeRef.current === "triple" ? p.data.triple : p.data.heat;
+  // 当前镜头下每个粒子的原始 score(null = 该镜头下未覆盖)
+  function rawScoreOf(p: Particle): number | null {
+    const lens = colorModeRef.current;
+    if (lens === "heat") return p.data.heat;
+    if (lens === "triple") return p.data.triple;
+    const m = p.data.masters;
+    if (!m) return null;
+    if (lens === "divergence") return m.div;
+    return m.byKey[lens] ?? null;
   }
-  function colorOf(score: number, alpha: number): string {
- return colorModeRef.current === "heat" ? heatColor(score, alpha) : tripleColor(score, alpha);
+  // 上浮/下沉布局用:未覆盖停在中下
+  function posScoreOf(p: Particle): number {
+    return rawScoreOf(p) ?? 42;
+  }
+  // 镜头对应色阶:heat/divergence=热度阶,其余(triple/大师)=triple 反向阶
+  function rampColor(score: number, alpha: number): string {
+    const lens = colorModeRef.current;
+    return lens === "heat" || lens === "divergence" ? heatColor(score, alpha) : tripleColor(score, alpha);
+  }
+  function greyColor(alpha: number): string {
+    return `hsla(220, 10%, 46%, ${alpha})`;
+  }
+  // 粒子/连线最终色:覆盖=按色阶,未覆盖=灰
+  function nodeColor(p: Particle, alpha: number): string {
+    const s = rawScoreOf(p);
+    return s == null ? greyColor(alpha) : rampColor(s, alpha);
   }
 
   function layoutParticles(w: number, h: number) {
@@ -325,8 +351,8 @@ export default function PulseField({
         const laneTop = layerIdx * laneH;
         const laneTopB = laneTop + 22;
         const laneBot = (layerIdx + 1) * laneH - 8;
-        // 动态 targetY: 当前 mode score 决定上浮 / 下沉
-        const s = scoreOf(p) / 100;
+        // 动态 targetY: 当前镜头 score 决定上浮 / 下沉(未覆盖停中下)
+        const s = posScoreOf(p) / 100;
         p.targetY = laneTop + 28 + (1 - s) * (laneH - 50);
         p.y += (p.targetY - p.y) * 0.012;
 
@@ -351,11 +377,9 @@ export default function PulseField({
         const baseAlpha = isFocused
           ? 0.20 + 0.06 * e.strength
           : (focusTicker ? 0.025 : 0.06 + 0.015 * e.strength);
-        const sa = scoreOf(a);
-        const sb = scoreOf(b);
         const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-        grad.addColorStop(0, colorOf(sa, baseAlpha));
-        grad.addColorStop(1, colorOf(sb, baseAlpha));
+        grad.addColorStop(0, nodeColor(a, baseAlpha));
+        grad.addColorStop(1, nodeColor(b, baseAlpha));
         ctx.strokeStyle = grad;
         ctx.lineWidth = isFocused ? 0.8 + e.strength * 0.4 : 0.5;
         ctx.beginPath();
@@ -366,10 +390,9 @@ export default function PulseField({
         // 流光粒子（focus 时显示）
         if (isFocused) {
           const pulseT = ((t / 1600) % 1);
-          const midS = (sa + sb) / 2;
           const fx = a.x + (b.x - a.x) * pulseT;
           const fy = a.y + (b.y - a.y) * pulseT;
-          ctx.fillStyle = colorOf(midS, 0.95);
+          ctx.fillStyle = nodeColor(a, 0.95);
           ctx.beginPath();
           ctx.arc(fx, fy, 2.5, 0, Math.PI * 2);
           ctx.fill();
@@ -388,21 +411,24 @@ export default function PulseField({
         const sizeMul = ease;
         const introAlpha = ease;
 
-        const s = scoreOf(p);
+        const raw = rawScoreOf(p);
+        const covered = raw != null;
+        const s = raw ?? 42;
         const dim = highlightRef.current && highlightRef.current !== p.data.layer;
         const isSelected = selectedIdRef.current === p.data.id;
         // 选中时其他粒子大幅淡出（focus 模式）
         const focusFade = selectedIdRef.current && !isSelected ? 0.35 : 1;
-        const alphaScale = (dim ? 0.20 : 1) * introAlpha * focusFade;
+        // 未覆盖(灰)再压暗,让有判读的节点跳出来
+        const alphaScale = (dim ? 0.20 : 1) * introAlpha * focusFade * (covered ? 1 : 0.5);
         const r = p.baseR * sizeMul;
 
-        // 单圈脉冲，且仅高分（≥75）才有，alpha 减半
-        if (appearProgress >= 0.7 && s >= 75) {
+        // 单圈脉冲，且仅覆盖 + 高分（≥75）才有
+        if (appearProgress >= 0.7 && covered && s >= 75) {
           const period = 5000 - s * 35;
           const phase = ((t + p.phase) % period) / period;
           const ringR = r + phase * (r * 4 + 6);
           const ringA = (1 - phase) * 0.3 * alphaScale;
-          ctx.strokeStyle = colorOf(s, ringA);
+          ctx.strokeStyle = nodeColor(p, ringA);
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.arc(p.x, p.y, ringR, 0, Math.PI * 2);
@@ -412,15 +438,15 @@ export default function PulseField({
         // glow 光晕 — 收缩到 1.6 倍，alpha 降低
         const glowR = r * 1.6;
         const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
-        glow.addColorStop(0, colorOf(s, 0.72 * alphaScale));
-        glow.addColorStop(1, colorOf(s, 0));
+        glow.addColorStop(0, nodeColor(p, 0.72 * alphaScale));
+        glow.addColorStop(1, nodeColor(p, 0));
         ctx.fillStyle = glow;
         ctx.beginPath();
         ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
         ctx.fill();
 
         // 核心
-        ctx.fillStyle = colorOf(s, 1 * alphaScale);
+        ctx.fillStyle = nodeColor(p, 1 * alphaScale);
         ctx.beginPath();
         ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
         ctx.fill();
@@ -459,10 +485,9 @@ export default function PulseField({
 
       // Tooltip
       if (nearest && m) {
-        const ns = scoreOf(nearest);
+        const nRaw = rawScoreOf(nearest);
         const tip = `${nearest.data.ticker}  ·  ${nearest.data.name}`;
- const label = colorModeRef.current === "heat" ? "热度" : "三方";
-        const tip2 = `${label} ${ns} · ${nearest.data.region} · $${nearest.data.marketCapB}B`;
+        const tip2 = `${lensLabelRef.current} ${nRaw == null ? "未判读" : nRaw} · ${nearest.data.region} · $${nearest.data.marketCapB}B`;
  ctx.font = "12px 'Inter', system-ui, sans-serif";
         const w1 = ctx.measureText(tip).width;
         const w2 = ctx.measureText(tip2).width;
@@ -473,7 +498,7 @@ export default function PulseField({
         if (tx + boxW > w) tx = nearest.x - boxW - 14;
         if (ty < 0) ty = nearest.y + 14;
  ctx.fillStyle = "rgba(6,8,16,0.94)";
-        ctx.strokeStyle = colorOf(ns, 0.92);
+        ctx.strokeStyle = nodeColor(nearest, 0.92);
         ctx.lineWidth = 1;
         ctx.fillRect(tx, ty, boxW, boxH);
         ctx.strokeRect(tx, ty, boxW, boxH);

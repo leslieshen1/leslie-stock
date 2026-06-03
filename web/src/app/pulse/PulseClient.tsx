@@ -25,8 +25,7 @@ import { MASTERS } from "@/lib/masters";
 // ===== 镜头注册表:热度 + 综合 + 5 位大师(masters.ts) + 分歧 =====
 type LensMeta = { key: string; label: string; sub: string; ramp: "heat" | "triple"; hi: string; lo: string };
 const LENSES: LensMeta[] = [
-  { key: "heat", label: "热度", sub: "短期 价格 + 动量 + RSI + 情绪", ramp: "heat", hi: "过热", lo: "深价值" },
-  { key: "triple", label: "综合", sub: "基本面 + 估值 + 护城河 综合", ramp: "triple", hi: "顶级", lo: "基本面差" },
+  { key: "triple", label: "综合", sub: "已判读各方真实评分均值(A股 = Serenity 瓶颈分)", ramp: "triple", hi: "高信念", lo: "回避" },
   ...MASTERS.map((m): LensMeta => ({ key: m.key, label: m.name, sub: m.school, ramp: "triple", hi: "高信念", lo: "看空/回避" })),
   { key: "divergence", label: "分歧", sub: "5 方评分极差 · 越大越撕裂(分歧即信号)", ramp: "heat", hi: "最撕裂", lo: "共识" },
 ];
@@ -39,12 +38,15 @@ function toByKey(sum: { sc: (number | null)[]; div: number } | undefined, order:
   order.forEach((k, i) => { byKey[k] = sum.sc[i] ?? null; });
   return { byKey, div: sum.div };
 }
-// 某只票在某镜头下的值(null = 该镜头未覆盖)
+// 某只票在某镜头下的值(null = 该镜头未覆盖)。综合 = 已判读各方真实评分均值,不再用 mock
 function lensValueOf(c: { heat: number; triple: number; masters?: MastersJoin }, lens: string): number | null {
   if (lens === "heat") return c.heat;
-  if (lens === "triple") return c.triple;
   if (!c.masters) return null;
   if (lens === "divergence") return c.masters.div;
+  if (lens === "triple") {
+    const vals = Object.values(c.masters.byKey).filter((v): v is number => v != null);
+    return vals.length ? Math.round(vals.reduce((a, b) => a + b, 0) / vals.length) : null;
+  }
   return c.masters.byKey[lens] ?? null;
 }
 function lensRampOf(lens: string): "heat" | "triple" {
@@ -95,7 +97,7 @@ export default function PulseClient({
  const [region, setRegion] = useState<Region | "ALL">("ALL");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
- const [colorMode, setColorMode] = useState<string>("heat");
+ const [colorMode, setColorMode] = useState<string>("serenity");
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
 
@@ -205,7 +207,7 @@ export default function PulseClient({
               {currentInd.name} · 脉冲热力图
             </h1>
  <p className="mt-1 text-xs sm:text-sm text-muted">
-              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(热度 / 大师 / 分歧)
+              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(综合 / 大师 / 分歧 · 真实判读,无 mock)
             </p>
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">
@@ -1040,8 +1042,8 @@ function EmptyHint() {
  <div className="text-sm text-muted font-medium mb-2">悬停或点击粒子</div>
  <p className="text-xs text-muted leading-relaxed">
         每个粒子的尺寸 = 市值 log<br/>
-        脉冲频率 = 短期涨速<br/>
-        颜色 = 综合热度
+        颜色 = 当前镜头的真实评分<br/>
+        灰 = 该镜头下还没判读
       </p>
     </div>
   );

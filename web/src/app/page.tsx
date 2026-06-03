@@ -32,9 +32,10 @@ async function loadSupplement(): Promise<SupplementItem[] | null> {
 }
 
 type PanelSummary = { order: string[]; stocks: Record<string, { sc: (number | null)[]; div: number }> };
+// 热力图真分源:US 五方 + A股 Serenity(scripts/build_pulse_scores.py 合成),取代 mock 评分
 async function loadPanelSummary(): Promise<PanelSummary> {
   try {
-    const p = path.join(process.cwd(), "public", "data", "us-panel-summary.json");
+    const p = path.join(process.cwd(), "public", "data", "pulse-scores.json");
     const raw = await fs.readFile(p, "utf-8");
     return JSON.parse(raw) as PanelSummary;
   } catch {
@@ -54,6 +55,13 @@ export default async function HomePage({
   ]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
   const items = mergeSupplement(baseItems, supplement);
+
+  // 真分只裁剪出热力图节点用到的(避免把 6886 条全塞进 client payload)
+  const nodeTickers = new Set(items.map((i) => i.ticker));
+  const scopedScores: Record<string, { sc: (number | null)[]; div: number }> = {};
+  for (const [k, v] of Object.entries(panelSummary.stocks)) {
+    if (nodeTickers.has(k)) scopedScores[k] = v;
+  }
  const liveCount = items.filter((i) => i.dataSource === "live").length;
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
   const generatedAt = snapshot?.generated_at ?? null;
@@ -79,7 +87,7 @@ export default async function HomePage({
         generatedAtLabel={generatedAt ? fmtAge(generatedAt) : null}
         initialIndustry={initialIndustry}
         initialHighlight={initialHighlight}
-        panelSummary={panelSummary.stocks}
+        panelSummary={scopedScores}
         masterOrder={panelSummary.order}
       />
 

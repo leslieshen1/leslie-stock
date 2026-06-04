@@ -46,7 +46,10 @@ export default function TopNav({ health }: { health?: DataHealth }) {
  <div className="mx-auto flex h-14 max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
 
         {/* Logo */}
- <Link href="/" className="flex items-baseline gap-1.5 shrink-0" title="Not a Stock Guru">
+ <Link href="/" className="flex items-center gap-2 shrink-0" title="我不是股神 · Not a Stock Guru">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="我不是股神" width={30} height={30}
+               className="h-[30px] w-[30px] rounded-lg object-cover ring-1 ring-white/10 shrink-0" />
  <span className="text-[15px] sm:text-[17px] font-semibold tracking-tight text-ink whitespace-nowrap">
  我不是<span className="text-accent">股神</span>
           </span>

@@ -5,8 +5,15 @@ import WatchlistSidebar from "@/components/WatchlistSidebar";
 import { loadCoverage } from "@/lib/pulse-static";
 
 export const metadata: Metadata = {
+ metadataBase: new URL("https://web-liart-one-53.vercel.app"),
  title: "我不是股神 · Not a Stock Guru",
- description: "AI 驱动的全景股票可视化平台。你不是股神，但股神陪你一起看股票。段巴 + Serenity 三方框架 · A 股 / 港股 / 美股 / 加密。",
+ description: "AI 驱动的全景股票可视化平台。你不是股神，但股神陪你一起看股票。五方独立判读 · A 股 / 港股 / 美股 / 加密。",
+ openGraph: {
+   title: "我不是股神 · Not a Stock Guru",
+   description: "AI 驱动的全景股票可视化平台。五方独立判读 · 产业链热力图 · 美股全市场。",
+   images: [{ url: "/og.jpg", width: 1254, height: 1254 }],
+ },
+ twitter: { card: "summary_large_image", title: "我不是股神 · Not a Stock Guru", images: ["/og.jpg"] },
 };
 
 // 全局数据健康（读 coverage.json）

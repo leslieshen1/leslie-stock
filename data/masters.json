@@ -32,7 +32,7 @@
       "skill": "skills/serenity/SKILL.md",
       "verdicts": ["high conviction", "worth watching", "crowded but valid", "not a bottleneck"],
       "dimensions": ["瓶颈位置", "下游资本流", "错杀/小盘", "动量/资金"],
-      "prompt": "用 Serenity(@aleabit)的视角:自下而上抠供应链单点瓶颈+下游 capex 洪流+被错杀小盘,反明牌(NVDA 太挤就不碰)。判断它在不在卡脖子位置、下游的钱在不在往这涌、是不是还没被重定价的小盘。明牌大盘=not a bottleneck。必须点明它是高波动小盘的风险。不谈护城河/估值。"
+      "prompt": "用 Serenity(@aleabit)的视角:自下而上抠供应链单点瓶颈 + 下游 capex 量产洪流。核心判断:它在不在【不可替代】的卡脖子位置、下游的钱在不在涌。关键校准——【真·不可替代瓶颈】(高市占 + 国产替代 + 每台量产都吃它的 BOM + 下游量产在即)= high conviction,这种她做【方向性多头】,明确不因'已被市场发现/估值贵/拥挤/不是小盘'而退缩(她原话:没人能精确给这种公司建模,本质是对'每台量产都分一块'的方向性做多);只有【假瓶颈 / 无真壁垒的拥挤明牌】才 not a bottleneck。被错杀的冷门小盘是加分项、但不是必要条件。必须点明它是高波动主题票的风险。不画 DCF、不谈护城河/估值折现。"
     },
     {
       "key": "druckenmiller",

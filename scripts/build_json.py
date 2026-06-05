@@ -56,7 +56,12 @@ def derive_us_raw(c):
     (PUB / "us-analyses.json").write_text(
         json.dumps({"generated_at": meta(c, "us_analyses_generated_at"), "stocks": stocks}, ensure_ascii=False),
         encoding="utf-8")
-    print(f"  us-analyses.json: {len(stocks)}")
+    # 切成单股文件(详情页 loadUsPanel 读 us-panels/{sym}.json),纯派生、可重建
+    panels_dir = PUB / "us-panels"
+    panels_dir.mkdir(parents=True, exist_ok=True)
+    for sym, entry in stocks.items():
+        (panels_dir / f"{sym}.json").write_text(json.dumps(entry, ensure_ascii=False), encoding="utf-8")
+    print(f"  us-analyses.json + us-panels/: {len(stocks)}")
 
     flags = {sym: json.loads(data) for sym, data in c.execute("SELECT sym,data FROM dilution")}
     (PUB / "dilution-flags.json").write_text(json.dumps({"flags": flags}, ensure_ascii=False), encoding="utf-8")

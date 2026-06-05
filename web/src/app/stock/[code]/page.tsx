@@ -21,7 +21,8 @@ export default async function StockDetailPage({
  | "a"
  | "hk"
  | "us";
-  const usPanel = market === "us" ? loadUsPanel(code) : null;
+  // 五方面板:有就显示(美股全量 + 已录入五方的 A 股,如 688017 绿的谐波)
+  const usPanel = loadUsPanel(code);
   // 有五方面板时,旧的单一框架深度分析(MU/CRCL/CBRS)退场,不再并存矛盾
   const initial = usPanel ? null : loadAnalysis(code, market);
   const holders = getStockHolders(code);

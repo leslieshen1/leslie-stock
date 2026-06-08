@@ -1,59 +1,81 @@
-"""从 us-stocks.json(6000+ 美股实时行情)算短期热度 → us-heat.json。
+"""过热/泡沫度热度 → us-heat.json。不是"今天涨跌",而是"贵不贵 + 离自己高点多远 + 超不超买 + 动量"。
 
-短期热度 = 今日涨跌幅(方向+幅度,主)× 0.72 + 换手率分位(资金关注度)× 0.28
-  - pctScore: 50 + pct%×3.3,clamp 2-99(+15%→满,-15%→冰点)—— 标准日内市场热力图口径
-  - churn = 成交额 / 市值(今日换手占市值比),全市场分位 → 0-100
-热度色阶:0=深价值(冷) → 100=过热警告。涨得猛+放量 = 热(红/品红),杀跌 = 冷(紫)。
-
-替代旧的 7 天前、只有 119 只的 yfinance 快照。覆盖全部美股,数据随 us-stocks 一起新鲜。
+综合 4 个信号(都 0-100,越高越过热/泡沫):
+  - pos52  离 52 周高点(px 在 [低,高] 区间的位置)—— 越靠高点越热。来源 us-fundamentals(px/wkHi/wkLo)
+  - val    估值贵(PS + EV/EBITDA 全市场分位)—— 越贵越热。来源 us-fundamentals
+  - rsi    14 日 RSI —— 超买越热。来源 us-history(需历史价,缺则跳过)
+  - mom    60 日动量(clamp 50+ret60×0.8)—— 涨势越猛越热。来源 us-history
+权重 pos52 .35 / val .30 / rsi .20 / mom .15,按"实际有哪些信号"归一化。
+都缺 → 中性 50。这样大盘跌一天不会让强势/贵的票变冰点(和"今天涨跌"脱钩)。
 
 用法: python scripts/build_us_heat.py
 """
 from __future__ import annotations
-import bisect, json
+import json
 from pathlib import Path
 
-ROOT = Path(__file__).parent.parent
-US = ROOT / "web" / "public" / "data" / "us-stocks.json"
-OUT = ROOT / "web" / "public" / "data" / "us-heat.json"
+PUB = Path(__file__).parent.parent / "web" / "public" / "data"
+US = PUB / "us-stocks.json"
+FUND = PUB / "us-fundamentals.json"
+HIST = PUB / "us-history.json"
+OUT = PUB / "us-heat.json"
+
+W = {"pos52": 0.35, "val": 0.30, "rsi": 0.20, "mom": 0.15}
 
 
-def pct_score(pct) -> float:
-    return max(2.0, min(99.0, 50 + (pct or 0) * 3.3))
+def clamp(v, lo=0.0, hi=100.0):
+    return max(lo, min(hi, v))
+
+
+def pctile(d: dict) -> dict:
+    """{sym: value} → {sym: 0-100 分位}(值越大分位越高)。"""
+    items = sorted(d.items(), key=lambda kv: kv[1])
+    n = max(1, len(items) - 1)
+    return {sym: round(100 * i / n) for i, (sym, _) in enumerate(items)}
 
 
 def main():
     d = json.load(open(US, encoding="utf-8"))
     stocks = d.get("stocks", d)
+    fund = json.load(open(FUND, encoding="utf-8")).get("stocks", {}) if FUND.exists() else {}
+    hist = json.load(open(HIST, encoding="utf-8")).get("stocks", {}) if HIST.exists() else {}
 
-    # 换手率 = 成交额 / 市值
-    churns = []
+    # 估值分位:PS + EV/EBITDA(只取正值),贵 = 高分位 = 热
+    ps = {s: f["ps"] for s, f in fund.items() if (f.get("ps") or 0) > 0}
+    eve = {s: f["evE"] for s, f in fund.items() if (f.get("evE") or 0) > 0}
+    ps_p, eve_p = pctile(ps), pctile(eve)
+    val_p = {}
+    for s in set(ps_p) | set(eve_p):
+        vs = [p[s] for p in (ps_p, eve_p) if s in p]
+        val_p[s] = sum(vs) / len(vs)
+
+    heat, n_hist, n_val = {}, 0, 0
     for s in stocks:
-        vol = s.get("vol") or 0
-        price = s.get("price") or 0
-        mcapB = s.get("mcapB") or 0
-        c = (vol * price) / (mcapB * 1e9) if mcapB > 0 else 0
-        s["_churn"] = c
-        churns.append(c)
-    srt = sorted(churns)
-    n = max(1, len(srt) - 1)
-
-    def churn_score(c):
-        return bisect.bisect_left(srt, c) / n * 100
-
-    heat = {}
-    for s in stocks:
-        ps = pct_score(s.get("pct"))
-        cs = churn_score(s["_churn"])
-        heat[s["sym"]] = round(0.72 * ps + 0.28 * cs)
+        sym = s["sym"]
+        f, h = fund.get(sym), hist.get(sym)
+        comps = []  # (score, weight)
+        if f and f.get("px") and f.get("wkHi") and f.get("wkLo") and f["wkHi"] > f["wkLo"]:
+            comps.append((clamp((f["px"] - f["wkLo"]) / (f["wkHi"] - f["wkLo"]) * 100), W["pos52"]))
+        if sym in val_p:
+            comps.append((val_p[sym], W["val"]))
+            n_val += 1
+        if h and h.get("rsi") is not None:
+            comps.append((clamp(h["rsi"]), W["rsi"]))
+            n_hist += 1
+        if h and h.get("ret60") is not None:
+            comps.append((clamp(50 + h["ret60"] * 0.8), W["mom"]))
+        if comps:
+            wsum = sum(w for _, w in comps)
+            heat[sym] = round(sum(sc * w for sc, w in comps) / wsum)
+        else:
+            heat[sym] = 50
 
     OUT.write_text(json.dumps({"generated_at": d.get("generated_at"), "stocks": heat}, ensure_ascii=False), encoding="utf-8")
-    # 抽样
-    hot = sorted(stocks, key=lambda s: -heat[s["sym"]])[:5]
-    cold = sorted(stocks, key=lambda s: heat[s["sym"]])[:3]
-    print(f"✓ us-heat.json: {len(heat)} 只 · 行情 {d.get('generated_at')}")
-    print("  最热:", [(s["sym"], heat[s["sym"]], str(s.get("pct")) + "%") for s in hot])
-    print("  最冷:", [(s["sym"], heat[s["sym"]], str(s.get("pct")) + "%") for s in cold])
+    hot = sorted(stocks, key=lambda s: -heat[s["sym"]])[:6]
+    cold = sorted([s for s in stocks if heat[s["sym"]] != 50], key=lambda s: heat[s["sym"]])[:4]
+    print(f"✓ us-heat.json(过热/泡沫度): {len(heat)} 只 · 估值覆盖 {n_val} · RSI 覆盖 {n_hist}")
+    print("  最热(贵/近高点):", [(s["sym"], heat[s["sym"]]) for s in hot])
+    print("  最冷(便宜/破位):", [(s["sym"], heat[s["sym"]]) for s in cold])
 
 
 if __name__ == "__main__":

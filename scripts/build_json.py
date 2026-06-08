@@ -72,6 +72,15 @@ def sync_inputs_into_db(c):
                       "ON CONFLICT(sym) DO UPDATE SET data=excluded.data,updated_at=excluded.updated_at",
                       [(sym, json.dumps(r, ensure_ascii=False), gen) for sym, r in d.get("stocks", {}).items()])
         set_meta(c, "us_fundamentals_generated_at", gen)
+    # us_history ← us-history.json(RSI/动量)
+    hi_path = PUB / "us-history.json"
+    if hi_path.exists():
+        d = json.loads(hi_path.read_text(encoding="utf-8"))
+        gen = d.get("generated_at", "")
+        c.executemany("INSERT INTO us_history(sym,data,updated_at) VALUES(?,?,?) "
+                      "ON CONFLICT(sym) DO UPDATE SET data=excluded.data,updated_at=excluded.updated_at",
+                      [(sym, json.dumps(r, ensure_ascii=False), gen) for sym, r in d.get("stocks", {}).items()])
+        set_meta(c, "us_history_generated_at", gen)
     # us_news ← us-news/*.json(按股切片)
     news_dir = PUB / "us-news"
     if news_dir.exists():

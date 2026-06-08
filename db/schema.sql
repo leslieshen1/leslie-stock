@@ -230,3 +230,5 @@ CREATE TABLE IF NOT EXISTS us_earnings (sym TEXT PRIMARY KEY, data TEXT, updated
 CREATE TABLE IF NOT EXISTS us_options (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS macro (sym TEXT PRIMARY KEY, name TEXT, price REAL, pct REAL, kind TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS superinvestors (slug TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+-- 历史派生量(RSI/动量),给"过热/泡沫度"热度用。data = {rsi,ret20,ret60}
+CREATE TABLE IF NOT EXISTS us_history (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);

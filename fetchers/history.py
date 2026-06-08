@@ -15,7 +15,7 @@ import json
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -26,7 +26,14 @@ OUT = PUB / "us-history.json"
 CACHE = ROOT / "data" / "_cache" / "history"
 PANELS = PUB / "us-panels"
 US_STOCKS = PUB / "us-stocks.json"
-UA = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"}
+# Nasdaq 历史接口(和 screener 同源,比 Yahoo 公开端点宽容得多)
+H = {
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
+    "accept": "application/json, text/plain, */*",
+    "origin": "https://www.nasdaq.com",
+    "referer": "https://www.nasdaq.com/",
+}
 
 
 def rsi14(closes: list[float]) -> float | None:
@@ -56,16 +63,25 @@ def fetch_one(sym: str, max_age_days: int) -> dict | None:
                 return cached
         except Exception:
             pass
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{requests.utils.quote(sym)}?interval=1d&range=3mo"
-    for attempt in range(3):
+    d2 = datetime.now().strftime("%Y-%m-%d")
+    d1 = (datetime.now() - timedelta(days=130)).strftime("%Y-%m-%d")
+    url = (f"https://api.nasdaq.com/api/quote/{sym}/historical"
+           f"?assetclass=stocks&fromdate={d1}&todate={d2}&limit=9999")
+    for attempt in range(4):
         try:
-            r = requests.get(url, headers=UA, timeout=20)
-            if r.status_code == 429:
-                time.sleep(1.5 * (attempt + 1))
+            r = requests.get(url, headers=H, timeout=25)
+            if r.status_code in (429, 403):
+                time.sleep(2.0 * (attempt + 1))
                 continue
             r.raise_for_status()
-            res = (r.json().get("chart", {}).get("result") or [None])[0]
-            closes = [c for c in ((res or {}).get("indicators", {}).get("quote", [{}])[0].get("close") or []) if c is not None]
+            rows = (((r.json() or {}).get("data") or {}).get("tradesTable") or {}).get("rows") or []
+            closes = []
+            for row in reversed(rows):  # Nasdaq 返回最新在前 → 反转成 旧→新
+                v = str(row.get("close", "")).replace("$", "").replace(",", "")
+                try:
+                    closes.append(float(v))
+                except ValueError:
+                    pass
             if len(closes) < 20:
                 return None
             px = closes[-1]
@@ -77,7 +93,7 @@ def fetch_one(sym: str, max_age_days: int) -> dict | None:
             cf.write_text(json.dumps(rec, ensure_ascii=False), encoding="utf-8")
             return rec
         except Exception:
-            time.sleep(1.0 * (attempt + 1))
+            time.sleep(1.2 * (attempt + 1))
     return None
 
 
@@ -111,7 +127,7 @@ def main():
     args = ap.parse_args()
 
     syms = universe(args)
-    print(f"📈 拉历史(RSI/动量,Yahoo 3mo)... {len(syms)} 只 · {args.workers} 线程")
+    print(f"📈 拉历史(RSI/动量,Nasdaq 3mo)... {len(syms)} 只 · {args.workers} 线程")
     t0 = time.time()
     out: dict[str, dict] = {}
     done = 0

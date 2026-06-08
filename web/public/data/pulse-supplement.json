@@ -24728,5 +24728,24 @@
   "_serenity_score": 43,
   "_verdict": "",
   "_thesis": "买入已签长期购电协议的风/光/储发电资产并持有运营,把稳定合约现金流打包成高股息分配给股东的收益型平台"
+ },
+ {
+  "ticker": "MAIN",
+  "name": "Main Street Capital Corporation",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.8,
+  "moat": 3,
+  "valuationPct": 53,
+  "momentum20d": 53,
+  "rsi": 53,
+  "sentiment": 53,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 53,
+  "_verdict": "",
+  "_thesis": ""
  }
 ]

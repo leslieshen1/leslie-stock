@@ -52,3 +52,4 @@ logs/
 # SQLite WAL 临时文件
 data/*.db-wal
 data/*.db-shm
+web/public/data/_us_out/

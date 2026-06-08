@@ -229,5 +229,4 @@ CREATE TABLE IF NOT EXISTS us_news (sym TEXT PRIMARY KEY, data TEXT, updated_at 
 CREATE TABLE IF NOT EXISTS us_earnings (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS us_options (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS macro (sym TEXT PRIMARY KEY, name TEXT, price REAL, pct REAL, kind TEXT, updated_at TEXT);
-CREATE TABLE IF NOT EXISTS crypto_etf (id TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS superinvestors (slug TEXT PRIMARY KEY, data TEXT, updated_at TEXT);

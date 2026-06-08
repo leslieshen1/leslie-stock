@@ -6,12 +6,16 @@ import { loadUsPanel } from "@/lib/us-panel";
 import { loadStockTypes } from "@/lib/stock-type";
 import { loadFundamentals } from "@/lib/fundamentals";
 import { loadNews } from "@/lib/news";
+import { loadEarnings } from "@/lib/earnings";
+import { loadOptions } from "@/lib/options";
 import StockDetailClient from "./StockDetailClient";
 import DilutionWarning from "./DilutionWarning";
 import MasterPanel from "./MasterPanel";
 import StockTypeCard from "./StockTypeCard";
 import FundamentalsStrip from "./FundamentalsStrip";
 import NewsStrip from "./NewsStrip";
+import EarningsChip from "./EarningsChip";
+import OptionsGammaLine from "./OptionsGammaLine";
 
 export default async function StockDetailPage({
   params,
@@ -32,6 +36,8 @@ export default async function StockDetailPage({
   const stockTypes = loadStockTypes(code); // 类型轴:先定该用什么尺子量
   const fundamentals = loadFundamentals(code); // 真实基本面(Yahoo)
   const news = loadNews(code); // 个股新闻(Google News)
+  const earnings = loadEarnings(code); // 下次财报(Finnhub,需 key)
+  const options = loadOptions(code); // 期权 gamma(Polygon,需 key)
   // 有五方面板时,旧的单一框架深度分析(MU/CRCL/CBRS)退场,不再并存矛盾
   const initial = usPanel ? null : loadAnalysis(code, market);
   const holders = getStockHolders(code);
@@ -71,6 +77,12 @@ export default async function StockDetailPage({
 
       {dilution && <DilutionWarning flag={dilution} />}
 
+      {earnings && (
+        <div className="mb-4">
+          <EarningsChip e={earnings} />
+        </div>
+      )}
+
       {stockTypes.length > 0 && (
         <div className="mb-4">
           <StockTypeCard types={stockTypes} />
@@ -80,6 +92,12 @@ export default async function StockDetailPage({
       {fundamentals && (
         <div className="mb-4">
           <FundamentalsStrip f={fundamentals} types={stockTypes} />
+        </div>
+      )}
+
+      {options && (
+        <div className="mb-4">
+          <OptionsGammaLine o={options} />
         </div>
       )}
 

@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
       "./public/data/us-fundamentals.json",
       "./public/data/us-news/**",
       "./public/data/stock-type-map.json",
+      "./public/data/earnings-calendar.json",
+      "./public/data/us-options.json",
     ],
   },
 };

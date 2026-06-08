@@ -34,7 +34,6 @@ SOURCES = [
     ("fetchers.dataroma", "超级投资者持仓(Dataroma)", []),
     ("fetchers.finnhub", "财报日历+市场新闻(Finnhub,需 key)", []),
     ("fetchers.polygon_options", "期权 gamma(Polygon,需 key)", []),
-    ("fetchers.sosovalue", "crypto ETF 资金流(SoSoValue,需 key)", []),
 ]
 
 

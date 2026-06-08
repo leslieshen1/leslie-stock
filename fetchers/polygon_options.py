@@ -69,7 +69,10 @@ def fetch_gex(sym: str) -> dict | None:
             break
         url, params = nxt, {"apiKey": KEY}
         time.sleep(13)  # 5/min 限速
+    import math
     gex = (call_g - put_g) * (spot or 0) * 100 if spot else None
+    if gex is not None and not math.isfinite(gex):  # inf/nan 不是合法 JSON,JS 会拒绝
+        gex = None
     return {"gex": gex, "callGamma": round(call_g, 2), "putGamma": round(put_g, 2),
             "spot": spot, "contracts": n}
 

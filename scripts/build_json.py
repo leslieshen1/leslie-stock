@@ -109,18 +109,15 @@ def sync_inputs_into_db(c):
                           "ON CONFLICT(slug) DO UPDATE SET data=excluded.data,updated_at=excluded.updated_at",
                           [(inv.get("slug"), json.dumps(inv, ensure_ascii=False), "") for inv in supers])
     # key-gated:有 JSON 才回灌(无 key 时文件不存在,自动跳过)
-    for fn, tbl, col in [("earnings-calendar.json", "us_earnings", "stocks"),
-                         ("us-options.json", "us_options", "stocks"),
-                         ("crypto-etf.json", "crypto_etf", "flows")]:
+    for fn, tbl in [("earnings-calendar.json", "us_earnings"), ("us-options.json", "us_options")]:
         p = PUB / fn
         if not p.exists():
             continue
         d = json.loads(p.read_text(encoding="utf-8"))
-        key_col = "id" if tbl == "crypto_etf" else "sym"
         c.executemany(
-            f"INSERT INTO {tbl}({key_col},data,updated_at) VALUES(?,?,?) "
-            f"ON CONFLICT({key_col}) DO UPDATE SET data=excluded.data,updated_at=excluded.updated_at",
-            [(k, json.dumps(v, ensure_ascii=False), d.get("generated_at", "")) for k, v in d.get(col, {}).items()])
+            f"INSERT INTO {tbl}(sym,data,updated_at) VALUES(?,?,?) "
+            f"ON CONFLICT(sym) DO UPDATE SET data=excluded.data,updated_at=excluded.updated_at",
+            [(k, json.dumps(v, ensure_ascii=False), d.get("generated_at", "")) for k, v in d.get("stocks", {}).items()])
     c.commit()
 
 
@@ -190,11 +187,6 @@ def derive_extras(c):
         (PUB / "us-options.json").write_text(
             json.dumps({"generated_at": "", "stocks": opt}, ensure_ascii=False), encoding="utf-8")
         print(f"  us-options.json: {len(opt)}")
-    cry = {k: json.loads(d) for k, d in c.execute("SELECT id,data FROM crypto_etf")}
-    if cry:
-        (PUB / "crypto-etf.json").write_text(
-            json.dumps({"generated_at": "", "flows": cry}, ensure_ascii=False), encoding="utf-8")
-        print(f"  crypto-etf.json: {len(cry)}")
 
 
 def run(name: str):

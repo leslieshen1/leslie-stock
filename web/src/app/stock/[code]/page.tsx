@@ -4,10 +4,14 @@ import { getStockHolders } from "@/lib/whales";
 import { loadDilutionFlags } from "@/lib/dilution";
 import { loadUsPanel } from "@/lib/us-panel";
 import { loadStockTypes } from "@/lib/stock-type";
+import { loadFundamentals } from "@/lib/fundamentals";
+import { loadNews } from "@/lib/news";
 import StockDetailClient from "./StockDetailClient";
 import DilutionWarning from "./DilutionWarning";
 import MasterPanel from "./MasterPanel";
 import StockTypeCard from "./StockTypeCard";
+import FundamentalsStrip from "./FundamentalsStrip";
+import NewsStrip from "./NewsStrip";
 
 export default async function StockDetailPage({
   params,
@@ -26,6 +30,8 @@ export default async function StockDetailPage({
   // 五方面板:有就显示(美股全量 + 已录入五方的 A 股,如 688017 绿的谐波)
   const usPanel = loadUsPanel(code);
   const stockTypes = loadStockTypes(code); // 类型轴:先定该用什么尺子量
+  const fundamentals = loadFundamentals(code); // 真实基本面(Yahoo)
+  const news = loadNews(code); // 个股新闻(Google News)
   // 有五方面板时,旧的单一框架深度分析(MU/CRCL/CBRS)退场,不再并存矛盾
   const initial = usPanel ? null : loadAnalysis(code, market);
   const holders = getStockHolders(code);
@@ -71,7 +77,19 @@ export default async function StockDetailPage({
         </div>
       )}
 
+      {fundamentals && (
+        <div className="mb-4">
+          <FundamentalsStrip f={fundamentals} types={stockTypes} />
+        </div>
+      )}
+
       {usPanel && <MasterPanel data={usPanel} />}
+
+      {news.length > 0 && (
+        <div className="mt-4">
+          <NewsStrip items={news} />
+        </div>
+      )}
 
       <StockDetailClient code={code} market={market} initial={initial} holders={holders} hasPanel={!!usPanel} />
     </main>

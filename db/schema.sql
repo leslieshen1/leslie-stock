@@ -217,3 +217,17 @@ CREATE TABLE IF NOT EXISTS us_market (
 CREATE TABLE IF NOT EXISTS us_analyses (sym TEXT PRIMARY KEY, data TEXT);
 CREATE TABLE IF NOT EXISTS dilution (sym TEXT PRIMARY KEY, data TEXT);
 CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT);
+
+-- ============================================================
+-- ru7 免费源接入：基本面 / 宏观 / 新闻 / 财报日历 / 期权 / crypto ETF
+-- 每条 entry 存 JSON blob（保真、前端结构不变），按 sym/key upsert。
+-- 数据源（全免费）：Yahoo(yfinance) 基本面+宏观、Google News 新闻、
+--   Dataroma 超级投资者持仓、Finnhub 财报日历、Polygon 期权、SoSoValue crypto ETF。
+-- ============================================================
+CREATE TABLE IF NOT EXISTS us_fundamentals (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS us_news (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS us_earnings (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS us_options (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS macro (sym TEXT PRIMARY KEY, name TEXT, price REAL, pct REAL, kind TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS crypto_etf (id TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+CREATE TABLE IF NOT EXISTS superinvestors (slug TEXT PRIMARY KEY, data TEXT, updated_at TEXT);

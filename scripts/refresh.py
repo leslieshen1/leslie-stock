@@ -25,13 +25,32 @@ def run(cmd: list[str]) -> int:
     return subprocess.run(cmd, cwd=str(ROOT), env=env).returncode
 
 
+# (模块, 说明, 额外参数)。失败不致命,继续。key-gated 的没 key 会自己优雅跳过。
+SOURCES = [
+    ("fetchers.us_stocks", "美股全量行情(Nasdaq)", []),
+    ("fetchers.macro", "宏观/大盘(Yahoo)", []),
+    ("fetchers.fundamentals", "基本面 PE/PS/EV-EBITDA(Yahoo)", []),  # --full 时改 --all
+    ("fetchers.news_google", "个股新闻(Google News)", []),
+    ("fetchers.dataroma", "超级投资者持仓(Dataroma)", []),
+    ("fetchers.finnhub", "财报日历+市场新闻(Finnhub,需 key)", []),
+    ("fetchers.polygon_options", "期权 gamma(Polygon,需 key)", []),
+    ("fetchers.sosovalue", "crypto ETF 资金流(SoSoValue,需 key)", []),
+]
+
+
 def main():
     fetch = "--no-fetch" not in sys.argv
+    full = "--full" in sys.argv  # 基本面全量(6000+,慢)
 
     if fetch:
-        print("=== 1) 抓最新美股行情 → leslie.db.us_market ===")
-        if run([sys.executable, "-m", "fetchers.us_stocks"]) != 0:
-            print("⚠ 行情抓取失败,继续用库里已有数据派生")
+        print("=== 1) 一站式抓取所有数据源 → leslie.db ===")
+        for mod, desc, extra in SOURCES:
+            args = list(extra)
+            if mod == "fetchers.fundamentals" and full:
+                args = ["--all"]
+            print(f"\n--- {desc} ---")
+            if run([sys.executable, "-m", mod, *args]) != 0:
+                print(f"⚠ {desc} 失败,跳过(继续用库里已有数据)")
 
     print("\n=== 2) 从 leslie.db 派生全部前端 JSON ===")
     run([sys.executable, "scripts/build_json.py"])

@@ -68,6 +68,56 @@ def derive_us_raw(c):
     print(f"  dilution-flags.json: {len(flags)}")
 
 
+def derive_extras(c):
+    """ru7 免费源派生：基本面 / 新闻 / 宏观 / 财报日历 / 期权 / crypto(库→JSON）。
+    核心三项(基本面/新闻/宏观)总是写；key-gated 三项有数据才写(不覆盖)。"""
+    # 基本面
+    fund = {sym: json.loads(d) for sym, d in c.execute("SELECT sym,data FROM us_fundamentals")}
+    (PUB / "us-fundamentals.json").write_text(
+        json.dumps({"generated_at": meta(c, "us_fundamentals_generated_at"),
+                    "count": len(fund), "stocks": fund}, ensure_ascii=False), encoding="utf-8")
+    print(f"  us-fundamentals.json: {len(fund)}")
+
+    # 个股新闻:按股切片(详情页只读 us-news/{sym}.json,避免读 3.6MB 大文件)
+    news = {sym: json.loads(d) for sym, d in c.execute("SELECT sym,data FROM us_news")}
+    news_dir = PUB / "us-news"
+    news_dir.mkdir(parents=True, exist_ok=True)
+    for sym, items in news.items():
+        (news_dir / f"{sym}.json").write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
+    # 只留一个轻量索引（不含正文）
+    (PUB / "us-news.json").write_text(
+        json.dumps({"generated_at": meta(c, "us_news_generated_at"),
+                    "count": len(news), "syms": sorted(news.keys())}, ensure_ascii=False),
+        encoding="utf-8")
+    print(f"  us-news/ 切片: {len(news)}")
+
+    # 宏观/大盘
+    mac = [dict(r) for r in c.execute(
+        "SELECT sym,name,price,pct,kind FROM macro ORDER BY rowid")]
+    (PUB / "macro.json").write_text(
+        json.dumps({"generated_at": meta(c, "macro_generated_at"), "series": mac},
+                   ensure_ascii=False), encoding="utf-8")
+    print(f"  macro.json: {len(mac)}")
+
+    # key-gated:有数据才写
+    earn = {sym: json.loads(d) for sym, d in c.execute("SELECT sym,data FROM us_earnings")}
+    if earn:
+        (PUB / "earnings-calendar.json").write_text(
+            json.dumps({"generated_at": meta(c, "earnings_generated_at"), "stocks": earn},
+                       ensure_ascii=False), encoding="utf-8")
+        print(f"  earnings-calendar.json: {len(earn)}")
+    opt = {sym: json.loads(d) for sym, d in c.execute("SELECT sym,data FROM us_options")}
+    if opt:
+        (PUB / "us-options.json").write_text(
+            json.dumps({"generated_at": "", "stocks": opt}, ensure_ascii=False), encoding="utf-8")
+        print(f"  us-options.json: {len(opt)}")
+    cry = {k: json.loads(d) for k, d in c.execute("SELECT id,data FROM crypto_etf")}
+    if cry:
+        (PUB / "crypto-etf.json").write_text(
+            json.dumps({"generated_at": "", "flows": cry}, ensure_ascii=False), encoding="utf-8")
+        print(f"  crypto-etf.json: {len(cry)}")
+
+
 def run(name: str):
     env = {**os.environ, "PYTHONPATH": str(ROOT)}  # 让子进程能 from db import
     r = subprocess.run([sys.executable, str(SCRIPTS / name)], capture_output=True, text=True, cwd=str(ROOT), env=env)
@@ -87,6 +137,9 @@ def main():
 
     print("1) 美股原始(库→JSON)")
     derive_us_raw(c)
+
+    print("1b) ru7 免费源:基本面/新闻/宏观/财报/期权/crypto(库→JSON)")
+    derive_extras(c)
 
     print("2) A股 manifest + 详情(库→JSON)")
     run("export_manifests.py")

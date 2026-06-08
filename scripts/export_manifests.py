@@ -369,8 +369,8 @@ def export_whales():
         investors = conn.execute("""
             SELECT id, slug, name, name_en, entity, type, archetype, country,
                    aum_usd, holdings_count, notable_for, latest_period
-            FROM investors ORDER BY
-              CASE type WHEN 'superinvestor' THEN 0 WHEN 'fund' THEN 1 ELSE 2 END,
+            FROM investors WHERE type != 'superinvestor' ORDER BY
+              CASE type WHEN 'fund' THEN 1 ELSE 2 END,
               COALESCE(aum_usd, 0) DESC
         """).fetchall()
 
@@ -403,6 +403,32 @@ def export_whales():
                     "trade_date": h["trade_date"],
                     "period": h["period"],
                 })
+        # 合并 Dataroma 超级投资者（库 superinvestors 表，由 fetchers/dataroma.py 写入）
+        # —— 巴菲特/段永平/李录…的真 13F。放最前，保证 whales.json 重建时不丢这块。
+        try:
+            supers = [json.loads(r["data"]) for r in
+                      conn.execute("SELECT data FROM superinvestors").fetchall()]
+        except Exception:
+            supers = []
+        supers.sort(key=lambda i: i.get("holdings_count") or 0, reverse=True)
+        for inv in supers:
+            out_investors.append(inv)
+            for h in inv.get("holdings", []):
+                t = h.get("ticker")
+                if not t:
+                    continue
+                by_ticker.setdefault(t, []).append({
+                    "investor": inv.get("name"), "slug": inv.get("slug"),
+                    "type": inv.get("type"), "archetype": inv.get("archetype"),
+                    "entity": inv.get("entity"), "pct": h.get("pct_of_portfolio"),
+                    "rank": h.get("rank_in_portfolio"), "change_type": h.get("change_type"),
+                    "amount_range": h.get("amount_range"), "trade_date": h.get("trade_date"),
+                    "period": h.get("period"),
+                })
+        # superinvestor 排最前，再基金，再政客
+        _ord = {"superinvestor": 0, "fund": 1, "politician": 2}
+        out_investors.sort(key=lambda i: _ord.get(i.get("type"), 3))
+
         # 个股 holders 排序：先按仓位占比（基金/13F），议员（pct=null）排后按日期
         for k in by_ticker:
             by_ticker[k].sort(key=lambda x: (x["pct"] or 0, x.get("trade_date") or ""), reverse=True)

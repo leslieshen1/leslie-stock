@@ -24,7 +24,6 @@ const NAV: NavItem[] = [
  { href: "/", label: "热力图", en: "Heatmap", match: (p) => p === "/" || p.startsWith("/pulse") },
  { href: "/scan", label: "列表", en: "List", match: (p) => p.startsWith("/scan") },
  { href: "/whales", label: "聪明钱", en: "Whales", match: (p) => p.startsWith("/whales") },
- { href: "/how-to-buy", label: "买美股", en: "Buy US", match: (p) => p.startsWith("/how-to-buy"), cta: true },
  { href: "/portfolio", label: "我的", en: "Portfolio", match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist") },
 ];
 
@@ -97,6 +96,15 @@ export default function TopNav({ health }: { health?: DataHealth }) {
  {age && <span className="text-faint hidden xl:inline">{age}</span>}
           </Link>
         )}
+
+        {/* Buy — 右上角小 CTA */}
+        <Link
+          href="/how-to-buy"
+          title="如何买美股 · How to buy US stocks"
+          className="ml-auto shrink-0 rounded-lg bg-accent px-3 py-1.5 text-[13px] font-semibold text-black transition hover:bg-accent/90 sm:ml-0"
+        >
+          Buy
+        </Link>
 
       </div>
     </header>

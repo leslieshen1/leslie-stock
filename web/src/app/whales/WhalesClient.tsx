@@ -2,13 +2,23 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Waves, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Waves } from "lucide-react";
 import {
   type Investor, type Holding, type InvestorType,
   CHANGE_META, TYPE_META,
 } from "@/lib/whales-types";
 
 type Filter = "all" | InvestorType;
+
+// 共识分析：把所有超级投资者的持仓按 ticker 聚合
+type ConRow = {
+  ticker: string; name: string; n: number; avgPct: number;
+  buys: number; sells: number; net: number; holders: string[];
+};
+type Con = {
+  nSuper: number; consensus3: number; netBuyCount: number; netSellCount: number;
+  mostHeld: ConRow[]; netBuys: ConRow[]; netSells: ConRow[];
+};
 
 export default function WhalesClient({ investors }: { investors: Investor[] }) {
  const [filter, setFilter] = useState<Filter>("all");
@@ -18,17 +28,43 @@ export default function WhalesClient({ investors }: { investors: Investor[] }) {
     [investors, filter],
   );
 
-  const moves = useMemo(() => {
-    const out: { inv: Investor; h: Holding }[] = [];
-    for (const inv of investors)
-      for (const h of inv.holdings)
- if (h.change_type === "new" || h.change_type === "add") out.push({ inv, h });
-    return out
-      .sort((a, b) => {
- if (a.h.change_type !== b.h.change_type) return a.h.change_type === "new" ? -1 : 1;
-        return (b.h.pct_of_portfolio || 0) - (a.h.pct_of_portfolio || 0);
-      })
-      .slice(0, 12);
+  const period = useMemo(
+    () => investors.find((i) => i.type === "superinvestor")?.latest_period || "",
+    [investors],
+  );
+
+  const con = useMemo<Con>(() => {
+    const map = new Map<string, { ticker: string; name: string;
+      holders: { name: string; pct: number | null; change: string | null }[] }>();
+    let nSuper = 0;
+    for (const inv of investors) {
+      if (inv.type !== "superinvestor") continue;
+      nSuper++;
+      for (const h of inv.holdings) {
+        if (!h.ticker) continue;
+        const e = map.get(h.ticker) || { ticker: h.ticker, name: h.stock_name || h.ticker, holders: [] };
+        e.holders.push({ name: inv.name, pct: h.pct_of_portfolio, change: h.change_type });
+        if ((h.stock_name?.length || 0) > e.name.length) e.name = h.stock_name!;
+        map.set(h.ticker, e);
+      }
+    }
+    const rows: ConRow[] = [...map.values()].map((e) => {
+      const n = e.holders.length;
+      const avgPct = e.holders.reduce((s, x) => s + (x.pct || 0), 0) / n;
+      const buys = e.holders.filter((x) => x.change === "new" || x.change === "add").length;
+      const sells = e.holders.filter((x) => x.change === "trim" || x.change === "exit").length;
+      return { ticker: e.ticker, name: e.name, n, avgPct, buys, sells, net: buys - sells,
+        holders: e.holders.map((x) => x.name) };
+    });
+    return {
+      nSuper,
+      consensus3: rows.filter((r) => r.n >= 3).length,
+      netBuyCount: rows.filter((r) => r.net > 0).length,
+      netSellCount: rows.filter((r) => r.net < 0).length,
+      mostHeld: [...rows].filter((r) => r.n >= 2).sort((a, b) => b.n - a.n || b.avgPct - a.avgPct).slice(0, 12),
+      netBuys: [...rows].filter((r) => r.buys > 0).sort((a, b) => b.net - a.net || b.buys - a.buys).slice(0, 8),
+      netSells: [...rows].filter((r) => r.sells > 0).sort((a, b) => a.net - b.net || b.sells - a.sells).slice(0, 8),
+    };
   }, [investors]);
 
   const types = useMemo(() => {
@@ -60,26 +96,9 @@ export default function WhalesClient({ investors }: { investors: Investor[] }) {
         ))}
       </div>
 
-      {/* 近期动作 */}
- {moves.length > 0 && filter === "all" && (
- <section className="rounded-xl border border-line bg-surface p-5">
- <h2 className="mb-3 text-[13px] font-medium uppercase tracking-wider text-faint">近期动作</h2>
- <div className="flex flex-wrap gap-2">
-            {moves.map(({ inv, h }, i) => {
- const buy = h.change_type === "add" || h.change_type === "new";
-              return (
- <div key={i} className="inline-flex items-center gap-2 rounded-lg border border-line bg-surface-2 px-2.5 py-1.5 text-[13px]">
- {buy ? <ArrowUpRight className="h-3.5 w-3.5 text-up" /> : <ArrowDownRight className="h-3.5 w-3.5 text-down" />}
- <span className="font-medium text-ink">{inv.name}</span>
- <span className="text-muted">{h.stock_name}</span>
- <span className="tnum text-xs text-faint">
- {inv.type === "politician" ? h.amount_range : `${h.pct_of_portfolio}%`}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+      {/* 聪明钱共识分析 */}
+      {(filter === "all" || filter === "superinvestor") && con.mostHeld.length > 0 && (
+        <ConsensusPanel con={con} period={period} />
       )}
 
       {/* 投资者卡片 */}
@@ -188,5 +207,109 @@ function FilterBtn({ active, onClick, children }: { active: boolean; onClick: ()
     >
       {children}
     </button>
+  );
+}
+
+// ===== 聪明钱共识分析面板 =====
+function ConsensusPanel({ con, period }: { con: Con; period: string }) {
+  const maxN = con.mostHeld[0]?.n || 1;
+  return (
+    <section className="rounded-xl border border-line bg-surface p-5">
+      <header className="mb-4 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <h2 className="text-[15px] font-semibold text-ink">聪明钱共识</h2>
+        <span className="text-xs text-faint">
+          {con.nSuper} 位价投大佬交叉持仓{period ? ` · ${period}` : ""} · 13F
+        </span>
+      </header>
+
+      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+        <Stat label="价投大佬" value={con.nSuper} />
+        <Stat label="≥3 人共识" value={con.consensus3} />
+        <Stat label="本季净加码" value={con.netBuyCount} tone="up" />
+        <Stat label="本季净减持" value={con.netSellCount} tone="down" />
+      </div>
+
+      <h3 className="mb-1.5 mt-5 text-[12px] font-medium uppercase tracking-wider text-faint">
+        最多大佬共同持有
+      </h3>
+      <div className="space-y-0.5">
+        {con.mostHeld.map((r, i) => (
+          <ConsensusRow key={r.ticker} r={r} rank={i + 1} maxN={maxN} />
+        ))}
+      </div>
+
+      <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+        <MoveCol title="本季加码最集中" tone="up" rows={con.netBuys} kind="buy" />
+        <MoveCol title="本季减持最集中" tone="down" rows={con.netSells} kind="sell" />
+      </div>
+
+      <p className="mt-4 text-[11px] text-faint">
+        共识 ≠ 正确 —— 大佬扎堆也可能一起踏空。看的是「谁在重仓、谁在加减」,自己判断。
+      </p>
+    </section>
+  );
+}
+
+function Stat({ label, value, tone }: { label: string; value: number; tone?: "up" | "down" }) {
+  const c = tone === "up" ? "text-up" : tone === "down" ? "text-down" : "text-ink";
+  return (
+    <div className="rounded-lg border border-line bg-surface-2 px-3 py-2.5">
+      <div className="text-[10px] text-faint">{label}</div>
+      <div className={`tnum mt-0.5 text-lg font-semibold ${c}`}>{value}</div>
+    </div>
+  );
+}
+
+function ConsensusRow({ r, rank, maxN }: { r: ConRow; rank: number; maxN: number }) {
+  return (
+    <Link
+      href={`/stock/${r.ticker}?market=us`}
+      title={r.holders.join("、")}
+      className="group flex items-center gap-2 rounded-md px-1.5 py-1.5 transition hover:bg-surface-2"
+    >
+      <span className="tnum w-4 shrink-0 text-right text-[10px] text-faint">{rank}</span>
+      <span className="tnum w-14 shrink-0 text-[12px] font-semibold text-ink group-hover:text-accent">{r.ticker}</span>
+      <span className="hidden w-28 shrink-0 truncate text-[12px] text-muted sm:block">{r.name}</span>
+      <span className="tnum shrink-0 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent">{r.n} 位</span>
+      <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-surface-2">
+        <div className="absolute inset-y-0 left-0 rounded-full bg-accent/70" style={{ width: `${(r.n / maxN) * 100}%` }} />
+      </div>
+      <span className="tnum w-16 shrink-0 text-right text-[11px] text-faint">均 {r.avgPct.toFixed(1)}%</span>
+      {r.net !== 0 && (
+        <span className={`tnum w-8 shrink-0 text-right text-[11px] font-medium ${r.net > 0 ? "text-up" : "text-down"}`}>
+          {r.net > 0 ? `+${r.net}` : r.net}
+        </span>
+      )}
+    </Link>
+  );
+}
+
+function MoveCol({ title, tone, rows, kind }: {
+  title: string; tone: "up" | "down"; rows: ConRow[]; kind: "buy" | "sell";
+}) {
+  return (
+    <div>
+      <h3 className="mb-1.5 text-[12px] font-medium uppercase tracking-wider text-faint">{title}</h3>
+      <div className="space-y-0.5">
+        {rows.length === 0 && <p className="px-1.5 text-xs text-faint">—</p>}
+        {rows.map((r) => {
+          const cnt = kind === "buy" ? r.buys : r.sells;
+          return (
+            <Link
+              key={r.ticker}
+              href={`/stock/${r.ticker}?market=us`}
+              className="group flex items-center gap-2 rounded-md px-1.5 py-1 transition hover:bg-surface-2"
+            >
+              <span className="tnum w-12 shrink-0 text-[12px] font-semibold text-ink group-hover:text-accent">{r.ticker}</span>
+              <span className="flex-1 truncate text-[12px] text-muted">{r.name}</span>
+              <span className="tnum shrink-0 text-[10px] text-faint">{r.n}持</span>
+              <span className={`tnum w-12 shrink-0 text-right text-[11px] font-medium ${tone === "up" ? "text-up" : "text-down"}`}>
+                {tone === "up" ? "+" : "−"}{cnt} 位
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
   );
 }

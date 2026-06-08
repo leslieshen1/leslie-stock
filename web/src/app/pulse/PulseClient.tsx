@@ -150,16 +150,15 @@ export default function PulseClient({
     return () => { alive = false; clearInterval(id); };
   }, []);
 
-  // 给每只 item 计算 triple score。有实时报价时:用当日 pct 重算短期热度 + 注入实时价
+  // 给每只 item 计算 triple score + 注入过热度分项;实时报价只更新价格/涨跌,不动 heat
   const itemsScored = useMemo(
     () => items.map((c) => {
       const base = { ...c, triple: tripleScore(c).average, masters: toByKey(panelSummary[c.ticker], masterOrder) };
+      // 实时只更新价格/涨跌,不动 heat —— 过热度是慢变量(估值/位置/RSI/动量),不随当天涨跌跳
       const q = liveQ[c.ticker];
-      if (q && q.pct != null) {
-        base.heat = Math.max(1, Math.min(100, Math.round(50 + (q.pct as number) * 3.3)));
+      if (q) {
         if (q.price != null) base.livePrice = q.price;
-        base.pct = q.pct;
-        base.dataSource = "live";
+        if (q.pct != null) { base.pct = q.pct; base.dataSource = "live"; }
       }
       return base;
     }),
@@ -255,7 +254,7 @@ export default function PulseClient({
               {currentInd.name} · 脉冲热力图
             </h1>
  <p className="mt-1 text-xs sm:text-sm text-muted">
-              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(短期热度 / 综合 / 大师 / 分歧)
+              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(过热度 / 综合 / 大师 / 分歧)
             </p>
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">
@@ -321,7 +320,7 @@ export default function PulseClient({
  Market · {LENS_BY_KEY[colorMode]?.label ?? colorMode} 镜头
             </div>
  <div className="text-[10px] font-mono text-faint">
- {colorMode === "heat" ? "短期热度" : colorMode === "triple" ? "综合" : coveredInView + " 已判读"}
+ {colorMode === "heat" ? "过热度" : colorMode === "triple" ? "综合" : coveredInView + " 已判读"}
             </div>
           </div>
  <div className="flex items-baseline gap-2">
@@ -663,7 +662,7 @@ function DetailPanel({
           }`}
         >
  <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
-            短期热度
+            过热度
           </span>
  <span className="flex items-baseline gap-1 mt-0.5">
  <span className="text-xl font-semibold tabular-nums" style={{ color: heatHex(c.heat) }}>
@@ -921,7 +920,7 @@ function HeatView({ c }: { c: CompanyWithHeat }) {
     <div>
  <div className="py-3 border-y border-line">
  <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-1">
-          Heat Score · 短期热度（价格 + 动量 + RSI + 情绪）
+          过热/泡沫度 · 估值 + 离 52 周高点 + RSI + 动量
         </div>
  <div className="flex items-baseline gap-3">
  <span className="text-5xl font-semibold tabular-nums" style={{ color: heatHex(c.heat) }}>
@@ -934,10 +933,10 @@ function HeatView({ c }: { c: CompanyWithHeat }) {
       </div>
 
  <div className="mt-4 space-y-3">
- <Metric label="估值分位" value={c.valuationPct} weight="40%" />
- <Metric label="20D 动量" value={c.momentum20d} weight="30%" />
- <Metric label="RSI" value={c.rsi}         weight="20%" />
- <Metric label="情绪面" value={c.sentiment}   weight="10%" />
+ <Metric label="离 52 周高点" value={c.pos52} weight="35%" />
+ <Metric label="估值贵 (分位)" value={c.valuationPct} weight="30%" />
+ <Metric label="RSI" value={c.rsi}            weight="20%" />
+ <Metric label="60D 动量" value={c.momentum20d}  weight="15%" />
       </div>
 
  <div className="mt-5 pt-4 border-t border-line">
@@ -1088,18 +1087,19 @@ function scoreColor(s: number): string {
  return "#DC2626";              // 红
 }
 
-function Metric({ label, value, weight }: { label: string; value: number; weight: string }) {
+function Metric({ label, value, weight }: { label: string; value: number | null | undefined; weight: string }) {
+  const v = value == null ? null : value;
   return (
     <div>
  <div className="flex items-baseline justify-between mb-1">
  <span className="text-xs text-muted">{label}</span>
  <span className="flex items-baseline gap-1.5">
- <span className="font-mono text-xs font-semibold tabular-nums" style={{color: heatHex(value)}}>{value}</span>
+ <span className="font-mono text-xs font-semibold tabular-nums" style={{color: v == null ? undefined : heatHex(v)}}>{v == null ? "—" : v}</span>
  <span className="text-[10px] text-faint font-mono">{weight}</span>
         </span>
       </div>
  <div className="h-1 rounded-full bg-surface-2 overflow-hidden">
- <div className="h-full rounded-full" style={{width:`${value}%`, background: heatHex(value)}} />
+ <div className="h-full rounded-full" style={{width:`${v ?? 0}%`, background: v == null ? "transparent" : heatHex(v)}} />
       </div>
     </div>
   );

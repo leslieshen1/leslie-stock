@@ -89,7 +89,8 @@ async function loadIndustryMap(): Promise<IndustryMap> {
   }
 }
 
-type UsHeat = { generated_at?: string | null; stocks: Record<string, number> };
+type HeatRec = { h: number; pos: number | null; val: number | null; rsi: number | null; mom: number | null };
+type UsHeat = { generated_at?: string | null; stocks: Record<string, HeatRec> };
 async function loadUsHeat(): Promise<UsHeat> {
   try {
     const p = path.join(process.cwd(), "public", "data", "us-heat.json");
@@ -130,7 +131,10 @@ export default async function HomePage({
   // 与 list/详情页同源:heat=us-heat,price/pct/市值=us-stocks,基本面=us-fundamentals(全是最新 Nasdaq/Yahoo)
   const items = mergeSupplement(baseItems, supplement).map((it) => {
     let m = it;
-    if (usHeat.stocks[it.ticker] != null) m = { ...m, heat: usHeat.stocks[it.ticker] };
+    // 过热度总分 + 分项(离高点/估值/RSI/动量)一起注入,详情面板分项就和总分对齐
+    const hv = usHeat.stocks[it.ticker];
+    if (hv) m = { ...m, heat: hv.h, pos52: hv.pos,
+      valuationPct: hv.val ?? m.valuationPct, rsi: hv.rsi ?? m.rsi, momentum20d: hv.mom ?? m.momentum20d };
     const up = usPrices[it.ticker];
     if (up && up.price != null) {
       m = { ...m, livePrice: up.price, pct: up.pct, dataSource: "live" as const };

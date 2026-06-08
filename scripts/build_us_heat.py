@@ -53,29 +53,27 @@ def main():
     for s in stocks:
         sym = s["sym"]
         f, h = fund.get(sym), hist.get(sym)
-        comps = []  # (score, weight)
+        pos = val = rsi = mom = None
         if f and f.get("px") and f.get("wkHi") and f.get("wkLo") and f["wkHi"] > f["wkLo"]:
-            comps.append((clamp((f["px"] - f["wkLo"]) / (f["wkHi"] - f["wkLo"]) * 100), W["pos52"]))
+            pos = round(clamp((f["px"] - f["wkLo"]) / (f["wkHi"] - f["wkLo"]) * 100))
         if sym in val_p:
-            comps.append((val_p[sym], W["val"]))
-            n_val += 1
+            val = round(val_p[sym]); n_val += 1
         if h and h.get("rsi") is not None:
-            comps.append((clamp(h["rsi"]), W["rsi"]))
-            n_hist += 1
+            rsi = round(clamp(h["rsi"])); n_hist += 1
         if h and h.get("ret60") is not None:
-            comps.append((clamp(50 + h["ret60"] * 0.8), W["mom"]))
-        if comps:
-            wsum = sum(w for _, w in comps)
-            heat[sym] = round(sum(sc * w for sc, w in comps) / wsum)
-        else:
-            heat[sym] = 50
+            mom = round(clamp(50 + h["ret60"] * 0.8))
+        comps = [(pos, W["pos52"]), (val, W["val"]), (rsi, W["rsi"]), (mom, W["mom"])]
+        comps = [(sc, w) for sc, w in comps if sc is not None]
+        hv = round(sum(sc * w for sc, w in comps) / sum(w for _, w in comps)) if comps else 50
+        # h=总分,pos/val/rsi/mom=分项(0-100 或 null),前端详情面板直接展示,分项与总分对齐
+        heat[sym] = {"h": hv, "pos": pos, "val": val, "rsi": rsi, "mom": mom}
 
     OUT.write_text(json.dumps({"generated_at": d.get("generated_at"), "stocks": heat}, ensure_ascii=False), encoding="utf-8")
-    hot = sorted(stocks, key=lambda s: -heat[s["sym"]])[:6]
-    cold = sorted([s for s in stocks if heat[s["sym"]] != 50], key=lambda s: heat[s["sym"]])[:4]
-    print(f"✓ us-heat.json(过热/泡沫度): {len(heat)} 只 · 估值覆盖 {n_val} · RSI 覆盖 {n_hist}")
-    print("  最热(贵/近高点):", [(s["sym"], heat[s["sym"]]) for s in hot])
-    print("  最冷(便宜/破位):", [(s["sym"], heat[s["sym"]]) for s in cold])
+    hot = sorted(stocks, key=lambda s: -heat[s["sym"]]["h"])[:6]
+    cold = sorted([s for s in stocks if heat[s["sym"]]["h"] != 50], key=lambda s: heat[s["sym"]]["h"])[:4]
+    print(f"✓ us-heat.json(过热/泡沫度,含分项): {len(heat)} 只 · 估值覆盖 {n_val} · RSI 覆盖 {n_hist}")
+    print("  最热(贵/近高点):", [(s["sym"], heat[s["sym"]]["h"]) for s in hot])
+    print("  最冷(便宜/破位):", [(s["sym"], heat[s["sym"]]["h"]) for s in cold])
 
 
 if __name__ == "__main__":

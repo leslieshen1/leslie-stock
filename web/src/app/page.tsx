@@ -165,7 +165,6 @@ export default async function HomePage({
     : null;
  const liveCount = items.filter((i) => i.dataSource === "live").length;
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
-  const generatedAt = snapshot?.generated_at ?? null;
 
   // 30 天 trend 从静态 JSON 读
   const trends = await loadTrends();
@@ -186,7 +185,6 @@ export default async function HomePage({
         items={items}
         trends={trends}
         liveCount={liveCount}
-        generatedAtLabel={generatedAt ? fmtAge(generatedAt) : null}
         initialIndustry={initialIndustry}
         initialHighlight={initialHighlight}
         panelSummary={scopedScores}
@@ -206,9 +204,7 @@ export default async function HomePage({
           我不是股神 · Not a Stock Guru · v0.5 · 段巴 + Serenity 三方框架 × Claude × Next.js
         </p>
  <p className="mt-1 text-[10px] text-faint">
-          {generatedAt
- ? "数据 = yfinance 5y OHLC + Serenity 评分（5,510 只 A 股）· 非投资建议"
- : "示意数据,待接入实时行情"}
+          实时行情(Nasdaq/Yahoo)· 五方独立判读(AI)· 自攒历史 RSI/动量 · 非投资建议
         </p>
       </footer>
     </main>

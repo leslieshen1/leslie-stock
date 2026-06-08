@@ -29,7 +29,7 @@ def run(cmd: list[str]) -> int:
 SOURCES = [
     ("fetchers.us_stocks", "美股全量行情(Nasdaq)", []),
     ("fetchers.macro", "宏观/大盘(Yahoo)", []),
-    ("fetchers.fundamentals", "基本面 PE/PS/EV-EBITDA(Yahoo)", []),  # --full 时改 --all
+    ("fetchers.fundamentals", "基本面 PE/PS/EV-EBITDA(Yahoo)", ["--top", "0"]),  # 默认只刷 panels(缓存快);--full 全量
     ("fetchers.news_google", "个股新闻(Google News)", []),
     ("fetchers.dataroma", "超级投资者持仓(Dataroma)", []),
     ("fetchers.finnhub", "财报日历+市场新闻(Finnhub,需 key)", []),

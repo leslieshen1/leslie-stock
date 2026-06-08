@@ -21,17 +21,41 @@ async function loadMacro(): Promise<MacroSeries[]> {
   }
 }
 
-// 热力图价格/涨跌与 list 同源:us-stocks.json(Nasdaq 全市场),取代 12 天前的 pulse-snapshot
-async function loadUsPrices(): Promise<Record<string, { price: number | null; pct: number | null }>> {
+// 热力图价格/涨跌/市值与 list 同源:us-stocks.json(Nasdaq 全市场),取代 12 天前的 pulse-snapshot
+async function loadUsPrices(): Promise<Record<string, { price: number | null; pct: number | null; mcapB: number | null }>> {
   try {
     const p = path.join(process.cwd(), "public", "data", "us-stocks.json");
     const stocks = JSON.parse(await fs.readFile(p, "utf-8")).stocks || [];
-    const m: Record<string, { price: number | null; pct: number | null }> = {};
-    for (const s of stocks) m[s.sym] = { price: s.price ?? null, pct: s.pct ?? null };
+    const m: Record<string, { price: number | null; pct: number | null; mcapB: number | null }> = {};
+    for (const s of stocks) m[s.sym] = { price: s.price ?? null, pct: s.pct ?? null, mcapB: s.mcapB ?? null };
     return m;
   } catch {
     return {};
   }
+}
+
+// 基本面与详情页同源:us-fundamentals.json(紧凑 key),映射成热力图 FundamentalsBlock 的字段
+type CompactFund = {
+  pe?: number; fpe?: number; pb?: number; ps?: number; roe?: number; pm?: number;
+  gm?: number; revG?: number; earnG?: number; de?: number; divY?: number; beta?: number;
+};
+async function loadUsFundamentals(): Promise<Record<string, CompactFund>> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "us-fundamentals.json");
+    return (JSON.parse(await fs.readFile(p, "utf-8")).stocks || {}) as Record<string, CompactFund>;
+  } catch {
+    return {};
+  }
+}
+// 紧凑 → snapshot 字段。注意股息率单位:us-fundamentals 的 divY 是百分数(2.75=2.75%),
+// 而 FundamentalsBlock 会 ×100,所以这里 /100 还原成小数。
+function mapFund(f: CompactFund) {
+  return {
+    trailingPE: f.pe, forwardPE: f.fpe, priceToBook: f.pb, priceToSales: f.ps,
+    roe: f.roe, profitMargin: f.pm, grossMargin: f.gm,
+    revenueGrowth: f.revG, earningsGrowth: f.earnG, debtToEquity: f.de,
+    dividendYield: f.divY != null ? f.divY / 100 : undefined, beta: f.beta,
+  };
 }
 async function loadSnapshot(): Promise<PulseSnapshot | null> {
   try {
@@ -92,7 +116,7 @@ export default async function HomePage({
 }: {
   searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
-  const [snapshot, supplement, panelSummary, industryMap, usHeat, macro, usPrices] = await Promise.all([
+  const [snapshot, supplement, panelSummary, industryMap, usHeat, macro, usPrices, usFund] = await Promise.all([
     loadSnapshot(),
     loadSupplement(),
     loadPanelSummary(),
@@ -100,14 +124,21 @@ export default async function HomePage({
     loadUsHeat(),
     loadMacro(),
     loadUsPrices(),
+    loadUsFundamentals(),
   ]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
-  // 与 list 同源:heat 取 us-heat、price/pct 取 us-stocks(最新 Nasdaq 全市场),不再用旧 snapshot 价
+  // 与 list/详情页同源:heat=us-heat,price/pct/市值=us-stocks,基本面=us-fundamentals(全是最新 Nasdaq/Yahoo)
   const items = mergeSupplement(baseItems, supplement).map((it) => {
     let m = it;
     if (usHeat.stocks[it.ticker] != null) m = { ...m, heat: usHeat.stocks[it.ticker] };
     const up = usPrices[it.ticker];
-    if (up && up.price != null) m = { ...m, livePrice: up.price, pct: up.pct, dataSource: "live" as const };
+    if (up && up.price != null) {
+      m = { ...m, livePrice: up.price, pct: up.pct, dataSource: "live" as const };
+      if (up.mcapB != null) m = { ...m, marketCapB: up.mcapB };
+    }
+    // 基本面只认 us-fundamentals(和详情页同一口径);没有就清空,不留 12 天前的旧 snapshot
+    const fu = usFund[it.ticker];
+    m = { ...m, fundamentals: fu ? mapFund(fu) : undefined };
     return m;
   });
 

@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
       "./public/data/us-options.json",
     ],
     "/wire": ["./public/data/market-news.json", "./public/data/macro.json"],
+    "/": [
+      "./public/data/us-stocks.json",
+      "./public/data/us-fundamentals.json",
+      "./public/data/us-heat.json",
+      "./public/data/macro.json",
+    ],
   },
 };
 

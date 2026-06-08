@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { marketStatus, type MktState } from "@/lib/market-status";
 
 // Yahoo 符号:US 直用代码;A股 6→.SS / 0·3→.SZ;港股补零 .HK
 function yahooSym(code: string, market: string): string {
@@ -23,7 +24,15 @@ export default function LivePrice({
     price: initialPrice ?? null, pct: null,
   });
   const [flash, setFlash] = useState<"" | "up" | "down">("");
+  const [mkt, setMkt] = useState<MktState | null>(null);
   const prev = useRef<number | null>(initialPrice ?? null);
+
+  useEffect(() => {
+    const tick = () => setMkt(marketStatus(new Date()).state);
+    tick();
+    const id = setInterval(tick, 60_000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -66,8 +75,9 @@ export default function LivePrice({
           {up ? "+" : ""}{q.pct.toFixed(2)}%
         </span>
       )}
-      <span className="flex items-center gap-1 text-[10px] uppercase tracking-wider text-faint">
-        <span className="h-1.5 w-1.5 rounded-full bg-up animate-pulse" />Live
+      <span className="flex items-center gap-1 text-[10px] tracking-wider text-faint">
+        <span className={`h-1.5 w-1.5 rounded-full ${mkt === "open" ? "bg-up animate-pulse" : "bg-faint"}`} />
+        {mkt === "open" ? "实时" : mkt === "pre" ? "盘前" : mkt === "post" ? "盘后" : "休市"}
       </span>
     </div>
   );

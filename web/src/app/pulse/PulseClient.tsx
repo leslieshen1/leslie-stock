@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import PulseField from "./PulseField";
 import {
   LAYERS,
@@ -158,6 +158,7 @@ export default function PulseClient({
       if (q && q.pct != null) {
         base.heat = Math.max(1, Math.min(100, Math.round(50 + (q.pct as number) * 3.3)));
         if (q.price != null) base.livePrice = q.price;
+        base.pct = q.pct;
         base.dataSource = "live";
       }
       return base;
@@ -580,6 +581,19 @@ function DetailPanel({
   }, [c.layer]);
   const ts = useMemo(() => tripleScore(c), [c]);
  const [tab, setTab] = useState<"heat" | "triple">("heat");
+  // 选中标的价格变动时闪烁
+  const [priceFlash, setPriceFlash] = useState<"" | "up" | "down">("");
+  const prevPrice = useRef<number | null>(c.livePrice ?? null);
+  useEffect(() => {
+    if (c.livePrice == null) return;
+    if (prevPrice.current != null && c.livePrice !== prevPrice.current) {
+      setPriceFlash(c.livePrice > prevPrice.current ? "up" : "down");
+      prevPrice.current = c.livePrice;
+      const t = setTimeout(() => setPriceFlash(""), 1100);
+      return () => clearTimeout(t);
+    }
+    prevPrice.current = c.livePrice;
+  }, [c.livePrice]);
 
   // 上下游标的（从 SUPPLY_EDGES 反查）
   const { upstream, downstream } = useMemo(() => {
@@ -625,9 +639,16 @@ function DetailPanel({
               </span>
             )}
           </div>
- {c.dataSource === "live" && c.livePrice && (
- <div className="mt-1.5 font-mono text-[10px] text-faint">
-              {c.livePrice.toFixed(2)} · 收于 {c.liveBar}
+ {c.livePrice != null && (
+ <div className="mt-1.5 flex items-baseline gap-2 font-mono text-xs">
+              <span className={`rounded px-1 font-semibold transition-colors duration-700 ${
+                priceFlash === "up" ? "bg-up-soft text-up" : priceFlash === "down" ? "bg-down-soft text-down" : "text-ink"
+              }`}>${c.livePrice.toFixed(2)}</span>
+              {c.pct != null && (
+                <span className={c.pct >= 0 ? "text-up" : "text-down"}>
+                  {c.pct >= 0 ? "+" : ""}{c.pct.toFixed(2)}%
+                </span>
+              )}
             </div>
           )}
         </div>

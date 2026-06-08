@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import SearchBox from "./SearchBox";
+import MarketStatus from "./MarketStatus";
 
 interface DataHealth {
   liveCount: number;
@@ -98,11 +99,16 @@ export default function TopNav({ health }: { health?: DataHealth }) {
           </Link>
         )}
 
+        {/* 盘口状态 — 休市时让用户知道价格"不跳"是正常 */}
+        <div className="ml-auto shrink-0 sm:ml-0">
+          <MarketStatus />
+        </div>
+
         {/* Buy — 右上角小 CTA */}
         <Link
           href="/how-to-buy"
           title="如何买美股 · How to buy US stocks"
-          className="ml-auto shrink-0 rounded-lg bg-accent px-3 py-1.5 text-[13px] font-semibold text-black transition hover:bg-accent/90 sm:ml-0"
+          className="shrink-0 rounded-lg bg-accent px-3 py-1.5 text-[13px] font-semibold text-black transition hover:bg-accent/90"
         >
           Buy
         </Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { AleabitManifestEntry } from "@/lib/data";
@@ -53,6 +53,8 @@ export default function ScanClient() {
   const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [loading, setLoading] = useState(true);
+  const [priceFlash, setPriceFlash] = useState<Record<string, "up" | "down">>({});
+  const pricesRef = useRef<Record<string, number>>({});
   useEffect(() => {
     let alive = true;
     Promise.all([
@@ -75,25 +77,39 @@ export default function ScanClient() {
   useEffect(() => {
     if (market !== "us") return;
     let alive = true;
+    let flashTimer: ReturnType<typeof setTimeout>;
     const poll = async () => {
       try {
         const r = await fetch("/api/market", { cache: "no-store" });
         const j = await r.json();
         const q = (j.quotes || {}) as Record<string, { price: number | null; pct: number | null }>;
         if (!alive || !Object.keys(q).length) return;
+        // 算涨跌闪烁:对比上次价(首轮无 ref → 不闪,作为基线)
+        const f: Record<string, "up" | "down"> = {};
+        for (const sym in q) {
+          const np = q[sym].price;
+          if (np == null) continue;
+          const op = pricesRef.current[sym];
+          if (op != null && np !== op) f[sym] = np > op ? "up" : "down";
+          pricesRef.current[sym] = np;
+        }
         setUsStocks((prev) =>
           prev.map((s) => {
             const nq = q[s.sym];
             return nq && nq.price != null ? { ...s, price: nq.price, pct: nq.pct } : s;
           }),
         );
+        if (Object.keys(f).length) {
+          setPriceFlash(f);
+          flashTimer = setTimeout(() => alive && setPriceFlash({}), 1200);
+        }
       } catch {
         /* 静默,保留上次 */
       }
     };
     const id = setInterval(poll, 60_000);
     poll();
-    return () => { alive = false; clearInterval(id); };
+    return () => { alive = false; clearInterval(id); clearTimeout(flashTimer); };
   }, [market]);
   // 默认筛选：score >= 60，隐藏批量预标的
   const [scoreBuckets, setScoreBuckets] = useState<Set<string>>(
@@ -197,7 +213,7 @@ export default function ScanClient() {
       )}
 
       {market === "us" ? (
-        <UsScanView stocks={usStocks} flags={dilutionFlags} panels={usPanels} />
+        <UsScanView stocks={usStocks} flags={dilutionFlags} panels={usPanels} flash={priceFlash} />
       ) : (
       <>
       {/* 顶部统计 */}
@@ -411,7 +427,7 @@ function fmtVol(v: number | null): string {
   return String(v);
 }
 
-function UsScanView({ stocks, flags, panels }: { stocks: UsStock[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary }) {
+function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary; flash?: Record<string, "up" | "down"> }) {
   const router = useRouter();
   const { has, toggle } = useWatchlist();
   const [search, setSearch] = useState("");
@@ -646,6 +662,8 @@ function UsScanView({ stocks, flags, panels }: { stocks: UsStock[]; flags: Recor
               const inList = has(s.sym, "us");
               const isUp = (s.pct ?? 0) >= 0;
               const flag = flags[s.sym];
+              const fl = flash[s.sym];
+              const flCls = fl === "up" ? "bg-up-soft" : fl === "down" ? "bg-down-soft" : "";
               return (
                 <tr
                   key={s.sym}
@@ -660,10 +678,10 @@ function UsScanView({ stocks, flags, panels }: { stocks: UsStock[]; flags: Recor
  <span className="truncate text-muted">{s.name || s.sym}</span>
                     </div>
                   </td>
- <td className="px-3 py-2 text-right font-mono tabular-nums text-ink">
+ <td className={`px-3 py-2 text-right font-mono tabular-nums text-ink transition-colors duration-700 ${flCls}`}>
                     {s.price != null ? `$${s.price.toFixed(2)}` : "—"}
                   </td>
-                  <td className={`px-3 py-2 text-right font-mono font-semibold tabular-nums ${isUp ? "text-up" : "text-down"}`}>
+                  <td className={`px-3 py-2 text-right font-mono font-semibold tabular-nums transition-colors duration-700 ${flCls || (isUp ? "text-up" : "text-down")}`}>
                     {s.pct != null ? `${isUp ? "+" : ""}${s.pct.toFixed(2)}%` : "—"}
                   </td>
  <td className="px-3 py-2 text-right font-mono tabular-nums text-muted">{fmtCap(s.mcapB)}</td>

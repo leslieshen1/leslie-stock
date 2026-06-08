@@ -242,6 +242,7 @@ export interface CompanyWithHeat extends Company {
   heat: number;
   dataSource: "live" | "mock" | "serenity";
   livePrice?: number;
+  pct?: number | null;        // 当日涨跌%（与 list 同源:us-stocks / /api/market）
   liveBar?: string;
   fundamentals?: Fundamentals;
   valuationMethod?: "pe_history" | "price_history";

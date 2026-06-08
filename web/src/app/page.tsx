@@ -20,6 +20,19 @@ async function loadMacro(): Promise<MacroSeries[]> {
     return [];
   }
 }
+
+// 热力图价格/涨跌与 list 同源:us-stocks.json(Nasdaq 全市场),取代 12 天前的 pulse-snapshot
+async function loadUsPrices(): Promise<Record<string, { price: number | null; pct: number | null }>> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "us-stocks.json");
+    const stocks = JSON.parse(await fs.readFile(p, "utf-8")).stocks || [];
+    const m: Record<string, { price: number | null; pct: number | null }> = {};
+    for (const s of stocks) m[s.sym] = { price: s.price ?? null, pct: s.pct ?? null };
+    return m;
+  } catch {
+    return {};
+  }
+}
 async function loadSnapshot(): Promise<PulseSnapshot | null> {
   try {
  const p = path.join(process.cwd(), "public", "data", "pulse-snapshot.json");
@@ -79,19 +92,24 @@ export default async function HomePage({
 }: {
   searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
-  const [snapshot, supplement, panelSummary, industryMap, usHeat, macro] = await Promise.all([
+  const [snapshot, supplement, panelSummary, industryMap, usHeat, macro, usPrices] = await Promise.all([
     loadSnapshot(),
     loadSupplement(),
     loadPanelSummary(),
     loadIndustryMap(),
     loadUsHeat(),
     loadMacro(),
+    loadUsPrices(),
   ]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
-  // 短期热度:用最新 us-stocks 行情(6104 只今日)覆盖美股节点 heat,取代 7天前119只旧快照
-  const items = mergeSupplement(baseItems, supplement).map((it) =>
-    usHeat.stocks[it.ticker] != null ? { ...it, heat: usHeat.stocks[it.ticker] } : it
-  );
+  // 与 list 同源:heat 取 us-heat、price/pct 取 us-stocks(最新 Nasdaq 全市场),不再用旧 snapshot 价
+  const items = mergeSupplement(baseItems, supplement).map((it) => {
+    let m = it;
+    if (usHeat.stocks[it.ticker] != null) m = { ...m, heat: usHeat.stocks[it.ticker] };
+    const up = usPrices[it.ticker];
+    if (up && up.price != null) m = { ...m, livePrice: up.price, pct: up.pct, dataSource: "live" as const };
+    return m;
+  });
 
   // 真分 + 产业链放置都只裁剪出热力图节点用到的(避免全量塞进 client payload)
   const nodeTickers = new Set(items.map((i) => i.ticker));

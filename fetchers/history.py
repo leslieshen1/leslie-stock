@@ -1,12 +1,13 @@
-"""历史派生量(RSI + 动量,Yahoo 3 个月日线,免费无 key)→ us-history.json + leslie.db.us_history。
+"""回种全市场日线(Nasdaq 历史接口,免费,和 screener 同源)→ leslie.db.price_history。
 
-给"过热/泡沫度"热度用:RSI 超买、20/60 日动量强 = 过热。
-每只缓存,reruns 增量;线程池 + 退避(Yahoo 限流时优雅跳过)。
+只在"自攒历史"还不够时跑(初次回种 3 个月,或给新上市票补种)。
+日常 RSI/动量由 scripts/build_history_metrics.py 从 price_history 自己算 —— 不再每天打外部接口。
+已有 ≥50 行的 sym 默认跳过(--reseed 强制重抓)。
 
 用法:
-  uv run python -m fetchers.history                 # panels ∪ 市值 top 1500
-  uv run python -m fetchers.history --top 3000
-  uv run python -m fetchers.history --syms NVDA,AAPL
+  uv run python -m fetchers.history                 # panels ∪ 市值 top 1500,跳过已种
+  uv run python -m fetchers.history --all            # 全市场回种
+  uv run python -m fetchers.history --syms NVDA,AAPL --reseed
 """
 from __future__ import annotations
 
@@ -15,83 +16,55 @@ import json
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import requests
 
 ROOT = Path(__file__).parent.parent
 PUB = ROOT / "web" / "public" / "data"
-OUT = PUB / "us-history.json"
-CACHE = ROOT / "data" / "_cache" / "history"
 PANELS = PUB / "us-panels"
 US_STOCKS = PUB / "us-stocks.json"
-# Nasdaq 历史接口(和 screener 同源,比 Yahoo 公开端点宽容得多)
 H = {
     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
     "accept": "application/json, text/plain, */*",
-    "origin": "https://www.nasdaq.com",
-    "referer": "https://www.nasdaq.com/",
+    "origin": "https://www.nasdaq.com", "referer": "https://www.nasdaq.com/",
 }
 
 
-def rsi14(closes: list[float]) -> float | None:
-    if len(closes) < 15:
+def _f(v):
+    try:
+        return float(str(v).replace("$", "").replace(",", ""))
+    except (TypeError, ValueError):
         return None
-    gains, losses = [], []
-    for i in range(1, len(closes)):
-        d = closes[i] - closes[i - 1]
-        gains.append(max(d, 0.0))
-        losses.append(max(-d, 0.0))
-    n = 14
-    ag = sum(gains[-n:]) / n
-    al = sum(losses[-n:]) / n
-    if al == 0:
-        return 100.0 if ag > 0 else 50.0
-    rs = ag / al
-    return round(100 - 100 / (1 + rs), 1)
 
 
-def fetch_one(sym: str, max_age_days: int) -> dict | None:
-    cf = CACHE / f"{sym}.json"
-    if cf.exists():
-        try:
-            cached = json.loads(cf.read_text(encoding="utf-8"))
-            ts = datetime.fromisoformat(cached.get("_ts"))
-            if (datetime.now(timezone.utc) - ts).days < max_age_days:
-                return cached
-        except Exception:
-            pass
+def fetch_rows(sym: str, days: int) -> list[tuple] | None:
+    """Nasdaq 历史 → [(date_iso, close, vol)]。"""
     d2 = datetime.now().strftime("%Y-%m-%d")
-    d1 = (datetime.now() - timedelta(days=130)).strftime("%Y-%m-%d")
+    d1 = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
     url = (f"https://api.nasdaq.com/api/quote/{sym}/historical"
            f"?assetclass=stocks&fromdate={d1}&todate={d2}&limit=9999")
     for attempt in range(4):
         try:
             r = requests.get(url, headers=H, timeout=25)
             if r.status_code in (429, 403):
-                time.sleep(2.0 * (attempt + 1))
-                continue
+                time.sleep(2.0 * (attempt + 1)); continue
             r.raise_for_status()
             rows = (((r.json() or {}).get("data") or {}).get("tradesTable") or {}).get("rows") or []
-            closes = []
-            for row in reversed(rows):  # Nasdaq 返回最新在前 → 反转成 旧→新
-                v = str(row.get("close", "")).replace("$", "").replace(",", "")
+            out = []
+            for row in rows:
+                ds = str(row.get("date", ""))  # MM/DD/YYYY
                 try:
-                    closes.append(float(v))
+                    mm, dd, yy = ds.split("/")
+                    date_iso = f"{yy}-{mm.zfill(2)}-{dd.zfill(2)}"
                 except ValueError:
-                    pass
-            if len(closes) < 20:
-                return None
-            px = closes[-1]
-            ret20 = round((px / closes[-21] - 1) * 100, 2) if len(closes) >= 21 else None
-            ret60 = round((px / closes[-61] - 1) * 100, 2) if len(closes) >= 61 else round((px / closes[0] - 1) * 100, 2)
-            rec = {"rsi": rsi14(closes), "ret20": ret20, "ret60": ret60,
-                   "_ts": datetime.now(timezone.utc).isoformat()}
-            cf.parent.mkdir(parents=True, exist_ok=True)
-            cf.write_text(json.dumps(rec, ensure_ascii=False), encoding="utf-8")
-            return rec
+                    continue
+                close = _f(row.get("close"))
+                if close is not None:
+                    out.append((sym, date_iso, close, _f(row.get("volume"))))
+            return out or None
         except Exception:
             time.sleep(1.2 * (attempt + 1))
     return None
@@ -107,9 +80,9 @@ def universe(args) -> list[str]:
             if s not in seen:
                 seen.add(s); syms.append(s)
     if US_STOCKS.exists():
-        stocks = [s for s in json.loads(US_STOCKS.read_text(encoding="utf-8")).get("stocks", []) if s.get("mcapB")]
-        stocks.sort(key=lambda x: x["mcapB"] or 0, reverse=True)
-        for s in (stocks if args.all else stocks[: args.top]):
+        st = [s for s in json.loads(US_STOCKS.read_text(encoding="utf-8")).get("stocks", []) if s.get("mcapB")]
+        st.sort(key=lambda x: x["mcapB"] or 0, reverse=True)
+        for s in (st if args.all else st[: args.top]):
             sym = (s.get("sym") or "").upper()
             if sym and sym not in seen:
                 seen.add(sym); syms.append(sym)
@@ -122,50 +95,40 @@ def main():
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--syms", type=str, default="")
-    ap.add_argument("--max-age-days", type=int, default=2)
+    ap.add_argument("--days", type=int, default=130)
+    ap.add_argument("--reseed", action="store_true", help="已种的也重抓")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
-    syms = universe(args)
-    print(f"📈 拉历史(RSI/动量,Nasdaq 3mo)... {len(syms)} 只 · {args.workers} 线程")
-    t0 = time.time()
-    out: dict[str, dict] = {}
-    done = 0
+    sys.path.insert(0, str(ROOT))
+    from db import connect, init_schema
+    init_schema()
+    c = connect()
+    seeded = set()
+    if not args.reseed:
+        seeded = {r[0] for r in c.execute(
+            "SELECT sym FROM price_history GROUP BY sym HAVING COUNT(*) >= 50")}
+
+    syms = [s for s in universe(args) if s not in seeded]
+    print(f"🌱 回种日线(Nasdaq {args.days}d)→ price_history... {len(syms)} 只待种"
+          f"(已跳过 {len(seeded)} 只已种)· {args.workers} 线程")
+    t0 = time.time(); done = ins = 0
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(fetch_one, s, args.max_age_days): s for s in syms}
+        futs = {ex.submit(fetch_rows, s, args.days): s for s in syms}
         for fut in as_completed(futs):
-            sym = futs[fut]; rec = fut.result(); done += 1
-            if rec:
-                out[sym] = {k: v for k, v in rec.items() if k != "_ts" and v is not None}
-            if done % 300 == 0:
-                print(f"   {done}/{len(syms)} ({len(out)} 有数据, {time.time()-t0:.0f}s)")
-
-    prev = {}
-    if OUT.exists():
-        try:
-            prev = json.loads(OUT.read_text(encoding="utf-8")).get("stocks", {})
-        except Exception:
-            pass
-    merged = {**prev, **out}
-    gen = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    OUT.write_text(json.dumps({"generated_at": gen, "count": len(merged), "stocks": merged}, ensure_ascii=False), encoding="utf-8")
-
-    try:
-        sys.path.insert(0, str(ROOT))
-        from db import connect, init_schema
-        init_schema(); c = connect()
-        c.executemany("INSERT INTO us_history(sym,data,updated_at) VALUES(?,?,?) "
-                      "ON CONFLICT(sym) DO UPDATE SET data=excluded.data,updated_at=excluded.updated_at",
-                      [(s, json.dumps(r, ensure_ascii=False), gen) for s, r in out.items()])
-        c.execute("INSERT INTO meta(key,value) VALUES('us_history_generated_at',?) "
-                  "ON CONFLICT(key) DO UPDATE SET value=excluded.value", (gen,))
-        c.commit()
-        print(f"   ↳ 入库 us_history: 本次 {len(out)}")
-    except Exception as e:
-        print(f"   ↳ 入库跳过: {e}")
-    print(f"✅ 历史 {len(out)}/{len(syms)} 本次 · 累计 {len(merged)} → {OUT}  ({time.time()-t0:.0f}s)")
-    for s in list(out)[:4]:
-        print(f"   {s}: RSI {out[s].get('rsi')} · 20d {out[s].get('ret20')}% · 60d {out[s].get('ret60')}%")
+            rows = fut.result(); done += 1
+            if rows:
+                c.executemany(
+                    "INSERT INTO price_history(sym,date,close,volume) VALUES(?,?,?,?) "
+                    "ON CONFLICT(sym,date) DO UPDATE SET close=excluded.close,volume=excluded.volume", rows)
+                ins += len(rows)
+            if done % 200 == 0:
+                c.commit()
+                print(f"   {done}/{len(syms)} ({ins} 行, {time.time()-t0:.0f}s)")
+    c.commit()
+    total = c.execute("SELECT COUNT(*) FROM price_history").fetchone()[0]
+    nsym = c.execute("SELECT COUNT(DISTINCT sym) FROM price_history").fetchone()[0]
+    print(f"✅ 回种完成:本次 +{ins} 行 · price_history 共 {total} 行 / {nsym} 只  ({time.time()-t0:.0f}s)")
 
 
 if __name__ == "__main__":

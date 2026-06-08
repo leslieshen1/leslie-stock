@@ -232,3 +232,11 @@ CREATE TABLE IF NOT EXISTS macro (sym TEXT PRIMARY KEY, name TEXT, price REAL, p
 CREATE TABLE IF NOT EXISTS superinvestors (slug TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
 -- 历史派生量(RSI/动量),给"过热/泡沫度"热度用。data = {rsi,ret20,ret60}
 CREATE TABLE IF NOT EXISTS us_history (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+-- 自攒全市场日线:每次 refresh 追加今日收盘 → 攒够后 RSI/动量全自己算,不依赖外部历史接口。
+-- 初次用 Nasdaq 回种 3 个月,之后每天 append 一行。
+CREATE TABLE IF NOT EXISTS price_history (
+    sym TEXT NOT NULL, date TEXT NOT NULL,   -- date = YYYY-MM-DD
+    close REAL, volume REAL,
+    PRIMARY KEY (sym, date)
+);
+CREATE INDEX IF NOT EXISTS idx_price_history_sym ON price_history(sym, date);

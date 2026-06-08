@@ -30,7 +30,7 @@ SOURCES = [
     ("fetchers.us_stocks", "美股全量行情(Nasdaq)", []),
     ("fetchers.macro", "宏观/大盘(Yahoo)", []),
     ("fetchers.fundamentals", "基本面 PE/PS/EV-EBITDA(Yahoo)", ["--top", "0"]),  # 默认只刷 panels(缓存快);--full 全量
-    ("fetchers.history", "历史 RSI/动量(Yahoo 3mo,泡沫度用)", ["--top", "0"]),
+    ("fetchers.history", "回种日线(Nasdaq,跳过已种,补新票)", ["--top", "0"]),
     ("fetchers.news_google", "个股新闻(Google News)", []),
     ("fetchers.dataroma", "超级投资者持仓(Dataroma)", []),
     ("fetchers.finnhub", "财报日历+市场新闻(Finnhub,需 key)", []),
@@ -51,6 +51,9 @@ def main():
             print(f"\n--- {desc} ---")
             if run([sys.executable, "-m", mod, *args]) != 0:
                 print(f"⚠ {desc} 失败,跳过(继续用库里已有数据)")
+
+        print("\n--- 追加今日价 → price_history(自攒历史) ---")
+        run([sys.executable, "scripts/append_daily_prices.py"])
 
     print("\n=== 2) 从 leslie.db 派生全部前端 JSON ===")
     run([sys.executable, "scripts/build_json.py"])

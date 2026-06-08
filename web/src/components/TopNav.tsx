@@ -2,16 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import SearchBox from "./SearchBox";
 import MarketStatus from "./MarketStatus";
-
-interface DataHealth {
-  liveCount: number;
-  total: number;
-  generatedAt: string | null;
-  ok: boolean;
-}
 
 interface NavItem {
   href: string;
@@ -29,18 +21,8 @@ const NAV: NavItem[] = [
  { href: "/portfolio", label: "我的", en: "Portfolio", match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist") },
 ];
 
-export default function TopNav({ health }: { health?: DataHealth }) {
+export default function TopNav() {
   const pathname = usePathname();
- const [age, setAge] = useState<string>("");
-
- // 每分钟刷一次 "X 分钟前"
-  useEffect(() => {
-    if (!health?.generatedAt) return;
-    const tick = () => setAge(fmtAge(health.generatedAt!));
-    tick();
-    const id = setInterval(tick, 60_000);
-    return () => clearInterval(id);
-  }, [health?.generatedAt]);
 
   return (
  <header className="sticky top-0 z-40 border-b border-line bg-base/80 backdrop-blur-xl">
@@ -84,21 +66,6 @@ export default function TopNav({ health }: { health?: DataHealth }) {
  <SearchBox compact placeholder="搜代码 / 名称 / 板块…" />
         </div>
 
-        {/* 数据健康徽标 — 手机隐藏省宽 */}
-        {health && (
-          <Link
- href="/pulse/coverage"
- className="hidden sm:flex shrink-0 items-center gap-2 text-xs transition hover:opacity-80"
- title="数据覆盖矩阵"
-          >
- <span className="inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-2 py-1 tnum text-[11px] text-muted">
- <span className={`h-1.5 w-1.5 rounded-full ${health.ok ? "bg-up" : "bg-accent"} animate-pulse`} />
- {health.ok ? "LIVE" : "MOCK"} {health.liveCount}/{health.total}
-            </span>
- {age && <span className="text-faint hidden xl:inline">{age}</span>}
-          </Link>
-        )}
-
         {/* 盘口状态 — 休市时让用户知道价格"不跳"是正常 */}
         <div className="ml-auto shrink-0 sm:ml-0">
           <MarketStatus />
@@ -118,14 +85,3 @@ export default function TopNav({ health }: { health?: DataHealth }) {
   );
 }
 
-function fmtAge(iso: string): string {
-  const t = new Date(iso).getTime();
-  const diffMs = Date.now() - t;
-  const mins = Math.floor(diffMs / 60_000);
- if (mins < 1) return "刚刚";
-  if (mins < 60) return `${mins} 分钟前`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 48) return `${hrs} 小时前`;
-  const days = Math.floor(hrs / 24);
-  return `${days} 天前`;
-}

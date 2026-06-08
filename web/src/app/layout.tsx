@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import TopNav from "@/components/TopNav";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
-import { loadCoverage } from "@/lib/pulse-static";
 
 export const metadata: Metadata = {
  metadataBase: new URL("https://web-liart-one-53.vercel.app"),
@@ -16,33 +15,15 @@ export const metadata: Metadata = {
  twitter: { card: "summary_large_image", title: "我不是股神 · Not a Stock Guru", images: ["/og.jpg"] },
 };
 
-// 全局数据健康（读 coverage.json）
-async function loadHealth() {
-  try {
-    const cov = await loadCoverage();
-    if (!cov.rows.length) return undefined;
-    const live = cov.rows.filter((r) => r.ok > 0).length;
-    return {
-      liveCount: live,
-      total: cov.rows.length,
-      generatedAt: cov.snapshot_date ? `${cov.snapshot_date}T18:00:00Z` : null,
-      ok: live / cov.rows.length > 0.95,
-    };
-  } catch {
-    return undefined;
-  }
-}
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const health = await loadHealth();
   return (
  <html lang="zh-CN" className="h-full antialiased">
  <body className="min-h-full">
-        <TopNav health={health} />
+        <TopNav />
         <WatchlistSidebar />
         {children}
         {/* 全站合规声明 */}

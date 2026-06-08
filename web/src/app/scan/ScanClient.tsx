@@ -70,6 +70,31 @@ export default function ScanClient() {
     });
     return () => { alive = false; };
   }, []);
+
+  // 全盘实时:轮询 /api/market(Nasdaq 快照,服务端 60s 缓存),合并最新 price/pct
+  useEffect(() => {
+    if (market !== "us") return;
+    let alive = true;
+    const poll = async () => {
+      try {
+        const r = await fetch("/api/market", { cache: "no-store" });
+        const j = await r.json();
+        const q = (j.quotes || {}) as Record<string, { price: number | null; pct: number | null }>;
+        if (!alive || !Object.keys(q).length) return;
+        setUsStocks((prev) =>
+          prev.map((s) => {
+            const nq = q[s.sym];
+            return nq && nq.price != null ? { ...s, price: nq.price, pct: nq.pct } : s;
+          }),
+        );
+      } catch {
+        /* 静默,保留上次 */
+      }
+    };
+    const id = setInterval(poll, 60_000);
+    poll();
+    return () => { alive = false; clearInterval(id); };
+  }, [market]);
   // 默认筛选：score >= 60，隐藏批量预标的
   const [scoreBuckets, setScoreBuckets] = useState<Set<string>>(
     new Set(SCORE_BUCKETS.filter((b) => b.default).map((b) => b.key))

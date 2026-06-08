@@ -16,6 +16,7 @@ import FundamentalsStrip from "./FundamentalsStrip";
 import NewsStrip from "./NewsStrip";
 import EarningsChip from "./EarningsChip";
 import OptionsGammaLine from "./OptionsGammaLine";
+import LivePrice from "./LivePrice";
 
 export default async function StockDetailPage({
   params,
@@ -72,6 +73,9 @@ export default async function StockDetailPage({
           <span className={`inline-flex rounded-md border px-2 py-0.5 text-xs font-medium ${marketTone}`}>
             {marketLabel}
           </span>
+        </div>
+        <div className="mt-2">
+          <LivePrice code={code} market={market} initialPrice={fundamentals?.px ?? null} />
         </div>
       </header>
 

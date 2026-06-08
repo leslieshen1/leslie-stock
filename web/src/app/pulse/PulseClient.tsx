@@ -115,6 +115,8 @@ export default function PulseClient({
  const [colorMode, setColorMode] = useState<string>("heat");
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
+  // 全盘实时报价(/api/market,Nasdaq 快照 60s 缓存)
+  const [liveQ, setLiveQ] = useState<Record<string, { price: number | null; pct: number | null }>>({});
 
   // 跳转过来时自动打开对应公司的 detail drawer
   useEffect(() => {
@@ -131,10 +133,36 @@ export default function PulseClient({
     setHighlightLayer(null);
   }, [industry]);
 
-  // 给每只 item 计算 triple score(热度的周度插值在 PulseField 内部做,这里只算静态布局)
+  // 全盘实时:轮询 /api/market(~60s),拿最新 price/pct
+  useEffect(() => {
+    let alive = true;
+    const poll = async () => {
+      try {
+        const r = await fetch("/api/market", { cache: "no-store" });
+        const j = await r.json();
+        if (alive && j.quotes && Object.keys(j.quotes).length) setLiveQ(j.quotes);
+      } catch {
+        /* 静默 */
+      }
+    };
+    const id = setInterval(poll, 60_000);
+    poll();
+    return () => { alive = false; clearInterval(id); };
+  }, []);
+
+  // 给每只 item 计算 triple score。有实时报价时:用当日 pct 重算短期热度 + 注入实时价
   const itemsScored = useMemo(
-    () => items.map((c) => ({ ...c, triple: tripleScore(c).average, masters: toByKey(panelSummary[c.ticker], masterOrder) })),
-    [items, panelSummary, masterOrder],
+    () => items.map((c) => {
+      const base = { ...c, triple: tripleScore(c).average, masters: toByKey(panelSummary[c.ticker], masterOrder) };
+      const q = liveQ[c.ticker];
+      if (q && q.pct != null) {
+        base.heat = Math.max(1, Math.min(100, Math.round(50 + (q.pct as number) * 3.3)));
+        if (q.price != null) base.livePrice = q.price;
+        base.dataSource = "live";
+      }
+      return base;
+    }),
+    [items, panelSummary, masterOrder, liveQ],
   );
 
   // 产业 tab 定义:AI 用 supply-chain 的 L0-L7;其余链来自 industry-map(数据驱动)

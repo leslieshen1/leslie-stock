@@ -59,15 +59,18 @@ def main():
 
     if "--deploy" in sys.argv:
         env = {**os.environ, "PYTHONPATH": str(ROOT)}
-        print("\n=== 3) 上线(只提交变了的前端 JSON,跳过 13M 的库) ===")
-        subprocess.run(["git", "add", "web/public/data"], cwd=str(ROOT), env=env)
+        print("\n=== 3) 上线(只提交变了的前端 JSON + whales,跳过 20M 的库) ===")
+        # 这些 JSON 就是库的可重建副本(build_json 的 sync_inputs_into_db 能回灌)
+        subprocess.run(["git", "add", "web/public/data", "data/whales.json", "web/data/whales.json"],
+                       cwd=str(ROOT), env=env)
         # 没变化也不报错
-        subprocess.run(["git", "commit", "-q", "-m", "refresh: 最新行情/热度(库→JSON)"],
+        subprocess.run(["git", "commit", "-q", "-m", "refresh: 最新行情/基本面/新闻/13F(库→JSON)"],
                        cwd=str(ROOT), env=env)
         subprocess.run(["git", "push", "origin", "main"], cwd=str(ROOT), env=env)
         print("   Vercel 部署中…")
         subprocess.run(["vercel", "--prod", "--yes", "--archive=tgz"], cwd=str(ROOT / "web"), env=env)
-        print("\n✅ 已上线。db 本身没进 git(可从 JSON 重建);五方分析有变动时再单独备份库。")
+        print("\n✅ 已上线。库没进 git —— churning 数据(行情/基本面/新闻/13F)可从已提交 JSON 重建;"
+              "\n   A股/基金/政客是静态库内 SoT,基线库已备份一次即可。")
     else:
         print("   要上线: python scripts/refresh.py --deploy")
 

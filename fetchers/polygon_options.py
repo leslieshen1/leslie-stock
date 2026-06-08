@@ -93,6 +93,9 @@ def main():
         if rec:
             out[s] = rec
             print(f"   {s}: GEX {rec['gex']}  contracts {rec['contracts']}")
+    if not out:
+        print("   (无期权数据 —— Polygon 免费档不含期权 greeks,需升级;不写 us-options.json)")
+        return
     (PUB / "us-options.json").write_text(
         json.dumps({"generated_at": gen, "stocks": out}, ensure_ascii=False), encoding="utf-8")
     try:

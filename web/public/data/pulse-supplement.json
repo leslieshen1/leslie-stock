@@ -24747,5 +24747,328 @@
   "_serenity_score": 53,
   "_verdict": "",
   "_thesis": ""
+ },
+ {
+  "ticker": "HYMC",
+  "name": "Hycroft Mining Holding Corporation Class A",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 2.4,
+  "moat": 3,
+  "valuationPct": 25,
+  "momentum20d": 25,
+  "rsi": 40,
+  "sentiment": 25,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 25,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OXLCO",
+  "name": "Oxford Lane Capital Corp. Preferred Stock Shares 6.00% Series 2029",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.2,
+  "moat": 3,
+  "valuationPct": 34,
+  "momentum20d": 34,
+  "rsi": 40,
+  "sentiment": 34,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 34,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OXLCL",
+  "name": "Oxford Lane Capital Corp. 6.75% Notes due 2031",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.3,
+  "moat": 3,
+  "valuationPct": 35,
+  "momentum20d": 35,
+  "rsi": 40,
+  "sentiment": 35,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 35,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "FSK",
+  "name": "FS KKR Capital Corp.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 3.0,
+  "moat": 3,
+  "valuationPct": 43,
+  "momentum20d": 43,
+  "rsi": 43,
+  "sentiment": 43,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 43,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "DX",
+  "name": "Dynex Capital Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 2.8,
+  "moat": 3,
+  "valuationPct": 31,
+  "momentum20d": 31,
+  "rsi": 40,
+  "sentiment": 31,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 31,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "TCBI",
+  "name": "Texas Capital Bancshares Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.4,
+  "moat": 3,
+  "valuationPct": 37,
+  "momentum20d": 37,
+  "rsi": 40,
+  "sentiment": 37,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 37,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "PVH",
+  "name": "PVH Corp.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 3.6,
+  "moat": 3,
+  "valuationPct": 36,
+  "momentum20d": 36,
+  "rsi": 40,
+  "sentiment": 36,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 36,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OXLCN",
+  "name": "Oxford Lane Capital Corp. 7.125% Series 2029 Term Preferred Stock",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.3,
+  "moat": 3,
+  "valuationPct": 29,
+  "momentum20d": 29,
+  "rsi": 40,
+  "sentiment": 29,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 29,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "GBDC",
+  "name": "Golub Capital BDC Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 3.4,
+  "moat": 3,
+  "valuationPct": 38,
+  "momentum20d": 38,
+  "rsi": 40,
+  "sentiment": 38,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 38,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OXLCZ",
+  "name": "Oxford Lane Capital Corp. 5.00% Notes due 2027",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.3,
+  "moat": 3,
+  "valuationPct": 25,
+  "momentum20d": 25,
+  "rsi": 40,
+  "sentiment": 25,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 25,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "SEDG",
+  "name": "SolarEdge Technologies Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 3.8,
+  "moat": 3,
+  "valuationPct": 36,
+  "momentum20d": 36,
+  "rsi": 40,
+  "sentiment": 36,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 36,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "XXI",
+  "name": "Twenty One Capital Inc. Class A",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 3.7,
+  "moat": 3,
+  "valuationPct": 28,
+  "momentum20d": 28,
+  "rsi": 40,
+  "sentiment": 28,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 28,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "HCXY",
+  "name": "Hercules Capital Inc. 6.25% Notes due 2033",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.5,
+  "moat": 3,
+  "valuationPct": 21,
+  "momentum20d": 21,
+  "rsi": 40,
+  "sentiment": 21,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 21,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "ANF",
+  "name": "Abercrombie & Fitch Company",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 3.4,
+  "moat": 3,
+  "valuationPct": 29,
+  "momentum20d": 29,
+  "rsi": 40,
+  "sentiment": 29,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 29,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "APLE",
+  "name": "Apple Hospitality REIT Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 3.7,
+  "moat": 3,
+  "valuationPct": 27,
+  "momentum20d": 27,
+  "rsi": 40,
+  "sentiment": 27,
+  "industries": [
+   "consumer"
+  ],
+  "_serenity_score": 27,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "HTGC",
+  "name": "Hercules Capital Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 2.9,
+  "moat": 3,
+  "valuationPct": 43,
+  "momentum20d": 43,
+  "rsi": 43,
+  "sentiment": 43,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 43,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OXLCM",
+  "name": "Oxford Lane Capital Corp. Preferred Stock Shares 8.25% Series 2031",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 4.4,
+  "moat": 3,
+  "valuationPct": 37,
+  "momentum20d": 37,
+  "rsi": 40,
+  "sentiment": 37,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 37,
+  "_verdict": "",
+  "_thesis": ""
  }
 ]

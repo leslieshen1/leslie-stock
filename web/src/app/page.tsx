@@ -9,8 +9,17 @@ import {
   type SupplementItem,
 } from "@/lib/supply-chain";
 import { loadTrends } from "@/lib/pulse-static";
+import MacroBar, { type MacroSeries } from "@/components/MacroBar";
 
 // Home = Heatmap（不藏起来）
+async function loadMacro(): Promise<MacroSeries[]> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "macro.json");
+    return (JSON.parse(await fs.readFile(p, "utf-8")).series || []) as MacroSeries[];
+  } catch {
+    return [];
+  }
+}
 async function loadSnapshot(): Promise<PulseSnapshot | null> {
   try {
  const p = path.join(process.cwd(), "public", "data", "pulse-snapshot.json");
@@ -70,12 +79,13 @@ export default async function HomePage({
 }: {
   searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
-  const [snapshot, supplement, panelSummary, industryMap, usHeat] = await Promise.all([
+  const [snapshot, supplement, panelSummary, industryMap, usHeat, macro] = await Promise.all([
     loadSnapshot(),
     loadSupplement(),
     loadPanelSummary(),
     loadIndustryMap(),
     loadUsHeat(),
+    loadMacro(),
   ]);
   const baseItems = snapshot ? enrichWithSnapshot(snapshot) : COMPANIES_WITH_HEAT;
   // 短期热度:用最新 us-stocks 行情(6104 只今日)覆盖美股节点 heat,取代 7天前119只旧快照
@@ -118,6 +128,7 @@ export default async function HomePage({
 
   return (
  <main className="mx-auto max-w-[1480px] px-6 py-10">
+      <MacroBar series={macro} />
       <PulseClient
         items={items}
         trends={trends}

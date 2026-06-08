@@ -25070,5 +25070,328 @@
   "_serenity_score": 37,
   "_verdict": "",
   "_thesis": ""
+ },
+ {
+  "ticker": "TRINI",
+  "name": "Trinity Capital Inc. 7.875% Notes Due 2029",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.8,
+  "moat": 3,
+  "valuationPct": 34,
+  "momentum20d": 34,
+  "rsi": 40,
+  "sentiment": 34,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 34,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "ECAT",
+  "name": "BlackRock ESG Capital Allocation Term Trust Common Shares of Beneficial Interest",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.7,
+  "moat": 3,
+  "valuationPct": 28,
+  "momentum20d": 28,
+  "rsi": 40,
+  "sentiment": 28,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 28,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "FSUN",
+  "name": "FirstSun Capital Bancorp",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.7,
+  "moat": 3,
+  "valuationPct": 40,
+  "momentum20d": 40,
+  "rsi": 40,
+  "sentiment": 40,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 40,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "TRINZ",
+  "name": "Trinity Capital Inc. 7.875% Notes due 2029",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.8,
+  "moat": 3,
+  "valuationPct": 38,
+  "momentum20d": 38,
+  "rsi": 40,
+  "sentiment": 38,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 38,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OXSQG",
+  "name": "Oxford Square Capital Corp. 5.50% Notes due 2028",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.5,
+  "moat": 3,
+  "valuationPct": 33,
+  "momentum20d": 33,
+  "rsi": 40,
+  "sentiment": 33,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 33,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "BCAT",
+  "name": "BlackRock Capital Allocation Term Trust Common Shares of Beneficial Interest",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.7,
+  "moat": 3,
+  "valuationPct": 30,
+  "momentum20d": 30,
+  "rsi": 40,
+  "sentiment": 30,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 30,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "ECPG",
+  "name": "Encore Capital Group Inc",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.7,
+  "moat": 3,
+  "valuationPct": 39,
+  "momentum20d": 39,
+  "rsi": 40,
+  "sentiment": 39,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 39,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "BPOPM",
+  "name": "Popular Inc. Popular Capital Trust II - 6.125% Cumulative Monthly Income Trust Preferred Securities",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.6,
+  "moat": 3,
+  "valuationPct": 32,
+  "momentum20d": 32,
+  "rsi": 40,
+  "sentiment": 32,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 32,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OXLC",
+  "name": "Oxford Lane Capital Corp.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.7,
+  "moat": 3,
+  "valuationPct": 35,
+  "momentum20d": 35,
+  "rsi": 40,
+  "sentiment": 35,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 35,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "TSHA",
+  "name": "Taysha Gene Therapies Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.6,
+  "moat": 3,
+  "valuationPct": 36,
+  "momentum20d": 36,
+  "rsi": 40,
+  "sentiment": 36,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 36,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "AMSC",
+  "name": "American Superconductor Corporation",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 2.0,
+  "moat": 3,
+  "valuationPct": 51,
+  "momentum20d": 51,
+  "rsi": 51,
+  "sentiment": 51,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 51,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "SLSR",
+  "name": "Solaris Resources Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.5,
+  "moat": 3,
+  "valuationPct": 32,
+  "momentum20d": 32,
+  "rsi": 40,
+  "sentiment": 32,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 32,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "AMBQ",
+  "name": "Ambiq Micro Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.6,
+  "moat": 3,
+  "valuationPct": 47,
+  "momentum20d": 47,
+  "rsi": 47,
+  "sentiment": 47,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 47,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "LCID",
+  "name": "Lucid Group Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 2.0,
+  "moat": 3,
+  "valuationPct": 16,
+  "momentum20d": 16,
+  "rsi": 40,
+  "sentiment": 16,
+  "industries": [
+   "ev"
+  ],
+  "_serenity_score": 16,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "PLGO",
+  "name": "Pelagos Insurance Capital Limited",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.9,
+  "moat": 3,
+  "valuationPct": 38,
+  "momentum20d": 38,
+  "rsi": 40,
+  "sentiment": 38,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 38,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "TRIN",
+  "name": "Trinity Capital Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.5,
+  "moat": 3,
+  "valuationPct": 34,
+  "momentum20d": 34,
+  "rsi": 40,
+  "sentiment": 34,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 34,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "CSWC",
+  "name": "Capital Southwest Corporation",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.4,
+  "moat": 3,
+  "valuationPct": 31,
+  "momentum20d": 31,
+  "rsi": 40,
+  "sentiment": 31,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 31,
+  "_verdict": "",
+  "_thesis": ""
  }
 ]

@@ -10,20 +10,13 @@ export type Fundamentals = {
   reco?: string; tgt?: number; px?: number; wkHi?: number; wkLo?: number; mcapB?: number;
 };
 
-let _cache: Record<string, Fundamentals> | null = null;
-
-function loadAll(): Record<string, Fundamentals> {
-  if (_cache) return _cache;
+// 读 us-fundamentals.json —— 与 stock-type.ts 同款(每次读新、不 memo,serverless 上稳)
+export function loadFundamentals(code: string): Fundamentals | null {
   try {
     const p = path.join(process.cwd(), "public", "data", "us-fundamentals.json");
-    _cache = (JSON.parse(fs.readFileSync(p, "utf-8")).stocks || {}) as Record<string, Fundamentals>;
+    const map = (JSON.parse(fs.readFileSync(p, "utf-8")).stocks || {}) as Record<string, Fundamentals>;
+    return map[code] || map[code.toUpperCase()] || null;
   } catch {
-    _cache = {};
+    return null;
   }
-  return _cache;
-}
-
-export function loadFundamentals(code: string): Fundamentals | null {
-  const all = loadAll();
-  return all[code] || all[code.toUpperCase()] || null;
 }

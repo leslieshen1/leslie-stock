@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -37,10 +38,21 @@ US_STOCKS = PUB / "us-stocks.json"
 
 
 def _r(v, n=3):
+    """round，但 inf/nan → None（Infinity/NaN 不是合法 JSON，JS 的 JSON.parse 会拒绝整份文件）。"""
     try:
-        return round(float(v), n)
+        f = float(v)
+        if not math.isfinite(f):  # inf / -inf / nan
+            return None
+        return round(f, n)
     except (TypeError, ValueError):
         return None
+
+
+def _clean_num(v):
+    """原样数值字段（fcf 等）防御性去 inf/nan。"""
+    if isinstance(v, float) and not math.isfinite(v):
+        return None
+    return v
 
 
 def extract(i: dict) -> dict:
@@ -62,7 +74,7 @@ def extract(i: dict) -> dict:
         "divY": _r(i.get("dividendYield"), 3),
         "revG": _r(i.get("revenueGrowth"), 4),
         "earnG": _r(i.get("earningsGrowth"), 4),
-        "fcf": i.get("freeCashflow"),
+        "fcf": _clean_num(i.get("freeCashflow")),
         "beta": _r(i.get("beta"), 2),
         "reco": i.get("recommendationKey"),
         "tgt": _r(i.get("targetMeanPrice"), 2),

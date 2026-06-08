@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import PulseField from "./PulseField";
 import {
   LAYERS,
@@ -578,7 +579,10 @@ function DetailPanel({
     ];
  return allLayers.find((L) => L.id === c.layer) ?? { id: c.layer, name: "—" };
   }, [c.layer]);
-  const ts = useMemo(() => tripleScore(c), [c]);
+  // 用真 AI 五方(每只 item 已带 masters = pulse-scores),不再用 tripleScore 启发式 —— 和镜头/详情页一致
+  const masters = useMemo(() => allItems.find((x) => x.ticker === c.ticker)?.masters, [allItems, c.ticker]);
+  const aiVals = masters ? Object.values(masters.byKey).filter((v): v is number => v != null) : [];
+  const aiAvg = aiVals.length ? Math.round(aiVals.reduce((a, b) => a + b, 0) / aiVals.length) : null;
  const [tab, setTab] = useState<"heat" | "triple">("heat");
   // 选中标的价格变动时闪烁
   const [priceFlash, setPriceFlash] = useState<"" | "up" | "down">("");
@@ -678,13 +682,13 @@ function DetailPanel({
           }`}
         >
  <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
-            三方综合
+            五方判读
           </span>
  <span className="flex items-baseline gap-1 mt-0.5">
- <span className="text-xl font-semibold tabular-nums" style={{ color: scoreColor(ts.average) }}>
-              {ts.average}
+ <span className="text-xl font-semibold tabular-nums" style={{ color: aiAvg == null ? undefined : scoreColor(aiAvg) }}>
+              {aiAvg == null ? "—" : aiAvg}
             </span>
- <span className="text-[10px] text-faint font-mono">avg · ±{ts.spread}</span>
+ <span className="text-[10px] text-faint font-mono">{aiAvg == null ? "未判读" : `avg · 分歧 ${masters?.div ?? 0}`}</span>
           </span>
         </button>
       </div>
@@ -696,7 +700,7 @@ function DetailPanel({
 
       {/* Tab 内容 */}
  <div className="mt-4">
- {tab === "heat" ? <HeatView c={c} /> : <TripleView c={c} ts={ts} />}
+ {tab === "heat" ? <HeatView c={c} /> : <MasterAIView masters={masters} ticker={c.ticker} />}
       </div>
 
       {/* 基本面数据 */}
@@ -952,6 +956,56 @@ function HeatView({ c }: { c: CompanyWithHeat }) {
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+// ---- AI 五方判读(真分,来自 pulse-scores,和镜头/详情页同源)----
+function MasterAIView({ masters, ticker }: { masters?: MastersJoin; ticker: string }) {
+  const has = !!masters && Object.values(masters.byKey).some((v) => v != null);
+  return (
+    <div>
+      {!has ? (
+        <p className="text-xs text-muted">这只票还没有 AI 五方判读。</p>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="rounded-md bg-surface px-3 py-2">
+              <div className="text-[9px] font-mono uppercase tracking-wider text-muted">分歧度</div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-2xl font-semibold tabular-nums text-ink">{masters!.div}</span>
+                <span className="text-[10px] text-faint">越大越撕裂</span>
+              </div>
+            </div>
+            <div className="rounded-md bg-surface px-3 py-2">
+              <div className="text-[9px] font-mono uppercase tracking-wider text-muted">五方</div>
+              <div className="mt-1 text-[10px] leading-tight text-muted">独立判读 · 不取平均掩盖分歧</div>
+            </div>
+          </div>
+          <div className="mt-4 space-y-2">
+            {MASTERS.map((m) => (
+              <MasterBar key={m.key} name={m.name} school={m.school} score={masters!.byKey[m.key] ?? null} />
+            ))}
+          </div>
+        </>
+      )}
+      <Link href={`/stock/${ticker}?market=us`} className="mt-4 inline-block text-xs text-accent hover:underline">
+        看完整五方分析 →
+      </Link>
+    </div>
+  );
+}
+
+function MasterBar({ name, school, score }: { name: string; school?: string; score: number | null }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="w-16 shrink-0 truncate text-xs text-muted" title={school}>{name}</span>
+      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface-2">
+        <div className="h-full rounded-full" style={{ width: `${score ?? 0}%`, background: score == null ? "transparent" : scoreColor(score) }} />
+      </div>
+      <span className="w-6 text-right font-mono text-xs font-semibold tabular-nums" style={{ color: score == null ? undefined : scoreColor(score) }}>
+        {score == null ? "—" : score}
+      </span>
     </div>
   );
 }

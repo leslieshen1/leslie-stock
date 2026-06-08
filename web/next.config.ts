@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
       "./public/data/earnings-calendar.json",
       "./public/data/us-options.json",
     ],
+    "/wire": ["./public/data/market-news.json", "./public/data/macro.json"],
   },
 };
 

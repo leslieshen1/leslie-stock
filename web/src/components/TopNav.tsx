@@ -24,6 +24,7 @@ const NAV: NavItem[] = [
  { href: "/", label: "热力图", en: "Heatmap", match: (p) => p === "/" || p.startsWith("/pulse") },
  { href: "/scan", label: "列表", en: "List", match: (p) => p.startsWith("/scan") },
  { href: "/whales", label: "聪明钱", en: "Whales", match: (p) => p.startsWith("/whales") },
+ { href: "/wire", label: "快讯", en: "Wire", match: (p) => p.startsWith("/wire") },
  { href: "/portfolio", label: "我的", en: "Portfolio", match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist") },
 ];
 

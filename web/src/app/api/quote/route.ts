@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 async function one(sym: string): Promise<{ price: number; pct: number | null } | null> {
   try {
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=5m&range=1d`;
-    const r = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" }, next: { revalidate: 15 } });
+    const r = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" }, cache: "no-store" });
     if (!r.ok) return null;
     const m = (await r.json())?.chart?.result?.[0]?.meta;
     const price = m?.regularMarketPrice;
@@ -26,5 +26,5 @@ export async function GET(req: Request) {
     const q = await one(sym);
     if (q) out[sym.toUpperCase()] = q;
   }));
-  return Response.json({ quotes: out, ts: Date.now() }, { headers: { "cache-control": "s-maxage=15" } });
+  return Response.json({ quotes: out, ts: Date.now() }, { headers: { "cache-control": "no-store" } });
 }

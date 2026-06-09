@@ -10,6 +10,7 @@ import {
 } from "@/lib/supply-chain";
 import { loadTrends } from "@/lib/pulse-static";
 import MacroBar, { type MacroSeries } from "@/components/MacroBar";
+import PremarketStrip from "@/components/PremarketStrip";
 
 // Home = Heatmap（不藏起来）
 async function loadMacro(): Promise<MacroSeries[]> {
@@ -181,6 +182,7 @@ export default async function HomePage({
   return (
  <main className="mx-auto max-w-[1480px] px-6 py-10">
       <MacroBar series={macro} />
+      <PremarketStrip />
       <PulseClient
         items={items}
         trends={trends}

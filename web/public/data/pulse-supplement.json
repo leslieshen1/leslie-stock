@@ -25450,5 +25450,404 @@
   "_serenity_score": 24,
   "_verdict": "",
   "_thesis": ""
+ },
+ {
+  "ticker": "SCCD",
+  "name": "Sachem Capital Corp. 6.00% Notes due 2026",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.2,
+  "moat": 3,
+  "valuationPct": 20,
+  "momentum20d": 20,
+  "rsi": 40,
+  "sentiment": 20,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 20,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "SCCE",
+  "name": "Sachem Capital Corp. 6.00% Notes due 2027",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.2,
+  "moat": 3,
+  "valuationPct": 28,
+  "momentum20d": 28,
+  "rsi": 40,
+  "sentiment": 28,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 28,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "JKS",
+  "name": "JinkoSolar Holding Company Limited American Depositary Shares (each representing 4 Common Shares)",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.1,
+  "moat": 3,
+  "valuationPct": 29,
+  "momentum20d": 29,
+  "rsi": 40,
+  "sentiment": 29,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 29,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "CRON",
+  "name": "Cronos Group Inc. Common Share",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.0,
+  "moat": 3,
+  "valuationPct": 23,
+  "momentum20d": 23,
+  "rsi": 40,
+  "sentiment": 23,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 23,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "SCCF",
+  "name": "Sachem Capital Corp. 7.125% Notes due 2027",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.2,
+  "moat": 3,
+  "valuationPct": 34,
+  "momentum20d": 34,
+  "rsi": 40,
+  "sentiment": 34,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 34,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "PSEC",
+  "name": "Prospect Capital Corporation",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.1,
+  "moat": 3,
+  "valuationPct": 23,
+  "momentum20d": 23,
+  "rsi": 40,
+  "sentiment": 23,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 23,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "BUR",
+  "name": "Burford Capital Limited",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.0,
+  "moat": 3,
+  "valuationPct": 43,
+  "momentum20d": 43,
+  "rsi": 43,
+  "sentiment": 43,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 43,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "SCCG",
+  "name": "Sachem Capital Corp. 8.00% Notes due 2027",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.2,
+  "moat": 3,
+  "valuationPct": 33,
+  "momentum20d": 33,
+  "rsi": 40,
+  "sentiment": 33,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 33,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "CSIQ",
+  "name": "Canadian Solar Inc. Common Shares (ON)",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.2,
+  "moat": 3,
+  "valuationPct": 39,
+  "momentum20d": 39,
+  "rsi": 40,
+  "sentiment": 39,
+  "industries": [
+   "solar-storage"
+  ],
+  "_serenity_score": 39,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "CFFN",
+  "name": "Capitol Federal Financial Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.0,
+  "moat": 3,
+  "valuationPct": 31,
+  "momentum20d": 31,
+  "rsi": 40,
+  "sentiment": 31,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 31,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "RPC",
+  "name": "Ridgepost Capital Inc. Class A",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.9,
+  "moat": 3,
+  "valuationPct": 38,
+  "momentum20d": 38,
+  "rsi": 40,
+  "sentiment": 38,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 38,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "PFLT",
+  "name": "PennantPark Floating Rate Capital Ltd.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.8,
+  "moat": 3,
+  "valuationPct": 31,
+  "momentum20d": 31,
+  "rsi": 40,
+  "sentiment": 31,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 31,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "CCBG",
+  "name": "Capital City Bank Group",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.8,
+  "moat": 3,
+  "valuationPct": 42,
+  "momentum20d": 42,
+  "rsi": 42,
+  "sentiment": 42,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 42,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "BANFP",
+  "name": "BancFirst Corporation - BFC Capital Trust II Cumulative Trust Preferred Securities",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.9,
+  "moat": 3,
+  "valuationPct": 32,
+  "momentum20d": 32,
+  "rsi": 40,
+  "sentiment": 32,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 32,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "BCSF",
+  "name": "Bain Capital Specialty Finance Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.8,
+  "moat": 3,
+  "valuationPct": 40,
+  "momentum20d": 40,
+  "rsi": 40,
+  "sentiment": 40,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 40,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "TCBIO",
+  "name": "Texas Capital Bancshares Inc. Depositary Shares 5.75% Fixed Rate Non-Cumulative Perpetual Preferred Stock Series B",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.9,
+  "moat": 3,
+  "valuationPct": 28,
+  "momentum20d": 28,
+  "rsi": 40,
+  "sentiment": 28,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 28,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "IVR",
+  "name": "INVESCO MORTGAGE CAPITAL INC",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.7,
+  "moat": 3,
+  "valuationPct": 27,
+  "momentum20d": 27,
+  "rsi": 40,
+  "sentiment": 27,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 27,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "GLIBA",
+  "name": "Liberty Capital Corporation Series A GCI Group",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.9,
+  "moat": 3,
+  "valuationPct": 39,
+  "momentum20d": 39,
+  "rsi": 40,
+  "sentiment": 39,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 39,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "GLIBK",
+  "name": "Liberty Capital Corporation Series C GCI Group",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.9,
+  "moat": 3,
+  "valuationPct": 44,
+  "momentum20d": 44,
+  "rsi": 44,
+  "sentiment": 44,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 44,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "JCAP",
+  "name": "Jefferson Capital Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.9,
+  "moat": 3,
+  "valuationPct": 38,
+  "momentum20d": 38,
+  "rsi": 40,
+  "sentiment": 38,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 38,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "BRSP",
+  "name": "BrightSpire Capital Inc. Class A",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.7,
+  "moat": 3,
+  "valuationPct": 30,
+  "momentum20d": 30,
+  "rsi": 40,
+  "sentiment": 30,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 30,
+  "_verdict": "",
+  "_thesis": ""
  }
 ]

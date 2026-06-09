@@ -25393,5 +25393,62 @@
   "_serenity_score": 31,
   "_verdict": "",
   "_thesis": ""
+ },
+ {
+  "ticker": "CCEC",
+  "name": "Capital Clean Energy Carriers Corp. Common Share",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.3,
+  "moat": 3,
+  "valuationPct": 37,
+  "momentum20d": 37,
+  "rsi": 40,
+  "sentiment": 37,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 37,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "LADR",
+  "name": "Ladder Capital Corp Class A",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.3,
+  "moat": 3,
+  "valuationPct": 34,
+  "momentum20d": 34,
+  "rsi": 40,
+  "sentiment": 34,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 34,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "ORC",
+  "name": "Orchid Island Capital Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 1.3,
+  "moat": 3,
+  "valuationPct": 24,
+  "momentum20d": 24,
+  "rsi": 40,
+  "sentiment": 24,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 24,
+  "_verdict": "",
+  "_thesis": ""
  }
 ]

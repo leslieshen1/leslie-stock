@@ -45,8 +45,37 @@ export type UsPanelSummary = {
   stocks: Record<string, { sc: (number | null)[]; div: number }>;
 };
 
+// 筛选状态持久化:点进个股再返回时,筛选条件不丢(存 sessionStorage,会话内有效)。
+// 仅在 mount 后恢复 → 首帧与 SSR 一致,不引入 hydration mismatch;支持 Set 与基础类型。
+function usePersisted<T>(key: string, initial: T) {
+  const [v, setV] = useState<T>(initial);
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem("scan:" + key);
+      if (raw != null) {
+        const parsed = JSON.parse(raw);
+        setV((initial instanceof Set ? new Set(parsed) : parsed) as T);
+      }
+    } catch {
+      /* 忽略损坏值 */
+    }
+    setHydrated(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
+  useEffect(() => {
+    if (!hydrated) return; // 恢复完成前不写,避免用初值覆盖已存的
+    try {
+      sessionStorage.setItem("scan:" + key, JSON.stringify(v instanceof Set ? [...v] : v));
+    } catch {
+      /* 忽略 */
+    }
+  }, [key, v, hydrated]);
+  return [v, setV] as const;
+}
+
 export default function ScanClient() {
-  const [market, setMarket] = useState<"a" | "us">("us");
+  const [market, setMarket] = usePersisted<"a" | "us">("market", "us");
   // 数据客户端按需 fetch(静态 JSON,浏览器会缓存),避免 SSR 把 4MB 塞进 HTML
   const [items, setItems] = useState<AleabitManifestEntry[]>([]);
   const [usStocks, setUsStocks] = useState<UsStock[]>([]);
@@ -111,15 +140,15 @@ export default function ScanClient() {
     poll();
     return () => { alive = false; clearInterval(id); clearTimeout(flashTimer); };
   }, [market]);
-  // 默认筛选：score >= 60，隐藏批量预标的
-  const [scoreBuckets, setScoreBuckets] = useState<Set<string>>(
-    new Set(SCORE_BUCKETS.filter((b) => b.default).map((b) => b.key))
+  // 默认筛选：score >= 60，隐藏批量预标的（均持久化,返回不丢）
+  const [scoreBuckets, setScoreBuckets] = usePersisted<Set<string>>(
+    "a:score", new Set(SCORE_BUCKETS.filter((b) => b.default).map((b) => b.key))
   );
-  const [verdictSet, setVerdictSet] = useState<Set<string>>(new Set());
-  const [layerSet, setLayerSet] = useState<Set<string>>(new Set());
-  const [conceptSet, setConceptSet] = useState<Set<string>>(new Set());
- const [sortBy, setSortBy] = useState<SortKey>("score");
- const [search, setSearch] = useState("");
+  const [verdictSet, setVerdictSet] = usePersisted<Set<string>>("a:verdict", new Set());
+  const [layerSet, setLayerSet] = usePersisted<Set<string>>("a:layer", new Set());
+  const [conceptSet, setConceptSet] = usePersisted<Set<string>>("a:concept", new Set());
+ const [sortBy, setSortBy] = usePersisted<SortKey>("a:sort", "score");
+ const [search, setSearch] = usePersisted<string>("a:search", "");
  const [conceptSearch, setConceptSearch] = useState("");
 
   // 提取概念列表，按出现频率排序（热门概念优先）
@@ -430,13 +459,14 @@ function fmtVol(v: number | null): string {
 function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary; flash?: Record<string, "up" | "down"> }) {
   const router = useRouter();
   const { has, toggle } = useWatchlist();
-  const [search, setSearch] = useState("");
-  const [sectorSet, setSectorSet] = useState<Set<string>>(new Set());
-  const [capTier, setCapTier] = useState<"all" | "large" | "mid" | "small">("all");
-  const [dilu, setDilu] = useState<"all" | "only" | "hide">("all");
-  const [panelF, setPanelF] = useState<"all" | "covered" | "diverge">("all");
-  const [sortCol, setSortCol] = useState<UsSortCol>("mcap");
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  // 筛选/排序均持久化:点进个股再返回,条件不丢
+  const [search, setSearch] = usePersisted<string>("us:search", "");
+  const [sectorSet, setSectorSet] = usePersisted<Set<string>>("us:sector", new Set());
+  const [capTier, setCapTier] = usePersisted<"all" | "large" | "mid" | "small">("us:cap", "all");
+  const [dilu, setDilu] = usePersisted<"all" | "only" | "hide">("us:dilu", "all");
+  const [panelF, setPanelF] = usePersisted<"all" | "covered" | "diverge">("us:panel", "all");
+  const [sortCol, setSortCol] = usePersisted<UsSortCol>("us:sortcol", "mcap");
+  const [sortDir, setSortDir] = usePersisted<"asc" | "desc">("us:sortdir", "desc");
   const [page, setPage] = useState(0);
 
   const flagCount = Object.keys(flags).length;

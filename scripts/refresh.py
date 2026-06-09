@@ -28,6 +28,7 @@ def run(cmd: list[str]) -> int:
 # (模块, 说明, 额外参数)。失败不致命,继续。key-gated 的没 key 会自己优雅跳过。
 SOURCES = [
     ("fetchers.us_stocks", "美股全量行情(Nasdaq)", []),
+    ("fetchers.us_etfs", "美股全量 ETF(Nasdaq)", []),
     ("fetchers.macro", "宏观/大盘(Yahoo)", []),
     ("fetchers.fundamentals", "基本面 PE/PS/EV-EBITDA(Yahoo)", ["--top", "0"]),  # 默认只刷 panels(缓存快);--full 全量
     ("fetchers.history", "回种日线(Nasdaq,跳过已种,补新票)", ["--top", "0"]),

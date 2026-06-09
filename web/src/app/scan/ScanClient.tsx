@@ -39,6 +39,11 @@ export type UsStock = {
   country: string;
 };
 
+// ETF:无市值/行业/成交量,多一个近1年回报(us-etfs.json)
+export type EtfRow = { sym: string; name: string; price: number | null; pct: number | null; ret1y: number | null };
+// 股票 + ETF 统一类型,type 区分
+export type UsSec = UsStock & { type: "stock" | "etf"; ret1y?: number | null };
+
 // scan 用的轻量五方摘要(build_panel_summary.py 生成)。sc 按 order 顺序,缺为 null;div=max-min 分歧度
 export type UsPanelSummary = {
   order: string[];
@@ -79,6 +84,7 @@ export default function ScanClient() {
   // 数据客户端按需 fetch(静态 JSON,浏览器会缓存),避免 SSR 把 4MB 塞进 HTML
   const [items, setItems] = useState<AleabitManifestEntry[]>([]);
   const [usStocks, setUsStocks] = useState<UsStock[]>([]);
+  const [etfs, setEtfs] = useState<EtfRow[]>([]);
   const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [loading, setLoading] = useState(true);
@@ -91,12 +97,14 @@ export default function ScanClient() {
       fetch("/data/us-stocks.json").then((r) => r.json()).then((j) => j.stocks || j).catch(() => []),
       fetch("/data/dilution-flags.json").then((r) => r.json()).then((j) => j.flags || {}).catch(() => ({})),
       fetch("/data/us-panel-summary.json").then((r) => r.json()).catch(() => ({ order: [], stocks: {} })),
-    ]).then(([a, u, d, p]) => {
+      fetch("/data/us-etfs.json").then((r) => r.json()).then((j) => j.etfs || []).catch(() => []),
+    ]).then(([a, u, d, p, e]) => {
       if (!alive) return;
       setItems(a as AleabitManifestEntry[]);
       setUsStocks(u as UsStock[]);
       setDilutionFlags(d as Record<string, DilutionFlag>);
       setUsPanels(p as UsPanelSummary);
+      setEtfs(e as EtfRow[]);
       setLoading(false);
     });
     return () => { alive = false; };
@@ -208,6 +216,16 @@ export default function ScanClient() {
     return r;
   }, [items, scoreBuckets, verdictSet, layerSet, conceptSet, search, sortBy]);
 
+  // 股票 + ETF 合并成统一列表(type 区分);股票实时价由轮询更新,ETF 用文件快照
+  const usSecs: UsSec[] = useMemo(() => [
+    ...usStocks.map((s) => ({ ...s, type: "stock" as const })),
+    ...etfs.map((e) => ({
+      sym: e.sym, name: e.name, price: e.price, pct: e.pct,
+      mcapB: null, sector: "", industry: "", vol: null, country: "",
+      type: "etf" as const, ret1y: e.ret1y,
+    })),
+  ], [usStocks, etfs]);
+
   function toggle(set: Set<string>, key: string, setter: (s: Set<string>) => void) {
     const next = new Set(set);
     if (next.has(key)) next.delete(key);
@@ -242,7 +260,7 @@ export default function ScanClient() {
       )}
 
       {market === "us" ? (
-        <UsScanView stocks={usStocks} flags={dilutionFlags} panels={usPanels} flash={priceFlash} />
+        <UsScanView stocks={usSecs} flags={dilutionFlags} panels={usPanels} flash={priceFlash} />
       ) : (
       <>
       {/* 顶部统计 */}
@@ -456,9 +474,11 @@ function fmtVol(v: number | null): string {
   return String(v);
 }
 
-function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary; flash?: Record<string, "up" | "down"> }) {
+function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary; flash?: Record<string, "up" | "down"> }) {
   const router = useRouter();
   const { has, toggle } = useWatchlist();
+  // 证券类型:股票 / ETF / 全部(持久化,默认股票=保持原视图)
+  const [secType, setSecType] = usePersisted<"stock" | "etf" | "all">("us:type", "stock");
   // 筛选/排序均持久化:点进个股再返回,条件不丢
   const [search, setSearch] = usePersisted<string>("us:search", "");
   const [sectorSet, setSectorSet] = usePersisted<Set<string>>("us:sector", new Set());
@@ -471,6 +491,13 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
 
   const flagCount = Object.keys(flags).length;
   const order = panels.order.length ? panels.order : MASTERS.map((m) => m.key);
+  const stockCount = useMemo(() => stocks.filter((s) => s.type !== "etf").length, [stocks]);
+  const etfCount = useMemo(() => stocks.filter((s) => s.type === "etf").length, [stocks]);
+  // 当前类型基集(涨跌统计用)
+  const typeBase = useMemo(
+    () => (secType === "all" ? stocks : stocks.filter((s) => (secType === "etf" ? s.type === "etf" : s.type !== "etf"))),
+    [stocks, secType]
+  );
   const coveredCount = useMemo(() => stocks.filter((s) => panels.stocks[s.sym]).length, [stocks, panels]);
   const divergeCount = useMemo(
     () => stocks.filter((s) => (panels.stocks[s.sym]?.div ?? 0) >= 40).length,
@@ -478,7 +505,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
   );
 
   // 任何筛选 / 排序变化 → 回第一页
-  useEffect(() => { setPage(0); }, [search, sectorSet, capTier, dilu, panelF, sortCol, sortDir]);
+  useEffect(() => { setPage(0); }, [secType, search, sectorSet, capTier, dilu, panelF, sortCol, sortDir]);
 
   const sectors = useMemo(() => {
     const freq = new Map<string, number>();
@@ -490,19 +517,24 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
 
   const filtered = useMemo(() => {
     let r = stocks;
-    if (sectorSet.size > 0) r = r.filter((s) => sectorSet.has(s.sector));
-    if (capTier !== "all") {
-      r = r.filter((s) => {
-        const c = s.mcapB ?? 0;
-        if (capTier === "large") return c >= 10;
-        if (capTier === "mid") return c >= 2 && c < 10;
-        return c < 2;
-      });
+    if (secType === "stock") r = r.filter((s) => s.type !== "etf");
+    else if (secType === "etf") r = r.filter((s) => s.type === "etf");
+    // 以下筛选只对股票有意义(ETF 无行业/市值/印股票/五方),ETF 模式跳过
+    if (secType !== "etf") {
+      if (sectorSet.size > 0) r = r.filter((s) => sectorSet.has(s.sector));
+      if (capTier !== "all") {
+        r = r.filter((s) => {
+          const c = s.mcapB ?? 0;
+          if (capTier === "large") return c >= 10;
+          if (capTier === "mid") return c >= 2 && c < 10;
+          return c < 2;
+        });
+      }
+      if (dilu === "only") r = r.filter((s) => flags[s.sym]);
+      else if (dilu === "hide") r = r.filter((s) => !flags[s.sym]);
+      if (panelF === "covered") r = r.filter((s) => panels.stocks[s.sym]);
+      else if (panelF === "diverge") r = r.filter((s) => (panels.stocks[s.sym]?.div ?? 0) >= 40);
     }
-    if (dilu === "only") r = r.filter((s) => flags[s.sym]);
-    else if (dilu === "hide") r = r.filter((s) => !flags[s.sym]);
-    if (panelF === "covered") r = r.filter((s) => panels.stocks[s.sym]);
-    else if (panelF === "diverge") r = r.filter((s) => (panels.stocks[s.sym]?.div ?? 0) >= 40);
     if (search.trim()) {
       const q = search.trim().toLowerCase();
       r = r.filter(
@@ -513,22 +545,24 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
       );
     }
     const dir = sortDir === "asc" ? 1 : -1;
+    const etfMode = secType === "etf";
     return [...r].sort((a, b) => {
       if (sortCol === "name") return a.name.localeCompare(b.name) * dir;
       if (sortCol === "div")
         return ((panels.stocks[a.sym]?.div ?? -1) - (panels.stocks[b.sym]?.div ?? -1)) * dir;
-      const av = sortCol === "price" ? a.price : sortCol === "pct" ? a.pct : sortCol === "vol" ? a.vol : a.mcapB;
-      const bv = sortCol === "price" ? b.price : sortCol === "pct" ? b.pct : sortCol === "vol" ? b.vol : b.mcapB;
-      return ((av ?? -Infinity) - (bv ?? -Infinity)) * dir;
+      // ETF 模式下「市值」列改排「近1年回报」
+      const pick = (x: UsSec) =>
+        sortCol === "price" ? x.price : sortCol === "pct" ? x.pct : sortCol === "vol" ? x.vol : (etfMode ? (x.ret1y ?? null) : x.mcapB);
+      return ((pick(a) ?? -Infinity) - (pick(b) ?? -Infinity)) * dir;
     });
-  }, [stocks, sectorSet, capTier, dilu, panelF, panels, flags, search, sortCol, sortDir]);
+  }, [stocks, secType, sectorSet, capTier, dilu, panelF, panels, flags, search, sortCol, sortDir]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / US_PAGE_SIZE));
   const safePage = Math.min(page, totalPages - 1);
   const pageItems = filtered.slice(safePage * US_PAGE_SIZE, (safePage + 1) * US_PAGE_SIZE);
 
-  const up = stocks.filter((s) => (s.pct ?? 0) > 0).length;
-  const down = stocks.filter((s) => (s.pct ?? 0) < 0).length;
+  const up = typeBase.filter((s) => (s.pct ?? 0) > 0).length;
+  const down = typeBase.filter((s) => (s.pct ?? 0) < 0).length;
 
   function toggleSector(name: string) {
     const next = new Set(sectorSet);
@@ -568,12 +602,27 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
 
   return (
     <>
+      {/* 股票 / ETF / 全部 分段 —— 区分证券类型 */}
+ <div className="mb-3 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
+        {([["stock", `股票 ${stockCount}`], ["etf", `ETF ${etfCount}`], ["all", "全部"]] as const).map(([k, label]) => (
+          <button
+            key={k}
+            onClick={() => setSecType(k)}
+            className={`rounded-md px-3.5 py-1.5 font-medium transition ${
+ secType === k ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       {/* 涨跌统计 */}
  <div className="mb-4 flex flex-wrap items-center gap-4 text-sm">
- <span className="text-muted">全市场 <span className="font-mono font-semibold text-ink">{stocks.length}</span> 只</span>
+ <span className="text-muted">{secType === "etf" ? "ETF" : secType === "all" ? "全市场" : "股票"} <span className="font-mono font-semibold text-ink">{typeBase.length}</span> 只</span>
  <span className="text-up">↑ {up} 涨</span>
  <span className="text-down">↓ {down} 跌</span>
- <span className="text-faint">数据 = Nasdaq 全市场快照（与币安美股同源 Alpaca 池）· 点列头排序</span>
+ <span className="text-faint">{secType === "etf" ? "数据 = Nasdaq ETF 列表 · 默认按近1年回报排序 · 点列头排序" : "数据 = Nasdaq 全市场快照 · 点列头排序"}</span>
       </div>
 
       {/* 筛选条 */}
@@ -596,6 +645,9 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
           )}
         </div>
 
+        {/* 以下三类筛选只对股票有意义,ETF 模式隐藏 */}
+        {secType !== "etf" && (
+        <>
         {/* 印股票 / 稀释风险 */}
         {flagCount > 0 && (
  <div className="mb-2 flex flex-wrap items-center gap-1.5">
@@ -668,6 +720,8 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
             );
           })}
         </div>
+        </>
+        )}
       </div>
 
       {/* 表格 */}
@@ -679,7 +733,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
               <Th col="name" label="代码 / 名称" />
  <Th col="price" label="价格" className="text-right" />
  <Th col="pct" label="涨跌%" className="text-right" />
- <Th col="mcap" label="市值" className="text-right" />
+ <Th col="mcap" label={secType === "etf" ? "1年回报" : "市值"} className="text-right" />
  <Th col="div" label="五方" className="text-center" />
  <Th col="vol" label="成交量" className="hidden text-right sm:table-cell" />
  <th className="hidden px-3 py-2 font-medium text-muted md:table-cell">行业</th>
@@ -704,6 +758,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
  <td className="px-3 py-2">
  <div className="flex items-baseline gap-2 max-w-[180px] sm:max-w-[340px]">
  <span className="shrink-0 font-mono font-semibold text-ink">{s.sym}</span>
+                      {s.type === "etf" && <EtfBadge />}
                       {flag && <DilutionBadge flag={flag} />}
  <span className="truncate text-muted">{s.name || s.sym}</span>
                     </div>
@@ -714,8 +769,12 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
                   <td className={`px-3 py-2 text-right font-mono font-semibold tabular-nums transition-colors duration-700 ${flCls || (isUp ? "text-up" : "text-down")}`}>
                     {s.pct != null ? `${isUp ? "+" : ""}${s.pct.toFixed(2)}%` : "—"}
                   </td>
- <td className="px-3 py-2 text-right font-mono tabular-nums text-muted">{fmtCap(s.mcapB)}</td>
- <td className="px-3 py-2 text-center"><MasterDots sum={panels.stocks[s.sym]} order={order} /></td>
+ <td className="px-3 py-2 text-right font-mono tabular-nums text-muted">
+                    {s.type === "etf"
+                      ? (s.ret1y != null ? <span className={s.ret1y >= 0 ? "text-up" : "text-down"}>{s.ret1y >= 0 ? "+" : ""}{s.ret1y}%</span> : "—")
+                      : fmtCap(s.mcapB)}
+                  </td>
+ <td className="px-3 py-2 text-center">{s.type === "etf" ? <span className="text-faint">—</span> : <MasterDots sum={panels.stocks[s.sym]} order={order} />}</td>
  <td className="hidden px-3 py-2 text-right font-mono tabular-nums text-muted sm:table-cell">{fmtVol(s.vol)}</td>
  <td className="hidden max-w-[200px] truncate px-3 py-2 text-xs text-muted md:table-cell">{s.industry || s.sector}</td>
  <td className="px-2 py-2">
@@ -760,6 +819,17 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsStock[]; 
         </div>
       </div>
     </>
+  );
+}
+
+function EtfBadge() {
+  return (
+    <span
+      title="ETF · 交易所交易基金(不是个股)"
+      className="shrink-0 rounded border border-accent/30 bg-surface-2 px-1.5 text-[10px] font-medium text-accent"
+    >
+      ETF
+    </span>
   );
 }
 

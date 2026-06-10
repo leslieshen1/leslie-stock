@@ -1,0 +1,56 @@
+{
+  "slug": "premarket-jun10",
+  "mood": "bearish",
+  "title": "Pre-Market · Jun 10 · ET",
+  "headline": "Red pre-market: risk-off everywhere.",
+  "indexes": [
+    [
+      "Nasdaq 100",
+      "-0.67%"
+    ],
+    [
+      "Russell 2000",
+      "-0.06%"
+    ],
+    [
+      "S&P 500",
+      "-0.41%"
+    ],
+    [
+      "Dow",
+      "-0.34%"
+    ]
+  ],
+  "panels": [
+    {
+      "icon": "chip",
+      "title": "Semis & optical",
+      "items": [
+        "$SMCI -11.69%",
+        "$AAOI +4.79%",
+        "$MRVL -2.47%"
+      ]
+    },
+    {
+      "icon": "rocket",
+      "title": "Space",
+      "items": [
+        "$ASTS +0.08%",
+        "$LUNR +0.07%"
+      ]
+    },
+    {
+      "icon": "bitcoin",
+      "title": "Crypto names",
+      "items": [
+        "$COIN -0.98%",
+        "$MSTR -0.36%"
+      ]
+    }
+  ],
+  "footer": {
+    "icon": "clock",
+    "text": "Today: CPI 08:30 ET · $ORCL after the close",
+    "highlight": "$ORCL"
+  }
+}

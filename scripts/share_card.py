@@ -145,15 +145,16 @@ def relay_headline(ctx: dict) -> str | None:
 def rule_headline(ctx: dict) -> str:
     g = lambda s: ctx["idx"].get(s, {}).get("pct") or 0
     qq, sp, dw, ru = g("QQQ"), g("SPY"), g("DIA"), g("IWM")
+    close = ctx.get("type") == "close"   # 文案分时段:收盘说 close,盘前/盘中说 tape
     if qq < -0.5 and dw > 0 and ru > 0:
-        return "Nasdaq falls alone. Value and small caps close green."
+        return "Nasdaq falls alone. Value and small caps close green." if close else "Nasdaq falls alone. Value and small caps hold green."
     if qq < 0 and sp < 0 and dw < 0 and ru < 0:
         return "Risk-off across the board."
     if qq > 0 and sp > 0 and dw > 0 and ru > 0:
         return "Green across the board. Tech leads." if qq >= ru else "Broad rally, small caps lead."
     if qq > 0.5 and dw < 0:
         return "Tech leads while value lags."
-    return "A mixed close under the surface."
+    return "A mixed close under the surface." if close else "A split tape under the surface."
 
 
 # ---------- ③ 版式 ----------

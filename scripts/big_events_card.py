@@ -159,6 +159,7 @@ def earn_rows(rows, small) -> str:
 
 def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
+    qr = (ASSETS / "qr-app.png").resolve()
     d = datetime.strptime(date, "%Y-%m-%d")
     wd = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"][d.weekday()]
     title = f"TODAY&rsquo;S BIG EVENTS &bull; {d.month:02d}/{d.day:02d} &bull; {wd}"
@@ -168,13 +169,13 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
   * {{ margin:0; padding:0; box-sizing:border-box; }}
   html,body {{ width:1656px; height:941px; }}
   body {{ font-variant-numeric:lining-nums tabular-nums; background:{CREAM}; color:{INK}; font-family:"STIX Two Text",Georgia,serif; padding:33px 64px 0; position:relative; }}
-  h1 {{ font-family:"STIX Two Text",Georgia,serif; font-size:60px; font-weight:700; letter-spacing:0.01em; }}
-  .focus {{ margin-top:10px; display:flex; align-items:baseline; }}
+  h1 {{ font-family:"STIX Two Text",Georgia,serif; font-size:56px; font-weight:700; letter-spacing:0.01em; }}
+  .focus {{ margin-top:6px; display:flex; align-items:baseline; }}
   .focus .f1 {{ font-size:32px; font-weight:700; }}
   .focus .f2 {{ font-size:32px; font-weight:700; color:{ORANGE}; margin-left:14px; }}
   .focus .note {{ margin-left:auto; font-size:20px; font-style:italic; color:#5B6472; }}
-  .mtable {{ margin-top:18px; border-top:3px solid {INK}; }}
-  .mrow {{ display:flex; align-items:baseline; gap:18px; padding:9px 4px; border-bottom:1px solid {RULE}; font-size:24px; }}
+  .mtable {{ margin-top:14px; border-top:3px solid {INK}; }}
+  .mrow {{ display:flex; align-items:baseline; gap:18px; padding:7px 4px; border-bottom:1px solid {RULE}; font-size:24px; }}
   .t {{ width:78px; font-weight:600; font-variant-numeric:tabular-nums; }}
   .t.hi {{ color:{ORANGE}; }}
   .key {{ background:{ORANGE}; color:#fff; font-family:-apple-system,sans-serif; font-size:14px; font-weight:800;
@@ -186,20 +187,29 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
   .lab {{ color:{BLUE}; font-weight:600; font-size:21px; }}
   .prev .lab {{ color:#6B7280; }}
   .val {{ font-weight:700; min-width:58px; text-align:right; }}
-  .earn {{ display:flex; margin-top:20px; gap:0; padding-bottom:86px; }}
+  .earn {{ display:flex; margin-top:14px; gap:0; padding-bottom:158px; }}
   .ecol {{ flex:1; min-width:0; padding-right:36px; }}
   .ecol + .ecol {{ border-left:1px solid {RULE}; padding-left:36px; padding-right:0; }}
   .etitle {{ font-size:26px; font-weight:700; color:{BLUE};
              letter-spacing:0.04em; border-bottom:2.5px solid {BLUE}; display:inline-block; padding-bottom:4px; }}
-  .erow {{ display:flex; align-items:baseline; gap:14px; padding:5.5px 0; font-size:21.5px; }}
+  .erow {{ display:flex; align-items:baseline; gap:14px; padding:4px 0; font-size:21.5px; }}
   .esym {{ width:72px; font-weight:700; }}
   .enm {{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
   .emc {{ width:72px; text-align:right; font-variant-numeric:tabular-nums; }}
   .eeps {{ width:148px; text-align:right; color:#3D4350; font-variant-numeric:tabular-nums; }}
-  .esmall {{ margin-top:6px; font-size:19px; color:#5B6472; }}
+  .esmall {{ margin-top:4px; font-size:18px; color:#5B6472; }}
   .blue {{ color:{BLUE}; font-weight:600; }}
-  .logo {{ position:absolute; left:64px; bottom:34px; width:180px; }}
-  .logo svg {{ width:100%; height:auto; }}
+  .foot {{ position:absolute; left:64px; right:64px; bottom:24px; background:{CREAM}; display:flex; align-items:center;
+            gap:22px; border-top:1.5px solid {RULE}; padding-top:14px; }}
+  .foot .logo {{ width:168px; flex:none; }}
+  .foot .logo svg {{ width:100%; height:auto; }}
+  .cta {{ margin-left:auto; display:flex; align-items:center; gap:16px; }}
+  .cta .badge {{ background:{ORANGE}; color:#fff; font-family:-apple-system,sans-serif; font-size:14px;
+                 font-weight:800; letter-spacing:0.08em; padding:4px 11px; border-radius:4px; }}
+  .cta .t1 {{ font-size:23px; font-weight:700; }}
+  .cta .t2 {{ font-size:17px; font-style:italic; color:#5B6472; margin-top:2px; }}
+  .qr {{ width:82px; height:82px; border:1.5px solid {RULE}; border-radius:8px; background:#fff; padding:5px; flex:none; }}
+  .qr img {{ width:100%; height:100%; }}
 </style></head><body>
   <h1>{title}</h1>
   <div class="focus"><span class="f1">Focus:</span><span class="f2">{focus}</span>
@@ -209,7 +219,15 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
     <div class="ecol"><div class="etitle">PRE-MARKET EARNINGS</div><div style="margin-top:10px">{earn_rows(bmo, sb)}</div></div>
     <div class="ecol"><div class="etitle">AFTER-HOURS EARNINGS</div><div style="margin-top:10px">{earn_rows(amc, sa)}</div></div>
   </div>
-  <div class="logo">{logo_svg}</div>
+  <div class="foot">
+    <div class="logo">{logo_svg}</div>
+    <div class="cta">
+      <span class="badge">FREE</span>
+      <span><div class="t1">Get the full daily briefing in the AInvest app</div>
+      <div class="t2">Scan to download &rarr;</div></span>
+      <span class="qr"><img src="file://{qr}"/></span>
+    </div>
+  </div>
 </body></html>'''
 
 

@@ -41,9 +41,11 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 NH = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
       "accept": "application/json", "origin": "https://www.nasdaq.com", "referer": "https://www.nasdaq.com/"}
 
-IDX = [("QQQ", "Nasdaq 100"), ("SPY", "S&P 500"), ("DIA", "Dow"), ("IWM", "Russell 2000")]
+IDX = [("QQQ", "Nasdaq 100"), ("IWM", "Russell 2000"), ("SPY", "S&P 500"), ("DIA", "Dow")]
 MEGA = ["AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA", "V", "JPM"]
 SEMI = ["AAOI", "AXTI", "MRVL", "SMCI", "NVTS", "ARM", "MU", "ACMR", "TSM", "AMD"]
+SPACE = ["ASTS", "LUNR"]
+CRYPTO = ["MSTR", "COIN"]
 
 
 # ---------- ① 数据 ----------
@@ -117,7 +119,21 @@ def gather(card_type: str) -> dict:
         card_type = "close"
     if card_type in ("premarket", "intraday"):
         date_label = datetime.now(timezone(timedelta(hours=-4))).strftime("%b %-d")
+    # 三主题面板(标杆样式:每板一行 3 只,|pct| 最大优先)
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        space = [r for r in ex.map(q, SPACE) if r["pct"] is not None]
+        crypto = [r for r in ex.map(q, CRYPTO) if r["pct"] is not None]
+    def top3(rows):
+        return sorted(rows, key=lambda r: -abs(r["pct"] or 0))[:3]
+    panels = [
+        {"icon": "bolt", "title": "Megacaps", "items": top3(mega)},
+        {"icon": "chip", "title": "Semis & optical", "items": top3(semi)},
+    ]
+    third = max([("rocket", "Space", space), ("bitcoin", "Crypto names", crypto)],
+                key=lambda t: max((abs(r["pct"] or 0) for r in t[2]), default=0))
+    panels.append({"icon": third[0], "title": third[1], "items": top3(third[2])})
     return {"type": card_type, "date": date_label, "idx": idx_map, "sparks": sparks,
+            "panels": panels,
             "megaDown": mega[:3], "megaUp": mega[-3:][::-1],
             "semiDown": semi[:4], "semiUp": semi[-3:][::-1], "next": nxt}
 
@@ -223,39 +239,66 @@ def spark_svg(ys: list[float], up: bool) -> str:
             f'stroke-linejoin="round" stroke-linecap="round"/></svg>')
 
 
+def panel_items_html(items) -> str:
+    bits = []
+    for r in items:
+        c = GREEN if (r["pct"] or 0) >= 0 else RED
+        bits.append(f'<span class="pi">{logo_chip(r["sym"])}<b>${r["sym"]}</b>'
+                    f'<span style="color:{c}">{fp(r["pct"])}</span></span>')
+    return "".join(bits)
+
+
+PANEL_ICON = {
+    "bolt": '<path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>',
+    "chip": '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2"/>',
+    "rocket": '<path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3 0 6 3 6 6-4 6-9 9-9 9l-4-4s3-5 7-11zM15 9a1.5 1.5 0 1 0 .01 0"/>',
+    "bitcoin": '<circle cx="12" cy="12" r="9.5"/><path d="M9.5 7.5h4a2 2 0 0 1 0 4h-4zm0 4h4.6a2 2 0 0 1 0 4H9.5zM10.5 5.5v2M10.5 16.5v2M13 5.5v2M13 16.5v2"/>',
+}
+
+
 def build_html(ctx: dict) -> str:
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
     qqpct = ctx["idx"].get("QQQ", {}).get("pct") or 0
     mood = "bearish" if qqpct < -0.4 else "bullish" if qqpct > 0.4 else "neutral"
     body = ASSETS / f"aime-{mood}.png"
     aime = (body if body.exists() else ASSETS / "aime-head.png").resolve()
-    mood_glow = {"bearish": "rgba(220,38,38,0.15)", "bullish": "rgba(22,163,74,0.15)", "neutral": "rgba(22,93,255,0.10)"}[mood]
-    title = {"close": "Close", "intraday": "Intraday", "premarket": "Premarket"}[ctx["type"]]
+    glow = {"bearish": "rgba(220,38,38,0.13)", "bullish": "rgba(22,163,74,0.13)", "neutral": "rgba(22,93,255,0.09)"}[mood]
+    title = {"close": "Close", "intraday": "Intraday", "premarket": "Pre-Market"}[ctx["type"]]
 
+    # 指数瓦片(标杆:名称+圈箭头 / 巨号百分比 / 细分时线)
     idx_cards = ""
-    for s, name in IDX:
-        r = ctx["idx"].get(s, {})
+    for sym, name in IDX:
+        r = ctx["idx"].get(sym, {})
         pct = r.get("pct")
         up = (pct or 0) >= 0
-        idx_cards += f'''
-      <div class="card idx">
-        <div class="idx-top">{logo_chip(s)}<span class="idx-name">{name}</span>
-          <span class="chip" style="background:{'#E8F6EE' if up else '#FDEDEE'};color:{GREEN if up else RED}">{'↑' if up else '↓'}</span></div>
-        <div class="idx-pct" style="color:{GREEN if up else RED}">{fp(pct)}</div>
-        {spark_svg(ctx["sparks"].get(s, []), up)}
-      </div>'''
+        c = GREEN if up else RED
+        idx_cards += f"""
+      <div class="tile">
+        <div class="tile-top"><span>{name}</span>
+          <span class="chip" style="background:{'#E7F5ED' if up else '#FCEAEA'};color:{c}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="{c}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="{'M7 14l5-6 5 6' if up else 'M7 10l5 6 5-6'}"/></svg></span></div>
+        <div class="tile-pct" style="color:{c}">{fp(pct)}</div>
+        {spark_svg(ctx["sparks"].get(sym, []), up)}
+      </div>"""
 
-    mega_rows = "".join(row(r, note_for(r) if i == 0 else "") for i, r in enumerate(ctx["megaDown"]))
-    mega_rows2 = "".join(row(r) for r in ctx["megaUp"])
-    semi_rows = "".join(row(r, note_for(r) if i == 0 else "") for i, r in enumerate(ctx["semiDown"]))
-    semi_rows2 = "".join(row(r, note_for(r) if i == 0 else "") for i, r in enumerate(ctx["semiUp"]))
+    # 三主题面板(一行三只,带 logo)
+    panels_html = ""
+    for pn in ctx["panels"]:
+        icon = PANEL_ICON.get(pn["icon"], PANEL_ICON["bolt"])
+        panels_html += f"""
+      <div class="panel">
+        <div class="p-head"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">{icon}</svg></span>
+          <span class="p-title">{pn["title"]}</span></div>
+        <div class="p-items">{panel_items_html(pn["items"])}</div>
+      </div>"""
 
+    # 页脚事件条
     TITLE_EN = [("CPI", "CPI"), ("PPI", "PPI"), ("美联储利率决议", "FOMC rate decision"),
                 ("零售销售", "Retail Sales"), ("非农", "Nonfarm Payrolls"), ("PCE", "PCE"), ("GDP", "GDP")]
     today_et = datetime.now(timezone(timedelta(hours=-4))).date()
-    ICON = {"macro": ("#7C5CFC", "M4 7h16M4 12h16M4 17h10"), "earnings": ("#165DFF", "M5 17V9m5 8V5m5 12v-6m5 6V8")}
     nxt_html = ""
-    for e in ctx["next"]:
+    for e in ctx["next"][:2]:
         try:
             d = datetime.strptime(e["date"], "%Y-%m-%d").date()
             when = "Today" if d == today_et else "Tomorrow" if (d - today_et).days == 1 else d.strftime("%a")
@@ -264,86 +307,76 @@ def build_html(ctx: dict) -> str:
         t_raw = str(e.get("timeET") or "")
         t = f"{t_raw} ET" if ":" in t_raw else {"盘后": "after the close", "盘前": "pre-market"}.get(t_raw, "")
         title_e = next((en for zh, en in TITLE_EN if zh in e["title"]), e["title"])
-        detail = (e.get("detail") or "").replace("预期", "consensus").replace("前值", "prior")
         name = f'${e["sym"]}' if e.get("sym") else title_e
-        color, path = ICON[e["kind"]] if e["kind"] in ICON else ICON["macro"]
-        nxt_html += (f'<div class="nx"><span class="nxi" style="background:{color}1A">'
-                     f'<svg viewBox="0 0 24 24" fill="none" stroke="{color}" stroke-width="2.2" stroke-linecap="round"><path d="{path}"/></svg></span>'
-                     f'<span><span class="nx-t">{when} {t}:</span> <b>{name}</b><br/><span class="nx-d">{detail}</span></span></div>')
+        nxt_html += f'<span class="nx"><b class="nx-w">{when} {t}:</b> <b>{name}</b></span>'
 
-    return f'''<!doctype html><html><head><meta charset="utf-8"><style>
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
   * {{ margin:0; padding:0; box-sizing:border-box; }}
   html,body {{ width:1600px; height:900px; }}
-  body {{ font-family:-apple-system,"SF Pro Display","SF Pro Text",system-ui,sans-serif; color:{INK}; overflow:hidden; position:relative;
+  body {{ font-family:-apple-system,"SF Pro Display",system-ui,sans-serif; color:#111827; overflow:hidden; position:relative;
+         font-variant-numeric:tabular-nums;
          background:
-           radial-gradient(900px 520px at -6% -12%, rgba(22,93,255,0.07), transparent 62%),
-           radial-gradient(820px 560px at 106% 112%, {mood_glow.replace("0.15", "0.10")}, transparent 60%),
-           radial-gradient(rgba(15,23,42,0.045) 1px, transparent 1px) 0 0/26px 26px,
-           linear-gradient(165deg,#FBFCFE 0%,#F2F5FA 100%); }}
-  .logo {{ position:absolute; top:50px; left:64px; width:188px; }}
+           radial-gradient(820px 460px at -4% -10%, rgba(22,93,255,0.06), transparent 60%),
+           radial-gradient(760px 520px at 104% 110%, {glow.replace("0.13", "0.08")}, transparent 58%),
+           linear-gradient(165deg,#FAFBFD 0%,#F2F5F9 100%); }}
+  .logo {{ position:absolute; top:56px; left:64px; width:200px; }}
   .logo svg {{ width:100%; height:auto; }}
-  h1 {{ position:absolute; top:94px; left:64px; font-size:90px; font-weight:800; letter-spacing:-0.02em; }}
-  .rule {{ position:absolute; top:204px; left:66px; width:96px; height:7px; background:{BLUE}; border-radius:4px; }}
-  .head {{ position:absolute; top:233px; left:64px; font-size:32px; font-weight:600; color:#334155; }}
-  .card {{ background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFE 100%); border:1px solid #E6EBF2; border-radius:18px;
-           box-shadow:0 1px 0 rgba(255,255,255,0.9) inset, 0 1px 2px rgba(15,23,42,0.05), 0 16px 40px rgba(15,23,42,0.07); }}
-  .grid {{ position:absolute; top:306px; left:64px; display:flex; gap:20px; }}
-  .idx {{ width:258px; padding:18px 20px 14px; }}
-  .idx-top {{ display:flex; align-items:center; gap:9px; font-size:19px; font-weight:600; color:#334155; }}
-  .idx-name {{ flex:1; }}
-  .chip {{ width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; }}
-  .idx-pct {{ margin:8px 0 6px; font-size:42px; font-weight:800; letter-spacing:-0.01em; font-variant-numeric:tabular-nums; }}
-  .spark {{ width:100%; height:40px; display:block; }}
-  .panels {{ position:absolute; top:496px; left:64px; display:flex; gap:20px; }}
-  .panel {{ width:530px; padding:20px 24px; }}
-  .p-title {{ font-size:21px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:10px; }}
-  .p-title .dot {{ width:28px; height:28px; border-radius:9px; background:{BLUE}14; display:inline-flex; align-items:center; justify-content:center; }}
-  .p-title .dot svg {{ width:16px; height:16px; }}
-  .cols {{ display:flex; gap:26px; }}
-  .col {{ flex:1; min-width:0; }}
-  .col + .col {{ border-left:1px solid #EEF2F7; padding-left:26px; }}
-  .r {{ display:flex; align-items:center; justify-content:space-between; padding:6.5px 0; font-size:22px; flex-wrap:wrap; }}
-  .rl {{ display:flex; align-items:center; gap:10px; }}
-  .lg {{ width:30px; height:30px; border-radius:50%; overflow:hidden; background:#fff; border:1px solid #E6EBF2;
-         display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(15,23,42,0.08); }}
+  h1 {{ position:absolute; top:108px; left:62px; font-size:104px; font-weight:800; letter-spacing:-0.025em; color:#0E1525; }}
+  .rule {{ position:absolute; top:238px; left:66px; width:104px; height:8px; background:{BLUE}; border-radius:4px; }}
+  .head {{ position:absolute; top:268px; left:64px; font-size:35px; font-weight:600; color:#3B4456; }}
+  .grid {{ position:absolute; top:346px; left:64px; display:flex; gap:18px; }}
+  .tile {{ width:248px; padding:18px 20px 10px; background:linear-gradient(180deg,#FFFFFF,#FBFCFE);
+           border-radius:22px; border:1px solid rgba(15,23,42,0.05);
+           box-shadow:0 1px 0 rgba(255,255,255,.95) inset, 0 2px 3px rgba(15,23,42,.04), 0 18px 38px rgba(15,23,42,.08); }}
+  .tile-top {{ display:flex; align-items:center; justify-content:space-between; font-size:19px; font-weight:600; color:#3B4456; }}
+  .chip {{ width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; }}
+  .chip svg {{ width:19px; height:19px; }}
+  .tile-pct {{ margin-top:7px; font-size:46px; font-weight:800; letter-spacing:-0.02em; }}
+  .spark {{ width:100%; height:42px; display:block; margin-top:4px; }}
+  .panels {{ position:absolute; top:556px; left:64px; display:flex; gap:18px; }}
+  .panel {{ width:330px; padding:18px 22px; background:linear-gradient(180deg,#FFFFFF,#FBFCFE);
+            border-radius:22px; border:1px solid rgba(15,23,42,0.05);
+            box-shadow:0 1px 0 rgba(255,255,255,.95) inset, 0 2px 3px rgba(15,23,42,.04), 0 18px 38px rgba(15,23,42,.08); }}
+  .p-head {{ display:flex; align-items:center; gap:11px; }}
+  .p-ic {{ width:34px; height:34px; border-radius:10px; background:{BLUE}12; display:flex; align-items:center; justify-content:center; }}
+  .p-ic svg {{ width:19px; height:19px; }}
+  .p-title {{ font-size:21px; font-weight:700; }}
+  .p-items {{ margin-top:12px; display:flex; flex-direction:column; gap:7px; }}
+  .pi {{ display:flex; align-items:center; gap:9px; font-size:19px; }}
+  .pi b {{ font-weight:700; }}
+  .pi span[style] {{ margin-left:auto; font-weight:800; }}
+  .lg {{ width:26px; height:26px; border-radius:50%; overflow:hidden; background:#fff; border:1px solid #E8EDF4;
+         display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(15,23,42,0.08); flex:none; }}
   .lg img {{ width:100%; height:100%; object-fit:cover; }}
-  .lt {{ font-size:14px; font-weight:800; color:{BLUE}; background:{BLUE}10; }}
-  .sym {{ font-weight:700; }}
-  .pct {{ font-weight:800; font-variant-numeric:tabular-nums; }}
-  .note {{ width:100%; font-size:14px; color:{MUT}; margin:-2px 0 0 40px; }}
-  .next {{ position:absolute; left:64px; bottom:60px; width:1080px; padding:18px 24px; display:flex; align-items:center; gap:24px; }}
-  .next .lab {{ font-size:21px; font-weight:800; white-space:nowrap; }}
-  .nx {{ font-size:18px; color:#334155; display:flex; align-items:center; gap:12px; }}
-  .nx + .nx {{ border-left:1px solid #EEF2F7; padding-left:24px; }}
-  .nxi {{ width:38px; height:38px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }}
-  .nxi svg {{ width:20px; height:20px; }}
-  .nx-t {{ font-weight:700; color:{BLUE}; }}
-  .nx-d {{ color:{MUT}; font-size:15px; }}
-  .aime {{ position:absolute; right:14px; bottom:104px; width:475px; filter:drop-shadow(0 30px 60px {mood_glow}); }}
-  .aime-glow {{ position:absolute; right:0; bottom:70px; width:520px; height:520px; border-radius:50%;
-                background:radial-gradient(closest-side,{mood_glow},transparent); }}
-  .ft {{ position:absolute; bottom:22px; left:0; width:100%; text-align:center; font-size:14px; color:{FNT}; }}
+  .lt {{ font-size:12px; font-weight:800; color:{BLUE}; background:{BLUE}10; }}
+  .next {{ position:absolute; left:64px; bottom:56px; width:944px; padding:20px 26px;
+           background:linear-gradient(180deg,#FFFFFF,#FBFCFE); border-radius:20px; border:1px solid rgba(15,23,42,0.05);
+           box-shadow:0 2px 3px rgba(15,23,42,.04), 0 18px 38px rgba(15,23,42,.08);
+           display:flex; align-items:center; gap:22px; }}
+  .next .ni {{ width:40px; height:40px; border-radius:50%; background:{BLUE}12; display:flex; align-items:center; justify-content:center; flex:none; }}
+  .next .ni svg {{ width:21px; height:21px; }}
+  .next .lab {{ font-size:22px; font-weight:800; white-space:nowrap; }}
+  .nx {{ font-size:21px; color:#3B4456; }}
+  .nx + .nx {{ border-left:1px solid #E8EDF4; padding-left:22px; margin-left:2px; }}
+  .nx-w {{ color:{BLUE}; }}
+  .aime-glow {{ position:absolute; right:8px; bottom:64px; width:520px; height:520px; border-radius:50%;
+                background:radial-gradient(closest-side,{glow},transparent); }}
+  .ring {{ position:absolute; right:78px; bottom:108px; width:380px; height:58px; border-radius:50%;
+           background:radial-gradient(closest-side, rgba(15,23,42,0.10), transparent 70%); }}
+  .aime {{ position:absolute; right:54px; bottom:118px; width:412px; }}
+  .ft {{ position:absolute; bottom:20px; left:0; width:100%; text-align:center; font-size:14px; color:#9AA3B2; }}
 </style></head><body>
   <div class="logo">{logo_svg}</div>
-  <h1>{title} · {ctx["date"]}</h1>
+  <h1>{title} &middot; {ctx["date"]} &middot; ET</h1>
   <div class="rule"></div>
   <div class="head">{ctx["headline"]}</div>
   <div class="grid">{idx_cards}</div>
-  <div class="panels">
-    <div class="card panel">
-      <div class="p-title"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.5 4"/></svg></span>The split inside megacaps</div>
-      <div class="cols"><div class="col">{mega_rows}</div><div class="col">{mega_rows2}</div></div>
-    </div>
-    <div class="card panel">
-      <div class="p-title"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2"/></svg></span>The split inside semis</div>
-      <div class="cols"><div class="col">{semi_rows}</div><div class="col">{semi_rows2}</div></div>
-    </div>
-  </div>
-  <div class="card next"><span class="lab">Next 24 hours:</span>{nxt_html}</div>
-  <div class="aime-glow"></div>
-  <img class="aime" src="file://{aime}" />
-  <div class="ft">All times Eastern Time (ET) · Data: Nasdaq · AInvest</div>
-</body></html>'''
+  <div class="panels">{panels_html}</div>
+  <div class="next"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/></svg></span><span class="lab">Next 24 hours:</span>{nxt_html}</div>
+  <div class="aime-glow"></div><div class="ring"></div>
+  <img class="aime" src="file://{aime}"/>
+  <div class="ft">All times Eastern Time (ET) &middot; Data: Nasdaq &middot; AInvest</div>
+</body></html>"""
 
 
 # ---------- ④ 出图 ----------

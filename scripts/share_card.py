@@ -35,7 +35,7 @@ PUB = ROOT / "web" / "public" / "data"
 ASSETS = ROOT / "assets" / "brand-ainvest"
 LOGO_SKILL = Path.home() / ".claude" / "skills" / "ainvest-design" / "assets" / "stock-logos"
 LOGO_CACHE = ASSETS / "stock-logos"   # parqet 下载缓存(入库,跑一次永久复用)
-OUT_DIR = Path.home() / "Downloads"   # 直接落下载文件夹,拿了就发
+OUT_DIR = Path.home() / "Downloads" / "AInvest卡片"   # 专属文件夹,好找
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 NH = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",

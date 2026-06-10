@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 ASSETS = ROOT / "assets" / "brand-ainvest"
-OUT_DIR = Path.home() / "Downloads"
+OUT_DIR = Path.home() / "Downloads" / "AInvest卡片"   # 专属文件夹,好找
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 BLUE, INK, MUT, PAPER = "#165DFF", "#16181D", "#5B6472", "#F4F4F1"

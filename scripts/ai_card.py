@@ -35,7 +35,7 @@ except Exception:
 
 ROOT = Path(__file__).parent.parent
 ASSETS = ROOT / "assets" / "brand-ainvest"
-OUT_DIR = Path.home() / "Downloads"
+OUT_DIR = Path.home() / "Downloads" / "AInvest卡片"   # 专属文件夹,好找
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 KEY = os.environ.get("NDT_API_KEY", "")
 BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")

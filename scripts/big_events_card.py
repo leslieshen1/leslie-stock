@@ -27,7 +27,7 @@ try:
 except Exception:
     pass
 FINN = os.environ.get("FINNHUB_KEY") or ""
-OUT_DIR = Path.home() / "Downloads"
+OUT_DIR = Path.home() / "Downloads" / "AInvest卡片"   # 专属文件夹,好找
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ASSETS = ROOT / "assets" / "brand-ainvest"
 ET = timezone(timedelta(hours=-4))

@@ -157,9 +157,9 @@ def earn_rows(rows, small) -> str:
     return out
 
 
-def build_html(date: str, macro, bmo, sb, amc, sa, focus, qr_on: bool = True) -> str:
+def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
-    qr = (ASSETS / "qr-app.png").resolve()
+    aime = (ASSETS / "aime-bullish.png").resolve()
     d = datetime.strptime(date, "%Y-%m-%d")
     wd = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"][d.weekday()]
     title = f"TODAY&rsquo;S BIG EVENTS &bull; {d.month:02d}/{d.day:02d} &bull; {wd}"
@@ -187,7 +187,7 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus, qr_on: bool = True) ->
   .lab {{ color:{BLUE}; font-weight:600; font-size:21px; }}
   .prev .lab {{ color:#6B7280; }}
   .val {{ font-weight:700; min-width:58px; text-align:right; }}
-  .earn {{ display:flex; margin-top:14px; gap:0; padding-bottom:158px; }}
+  .earn {{ display:flex; margin-top:14px; gap:0; padding-bottom:168px; }}
   .ecol {{ flex:1; min-width:0; padding-right:36px; }}
   .ecol + .ecol {{ border-left:1px solid {RULE}; padding-left:36px; padding-right:0; }}
   .etitle {{ font-size:26px; font-weight:700; color:{BLUE};
@@ -203,13 +203,10 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus, qr_on: bool = True) ->
             gap:22px; border-top:1.5px solid {RULE}; padding-top:14px; }}
   .foot .logo {{ width:168px; flex:none; }}
   .foot .logo svg {{ width:100%; height:auto; }}
-  .cta {{ margin-left:auto; display:flex; align-items:center; gap:16px; }}
-  .cta .badge {{ background:{ORANGE}; color:#fff; font-family:-apple-system,sans-serif; font-size:14px;
-                 font-weight:800; letter-spacing:0.08em; padding:4px 11px; border-radius:4px; }}
-  .cta .t1 {{ font-size:23px; font-weight:700; }}
-  .cta .t2 {{ font-size:17px; font-style:italic; color:#5B6472; margin-top:2px; }}
-  .qr {{ width:82px; height:82px; border:1.5px solid {RULE}; border-radius:8px; background:#fff; padding:5px; flex:none; }}
-  .qr img {{ width:100%; height:100%; }}
+  .cta {{ margin-left:auto; display:flex; align-items:flex-end; gap:20px; }}
+  .aime {{ width:94px; margin-bottom:-2px; filter:drop-shadow(0 6px 14px rgba(21,36,63,0.18)); }}
+  .store {{ display:flex; gap:12px; align-items:center; margin-bottom:8px; }}
+  .sb {{ height:46px; }}
 </style></head><body>
   <h1>{title}</h1>
   <div class="focus"><span class="f1">Focus:</span><span class="f2">{focus}</span>
@@ -222,10 +219,11 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus, qr_on: bool = True) ->
   <div class="foot">
     <div class="logo">{logo_svg}</div>
     <div class="cta">
-      <span class="badge">FREE</span>
-      <span><div class="t1">Get the full daily briefing in the AInvest app</div>
-      <div class="t2">{"Scan to download &rarr;" if qr_on else "Link in the first reply &rarr;"}</div></span>
-      {f'<span class="qr"><img src="file://{qr}"/></span>' if qr_on else ''}
+      <img class="aime" src="file://{aime}"/>
+      <span class="store">
+        <svg class="sb" viewBox="0 0 140 46"><rect width="140" height="46" rx="9" fill="#15243F"/><path d="M28.5 23.6c0-3.4 2.8-5 2.9-5.1-1.6-2.3-4-2.6-4.9-2.7-2.1-.2-4.1 1.2-5.1 1.2-1 0-2.7-1.2-4.4-1.2-2.3 0-4.4 1.3-5.5 3.3-2.4 4.1-.6 10.2 1.7 13.5 1.1 1.6 2.4 3.4 4.2 3.4 1.7-.1 2.3-1.1 4.4-1.1 2 0 2.6 1.1 4.4 1.1 1.8 0 3-1.6 4.1-3.3 1.3-1.9 1.8-3.7 1.8-3.8-.1 0-3.5-1.4-3.6-5.3zM25.1 13.7c.9-1.1 1.6-2.7 1.4-4.3-1.4.1-3 .9-4 2.1-.9 1-1.7 2.7-1.5 4.2 1.6.1 3.1-.8 4.1-2z" fill="#fff"/><text x="40" y="19" font-family="-apple-system,sans-serif" font-size="10.5" fill="#cfd6e4">Download on the</text><text x="40" y="36" font-family="-apple-system,sans-serif" font-size="17" font-weight="600" fill="#fff">App Store</text></svg>
+        <svg class="sb" viewBox="0 0 150 46"><rect width="150" height="46" rx="9" fill="#15243F"/><g transform="translate(12,10)"><path d="M0 0v26l13-13z" fill="#29B6F6"/><path d="M0 0l13 13 4.6-4.6L4 1.4z" fill="#66BB6A"/><path d="M0 26l13-13 4.6 4.6L4 24.6z" fill="#EF5350"/><path d="M17.6 8.4L22 13l-4.4 4.6L13 13z" fill="#FFCA28"/></g><text x="42" y="19" font-family="-apple-system,sans-serif" font-size="10.5" letter-spacing="0.06em" fill="#cfd6e4">GET IT ON</text><text x="42" y="36" font-family="-apple-system,sans-serif" font-size="17" font-weight="600" fill="#fff">Google Play</text></svg>
+      </span>
     </div>
   </div>
 </body></html>'''
@@ -234,7 +232,6 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus, qr_on: bool = True) ->
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default="")
-    ap.add_argument("--no-qr", action="store_true", help="X 发图版:去码,CTA 改 Link in the first reply")
     args = ap.parse_args()
     if not FINN:
         sys.exit("缺 FINNHUB_KEY")
@@ -242,10 +239,10 @@ def main():
     print(f"① 抓数 + 降噪({date})…")
     macro, bmo, sb, amc, sa, focus = fetch(date)
     print(f"   宏观 {len(macro)} 行 · 盘前 {len(bmo)}+{len(sb)} · 盘后 {len(amc)}+{len(sa)} · Focus: {focus}")
-    html = build_html(date, macro, bmo, sb, amc, sa, focus, qr_on=not args.no_qr)
+    html = build_html(date, macro, bmo, sb, amc, sa, focus)
     tmp = Path("/tmp/big_events.html")
     tmp.write_text(html, encoding="utf-8")
-    out = OUT_DIR / f"AInvest_events_{date.replace('-', '')}{'_noqr' if args.no_qr else ''}.png"
+    out = OUT_DIR / f"AInvest_events_{date.replace('-', '')}.png"
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
                     "--window-size=1656,941", "--force-device-scale-factor=2",
                     "--virtual-time-budget=8000",

@@ -59,7 +59,8 @@ export async function GET() {
   }
   const settled = await Promise.all(POOL.map(one));
   const rows = settled.filter(Boolean) as { m: Mover; status: string }[];
-  const statusRaw = (rows[0]?.status || "").toLowerCase();
+  // 个别请求失败时 rows[0] 不一定有 status:取第一个非空的
+  const statusRaw = (rows.find((r) => r.status)?.status || "").toLowerCase();
   const session = statusRaw.includes("pre")
     ? "pre"
     : statusRaw.includes("after") || statusRaw.includes("post")

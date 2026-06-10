@@ -203,7 +203,7 @@ export default async function HomePage({
           你不是股神，但股神陪你一起看股票。
         </p>
  <p className="mt-2 text-xs text-faint">
-          我不是股神 · Not a Stock Guru · v0.5 · 段巴 + Serenity 三方框架 × Claude × Next.js
+          我不是股神 · Not a Stock Guru · v0.6 · 五方独立判读 × Claude × Next.js
         </p>
  <p className="mt-1 text-[10px] text-faint">
           实时行情(Nasdaq/Yahoo)· 五方独立判读(AI)· 自攒历史 RSI/动量 · 非投资建议

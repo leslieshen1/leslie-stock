@@ -225,6 +225,11 @@ CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT);
 --   Dataroma 超级投资者持仓、Finnhub 财报日历、Polygon 期权、SoSoValue crypto ETF。
 -- ============================================================
 CREATE TABLE IF NOT EXISTS us_fundamentals (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
+-- 美股 ETF 全列表(Nasdaq ETF screener):列表/搜索/详情的股票-ETF 区分。ret1y = 近1年回报 %
+CREATE TABLE IF NOT EXISTS us_etfs (
+    sym TEXT PRIMARY KEY,
+    name TEXT, price REAL, pct REAL, ret1y REAL
+);
 CREATE TABLE IF NOT EXISTS us_news (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS us_earnings (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);
 CREATE TABLE IF NOT EXISTS us_options (sym TEXT PRIMARY KEY, data TEXT, updated_at TEXT);

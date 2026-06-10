@@ -29,7 +29,7 @@ MCAP_MIN = 20.0       # 财报只留 ≥200 亿美元的大票
 
 # 高影响宏观类别:(中文名, 高亮, 命中正则, 取哪个子项做 detail)。同类别同日合并成一行。
 CATS = [
-    ("CPI 通胀", True, re.compile(r"\bcpi\b|inflation rate", re.I), re.compile(r"core.*mom", re.I)),
+    ("CPI 通胀", True, re.compile(r"\bcpi\b|inflation rate|consumer price index", re.I), re.compile(r"core.*mom", re.I)),
     ("PPI 物价", True, re.compile(r"\bppi\b|producer price", re.I), re.compile(r"\bmom\b", re.I)),
     ("PCE 物价(美联储锚)", True, re.compile(r"\bpce\b|personal consumption", re.I), re.compile(r"core.*mom", re.I)),
     ("美联储利率决议", True, re.compile(r"fomc|fed interest rate|interest rate decision|fed funds", re.I), None),
@@ -39,7 +39,8 @@ CATS = [
     ("GDP", True, re.compile(r"\bgdp\b", re.I), None),
     ("首申失业金", False, re.compile(r"initial jobless", re.I), None),
     ("ISM / PMI", False, re.compile(r"ism manufacturing|ism services|manufacturing pmi|services pmi", re.I), None),
-    ("消费者信心", False, re.compile(r"michigan|consumer sentiment|consumer confidence", re.I), None),
+    # 注意:不能裸匹配 michigan——"Michigan Inflation Expectations" 是通胀预期不是信心
+    ("消费者信心", False, re.compile(r"consumer sentiment|consumer confidence", re.I), None),
     ("耐用品订单", False, re.compile(r"durable goods", re.I), None),
 ]
 

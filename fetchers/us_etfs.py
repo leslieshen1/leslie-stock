@@ -103,6 +103,26 @@ def main():
     OUT.write_text(json.dumps({
         "generated_at": gen, "count": len(etfs), "etfs": etfs,
     }, ensure_ascii=False), encoding="utf-8")
+
+    # 写入 SoT 库(leslie.db)—— build_json 的 sync_inputs_into_db 也能从本 JSON 重建
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(ROOT))
+        from db import connect, init_schema
+        init_schema()
+        c = connect()
+        c.executemany(
+            """INSERT INTO us_etfs(sym,name,price,pct,ret1y) VALUES(?,?,?,?,?)
+               ON CONFLICT(sym) DO UPDATE SET name=excluded.name,price=excluded.price,
+               pct=excluded.pct,ret1y=excluded.ret1y""",
+            [(e["sym"], e["name"], e["price"], e["pct"], e["ret1y"]) for e in etfs])
+        c.execute("INSERT INTO meta(key,value) VALUES('us_etfs_generated_at',?) "
+                  "ON CONFLICT(key) DO UPDATE SET value=excluded.value", (gen,))
+        c.commit()
+        print(f"   ↳ 入库 leslie.db.us_etfs: {len(etfs)}")
+    except Exception as e:
+        print(f"   ↳ 入库跳过: {e}")
+
     print(f"\n✅ {len(etfs)} ETF → {OUT}")
     print("   近1年回报 TOP5:")
     for e in etfs[:5]:

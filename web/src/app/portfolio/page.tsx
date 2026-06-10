@@ -148,7 +148,7 @@ export default function PortfolioPage() {
       <PortfolioTabs holdings={holdings} />
 
  <footer className="mt-16 border-t border-line pt-6 text-center text-xs text-faint">
-        我不是股神 · 段永平 + 巴菲特投资 DNA · v0.5
+        我不是股神 · 五方独立判读 · v0.6
       </footer>
     </main>
   );

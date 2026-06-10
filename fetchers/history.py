@@ -109,14 +109,29 @@ def main():
         seeded = {r[0] for r in c.execute(
             "SELECT sym FROM price_history GROUP BY sym HAVING COUNT(*) >= 50")}
 
-    syms = [s for s in universe(args) if s not in seeded]
+    # 失败缓存:抓不到的(退市/A股代码混入 panels/怪符号)7 天内不再重试。
+    # 没有它,~400 只死代码每次 refresh 反复 4 连重试,白耗 10+ 分钟。
+    fail_path = ROOT / "data" / "_cache" / "history_failed.json"
+    try:
+        failed_at = json.loads(fail_path.read_text(encoding="utf-8"))
+    except Exception:
+        failed_at = {}
+    cutoff = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
+    fresh_failed = {s for s, d in failed_at.items() if d >= cutoff}
+
+    syms = [s for s in universe(args) if s not in seeded and (args.reseed or s not in fresh_failed)]
     print(f"🌱 回种日线(Nasdaq {args.days}d)→ price_history... {len(syms)} 只待种"
-          f"(已跳过 {len(seeded)} 只已种)· {args.workers} 线程")
+          f"(已跳过 {len(seeded)} 只已种 + {len(fresh_failed)} 只近7天失败)· {args.workers} 线程")
     t0 = time.time(); done = ins = 0
+    today = datetime.now().strftime("%Y-%m-%d")
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
         futs = {ex.submit(fetch_rows, s, args.days): s for s in syms}
         for fut in as_completed(futs):
             rows = fut.result(); done += 1
+            if rows is None:
+                failed_at[futs[fut]] = today
+            elif futs[fut] in failed_at:
+                del failed_at[futs[fut]]
             if rows:
                 c.executemany(
                     "INSERT INTO price_history(sym,date,close,volume) VALUES(?,?,?,?) "
@@ -126,6 +141,11 @@ def main():
                 c.commit()
                 print(f"   {done}/{len(syms)} ({ins} 行, {time.time()-t0:.0f}s)")
     c.commit()
+    try:
+        fail_path.parent.mkdir(parents=True, exist_ok=True)
+        fail_path.write_text(json.dumps(failed_at, ensure_ascii=False), encoding="utf-8")
+    except Exception:
+        pass
     total = c.execute("SELECT COUNT(*) FROM price_history").fetchone()[0]
     nsym = c.execute("SELECT COUNT(DISTINCT sym) FROM price_history").fetchone()[0]
     print(f"✅ 回种完成:本次 +{ins} 行 · price_history 共 {total} 行 / {nsym} 只  ({time.time()-t0:.0f}s)")

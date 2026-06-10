@@ -26,15 +26,16 @@ function num(s: unknown): number | null {
 const isUS = (s: string) => !/\.(SS|SZ|HK)$/i.test(s);
 
 // 美股:Nasdaq info。盘前 primaryData=盘前价(涨跌相对昨收),secondaryData=昨收。
-async function usQuote(sym: string): Promise<Quote | null> {
+// assetclass 必须匹配证券类型:对 ETF(SPY/QQQ…)用 stocks 会 400,所以失败时回退 etf。
+async function usQuote(sym: string, assetclass: "stocks" | "etf" = "stocks"): Promise<Quote | null> {
   try {
     const r = await fetch(
-      `https://api.nasdaq.com/api/quote/${encodeURIComponent(sym)}/info?assetclass=stocks`,
+      `https://api.nasdaq.com/api/quote/${encodeURIComponent(sym)}/info?assetclass=${assetclass}`,
       { headers: NH, cache: "no-store" }
     );
-    if (!r.ok) return null;
+    if (!r.ok) return assetclass === "stocks" ? usQuote(sym, "etf") : null;
     const d = (await r.json())?.data;
-    if (!d) return null;
+    if (!d) return assetclass === "stocks" ? usQuote(sym, "etf") : null;
     const p = d.primaryData || {};
     const s = d.secondaryData || {};
     const price = num(p.lastSalePrice);

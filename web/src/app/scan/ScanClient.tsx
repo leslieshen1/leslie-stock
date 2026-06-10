@@ -733,7 +733,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
               <Th col="name" label="代码 / 名称" />
  <Th col="price" label="价格" className="text-right" />
  <Th col="pct" label="涨跌%" className="text-right" />
- <Th col="mcap" label={secType === "etf" ? "1年回报" : "市值"} className="text-right" />
+ <Th col="mcap" label={secType === "etf" ? "1年回报" : secType === "all" ? "市值 / 1Y" : "市值"} className="text-right" />
  <Th col="div" label="五方" className="text-center" />
  <Th col="vol" label="成交量" className="hidden text-right sm:table-cell" />
  <th className="hidden px-3 py-2 font-medium text-muted md:table-cell">行业</th>

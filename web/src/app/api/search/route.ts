@@ -56,6 +56,43 @@ function loadUsStocks(): ManifestItem[] {
   return [];
 }
 
+// 美股 ETF(us-etfs.json)— 也进搜索(thesis 标 "ETF",和个股区分)
+type EtfRaw = { sym: string; name: string; price: number | null; pct: number | null; ret1y: number | null };
+let ETF_CACHE: { items: ManifestItem[]; mtime: number } | null = null;
+
+function loadUsEtfs(): ManifestItem[] {
+  const candidates = [
+    path.join(process.cwd(), "public", "data", "us-etfs.json"),
+    path.resolve(process.cwd(), "..", "web", "public", "data", "us-etfs.json"),
+  ];
+  for (const p of candidates) {
+    if (!fs.existsSync(p)) continue;
+    const stat = fs.statSync(p);
+    if (ETF_CACHE && ETF_CACHE.mtime === stat.mtimeMs) return ETF_CACHE.items;
+    try {
+      const j = JSON.parse(fs.readFileSync(p, "utf-8")) as { etfs?: EtfRaw[] };
+      const items: ManifestItem[] = (j.etfs || []).map((e) => ({
+        code: e.sym,
+        name: e.name,
+        market: "us",
+        market_cap_yi: null,
+        sector: "ETF",
+        layer: null,
+        score: 0,
+        verdict: "",
+        verdict_label: "",
+        signals_hit: 0,
+        thesis: e.ret1y != null ? `ETF · 近1年 ${e.ret1y > 0 ? "+" : ""}${e.ret1y}%` : "ETF",
+      }));
+      ETF_CACHE = { items, mtime: stat.mtimeMs };
+      return items;
+    } catch {
+      // try next path
+    }
+  }
+  return [];
+}
+
 function loadManifest(): ManifestItem[] {
   const candidates = [
     path.join(process.cwd(), "data", "aleabit_manifest.json"),
@@ -99,7 +136,10 @@ export async function GET(req: Request) {
     manifest.filter((i) => i.market === "us").map((i) => i.code.toUpperCase())
   );
   const usExtra = loadUsStocks().filter((u) => !manifestUsCodes.has(u.code.toUpperCase()));
-  const items = [...manifest, ...usExtra];
+  // ETF 也可搜(个股代码优先:同代码冲突时 manifest/股票版本胜出)
+  const seen = new Set([...manifestUsCodes, ...usExtra.map((u) => u.code.toUpperCase())]);
+  const etfExtra = loadUsEtfs().filter((e) => !seen.has(e.code.toUpperCase()));
+  const items = [...manifest, ...usExtra, ...etfExtra];
 
   // 评分优先级：
   // 1. code 完全匹配

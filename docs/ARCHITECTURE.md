@@ -102,6 +102,9 @@
 | RSI / 动量 / 趋势 | 自攒 `price_history`(每次 refresh 追加全市场收盘 → 自己算) | 过热度 · 趋势 |
 | 大佬持仓占比 / 谁在持有 | `whales.json` 的 `by_ticker`(从 `investors[].holdings` 一次派生) | `/whales` · 个股页"谁在持有" |
 | 宏观 / 指数 | `macro.json` + `/api/macro` 实时 | 顶部宏观条(首页 / Wire) |
+| 股票 vs ETF 区分 + ETF 近1年回报 | `us-etfs.json`(Nasdaq ETF screener,库表 `us_etfs`) | 列表 ETF 视图 · 搜索 · ETF 详情页 |
+| 市场日历(宏观+重磅财报,未来10天) | `market-calendar.json`(Finnhub,**fetch-cache**:滚动窗口,不进库,可随时重抓) | 盘报 tab 顶部 |
+| 盘报(盘前/盘中/收盘) | `reports.json`(`publish_report.py` 手动发布,refresh/build 不碰它) | 盘报 tab |
 | 财报日历 / 市场快讯 | `earnings-calendar` / `market-news`(Finnhub) | 详情页"下次财报" · Wire |
 | 个股新闻 | `us-news/{sym}.json`(Google News) | 详情页"近期新闻" |
 | 印股票 / 稀释 | `dilution-flags.json`(SEC EDGAR) | 列表 · 详情页 |
@@ -129,6 +132,10 @@
 python scripts/refresh.py            # 抓最新行情 → 入库 → 派生全部 JSON(8.5 秒)
 python scripts/refresh.py --deploy   # 上面 + 提交 + Vercel 部署
 ```
+
+**定时任务(launchd,已挂载)**:
+- `com.leslie.stock.refresh` —— 每天 05:00(北京 = 美东收盘后)跑 `refresh.py --deploy`,行情/ETF/日历/13F 全自动新鲜 + 上线
+- `com.leslie.stock.premarket` —— 每天 20:30(= 美东开盘前 1h)生成盘前报告 + 邮件(周末跳过)
 
 ## 三个"加功能=改配置"的设计(可扩展性)
 

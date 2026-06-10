@@ -53,3 +53,5 @@ logs/
 data/*.db-wal
 data/*.db-shm
 web/public/data/_us_out/
+web/public/data/_us_out_sonnet/
+web/public/data/_us_out_opus/

@@ -63,6 +63,17 @@ def sync_inputs_into_db(c):
               r.get("sector"), r.get("industry"), r.get("vol"), r.get("country"))
              for r in d.get("stocks", []) if r.get("sym")])
         set_meta(c, "us_market_generated_at", d.get("generated_at", ""))
+    # us_etfs ← us-etfs.json(ETF 列表,scan/搜索/详情区分股票-ETF 用)
+    etf_path = PUB / "us-etfs.json"
+    if etf_path.exists():
+        d = json.loads(etf_path.read_text(encoding="utf-8"))
+        c.executemany(
+            "INSERT INTO us_etfs(sym,name,price,pct,ret1y) VALUES(?,?,?,?,?) "
+            "ON CONFLICT(sym) DO UPDATE SET name=excluded.name,price=excluded.price,"
+            "pct=excluded.pct,ret1y=excluded.ret1y",
+            [(r.get("sym"), r.get("name"), r.get("price"), r.get("pct"), r.get("ret1y"))
+             for r in d.get("etfs", []) if r.get("sym")])
+        set_meta(c, "us_etfs_generated_at", d.get("generated_at", ""))
     # us_fundamentals ← us-fundamentals.json
     f_path = PUB / "us-fundamentals.json"
     if f_path.exists():

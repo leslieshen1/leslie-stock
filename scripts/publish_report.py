@@ -54,10 +54,11 @@ def main():
             reports = json.loads(OUT.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             reports = []
-    # 同 id 视为覆盖(同日同类型重发,如盘中多版 → 用 -2 -3 区分)
-    same_day = [r for r in reports if r.get("id", "").startswith(rid)]
-    if any(r["id"] == rid for r in same_day):
-        rid = f"{rid}-{len(same_day) + 1}"
+    # 同日同类型重发:盘前/收盘 = 覆盖(一天只该有一份);盘中 = 多版本(-2 -3 追加)
+    if args.type == "intraday":
+        same_day = [r for r in reports if r.get("id", "").startswith(rid)]
+        if any(r["id"] == rid for r in same_day):
+            rid = f"{rid}-{len(same_day) + 1}"
 
     rec = {
         "id": rid,

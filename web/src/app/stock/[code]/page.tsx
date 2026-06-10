@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { promises as fs } from "fs";
+import path from "path";
 import { loadAnalysis } from "@/lib/data";
 import { getStockHolders } from "@/lib/whales";
 import { loadDilutionFlags } from "@/lib/dilution";
@@ -18,6 +20,72 @@ import EarningsChip from "./EarningsChip";
 import OptionsGammaLine from "./OptionsGammaLine";
 import LivePrice from "./LivePrice";
 
+// ETF 识别:us-etfs.json(Nasdaq ETF 全列表)。ETF 没有五方/基本面/持仓这些个股功能,
+// 走专属精简页,不渲染一页空壳。
+type EtfRec = { sym: string; name: string; price: number | null; pct: number | null; ret1y: number | null };
+async function loadEtf(code: string): Promise<EtfRec | null> {
+  try {
+    const p = path.join(process.cwd(), "public", "data", "us-etfs.json");
+    const list = JSON.parse(await fs.readFile(p, "utf-8")).etfs as EtfRec[];
+    return list.find((e) => e.sym === code.toUpperCase()) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function EtfDetail({ etf }: { etf: EtfRec }) {
+  const up1y = (etf.ret1y ?? 0) >= 0;
+  return (
+    <main className="mx-auto max-w-6xl px-6 py-8">
+      <header className="mb-6">
+        <div className="mb-3 flex items-center gap-2 text-xs">
+          <Link href="/" className="text-muted hover:text-ink">热力图</Link>
+          <span className="text-faint">/</span>
+          <Link href="/scan" className="text-muted hover:text-ink">扫描</Link>
+          <span className="text-faint">/</span>
+          <span className="text-muted">{etf.name || etf.sym}</span>
+        </div>
+        <div className="flex flex-wrap items-baseline gap-3">
+          <h1 className="text-3xl font-semibold tracking-tight text-ink">{etf.name || etf.sym}</h1>
+          <code className="font-mono text-base text-muted">{etf.sym}</code>
+          <span className="inline-flex rounded-md border border-accent/30 bg-surface-2 px-2 py-0.5 text-xs font-medium text-accent">ETF</span>
+          <span className="inline-flex rounded-md border border-accent/30 bg-surface-2 px-2 py-0.5 text-xs font-medium text-accent">美股</span>
+        </div>
+        <div className="mt-2">
+          <LivePrice code={etf.sym} market="us" initialPrice={etf.price ?? null} />
+        </div>
+      </header>
+
+      <div className="mb-4 grid grid-cols-2 gap-3 sm:max-w-md">
+        <div className="rounded-xl border border-line bg-surface px-4 py-3">
+          <p className="text-[10px] uppercase tracking-wider text-faint">近 1 年回报</p>
+          <p className={`mt-0.5 font-mono text-xl font-semibold ${up1y ? "text-up" : "text-down"}`}>
+            {etf.ret1y != null ? `${up1y ? "+" : ""}${etf.ret1y}%` : "—"}
+          </p>
+        </div>
+        <div className="rounded-xl border border-line bg-surface px-4 py-3">
+          <p className="text-[10px] uppercase tracking-wider text-faint">快照价(上次收盘)</p>
+          <p className="mt-0.5 font-mono text-xl font-semibold text-ink">
+            {etf.price != null ? `$${etf.price.toFixed(2)}` : "—"}
+            {etf.pct != null && (
+              <span className={`ml-2 text-sm ${etf.pct >= 0 ? "text-up" : "text-down"}`}>
+                {etf.pct >= 0 ? "+" : ""}{etf.pct.toFixed(2)}%
+              </span>
+            )}
+          </p>
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-muted">
+        这是一只 <span className="font-medium text-ink">ETF(交易所交易基金)</span>——五方判读、基本面、产业链位置、大佬持仓是<span className="text-ink">个股</span>功能,不适用于 ETF。
+        想看全部 ETF,回 <Link href="/scan" className="text-accent hover:underline">列表 · ETF 视图</Link>。
+      </div>
+
+      <footer className="mt-10 text-center text-[10px] text-faint">实时行情(Nasdaq)· 非投资建议</footer>
+    </main>
+  );
+}
+
 export default async function StockDetailPage({
   params,
   searchParams,
@@ -32,6 +100,11 @@ export default async function StockDetailPage({
  | "a"
  | "hk"
  | "us";
+  // ETF → 专属精简页(在加载任何个股数据之前分流)
+  if (market === "us") {
+    const etf = await loadEtf(code);
+    if (etf) return <EtfDetail etf={etf} />;
+  }
   // 五方面板:有就显示(美股全量 + 已录入五方的 A 股,如 688017 绿的谐波)
   const usPanel = loadUsPanel(code);
   const stockTypes = loadStockTypes(code); // 类型轴:先定该用什么尺子量

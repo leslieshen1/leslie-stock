@@ -90,6 +90,43 @@ def chart_points(sym: str) -> list[float]:
         return []
 
 
+def macro_actuals() -> list[dict]:
+    """今天已发布的重磅宏观(actual 已出):[{name, act, est}],核心 CPI 排最前。"""
+    key = os.environ.get("FINNHUB_KEY") or ""
+    if not key:
+        return []
+    try:
+        j = requests.get("https://finnhub.io/api/v1/calendar/economic",
+                         params={"token": key}, timeout=25).json()
+    except Exception:
+        return []
+    et = timezone(timedelta(hours=-4))
+    today = datetime.now(et).strftime("%Y-%m-%d")
+    out = []
+    NAMES = [("Core Inflation Rate MoM", "Core CPI"), ("Inflation Rate MoM", "CPI MoM"),
+             ("Core PCE", "Core PCE"), ("Non?farm Payrolls", "Payrolls"),
+             ("Fed Interest Rate Decision", "FOMC"), ("Retail Sales MoM", "Retail Sales"),
+             ("PPI MoM", "PPI")]
+    for e in j.get("economicCalendar") or []:
+        if e.get("country") not in ("US", "United States") or str(e.get("impact")) != "high":
+            continue
+        try:
+            dt = datetime.strptime(str(e.get("time", "")), "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc).astimezone(et)
+        except ValueError:
+            continue
+        if dt.strftime("%Y-%m-%d") != today or e.get("actual") in (None, ""):
+            continue
+        nm = next((short for pat, short in NAMES if re.search(pat.replace("?", ".?"), str(e.get("event", "")), re.I)), None)
+        if not nm:
+            continue
+        try:
+            out.append({"name": nm, "act": float(e["actual"]), "est": float(e["estimate"]) if e.get("estimate") not in (None, "") else None})
+        except (TypeError, ValueError):
+            continue
+    out.sort(key=lambda r: 0 if "Core CPI" == r["name"] else 1)
+    return out
+
+
 def gather(card_type: str) -> dict:
     with ThreadPoolExecutor(max_workers=10) as ex:
         idx = list(ex.map(lambda s: q(s, "etf"), [s for s, _ in IDX]))
@@ -133,7 +170,7 @@ def gather(card_type: str) -> dict:
                 key=lambda t: max((abs(r["pct"] or 0) for r in t[2]), default=0))
     panels.append({"icon": third[0], "title": third[1], "items": top3(third[2])})
     return {"type": card_type, "date": date_label, "idx": idx_map, "sparks": sparks,
-            "panels": panels,
+            "released": macro_actuals(), "panels": panels,
             "megaDown": mega[:3], "megaUp": mega[-3:][::-1],
             "semiDown": semi[:4], "semiUp": semi[-3:][::-1], "next": nxt}
 
@@ -162,6 +199,13 @@ def rule_headline(ctx: dict) -> str:
     g = lambda s: ctx["idx"].get(s, {}).get("pct") or 0
     qq, sp, dw, ru = g("QQQ"), g("SPY"), g("DIA"), g("IWM")
     close = ctx.get("type") == "close"   # 文案分时段:收盘说 close,盘前/盘中说 tape
+    # 重磅数据已落地 → 结果导向(如 "Cooler CPI: core 0.2 vs 0.3 est.")
+    rel = (ctx.get("released") or [None])[0]
+    if rel and rel.get("est") is not None:
+        tone = "Cooler" if rel["act"] < rel["est"] else "Hotter" if rel["act"] > rel["est"] else "In-line"
+        tail = ("Tape claws back." if qq > -0.7 else "Stocks still soft.") if qq < 0 else \
+               ("Tape turns green." if not close else "Stocks close higher.")
+        return f"{tone} {rel['name']}: {rel['act']:g} vs {rel['est']:g} est. {tail}"
     if qq < -0.5 and dw > 0 and ru > 0:
         return "Nasdaq falls alone. Value and small caps close green." if close else "Nasdaq falls alone. Value and small caps hold green."
     if qq < 0 and sp < 0 and dw < 0 and ru < 0:
@@ -298,7 +342,13 @@ def build_html(ctx: dict) -> str:
                 ("零售销售", "Retail Sales"), ("非农", "Nonfarm Payrolls"), ("PCE", "PCE"), ("GDP", "GDP")]
     today_et = datetime.now(timezone(timedelta(hours=-4))).date()
     nxt_html = ""
+    rel0 = (ctx.get("released") or [None])[0]
+    if rel0 and rel0.get("est") is not None:
+        nxt_html += (f'<span class="nx"><b class="nx-w">Out:</b> <b>{rel0["name"]} {rel0["act"]:g}</b>'
+                     f' <span style="color:#64748B">vs {rel0["est"]:g} est</span></span>')
     for e in ctx["next"][:2]:
+        if rel0 and e.get("kind") == "macro" and rel0["name"].split()[0].lower() in e.get("title", "").lower():
+            continue  # 已出的不再当"看点"挂着
         try:
             d = datetime.strptime(e["date"], "%Y-%m-%d").date()
             when = "Today" if d == today_et else "Tomorrow" if (d - today_et).days == 1 else d.strftime("%a")

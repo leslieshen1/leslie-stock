@@ -261,15 +261,14 @@ export default function PulseClient({
   return (
     <>
       {/* ===== 顶部 Industry Header（动态标题 + Tab 切换） ===== */}
- <header className="mb-4 sm:mb-6 border-b border-line pb-4 sm:pb-6">
- <div className="mb-3 sm:mb-4 flex items-baseline justify-between flex-wrap gap-2 sm:gap-3">
-          <div>
-            <div className="kicker mb-2">Pulse Heatmap · Five Lenses</div>
- <h1 className="text-xl sm:text-[34px] font-semibold tracking-tight text-ink">
+ <header className="mb-3 border-b border-line pb-3">
+ <div className="mb-2 flex items-baseline justify-between flex-wrap gap-x-3 gap-y-1">
+          <div className="flex min-w-0 items-baseline gap-3">
+ <h1 className="shrink-0 text-[22px] font-semibold tracking-tight text-ink">
               {currentInd.name} · 脉冲热力图
             </h1>
- <p className="mt-1.5 text-xs sm:text-sm text-muted">
-              {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(过热度 / 综合 / 大师 / 分歧)
+ <p className="hidden min-w-0 truncate text-xs text-faint lg:block">
+              {industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头
             </p>
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">
@@ -300,7 +299,7 @@ export default function PulseClient({
               <button
                 key={ind.id}
                 onClick={() => setIndustry(ind.id)}
-                className={`flex shrink-0 items-baseline gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium transition ${
+                className={`flex shrink-0 items-baseline gap-1.5 px-2.5 py-1 rounded-md text-[13px] font-medium transition ${
                   active
  ? "bg-surface-3 text-white "
                     : isPrimary

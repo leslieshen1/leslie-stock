@@ -48,8 +48,8 @@ export default function PremarketStrip() {
   };
 
   return (
-    <div className="mb-7 overflow-x-auto rounded-xl border border-accent/30 bg-surface [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      <div className="flex items-center gap-x-3 whitespace-nowrap px-4 py-2.5 text-[12px]">
+    <div className="mb-2.5 overflow-x-auto rounded-lg border border-accent/30 bg-surface [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="flex items-center gap-x-3 whitespace-nowrap px-3.5 py-1.5 text-[11.5px]">
         <span className="flex shrink-0 items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-accent">
           <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
           {data.label}

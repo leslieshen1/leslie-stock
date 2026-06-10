@@ -180,7 +180,7 @@ export default async function HomePage({
   const initialHighlight = sp.highlight;
 
   return (
- <main className="mx-auto max-w-[1480px] px-6 py-10">
+ <main className="mx-auto max-w-[1480px] px-6 pb-10 pt-3">
       <MacroBar series={macro} />
       <PremarketStrip />
       <PulseClient

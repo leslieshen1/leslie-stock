@@ -256,10 +256,11 @@ export default function PulseClient({
  <header className="mb-4 sm:mb-6 border-b border-line pb-4 sm:pb-6">
  <div className="mb-3 sm:mb-4 flex items-baseline justify-between flex-wrap gap-2 sm:gap-3">
           <div>
- <h1 className="text-xl sm:text-3xl font-semibold tracking-tight text-ink">
+            <div className="kicker mb-2">Pulse Heatmap · Five Lenses</div>
+ <h1 className="text-xl sm:text-[34px] font-semibold tracking-tight text-ink">
               {currentInd.name} · 脉冲热力图
             </h1>
- <p className="mt-1 text-xs sm:text-sm text-muted">
+ <p className="mt-1.5 text-xs sm:text-sm text-muted">
               {currentInd.desc} · {industryItems.length} 个标的 · 粒子尺寸 = 市值 · 颜色 = 镜头(过热度 / 综合 / 大师 / 分歧)
             </p>
           </div>

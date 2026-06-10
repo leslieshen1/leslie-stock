@@ -50,10 +50,16 @@ export default function MacroBar({ series: initial }: { series: MacroSeries[] })
 
   if (!series?.length) return null;
   return (
-    <div className="mb-7 overflow-x-auto rounded-xl border border-line bg-surface [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      <div className="flex items-center gap-x-4 whitespace-nowrap px-4 py-2.5 text-[12px]">
-        <span className="flex shrink-0 items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-faint">
-          <span className="h-1.5 w-1.5 rounded-full bg-up animate-pulse" />宏观
+    <div
+      className="mb-7 overflow-x-auto rounded-xl border border-line bg-surface [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      style={{
+        WebkitMaskImage: "linear-gradient(90deg, #000 0%, #000 96%, transparent 100%)",
+        maskImage: "linear-gradient(90deg, #000 0%, #000 96%, transparent 100%)",
+      }}
+    >
+      <div className="flex items-center gap-x-4 whitespace-nowrap px-4 py-3 text-[12px]">
+        <span className="kicker flex shrink-0 items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-up animate-pulse" />Macro
         </span>
         {series.map((s) => {
           const up = (s.pct ?? 0) >= 0;

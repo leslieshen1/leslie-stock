@@ -1,37 +1,42 @@
 @import "tailwindcss";
 
 /* ============================================================
-   深色精致设计系统 — Linear 结构 + 苹果暗色质感 + Claude 赤陶橙
+   Terminal Luxury — 暗色金融编辑部
+   彭博终端的数据密度 × 印刷杂志的克制。
+   材质三件套:更深的底 + 发丝线(rgba) + 静态噪点;
+   字体三件套:PingFang(中文) + Spline Sans Mono(数字) + Fraunces(拉丁衬线 display)。
    ============================================================ */
 :root {
-  --background: #0a0b0d;
-  --foreground: #e8e9ec;
+  --background: #08090b;
+  --foreground: #ecedf0;
 }
 
 @theme inline {
   --font-sans: -apple-system, "SF Pro Text", "PingFang SC", system-ui, sans-serif;
-  --font-mono: "SF Mono", "JetBrains Mono", "Geist Mono", Menlo, monospace;
+  --font-mono: var(--font-spline-mono), "SF Mono", "JetBrains Mono", Menlo, monospace;
+  --font-display: var(--font-fraunces), "Songti SC", Georgia, serif;
 
-  /* 表面层次（明度递进建立深度，不靠阴影）*/
-  --color-base: #0a0b0d;          /* 主背景 */
-  --color-surface: #131418;       /* 卡片 */
-  --color-surface-2: #1a1c22;     /* 悬浮 / 二级 */
-  --color-surface-3: #22242b;     /* 三级 / hover */
+  /* 表面层次(底更深一档,层间对比更清晰)*/
+  --color-base: #08090b;          /* 主背景 */
+  --color-surface: #111317;       /* 卡片 */
+  --color-surface-2: #181b21;     /* 悬浮 / 二级 */
+  --color-surface-3: #21242c;     /* 三级 / hover */
 
-  /* 边框（极细低对比）*/
-  --color-line: #222429;
-  --color-line-2: #2e3036;
+  /* 发丝线(rgba 白,叠在任何表面上都细而不脏)*/
+  --color-line: rgba(235, 238, 245, 0.07);
+  --color-line-2: rgba(235, 238, 245, 0.13);
 
   /* 文字层次 */
-  --color-ink: #e8e9ec;           /* 主 */
-  --color-muted: #8b8e98;         /* 次 */
-  --color-faint: #565963;         /* 弱 */
+  --color-ink: #ecedf0;           /* 主 */
+  --color-muted: #8e919b;         /* 次 */
+  --color-faint: #585b66;         /* 弱 */
 
-  /* 强调色 — Claude 赤陶橙（深色适配）*/
+  /* 强调色 — 赤陶橙(加一档亮态做 hover/发光)*/
   --color-accent: #d98a6a;
-  --color-accent-soft: #2a1f1a;   /* 橙的暗背景（badge）*/
+  --color-accent-bright: #eda57f;
+  --color-accent-soft: #2a1f1a;
 
-  /* 涨跌（国际 / crypto 惯例：绿涨红跌）*/
+  /* 涨跌(国际 / crypto 惯例:绿涨红跌)*/
   --color-up: #2ebd85;
   --color-down: #f6465d;
   --color-up-soft: #11211b;
@@ -46,16 +51,60 @@ body {
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "cv01", "ss01";
+  position: relative;
 }
 
-/* 等宽数字 — 表格 / 价格对齐 */
-.tnum { font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+/* 大气层:顶部一抹极弱的赤陶光晕 + 底部沉降 —— 给纯黑底一口呼吸。
+   z-index:-1 让它沉到一切内容之下;切忌给 body>* 强加 position —— 无层级的
+   作者样式会压过 Tailwind @layer 里的 fixed/sticky,把浮层打回文档流。 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 60% at 50% -12%, rgba(217, 138, 106, 0.055) 0%, rgba(217, 138, 106, 0) 58%),
+    radial-gradient(140% 90% at 50% 115%, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 52%);
+}
+/* 印刷噪点:静态细颗粒,3% —— 屏幕上的纸感 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* 等宽数字 — 表格 / 价格对齐(全站数字的性格所在)*/
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
 
-/* 极细滚动条（Linear 感）*/
+/* 编辑部小标:mono + 拉距 + 全大写(kicker)*/
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* 拉丁衬线 display(品牌字/编辑部时刻)*/
+.font-display { font-family: var(--font-display); }
+
+/* 选区 / 焦点:品牌化 */
+::selection { background: rgba(217, 138, 106, 0.32); color: #fff; }
+:focus-visible { outline: 2px solid rgba(217, 138, 106, 0.6); outline-offset: 2px; border-radius: 4px; }
+
+/* 极细滚动条 */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--color-line-2); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #3a3d44; }
+::-webkit-scrollbar-thumb { background: rgba(235, 238, 245, 0.12); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(235, 238, 245, 0.2); }
 
 /* Markdown 渲染样式（用于盘后简报） */
 .prose-leslie {

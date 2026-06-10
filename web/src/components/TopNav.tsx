@@ -26,37 +26,43 @@ export default function TopNav() {
   const pathname = usePathname();
 
   return (
- <header className="sticky top-0 z-40 border-b border-line bg-base/80 backdrop-blur-xl">
- <div className="mx-auto flex h-14 max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
+ <header className="sticky top-0 z-40 border-b border-line bg-base/75 backdrop-blur-2xl">
+ <div className="mx-auto flex h-[60px] max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
 
-        {/* Logo */}
- <Link href="/" className="flex items-center gap-2 shrink-0" title="我不是股神 · Not a Stock Guru">
+        {/* Brand lockup — 双行编辑部款 */}
+ <Link href="/" className="flex items-center gap-2.5 shrink-0 group" title="我不是股神 · Not a Stock Guru">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="我不是股神" width={30} height={30}
-               className="h-[30px] w-[30px] rounded-lg object-cover ring-1 ring-white/10 shrink-0" />
- <span className="text-[15px] sm:text-[17px] font-semibold tracking-tight text-ink whitespace-nowrap">
+          <img src="/logo.png" alt="我不是股神" width={32} height={32}
+               className="h-8 w-8 rounded-[9px] object-cover ring-1 ring-white/10 shrink-0 transition group-hover:ring-accent/40" />
+          <span className="flex flex-col leading-none">
+ <span className="text-[16px] font-semibold tracking-tight text-ink whitespace-nowrap">
  我不是<span className="text-accent">股神</span>
+            </span>
+ <span className="mt-[3px] hidden font-mono text-[8.5px] uppercase tracking-[0.32em] text-faint sm:block">
+              Not a Stock Guru
+            </span>
           </span>
- <span className="tnum text-[10px] text-faint uppercase tracking-widest hidden md:inline">v0.6</span>
         </Link>
 
-        {/* 主导航 — 手机可横向滑动 */}
- <nav className="flex flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-1">
+        {/* 主导航 — active 用下划线(编辑部),hover 升墨色 */}
+ <nav className="flex flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-2">
           {NAV.map((item) => {
             const active = item.match(pathname);
-            const cls = item.cta
- ? "bg-accent text-black hover:bg-accent/90"
-              : active
- ? "text-ink bg-surface-2"
- : "text-muted hover:text-ink hover:bg-surface";
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative shrink-0 px-2 py-1.5 rounded-lg text-[13px] font-medium transition sm:px-3 ${cls}`}
+                className={`relative shrink-0 px-2 py-2 text-[13px] font-medium transition sm:px-3 ${
+                  active ? "text-ink" : "text-muted hover:text-ink"
+                }`}
               >
  <span className="hidden md:inline">{item.en}</span>
  <span className="md:hidden">{item.label}</span>
+                <span
+                  className={`pointer-events-none absolute inset-x-2 -bottom-[1px] h-[2px] rounded-full transition-all duration-300 sm:inset-x-3 ${
+ active ? "bg-accent opacity-100" : "bg-accent opacity-0"
+                  }`}
+                />
               </Link>
             );
           })}
@@ -72,11 +78,15 @@ export default function TopNav() {
           <MarketStatus />
         </div>
 
-        {/* Buy — 右上角小 CTA */}
+        {/* Buy — 赤陶渐变小 CTA */}
         <Link
           href="/how-to-buy"
           title="如何买美股 · How to buy US stocks"
-          className="shrink-0 rounded-lg bg-accent px-3 py-1.5 text-[13px] font-semibold text-black transition hover:bg-accent/90"
+          className="shrink-0 rounded-lg px-3.5 py-1.5 text-[13px] font-semibold text-[#1a0f08] transition hover:brightness-110"
+          style={{
+            background: "linear-gradient(135deg, #eda57f 0%, #d98a6a 55%, #c2754f 100%)",
+            boxShadow: "0 1px 0 rgba(255,255,255,0.25) inset, 0 4px 14px rgba(217,138,106,0.22)",
+          }}
         >
           Buy
         </Link>

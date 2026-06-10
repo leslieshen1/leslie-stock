@@ -236,7 +236,7 @@ export default function ScanClient() {
   return (
     <>
       {/* 市场切换（默认美股） */}
- <div className="mb-5 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
+ <div className="mb-2.5 inline-flex rounded-lg border border-line bg-surface p-0.5 text-sm">
         <button
           onClick={() => setMarket("us")}
           className={`rounded-md px-4 py-1.5 font-medium transition ${
@@ -603,7 +603,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
   return (
     <>
       {/* 股票 / ETF / 全部 分段 —— 区分证券类型 */}
- <div className="mb-3 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
+ <div className="mb-2.5 ml-2 inline-flex rounded-lg border border-line bg-surface p-0.5 text-sm">
         {([["stock", `股票 ${stockCount}`], ["etf", `ETF ${etfCount}`], ["all", "全部"]] as const).map(([k, label]) => (
           <button
             key={k}
@@ -618,7 +618,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
       </div>
 
       {/* 涨跌统计 */}
- <div className="mb-4 flex flex-wrap items-center gap-4 text-sm">
+ <div className="mb-2.5 flex flex-wrap items-center gap-4 text-[13px]">
  <span className="text-muted">{secType === "etf" ? "ETF" : secType === "all" ? "全市场" : "股票"} <span className="font-mono font-semibold text-ink">{typeBase.length}</span> 只</span>
  <span className="text-up">↑ {up} 涨</span>
  <span className="text-down">↓ {down} 跌</span>

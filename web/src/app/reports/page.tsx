@@ -24,10 +24,10 @@ export default async function ReportsPage() {
     loadTodayEvents(),
   ]);
   return (
-    <main className="mx-auto max-w-3xl px-6 py-10">
-      <header className="mb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">盘报 · Reports</h1>
-        <p className="mt-1 text-sm text-muted">市场日历 · 今日大事 · 盘前/收盘总结 —— 我不是股神 · 非投资建议</p>
+    <main className="mx-auto max-w-3xl px-6 pb-10 pt-3">
+      <header className="mb-3 flex flex-wrap items-baseline gap-x-3">
+        <h1 className="text-[22px] font-semibold tracking-tight text-ink">盘报</h1>
+        <p className="text-xs text-faint">市场日历 · 今日大事 · 盘前/收盘总结 · 非投资建议</p>
       </header>
       {/* 1/ 市场日历(未来 10 天盯什么) */}
       <MarketCalendar events={events} />

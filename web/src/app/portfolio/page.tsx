@@ -131,7 +131,7 @@ export default function PortfolioPage() {
   );
 
   return (
- <main className="mx-auto max-w-6xl px-6 py-10">
+ <main className="mx-auto max-w-6xl px-6 pb-10 pt-3">
  <header className="mb-8 flex items-baseline justify-between border-b border-line pb-6">
         <div>
  <h1 className="text-3xl font-semibold tracking-tight text-ink">我的组合</h1>

@@ -10,7 +10,7 @@ export default function WhalesPage() {
   const { investors } = loadWhales();
 
   return (
- <main className="mx-auto max-w-5xl px-6 py-8">
+ <main className="mx-auto max-w-5xl px-6 pb-8 pt-3">
       <WhalesClient investors={investors} />
     </main>
   );

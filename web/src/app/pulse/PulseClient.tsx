@@ -53,6 +53,14 @@ function lensValueOf(c: { heat: number; triple: number | null; masters?: Masters
 function lensRampOf(lens: string): "heat" | "triple" {
   return LENS_BY_KEY[lens]?.ramp ?? "triple";
 }
+// 市值显示:$5038.198B 这种原始数读起来廉价 → $5.04T / $328B / $940M
+export function fmtCapB(b: number | null | undefined): string {
+  if (b == null) return "—";
+  if (b >= 1000) return `$${(b / 1000).toFixed(2)}T`;
+  if (b >= 10) return `$${Math.round(b)}B`;
+  if (b >= 1) return `$${b.toFixed(1)}B`;
+  return `$${Math.round(b * 1000)}M`;
+}
 
 // ===== 产业链(数据驱动,来自 industry-map.json;AI 用 supply-chain 的 L0-L7)=====
 type ChainLayerDef = { id: string; name: string; summary?: string };
@@ -637,7 +645,7 @@ function DetailPanel({
  <span className="font-mono text-sm font-semibold text-muted">{c.ticker}</span>
  <span className="text-xs text-muted">{c.region}</span>
  <span className="text-xs text-faint">·</span>
- <span className="text-xs text-muted">${c.marketCapB}B</span>
+ <span className="tnum text-xs text-muted">{fmtCapB(c.marketCapB)}</span>
  {c.dataSource === "live" ? (
  <span className="font-mono text-[9px] font-semibold px-1.5 py-0.5 rounded bg-up-soft text-up border border-up/30">
                 LIVE

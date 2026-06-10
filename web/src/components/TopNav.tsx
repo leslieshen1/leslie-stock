@@ -26,7 +26,7 @@ export default function TopNav() {
   const pathname = usePathname();
 
   return (
- <header className="sticky top-0 z-40 border-b border-line bg-base/75 backdrop-blur-2xl">
+ <header className="sticky top-0 z-40 border-b border-line bg-base/85 backdrop-blur-md">
  <div className="mx-auto flex h-[60px] max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
 
         {/* Brand lockup — 双行编辑部款 */}
@@ -45,7 +45,7 @@ export default function TopNav() {
         </Link>
 
         {/* 主导航 — active 用下划线(编辑部),hover 升墨色 */}
- <nav className="flex flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-2">
+ <nav className="flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-2">
           {NAV.map((item) => {
             const active = item.match(pathname);
             return (
@@ -73,8 +73,8 @@ export default function TopNav() {
  <SearchBox compact placeholder="搜代码 / 名称 / 板块…" />
         </div>
 
-        {/* 盘口状态 — 休市时让用户知道价格"不跳"是正常 */}
-        <div className="ml-auto shrink-0 sm:ml-0">
+        {/* 盘口状态 — 休市时让用户知道价格"不跳"是正常;手机太挤,藏(sm 起显示)*/}
+        <div className="ml-auto hidden shrink-0 sm:ml-0 sm:block">
           <MarketStatus />
         </div>
 

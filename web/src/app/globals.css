@@ -45,37 +45,17 @@
 
 html { color-scheme: dark; }
 
+/* 性能注意:大气光晕/噪点全部画进 body 背景(随内容滚动,合成一次、零逐帧成本)。
+   不要用全屏 position:fixed 伪元素盖在内容上 —— 粒子画布 60fps 动画时会逼浏览器
+   每帧重新合成整个视口,页面立刻发卡(踩过)。 */
 body {
   font-family: var(--font-sans);
-  background: var(--color-base);
+  background:
+    radial-gradient(120% 56% at 50% -10%, rgba(217, 138, 106, 0.05) 0%, rgba(217, 138, 106, 0) 56%),
+    var(--color-base);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "cv01", "ss01";
-  position: relative;
-}
-
-/* 大气层:顶部一抹极弱的赤陶光晕 + 底部沉降 —— 给纯黑底一口呼吸。
-   z-index:-1 让它沉到一切内容之下;切忌给 body>* 强加 position —— 无层级的
-   作者样式会压过 Tailwind @layer 里的 fixed/sticky,把浮层打回文档流。 */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(120% 60% at 50% -12%, rgba(217, 138, 106, 0.055) 0%, rgba(217, 138, 106, 0) 58%),
-    radial-gradient(140% 90% at 50% 115%, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 52%);
-}
-/* 印刷噪点:静态细颗粒,3% —— 屏幕上的纸感 */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 /* 等宽数字 — 表格 / 价格对齐(全站数字的性格所在)*/
 .tnum {

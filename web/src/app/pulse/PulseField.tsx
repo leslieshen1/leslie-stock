@@ -215,7 +215,8 @@ export default function PulseField({
 
     function resize() {
       if (!wrap || !canvas) return;
-      const dpr = window.devicePixelRatio || 1;
+      // dpr 封顶:retina 全分辨率(2x)对这种弥散光晕画面是浪费,1.75 视觉无差、少画 ~40% 像素
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
       const w = wrap.clientWidth;
       const h = wrap.clientHeight;
       sizeRef.current = { w, h };
@@ -240,6 +241,27 @@ export default function PulseField({
  canvas.addEventListener("mousemove", onMove);
  canvas.addEventListener("mouseleave", onLeave);
  canvas.addEventListener("click", onClick);
+
+    // 光晕 sprite 缓存:每种颜色的 radial 渐变只离屏画一次,逐帧用 drawImage 贴(GPU 合成)。
+    // 之前是每粒子每帧 createRadialGradient —— 1461 粒 × 60fps ≈ 每秒 9 万次渐变分配,页面发卡的元凶。
+    const glowCache = new Map<string, HTMLCanvasElement>();
+    const SPRITE = 64;
+    function glowSprite(c1: string, c0: string): HTMLCanvasElement {
+      let sp = glowCache.get(c1);
+      if (!sp) {
+        sp = document.createElement("canvas");
+        sp.width = SPRITE;
+        sp.height = SPRITE;
+        const sctx = sp.getContext("2d")!;
+        const g = sctx.createRadialGradient(SPRITE / 2, SPRITE / 2, 0, SPRITE / 2, SPRITE / 2, SPRITE / 2);
+        g.addColorStop(0, c1);
+        g.addColorStop(1, c0);
+        sctx.fillStyle = g;
+        sctx.fillRect(0, 0, SPRITE, SPRITE);
+        glowCache.set(c1, sp);
+      }
+      return sp;
+    }
 
     function tick(t: number) {
       if (!ctx) return;
@@ -435,15 +457,12 @@ export default function PulseField({
           ctx.stroke();
         }
 
-        // glow 光晕 — 收缩到 1.6 倍，alpha 降低
+        // glow 光晕 — 预渲染 sprite + globalAlpha,与原 radial 渐变等价但走 GPU 合成
         const glowR = r * 1.6;
-        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
-        glow.addColorStop(0, nodeColor(p, 0.72 * alphaScale));
-        glow.addColorStop(1, nodeColor(p, 0));
-        ctx.fillStyle = glow;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
-        ctx.fill();
+        const sp = glowSprite(nodeColor(p, 1), nodeColor(p, 0));
+        ctx.globalAlpha = 0.72 * alphaScale;
+        ctx.drawImage(sp, p.x - glowR, p.y - glowR, glowR * 2, glowR * 2);
+        ctx.globalAlpha = 1;
 
         // 核心
         ctx.fillStyle = nodeColor(p, 1 * alphaScale);
@@ -487,7 +506,9 @@ export default function PulseField({
       if (nearest && m) {
         const nRaw = rawScoreOf(nearest);
         const tip = `${nearest.data.ticker}  ·  ${nearest.data.name}`;
-        const tip2 = `${lensLabelRef.current} ${nRaw == null ? "未判读" : nRaw} · ${nearest.data.region} · $${nearest.data.marketCapB}B`;
+        const cap = nearest.data.marketCapB;
+        const capStr = cap >= 1000 ? `$${(cap / 1000).toFixed(2)}T` : cap >= 10 ? `$${Math.round(cap)}B` : `$${cap.toFixed(1)}B`;
+        const tip2 = `${lensLabelRef.current} ${nRaw == null ? "未判读" : nRaw} · ${nearest.data.region} · ${capStr}`;
  ctx.font = "12px 'Inter', system-ui, sans-serif";
         const w1 = ctx.measureText(tip).width;
         const w2 = ctx.measureText(tip2).width;

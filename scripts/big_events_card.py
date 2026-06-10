@@ -175,7 +175,7 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
   .focus .f2 {{ font-size:32px; font-weight:700; color:{ORANGE}; margin-left:14px; }}
   .focus .note {{ margin-left:auto; font-size:20px; font-style:italic; color:#5B6472; }}
   .mtable {{ margin-top:14px; border-top:3px solid {INK}; }}
-  .mrow {{ display:flex; align-items:baseline; gap:18px; padding:7px 4px; border-bottom:1px solid {RULE}; font-size:24px; }}
+  .mrow {{ display:flex; align-items:baseline; gap:18px; padding:8px 4px; border-bottom:1px solid {RULE}; font-size:24px; }}
   .t {{ width:78px; font-weight:600; font-variant-numeric:tabular-nums; }}
   .t.hi {{ color:{ORANGE}; }}
   .key {{ background:{ORANGE}; color:#fff; font-family:-apple-system,sans-serif; font-size:14px; font-weight:800;
@@ -187,26 +187,26 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
   .lab {{ color:{BLUE}; font-weight:600; font-size:21px; }}
   .prev .lab {{ color:#6B7280; }}
   .val {{ font-weight:700; min-width:58px; text-align:right; }}
-  .earn {{ display:flex; margin-top:14px; gap:0; padding-bottom:168px; }}
+  .earn {{ display:flex; margin-top:14px; gap:0; padding-bottom:24px; }}
   .ecol {{ flex:1; min-width:0; padding-right:36px; }}
   .ecol + .ecol {{ border-left:1px solid {RULE}; padding-left:36px; padding-right:0; }}
   .etitle {{ font-size:26px; font-weight:700; color:{BLUE};
              letter-spacing:0.04em; border-bottom:2.5px solid {BLUE}; display:inline-block; padding-bottom:4px; }}
-  .erow {{ display:flex; align-items:baseline; gap:14px; padding:4px 0; font-size:21.5px; }}
+  .erow {{ display:flex; align-items:baseline; gap:14px; padding:5.5px 0; font-size:21.5px; }}
   .esym {{ width:72px; font-weight:700; }}
   .enm {{ flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
   .emc {{ width:72px; text-align:right; font-variant-numeric:tabular-nums; }}
   .eeps {{ width:148px; text-align:right; color:#3D4350; font-variant-numeric:tabular-nums; }}
   .esmall {{ margin-top:4px; font-size:18px; color:#5B6472; }}
   .blue {{ color:{BLUE}; font-weight:600; }}
-  .foot {{ position:absolute; left:64px; right:64px; bottom:24px; background:{CREAM}; display:flex; align-items:center;
-            gap:22px; border-top:1.5px solid {RULE}; padding-top:14px; }}
-  .foot .logo {{ width:168px; flex:none; }}
+  .foot {{ position:absolute; left:64px; bottom:24px; width:720px; display:flex; align-items:center;
+            gap:18px; border-top:1.5px solid {RULE}; padding-top:12px; }}
+  .foot .logo {{ width:150px; flex:none; }}
   .foot .logo svg {{ width:100%; height:auto; }}
-  .cta {{ margin-left:auto; display:flex; align-items:flex-end; gap:20px; }}
-  .aime {{ width:94px; margin-bottom:-2px; filter:drop-shadow(0 6px 14px rgba(21,36,63,0.18)); }}
-  .store {{ display:flex; gap:12px; align-items:center; margin-bottom:8px; }}
-  .sb {{ height:46px; }}
+  .cta {{ display:flex; align-items:center; gap:14px; }}
+  .aime {{ width:92px; margin-bottom:-4px; filter:drop-shadow(0 6px 14px rgba(21,36,63,0.18)); }}
+  .store {{ display:flex; gap:10px; align-items:center; }}
+  .sb {{ height:44px; }}
 </style></head><body>
   <h1>{title}</h1>
   <div class="focus"><span class="f1">Focus:</span><span class="f2">{focus}</span>

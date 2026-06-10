@@ -1,0 +1,81 @@
+{
+  "slug": "sp500-concentration",
+  "kicker": "Aime Scan",
+  "headline": "S&P 500\nConcentration",
+  "sub": "Top 10 names. 38% of the S&P 500.\nMore concentrated than the dot-com peak.",
+  "stats": [
+    {
+      "label": "Today:",
+      "value": "38%",
+      "num": 38,
+      "icon": "chart"
+    },
+    {
+      "label": "2000:",
+      "value": "27%",
+      "num": 27,
+      "icon": "people"
+    },
+    {
+      "label": "1980s avg:",
+      "value": "~20%",
+      "num": 20,
+      "icon": "screen"
+    }
+  ],
+  "punchline": "Diversification doesn't mean what it used to.",
+  "phone_title": "S&P 500\nConcentration",
+  "phone_sub": "Top 10 names as % of index",
+  "donut_center": [
+    "38%",
+    "TODAY"
+  ],
+  "legend": [
+    [
+      "Today",
+      "38%",
+      "#165DFF"
+    ],
+    [
+      "Dot-com peak",
+      "27%",
+      "#7FA4FF"
+    ],
+    [
+      "1980s avg",
+      "~20%",
+      "#C2C9D6"
+    ]
+  ],
+  "callout": {
+    "title": "Record concentration",
+    "sub": "Top 10 names now account for 38% of the index."
+  },
+  "split": {
+    "a_label": "Top 10 names",
+    "a": "38%",
+    "b_label": "Rest of S&P 500",
+    "b": "62%",
+    "a_num": 38
+  },
+  "trend": {
+    "label": "Concentration over time",
+    "points": [
+      [
+        "1980s avg",
+        "~20%",
+        20
+      ],
+      [
+        "2000",
+        "27%",
+        27
+      ],
+      [
+        "Today",
+        "38%",
+        38
+      ]
+    ]
+  }
+}

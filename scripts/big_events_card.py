@@ -157,7 +157,7 @@ def earn_rows(rows, small) -> str:
     return out
 
 
-def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
+def build_html(date: str, macro, bmo, sb, amc, sa, focus, qr_on: bool = True) -> str:
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
     qr = (ASSETS / "qr-app.png").resolve()
     d = datetime.strptime(date, "%Y-%m-%d")
@@ -224,8 +224,8 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
     <div class="cta">
       <span class="badge">FREE</span>
       <span><div class="t1">Get the full daily briefing in the AInvest app</div>
-      <div class="t2">Scan to download &rarr;</div></span>
-      <span class="qr"><img src="file://{qr}"/></span>
+      <div class="t2">{"Scan to download &rarr;" if qr_on else "Link in the first reply &rarr;"}</div></span>
+      {f'<span class="qr"><img src="file://{qr}"/></span>' if qr_on else ''}
     </div>
   </div>
 </body></html>'''
@@ -234,6 +234,7 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default="")
+    ap.add_argument("--no-qr", action="store_true", help="X 发图版:去码,CTA 改 Link in the first reply")
     args = ap.parse_args()
     if not FINN:
         sys.exit("缺 FINNHUB_KEY")
@@ -241,10 +242,10 @@ def main():
     print(f"① 抓数 + 降噪({date})…")
     macro, bmo, sb, amc, sa, focus = fetch(date)
     print(f"   宏观 {len(macro)} 行 · 盘前 {len(bmo)}+{len(sb)} · 盘后 {len(amc)}+{len(sa)} · Focus: {focus}")
-    html = build_html(date, macro, bmo, sb, amc, sa, focus)
+    html = build_html(date, macro, bmo, sb, amc, sa, focus, qr_on=not args.no_qr)
     tmp = Path("/tmp/big_events.html")
     tmp.write_text(html, encoding="utf-8")
-    out = OUT_DIR / f"AInvest_events_{date.replace('-', '')}.png"
+    out = OUT_DIR / f"AInvest_events_{date.replace('-', '')}{'_noqr' if args.no_qr else ''}.png"
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
                     "--window-size=1656,941", "--force-device-scale-factor=2",
                     "--virtual-time-budget=8000",

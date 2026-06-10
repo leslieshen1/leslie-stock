@@ -156,6 +156,15 @@ def gather(card_type: str) -> dict:
         card_type = "close"
     if card_type in ("premarket", "intraday"):
         date_label = datetime.now(timezone(timedelta(hours=-4))).strftime("%b %-d")
+    # 诚实性:close 卡在盘后/休市生成时,primaryData 是盘后漂移价 —— 指数瓦片必须用当日收盘(secondaryData)
+    if card_type == "close" and ("after" in status or "post" in status):
+        for r in idx_map.values():
+            if r.get("prevPct") is not None:
+                r["pct"] = r["prevPct"]
+        for rows in (mega, semi):
+            for r in rows:
+                if r.get("prevPct") is not None:
+                    r["pct"] = r["prevPct"]
     # 三主题面板(标杆样式:每板一行 3 只,|pct| 最大优先)
     with ThreadPoolExecutor(max_workers=6) as ex:
         space = [r for r in ex.map(q, SPACE) if r["pct"] is not None]
@@ -286,13 +295,20 @@ def spark_svg(ys: list[float], up: bool) -> str:
 def panel_items_html(items) -> str:
     bits = []
     for r in items:
-        c = GREEN if (r["pct"] or 0) >= 0 else RED
-        bits.append(f'<span class="pi">{logo_chip(r["sym"])}<b>${r["sym"]}</b>'
-                    f'<span style="color:{c}">{fp(r["pct"])}</span></span>')
+        if isinstance(r, (list, tuple)):       # 报告 spec:[sym, "+7.52%"]
+            sym, ps = r[0], str(r[1])
+            c = RED if ps.strip().startswith("-") else GREEN
+            bits.append(f'<span class="pi">{logo_chip(sym)}<b>${sym}</b>'
+                        f'<span style="color:{c}">{ps}</span></span>')
+        else:
+            c = GREEN if (r["pct"] or 0) >= 0 else RED
+            bits.append(f'<span class="pi">{logo_chip(r["sym"])}<b>${r["sym"]}</b>'
+                        f'<span style="color:{c}">{fp(r["pct"])}</span></span>')
     return "".join(bits)
 
 
 PANEL_ICON = {
+    "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/>',
     "bolt": '<path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>',
     "chip": '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2"/>',
     "rocket": '<path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3 0 6 3 6 6-4 6-9 9-9 9l-4-4s3-5 7-11zM15 9a1.5 1.5 0 1 0 .01 0"/>',
@@ -342,11 +358,16 @@ def build_html(ctx: dict) -> str:
                 ("零售销售", "Retail Sales"), ("非农", "Nonfarm Payrolls"), ("PCE", "PCE"), ("GDP", "GDP")]
     today_et = datetime.now(timezone(timedelta(hours=-4))).date()
     nxt_html = ""
-    rel0 = (ctx.get("released") or [None])[0]
+    if ctx.get("footer_override"):
+        for f_ in ctx["footer_override"]:
+            dim = ' <span style="color:#64748B">' + f_["dim"] + "</span>" if f_.get("dim") else ""
+            nxt_html += ('<span class="nx"><b class="nx-w">' + f_.get("when", "") + "</b> <b>"
+                         + f_.get("name", "") + "</b>" + dim + "</span>")
+    rel0 = None if ctx.get("footer_override") else (ctx.get("released") or [None])[0]
     if rel0 and rel0.get("est") is not None:
         nxt_html += (f'<span class="nx"><b class="nx-w">Out:</b> <b>{rel0["name"]} {rel0["act"]:g}</b>'
                      f' <span style="color:#64748B">vs {rel0["est"]:g} est</span></span>')
-    for e in ctx["next"][:2]:
+    for e in ([] if ctx.get("footer_override") else ctx["next"][:2]):
         if rel0 and e.get("kind") == "macro" and rel0["name"].split()[0].lower() in e.get("title", "").lower():
             continue  # 已出的不再当"看点"挂着
         try:
@@ -433,6 +454,7 @@ def build_html(ctx: dict) -> str:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--type", default="close", choices=["close", "intraday", "premarket"])
+    ap.add_argument("--spec", default="", help="报告派生 spec(JSON):headline/panels/footer 覆盖机械模式 —— 图随报告")
     args = ap.parse_args()
 
     print("① 抓实时数据(Nasdaq)…")
@@ -440,10 +462,21 @@ def main():
     print(f"   {ctx['date']} · " + " ".join(f"{s}{fp(ctx['idx'].get(s,{}).get('pct'))}" for s, _ in IDX)
           + f" · 走势线 {sum(1 for v in ctx['sparks'].values() if len(v) >= 8)}/4")
 
-    print("② 文案(relay 探活 → 失败走规则)…")
-    hl = relay_headline(ctx)
-    ctx["headline"] = hl or rule_headline(ctx)
-    print(f"   headline[{'AI' if hl else '规则'}]: {ctx['headline']}")
+    spec = {}
+    if args.spec:
+        raw = Path(args.spec).read_text(encoding="utf-8") if Path(args.spec).exists() else args.spec
+        spec = json.loads(raw)
+    if spec.get("headline"):
+        ctx["headline"] = spec["headline"]
+        print(f"   headline[报告]: {ctx['headline']}")
+    else:
+        hl = relay_headline(ctx)
+        ctx["headline"] = hl or rule_headline(ctx)
+        print(f"   headline[{'AI' if hl else '规则'}]: {ctx['headline']}")
+    if spec.get("panels"):
+        ctx["panels"] = spec["panels"]      # [{icon,title,items:[[sym,"+7.52%"],...]}]
+    if spec.get("footer"):
+        ctx["footer_override"] = spec["footer"]  # [{"when","name","dim"}]
 
     print("③ 渲染版式(logo 链:官方 SVG → parqet → 字母)→ ④ Chrome 出图…")
     html = build_html(ctx)

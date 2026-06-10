@@ -163,15 +163,15 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
     wd = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"][d.weekday()]
     title = f"TODAY&rsquo;S BIG EVENTS &bull; {d.month:02d}/{d.day:02d} &bull; {wd}"
     return f'''<!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
   * {{ margin:0; padding:0; box-sizing:border-box; }}
   html,body {{ width:1656px; height:941px; }}
-  body {{ background:{CREAM}; color:{INK}; font-family:"Source Serif 4",Georgia,serif; padding:33px 64px 0; position:relative; }}
-  h1 {{ font-family:"Playfair Display",Georgia,serif; font-size:56px; font-weight:800; letter-spacing:0.01em; }}
+  body {{ font-variant-numeric:lining-nums tabular-nums; background:{CREAM}; color:{INK}; font-family:"STIX Two Text",Georgia,serif; padding:33px 64px 0; position:relative; }}
+  h1 {{ font-family:"STIX Two Text",Georgia,serif; font-size:60px; font-weight:700; letter-spacing:0.01em; }}
   .focus {{ margin-top:10px; display:flex; align-items:baseline; }}
-  .focus .f1 {{ font-family:"Playfair Display",serif; font-size:33px; font-weight:700; }}
-  .focus .f2 {{ font-family:"Playfair Display",serif; font-size:33px; font-weight:700; color:{ORANGE}; margin-left:14px; }}
+  .focus .f1 {{ font-size:32px; font-weight:700; }}
+  .focus .f2 {{ font-size:32px; font-weight:700; color:{ORANGE}; margin-left:14px; }}
   .focus .note {{ margin-left:auto; font-size:20px; font-style:italic; color:#5B6472; }}
   .mtable {{ margin-top:18px; border-top:3px solid {INK}; }}
   .mrow {{ display:flex; align-items:baseline; gap:18px; padding:9px 4px; border-bottom:1px solid {RULE}; font-size:24px; }}
@@ -189,7 +189,7 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
   .earn {{ display:flex; margin-top:20px; gap:0; padding-bottom:86px; }}
   .ecol {{ flex:1; min-width:0; padding-right:36px; }}
   .ecol + .ecol {{ border-left:1px solid {RULE}; padding-left:36px; padding-right:0; }}
-  .etitle {{ font-family:"Playfair Display",serif; font-size:27px; font-weight:700; color:{BLUE};
+  .etitle {{ font-size:26px; font-weight:700; color:{BLUE};
              letter-spacing:0.04em; border-bottom:2.5px solid {BLUE}; display:inline-block; padding-bottom:4px; }}
   .erow {{ display:flex; align-items:baseline; gap:14px; padding:5.5px 0; font-size:21.5px; }}
   .esym {{ width:72px; font-weight:700; }}
@@ -203,7 +203,7 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
 </style></head><body>
   <h1>{title}</h1>
   <div class="focus"><span class="f1">Focus:</span><span class="f2">{focus}</span>
-    <span class="note">US market time &middot; Auto-refresh every 30 min</span></div>
+    <span class="note">All times US Eastern (ET)</span></div>
   <div class="mtable">{"".join(macro_row(m) for m in macro)}</div>
   <div class="earn">
     <div class="ecol"><div class="etitle">PRE-MARKET EARNINGS</div><div style="margin-top:10px">{earn_rows(bmo, sb)}</div></div>

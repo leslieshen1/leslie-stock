@@ -73,8 +73,50 @@ def all_texts(s: dict) -> list[str]:
     return out
 
 
+def layout_block(s: dict, idx_lines: str, panel_lines: str) -> str:
+    """画幅感知布局:横版(左栏+右吉祥物)/ 方版(2×2 格)/ 竖版(纵向流+吉祥物坐底)。"""
+    ft = s["footer"]
+    w, h = (int(x) for x in s.get("size", "1536x1024").split("x"))
+    mascot = ('the robot mascot from the reference image, FULL BODY, standing on a soft glowing ring '
+              'shadow. Keep its design EXACTLY as the reference (glossy white, navy visor, arrow antenna, '
+              'blue chest badge).')
+    footer = (f'A full-width footer bar (same card style): {ICON_DESC.get(ft.get("icon", "clock"))} at left, '
+              f'then "{ft["text"]}" with "{ft.get("highlight", "")}" in bold royal blue.')
+    if w > h:  # 横版
+        return f"""LAYOUT, top to bottom (left ~68% of canvas; right ~32% reserved for the mascot):
+  1. Top-left corner: COMPLETELY EMPTY reserved space (~22% width, ~10% height) — a logo is added later.
+  2. Below it: HUGE bold dark headline "{s['title']}" (largest text on the card),
+     then a short royal-blue underline bar, then the sub-headline "{s['headline']}" in medium dark-grey.
+  3. One row of FOUR equal index tiles:
+{idx_lines}
+  4. One row of THREE theme panels (slightly wider than tall):
+{panel_lines}  5. {footer}
+  6. RIGHT side: {mascot} It overlaps nothing important."""
+    if w == h:  # 方版
+        return f"""LAYOUT, top to bottom (full-width vertical flow):
+  1. Top-left corner: COMPLETELY EMPTY reserved space (~26% width, ~8% height) — a logo is added later.
+  2. HUGE bold dark headline "{s['title']}", then a short royal-blue underline bar,
+     then the sub-headline "{s['headline']}" in medium dark-grey.
+  3. A 2×2 GRID of four equal index tiles:
+{idx_lines}
+  4. One compact row of THREE theme panels:
+{panel_lines}  5. {footer}
+  6. Bottom-right corner: {mascot} Medium size, tucked into the corner, overlapping nothing important."""
+    # 竖版
+    return f"""LAYOUT, top to bottom (single-column vertical flow, generous spacing):
+  1. Top: COMPLETELY EMPTY reserved band (~40% width, ~6% height, left-aligned) — a logo is added later.
+  2. HUGE bold dark headline "{s['title']}" (may wrap to two lines), then a short royal-blue underline bar,
+     then the sub-headline "{s['headline']}" in medium dark-grey.
+  3. A 2×2 GRID of four equal index tiles:
+{idx_lines}
+  4. THREE theme panels STACKED vertically (each full-width, compact height):
+{panel_lines}  5. {footer}
+  6. Bottom: {mascot} Sitting/standing at bottom-center-right, large, beside or below the footer,
+     overlapping nothing important."""
+
+
 def compile_prompt(s: dict) -> str:
-    """结构化版式语言:风格系统 + 逐行布局 + 硬约束。"""
+    """结构化版式语言:风格系统 + 画幅感知布局 + 硬约束。"""
     idx_lines = "\n".join(
         f'     Tile {i+1}: name "{n}" (small, dark, top-left), a small circled '
         f'{"green up-arrow" if v.startswith("+") else "red down-arrow"} icon top-right, '
@@ -100,18 +142,7 @@ STYLE SYSTEM (follow strictly):
   and the highlighted ticker "{ft.get('highlight', '')}".
 - Icons: minimal thin-line style, dark ink, consistent stroke weight.
 
-LAYOUT, top to bottom (left ~68% of canvas; right ~32% reserved for the mascot):
-  1. Top-left corner: COMPLETELY EMPTY reserved space (~22% width, ~10% height) — a logo is added later.
-  2. Below it: HUGE bold dark headline "{s['title']}" (largest text on the card),
-     then a short royal-blue underline bar, then the sub-headline "{s['headline']}" in medium dark-grey.
-  3. One row of FOUR equal index tiles:
-{idx_lines}
-  4. One row of THREE theme panels (slightly wider than tall):
-{panel_lines}  5. A full-width footer bar (same card style): {ICON_DESC.get(ft.get('icon', 'clock'))} at left, then
-     "{ft['text']}" with "{ft.get('highlight', '')}" in bold royal blue.
-  6. RIGHT side: the robot mascot from the reference image, FULL BODY at large scale, standing on a soft
-     glowing ring shadow. Keep its design EXACTLY as the reference (glossy white, navy visor, arrow antenna,
-     blue chest badge). It overlaps nothing important.
+{layout_block(s, idx_lines, panel_lines)}
 
 HARD CONSTRAINTS:
 - Render EXACTLY these text strings, character-for-character; NO other words, numbers, tickers,

@@ -35,6 +35,7 @@ SOURCES = [
     ("fetchers.news_google", "个股新闻(Google News)", []),
     ("fetchers.dataroma", "超级投资者持仓(Dataroma)", []),
     ("fetchers.finnhub", "财报日历+市场新闻(Finnhub,需 key)", []),
+    ("fetchers.market_calendar", "市场日历:宏观+重磅财报(盘报 tab)", []),
     ("fetchers.polygon_options", "期权 gamma(Polygon,需 key)", []),
 ]
 

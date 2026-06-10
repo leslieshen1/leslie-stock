@@ -56,6 +56,24 @@ export default function TodayEventsSection({ ev }: { ev: TodayEvents | null }) {
         <span className="ml-auto text-[10px] text-faint">全美东时间 · 30 分钟自动刷新</span>
       </div>
 
+      {ev.ipos.length > 0 && (
+        <div className="mb-3 space-y-1">
+          {ev.ipos.map((i) => (
+            <div key={i.sym + i.date} className="flex items-baseline gap-2.5 text-xs">
+              <span className="tnum w-11 shrink-0 text-faint">{i.isToday ? "今天" : i.date.slice(5).replace("-", "/")}</span>
+              <span className="shrink-0 rounded bg-accent/15 px-1 py-px text-[9px] font-semibold text-accent">IPO</span>
+              <span className="min-w-0 flex-1 truncate font-semibold text-ink">
+                {i.name}({i.sym}) · {i.exch}
+              </span>
+              <span className="tnum shrink-0 text-[11px] text-faint">
+                {i.price && <>定价 <span className="text-muted">${i.price}</span> · </>}
+                募资 <span className="text-muted">${i.valB >= 1 ? i.valB.toFixed(0) + "B" : (i.valB * 1000).toFixed(0) + "M"}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
       {ev.macro.length > 0 && (
         <div className="mb-4 space-y-1">
           {ev.macro.map((m, i) => (

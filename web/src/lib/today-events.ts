@@ -7,6 +7,7 @@ import path from "path";
 
 export type MacroEvent = { t: string; hi: boolean; name: string; est: string; prev: string };
 export type EarnRow = { sym: string; name: string; mcapB: number | null; eps: number | null };
+export type IpoRow = { sym: string; name: string; exch: string; price: string; valB: number; date: string; isToday: boolean };
 export type TodayEvents = {
   date: string;          // YYYY-MM-DD(ET)
   weekday: string;       // 周三
@@ -15,7 +16,8 @@ export type TodayEvents = {
   amc: EarnRow[];
   smallBmo: string[];
   smallAmc: string[];
-  lead: string;          // "CPI 08:30 · $ORCL 盘后"
+  ipos: IpoRow[];        // 当天 ≥$1B + 7天内 ≥$10B 巨无霸(提前展示)
+  lead: string;          // "CPI 08:30 · $ORCL 盘后 · SpaceX IPO 周五"
 };
 
 const ZH: [RegExp, string][] = [
@@ -96,10 +98,13 @@ export async function loadTodayEvents(): Promise<TodayEvents | null> {
   if (!key) return null;
   const { date, weekday } = todayET();
   try {
-    const [ecoR, earR, names] = await Promise.all([
+    const d7 = new Date(Date.parse(date + "T12:00:00Z") + 7 * 86400_000).toISOString().slice(0, 10);
+    const [ecoR, earR, ipoR, names] = await Promise.all([
       fetch(`https://finnhub.io/api/v1/calendar/economic?token=${key}`,
             { next: { revalidate: 1800 } }).then((r) => r.json()),
       fetch(`https://finnhub.io/api/v1/calendar/earnings?from=${date}&to=${date}&token=${key}`,
+            { next: { revalidate: 1800 } }).then((r) => r.json()),
+      fetch(`https://finnhub.io/api/v1/calendar/ipo?from=${date}&to=${d7}&token=${key}`,
             { next: { revalidate: 1800 } }).then((r) => r.json()),
       usNames(),
     ]);
@@ -142,15 +147,35 @@ export async function loadTodayEvents(): Promise<TodayEvents | null> {
     const b = grp(["bmo"], 6);
     const a = grp(["amc", "", "dmh"], 7);
 
+    // —— IPO(当天 ≥$1B;7天内 ≥$10B 巨无霸提前上)——
+    const IPO_ALIAS: Record<string, string> = { SPCX: "SpaceX" };
+    const WD = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    const ipos: IpoRow[] = [];
+    for (const i of ipoR.ipoCalendar || []) {
+      const valB = (i.totalSharesValue || 0) / 1e9;
+      const isToday = i.date === date;
+      if (!(isToday && valB >= 1) && !(valB >= 10)) continue;
+      const sym = i.symbol || "";
+      let nm = IPO_ALIAS[sym] || String(i.name || "").toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+      ipos.push({ sym, name: nm.slice(0, 30), exch: String(i.exchange || "").split(" ")[0],
+                  price: String(i.price || ""), valB, date: i.date, isToday });
+    }
+    ipos.sort((x, y) => y.valB - x.valB);
+
     // —— 主角 ——
     const leadBits: string[] = [];
     const hiM = macro.find((m) => m.hi);
     if (hiM) leadBits.push(`${hiM.name.split(" ")[0]} ${hiM.t}`);
     const star = [...b.main, ...a.main].sort((x, y) => (y.mcapB ?? 0) - (x.mcapB ?? 0))[0];
     if (star && (star.mcapB ?? 0) >= 20) leadBits.push(`$${star.sym} ${b.main.includes(star) ? "盘前" : "盘后"}`);
+    const mega = ipos.find((i) => i.valB >= 10);
+    if (mega) {
+      const when = mega.isToday ? "今天" : WD[new Date(mega.date + "T12:00:00Z").getUTCDay()];
+      leadBits.push(`${mega.name} IPO ${when}`);
+    }
 
     return { date, weekday, macro, bmo: b.main, amc: a.main, smallBmo: b.small, smallAmc: a.small,
-             lead: leadBits.join(" · ") };
+             ipos, lead: leadBits.join(" · ") };
   } catch {
     return null;
   }

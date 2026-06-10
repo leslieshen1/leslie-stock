@@ -65,6 +65,35 @@ def fnum(x) -> str:
         return str(x)
 
 
+IPO_ALIAS = {"SPCX": "SpaceX"}  # 知名公司短名(Finnhub 全大写法律名太长)
+
+
+def fetch_ipos(date: str):
+    """当天 ≥$1B 的 IPO 行 + 未来 7 天 ≥$10B 巨无霸(进 Focus)。"""
+    d1 = (datetime.strptime(date, "%Y-%m-%d") + timedelta(days=7)).strftime("%Y-%m-%d")
+    try:
+        j = requests.get("https://finnhub.io/api/v1/calendar/ipo",
+                         params={"from": date, "to": d1, "token": FINN}, timeout=20).json()
+    except Exception:
+        return [], None
+    rows, mega = [], None
+    for i in j.get("ipoCalendar") or []:
+        val = i.get("totalSharesValue") or 0
+        nm = (i.get("name") or "").title()
+        nm = re.sub(r"\b(Corp|Inc|Llc|Ltd)\b\.?", lambda m: m.group(1), nm)
+        sym0 = i.get("symbol") or ""
+        if sym0 in IPO_ALIAS:
+            nm = IPO_ALIAS[sym0]
+        rec = {"date": i.get("date"), "sym": sym0, "name": nm[:34],
+               "exch": (i.get("exchange") or "").split()[0], "price": i.get("price") or "",
+               "val": val}
+        if rec["date"] == date and val >= 1e9:
+            rows.append(rec)
+        if val >= 1e10 and (mega is None or val > mega["val"]):
+            mega = rec
+    return rows, mega
+
+
 def fetch(date: str):
     eco = requests.get("https://finnhub.io/api/v1/calendar/economic", params={"token": FINN}, timeout=25).json()
     macro, seen = [], set()
@@ -127,7 +156,13 @@ def fetch(date: str):
     star = max(bmo + amc, key=lambda r: r["mc"] or 0, default=None)
     if star and (star["mc"] or 0) >= 20:
         focus.append(f"${star['sym']} {'Pre-Market' if star in bmo else 'After the Close'}")
-    return macro, bmo, small_b, amc, small_a, " · ".join(focus)
+    ipo_rows, mega = fetch_ipos(date)
+    if mega:
+        wd = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][datetime.strptime(mega["date"], "%Y-%m-%d").weekday()]
+        when = "Today" if mega["date"] == date else wd
+        first = IPO_ALIAS.get(mega["sym"], mega["name"].split()[0])
+        focus.append(f"{first} IPO {when}")
+    return macro, ipo_rows, bmo, small_b, amc, small_a, " · ".join(focus)
 
 
 # ===== 版式(报纸编辑部)=====
@@ -144,6 +179,15 @@ def macro_row(m) -> str:
             f'<span class="est">{est}</span><span class="prev">{prev}</span></div>')
 
 
+def ipo_row(i) -> str:
+    val = f"${i['val']/1e9:.0f}B raise" if i["val"] >= 1e9 else ""
+    price = f"${i['price']}" if i["price"] else ""
+    return (f'<div class="mrow"><span class="t hi">&mdash;</span><span class="key">IPO</span>'
+            f'<span class="mname b">{i["name"]} ({i["sym"]}) &mdash; {i["exch"]}</span>'
+            f'<span class="est"><span class="lab">Price</span><span class="val">{price}</span></span>'
+            f'<span class="prev"><span class="lab"></span><span class="val">{val}</span></span></div>')
+
+
 def earn_rows(rows, small) -> str:
     out = ""
     for r in rows:
@@ -157,7 +201,7 @@ def earn_rows(rows, small) -> str:
     return out
 
 
-def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
+def build_html(date: str, macro, ipos, bmo, sb, amc, sa, focus) -> str:
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
     aime = (ASSETS / "aime-bullish.png").resolve()
     d = datetime.strptime(date, "%Y-%m-%d")
@@ -211,7 +255,7 @@ def build_html(date: str, macro, bmo, sb, amc, sa, focus) -> str:
   <h1>{title}</h1>
   <div class="focus"><span class="f1">Focus:</span><span class="f2">{focus}</span>
     <span class="note">All times US Eastern (ET)</span></div>
-  <div class="mtable">{"".join(macro_row(m) for m in macro)}</div>
+  <div class="mtable">{"".join(macro_row(m) for m in macro)}{"".join(ipo_row(i) for i in ipos)}</div>
   <div class="earn">
     <div class="ecol"><div class="etitle">PRE-MARKET EARNINGS</div><div style="margin-top:10px">{earn_rows(bmo, sb)}</div></div>
     <div class="ecol"><div class="etitle">AFTER-HOURS EARNINGS</div><div style="margin-top:10px">{earn_rows(amc, sa)}</div></div>
@@ -237,9 +281,9 @@ def main():
         sys.exit("缺 FINNHUB_KEY")
     date = args.date or datetime.now(ET).strftime("%Y-%m-%d")
     print(f"① 抓数 + 降噪({date})…")
-    macro, bmo, sb, amc, sa, focus = fetch(date)
-    print(f"   宏观 {len(macro)} 行 · 盘前 {len(bmo)}+{len(sb)} · 盘后 {len(amc)}+{len(sa)} · Focus: {focus}")
-    html = build_html(date, macro, bmo, sb, amc, sa, focus)
+    macro, ipos, bmo, sb, amc, sa, focus = fetch(date)
+    print(f"   宏观 {len(macro)} 行 · IPO {len(ipos)} · 盘前 {len(bmo)}+{len(sb)} · 盘后 {len(amc)}+{len(sa)} · Focus: {focus}")
+    html = build_html(date, macro, ipos, bmo, sb, amc, sa, focus)
     tmp = Path("/tmp/big_events.html")
     tmp.write_text(html, encoding="utf-8")
     out = OUT_DIR / f"AInvest_events_{date.replace('-', '')}.png"

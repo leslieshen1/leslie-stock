@@ -89,7 +89,7 @@ def layout_block(s: dict, idx_lines: str, panel_lines: str) -> str:
      then a short royal-blue underline bar, then the sub-headline "{s['headline']}" in medium dark-grey.
   3. One row of FOUR equal index tiles:
 {idx_lines}
-  4. One row of THREE theme panels (slightly wider than tall):
+  4. One row of {len(s["panels"])} theme panels (slightly wider than tall):
 {panel_lines}  5. {footer}
   6. RIGHT side: {mascot} It overlaps nothing important."""
     if w == h:  # 方版
@@ -99,7 +99,7 @@ def layout_block(s: dict, idx_lines: str, panel_lines: str) -> str:
      then the sub-headline "{s['headline']}" in medium dark-grey.
   3. A 2×2 GRID of four equal index tiles:
 {idx_lines}
-  4. One compact row of THREE theme panels:
+  4. One compact row of {len(s["panels"])} theme panels:
 {panel_lines}  5. {footer}
   6. Bottom-right corner: {mascot} Medium size, tucked into the corner, overlapping nothing important."""
     # 竖版
@@ -109,7 +109,7 @@ def layout_block(s: dict, idx_lines: str, panel_lines: str) -> str:
      then the sub-headline "{s['headline']}" in medium dark-grey.
   3. A 2×2 GRID of four equal index tiles:
 {idx_lines}
-  4. THREE theme panels STACKED vertically (each full-width, compact height):
+  4. {len(s["panels"])} theme panels STACKED vertically (each full-width, compact height):
 {panel_lines}  5. {footer}
   6. Bottom: {mascot} Sitting/standing at bottom-center-right, large, beside or below the footer,
      overlapping nothing important."""

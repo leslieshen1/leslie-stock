@@ -32,7 +32,7 @@ except Exception:
 ROOT = Path(__file__).parent.parent
 PUB = ROOT / "web" / "public" / "data"
 ASSETS = ROOT / "assets" / "brand-ainvest"
-OUT_DIR = ROOT / "deliverables" / "cards"
+OUT_DIR = Path.home() / "Downloads"   # 直接落下载文件夹,拿了就发
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 NH = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
@@ -85,6 +85,16 @@ def gather(card_type: str) -> dict:
                 break
     except Exception:
         pass
+    # 诚实性:盘口状态和卡片类型必须匹配 —— 请求盘前/盘中但市场没在那个时段,自动降级成收盘卡
+    status = (idx_map.get("SPY", {}).get("status") or "").lower()
+    if card_type == "premarket" and "pre" not in status:
+        print(f"   ⚠ 盘口={status or 'closed'},非盘前 → 降级为 close 卡(数据=最近收盘)")
+        card_type = "close"
+    elif card_type == "intraday" and "open" not in status:
+        print(f"   ⚠ 盘口={status or 'closed'},非盘中 → 降级为 close 卡")
+        card_type = "close"
+    if card_type in ("premarket", "intraday"):
+        date_label = datetime.now(timezone(timedelta(hours=-4))).strftime("%b %-d")
     return {"type": card_type, "date": date_label, "idx": idx_map,
             "megaDown": mega[:3], "megaUp": mega[-3:][::-1],
             "semiDown": semi[:4], "semiUp": semi[-3:][::-1], "next": nxt}
@@ -280,7 +290,7 @@ def main():
     tmp.write_text(html, encoding="utf-8")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     et = datetime.now(timezone(timedelta(hours=-4)))
-    out = OUT_DIR / f"ainvest_{args.type}_{et.strftime('%Y%m%d_%H%M')}.png"
+    out = OUT_DIR / f"AInvest_{ctx['type']}_{et.strftime('%Y%m%d')}.png"
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
                     "--window-size=1600,900", "--force-device-scale-factor=2",
                     f"--screenshot={out}", f"file://{tmp}"],

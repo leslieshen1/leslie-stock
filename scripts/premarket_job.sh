@@ -14,4 +14,6 @@ fi
 
 echo "===== 盘前报告 $(date) =====" >> logs/premarket.log
 uv run python scripts/premarket_report.py >> logs/premarket.log 2>&1
+# 盘前分享卡 → ~/Downloads(AInvest 品牌,拿了就发)
+uv run python scripts/share_card.py --type premarket >> logs/premarket.log 2>&1
 echo "----- done $(date) -----" >> logs/premarket.log

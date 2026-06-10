@@ -8,4 +8,6 @@ mkdir -p logs
 
 echo "===== 每日刷新 $(date) =====" >> logs/refresh.log
 uv run python scripts/refresh.py --deploy >> logs/refresh.log 2>&1
+# 收盘分享卡 → ~/Downloads
+uv run python scripts/share_card.py --type close >> logs/refresh.log 2>&1
 echo "----- done $(date) -----" >> logs/refresh.log

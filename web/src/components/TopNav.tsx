@@ -18,6 +18,7 @@ const NAV: NavItem[] = [
  { href: "/scan", label: "列表", en: "List", match: (p) => p.startsWith("/scan") },
  { href: "/whales", label: "聪明钱", en: "Whales", match: (p) => p.startsWith("/whales") },
  { href: "/wire", label: "快讯", en: "Wire", match: (p) => p.startsWith("/wire") },
+ { href: "/reports", label: "盘报", en: "Reports", match: (p) => p.startsWith("/reports") },
  { href: "/portfolio", label: "我的", en: "Portfolio", match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist") },
 ];
 

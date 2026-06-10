@@ -153,10 +153,14 @@ def note_for(r: dict) -> str:
 
 def build_html(ctx: dict) -> str:
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
-    aime = (ASSETS / "aime-head.png").resolve()
     qqpct = ctx["idx"].get("QQQ", {}).get("pct") or 0
-    mood_glow = "rgba(220,38,38,0.16)" if qqpct < -0.4 else "rgba(22,163,74,0.16)" if qqpct > 0.4 else "rgba(22,93,255,0.10)"
-    tilt = "-5deg" if qqpct < -0.4 else "3deg" if qqpct > 0.4 else "0deg"
+    mood = "bearish" if qqpct < -0.4 else "bullish" if qqpct > 0.4 else "neutral"
+    # 全身姿态库(gen_mascots.py 生成)优先;没有则退回官方头部素材
+    body = ASSETS / f"aime-{mood}.png"
+    aime = (body if body.exists() else ASSETS / "aime-head.png").resolve()
+    full_body = body.exists()
+    mood_glow = {"bearish": "rgba(220,38,38,0.16)", "bullish": "rgba(22,163,74,0.16)", "neutral": "rgba(22,93,255,0.10)"}[mood]
+    tilt = "0deg" if full_body else {"bearish": "-5deg", "bullish": "3deg", "neutral": "0deg"}[mood]
     title = {"close": "Close", "intraday": "Intraday", "premarket": "Premarket"}[ctx["type"]]
 
     idx_cards = ""

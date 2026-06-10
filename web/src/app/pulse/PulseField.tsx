@@ -27,7 +27,7 @@ interface Particle {
 export type ColorMode = string;
 
 interface ScoredCompany extends CompanyWithHeat {
-  triple: number;     // 综合平均分 0-100
+  triple: number | null;  // 综合 = 已判读真五方均值 0-100(null = 未判读 → 灰),和详情面板同源
   masters?: { byKey: Record<string, number | null>; div: number }; // 五方摘要(key→分),uncovered 时缺
 }
 

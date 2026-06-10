@@ -20,7 +20,6 @@ import {
   getEdgesFor,
   remapItemsForIndustry,
 } from "@/lib/industry-chains";
-import { tripleScore, type TripleScore, type PerspectiveScore } from "@/lib/scoring";
 import { MASTERS } from "@/lib/masters";
 
 // ===== 镜头注册表:热度 + 综合 + 5 位大师(masters.ts) + 分歧 =====
@@ -41,7 +40,7 @@ function toByKey(sum: { sc: (number | null)[]; div: number } | undefined, order:
   return { byKey, div: sum.div };
 }
 // 某只票在某镜头下的值(null = 该镜头未覆盖)。综合 = 已判读各方真实评分均值,不再用 mock
-function lensValueOf(c: { heat: number; triple: number; masters?: MastersJoin }, lens: string): number | null {
+function lensValueOf(c: { heat: number; triple: number | null; masters?: MastersJoin }, lens: string): number | null {
   if (lens === "heat") return c.heat;
   if (!c.masters) return null;
   if (lens === "divergence") return c.masters.div;
@@ -151,10 +150,16 @@ export default function PulseClient({
     return () => { alive = false; clearInterval(id); };
   }, []);
 
-  // 给每只 item 计算 triple score + 注入过热度分项;实时报价只更新价格/涨跌,不动 heat
+  // 综合 = 已判读各方真实评分均值(null = 未判读 → 粒子灰色),和镜头/详情面板同源 —— 绝不前端现算第二套
   const itemsScored = useMemo(
     () => items.map((c) => {
-      const base = { ...c, triple: tripleScore(c).average, masters: toByKey(panelSummary[c.ticker], masterOrder) };
+      const masters = toByKey(panelSummary[c.ticker], masterOrder);
+      const vals = masters ? Object.values(masters.byKey).filter((v): v is number => v != null) : [];
+      const base = {
+        ...c,
+        triple: vals.length ? Math.round(vals.reduce((a, b) => a + b, 0) / vals.length) : null,
+        masters,
+      };
       // 实时只更新价格/涨跌,不动 heat —— 过热度是慢变量(估值/位置/RSI/动量),不随当天涨跌跳
       const q = liveQ[c.ticker];
       if (q) {
@@ -552,7 +557,7 @@ export default function PulseClient({
 }
 
 // ---- 详情面板 ----
-interface ScoredItem extends CompanyWithHeat { triple: number; masters?: MastersJoin }
+interface ScoredItem extends CompanyWithHeat { triple: number | null; masters?: MastersJoin }
 function DetailPanel({
   c,
   allItems,
@@ -1007,130 +1012,6 @@ function MasterBar({ name, school, score }: { name: string; school?: string; sco
         {score == null ? "—" : score}
       </span>
     </div>
-  );
-}
-
-// ---- Triple 视图：综合分 / 共识 / 雷达 / 三方分 / verdict ----
-function TripleView({ c, ts }: { c: CompanyWithHeat; ts: TripleScore }) {
-  return (
-    <div>
-      {/* 平均分 + 共识分 */}
- <div className="grid grid-cols-2 gap-2">
- <div className="rounded-md bg-surface px-3 py-2">
- <div className="text-[9px] font-mono uppercase tracking-wider text-muted">平均分</div>
- <div className="flex items-baseline gap-1.5">
- <span className="text-2xl font-semibold tabular-nums" style={{ color: scoreColor(ts.average) }}>{ts.average}</span>
- <span className="text-[10px] text-faint">/100</span>
-          </div>
-        </div>
- <div className="rounded-md bg-surface px-3 py-2">
- <div className="text-[9px] font-mono uppercase tracking-wider text-muted">共识分 (min)</div>
- <div className="flex items-baseline gap-1.5">
- <span className="text-2xl font-semibold tabular-nums" style={{ color: scoreColor(ts.consensus) }}>{ts.consensus}</span>
- <span className="text-[10px] text-faint">分歧 ±{ts.spread}</span>
-          </div>
-        </div>
-      </div>
-
-      <RadarChart ts={ts} />
-
- <div className="space-y-2.5 mt-4">
- <PerspectiveRow name="段永平" tag="DUAN" score={ts.duan}    color="#7C3AED" />
- <PerspectiveRow name="巴菲特" tag="BUFFETT" score={ts.buffett} color="#0891B2" />
- <PerspectiveRow name="Serenity" tag="SERE" score={ts.serenity} color="#EA580C" />
-      </div>
-
- <div className="mt-3 rounded-md bg-surface-3 text-surface-2 px-3 py-2 text-xs leading-relaxed">
-        {ts.verdict}
-      </div>
-
-      {/* 未选中标的的小提示，避免完全没文字 */}
- <div className="mt-2 text-[10px] font-mono text-faint italic">
-        ℹ 这是基本面 + 估值 + 护城河综合，不含短期价格热度
-      </div>
-    </div>
-  );
-}
-
-function PerspectiveRow({ name, tag, score, color }: { name: string; tag: string; score: PerspectiveScore; color: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div>
-      <button
-        onClick={() => setOpen(!open)}
- className="w-full flex items-center gap-2 text-left"
-      >
- <span className="font-mono text-[9px] font-semibold text-white px-1.5 py-0.5 rounded" style={{background: color}}>
-          {tag}
-        </span>
- <span className="text-xs font-medium text-muted w-12">{name}</span>
- <div className="flex-1 h-1.5 rounded-full bg-surface-2 overflow-hidden">
- <div className="h-full rounded-full" style={{width: `${score.total}%`, background: color}} />
-        </div>
- <span className="font-mono text-xs font-semibold tabular-nums w-6 text-right" style={{color: scoreColor(score.total)}}>{score.total}</span>
- <span className="text-faint text-xs">{open ? "−" : "+"}</span>
-      </button>
- <div className="ml-12 mt-0.5 text-[11px] text-muted italic">{score.oneLiner}</div>
-      {open && (
- <div className="ml-12 mt-2 space-y-1">
-          {score.dims.map((d) => (
- <div key={d.key} className="flex items-baseline gap-2 text-[11px]">
- <span className="font-mono text-faint w-24 shrink-0 truncate">{d.label}</span>
- <span className="font-mono tabular-nums text-muted w-6 text-right">{d.score}</span>
- <span className="text-muted italic flex-1">{d.reason}</span>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function RadarChart({ ts }: { ts: TripleScore }) {
-  // 用 3 个轴：段 / 巴 / Serenity 的 total
-  const size = 160;
-  const cx = size / 2;
-  const cy = size / 2;
-  const R = size / 2 - 18;
-  const angles = [-Math.PI / 2, -Math.PI / 2 + (Math.PI * 2) / 3, -Math.PI / 2 + (Math.PI * 4) / 3];
-  const points = [ts.duan.total, ts.buffett.total, ts.serenity.total].map((v, i) => {
-    const r = (v / 100) * R;
-    return { x: cx + r * Math.cos(angles[i]), y: cy + r * Math.sin(angles[i]) };
-  });
-  const axisEnds = angles.map(a => ({ x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) }));
-  const labelOffsets = angles.map(a => ({ x: cx + (R + 12) * Math.cos(a), y: cy + (R + 12) * Math.sin(a) }));
- const labels = ["段", "巴", "Sere"];
- const colors = ["#7C3AED", "#0891B2", "#EA580C"];
-  return (
- <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="mx-auto block">
-      {/* 网格：25/50/75/100 */}
-      {[0.25, 0.5, 0.75, 1].map((k) => {
- const pts = angles.map(a => `${cx + R * k * Math.cos(a)},${cy + R * k * Math.sin(a)}`).join(" ");
- return <polygon key={k} points={pts} fill="none" stroke="#E5E5E5" strokeWidth="0.5" />;
-      })}
-      {/* 轴 */}
-      {axisEnds.map((p, i) => (
- <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#D4D4D8" strokeWidth="0.5" />
-      ))}
-      {/* 数据三角 */}
-      <polygon
- points={points.map(p => `${p.x},${p.y}`).join(" ")}
- fill="rgba(22, 93, 255, 0.15)"
- stroke="#165DFF"
- strokeWidth="1.5"
- strokeLinejoin="round"
-      />
-      {/* 顶点 */}
-      {points.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={3} fill={colors[i]} />
-      ))}
-      {/* 标签 */}
-      {labelOffsets.map((p, i) => (
- <text key={i} x={p.x} y={p.y} fontSize={10} fontWeight={600} fill={colors[i]} textAnchor="middle" dominantBaseline="middle">
-          {labels[i]}
-        </text>
-      ))}
-    </svg>
   );
 }
 

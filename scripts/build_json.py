@@ -238,7 +238,7 @@ def main():
     print("3) 计算型 JSON")
     for s in ("build_history_metrics.py", "build_us_heat.py", "build_panel_summary.py",
               "build_pulse_scores.py", "build_industry_map.py", "build_pulse_supplement.py",
-              "build_stock_types.py"):
+              "build_stock_types.py", "build_trends.py"):
         run(s)
 
     print("✓ 全部 JSON 已从 leslie.db 派生")

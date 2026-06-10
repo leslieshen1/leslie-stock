@@ -1,23 +1,26 @@
-"""日报模板 #3「AI 合成版」—— Claude 写提示词+约束,提供组件,gpt-image-2 负责画。
+"""日报模板 #3「AI 合成版」—— Claude 写结构化版式语言,提供组件,gpt-image-2 负责画。
 
-分工(和 #1/#2 的全手画模板互补):
-  Claude     艺术指导:把 spec 编译成提示词 + 硬约束(版式/品牌色/文字清单/留白)
-  组件        Aime 姿态 PNG(参考图,锁定吉祥物)+ 真 logo(生成后像素级覆盖,绝不让 AI 画 logo)
-  gpt-image-2 光影/材质/构图/插画氛围(它擅长的)
-  质检        生成后由 Claude(多模态)逐位核对图内数字 vs spec —— 错了重生成或降级 HTML 模板
+v2 教训(对照用户标杆样张):松散的"场景描述"出不来设计系统 —— prompt 必须是
+**结构化版式语言**:STYLE SYSTEM(材质/色板/图标体系)+ LAYOUT(逐行分区,内容逐字)
++ HARD CONSTRAINTS(文字清单/留白/禁项)。短字符串分组后 ~20 条也能字符级全对。
 
-调用通道(NDT relay 三铁律,实测):stream=true 必须 / 不支持透明底 / 有节流(失败 45s 退避)。
+分工:
+  Claude     艺术指导:spec(结构化 JSON)→ 版式语言 prompt
+  组件        Aime 姿态 PNG(带胸章,img2img 参考)+ 真 logo 生成后像素级覆盖
+  gpt-image-2 新拟物材质/光影/图标/构图
+  质检        生成后 Claude 多模态逐位核对所有字符串 —— 全对才可发
+
+通道铁律:stream=true 必须 / 不支持透明底 / 有节流(45s 退避)。
 
 用法:
-  uv run python scripts/ai_card.py --spec data/cards/<topic>.ai.json
-  uv run python scripts/ai_card.py            # 用 DEMO 生成收盘海报
-输出 ~/Downloads/AInvest_ai_{slug}.png + 提醒人工(Claude)质检数字。
+  uv run python scripts/ai_card.py --spec data/cards/<topic>.ai.json   # 缺省 DEMO(盘前 Jun 9)
 """
 from __future__ import annotations
 import argparse
 import base64
 import json
 import mimetypes
+import os
 import subprocess
 import sys
 import time
@@ -25,7 +28,6 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-import os
 try:
     from dotenv import load_dotenv; load_dotenv()
 except Exception:
@@ -38,25 +40,84 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 KEY = os.environ.get("NDT_API_KEY", "")
 BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
 
+# 标杆同款内容(盘前 Jun 9,来自当日盘前报告)—— 作为 DEMO 兼 A/B 基准
 DEMO = {
-    "slug": "close-jun9-poster",
-    "mood": "bearish",          # 选 Aime 姿态 + 色温
+    "slug": "premarket-jun9",
+    "mood": "bullish",
     "size": "1536x1024",
-    "texts": [                   # 必须出现在图里、且必须逐字正确的文字(少而大 = 高准确率)
-        "Close · Jun 9",
-        "Nasdaq 100  -1.15%",
-        "S&P 500  -0.29%",
-        "Dow  +0.10%",
-        "Russell 2000  +0.32%",
-        "Tomorrow 8:30 ET · CPI",
+    "title": "Pre-Market · Jun 9 · ET",
+    "headline": "Green across the board, tech out front.",
+    "indexes": [["Nasdaq 100", "+0.90%"], ["Russell 2000", "+1.09%"], ["S&P 500", "+0.51%"], ["Dow", "+0.35%"]],
+    "panels": [
+        {"icon": "chip", "title": "Semis & optical", "items": ["$AAOI +4.71%", "$MU +4.48%", "$AXTI +4.76%"]},
+        {"icon": "rocket", "title": "Space", "items": ["$ASTS +7.46%", "$LUNR +3.72%"]},
+        {"icon": "bitcoin", "title": "Crypto names", "items": ["$MSTR -1.62%", "$COIN -1.07%"]},
     ],
-    "scene": ("An elegant editorial financial poster, soft paper-white background with very subtle "
-              "blue-grey gradients and a faint circuit-board pattern in one corner. Large bold dark "
-              "headline text at top-left. Four clean rounded white stat tiles arranged in a row, each "
-              "with soft shadow; negative percentages in red (#DC2626), positive in green (#16A34A). "
-              "A thin royal-blue (#165DFF) accent underline below the headline. Premium fintech "
-              "aesthetic, generous whitespace, crisp sans-serif typography."),
+    "footer": {"icon": "clock", "text": "Tonight: $ORCL after the close", "highlight": "$ORCL"},
 }
+
+ICON_DESC = {"chip": "a thin-line microchip icon", "rocket": "a thin-line rocket icon",
+             "bitcoin": "a thin-line bitcoin-circle icon", "clock": "a thin-line clock icon",
+             "calendar": "a thin-line calendar icon", "bolt": "a thin-line lightning-bolt icon"}
+
+
+def all_texts(s: dict) -> list[str]:
+    """spec → 必须逐字正确的字符串清单(也是质检清单)。"""
+    out = [s["title"], s["headline"]]
+    for name, pct in s["indexes"]:
+        out += [name, pct]
+    for p in s["panels"]:
+        out.append(p["title"])
+        out += p["items"]
+    out.append(s["footer"]["text"])
+    return out
+
+
+def compile_prompt(s: dict) -> str:
+    """结构化版式语言:风格系统 + 逐行布局 + 硬约束。"""
+    idx_lines = "\n".join(
+        f'     Tile {i+1}: name "{n}" (small, dark, top-left), a small circled '
+        f'{"green up-arrow" if v.startswith("+") else "red down-arrow"} icon top-right, '
+        f'then a HUGE {"deep-green" if v.startswith("+") else "red"} percentage "{v}".'
+        for i, (n, v) in enumerate(s["indexes"]))
+    panel_lines = ""
+    for i, p in enumerate(s["panels"]):
+        items = " · ".join(p["items"])
+        panel_lines += (f'     Panel {i+1}: {ICON_DESC.get(p["icon"], "a thin-line icon")} at left, bold title '
+                        f'"{p["title"]}", below it ticker items "{items}" '
+                        f'(each +value deep-green #15803D, each -value red #DC2626).\n')
+    ft = s["footer"]
+    texts = "\n".join(f'  - "{t}"' for t in all_texts(s))
+
+    return f"""Design a premium fintech social-media card, light theme, landscape.
+
+STYLE SYSTEM (follow strictly):
+- Background: near-white paper (#F4F6F9) with an extremely subtle cool gradient; generous whitespace.
+- All tiles/panels: soft white rounded-rectangle cards (corner radius ~24px) with gentle neumorphic
+  depth — light source top-left, soft diffuse shadow below-right, faint inner top highlight. No hard borders.
+- Typography: clean modern sans-serif (SF Pro style). Ink #16181D for headings; deep green #15803D for
+  positive numbers; red #DC2626 for negative numbers; royal blue #165DFF ONLY for the underline accent
+  and the highlighted ticker "{ft.get('highlight', '')}".
+- Icons: minimal thin-line style, dark ink, consistent stroke weight.
+
+LAYOUT, top to bottom (left ~68% of canvas; right ~32% reserved for the mascot):
+  1. Top-left corner: COMPLETELY EMPTY reserved space (~22% width, ~10% height) — a logo is added later.
+  2. Below it: HUGE bold dark headline "{s['title']}" (largest text on the card),
+     then a short royal-blue underline bar, then the sub-headline "{s['headline']}" in medium dark-grey.
+  3. One row of FOUR equal index tiles:
+{idx_lines}
+  4. One row of THREE theme panels (slightly wider than tall):
+{panel_lines}  5. A full-width footer bar (same card style): {ICON_DESC.get(ft.get('icon', 'clock'))} at left, then
+     "{ft['text']}" with "{ft.get('highlight', '')}" in bold royal blue.
+  6. RIGHT side: the robot mascot from the reference image, FULL BODY at large scale, standing on a soft
+     glowing ring shadow. Keep its design EXACTLY as the reference (glossy white, navy visor, arrow antenna,
+     blue chest badge). It overlaps nothing important.
+
+HARD CONSTRAINTS:
+- Render EXACTLY these text strings, character-for-character; NO other words, numbers, tickers,
+  charts or labels anywhere on the card:
+{texts}
+- All numbers crisp, large, perfectly legible. No watermark, no signature, no fake browser/phone chrome."""
 
 
 def sse_events(resp):
@@ -106,31 +167,14 @@ def gen_image(prompt: str, refs: list[Path], size: str, out_raw: Path) -> bool:
     return False
 
 
-def compile_prompt(spec: dict) -> str:
-    """Claude 的'艺术指导'编译:场景 + 逐字文字清单 + 硬约束。"""
-    texts = "\n".join(f'  {i+1}. "{t}"' for i, t in enumerate(spec["texts"]))
-    return f"""{spec["scene"]}
-
-The cute white robot from the reference image is the brand mascot — place it on the right side
-of the composition at large size, matching its exact design (glossy white body, dark navy visor,
-curved arrow antenna). Its mood already matches the scene.
-
-HARD CONSTRAINTS (must all be satisfied):
-- Render EXACTLY these text strings, character-for-character, no additions, no other words anywhere:
-{texts}
-- Numbers must be large and crisply legible. Do not invent any other numbers, tickers, charts or labels.
-- Leave the top-left corner (about 22% width, 10% height) completely empty — a logo will be placed there later.
-- No watermark, no signature, no fake UI chrome, no extra paragraphs of text.
-- Palette: ink #16181D on paper white, royal blue #165DFF accents only, red #DC2626 for negatives, green #16A34A for positives."""
-
-
-def composite_logo(raw: Path, out: Path) -> None:
+def composite_logo(raw: Path, out: Path, size: str) -> None:
     """真 logo 像素级覆盖到左上保留区(绝不让 AI 画 logo)。"""
+    w, h = (int(x) for x in size.split("x"))
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
     html = f"""<!doctype html><html><head><style>
-      * {{margin:0;padding:0}} html,body {{width:1536px;height:1024px}}
+      * {{margin:0;padding:0}} html,body {{width:{w}px;height:{h}px}}
       img.bg {{position:absolute;inset:0;width:100%;height:100%}}
-      .logo {{position:absolute;top:44px;left:56px;width:210px}}
+      .logo {{position:absolute;top:46px;left:58px;width:250px}}
       .logo svg {{width:100%;height:auto}}
     </style></head><body>
       <img class="bg" src="file://{raw.resolve()}"/>
@@ -139,7 +183,7 @@ def composite_logo(raw: Path, out: Path) -> None:
     tmp = Path("/tmp/ai_card_composite.html")
     tmp.write_text(html, encoding="utf-8")
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
-                    "--window-size=1536,1024", "--force-device-scale-factor=1.5",
+                    f"--window-size={w},{h}", "--force-device-scale-factor=1.5",
                     f"--screenshot={out}", f"file://{tmp}"], capture_output=True, timeout=60)
 
 
@@ -158,7 +202,8 @@ def main():
     mascot = ASSETS / f"aime-{spec['mood']}.png"
     refs = [mascot if mascot.exists() else ASSETS / "aime-head.png"]
     prompt = compile_prompt(spec)
-    print(f"🎬 艺术指导编译完成({len(spec['texts'])} 条逐字文字 · 参考图 {refs[0].name})")
+    n_texts = len(all_texts(spec))
+    print(f"🎬 版式语言编译完成({n_texts} 条逐字文字 · 参考 {refs[0].name})")
 
     raw_png = Path(f"/tmp/ai_card_{spec['slug']}_raw.png")
     ok = False
@@ -167,14 +212,14 @@ def main():
         if gen_image(prompt, refs, spec.get("size", "1536x1024"), raw_png):
             ok = True
             break
-        time.sleep(45 * i)  # 节流退避
+        time.sleep(45 * i)
     if not ok:
         sys.exit("❌ 上游节流/不可用 —— 改用 HTML 模板(share_card.py / aime_scan_card.py)")
 
     out = OUT_DIR / f"AInvest_ai_{spec['slug']}_{datetime.now().strftime('%Y%m%d')}.png"
-    composite_logo(raw_png, out)
+    composite_logo(raw_png, out, spec.get("size", "1536x1024"))
     print(f"✅ {out}")
-    print("⚠ 质检关:让 Claude 逐位核对图内数字 vs spec.texts —— 通过才可发,错字即重生成/降级模板。")
+    print(f"⚠ 质检关:Claude 逐位核对 {n_texts} 条字符串 —— 全对才可发,错字即重生成/降级模板。")
 
 
 if __name__ == "__main__":

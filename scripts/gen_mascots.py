@@ -1,23 +1,27 @@
-"""Aime 全身姿态库生成 —— gpt-image(NDT relay)→ assets/brand-ainvest/aime-{mood}.png
+"""Aime 全身姿态库生成 —— gpt-5.5 image_generation(NDT relay)→ assets/brand-ainvest/aime-{mood}.png
 
-跑一次生成三个姿态(透明底),share_card.py 检测到就自动用全身、按行情换姿势;
-没有则降级官方头部素材。relay 通道自动探测:依次试
-  ① /v1/responses + image_generation 工具(OpenAI 新式)
-  ② /v1/chat/completions model=gpt-image-2(中转常见挂法,返回 b64 或图 URL)
-  ③ /v1/images/generations(经典端点)
+经实测的三条铁律(踩坑记录,别改):
+  1. 这家中转 /v1/responses **只支持 stream=true**,非流式一律报 MODEL_SERVICE_UNAVAILABLE
+  2. 上游**不支持透明底** → 生成纯色底,再用 scripts/cutout.swift(macOS Vision 前景蒙版)抠透明
+  3. 上游**有节流**:连发会 503,姿态之间要隔 ~45s,失败退避重试
 
-用法: uv run python scripts/gen_mascots.py [--only bearish]
+一致性:以官方 Aime 头(assets/brand-ainvest/aime-head.png,提取自 logo-aime.svg)做
+img2img 参考,头部设计逐张锁定。share_card.py 检测到 aime-{mood}.png 即自动用全身、
+按行情换姿势(跌=bearish 涨=bullish 平=neutral)。
+
+用法: uv run python scripts/gen_mascots.py [--only bearish] [--force]
 """
 from __future__ import annotations
 import argparse
 import base64
 import json
+import mimetypes
 import os
-import re
+import subprocess
 import sys
+import time
+import urllib.request
 from pathlib import Path
-
-import requests
 
 try:
     from dotenv import load_dotenv; load_dotenv()
@@ -26,106 +30,119 @@ except Exception:
 
 ROOT = Path(__file__).parent.parent
 OUT = ROOT / "assets" / "brand-ainvest"
+REF = OUT / "aime-head.png"
+CUTOUT = ROOT / "scripts" / "cutout.swift"
 KEY = os.environ.get("NDT_API_KEY", "")
-BASE = os.environ.get("NDT_BASE_URL", "https://api.nadoutong.org")
+BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
 
-# 官方 Aime 特征(照 logo-aime.svg 内嵌位图描述,保持一致性)
-STYLE = ("Official mascot style: cute glossy white 3D robot, large rounded head, "
-         "dark navy glass visor face with two glowing white oval eyes, one curved silver antenna "
-         "with arrow tip on top of head, small white rounded body with simple arms and legs, "
-         "soft studio lighting, high-end 3D render, isolated on fully transparent background, "
-         "no text, no shadows on ground")
+STYLE = ("Full body of this exact robot mascot character. Keep the head design IDENTICAL to the "
+         "reference: glossy white round head, dark navy glass visor with two glowing white oval eyes, "
+         "one curved silver antenna with arrow tip. Add a small matching glossy white rounded body "
+         "with simple short arms and legs. Cute high-end 3D render, soft studio lighting, full body "
+         "fully visible and centered, plain solid light gray background, no text, no other objects, "
+         "no shadows on the ground. Pose:")
 
 POSES = {
-    "bearish": "sitting on the floor looking sad and worried, one hand touching its cheek, slumped shoulders",
-    "bullish": "standing confidently and pointing upward with one finger, cheerful pose",
-    "neutral": "standing upright waving hello with one hand, friendly",
+    "bearish": "sitting on the ground looking sad and worried, one hand touching its cheek, slumped shoulders",
+    "bullish": "standing confidently pointing upward with one finger raised high, cheerful happy expression in the eyes",
+    "neutral": "standing upright waving hello with one hand, friendly neutral expression",
 }
 
 
-def save_png(data: bytes, mood: str) -> None:
-    p = OUT / f"aime-{mood}.png"
-    p.write_bytes(data)
-    print(f"   ✅ {p}  ({len(data)//1024} KB)")
+def sse_events(resp):
+    buf = []
+    for raw in resp:
+        line = raw.decode("utf-8", errors="replace").rstrip("\r\n")
+        if line == "":
+            for piece in buf:
+                if piece.startswith("data:"):
+                    data = piece[5:].strip()
+                    if data and data != "[DONE]":
+                        try:
+                            yield json.loads(data)
+                        except json.JSONDecodeError:
+                            pass
+            buf = []
+        else:
+            buf.append(line)
 
 
-def try_responses_tool(prompt: str) -> bytes | None:
-    for model in ("gpt-5.5", "gpt-5.4", "gpt-5.4-mini"):
-        try:
-            r = requests.post(f"{BASE}/v1/responses", headers={"Authorization": f"Bearer {KEY}"},
-                              json={"model": model, "input": f"Generate an image: {prompt}",
-                                    "tools": [{"type": "image_generation", "size": "1024x1024",
-                                               "background": "transparent"}]}, timeout=300).json()
-            if r.get("error"):
-                continue
-            for o in r.get("output", []):
-                if o.get("type") == "image_generation_call" and o.get("result"):
-                    return base64.b64decode(o["result"])
-        except Exception:
-            continue
-    return None
+def generate_raw(pose: str, out_path: Path) -> bool:
+    """一次流式生成(img2img,官方头做参考)。成功返回 True。"""
+    mime = mimetypes.guess_type(str(REF))[0] or "image/png"
+    b64 = base64.b64encode(REF.read_bytes()).decode()
+    body = {
+        "model": "gpt-5.5",
+        "input": [{"role": "user", "content": [
+            {"type": "input_image", "image_url": f"data:{mime};base64,{b64}"},
+            {"type": "input_text", "text": f"{STYLE} {pose}"},
+        ]}],
+        "stream": True,  # 必须:非流式一律 MODEL_SERVICE_UNAVAILABLE
+        "tools": [{"type": "image_generation", "size": "1024x1024", "quality": "high", "output_format": "png"}],
+        "tool_choice": "required",
+    }
+    req = urllib.request.Request(
+        f"{BASE}/v1/responses", data=json.dumps(body).encode(),
+        headers={"Authorization": f"Bearer {KEY}", "Content-Type": "application/json",
+                 "Accept": "text/event-stream"}, method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=600) as resp:
+            for ev in sse_events(resp):
+                if ev.get("type") == "response.output_item.done":
+                    item = ev.get("item", {})
+                    if item.get("type") == "image_generation_call" and item.get("result"):
+                        out_path.write_bytes(base64.b64decode(item["result"]))
+                        return True
+    except Exception as e:
+        print(f"   ({type(e).__name__}: {str(e)[:90]})")
+    return False
 
 
-def try_chat_image(prompt: str) -> bytes | None:
-    for model in ("gpt-image-2", "gpt-image-1", "gpt-4o-image"):
-        try:
-            r = requests.post(f"{BASE}/v1/chat/completions", headers={"Authorization": f"Bearer {KEY}"},
-                              json={"model": model,
-                                    "messages": [{"role": "user", "content": prompt}]}, timeout=300).json()
-            if r.get("error"):
-                continue
-            content = r["choices"][0]["message"]["content"] or ""
-            m = re.search(r"data:image/\w+;base64,([A-Za-z0-9+/=]+)", content)
-            if m:
-                return base64.b64decode(m.group(1))
-            m = re.search(r"https?://\S+\.(?:png|webp|jpg)\S*", content)
-            if m:
-                return requests.get(m.group(0).rstrip(")>]"), timeout=120).content
-        except Exception:
-            continue
-    return None
-
-
-def try_images_endpoint(prompt: str) -> bytes | None:
-    for model in ("gpt-image-2", "gpt-image-1"):
-        try:
-            r = requests.post(f"{BASE}/v1/images/generations", headers={"Authorization": f"Bearer {KEY}"},
-                              json={"model": model, "prompt": prompt, "size": "1024x1024",
-                                    "background": "transparent"}, timeout=300)
-            if r.status_code != 200:
-                continue
-            d = r.json().get("data", [{}])[0]
-            if d.get("b64_json"):
-                return base64.b64decode(d["b64_json"])
-            if d.get("url"):
-                return requests.get(d["url"], timeout=120).content
-        except Exception:
-            continue
-    return None
+def cutout(src: Path, dst: Path) -> bool:
+    r = subprocess.run(["swift", str(CUTOUT), str(src), str(dst)], capture_output=True, text=True, timeout=180)
+    return r.returncode == 0 and dst.exists()
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--only", choices=list(POSES), help="只生成一个姿态")
+    ap.add_argument("--only", choices=list(POSES))
+    ap.add_argument("--force", action="store_true", help="已存在也重新生成")
     args = ap.parse_args()
     if not KEY:
         sys.exit("缺 NDT_API_KEY(.env)")
+    if not REF.exists():
+        sys.exit(f"缺参考图 {REF}")
 
-    todo = {args.only: POSES[args.only]} if args.only else POSES
+    todo = {args.only: POSES[args.only]} if args.only else dict(POSES)
     ok = 0
+    first = True
     for mood, pose in todo.items():
-        prompt = f"{STYLE}. Pose: {pose}."
-        print(f"🤖 生成 aime-{mood} …")
-        data = try_responses_tool(prompt) or try_chat_image(prompt) or try_images_endpoint(prompt)
-        if data:
-            save_png(data, mood)
+        final = OUT / f"aime-{mood}.png"
+        if final.exists() and not args.force:
+            print(f"⏭  aime-{mood} 已存在,跳过(--force 重做)")
+            ok += 1
+            continue
+        if not first:
+            time.sleep(45)  # 节流:连发会 503
+        first = False
+        raw = Path(f"/tmp/aime-{mood}-raw.png")
+        done = False
+        for attempt in range(1, 6):
+            print(f"🤖 aime-{mood} 第 {attempt} 发…")
+            if generate_raw(pose, raw):
+                done = True
+                break
+            time.sleep(45 * attempt)  # 退避
+        if not done:
+            print(f"   ❌ aime-{mood} 5 发全失败(上游节流/不可用)")
+            continue
+        if cutout(raw, final):
+            print(f"   ✅ {final}  ({final.stat().st_size//1024} KB,透明底)")
             ok += 1
         else:
-            print("   ❌ 三条通道都不可用(MODEL_NOT_AVAILABLE / SERVICE_UNAVAILABLE)——key 的图像通道还没开通")
-    if ok:
-        print(f"\n完成 {ok}/{len(todo)}。share_card.py 会自动改用全身姿态。")
-    else:
-        sys.exit(1)
+            print(f"   ⚠ 抠图失败,保留原图 {raw}")
+    print(f"\n完成 {ok}/{len(todo)}。share_card.py 将自动按行情使用对应姿态。")
+    sys.exit(0 if ok == len(todo) else 1)
 
 
 if __name__ == "__main__":

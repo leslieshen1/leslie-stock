@@ -242,8 +242,8 @@ def build_html(ctx: dict) -> str:
   .nx + .nx {{ border-left:1px solid #EEF2F7; padding-left:24px; }}
   .nx-t {{ font-weight:700; color:{BLUE}; }}
   .nx-d {{ color:#64748B; }}
-  .aime {{ position:absolute; right:30px; bottom:140px; width:385px; transform:rotate({tilt}); filter:drop-shadow(0 30px 60px {mood_glow}); }}
-  .aime-glow {{ position:absolute; right:14px; bottom:100px; width:440px; height:440px; border-radius:50%;
+  .aime {{ position:absolute; right:14px; bottom:104px; width:475px; transform:rotate({tilt}); filter:drop-shadow(0 30px 60px {mood_glow}); }}
+  .aime-glow {{ position:absolute; right:0px; bottom:70px; width:520px; height:520px; border-radius:50%;
                 background:radial-gradient(closest-side,{mood_glow},transparent); }}
   .ft {{ position:absolute; bottom:26px; left:0; width:100%; text-align:center; font-size:15px; color:#94A3B8; }}
 </style></head><body>

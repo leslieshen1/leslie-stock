@@ -26210,5 +26210,81 @@
   "_serenity_score": 22,
   "_verdict": "",
   "_thesis": ""
+ },
+ {
+  "ticker": "FCAP",
+  "name": "First Capital Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 33,
+  "momentum20d": 33,
+  "rsi": 40,
+  "sentiment": 33,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 33,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "RDCM",
+  "name": "Radcom Ltd.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 44,
+  "momentum20d": 44,
+  "rsi": 44,
+  "sentiment": 44,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 44,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "LUCD",
+  "name": "Lucid Diagnostics Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 23,
+  "momentum20d": 23,
+  "rsi": 40,
+  "sentiment": 23,
+  "industries": [
+   "ev"
+  ],
+  "_serenity_score": 23,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "KTWO",
+  "name": "K2 Capital Acquisition Corporation Class A Ordinary Share",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 16,
+  "momentum20d": 16,
+  "rsi": 40,
+  "sentiment": 16,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 16,
+  "_verdict": "",
+  "_thesis": ""
  }
 ]

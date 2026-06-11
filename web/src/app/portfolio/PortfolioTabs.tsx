@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import WatchlistClient from "../watchlist/WatchlistClient";
+import { useLang } from "@/lib/i18n";
 
 export default function PortfolioTabs({ holdings }: { holdings: React.ReactNode }) {
+  const { t } = useLang();
   const [tab, setTab] = useState<"watch" | "hold">("watch");
 
   return (
@@ -15,7 +17,7 @@ export default function PortfolioTabs({ holdings }: { holdings: React.ReactNode 
  tab === "watch" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
           }`}
         >
-          观察列表
+          {t("观察列表", "Watchlist")}
         </button>
         <button
           onClick={() => setTab("hold")}
@@ -23,7 +25,7 @@ export default function PortfolioTabs({ holdings }: { holdings: React.ReactNode 
  tab === "hold" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
           }`}
         >
-          持仓
+          {t("持仓", "Holdings")}
         </button>
       </div>
 

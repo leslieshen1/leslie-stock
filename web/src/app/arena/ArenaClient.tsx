@@ -5,6 +5,16 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useLang } from "@/lib/i18n";
+
+// 展示层 EN 映射(数据仍是中文 SoT)
+const MASTER_EN: Record<string, { name: string; school: string }> = {
+  buffett: { name: "Buffett", school: "Value · Moat · Long-hold" },
+  duan: { name: "Duan Yongping", school: "Discipline · Concentration" },
+  serenity: { name: "Serenity", school: "Bottleneck sniper · Stops" },
+  druckenmiller: { name: "Druckenmiller", school: "Macro trend · Momentum" },
+  sentiment: { name: "Sentiment", school: "Tape rotation · Fast in/out" },
+};
 
 export type Pos = {
   sym: string; name: string; shares: number; entry: number; price: number;
@@ -22,9 +32,9 @@ type Quote = { price: number; pct: number | null; session?: string };
 const SESSION_ZH: Record<string, string> = { pre: "盘前", regular: "盘中", post: "盘后", closed: "已收盘" };
 const fmtUsd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 
-function NavSpark({ hist, start }: { hist: { nav: number }[]; start: number }) {
+function NavSpark({ hist, start, emptyLabel }: { hist: { nav: number }[]; start: number; emptyLabel: string }) {
   if (hist.length < 2)
-    return <div className="flex h-[36px] items-end text-[10px] text-faint">首个交易日 · 曲线明天开始生长</div>;
+    return <div className="flex h-[36px] items-end text-[10px] text-faint">{emptyLabel}</div>;
   const vals = hist.map((h) => h.nav);
   const min = Math.min(...vals, start), max = Math.max(...vals, start);
   const span = max - min || 1;
@@ -42,6 +52,9 @@ function NavSpark({ hist, start }: { hist: { nav: number }[]; start: number }) {
 }
 
 export default function ArenaClient({ arena }: { arena: Arena }) {
+  const { t, lang } = useLang();
+  const mName = (m: Master) => (lang === "en" ? MASTER_EN[m.key]?.name ?? m.name : m.name);
+  const mSchool = (m: Master) => (lang === "en" ? MASTER_EN[m.key]?.school ?? m.school : m.school);
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
   const [flash, setFlash] = useState<Record<string, "up" | "down">>({});
   const prev = useRef<Record<string, number>>({});
@@ -101,14 +114,15 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-12 pt-3">
       <header className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h1 className="text-[22px] font-semibold tracking-tight text-ink">五神对决</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("五神对决", "Five-Master Arena")}</h1>
         <p className="text-xs text-faint">
-          每人 $1,000,000 虚拟资金 · 只买已判读股票池 · 收盘结账 {arena.as_of} · 非投资建议
+          {t(`每人 $1,000,000 虚拟资金 · 只买已判读股票池 · 收盘结账 ${arena.as_of} · 非投资建议`,
+             `$1,000,000 paper money each · covered-stocks universe only · settled at close ${arena.as_of} · not financial advice`)}
         </p>
         {liveOn && (
           <span className="inline-flex items-center gap-1.5 rounded-full border border-up/30 bg-up-soft px-2 py-0.5 text-[10px] font-semibold text-up">
             <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-current" />
-            实时估值{session ? ` · ${SESSION_ZH[session] ?? session}` : ""} · 30s
+            {t("实时估值", "Live marks")}{session ? ` · ${lang === "zh" ? SESSION_ZH[session] ?? session : session}` : ""} · 30s
           </span>
         )}
       </header>
@@ -120,15 +134,15 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
             className="rounded-xl border border-line bg-surface p-4 transition hover:border-accent/40">
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] text-faint">{medals[i]}</span>
-              <span className="text-[10px] text-faint">{m.positions.length} 仓</span>
+              <span className="text-[10px] text-faint">{m.positions.length} {t("仓", "pos")}</span>
             </div>
-            <div className="mt-1 text-[15px] font-semibold text-ink">{m.name}</div>
-            <div className="text-[10px] text-muted">{m.school}</div>
+            <div className="mt-1 text-[15px] font-semibold text-ink">{mName(m)}</div>
+            <div className="text-[10px] text-muted">{mSchool(m)}</div>
             <div className="mt-2 font-mono text-lg font-semibold tabular-nums text-ink">{fmtUsd(m.liveNav)}</div>
             <div className={`font-mono text-sm font-semibold tabular-nums ${m.liveRet >= 0 ? "text-up" : "text-down"}`}>
               {m.liveRet >= 0 ? "+" : ""}{m.liveRet.toFixed(2)}%
             </div>
-            <div className="mt-2"><NavSpark hist={m.navHist} start={arena.start_cash} /></div>
+            <div className="mt-2"><NavSpark hist={m.navHist} start={arena.start_cash} emptyLabel={t("首个交易日 · 曲线明天开始生长", "Day one · curve starts tomorrow")} /></div>
           </a>
         ))}
       </div>
@@ -138,10 +152,10 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
         {live.map((m, i) => (
           <section key={m.key} id={m.key} className="scroll-mt-20">
             <div className="mb-2 flex flex-wrap items-baseline gap-x-3">
-              <h2 className="text-base font-semibold text-ink">{medals[i]} {m.name}</h2>
-              <span className="text-xs text-muted">{m.school}</span>
+              <h2 className="text-base font-semibold text-ink">{medals[i]} {mName(m)}</h2>
+              <span className="text-xs text-muted">{mSchool(m)}</span>
               <span className="font-mono text-xs tabular-nums text-muted">
-                持仓 {m.positions.length} · 现金 {fmtUsd(m.cash)}
+                {t("持仓", "Positions")} {m.positions.length} · {t("现金", "Cash")} {fmtUsd(m.cash)}
               </span>
             </div>
 
@@ -149,13 +163,13 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
               <table className="w-full text-sm">
                 <thead className="border-b border-line bg-surface text-left text-xs text-muted">
                   <tr>
-                    <th className="px-3 py-2 font-medium">持仓</th>
-                    <th className="px-3 py-2 text-right font-medium">股数</th>
-                    <th className="px-3 py-2 text-right font-medium">成本</th>
-                    <th className="px-3 py-2 text-right font-medium">现价</th>
-                    <th className="px-3 py-2 text-right font-medium">今日</th>
-                    <th className="px-3 py-2 text-right font-medium">盈亏</th>
-                    <th className="hidden px-3 py-2 font-medium md:table-cell">他的判词</th>
+                    <th className="px-3 py-2 font-medium">{t("持仓", "Holding")}</th>
+                    <th className="px-3 py-2 text-right font-medium">{t("股数", "Shares")}</th>
+                    <th className="px-3 py-2 text-right font-medium">{t("成本", "Cost")}</th>
+                    <th className="px-3 py-2 text-right font-medium">{t("现价", "Price")}</th>
+                    <th className="px-3 py-2 text-right font-medium">{t("今日", "Today")}</th>
+                    <th className="px-3 py-2 text-right font-medium">{t("盈亏", "P&L")}</th>
+                    <th className="hidden px-3 py-2 font-medium md:table-cell">{t("他的判词", "Their take")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -192,7 +206,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                     );
                   })}
                   {m.positions.length === 0 && (
-                    <tr><td colSpan={7} className="py-6 text-center text-xs text-faint">空仓 —— 现金也是仓位</td></tr>
+                    <tr><td colSpan={7} className="py-6 text-center text-xs text-faint">{t("空仓 —— 现金也是仓位", "All cash — cash is a position too")}</td></tr>
                   )}
                 </tbody>
               </table>
@@ -200,18 +214,18 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
 
             {m.trades.length > 0 && (
               <div className="mt-2 space-y-1">
-                {m.trades.slice(0, 6).map((t, j) => (
+                {m.trades.slice(0, 6).map((tr, j) => (
                   <div key={j} className="flex flex-wrap items-baseline gap-x-2 text-xs">
-                    <span className="font-mono text-faint">{t.date}</span>
-                    <span className={`font-mono font-semibold ${t.side === "BUY" ? "text-up" : "text-down"}`}>
-                      {t.side === "BUY" ? "买入" : "卖出"}
+                    <span className="font-mono text-faint">{tr.date}</span>
+                    <span className={`font-mono font-semibold ${tr.side === "BUY" ? "text-up" : "text-down"}`}>
+                      {tr.side === "BUY" ? t("买入", "BUY") : t("卖出", "SELL")}
                     </span>
-                    {t.src === "ai" && (
-                      <span title="开盘前 AI 亲自决策(gpt-5.5),非规则引擎" className="rounded border border-accent/40 bg-accent-soft px-1 font-mono text-[9px] font-bold text-accent">AI</span>
+                    {tr.src === "ai" && (
+                      <span title={t("开盘前 AI 亲自决策(gpt-5.5),非规则引擎", "Decided pre-open by the AI itself (gpt-5.5), not the rule engine")} className="rounded border border-accent/40 bg-accent-soft px-1 font-mono text-[9px] font-bold text-accent">AI</span>
                     )}
-                    <span className="font-mono font-semibold text-ink">{t.sym}</span>
-                    <span className="font-mono tabular-nums text-muted">{t.shares.toLocaleString()} 股 @ ${t.price.toFixed(2)}</span>
-                    <span className="text-muted">— {t.reason}</span>
+                    <span className="font-mono font-semibold text-ink">{tr.sym}</span>
+                    <span className="font-mono tabular-nums text-muted">{tr.shares.toLocaleString()} {t("股", "sh")} @ ${tr.price.toFixed(2)}</span>
+                    <span className="text-muted">— {tr.reason}</span>
                   </div>
                 ))}
               </div>
@@ -221,10 +235,10 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
       </div>
 
       <footer className="mt-12 border-t border-line pt-4 text-xs leading-relaxed text-faint">
-        规则 V1:股票池 = 已判读 + 价格≥$2 + 市值≥$2 亿;收盘价成交、整股、不计费用滑点、现金不计息。
-        开盘前 AI 决策(带 AI 徽章)+ 机械纪律兜底:巴菲特/段永平长持;Serenity 止损 -15%;
-        德鲁肯米勒动量 + 止损 -10%;情绪资金面最长持 5 日、止损 -7% 止盈 +15%。
-        表内现价为实时估值(30s 轮询),收盘结账以引擎为准。虚拟盘 · 教育用途 · 非投资建议 · 不面向中国大陆。
+        {t(
+          "规则 V1:股票池 = 已判读 + 价格≥$2 + 市值≥$2 亿;收盘价成交、整股、不计费用滑点、现金不计息。开盘前 AI 决策(带 AI 徽章)+ 机械纪律兜底:巴菲特/段永平长持;Serenity 止损 -15%;德鲁肯米勒动量 + 止损 -10%;情绪资金面最长持 5 日、止损 -7% 止盈 +15%。表内现价为实时估值(30s 轮询),收盘结账以引擎为准。虚拟盘 · 教育用途 · 非投资建议 · 不面向中国大陆。",
+          "Rules V1: universe = covered stocks, price ≥ $2, market cap ≥ $0.2B; fills at close, whole shares, no fees/slippage, no interest on cash. Pre-open AI decisions (AI badge) with mechanical discipline underneath: Buffett/Duan hold long; Serenity stop -15%; Druckenmiller momentum + stop -10%; Sentiment max 5-day hold, stop -7%, take-profit +15%. Table prices are live marks (30s polling); official accounting settles at close. Paper trading · educational · not financial advice · not intended for users in mainland China."
+        )}
       </footer>
     </main>
   );

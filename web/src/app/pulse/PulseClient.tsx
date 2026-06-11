@@ -22,19 +22,52 @@ import {
   remapItemsForIndustry,
 } from "@/lib/industry-chains";
 import { MASTERS } from "@/lib/masters";
+import { useLang, type Lang } from "@/lib/i18n";
 
 // 个股分析页链接:6 位纯数字 = A 股,其余按美股(热力图里两类都有)
 function stockHref(ticker: string): string {
   return `/stock/${ticker}?market=${/^\d{6}$/.test(ticker) ? "a" : "us"}`;
 }
 
+// ===== 英文显示映射(纯展示层,zh 数据/逻辑不动)=====
+const MASTER_EN: Record<string, { name: string; school: string }> = {
+  buffett: { name: "Buffett", school: "Value · Moat" },
+  duan: { name: "Duan Yongping", school: "Value · Business model" },
+  serenity: { name: "Serenity", school: "Alpha · Supply bottlenecks" },
+  druckenmiller: { name: "Druckenmiller", school: "Alpha · Macro liquidity" },
+  sentiment: { name: "Sentiment", school: "Tape · Money flow" },
+};
+// heatBand / marketPulse 的档位标签 → EN(显示层映射,不动 lib)
+const BAND_EN: Record<string, string> = {
+  "过热警告": "Bubble risk",
+  "偏热": "Hot",
+  "合理": "Fair",
+  "偏冷": "Cool",
+  "深度价值区": "Deep value",
+  "整体优质": "Broadly strong",
+  "平均水平": "Average",
+  "整体偏弱": "Broadly soft",
+  "整体差": "Weak",
+};
+function bandLabel(label: string, lang: Lang): string {
+  return lang === "en" ? BAND_EN[label] ?? label : label;
+}
+// 服务端给的中文相对时间("3 小时前")→ EN("3h ago"),纯显示转换
+function enAge(label: string): string {
+  if (label === "刚刚") return "just now";
+  const m = label.match(/^(\d+) (分钟|小时|天)前$/);
+  if (!m) return label;
+  const unit = m[2] === "分钟" ? "m" : m[2] === "小时" ? "h" : "d";
+  return `${m[1]}${unit} ago`;
+}
+
 // ===== 镜头注册表:热度 + 综合 + 5 位大师(masters.ts) + 分歧 =====
-type LensMeta = { key: string; label: string; sub: string; ramp: "heat" | "triple"; hi: string; lo: string };
+type LensMeta = { key: string; label: string; labelEn: string; sub: string; subEn: string; ramp: "heat" | "triple"; hi: string; hiEn: string; lo: string; loEn: string };
 const LENSES: LensMeta[] = [
-  { key: "heat", label: "过热度", sub: "估值贵 + 离52周高点 + RSI/动量 · 越高越泡沫(不随当天涨跌跳)", ramp: "heat", hi: "过热/泡沫", lo: "便宜/破位" },
-  { key: "triple", label: "综合", sub: "已判读各方真实评分均值(A股 = Serenity 瓶颈分)", ramp: "triple", hi: "高信念", lo: "回避" },
-  ...MASTERS.map((m): LensMeta => ({ key: m.key, label: m.name, sub: m.school, ramp: "triple", hi: "高信念", lo: "看空/回避" })),
-  { key: "divergence", label: "分歧", sub: "5 方评分极差 · 越大越撕裂(分歧即信号)", ramp: "heat", hi: "最撕裂", lo: "共识" },
+  { key: "heat", label: "过热度", labelEn: "Overheat", sub: "估值贵 + 离52周高点 + RSI/动量 · 越高越泡沫(不随当天涨跌跳)", subEn: "Rich valuation + near 52w high + RSI/momentum · higher = frothier (slow signal, not day-to-day)", ramp: "heat", hi: "过热/泡沫", hiEn: "Overheated", lo: "便宜/破位", loEn: "Cheap/Broken" },
+  { key: "triple", label: "综合", labelEn: "Composite", sub: "已判读各方真实评分均值(A股 = Serenity 瓶颈分)", subEn: "Mean of actual master scores (A-shares = Serenity bottleneck score)", ramp: "triple", hi: "高信念", hiEn: "High conviction", lo: "回避", loEn: "Avoid" },
+  ...MASTERS.map((m): LensMeta => ({ key: m.key, label: m.name, labelEn: MASTER_EN[m.key]?.name ?? m.name, sub: m.school, subEn: MASTER_EN[m.key]?.school ?? m.school, ramp: "triple", hi: "高信念", hiEn: "High conviction", lo: "看空/回避", loEn: "Bearish/Avoid" })),
+  { key: "divergence", label: "分歧", labelEn: "Divergence", sub: "5 方评分极差 · 越大越撕裂(分歧即信号)", subEn: "Score range across the 5 masters · wider = more contested (disagreement is signal)", ramp: "heat", hi: "最撕裂", hiEn: "Most divided", lo: "共识", loEn: "Consensus" },
 ];
 const LENS_BY_KEY: Record<string, LensMeta> = Object.fromEntries(LENSES.map((l) => [l.key, l]));
 
@@ -72,23 +105,23 @@ export function fmtCapB(b: number | null | undefined): string {
 type ChainLayerDef = { id: string; name: string; summary?: string };
 type ChainDef = { id: string; name: string; desc: string; layers: ChainLayerDef[] };
 
-const REGIONS: { id: Region | "ALL"; label: string }[] = [
- { id: "ALL", label: "全部" },
- { id: "US", label: "美股" },
- { id: "CN", label: "A 股" },
- { id: "HK", label: "港股" },
- { id: "TW", label: "台股" },
- { id: "KR", label: "韩股" },
- { id: "EU", label: "欧" },
- { id: "JP", label: "日" },
+const REGIONS: { id: Region | "ALL"; label: string; labelEn: string }[] = [
+ { id: "ALL", label: "全部", labelEn: "All" },
+ { id: "US", label: "美股", labelEn: "US" },
+ { id: "CN", label: "A 股", labelEn: "A-shares" },
+ { id: "HK", label: "港股", labelEn: "HK" },
+ { id: "TW", label: "台股", labelEn: "TW" },
+ { id: "KR", label: "韩股", labelEn: "KR" },
+ { id: "EU", label: "欧", labelEn: "EU" },
+ { id: "JP", label: "日", labelEn: "JP" },
 ];
 
 const HEAT_TIERS = [
- { id: "all", label: "全部", min: 0,  max: 100 },
- { id: "hot", label: "过热 ≥85", min: 85, max: 100 },
- { id: "warm", label: "偏热 70-85", min: 70, max: 85 },
- { id: "fair", label: "合理 50-70", min: 50, max: 70 },
- { id: "cool", label: "偏冷 <50", min: 0, max: 50 },
+ { id: "all", label: "全部", labelEn: "All", min: 0,  max: 100 },
+ { id: "hot", label: "过热 ≥85", labelEn: "Overheated ≥85", min: 85, max: 100 },
+ { id: "warm", label: "偏热 70-85", labelEn: "Hot 70-85", min: 70, max: 85 },
+ { id: "fair", label: "合理 50-70", labelEn: "Fair 50-70", min: 50, max: 70 },
+ { id: "cool", label: "偏冷 <50", labelEn: "Cool <50", min: 0, max: 50 },
 ];
 
 interface TrendPt { date: string; close?: number | null; heat?: number | null }
@@ -122,6 +155,7 @@ export default function PulseClient({
   chainPlacement?: Record<string, Record<string, string>>;
 }) {
   const router = useRouter();
+  const { t, lang } = useLang();
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
  const [industry, setIndustry] = useState<string>(initialIndustry ?? "AI");
  const [region, setRegion] = useState<Region | "ALL">("US");
@@ -188,9 +222,14 @@ export default function PulseClient({
 
   // 产业 tab 定义:AI 用 supply-chain 的 L0-L7;其余链来自 industry-map(数据驱动)
   const industryDefs = useMemo<ChainDef[]>(() => [
-    { id: "AI", name: "AI 产业链", desc: "L0 能源 → L7 端侧 · 8 层全景", layers: LAYERS.map((L) => ({ id: L.id, name: L.name })) },
+    {
+      id: "AI",
+      name: lang === "en" ? "AI Supply Chain" : "AI 产业链",
+      desc: lang === "en" ? "L0 Energy → L7 Edge · all 8 layers" : "L0 能源 → L7 端侧 · 8 层全景",
+      layers: LAYERS.map((L) => ({ id: L.id, name: L.name })),
+    },
     ...chainIndustries,
-  ], [chainIndustries]);
+  ], [chainIndustries, lang]);
 
   // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层
   const industryItems = useMemo(() => {
@@ -264,6 +303,8 @@ export default function PulseClient({
   const topCold = useMemo(() => ranked.slice(-6).reverse().map((x) => x.c), [ranked]);
 
   const currentInd = industryDefs.find((x) => x.id === industry) ?? industryDefs[0];
+  const curLens = LENS_BY_KEY[colorMode];
+  const curLensLabel = curLens ? t(curLens.label, curLens.labelEn) : colorMode;
 
   return (
     <>
@@ -272,10 +313,10 @@ export default function PulseClient({
  <div className="mb-2 flex items-baseline justify-between flex-wrap gap-x-3 gap-y-1">
           <div className="flex min-w-0 items-baseline gap-3">
  <h1 className="shrink-0 text-[22px] font-semibold tracking-tight text-ink">
-              {currentInd.name} · 脉冲热力图
+              {currentInd.name} · {t("脉冲热力图", "Pulse Heatmap")}
             </h1>
  <p className="hidden min-w-0 truncate text-xs text-faint lg:block">
-              {industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头
+              {t(`${industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头`, `${industryItems.length} names · size = market cap · color = lens`)}
             </p>
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">
@@ -283,14 +324,14 @@ export default function PulseClient({
               <>
  <span className="inline-flex items-center gap-1.5 rounded bg-up-soft text-up px-2.5 py-1 border border-up/30">
  <span className="h-1.5 w-1.5 rounded-full bg-up" />
-                  判读 {coveredCount}/{items.length}
+                  {t("判读", "Scored")} {coveredCount}/{items.length}
                 </span>
- {analyzedAtLabel && <span className="text-faint">· {analyzedAtLabel}判读</span>}
- {priceAgeLabel && <span className="text-faint/70">· 行情 {priceAgeLabel}</span>}
+ {analyzedAtLabel && <span className="text-faint">· {lang === "en" ? `scored ${enAge(analyzedAtLabel)}` : `${analyzedAtLabel}判读`}</span>}
+ {priceAgeLabel && <span className="text-faint/70">· {lang === "en" ? `quotes ${enAge(priceAgeLabel)}` : `行情 ${priceAgeLabel}`}</span>}
               </>
             ) : (
  <span className="inline-flex items-center gap-1.5 rounded bg-accent-soft text-accent px-2.5 py-1 border border-accent/30">
-                示意数据 · 待接入实时行情
+                {t("示意数据 · 待接入实时行情", "Sample data · live quotes coming soon")}
               </span>
             )}
           </div>
@@ -338,10 +379,10 @@ export default function PulseClient({
  <div className="rounded-xl border border-line bg-surface p-5">
  <div className="flex items-baseline justify-between mb-2">
  <div className="text-xs uppercase tracking-wider text-faint font-mono">
- Market · {LENS_BY_KEY[colorMode]?.label ?? colorMode} 镜头
+ Market · {curLensLabel} {t("镜头", "lens")}
             </div>
  <div className="text-[10px] font-mono text-faint">
- {colorMode === "heat" ? "过热度" : colorMode === "triple" ? "综合" : coveredInView + " 已判读"}
+ {colorMode === "heat" ? t("过热度", "Overheat") : colorMode === "triple" ? t("综合", "Composite") : coveredInView + t(" 已判读", " scored")}
             </div>
           </div>
  <div className="flex items-baseline gap-2">
@@ -351,23 +392,23 @@ export default function PulseClient({
  <span className="text-sm text-muted">/ 100</span>
           </div>
  <div className="mt-1 text-sm font-medium" style={{color: scoreHex(pulse.avgHeat, colorMode)}}>
-            {pulse.band.label}
+            {bandLabel(pulse.band.label, lang)}
           </div>
  <div className="mt-4 grid grid-cols-3 gap-2 text-center">
             <div>
  <div className="text-xl font-semibold text-down tabular-nums">{pulse.hotCount}</div>
  <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">
- {LENS_BY_KEY[colorMode]?.hi ?? "高"}
+ {curLens ? t(curLens.hi, curLens.hiEn) : t("高", "High")}
               </div>
             </div>
             <div>
  <div className="text-xl font-semibold text-ink tabular-nums">{pulse.total}</div>
- <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">总数</div>
+ <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">{t("总数", "Total")}</div>
             </div>
             <div>
  <div className="text-xl font-semibold text-accent tabular-nums">{pulse.coldCount}</div>
  <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">
- {LENS_BY_KEY[colorMode]?.lo ?? "低"}
+ {curLens ? t(curLens.lo, curLens.loEn) : t("低", "Low")}
               </div>
             </div>
           </div>
@@ -389,7 +430,7 @@ export default function PulseClient({
  : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
-                {r.label}
+                {t(r.label, r.labelEn)}
               </button>
             ))}
           </div>
@@ -401,17 +442,17 @@ export default function PulseClient({
             Heat Filter
           </div>
  <div className="flex flex-col gap-1.5">
-            {HEAT_TIERS.map((t) => (
+            {HEAT_TIERS.map((ht) => (
               <button
-                key={t.id}
-                onClick={() => setTier(t.id)}
+                key={ht.id}
+                onClick={() => setTier(ht.id)}
                 className={`text-left px-3 py-1.5 rounded-md text-xs font-medium transition ${
-                  tier === t.id
+                  tier === ht.id
  ? "bg-surface-3 text-white"
  : "bg-surface text-muted hover:bg-surface-2"
                 }`}
               >
-                {t.label}
+                {t(ht.label, ht.labelEn)}
               </button>
             ))}
           </div>
@@ -429,7 +470,7 @@ export default function PulseClient({
  !highlightLayer ? "bg-surface-3 text-white" : "text-muted hover:bg-surface-2"
               }`}
             >
-              全部 {activeLayers.length} 层
+              {t(`全部 ${activeLayers.length} 层`, `All ${activeLayers.length} layers`)}
             </button>
             {activeLayers.map((L) => (
               <button
@@ -458,19 +499,19 @@ export default function PulseClient({
               <button
                 key={l.key}
                 onClick={() => setColorMode(l.key)}
-                title={l.sub}
+                title={t(l.sub, l.subEn)}
                 className={`px-2.5 py-1.5 rounded-md text-xs font-semibold transition ${
                   colorMode === l.key ? "bg-surface text-ink" : "text-muted hover:text-ink"
                 }`}
               >
-                {l.label}
+                {t(l.label, l.labelEn)}
               </button>
             ))}
           </div>
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[10px] font-mono text-faint truncate">{LENS_BY_KEY[colorMode]?.sub}</span>
+            <span className="text-[10px] font-mono text-faint truncate">{curLens ? t(curLens.sub, curLens.subEn) : ""}</span>
             {colorMode !== "heat" && colorMode !== "triple" && (
-              <span className="text-[10px] font-mono text-faint shrink-0">{coveredInView}/{filtered.length} 已判读 · 灰=未判读</span>
+              <span className="text-[10px] font-mono text-faint shrink-0">{coveredInView}/{filtered.length} {t("已判读 · 灰=未判读", "scored · gray = unscored")}</span>
             )}
           </div>
           <ColorScale lens={colorMode} />
@@ -481,7 +522,7 @@ export default function PulseClient({
           edges={activeEdges}
           marketAvg={pulse.avgHeat}
           colorMode={colorMode}
-          lensLabel={LENS_BY_KEY[colorMode]?.label ?? colorMode}
+          lensLabel={curLensLabel}
           onSelect={setSelected}
           onOpen={(c) => router.push(stockHref(c.ticker))}
           selectedId={selected?.id ?? null}
@@ -494,10 +535,10 @@ export default function PulseClient({
  <div className="rounded-xl border border-line bg-surface p-4">
  <div className="flex items-baseline justify-between mb-3">
  <h3 className="text-sm font-semibold text-ink">
- 高分 TOP 8
+ {t("高分 TOP 8", "Top 8")}
               </h3>
  <span className="text-[10px] font-mono text-faint uppercase tracking-wider">
- {LENS_BY_KEY[colorMode]?.label ?? colorMode}
+ {curLensLabel}
               </span>
             </div>
  <div className="space-y-1">
@@ -523,10 +564,10 @@ export default function PulseClient({
  <div className="rounded-xl border border-line bg-surface p-4">
  <div className="flex items-baseline justify-between mb-3">
  <h3 className="text-sm font-semibold text-ink">
- 低分 TOP 6
+ {t("低分 TOP 6", "Bottom 6")}
               </h3>
  <span className="text-[10px] font-mono text-faint uppercase tracking-wider">
- {LENS_BY_KEY[colorMode]?.label ?? colorMode}
+ {curLensLabel}
               </span>
             </div>
  <div className="space-y-1">
@@ -589,6 +630,7 @@ function DetailPanel({
   onSelect: (c: CompanyWithHeat) => void;
   trend: TrendPt[];
 }) {
+  const { t } = useLang();
   // c.layer 可能是 AI 的 L0-L7 或某个 industry 的（如 RM-D / DF-M）— 用宽容 lookup
   const layer = useMemo(() => {
     const allLayers: { id: string; name: string }[] = [
@@ -647,7 +689,7 @@ function DetailPanel({
               {layer.id} · {layer.name} · {c.segment}
             </span>
           </div>
- <Link href={stockHref(c.ticker)} title="打开完整分析" className="group inline-block">
+ <Link href={stockHref(c.ticker)} title={t("打开完整分析", "Open full analysis")} className="group inline-block">
  <h3 className="text-2xl font-semibold tracking-tight text-ink transition group-hover:text-accent">{c.name} <span className="text-base text-faint transition group-hover:text-accent">↗</span></h3>
           </Link>
  <div className="mt-1 flex items-baseline gap-2 flex-wrap">
@@ -685,7 +727,7 @@ function DetailPanel({
         href={stockHref(c.ticker)}
         className="mt-4 flex items-center justify-center gap-1.5 rounded-lg border border-accent/40 bg-accent-soft px-3 py-2 text-[13px] font-semibold text-accent transition hover:brightness-110"
       >
-        完整五方分析 · K线 · 新闻 →
+        {t("完整五方分析 · K线 · 新闻 →", "Full 5-master analysis · Chart · News →")}
       </Link>
 
       {/* Tab 切换器 */}
@@ -697,7 +739,7 @@ function DetailPanel({
           }`}
         >
  <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
-            过热度
+            {t("过热度", "Overheat")}
           </span>
  <span className="flex items-baseline gap-1 mt-0.5">
  <span className="text-xl font-semibold tabular-nums" style={{ color: heatHex(c.heat) }}>
@@ -713,13 +755,13 @@ function DetailPanel({
           }`}
         >
  <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
-            五方判读
+            {t("五方判读", "5-Master Read")}
           </span>
  <span className="flex items-baseline gap-1 mt-0.5">
  <span className="text-xl font-semibold tabular-nums" style={{ color: aiAvg == null ? undefined : scoreColor(aiAvg) }}>
               {aiAvg == null ? "—" : aiAvg}
             </span>
- <span className="text-[10px] text-faint font-mono">{aiAvg == null ? "未判读" : `avg · 分歧 ${masters?.div ?? 0}`}</span>
+ <span className="text-[10px] text-faint font-mono">{aiAvg == null ? t("未判读", "not scored") : t(`avg · 分歧 ${masters?.div ?? 0}`, `avg · spread ${masters?.div ?? 0}`)}</span>
           </span>
         </button>
       </div>
@@ -750,7 +792,7 @@ function DetailPanel({
       {/* BG 判读 */}
  <div className="mt-5 pt-4 border-t border-line">
  <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-2">
-          BG DNA 判读
+          {t("BG DNA 判读", "BG DNA Verdict")}
         </div>
  <p className="text-xs text-muted leading-relaxed">{bgVerdict(c)}</p>
       </div>
@@ -760,6 +802,7 @@ function DetailPanel({
 
 // ---- 30 日趋势 sparkline ----
 function SparklineBlock({ trend, mode }: { trend: TrendPt[]; mode: "heat" | "triple" }) {
+  const { t } = useLang();
  // mode "heat" 显示 price + heat 双线；"triple" 只显示 price（triple 时序还没存）
   const W = 280;
   const H = 56;
@@ -792,7 +835,7 @@ function SparklineBlock({ trend, mode }: { trend: TrendPt[]; mode: "heat" | "tri
  <div className="mt-4 rounded-md bg-surface border border-line px-3 pt-2.5 pb-2">
  <div className="flex items-baseline justify-between mb-1.5">
  <span className="text-[10px] font-mono uppercase tracking-wider text-muted">
-          过去 {trend.length} 日趋势
+          {t(`过去 ${trend.length} 日趋势`, `Last ${trend.length} days`)}
         </span>
         {priceChange != null && (
           <span className={`text-[11px] font-mono tabular-nums font-semibold ${
@@ -822,7 +865,7 @@ function SparklineBlock({ trend, mode }: { trend: TrendPt[]; mode: "heat" | "tri
  <div className="flex items-center justify-between text-[9px] font-mono text-faint mt-0.5">
         <span>{trend[0]?.date.slice(5)}</span>
  <div className="flex items-center gap-3">
- <span className="flex items-center gap-1"><span className="w-3 h-px bg-[#165DFF]" />价格</span>
+ <span className="flex items-center gap-1"><span className="w-3 h-px bg-[#165DFF]" />{t("价格", "Price")}</span>
  {mode === "heat" && heats.length >= 2 && (
  <span className="flex items-center gap-1"><span className="w-3 h-px bg-[#F59E0B] border-dashed" />heat</span>
           )}
@@ -835,6 +878,7 @@ function SparklineBlock({ trend, mode }: { trend: TrendPt[]; mode: "heat" | "tri
 
 // ---- 基本面数据块 ----
 function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
+  const { t } = useLang();
   const f = c.fundamentals;
   if (!f) return null;
 
@@ -855,7 +899,7 @@ function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
   return (
  <div className="mt-5 pt-4 border-t border-line">
  <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-2">
-        Fundamentals · 基本面
+        {t("Fundamentals · 基本面", "Fundamentals")}
       </div>
  <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
  <FundRow label="trail PE" value={fmt(f.trailingPE, "x")} valueColor={peCol(f.trailingPE)} />
@@ -863,13 +907,13 @@ function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
  <FundRow label="P/B" value={fmt(f.priceToBook, "x")} />
  <FundRow label="P/S" value={fmt(f.priceToSales, "x")} />
  <FundRow label="ROE"         value={pct(f.roe, 1)}        valueColor={roeCol(f.roe)} />
- <FundRow label="净利率"      value={pct(f.profitMargin)} />
- <FundRow label="毛利率"      value={pct(f.grossMargin)} />
+ <FundRow label={t("净利率", "Net margin")}      value={pct(f.profitMargin)} />
+ <FundRow label={t("毛利率", "Gross margin")}      value={pct(f.grossMargin)} />
  <FundRow label="FCF margin"  value={pct(f.fcfMargin)} />
- <FundRow label="营收增速"    value={pct(f.revenueGrowth)} valueColor={growthCol(f.revenueGrowth)} />
- <FundRow label="盈利增速"    value={pct(f.earningsGrowth)} valueColor={growthCol(f.earningsGrowth)} />
+ <FundRow label={t("营收增速", "Rev growth")}    value={pct(f.revenueGrowth)} valueColor={growthCol(f.revenueGrowth)} />
+ <FundRow label={t("盈利增速", "EPS growth")}    value={pct(f.earningsGrowth)} valueColor={growthCol(f.earningsGrowth)} />
  <FundRow label="D/E" value={fmt(f.debtToEquity, "", 0)} />
- <FundRow label="股息率"      value={pct(f.dividendYield, 2)} />
+ <FundRow label={t("股息率", "Div yield")}      value={pct(f.dividendYield, 2)} />
       </div>
     </div>
   );
@@ -896,15 +940,16 @@ function UpDownStreamBlock({
  colorMode: string;
   onSelect: (c: CompanyWithHeat) => void;
 }) {
+  const { t } = useLang();
   return (
  <div className="mt-5 pt-4 border-t border-line">
  <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-2.5">
-        产业链 · Supply Chain
+        {t("产业链 · Supply Chain", "Supply Chain")}
       </div>
       {upstream.length > 0 && (
  <div className="mb-3">
  <div className="text-[10px] font-mono text-muted mb-1 flex items-center gap-1.5">
-            <span>↑ 上游</span>
+            <span>↑ {t("上游", "Upstream")}</span>
  <span className="text-faint">{upstream.length}</span>
           </div>
  <div className="space-y-0.5">
@@ -915,7 +960,7 @@ function UpDownStreamBlock({
       {downstream.length > 0 && (
         <div>
  <div className="text-[10px] font-mono text-muted mb-1 flex items-center gap-1.5">
-            <span>↓ 下游</span>
+            <span>↓ {t("下游", "Downstream")}</span>
  <span className="text-faint">{downstream.length}</span>
           </div>
  <div className="space-y-0.5">
@@ -950,33 +995,34 @@ function ChainRow({ c, mode, onClick }: { c: ScoredItem; mode: string; onClick: 
 
 // ---- Heat 视图：大数 + 4 metrics + MOAT ----
 function HeatView({ c }: { c: CompanyWithHeat }) {
+  const { t, lang } = useLang();
   const band = heatBand(c.heat);
   return (
     <div>
  <div className="py-3 border-y border-line">
  <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-1">
-          过热/泡沫度 · 估值 + 离 52 周高点 + RSI + 动量
+          {t("过热/泡沫度 · 估值 + 离 52 周高点 + RSI + 动量", "Overheat / froth · valuation + 52w high + RSI + momentum")}
         </div>
  <div className="flex items-baseline gap-3">
  <span className="text-5xl font-semibold tabular-nums" style={{ color: heatHex(c.heat) }}>
             {c.heat}
           </span>
  <span className="text-sm font-medium" style={{ color: heatHex(c.heat) }}>
-            {band.label}
+            {bandLabel(band.label, lang)}
           </span>
         </div>
       </div>
 
  <div className="mt-4 space-y-3">
- <Metric label="离 52 周高点" value={c.pos52} weight="35%" />
- <Metric label="估值贵 (分位)" value={c.valuationPct} weight="30%" />
+ <Metric label={t("离 52 周高点", "Off 52w high")} value={c.pos52} weight="35%" />
+ <Metric label={t("估值贵 (分位)", "Valuation pctile")} value={c.valuationPct} weight="30%" />
  <Metric label="RSI" value={c.rsi}            weight="20%" />
- <Metric label="60D 动量" value={c.momentum20d}  weight="15%" />
+ <Metric label={t("60D 动量", "60D momentum")} value={c.momentum20d}  weight="15%" />
       </div>
 
  <div className="mt-5 pt-4 border-t border-line">
  <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-1.5">
-          Moat · 护城河
+          {t("Moat · 护城河", "Moat")}
         </div>
  <div className="flex gap-1">
           {[1, 2, 3, 4, 5].map((i) => (
@@ -993,35 +1039,41 @@ function HeatView({ c }: { c: CompanyWithHeat }) {
 
 // ---- AI 五方判读(真分,来自 pulse-scores,和镜头/详情页同源)----
 function MasterAIView({ masters, ticker }: { masters?: MastersJoin; ticker: string }) {
+  const { t, lang } = useLang();
   const has = !!masters && Object.values(masters.byKey).some((v) => v != null);
   return (
     <div>
       {!has ? (
-        <p className="text-xs text-muted">这只票还没有 AI 五方判读。</p>
+        <p className="text-xs text-muted">{t("这只票还没有 AI 五方判读。", "No 5-master AI read on this name yet.")}</p>
       ) : (
         <>
           <div className="grid grid-cols-2 gap-2">
             <div className="rounded-md bg-surface px-3 py-2">
-              <div className="text-[9px] font-mono uppercase tracking-wider text-muted">分歧度</div>
+              <div className="text-[9px] font-mono uppercase tracking-wider text-muted">{t("分歧度", "Divergence")}</div>
               <div className="flex items-baseline gap-1.5">
                 <span className="text-2xl font-semibold tabular-nums text-ink">{masters!.div}</span>
-                <span className="text-[10px] text-faint">越大越撕裂</span>
+                <span className="text-[10px] text-faint">{t("越大越撕裂", "higher = more split")}</span>
               </div>
             </div>
             <div className="rounded-md bg-surface px-3 py-2">
-              <div className="text-[9px] font-mono uppercase tracking-wider text-muted">五方</div>
-              <div className="mt-1 text-[10px] leading-tight text-muted">独立判读 · 不取平均掩盖分歧</div>
+              <div className="text-[9px] font-mono uppercase tracking-wider text-muted">{t("五方", "Five masters")}</div>
+              <div className="mt-1 text-[10px] leading-tight text-muted">{t("独立判读 · 不取平均掩盖分歧", "Independent reads · no averaging away the split")}</div>
             </div>
           </div>
           <div className="mt-4 space-y-2">
             {MASTERS.map((m) => (
-              <MasterBar key={m.key} name={m.name} school={m.school} score={masters!.byKey[m.key] ?? null} />
+              <MasterBar
+                key={m.key}
+                name={lang === "en" ? MASTER_EN[m.key]?.name ?? m.name : m.name}
+                school={lang === "en" ? MASTER_EN[m.key]?.school ?? m.school : m.school}
+                score={masters!.byKey[m.key] ?? null}
+              />
             ))}
           </div>
         </>
       )}
       <Link href={stockHref(ticker)} className="mt-4 inline-block text-xs text-accent hover:underline">
-        看完整五方分析 →
+        {t("看完整五方分析 →", "See the full 5-master analysis →")}
       </Link>
     </div>
   );
@@ -1067,13 +1119,14 @@ function Metric({ label, value, weight }: { label: string; value: number | null 
 }
 
 function EmptyHint() {
+  const { t } = useLang();
   return (
  <div className="rounded-xl border border-dashed border-line-2 bg-surface p-8 text-center sticky top-6">
- <div className="text-sm text-muted font-medium mb-2">悬停或点击粒子</div>
+ <div className="text-sm text-muted font-medium mb-2">{t("悬停或点击粒子", "Hover or click a particle")}</div>
  <p className="text-xs text-muted leading-relaxed">
-        每个粒子的尺寸 = 市值 log<br/>
-        颜色 = 当前镜头的真实评分<br/>
-        灰 = 该镜头下还没判读
+        {t("每个粒子的尺寸 = 市值 log", "Particle size = log market cap")}<br/>
+        {t("颜色 = 当前镜头的真实评分", "Color = real score under the current lens")}<br/>
+        {t("灰 = 该镜头下还没判读", "Gray = not scored under this lens yet")}
       </p>
     </div>
   );
@@ -1125,6 +1178,7 @@ function scoreHex(score: number, lens: string): string {
 
 // ---- 色阶条（颜色 legend）----
 function ColorScale({ lens }: { lens: string }) {
+  const { t } = useLang();
   // 用 25 个采样点画 CSS 渐变（足够平滑）
   const stops = Array.from({ length: 25 }, (_, i) => {
     const v = (i / 24) * 100;
@@ -1134,26 +1188,26 @@ function ColorScale({ lens }: { lens: string }) {
 
  const ticks = lens === "divergence"
     ? [
- { v: 0,   label: "共识", color: "#3F1A8C" },
- { v: 40,  label: "分歧", color: "#1A8E72" },
- { v: 70,  label: "撕裂", color: "#DC4914" },
- { v: 100, label: "极撕裂", color: "#C4126B" },
+ { v: 0,   label: t("共识", "Consensus"), color: "#3F1A8C" },
+ { v: 40,  label: t("分歧", "Mixed"), color: "#1A8E72" },
+ { v: 70,  label: t("撕裂", "Split"), color: "#DC4914" },
+ { v: 100, label: t("极撕裂", "Torn"), color: "#C4126B" },
       ]
     : lensRampOf(lens) === "heat"
     ? [
- { v: 0,   label: "深价值", color: "#3F1A8C" },
- { v: 30,  label: "偏冷", color: "#1E5BCC" },
- { v: 50,  label: "中性", color: "#1A8E72" },
- { v: 70,  label: "合理", color: "#A6A828" },
- { v: 85,  label: "偏热", color: "#DC4914" },
- { v: 100, label: "过热警告", color: "#C4126B" },
+ { v: 0,   label: t("深价值", "Deep value"), color: "#3F1A8C" },
+ { v: 30,  label: t("偏冷", "Cool"), color: "#1E5BCC" },
+ { v: 50,  label: t("中性", "Neutral"), color: "#1A8E72" },
+ { v: 70,  label: t("合理", "Fair"), color: "#A6A828" },
+ { v: 85,  label: t("偏热", "Hot"), color: "#DC4914" },
+ { v: 100, label: t("过热警告", "Bubble"), color: "#C4126B" },
       ]
     : [
- { v: 0,   label: "回避", color: "#D11E2C" },
- { v: 30,  label: "偏空", color: "#E16C1C" },
- { v: 55,  label: "中性", color: "#3B82B8" },
- { v: 75,  label: "看多", color: "#1B8964" },
- { v: 100, label: "高信念", color: "#0D8C76" },
+ { v: 0,   label: t("回避", "Avoid"), color: "#D11E2C" },
+ { v: 30,  label: t("偏空", "Bearish"), color: "#E16C1C" },
+ { v: 55,  label: t("中性", "Neutral"), color: "#3B82B8" },
+ { v: 75,  label: t("看多", "Bullish"), color: "#1B8964" },
+ { v: 100, label: t("高信念", "Conviction"), color: "#0D8C76" },
       ];
 
   return (

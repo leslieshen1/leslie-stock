@@ -7,6 +7,7 @@ import {
   type Investor, type Holding, type InvestorType,
   CHANGE_META, TYPE_META,
 } from "@/lib/whales-types";
+import { useLang } from "@/lib/i18n";
 
 type Filter = "all" | InvestorType;
 
@@ -21,6 +22,7 @@ type Con = {
 };
 
 export default function WhalesClient({ investors }: { investors: Investor[] }) {
+ const { t, lang } = useLang();
  const [filter, setFilter] = useState<Filter>("all");
 
   const filtered = useMemo(
@@ -78,11 +80,14 @@ export default function WhalesClient({ investors }: { investors: Investor[] }) {
       <header>
  <div className="flex items-center gap-2.5">
  <Waves className="h-5 w-5 text-accent" strokeWidth={1.75} />
- <h1 className="text-[22px] font-semibold tracking-tight text-ink">聪明钱</h1>
- <span className="text-sm text-faint">Smart Money · {investors[0]?.latest_period || ""}</span>
+ <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("聪明钱", "Smart Money")}</h1>
+ <span className="text-sm text-faint">{lang === "en" ? (investors[0]?.latest_period || "") : `Smart Money · ${investors[0]?.latest_period || ""}`}</span>
         </div>
  <p className="mt-1.5 text-sm text-muted">
-          看仓位占比与变动,不只看谁持有 —— 重仓、试探、派发,是完全不同的信号。
+          {t(
+            "看仓位占比与变动,不只看谁持有 —— 重仓、试探、派发,是完全不同的信号。",
+            "Watch position size and changes, not just who holds it — a core position, a starter stake and a distribution are very different signals.",
+          )}
         </p>
       </header>
 

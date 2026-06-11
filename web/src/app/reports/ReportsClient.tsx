@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { marked } from "marked";
+import { useLang } from "@/lib/i18n";
 
 export type Report = {
   id: string;
@@ -35,11 +36,12 @@ const PROSE =
   "[&_a]:text-accent [&_hr]:my-4 [&_hr]:border-line";
 
 type Filter = "all" | "premarket" | "intraday" | "close";
-const TABS: [Filter, string][] = [
-  ["all", "全部"], ["premarket", "盘前"], ["intraday", "盘中"], ["close", "收盘"],
+const TABS: [Filter, string, string][] = [
+  ["all", "全部", "All"], ["premarket", "盘前", "Pre-market"], ["intraday", "盘中", "Intraday"], ["close", "收盘", "Close"],
 ];
 
 export default function ReportsClient({ reports }: { reports: Report[] }) {
+  const { t } = useLang();
   const [filter, setFilter] = useState<Filter>("all");
   // 默认展开当前列表的第一篇(最新);显式点过的以 overrides 为准
   const [overrides, setOverrides] = useState<Record<string, boolean>>({});
@@ -50,13 +52,13 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
   );
 
   if (!reports.length) {
-    return <p className="text-sm text-faint">还没有报告。盘前 / 盘中 / 收盘各跑一次就会出现在这里。</p>;
+    return <p className="text-sm text-faint">{t("还没有报告。盘前 / 盘中 / 收盘各跑一次就会出现在这里。", "No reports yet. Once the pre-market, intraday and close runs go out, they'll show up here.")}</p>;
   }
 
   return (
     <>
       <div className="mb-5 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
-        {TABS.map(([k, label]) => (
+        {TABS.map(([k, zhLabel, enLabel]) => (
           <button
             key={k}
             onClick={() => setFilter(k)}
@@ -64,7 +66,7 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
               filter === k ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
             }`}
           >
-            {label}
+            {t(zhLabel, enLabel)}
           </button>
         ))}
       </div>
@@ -99,7 +101,7 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
             </article>
           );
         })}
-        {!filtered.length && <p className="py-8 text-center text-sm text-faint">这个类型还没有报告。</p>}
+        {!filtered.length && <p className="py-8 text-center text-sm text-faint">{t("这个类型还没有报告。", "No reports of this type yet.")}</p>}
       </div>
     </>
   );

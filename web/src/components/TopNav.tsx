@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SearchBox from "./SearchBox";
 import MarketStatus from "./MarketStatus";
+import { useLang, LangToggle } from "@/lib/i18n";
 
 interface NavItem {
   href: string;
@@ -24,6 +25,7 @@ const NAV: NavItem[] = [
 
 export default function TopNav() {
   const pathname = usePathname();
+  const { lang, t } = useLang();
 
   return (
  <header className="sticky top-0 z-40 border-b border-line bg-base/85 backdrop-blur-md">
@@ -56,8 +58,7 @@ export default function TopNav() {
                   active ? "text-ink" : "text-muted hover:text-ink"
                 }`}
               >
- <span className="hidden md:inline">{item.en}</span>
- <span className="md:hidden">{item.label}</span>
+ <span>{lang === "zh" ? item.label : item.en}</span>
                 <span
                   className={`pointer-events-none absolute inset-x-2 -bottom-[1px] h-[2px] rounded-full transition-all duration-300 sm:inset-x-3 ${
  active ? "bg-accent opacity-100" : "bg-accent opacity-0"
@@ -70,13 +71,16 @@ export default function TopNav() {
 
         {/* 搜索框 */}
  <div className="hidden lg:block w-[260px] shrink-0">
- <SearchBox compact placeholder="搜代码 / 名称 / 板块…" />
+ <SearchBox compact placeholder={t("搜代码 / 名称 / 板块…", "Search ticker / name / sector…")} />
         </div>
 
         {/* 盘口状态 — 休市时让用户知道价格"不跳"是正常;手机太挤,藏(sm 起显示)*/}
         <div className="ml-auto hidden shrink-0 sm:ml-0 sm:block">
           <MarketStatus />
         </div>
+
+        {/* 语言切换 */}
+        <LangToggle />
 
         {/* Buy — 赤陶渐变小 CTA */}
         <Link

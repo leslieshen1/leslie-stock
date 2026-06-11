@@ -4,6 +4,7 @@ import ReportsClient, { type Report } from "./ReportsClient";
 import MarketCalendar, { type CalEvent } from "./MarketCalendar";
 import TodayEventsSection from "./TodayEventsSection";
 import { loadTodayEvents } from "@/lib/today-events";
+import { T } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -26,8 +27,8 @@ export default async function ReportsPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 pb-10 pt-3">
       <header className="mb-3 flex flex-wrap items-baseline gap-x-3">
-        <h1 className="text-[22px] font-semibold tracking-tight text-ink">盘报</h1>
-        <p className="text-xs text-faint">市场日历 · 今日大事 · 盘前/收盘总结 · 非投资建议</p>
+        <h1 className="text-[22px] font-semibold tracking-tight text-ink"><T zh="盘报" en="Reports" /></h1>
+        <p className="text-xs text-faint"><T zh="市场日历 · 今日大事 · 盘前/收盘总结 · 非投资建议" en="Calendar · Today's Events · Pre-market & Close Notes · Not Financial Advice" /></p>
       </header>
       {/* 1/ 市场日历(未来 10 天盯什么) */}
       <MarketCalendar events={events} />

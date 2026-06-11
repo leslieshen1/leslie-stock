@@ -94,7 +94,7 @@ def fetch_ipos(date: str):
     return rows, mega
 
 
-def fetch(date: str):
+def fetch(date: str, extra_macro: list | None = None):
     eco = requests.get("https://finnhub.io/api/v1/calendar/economic", params={"token": FINN}, timeout=25).json()
     macro, seen = [], set()
     for e in eco.get("economicCalendar") or []:
@@ -120,6 +120,14 @@ def fetch(date: str):
         seen.add(k)
         macro.append({"t": f"{dt:%H:%M}", "hi": imp == "high", "name": nm,
                       "est": fnum(e.get("estimate")), "prev": fnum(e.get("prev"))})
+    # 手动注入(Finnhub econ 日历 2026-06-11 起免费档 403;--macro-json 兜底,行格式同上)
+    for m in (extra_macro or []):
+        k = f"{m.get('t','')}|{m.get('name','')}"
+        if k in seen:
+            continue
+        seen.add(k)
+        macro.append({"t": m.get("t", ""), "hi": bool(m.get("hi")), "name": m.get("name", ""),
+                      "est": str(m.get("est", "") or ""), "prev": str(m.get("prev", "") or "")})
     macro.sort(key=lambda m: (m["t"], not m["hi"]))
 
     us = {}
@@ -135,14 +143,17 @@ def fetch(date: str):
     def grp(hours, cap):
         g = [e for e in ears if (e.get("hour") or "") in hours]
         g.sort(key=lambda e: -(us.get(e.get("symbol"), (None, 0))[1] or 0))
-        main, small = [], []
+        main, small, used = [], [], set()
         for e in g:
             sym = e.get("symbol") or ""
+            if not sym or sym in used:
+                continue  # Finnhub 同一 sym 偶发多行(PPIH 2026-06-11 踩过)
+            used.add(sym)
             nm, mc = us.get(sym, (None, None))
             if len(main) < cap and (mc or 0) >= 0.5:
                 main.append({"sym": sym, "name": (nm or "")[:30], "mc": mc,
                              "eps": e.get("epsEstimate") if isinstance(e.get("epsEstimate"), (int, float)) else None})
-            elif sym:
+            else:
                 small.append(sym)
         return main, small[:8]
 
@@ -276,12 +287,14 @@ def build_html(date: str, macro, ipos, bmo, sb, amc, sa, focus) -> str:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default="")
+    ap.add_argument("--macro-json", default="", help="宏观行手动注入(JSON 数组,行格式 {t,hi,name,est,prev});econ 端点 403 时的兜底")
     args = ap.parse_args()
     if not FINN:
         sys.exit("缺 FINNHUB_KEY")
     date = args.date or datetime.now(ET).strftime("%Y-%m-%d")
+    extra = json.loads(Path(args.macro_json).read_text(encoding="utf-8")) if args.macro_json else None
     print(f"① 抓数 + 降噪({date})…")
-    macro, ipos, bmo, sb, amc, sa, focus = fetch(date)
+    macro, ipos, bmo, sb, amc, sa, focus = fetch(date, extra)
     print(f"   宏观 {len(macro)} 行 · IPO {len(ipos)} · 盘前 {len(bmo)}+{len(sb)} · 盘后 {len(amc)}+{len(sa)} · Focus: {focus}")
     html = build_html(date, macro, ipos, bmo, sb, amc, sa, focus)
     tmp = Path("/tmp/big_events.html")

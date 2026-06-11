@@ -1,0 +1,7 @@
+[
+  {"t": "08:30", "hi": true,  "name": "PPI MoM",                "est": "", "prev": ""},
+  {"t": "08:30", "hi": true,  "name": "Core PPI MoM",           "est": "", "prev": ""},
+  {"t": "08:30", "hi": false, "name": "PPI YoY",                "est": "", "prev": ""},
+  {"t": "08:30", "hi": false, "name": "Initial Jobless Claims", "est": "", "prev": ""},
+  {"t": "13:00", "hi": false, "name": "30-Year Bond Auction",   "est": "", "prev": ""}
+]

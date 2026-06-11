@@ -1,13 +1,13 @@
 {
-  "headline": "PPI hit the tape. The bounce got cut in half.",
+  "headline": "PPI ran hot at 6.5%. The tape only blinked.",
   "panels": [
     {"icon": "chip", "title": "Rebound, trimmed", "items": [["MRVL", "+3.06%"], ["MU", "+1.41%"], ["TSM", "+1.23%"]]},
     {"icon": "clock", "title": "Still bleeding", "items": [["ORCL", "-10.07%"], ["AAOI", "-2.87%"], ["SMCI", "-1.02%"]]},
     {"icon": "bolt", "title": "Megacaps faded", "items": [["META", "-0.39%"], ["MSFT", "-0.33%"], ["GOOGL", "-0.30%"]]}
   ],
   "footer": [
-    {"when": "Out:", "name": "PPI + claims", "dim": "tape cut the bounce in half"},
-    {"when": "Tonight:", "name": "ADBE earnings", "dim": "first AI-software print after ORCL"},
-    {"when": "Friday:", "name": "SpaceX IPO", "dim": "$135 · biggest raise ever"}
+    {"when": "Out:", "name": "PPI 6.5%", "dim": "vs 6.0 prior"},
+    {"when": "Tonight:", "name": "ADBE earnings"},
+    {"when": "Fri:", "name": "SpaceX IPO", "dim": "$135"}
   ]
 }

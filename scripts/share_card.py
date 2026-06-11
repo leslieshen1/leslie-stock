@@ -421,14 +421,17 @@ def build_html(ctx: dict) -> str:
          display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(15,23,42,0.08); flex:none; }}
   .lg img {{ width:100%; height:100%; object-fit:cover; }}
   .lt {{ font-size:12px; font-weight:800; color:{BLUE}; background:{BLUE}10; }}
-  .next {{ position:absolute; left:64px; bottom:48px; width:944px; padding:18px 26px;
+  .next {{ position:absolute; left:64px; bottom:48px; width:1040px; padding:18px 26px;
            background:linear-gradient(180deg,#FFFFFF,#FBFCFE); border-radius:20px; border:1px solid rgba(15,23,42,0.05);
            box-shadow:0 2px 3px rgba(15,23,42,.04), 0 18px 38px rgba(15,23,42,.08);
            display:flex; align-items:center; gap:22px; }}
   .next .ni {{ width:40px; height:40px; border-radius:50%; background:{BLUE}12; display:flex; align-items:center; justify-content:center; flex:none; }}
   .next .ni svg {{ width:21px; height:21px; }}
   .next .lab {{ font-size:22px; font-weight:800; white-space:nowrap; }}
-  .nx {{ font-size:20px; color:#3B4456; line-height:1.3; }}
+  /* footer 永不折行:dim 文案过长曾把条目挤成 3-4 行、向上堆进面板区(6/11 踩过)。
+     单行 + 溢出裁切;内容纪律:spec 的 footer dim ≤ ~30 字符 */
+  .nx {{ font-size:20px; color:#3B4456; line-height:1.3; white-space:nowrap; }}
+  .next {{ flex-wrap:nowrap; overflow:hidden; }}
   .nx + .nx {{ border-left:1px solid #E8EDF4; padding-left:22px; margin-left:2px; }}
   .nx-w {{ color:{BLUE}; }}
   .aime-glow {{ position:absolute; right:8px; bottom:64px; width:520px; height:520px; border-radius:50%;

@@ -94,6 +94,37 @@ def parse_orders(text: str) -> dict | None:
         return None
 
 
+NASDAQ_HDRS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
+
+
+def live_quote(sym: str, etf: bool = False) -> dict | None:
+    """单票实时盘口:盘前/盘中 % + 最新价 + 时段标签(失败返回 None,不阻塞决策)。"""
+    try:
+        d = requests.get(f"https://api.nasdaq.com/api/quote/{sym}/info",
+                         params={"assetclass": "etf" if etf else "stocks"},
+                         headers=NASDAQ_HDRS, timeout=10).json()["data"]
+        pri = d.get("primaryData") or {}
+        pct = str(pri.get("percentageChange") or "").replace("%", "")
+        px = str(pri.get("lastSalePrice") or "").replace("$", "").replace(",", "")
+        status = str(d.get("marketStatus") or "")
+        if pct in ("", "N/A", "--"):
+            return None
+        return {"pct": pct, "px": px, "status": status}
+    except Exception:
+        return None
+
+
+def live_tape() -> str:
+    """开盘前盘口一行:四指数 ETF 代理的盘前/实时变动 + 抓取时刻(ET)。"""
+    bits = []
+    for sym, label in [("QQQ", "纳指"), ("SPY", "标普"), ("DIA", "道指"), ("IWM", "罗素")]:
+        q = live_quote(sym, etf=True)
+        if q:
+            bits.append(f"{label} {q['pct']}%")
+    now_et = datetime.now(ET).strftime("%H:%M ET")
+    return f"({now_et} 实时)" + " · ".join(bits) if bits else "(盘前行情暂不可得)"
+
+
 def market_context() -> str:
     """最新两篇盘报(tone + 正文截断)+ 今日前瞻 → 市场背景块。"""
     parts = []
@@ -118,13 +149,18 @@ def market_context() -> str:
 
 
 def build_prompt(mk: str, name: str, persona: str, ctx: str, date: str,
-                 cash: float, nav: float, pos_lines: list[str], cand_lines: list[str]) -> str:
+                 cash: float, nav: float, pos_lines: list[str], cand_lines: list[str],
+                 tape: str = "") -> str:
     r = RULES[mk]
     stop_line = f"- 机械止损 {r['stop']}% 由引擎自动执行,不归你管,你也无权取消\n" if r["stop"] else ""
     return f"""你是{name},在进行一场公开的虚拟实盘对决(起步 $1,000,000)。你的投资哲学:
 {persona}
 
 今天是 {date}(美东),开盘前。你的账户:NAV ${nav:,.0f},现金 ${cash:,.0f}。
+
+【此刻盘前实时盘口】
+{tape}
+(持仓与候选行里的「盘前±x%」也是此刻实时数;若今晨有宏观数据公布,盘前价格的反应就是最诚实的解读)
 
 【市场背景(来自每日盘报)】
 {ctx}
@@ -148,6 +184,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true", help="已有当日单也重新决策(覆盖 pending)")
     ap.add_argument("--only", default="", help="只跑某位股神(调试)")
+    ap.add_argument("--dry", action="store_true", help="只打印决策,不写 arena_orders(试跑)")
     args = ap.parse_args()
     if not NDT_KEY:
         sys.exit("缺 NDT_API_KEY(.env)")
@@ -160,6 +197,17 @@ def main():
 
     masters = {m["key"]: m for m in json.loads((ROOT / "data/masters.json").read_text(encoding="utf-8"))["masters"]}
     ctx = market_context()
+    tape = live_tape()
+    print(f"盘口 {tape}")
+    live_cache: dict[str, dict | None] = {}
+
+    def lq(sym: str) -> str:
+        """盘前实时片段(带缓存;失败给空串,绝不阻塞)。"""
+        if sym not in live_cache:
+            live_cache[sym] = live_quote(sym)
+            time.sleep(0.12)
+        q = live_cache[sym]
+        return f" 盘前{q['pct']}%" if q else ""
     uni: dict[str, dict] = {}
     for sym, name_, price, pct, data in cx.execute(
             "SELECT m.sym, m.name, m.price, m.pct, a.data FROM us_market m "
@@ -175,10 +223,10 @@ def main():
             continue
         name = masters[mk]["name"]
         had = cx.execute("SELECT COUNT(*) FROM arena_orders WHERE master=? AND fill_date=?", (mk, fill_date)).fetchone()[0]
-        if had and not args.force:
+        if had and not args.force and not args.dry:
             print(f"· {name} {fill_date} 已有 {had} 单,跳过")
             continue
-        if had:
+        if had and args.force and not args.dry:
             cx.execute("DELETE FROM arena_orders WHERE master=? AND fill_date=? AND status='pending'", (mk, fill_date))
 
         cash = (cx.execute("SELECT cash FROM arena_state WHERE master=?", (mk,)).fetchone() or [1_000_000])[0]
@@ -189,8 +237,8 @@ def main():
             px = u["price"] if u else ep
             jd = str((u["panel"].get(mk) or {}).get("judgment") or "")[:55] if u else ""
             pos[sym] = sh
-            pos_lines.append(f"- {sym} {u['name'][:18] if u else sym} {sh}股 成本${ep:.2f} 现价${px:.2f} "
-                             f"盈亏{(px/ep-1)*100:+.1f}%(你当时的判词:{jd})")
+            pos_lines.append(f"- {sym} {u['name'][:18] if u else sym} {sh}股 成本${ep:.2f} 昨收${px:.2f} "
+                             f"盈亏{(px/ep-1)*100:+.1f}%{lq(sym)}(你当时的判词:{jd})")
         nav = cash + sum(sh * (uni.get(s, {}).get("price") or 0) for s, sh in pos.items())
 
         cands = []
@@ -205,10 +253,10 @@ def main():
             if sc >= rule["min_score"]:
                 cands.append((sc, sym, u, str(v.get("judgment") or "")[:55]))
         cands.sort(key=lambda x: (-x[0], x[1]))
-        cand_lines = [f"- {sym} {u['name'][:18]} ${u['price']:.2f} 昨日{u['pct']:+.1f}% 你的评分{sc:.0f}(判词:{jd})"
+        cand_lines = [f"- {sym} {u['name'][:18]} 昨收${u['price']:.2f} 昨日{u['pct']:+.1f}%{lq(sym)} 你的评分{sc:.0f}(判词:{jd})"
                       for sc, sym, u, jd in cands[:15]]
 
-        prompt = build_prompt(mk, name, masters[mk]["prompt"], ctx, fill_date, cash, nav, pos_lines, cand_lines)
+        prompt = build_prompt(mk, name, masters[mk]["prompt"], ctx, fill_date, cash, nav, pos_lines, cand_lines, tape=tape)
         print(f"▶ {name}(prompt {len(prompt)} 字)…")
         try:
             text = ndt(prompt)
@@ -234,8 +282,9 @@ def main():
             if action == "SELL" and sym not in pos:
                 print(f"   ⚠ SELL 未持有 {sym},丢弃")
                 continue
-            cx.execute("INSERT INTO arena_orders(fill_date,master,action,sym,reason) VALUES(?,?,?,?,?)",
-                       (fill_date, mk, action, sym if action != "HOLD" else "", reason))
+            if not args.dry:
+                cx.execute("INSERT INTO arena_orders(fill_date,master,action,sym,reason) VALUES(?,?,?,?,?)",
+                           (fill_date, mk, action, sym if action != "HOLD" else "", reason))
             n_ok += 1
         note = str(j.get("note", ""))[:200]
         print(f"   ✓ {n_ok} 单入册 · 总评: {note[:60]}")

@@ -166,6 +166,10 @@ def main():
                ON CONFLICT(sym) DO UPDATE SET name=excluded.name,price=excluded.price,
                pct=excluded.pct,ret1y=excluded.ret1y""",
             [(e["sym"], e["name"], e["price"], e["pct"], e["ret1y"]) for e in etfs])
+        # 出榜/退市的清掉,不让旧 price/pct 永久滞留 /scan;universe 异常小则跳过防误删
+        if len(etfs) > 4000:
+            c.execute(f"DELETE FROM us_etfs WHERE sym NOT IN ({','.join('?' * len(etfs))})",
+                      [e["sym"] for e in etfs])
         c.execute("INSERT INTO meta(key,value) VALUES('us_etfs_generated_at',?) "
                   "ON CONFLICT(key) DO UPDATE SET value=excluded.value", (gen,))
         c.commit()

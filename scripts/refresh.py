@@ -57,6 +57,9 @@ def main():
         print("\n--- 追加今日价 → price_history(自攒历史) ---")
         run([sys.executable, "scripts/append_daily_prices.py"])
 
+    print("\n--- 五神对决:按最新收盘跑每日交易(arena_engine,幂等)---")
+    run([sys.executable, "scripts/arena_engine.py"])
+
     print("\n=== 2) 从 leslie.db 派生全部前端 JSON ===")
     run([sys.executable, "scripts/build_json.py"])
 

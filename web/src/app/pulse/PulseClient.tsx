@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import PulseField from "./PulseField";
 import {
   LAYERS,
@@ -21,6 +22,11 @@ import {
   remapItemsForIndustry,
 } from "@/lib/industry-chains";
 import { MASTERS } from "@/lib/masters";
+
+// 个股分析页链接:6 位纯数字 = A 股,其余按美股(热力图里两类都有)
+function stockHref(ticker: string): string {
+  return `/stock/${ticker}?market=${/^\d{6}$/.test(ticker) ? "a" : "us"}`;
+}
 
 // ===== 镜头注册表:热度 + 综合 + 5 位大师(masters.ts) + 分歧 =====
 type LensMeta = { key: string; label: string; sub: string; ramp: "heat" | "triple"; hi: string; lo: string };
@@ -115,6 +121,7 @@ export default function PulseClient({
   chainIndustries?: ChainDef[];
   chainPlacement?: Record<string, Record<string, string>>;
 }) {
+  const router = useRouter();
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
  const [industry, setIndustry] = useState<string>(initialIndustry ?? "AI");
  const [region, setRegion] = useState<Region | "ALL">("US");
@@ -476,6 +483,7 @@ export default function PulseClient({
           colorMode={colorMode}
           lensLabel={LENS_BY_KEY[colorMode]?.label ?? colorMode}
           onSelect={setSelected}
+          onOpen={(c) => router.push(stockHref(c.ticker))}
           selectedId={selected?.id ?? null}
           highlightLayer={highlightLayer}
           layers={activeLayers}
@@ -639,7 +647,9 @@ function DetailPanel({
               {layer.id} · {layer.name} · {c.segment}
             </span>
           </div>
- <h3 className="text-2xl font-semibold tracking-tight text-ink">{c.name}</h3>
+ <Link href={stockHref(c.ticker)} title="打开完整分析" className="group inline-block">
+ <h3 className="text-2xl font-semibold tracking-tight text-ink transition group-hover:text-accent">{c.name} <span className="text-base text-faint transition group-hover:text-accent">↗</span></h3>
+          </Link>
  <div className="mt-1 flex items-baseline gap-2 flex-wrap">
  <span className="font-mono text-sm font-semibold text-muted">{c.ticker}</span>
  <span className="text-xs text-muted">{c.region}</span>
@@ -669,6 +679,14 @@ function DetailPanel({
           )}
         </div>
       </div>
+
+      {/* 完整分析入口 —— 热力图唯一的深链,必须显眼(选中即见,不藏在 tab 里) */}
+      <Link
+        href={stockHref(c.ticker)}
+        className="mt-4 flex items-center justify-center gap-1.5 rounded-lg border border-accent/40 bg-accent-soft px-3 py-2 text-[13px] font-semibold text-accent transition hover:brightness-110"
+      >
+        完整五方分析 · K线 · 新闻 →
+      </Link>
 
       {/* Tab 切换器 */}
  <div className="mt-5 grid grid-cols-2 gap-1 p-1 rounded-lg bg-surface-2">
@@ -1002,7 +1020,7 @@ function MasterAIView({ masters, ticker }: { masters?: MastersJoin; ticker: stri
           </div>
         </>
       )}
-      <Link href={`/stock/${ticker}?market=us`} className="mt-4 inline-block text-xs text-accent hover:underline">
+      <Link href={stockHref(ticker)} className="mt-4 inline-block text-xs text-accent hover:underline">
         看完整五方分析 →
       </Link>
     </div>

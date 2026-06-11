@@ -37,6 +37,8 @@ interface Props {
   marketAvg: number;            // mode 对应的全局平均
   colorMode: ColorMode;
   onSelect: (c: CompanyWithHeat | null) => void;
+  /** 双击方块 → 直接打开个股完整分析页 */
+  onOpen?: (c: CompanyWithHeat) => void;
   selectedId: string | null;
   highlightLayer: string | null;
   /** 当前 industry 的 layers（不传 = 用默认 AI L0-L7）。layer.id 必须和 item.layer 对得上。 */
@@ -108,7 +110,7 @@ function tripleColor(score: number, alpha: number): string {
 
 export default function PulseField({
   items, edges, marketAvg, colorMode,
-  onSelect, selectedId, highlightLayer,
+  onSelect, onOpen, selectedId, highlightLayer,
   layers, lensLabel = "热度",
 }: Props) {
   // 当前 industry 的 layers（不传 = AI 默认）
@@ -238,9 +240,11 @@ export default function PulseField({
     }
     function onLeave() { mouseRef.current = null; hoverRef.current = null; }
     function onClick() { onSelect(hoverRef.current ? hoverRef.current.data : null); }
+    function onDblClick() { if (hoverRef.current && onOpen) onOpen(hoverRef.current.data); }
  canvas.addEventListener("mousemove", onMove);
  canvas.addEventListener("mouseleave", onLeave);
  canvas.addEventListener("click", onClick);
+ canvas.addEventListener("dblclick", onDblClick);
 
     // 光晕 sprite 缓存:每种颜色的 radial 渐变只离屏画一次,逐帧用 drawImage 贴(GPU 合成)。
     // 之前是每粒子每帧 createRadialGradient —— 1461 粒 × 60fps ≈ 每秒 9 万次渐变分配,页面发卡的元凶。
@@ -545,11 +549,12 @@ export default function PulseField({
  canvas.removeEventListener("mousemove", onMove);
  canvas.removeEventListener("mouseleave", onLeave);
  canvas.removeEventListener("click", onClick);
+ canvas.removeEventListener("dblclick", onDblClick);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
  if (wrap) wrap.style.transform = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items, edges, marketAvg, onSelect]);
+  }, [items, edges, marketAvg, onSelect, onOpen]);
 
   return (
     <div

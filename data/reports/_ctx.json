@@ -1,0 +1,577 @@
+{
+ "asof_et": "2026-06-10 08:30 ET Wed",
+ "direction": {
+  "标普500": {
+   "pm_pct": "-0.74%",
+   "yesterday_pct": "-0.92%"
+  },
+  "纳指100": {
+   "pm_pct": "-1.21%",
+   "yesterday_pct": "-1.15%"
+  },
+  "道指": {
+   "pm_pct": "-0.44%",
+   "yesterday_pct": "+0.10%"
+  },
+  "罗素2000": {
+   "pm_pct": "+0.25%",
+   "yesterday_pct": "+0.32%"
+  }
+ },
+ "market_status": "Pre-Market",
+ "premarket_gainers": [
+  {
+   "sym": "AAOI",
+   "name": "Applied Optoelectronics Inc.",
+   "pm_price": "$172.71",
+   "pm_pct": "+6.04%",
+   "yesterday_pct": "-17.17%",
+   "yesterday_close": "$162.88"
+  },
+  {
+   "sym": "XOM",
+   "name": "Exxon Mobil Corporation",
+   "pm_price": "$150.44",
+   "pm_pct": "+1.03%",
+   "yesterday_pct": "-1.87%",
+   "yesterday_close": "$148.91"
+  },
+  {
+   "sym": "WMT",
+   "name": "Walmart Inc.",
+   "pm_price": "$119.76",
+   "pm_pct": "+0.74%",
+   "yesterday_pct": "-0.79%",
+   "yesterday_close": "$118.88"
+  },
+  {
+   "sym": "FLY",
+   "name": "Firefly Aerospace Inc.",
+   "pm_price": "$33.65",
+   "pm_pct": "+0.61%",
+   "yesterday_pct": "-7.56%",
+   "yesterday_close": "$33.445"
+  },
+  {
+   "sym": "DKNG",
+   "name": "DraftKings Inc. Class A",
+   "pm_price": "$27.75",
+   "pm_pct": "+0.58%",
+   "yesterday_pct": "+11.34%",
+   "yesterday_close": "$27.59"
+  },
+  {
+   "sym": "FND",
+   "name": "Floor & Decor Holdings Inc.",
+   "pm_price": "$50.00",
+   "pm_pct": "+0.52%",
+   "yesterday_pct": "+8.30%",
+   "yesterday_close": "$49.74"
+  },
+  {
+   "sym": "COST",
+   "name": "Costco Wholesale Corporation",
+   "pm_price": "$973.56",
+   "pm_pct": "+0.51%",
+   "yesterday_pct": "-0.63%",
+   "yesterday_close": "$968.59"
+  },
+  {
+   "sym": "MA",
+   "name": "Mastercard Incorporated",
+   "pm_price": "$497.37",
+   "pm_pct": "+0.43%",
+   "yesterday_pct": "+1.97%",
+   "yesterday_close": "$495.24"
+  }
+ ],
+ "premarket_losers": [
+  {
+   "sym": "SMCI",
+   "name": "Super Micro Computer Inc.",
+   "pm_price": "$36.00",
+   "pm_pct": "-11.42%",
+   "yesterday_pct": "-7.62%",
+   "yesterday_close": "$40.64"
+  },
+  {
+   "sym": "OCTV",
+   "name": "Octave Intelligence plc Class B",
+   "pm_price": "$19.00",
+   "pm_pct": "-4.09%",
+   "yesterday_pct": "-9.00%",
+   "yesterday_close": "$19.81"
+  },
+  {
+   "sym": "UCTT",
+   "name": "Ultra Clean Holdings Inc.",
+   "pm_price": "$88.42",
+   "pm_pct": "-3.77%",
+   "yesterday_pct": "+9.47%",
+   "yesterday_close": "$91.88"
+  },
+  {
+   "sym": "NVTS",
+   "name": "Navitas Semiconductor Corporation",
+   "pm_price": "$22.14",
+   "pm_pct": "-3.11%",
+   "yesterday_pct": "-6.66%",
+   "yesterday_close": "$22.85"
+  },
+  {
+   "sym": "TSM",
+   "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
+   "pm_price": "$417.20",
+   "pm_pct": "-2.51%",
+   "yesterday_pct": "+0.26%",
+   "yesterday_close": "$427.92"
+  },
+  {
+   "sym": "MU",
+   "name": "Micron Technology Inc.",
+   "pm_price": "$913.04",
+   "pm_pct": "-2.44%",
+   "yesterday_pct": "-1.41%",
+   "yesterday_close": "$935.89"
+  },
+  {
+   "sym": "ALK",
+   "name": "Alaska Air Group Inc.",
+   "pm_price": "$44.04",
+   "pm_pct": "-2.42%",
+   "yesterday_pct": "+6.84%",
+   "yesterday_close": "$45.13"
+  },
+  {
+   "sym": "XE",
+   "name": "X-Energy Inc. Class A",
+   "pm_price": "$19.96",
+   "pm_pct": "-2.30%",
+   "yesterday_pct": "-8.88%",
+   "yesterday_close": "$20.43"
+  }
+ ],
+ "earnings": [
+  {
+   "sym": "SVIN",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "GTEN",
+   "name": "Gores Holdings X Inc. Class A ordinary shares",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "MCRAA",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "HMMR",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "MH",
+   "name": "McGraw Hill Inc.",
+   "hour": "bmo",
+   "epsEst": 0.1743,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "BTOC",
+   "name": "Armlogi Holding Corp.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "CLEV",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "NIMU",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "NIMU",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "LBSR",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "AUSI",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "PPIH",
+   "name": "Perma-Pipe International Holdings Inc.",
+   "hour": "",
+   "epsEst": 0.4896,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "NATH",
+   "name": "Nathan's Famous Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "CRWS",
+   "name": "Crown Crafts Inc",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "JVA",
+   "name": "Coffee Holding Co. Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "OLOX",
+   "name": "Olenox Industries Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "CRCW",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "HITC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "SKKY",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "VRA",
+   "name": "Vera Bradley Inc.",
+   "hour": "bmo",
+   "epsEst": -0.3333,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "LOVE",
+   "name": "The Lovesac Company",
+   "hour": "bmo",
+   "epsEst": -1.0183,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "HOFT",
+   "name": "Hooker Furnishings Corporation",
+   "hour": "bmo",
+   "epsEst": -0.0408,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "PPIH",
+   "name": "Perma-Pipe International Holdings Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "ZDGE",
+   "name": "Zedge Inc. Class B",
+   "hour": "amc",
+   "epsEst": 0.051,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "ADBE",
+   "name": "Adobe Inc.",
+   "hour": "amc",
+   "epsEst": 5.9385,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "LEN",
+   "name": "Lennar Corporation Class A",
+   "hour": "amc",
+   "epsEst": 1.261,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "WTER",
+   "name": null,
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-06-11"
+  },
+  {
+   "sym": "NAVN",
+   "name": "Navan Inc. Class A",
+   "hour": "amc",
+   "epsEst": -0.0098,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "IDWM",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "NOBH",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "IVDN",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "IEHC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "MSB",
+   "name": "Mesabi Trust",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "MAYS",
+   "name": "J. W. Mays Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "FRD",
+   "name": "Friedman Industries Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "YRD",
+   "name": "Yiren Digital Ltd. American Depositary Shares each representing two ordinary shares",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "BRRE",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "GLBS",
+   "name": "Globus Maritime Limited",
+   "hour": "amc",
+   "epsEst": -0.051,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "CHWY",
+   "name": "Chewy Inc. Class A",
+   "hour": "bmo",
+   "epsEst": 0.2868,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "CNM",
+   "name": "Core & Main Inc. Class A",
+   "hour": "bmo",
+   "epsEst": 0.6756,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "RH",
+   "name": "RH",
+   "hour": "",
+   "epsEst": -2.1829,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "DAKT",
+   "name": "Daktronics Inc.",
+   "hour": "",
+   "epsEst": 0.153,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "SFIX",
+   "name": "Stitch Fix Inc. Class A",
+   "hour": "amc",
+   "epsEst": -0.0571,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "CRMT",
+   "name": "America's Car-Mart Inc",
+   "hour": "bmo",
+   "epsEst": -1.3464,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "ME",
+   "name": null,
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "ATEX",
+   "name": "Anterix Inc.",
+   "hour": "amc",
+   "epsEst": 1.3974,
+   "date": "2026-06-10"
+  },
+  {
+   "sym": "ORCL",
+   "name": "Oracle Corporation",
+   "hour": "amc",
+   "epsEst": 2.0011,
+   "date": "2026-06-10"
+  }
+ ],
+ "news": [
+  {
+   "h": "Two reasons for optimism after Tuesday's whipsaw market sell-off",
+   "src": "CNBC",
+   "sum": "There's reason for optimism, judging by bullish options flows around stocks that do better when interest-rates stay lower, and call-buyers who are prepared for "
+  },
+  {
+   "h": "Netanyahu to run for re-election, his party says, after Trump raises doubts - Reuters",
+   "src": "Reuters",
+   "sum": "Netanyahu to run for re-election, his party says, after Trump raises doubts  Reuters"
+  },
+  {
+   "h": "Germany risks recession as Iran energy shock hits growth, DIW economists say - Reuters",
+   "src": "Reuters",
+   "sum": "Germany risks recession as Iran energy shock hits growth, DIW economists say  Reuters"
+  },
+  {
+   "h": "European shares resilient, oil edges up after fresh Iran-US strikes - Reuters",
+   "src": "Reuters",
+   "sum": "European shares resilient, oil edges up after fresh Iran-US strikes  Reuters"
+  },
+  {
+   "h": "Iran war drags India MF equity flows to annual low; gold ETFs see record outflows - Reuters",
+   "src": "Reuters",
+   "sum": "Iran war drags India MF equity flows to annual low; gold ETFs see record outflows  Reuters"
+  },
+  {
+   "h": "Trump says Iran will 'have to pay the price' after tit-for-tat strikes - Reuters",
+   "src": "Reuters",
+   "sum": "Trump says Iran will 'have to pay the price' after tit-for-tat strikes  Reuters"
+  },
+  {
+   "h": "China's factory-gate inflation at nearly 4-year high in May - Reuters",
+   "src": "Reuters",
+   "sum": "China's factory-gate inflation at nearly 4-year high in May  Reuters"
+  },
+  {
+   "h": "Gold falls over 2% on fading Middle East peace hopes - Reuters",
+   "src": "Reuters",
+   "sum": "Gold falls over 2% on fading Middle East peace hopes  Reuters"
+  },
+  {
+   "h": "Dollar treads water as US-Iran tensions, inflation data in focus - Reuters",
+   "src": "Reuters",
+   "sum": "Dollar treads water as US-Iran tensions, inflation data in focus  Reuters"
+  },
+  {
+   "h": "Oil steady as investors weigh renewed US-Iran fighting - Reuters",
+   "src": "Reuters",
+   "sum": "Oil steady as investors weigh renewed US-Iran fighting  Reuters"
+  },
+  {
+   "h": "S&P 500, Nasdaq fall as tech selling resumes, Trump vows to respond to downed US helicopter - Reuters",
+   "src": "Reuters",
+   "sum": "S&P 500, Nasdaq fall as tech selling resumes, Trump vows to respond to downed US helicopter  Reuters"
+  },
+  {
+   "h": "Iran says ticket allocation for World Cup withdrawn days before tournament - Reuters",
+   "src": "Reuters",
+   "sum": "Iran says ticket allocation for World Cup withdrawn days before tournament  Reuters"
+  },
+  {
+   "h": "LNG demand in Asia recovers from Iran shock as China buys - Reuters",
+   "src": "Reuters",
+   "sum": "LNG demand in Asia recovers from Iran shock as China buys  Reuters"
+  },
+  {
+   "h": "US military launches new strikes on Iran after Apache downing - Reuters",
+   "src": "Reuters",
+   "sum": "US military launches new strikes on Iran after Apache downing  Reuters"
+  },
+  {
+   "h": "Congress has backed Iran war powers resolutions. Now what? - Reuters",
+   "src": "Reuters",
+   "sum": "Congress has backed Iran war powers resolutions. Now what?  Reuters"
+  },
+  {
+   "h": "Climate cost of expanded World Cup under scrutiny as emissions set to soar - Reuters",
+   "src": "Reuters",
+   "sum": "Climate cost of expanded World Cup under scrutiny as emissions set to soar  Reuters"
+  },
+  {
+   "h": "Another jump in Boeing deliveries shows why we got into the stock and want to stay in",
+   "src": "CNBC",
+   "sum": "It's key to assessing the aircraft manufacturer's turnaround story under CEO Kelly Ortberg."
+  },
+  {
+   "h": "The May inflation numbers are due out Wednesday morning. Here's what to expect",
+   "src": "CNBC",
+   "sum": "If the Wall Street consensus is correct, the consumer price index is expected to show inflation running at a 4.2% annual rate."
+  }
+ ]
+}

@@ -8,6 +8,6 @@ mkdir -p logs
 
 echo "===== 每日刷新 $(date) =====" >> logs/refresh.log
 uv run python scripts/refresh.py --deploy >> logs/refresh.log 2>&1
-# 收盘分享卡 → ~/Downloads
-uv run python scripts/share_card.py --type close >> logs/refresh.log 2>&1
+# 收盘卡不在这里出 —— 05:00 北京 = 17:00 ET 盘后还在交易(ORCL 那种盘后雷没爆完),
+# 卡片挪到 close_card_job.sh(08:05 北京 = 20:05 ET,盘后定格)。
 echo "----- done $(date) -----" >> logs/refresh.log

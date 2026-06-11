@@ -173,7 +173,64 @@ def fetch(date: str, extra_macro: list | None = None):
         when = "Today" if mega["date"] == date else wd
         first = IPO_ALIAS.get(mega["sym"], mega["name"].split()[0])
         focus.append(f"{first} IPO {when}")
-    return macro, ipo_rows, bmo, small_b, amc, small_a, " · ".join(focus)
+    return macro, ipo_rows, bmo, small_b, amc, small_a, " · ".join(focus), mega
+
+
+WD3 = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+NASDAQ_HDRS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
+
+
+def yesterday_close() -> list[dict]:
+    """四指数上一交易日收盘 % —— 只读 yclose.json(05:00 闭市时由 capture_yclose.py 落盘的 SoT)。
+
+    绝不在盘前时段临场调 Nasdaq:2026-06-11 实测该端点部分边缘节点把盘前价标成
+    "Closed at",同进程共识双询都防不住。文件超过 4 天视为停更,宁可不显示。
+    """
+    try:
+        j = json.loads((ROOT / "web" / "public" / "data" / "yclose.json").read_text(encoding="utf-8"))
+        age = (datetime.now(ET).date() - datetime.strptime(j["date"], "%Y-%m-%d").date()).days
+        if age <= 4:
+            return [{"label": r["label"], "pct": str(r["pct"])} for r in j.get("rows", [])]
+    except Exception:
+        pass
+    return []
+
+
+def ahead_events(date: str, mega) -> list[dict]:
+    """未来 ~8 天看点:① 巨型 IPO(fetch 已算)② data/cards/ahead.json 手动确定性大事(FOMC 等,过期自动滤)③ 日历大财报。"""
+    horizon = (datetime.strptime(date, "%Y-%m-%d") + timedelta(days=8)).strftime("%Y-%m-%d")
+
+    def when(ds: str) -> str:
+        dt = datetime.strptime(ds, "%Y-%m-%d")
+        return f"{WD3[dt.weekday()]} {dt.month:02d}/{dt.day:02d}"
+
+    rows = []
+    if mega and date < mega["date"] <= horizon:
+        big = (mega.get("val") or 0) >= 5e10
+        rows.append({"when": when(mega["date"]), "name": f'{IPO_ALIAS.get(mega["sym"], mega["name"])} IPO ({mega["sym"]})',
+                     "detail": "biggest IPO ever" if big else "mega IPO", "hi": True, "_d": mega["date"]})
+    try:
+        for m in json.loads((ROOT / "data" / "cards" / "ahead.json").read_text(encoding="utf-8")):
+            if date < str(m.get("date", "")) <= horizon:
+                rows.append({"when": when(m["date"]), "name": str(m.get("name", ""))[:42],
+                             "detail": str(m.get("detail", ""))[:40], "hi": bool(m.get("hi")), "_d": m["date"]})
+    except Exception:
+        pass
+    try:
+        cal = json.loads((ROOT / "web" / "public" / "data" / "market-calendar.json").read_text(encoding="utf-8"))["events"]
+        ee = sorted([e for e in cal if e.get("kind") == "earnings" and date < str(e.get("date", "")) <= horizon],
+                    key=lambda e: str(e.get("date", "")))
+        for e in ee[:4]:
+            det = (str(e.get("detail", ""))
+                   .replace("预期", "Est").replace("盘前", "pre-market").replace("盘后", "after close"))[:36]
+            rows.append({"when": when(e["date"]), "name": f'${e.get("sym", "")} earnings',
+                         "detail": det, "hi": False, "_d": e["date"]})
+    except Exception:
+        pass
+    # 海报英文铁律:任何字段仍含 CJK 的行直接丢弃
+    rows = [r for r in rows if not re.search(r"[一-鿿]", r["name"] + r["detail"])]
+    rows.sort(key=lambda r: (r["_d"], not r["hi"]))
+    return rows
 
 
 # ===== 版式(报纸编辑部)=====
@@ -212,12 +269,32 @@ def earn_rows(rows, small) -> str:
     return out
 
 
-def build_html(date: str, macro, ipos, bmo, sb, amc, sa, focus) -> str:
+def build_html(date: str, macro, ipos, bmo, sb, amc, sa, focus, yday=None, ahead=None) -> str:
     logo_svg = (ASSETS / "logo-ainvest.svg").read_text(encoding="utf-8")
     aime = (ASSETS / "aime-bullish.png").resolve()
     d = datetime.strptime(date, "%Y-%m-%d")
     wd = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"][d.weekday()]
     title = f"TODAY&rsquo;S BIG EVENTS &bull; {d.month:02d}/{d.day:02d} &bull; {wd}"
+
+    # ===== 密度自适应:今日内容少 → 底部补 YESTERDAY 收盘条 + AHEAD 前瞻(都是真数据,不是装饰)=====
+    thin = (len(macro) + len(ipos) + len(bmo) + len(amc)) < 10
+    ahead = ahead or []
+    band_rows = ahead[:4] if thin else [r for r in ahead if r["hi"]][:2]
+    yday = (yday or []) if thin else []
+    band_html = ""
+    if band_rows or yday:
+        ych = "".join(
+            f'<span class="ychip"><span class="ylab">{y["label"]}</span>'
+            f'<span class="yval {"dn" if y["pct"].strip().startswith("-") else "up"}">{y["pct"]}%</span></span>'
+            for y in yday)
+        ycol = f'<div class="bcol bl"><div class="btitle gray">YESTERDAY &middot; CLOSE</div><div class="ychips">{ych}</div></div>' if ych else ""
+        arows = "".join(
+            f'<div class="arow"><span class="awhen{" hi" if r["hi"] else ""}">{r["when"]}</span>'
+            f'<span class="aname{" b" if r["hi"] else ""}">{r["name"]}</span>'
+            f'<span class="adet">{r["detail"]}</span></div>'
+            for r in band_rows)
+        acol = f'<div class="bcol br"><div class="btitle">AHEAD</div><div style="margin-top:10px">{arows}</div></div>' if arows else ""
+        band_html = f'<div class="band">{ycol}{acol}</div>'
     return f'''<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
@@ -254,6 +331,28 @@ def build_html(date: str, macro, ipos, bmo, sb, amc, sa, focus) -> str:
   .eeps {{ width:148px; text-align:right; color:#3D4350; font-variant-numeric:tabular-nums; }}
   .esmall {{ margin-top:4px; font-size:18px; color:#5B6472; }}
   .blue {{ color:{BLUE}; font-weight:600; }}
+  /* 瘦日填充带:昨收 + 前瞻 */
+  .band {{ display:flex; margin-top:10px; border-top:3px solid {INK}; padding-top:16px; }}
+  .bcol {{ min-width:0; }}
+  .bcol.bl {{ width:430px; flex:none; padding-right:36px; }}
+  .bcol.br {{ flex:1; }}
+  .bcol.bl + .bcol.br {{ border-left:1px solid {RULE}; padding-left:36px; }}
+  .btitle {{ font-size:26px; font-weight:700; color:{BLUE}; letter-spacing:0.04em;
+             border-bottom:2.5px solid {BLUE}; display:inline-block; padding-bottom:4px; }}
+  .btitle.gray {{ color:#5B6472; border-color:#5B6472; }}
+  .ychips {{ margin-top:16px; display:flex; flex-direction:column; gap:9px; }}
+  .ychip {{ display:flex; align-items:baseline; font-size:23px; }}
+  .ylab {{ color:#3D4350; }}
+  .yval {{ margin-left:auto; font-weight:700; font-variant-numeric:tabular-nums; }}
+  .yval.up {{ color:#1E7A3C; }}
+  .yval.dn {{ color:#C0331B; }}
+  .arow {{ display:flex; align-items:baseline; gap:16px; padding:6.5px 0; font-size:22px; border-bottom:1px solid {RULE}; }}
+  .arow:last-child {{ border-bottom:none; }}
+  .awhen {{ width:128px; flex:none; font-weight:600; font-variant-numeric:tabular-nums; color:#3D4350; }}
+  .awhen.hi {{ color:{ORANGE}; }}
+  .aname {{ flex:none; }}
+  .aname.b {{ font-weight:700; }}
+  .adet {{ color:#5B6472; font-size:19px; margin-left:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
   .foot {{ position:absolute; left:64px; bottom:24px; width:720px; display:flex; align-items:center;
             gap:18px; border-top:1.5px solid {RULE}; padding-top:12px; }}
   .foot .logo {{ width:150px; flex:none; }}
@@ -271,6 +370,7 @@ def build_html(date: str, macro, ipos, bmo, sb, amc, sa, focus) -> str:
     <div class="ecol"><div class="etitle">PRE-MARKET EARNINGS</div><div style="margin-top:10px">{earn_rows(bmo, sb)}</div></div>
     <div class="ecol"><div class="etitle">AFTER-HOURS EARNINGS</div><div style="margin-top:10px">{earn_rows(amc, sa)}</div></div>
   </div>
+  {band_html}
   <div class="foot">
     <div class="logo">{logo_svg}</div>
     <div class="cta">
@@ -294,9 +394,11 @@ def main():
     date = args.date or datetime.now(ET).strftime("%Y-%m-%d")
     extra = json.loads(Path(args.macro_json).read_text(encoding="utf-8")) if args.macro_json else None
     print(f"① 抓数 + 降噪({date})…")
-    macro, ipos, bmo, sb, amc, sa, focus = fetch(date, extra)
-    print(f"   宏观 {len(macro)} 行 · IPO {len(ipos)} · 盘前 {len(bmo)}+{len(sb)} · 盘后 {len(amc)}+{len(sa)} · Focus: {focus}")
-    html = build_html(date, macro, ipos, bmo, sb, amc, sa, focus)
+    macro, ipos, bmo, sb, amc, sa, focus, mega = fetch(date, extra)
+    yday = yesterday_close()
+    ahead = ahead_events(date, mega)
+    print(f"   宏观 {len(macro)} 行 · IPO {len(ipos)} · 盘前 {len(bmo)}+{len(sb)} · 盘后 {len(amc)}+{len(sa)} · 前瞻 {len(ahead)} · Focus: {focus}")
+    html = build_html(date, macro, ipos, bmo, sb, amc, sa, focus, yday=yday, ahead=ahead)
     tmp = Path("/tmp/big_events.html")
     tmp.write_text(html, encoding="utf-8")
     out = OUT_DIR / f"AInvest_events_{date.replace('-', '')}.png"

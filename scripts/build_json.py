@@ -163,6 +163,15 @@ def derive_us_raw(c):
     (PUB / "dilution-flags.json").write_text(json.dumps({"flags": flags}, ensure_ascii=False), encoding="utf-8")
     print(f"  dilution-flags.json: {len(flags)}")
 
+    # ETF 列表(排序同 fetchers.us_etfs:近1年回报降序,无回报沉底)
+    etfs = [dict(r) for r in c.execute(
+        "SELECT sym,name,price,pct,ret1y FROM us_etfs ORDER BY ret1y IS NULL, ret1y DESC")]
+    if etfs:
+        (PUB / "us-etfs.json").write_text(
+            json.dumps({"generated_at": meta(c, "us_etfs_generated_at"), "count": len(etfs), "etfs": etfs},
+                       ensure_ascii=False), encoding="utf-8")
+        print(f"  us-etfs.json: {len(etfs)}")
+
 
 def derive_extras(c):
     """ru7 免费源派生：基本面 / 新闻 / 宏观 / 财报日历 / 期权 / crypto(库→JSON）。

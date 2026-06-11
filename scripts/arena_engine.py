@@ -102,7 +102,14 @@ def ensure_tables(cx):
       id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, master TEXT, side TEXT,
       sym TEXT, shares INTEGER, price REAL, reason TEXT);
     CREATE TABLE IF NOT EXISTS arena_nav(master TEXT, date TEXT, nav REAL, PRIMARY KEY(master, date));
+    CREATE TABLE IF NOT EXISTS arena_orders(
+      id INTEGER PRIMARY KEY AUTOINCREMENT, fill_date TEXT, master TEXT, action TEXT,
+      sym TEXT, reason TEXT, status TEXT DEFAULT 'pending', note TEXT);
     """)
+    try:
+        cx.execute("ALTER TABLE arena_trades ADD COLUMN src TEXT DEFAULT 'rule'")
+    except sqlite3.OperationalError:
+        pass  # 已有
 
 
 def candidates(master: str, uni: dict, cx, exclude: set[str]) -> list[str]:
@@ -165,14 +172,61 @@ def run_day(cx, date: str, uni: dict) -> None:
             if reason:
                 cash += p["shares"] * px
                 cx.execute("DELETE FROM arena_positions WHERE master=? AND sym=?", (mk, sym))
-                cx.execute("INSERT INTO arena_trades(date,master,side,sym,shares,price,reason) VALUES(?,?,?,?,?,?,?)",
+                cx.execute("INSERT INTO arena_trades(date,master,side,sym,shares,price,reason,src) VALUES(?,?,?,?,?,?,?,'rule')",
                            (date, mk, "SELL", sym, p["shares"], px, reason))
                 del pos[sym]
 
-        # ---- 补仓到满 slots ----
+        # ---- V2:执行 AI 决策单(arena_brain 当日 pending;SELL 先于 BUY 腾现金;机械止损已先行,AI 无权豁免)----
+        ai_rows = cx.execute(
+            "SELECT id, action, sym, reason FROM arena_orders WHERE master=? AND fill_date=? AND status='pending' "
+            "ORDER BY CASE action WHEN 'SELL' THEN 0 WHEN 'BUY' THEN 1 ELSE 2 END, id", (mk, date)).fetchall()
+        ai_mode = bool(ai_rows)
+        for oid, action, sym, reason in ai_rows:
+            status, note = "filled", ""
+            if action == "HOLD":
+                pass
+            elif action == "SELL":
+                p = pos.get(sym)
+                u = uni.get(sym)
+                if not p or not u:
+                    status, note = "rejected", "未持有或无行情(可能已被机械止损)"
+                else:
+                    px = u["price"]
+                    cash += p["shares"] * px
+                    cx.execute("DELETE FROM arena_positions WHERE master=? AND sym=?", (mk, sym))
+                    cx.execute("INSERT INTO arena_trades(date,master,side,sym,shares,price,reason,src) VALUES(?,?,?,?,?,?,?,'ai')",
+                               (date, mk, "SELL", sym, p["shares"], px, reason))
+                    del pos[sym]
+            elif action == "BUY":
+                u = uni.get(sym)
+                sc = (u or {}).get("scores", {}).get(mk)
+                nav_now = cash + sum(p2["shares"] * uni.get(s2, {"price": p2["entry"]})["price"] for s2, p2 in pos.items())
+                if sym in pos:
+                    status, note = "rejected", "已持有"
+                elif not u:
+                    status, note = "rejected", "无行情"
+                elif sc is None or sc < rule["min_score"]:
+                    status, note = "rejected", "低于授权评分线"
+                elif len(pos) >= rule["slots"]:
+                    status, note = "rejected", "仓位已满"
+                else:
+                    px = u["price"]
+                    budget = min(nav_now * rule["weight"], cash)
+                    shares = int(budget // px)
+                    if shares < 1:
+                        status, note = "rejected", "现金不足一股"
+                    else:
+                        cash -= shares * px
+                        cx.execute("INSERT INTO arena_positions VALUES(?,?,?,?,?)", (mk, sym, shares, px, date))
+                        cx.execute("INSERT INTO arena_trades(date,master,side,sym,shares,price,reason,src) VALUES(?,?,?,?,?,?,?,'ai')",
+                                   (date, mk, "BUY", sym, shares, px, reason))
+                        pos[sym] = dict(shares=shares, entry=px, entry_date=date)
+            cx.execute("UPDATE arena_orders SET status=?, note=? WHERE id=?", (status, note, oid))
+
+        # ---- 规则补仓(仅当该股神今日无 AI 决策 —— AI 说了算的日子,规则不抢戏)----
         nav_now = cash + sum(p["shares"] * uni.get(s, {"price": p["entry"]})["price"] for s, p in pos.items())
         free = rule["slots"] - len(pos)
-        if free > 0:
+        if free > 0 and not ai_mode:
             for sym in candidates(mk, uni, cx, exclude=set(pos)):
                 if free == 0:
                     break
@@ -184,7 +238,7 @@ def run_day(cx, date: str, uni: dict) -> None:
                 cost = shares * px
                 cash -= cost
                 cx.execute("INSERT INTO arena_positions VALUES(?,?,?,?,?)", (mk, sym, shares, px, date))
-                cx.execute("INSERT INTO arena_trades(date,master,side,sym,shares,price,reason) VALUES(?,?,?,?,?,?,?)",
+                cx.execute("INSERT INTO arena_trades(date,master,side,sym,shares,price,reason,src) VALUES(?,?,?,?,?,?,?,'rule')",
                            (date, mk, "BUY", sym, shares, px, uni[sym]["judgments"][mk] or "按纪律建仓"))
                 free -= 1
 
@@ -219,9 +273,9 @@ def export(cx, date: str):
         nav_hist = [dict(date=d, nav=round(n)) for d, n in cx.execute(
             "SELECT date, nav FROM arena_nav WHERE master=? ORDER BY date", (mk,))]
         nav = nav_hist[-1]["nav"] if nav_hist else START_CASH
-        trades = [dict(date=d, side=sd, sym=s, shares=sh, price=round(p, 2), reason=r)
-                  for d, sd, s, sh, p, r in cx.execute(
-                "SELECT date, side, sym, shares, price, reason FROM arena_trades "
+        trades = [dict(date=d, side=sd, sym=s, shares=sh, price=round(p, 2), reason=r, src=src or "rule")
+                  for d, sd, s, sh, p, r, src in cx.execute(
+                "SELECT date, side, sym, shares, price, reason, src FROM arena_trades "
                 "WHERE master=? ORDER BY id DESC LIMIT 14", (mk,))]
         out["masters"].append(dict(key=mk, name=name, school=school, cash=round(cash),
                                    nav=nav, retPct=round((nav / START_CASH - 1) * 100, 2),

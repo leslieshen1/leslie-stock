@@ -8,7 +8,7 @@ type Pos = {
   sym: string; name: string; shares: number; entry: number; price: number;
   pnlPct: number; dayPct: number | null; since: string; judgment: string;
 };
-type Trade = { date: string; side: "BUY" | "SELL"; sym: string; shares: number; price: number; reason: string };
+type Trade = { date: string; side: "BUY" | "SELL"; sym: string; shares: number; price: number; reason: string; src?: string };
 type Master = {
   key: string; name: string; school: string; cash: number; nav: number; retPct: number;
   positions: Pos[]; navHist: { date: string; nav: number }[]; trades: Trade[];
@@ -140,6 +140,9 @@ export default async function ArenaPage() {
                     <span className={`font-mono font-semibold ${t.side === "BUY" ? "text-up" : "text-down"}`}>
                       {t.side === "BUY" ? "买入" : "卖出"}
                     </span>
+                    {t.src === "ai" && (
+                      <span title="开盘前 AI 亲自决策(gpt-5.5),非规则引擎" className="rounded border border-accent/40 bg-accent-soft px-1 font-mono text-[9px] font-bold text-accent">AI</span>
+                    )}
                     <span className="font-mono font-semibold text-ink">{t.sym}</span>
                     <span className="font-mono tabular-nums text-muted">{t.shares.toLocaleString()} 股 @ ${t.price.toFixed(2)}</span>
                     <span className="text-muted">— {t.reason}</span>

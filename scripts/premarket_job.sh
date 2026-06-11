@@ -16,4 +16,6 @@ echo "===== 盘前报告 $(date) =====" >> logs/premarket.log
 uv run python scripts/premarket_report.py >> logs/premarket.log 2>&1
 # 盘前分享卡 → ~/Downloads(AInvest 品牌,拿了就发)
 uv run python scripts/share_card.py --type premarket >> logs/premarket.log 2>&1
+# 五神对决 V2:开盘前 AI 决策(gpt-5.5 经 NDT;失败自动回退规则引擎,产线不断)
+uv run python scripts/arena_brain.py >> logs/arena.log 2>&1
 echo "----- done $(date) -----" >> logs/premarket.log

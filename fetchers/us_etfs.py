@@ -7,6 +7,11 @@ ETF screener 返回结构:data.data.rows[{symbol,companyName,lastSalePrice,
 percentageChange,oneYearPercentage,...}]。按近1年回报降序(没有市值/成交量
 这类流动性指标,1年回报是唯一有意义的默认排序,让强势 ETF 浮上来)。
 
+⚠ screener 的 lastSalePrice/percentageChange 走 Nasdaq 的 EOD 批处理,比股票
+screener 滞后约一个交易日(收盘后 11h+ 仍是前日数据)。所以 price/pct 不用它,
+改用 Yahoo 批量日线(同 macro.py:最近两根收盘算涨跌幅,收盘后几分钟即更新);
+Yahoo 没覆盖到的票退回 screener 值(旧一天,聊胜于无)。
+
 输出 web/public/data/us-etfs.json:
   {generated_at, count, etfs: [{sym,name,price,pct,ret1y}...]}
 
@@ -77,6 +82,44 @@ def fetch_rows() -> list[dict]:
     raise RuntimeError(f"Nasdaq ETF screener 拉取失败且无缓存: {last}")
 
 
+def overlay_yahoo_closes(etfs: list[dict]) -> int:
+    """price/pct 换成 Yahoo 日线的最近收盘(screener 的 EOD 滞后一天)。
+
+    分块批量拉,单块失败只丢那一块;整体失败保留 screener 值。返回覆盖条数。
+    """
+    import logging
+
+    import yfinance as yf
+
+    logging.getLogger("yfinance").setLevel(logging.CRITICAL)
+    n, chunk = 0, 800
+    by_sym = {e["sym"]: e for e in etfs}
+    syms = list(by_sym)
+    for i in range(0, len(syms), chunk):
+        batch = syms[i:i + chunk]
+        try:
+            df = yf.download(batch, period="7d", interval="1d", group_by="ticker",
+                             auto_adjust=False, progress=False, threads=True)
+        except Exception as e:
+            print(f"   ⚠ Yahoo 批次 {i//chunk + 1} 失败: {str(e)[:60]}")
+            continue
+        for sym in batch:
+            try:
+                closes = (df[sym] if len(batch) > 1 else df)["Close"].dropna()
+                if len(closes) < 2:
+                    continue
+                last, prev = float(closes.iloc[-1]), float(closes.iloc[-2])
+                if not last or not prev:
+                    continue
+                by_sym[sym]["price"] = round(last, 2)
+                by_sym[sym]["pct"] = round((last - prev) / prev * 100, 2)
+                n += 1
+            except Exception:
+                continue
+        time.sleep(1)
+    return n
+
+
 def main():
     print("📊 拉全量美股 ETF(Nasdaq ETF screener)...")
     rows = fetch_rows()
@@ -94,6 +137,13 @@ def main():
             "pct": round(_f(r.get("percentageChange")) or 0, 2) if r.get("percentageChange") else None,
             "ret1y": round(_f(r.get("oneYearPercentage")) or 0, 2) if r.get("oneYearPercentage") else None,
         })
+
+    # price/pct 刷成最近收盘(Yahoo;screener 滞后一天,见模块注释)
+    try:
+        fresh = overlay_yahoo_closes(etfs)
+        print(f"   ↳ Yahoo 最近收盘覆盖 {fresh}/{len(etfs)},其余保留 screener 值")
+    except Exception as e:
+        print(f"   ⚠ Yahoo 覆盖整体跳过(保留 screener 值,滞后一天): {str(e)[:60]}")
 
     # 近1年回报降序(强势 ETF 浮上来;无回报沉底)
     etfs.sort(key=lambda x: x["ret1y"] if x["ret1y"] is not None else -1e9, reverse=True)

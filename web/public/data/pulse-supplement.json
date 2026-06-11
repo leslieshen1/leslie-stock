@@ -26058,5 +26058,157 @@
   "_serenity_score": 23,
   "_verdict": "",
   "_thesis": ""
+ },
+ {
+  "ticker": "SSSS",
+  "name": "SuRo Capital Corp.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 40,
+  "momentum20d": 40,
+  "rsi": 40,
+  "sentiment": 40,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 40,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "MLP",
+  "name": "Maui Land & Pineapple Company Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 38,
+  "momentum20d": 38,
+  "rsi": 40,
+  "sentiment": 38,
+  "industries": [
+   "consumer"
+  ],
+  "_serenity_score": 38,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "OFSSH",
+  "name": "OFS Capital Corporation 4.95% Notes due 2028",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 19,
+  "momentum20d": 19,
+  "rsi": 40,
+  "sentiment": 19,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 19,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "TCPC",
+  "name": "BlackRock TCP Capital Corp.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 29,
+  "momentum20d": 29,
+  "rsi": 40,
+  "sentiment": 29,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 29,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "ELLO",
+  "name": "Ellomay Capital Ltd Ordinary Shares (Israel)",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 38,
+  "momentum20d": 38,
+  "rsi": 40,
+  "sentiment": 38,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 38,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "RC",
+  "name": "Ready Capital Corporation",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 18,
+  "momentum20d": 18,
+  "rsi": 40,
+  "sentiment": 18,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 18,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "SCM",
+  "name": "Stellus Capital Investment Corporation",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 31,
+  "momentum20d": 31,
+  "rsi": 40,
+  "sentiment": 31,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 31,
+  "_verdict": "",
+  "_thesis": ""
+ },
+ {
+  "ticker": "MGNX",
+  "name": "MacroGenics Inc.",
+  "layer": "L4",
+  "segment": "",
+  "region": "US",
+  "marketCapB": 0.5,
+  "moat": 3,
+  "valuationPct": 22,
+  "momentum20d": 22,
+  "rsi": 40,
+  "sentiment": 22,
+  "industries": [
+   "biotech"
+  ],
+  "_serenity_score": 22,
+  "_verdict": "",
+  "_thesis": ""
  }
 ]

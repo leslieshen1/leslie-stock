@@ -2,12 +2,12 @@
   "headline": "Cool CPI got sold. Oracle -10% after the bell.",
   "panels": [
     {"icon": "chip", "title": "Semis bled again", "items": [["SMCI", "-27.98%"], ["NVTS", "-10.28%"], ["AVGO", "-5.12%"]]},
-    {"icon": "bolt", "title": "Squeeze in the wreckage", "items": [["AXTI", "+8.84%"], ["AAOI", "+7.52%"], ["AAPL", "+0.35%"]]},
-    {"icon": "clock", "title": "After hours · settled", "items": [["ORCL", "-10.13%"], ["MRVL", "-2.83%"], ["AMD", "-2.61%"]]}
+    {"icon": "clock", "title": "Earnings after hours", "items": [["ORCL", "-10.13%"], ["MRVL", "-2.83%"], ["AMD", "-2.61%"]]},
+    {"icon": "bolt", "title": "Squeeze faded late", "items": [["AXTI", "-2.33%"], ["AAOI", "-3.67%"], ["AAPL", "-0.26%"]]}
   ],
   "footer": [
-    {"when": "Out:", "name": "Core CPI 0.2", "dim": "vs 0.3 est — cooler, still sold"},
-    {"when": "Thu 08:30 ET:", "name": "PPI + jobless claims", "dim": "ADBE earnings after the bell"},
+    {"when": "Out:", "name": "Core CPI 0.2", "dim": "cooler, still sold"},
+    {"when": "Thu 08:30 ET:", "name": "PPI + claims"},
     {"when": "Friday:", "name": "SpaceX IPO", "dim": "$86B raise"}
   ]
 }

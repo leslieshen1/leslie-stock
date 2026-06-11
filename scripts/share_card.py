@@ -404,14 +404,15 @@ def build_html(ctx: dict) -> str:
   .chip svg {{ width:19px; height:19px; }}
   .tile-pct {{ margin-top:7px; font-size:46px; font-weight:800; letter-spacing:-0.02em; }}
   .spark {{ width:100%; height:42px; display:block; margin-top:4px; }}
-  .panels {{ position:absolute; top:556px; left:64px; display:flex; gap:18px; }}
+  .panels {{ position:absolute; top:548px; left:64px; display:flex; gap:18px; }}
   .panel {{ width:330px; padding:18px 22px; background:linear-gradient(180deg,#FFFFFF,#FBFCFE);
             border-radius:22px; border:1px solid rgba(15,23,42,0.05);
             box-shadow:0 1px 0 rgba(255,255,255,.95) inset, 0 2px 3px rgba(15,23,42,.04), 0 18px 38px rgba(15,23,42,.08); }}
-  .p-head {{ display:flex; align-items:center; gap:11px; }}
-  .p-ic {{ width:34px; height:34px; border-radius:10px; background:{BLUE}12; display:flex; align-items:center; justify-content:center; }}
+  .p-head {{ display:flex; align-items:center; gap:11px; min-width:0; }}
+  .p-ic {{ width:34px; height:34px; border-radius:10px; background:{BLUE}12; display:flex; align-items:center; justify-content:center; flex:none; }}
   .p-ic svg {{ width:19px; height:19px; }}
-  .p-title {{ font-size:21px; font-weight:700; }}
+  /* 标题永远单行:折行会把第三行内容挤进 footer(6/10 踩过)。溢出截断,spec 里标题保持 ≤20 字符 */
+  .p-title {{ font-size:20px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; min-width:0; }}
   .p-items {{ margin-top:12px; display:flex; flex-direction:column; gap:7px; }}
   .pi {{ display:flex; align-items:center; gap:9px; font-size:19px; }}
   .pi b {{ font-weight:700; }}
@@ -420,14 +421,14 @@ def build_html(ctx: dict) -> str:
          display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(15,23,42,0.08); flex:none; }}
   .lg img {{ width:100%; height:100%; object-fit:cover; }}
   .lt {{ font-size:12px; font-weight:800; color:{BLUE}; background:{BLUE}10; }}
-  .next {{ position:absolute; left:64px; bottom:56px; width:944px; padding:20px 26px;
+  .next {{ position:absolute; left:64px; bottom:48px; width:944px; padding:18px 26px;
            background:linear-gradient(180deg,#FFFFFF,#FBFCFE); border-radius:20px; border:1px solid rgba(15,23,42,0.05);
            box-shadow:0 2px 3px rgba(15,23,42,.04), 0 18px 38px rgba(15,23,42,.08);
            display:flex; align-items:center; gap:22px; }}
   .next .ni {{ width:40px; height:40px; border-radius:50%; background:{BLUE}12; display:flex; align-items:center; justify-content:center; flex:none; }}
   .next .ni svg {{ width:21px; height:21px; }}
   .next .lab {{ font-size:22px; font-weight:800; white-space:nowrap; }}
-  .nx {{ font-size:21px; color:#3B4456; }}
+  .nx {{ font-size:20px; color:#3B4456; line-height:1.3; }}
   .nx + .nx {{ border-left:1px solid #E8EDF4; padding-left:22px; margin-left:2px; }}
   .nx-w {{ color:{BLUE}; }}
   .aime-glow {{ position:absolute; right:8px; bottom:64px; width:520px; height:520px; border-radius:50%;

@@ -435,7 +435,13 @@ export default function ScanClient() {
 // 美股全市场视图（市值 / 动量,不走 Serenity 评分）
 // ============================================================
 
-type UsSortCol = "name" | "price" | "pct" | "mcap" | "vol" | "div";
+type UsSortCol = "name" | "price" | "pct" | "mcap" | "vol" | "div" | "avg";
+
+// 五方均分:已判读股神的平均分;未覆盖 → null(排序时垫底)
+function avgOf(sum?: { sc: (number | null)[] }): number | null {
+  const xs = (sum?.sc ?? []).filter((x): x is number => typeof x === "number");
+  return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null;
+}
 const US_PAGE_SIZE = 50;
 
 const MASTER_NAME: Record<string, string> = Object.fromEntries(MASTERS.map((m) => [m.key, m.name]));
@@ -484,7 +490,9 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
   const [sectorSet, setSectorSet] = usePersisted<Set<string>>("us:sector", new Set());
   const [capTier, setCapTier] = usePersisted<"all" | "large" | "mid" | "small">("us:cap", "all");
   const [dilu, setDilu] = usePersisted<"all" | "only" | "hide">("us:dilu", "all");
-  const [panelF, setPanelF] = usePersisted<"all" | "covered" | "diverge">("us:panel", "all");
+  const [panelF, setPanelF] = usePersisted<"all" | "covered" | "diverge" | "high" | "consensus">("us:panel", "all");
+  // 按单个股神筛"他看多(≥70)"的票;all = 不限
+  const [masterF, setMasterF] = usePersisted<string>("us:master", "all");
   const [sortCol, setSortCol] = usePersisted<UsSortCol>("us:sortcol", "mcap");
   const [sortDir, setSortDir] = usePersisted<"asc" | "desc">("us:sortdir", "desc");
   const [page, setPage] = useState(0);
@@ -503,9 +511,20 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
     () => stocks.filter((s) => (panels.stocks[s.sym]?.div ?? 0) >= 40).length,
     [stocks, panels]
   );
+  const highCount = useMemo(
+    () => stocks.filter((s) => (avgOf(panels.stocks[s.sym]) ?? -1) >= 65).length,
+    [stocks, panels]
+  );
+  const consensusCount = useMemo(
+    () => stocks.filter((s) => {
+      const p = panels.stocks[s.sym];
+      return !!p && (avgOf(p) ?? -1) >= 60 && p.div <= 25;
+    }).length,
+    [stocks, panels]
+  );
 
   // 任何筛选 / 排序变化 → 回第一页
-  useEffect(() => { setPage(0); }, [secType, search, sectorSet, capTier, dilu, panelF, sortCol, sortDir]);
+  useEffect(() => { setPage(0); }, [secType, search, sectorSet, capTier, dilu, panelF, masterF, sortCol, sortDir]);
 
   const sectors = useMemo(() => {
     const freq = new Map<string, number>();
@@ -534,6 +553,16 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
       else if (dilu === "hide") r = r.filter((s) => !flags[s.sym]);
       if (panelF === "covered") r = r.filter((s) => panels.stocks[s.sym]);
       else if (panelF === "diverge") r = r.filter((s) => (panels.stocks[s.sym]?.div ?? 0) >= 40);
+      else if (panelF === "high") r = r.filter((s) => (avgOf(panels.stocks[s.sym]) ?? -1) >= 65);
+      else if (panelF === "consensus")
+        r = r.filter((s) => {
+          const p = panels.stocks[s.sym];
+          return !!p && (avgOf(p) ?? -1) >= 60 && p.div <= 25;
+        });
+      if (masterF !== "all") {
+        const mi = order.indexOf(masterF);
+        if (mi >= 0) r = r.filter((s) => (panels.stocks[s.sym]?.sc[mi] ?? -1) >= 70);
+      }
     }
     if (search.trim()) {
       const q = search.trim().toLowerCase();
@@ -550,12 +579,14 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
       if (sortCol === "name") return a.name.localeCompare(b.name) * dir;
       if (sortCol === "div")
         return ((panels.stocks[a.sym]?.div ?? -1) - (panels.stocks[b.sym]?.div ?? -1)) * dir;
+      if (sortCol === "avg")
+        return ((avgOf(panels.stocks[a.sym]) ?? -1) - (avgOf(panels.stocks[b.sym]) ?? -1)) * dir;
       // ETF 模式下「市值」列改排「近1年回报」
       const pick = (x: UsSec) =>
         sortCol === "price" ? x.price : sortCol === "pct" ? x.pct : sortCol === "vol" ? x.vol : (etfMode ? (x.ret1y ?? null) : x.mcapB);
       return ((pick(a) ?? -Infinity) - (pick(b) ?? -Infinity)) * dir;
     });
-  }, [stocks, secType, sectorSet, capTier, dilu, panelF, panels, flags, search, sortCol, sortDir]);
+  }, [stocks, secType, sectorSet, capTier, dilu, panelF, masterF, order, panels, flags, search, sortCol, sortDir]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / US_PAGE_SIZE));
   const safePage = Math.min(page, totalPages - 1);
@@ -635,9 +666,9 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
  placeholder="搜代码 / 公司 / 行业…"
  className="flex-1 min-w-[180px] rounded-lg border border-line px-3 py-1.5 text-sm focus:border-faint focus:outline-none"
           />
-          {(sectorSet.size > 0 || capTier !== "all" || dilu !== "all" || search) && (
+          {(sectorSet.size > 0 || capTier !== "all" || dilu !== "all" || panelF !== "all" || masterF !== "all" || search) && (
             <button
-              onClick={() => { setSectorSet(new Set()); setCapTier("all"); setDilu("all"); setSearch(""); }}
+              onClick={() => { setSectorSet(new Set()); setCapTier("all"); setDilu("all"); setPanelF("all"); setMasterF("all"); setSearch(""); }}
  className="rounded-lg border border-line px-3 py-1.5 text-sm text-muted hover:bg-surface-2"
             >
               清除筛选
@@ -667,11 +698,17 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
           </div>
         )}
 
-        {/* 五方独立判读 / 分歧 */}
+        {/* 五方独立判读:覆盖 / 分歧 / 高分 / 共识 */}
         {coveredCount > 0 && (
           <div className="mb-2 flex flex-wrap items-center gap-1.5">
             <span className="mr-1 text-xs text-accent">⬡ 五方判读:</span>
-            {([["all", "全部"], ["covered", `已判读(${coveredCount})`], ["diverge", `分歧大(${divergeCount})`]] as const).map(([k, label]) => (
+            {([
+              ["all", "全部"],
+              ["covered", `已判读(${coveredCount})`],
+              ["high", `高分 均≥65(${highCount})`],
+              ["consensus", `共识好票(${consensusCount})`],
+              ["diverge", `分歧大(${divergeCount})`],
+            ] as const).map(([k, label]) => (
               <button
                 key={k}
                 onClick={() => setPanelF(k)}
@@ -682,7 +719,26 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
                 {label}
               </button>
             ))}
-            <span className="text-[10px] text-faint">分歧 = 5 位大师评分极差,越大说明"该不该买"本身就有争议;点列头「五方」按分歧排序</span>
+            <span className="text-[10px] text-faint">共识好票 = 均分≥60 且分歧≤25(五方都点头);分歧 = 评分极差,越大越有争议</span>
+          </div>
+        )}
+
+        {/* 按单个股神筛:他看多(该股神评分 ≥70) */}
+        {coveredCount > 0 && (
+          <div className="mb-2 flex flex-wrap items-center gap-1.5">
+            <span className="mr-1 text-xs text-muted">谁看多 ≥70:</span>
+            {["all", ...order].map((k) => (
+              <button
+                key={k}
+                onClick={() => setMasterF(k)}
+                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+                  masterF === k ? "bg-surface-3 text-white" : "bg-surface-2 text-muted hover:bg-line"
+                }`}
+              >
+                {k === "all" ? "不限" : MASTER_NAME[k] ?? k}
+              </button>
+            ))}
+            <span className="text-[10px] text-faint">叠加生效:可先选「巴菲特」再排「均分」,找他重仓别人嫌弃的票</span>
           </div>
         )}
 
@@ -735,6 +791,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
  <Th col="pct" label="涨跌%" className="text-right" />
  <Th col="mcap" label={secType === "etf" ? "1年回报" : secType === "all" ? "市值 / 1Y" : "市值"} className="text-right" />
  <Th col="div" label="五方" className="text-center" />
+ <Th col="avg" label="均分" className="text-right" />
  <Th col="vol" label="成交量" className="hidden text-right sm:table-cell" />
  <th className="hidden px-3 py-2 font-medium text-muted md:table-cell">行业</th>
  <th className="px-2 py-2"></th>
@@ -775,6 +832,12 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
                       : fmtCap(s.mcapB)}
                   </td>
  <td className="px-3 py-2 text-center">{s.type === "etf" ? <span className="text-faint">—</span> : <MasterDots sum={panels.stocks[s.sym]} order={order} />}</td>
+ <td className="px-3 py-2 text-right font-mono tabular-nums">{(() => {
+                    if (s.type === "etf") return <span className="text-faint">—</span>;
+                    const a = avgOf(panels.stocks[s.sym]);
+                    if (a == null) return <span className="text-faint">—</span>;
+                    return <span className={`font-semibold ${a >= 65 ? "text-up" : a >= 50 ? "text-accent" : "text-muted"}`}>{Math.round(a)}</span>;
+                  })()}</td>
  <td className="hidden px-3 py-2 text-right font-mono tabular-nums text-muted sm:table-cell">{fmtVol(s.vol)}</td>
  <td className="hidden max-w-[200px] truncate px-3 py-2 text-xs text-muted md:table-cell">{s.industry || s.sector}</td>
  <td className="px-2 py-2">
@@ -797,7 +860,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
               );
             })}
             {pageItems.length === 0 && (
-              <tr><td colSpan={9} className="py-12 text-center text-sm text-faint">没有符合条件的股票</td></tr>
+              <tr><td colSpan={10} className="py-12 text-center text-sm text-faint">没有符合条件的股票</td></tr>
             )}
           </tbody>
         </table>

@@ -197,6 +197,9 @@ def build_us_entries(existing: set, placement: dict) -> list:
         tier = chain.get("layer", "")
         tier_l = "L1" if "上游" in tier else "L3" if "中游" in tier else "L5" if "下游" in tier else "L4"
         layer = classify_layer(None, "", f"{chain.get('industry','')} {chain.get('role','')}", name, default=tier_l)
+        # AI 标签:placement 没有 AI 链,用关键词分类补(美股半导体/光模块/服务器等进 AI 链)
+        if "AI" in classify_industries(name, f"{chain.get('industry','')} {chain.get('role','')}", "", v.get("sector", "")):
+            industries = sorted(set(industries) | {"AI"})
         score = composite_score(v.get("panel") or {}) or 60
         mcap = min(max(v.get("mcapB") or 1, 0.5), 4000)
         out.append({
@@ -241,8 +244,11 @@ def main():
             skipped_existing += 1
             continue
 
-        # 归类 industry(用 industry-map 的权威 placement —— 覆盖全部 8 条链)
-        industries = list(placement.get(code, {}).keys())
+        # 归类 industry:industry-map 权威 placement ∪ 关键词分类(后者负责 "AI" 标签 ——
+        # placement 没有 AI 链,只用它会把 AI 标签全丢光,AI 链一度只剩 119,2026-06-11 踩过)
+        classified = classify_industries(it.get("name", ""), it.get("thesis", ""),
+                                         it.get("layer_label", ""), it.get("sector", ""))
+        industries = sorted(set(placement.get(code, {}).keys()) | set(classified))
         if not industries:
             skipped_no_industry += 1
             continue

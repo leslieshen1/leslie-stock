@@ -232,22 +232,32 @@ export default function PulseClient({
   ], [chainIndustries, lang]);
 
   // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层
+  // AI 链成员 = 手工策展(无 industries 字段)+ 带 "AI" 标签的补充项。
+  // 全市场注入后(4098 只判读全进图)不能再把 AI 当"全部",否则银行零售挤进 AI 链。
+  const aiItems = useMemo(
+    () => itemsScored.filter((c) => {
+      const tags = (c as { industries?: string[] }).industries;
+      return !tags || tags.includes("AI");
+    }),
+    [itemsScored]
+  );
+
   const industryItems = useMemo(() => {
-    if (industry === "AI") return itemsScored;
+    if (industry === "AI") return aiItems;
     return itemsScored
       .filter((c) => chainPlacement[c.ticker]?.[industry])
       .map((c) => ({ ...c, layer: chainPlacement[c.ticker][industry] as typeof c.layer }));
-  }, [itemsScored, industry, chainPlacement]);
+  }, [itemsScored, aiItems, industry, chainPlacement]);
 
   // 每个 industry 的数量（tab badge）
   const industryCounts = useMemo(() => {
-    const out: Record<string, number> = { AI: itemsScored.length };
+    const out: Record<string, number> = { AI: aiItems.length };
     for (const def of industryDefs) {
       if (def.id === "AI") continue;
       out[def.id] = itemsScored.filter((c) => chainPlacement[c.ticker]?.[def.id]).length;
     }
     return out;
-  }, [itemsScored, industryDefs, chainPlacement]);
+  }, [itemsScored, aiItems, industryDefs, chainPlacement]);
 
   // 当前 industry 的 layers
   const activeLayers = useMemo(() => {

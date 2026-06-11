@@ -32,10 +32,11 @@ CHAINS: dict = {
     "rare-metals": {
         "name": "稀有 / 战略金属", "desc": "矿山 → 冶炼 → 深加工 → 应用",
         "kw": ["稀土", "锗", "锡矿", "钨", "钽", "铟", "镓", "钼", "铂", "铂族", "黄金", "白银",
-               "稀有金属", "战略金属", "小金属", "钴", "镍", "锂矿", "矿业", "有色", "贵金属"],
+               "稀有金属", "战略金属", "小金属", "钴", "镍", "锂矿", "矿业", "有色", "贵金属",
+               "precious metals", "metal mining", "other metals and minerals", "rare earth", "uranium"],
         "layers": [
             {"id": "RM-U", "name": "上游 · 矿山", "summary": "稀土/锗/钨/锡/钼/铜钴/金 资源",
-             "kw": ["矿", "矿业", "矿山", "采选", "资源", "开采"]},
+             "kw": ["矿", "矿业", "矿山", "采选", "资源", "开采", "precious metals", "metal mining", "mining", "uranium"]},
             {"id": "RM-M", "name": "中游 · 冶炼提纯", "summary": "粗炼→高纯",
              "kw": ["冶炼", "提纯", "高纯", "电解", "湿法", "火法", "锌锗", "钴业"]},
             {"id": "RM-D", "name": "下游 · 深加工", "summary": "合金/化合物/单晶/衬底/靶材",
@@ -88,18 +89,26 @@ CHAINS: dict = {
         "name": "生物医药", "desc": "试剂 → API → 创新药 → CRO/CDMO → 医械",
         "kw": ["医药", "创新药", "cro", "cdmo", "api", "原料药", "医械", "诊断", "ivd", "疫苗",
                "试剂", "培养基", "adc", "mrna", "抗体", "血制品", "血浆", "细胞", "测序", "影像",
-               "内窥镜", "植入", "造影", "核药", "双抗", "生物", "制药", "药业"],
+               "内窥镜", "植入", "造影", "核药", "双抗", "生物", "制药", "药业",
+               "biotechnology", "pharmaceutical", "medical", "hospital", "medicinal",
+               "diagnostic", "ophthalmic", "electromedical", "health"],
         "layers": [
             {"id": "BT-R", "name": "生物试剂 · 上游", "summary": "培养基/酶/抗体/重组蛋白",
              "kw": ["培养基", "酶", "重组蛋白", "试剂", "抗体原料", "层析", "生物试剂"]},
             {"id": "BT-A", "name": "API · 原料药", "summary": "甾体/维生素/造影剂/特色 API",
              "kw": ["原料药", "api", "甾体", "维生素", "造影剂", "特色原料"]},
             {"id": "BT-D", "name": "创新药 · 研发", "summary": "ADC/双抗/小分子/核药/血制品",
-             "kw": ["创新药", "adc", "双抗", "单抗", "核药", "血制品", "血浆", "小分子", "新药", "细胞治疗"]},
+             "kw": ["创新药", "adc", "双抗", "单抗", "核药", "血制品", "血浆", "小分子", "新药", "细胞治疗",
+                    "pharmaceutical preparations", "biological products", "medicinal chemicals", "biotechnology"]},
             {"id": "BT-C", "name": "CRO / CDMO", "summary": "外包研发 + 外包生产",
              "kw": ["cro", "cdmo", "cxo", "外包", "一体化平台"]},
             {"id": "BT-V", "name": "医械 · 设备", "summary": "影像/植入/IVD/测序/内镜",
-             "kw": ["影像", "ct", "mri", "超声", "植入", "ivd", "诊断", "测序", "内窥镜", "内镜", "医械", "器械"]},
+             "kw": ["影像", "ct", "mri", "超声", "植入", "ivd", "诊断", "测序", "内窥镜", "内镜", "医械", "器械",
+                    "medical/dental instruments", "medical specialities", "electromedical", "in vitro",
+                    "ophthalmic", "dental", "diagnostic substances"]},
+            {"id": "BT-S", "name": "医疗服务", "summary": "医院/护理/管理式医疗",
+             "kw": ["medical/nursing services", "hospital/nursing", "managed care", "health services",
+                    "medical management", "nursing"]},
         ],
         "default": "BT-D",
     },
@@ -143,10 +152,11 @@ CHAINS: dict = {
     "consumer": {
         "name": "消费电子", "desc": "芯片 → 光声 → 显示 → 结构 → 组装 → 品牌",
         "kw": ["消费电子", "手机", "smartphone", "apple", "苹果", "可穿戴", "tws", "ar/vr",
-               "面板", "摄像头", "声学", "无线耳机", "智能终端", "折叠屏", "果链", "wearable"],
+               "面板", "摄像头", "声学", "无线耳机", "智能终端", "折叠屏", "果链", "wearable",
+               "semiconductor", "consumer electronics"],
         "layers": [
             {"id": "CE-1", "name": "核心芯片", "summary": "SoC/射频/存储/电源",
-             "kw": ["soc", "处理器", "射频", "基带", "存储芯片", "电源管理", "mcu", "蓝牙芯片"]},
+             "kw": ["soc", "处理器", "射频", "基带", "存储芯片", "电源管理", "mcu", "蓝牙芯片", "semiconductor"]},
             {"id": "CE-2", "name": "光学 · 声学", "summary": "摄像头/镜头/CMOS/声学",
              "kw": ["摄像头", "光学", "镜头", "cmos", "声学", "扬声器", "麦克风", "马达", "潜望"]},
             {"id": "CE-3", "name": "显示 · 触控", "summary": "面板/OLED/盖板/触控",
@@ -160,6 +170,154 @@ CHAINS: dict = {
         ],
         "default": "CE-2",
     },
+    # ---------------- 2026-06-11 扩容:让全部已判读美股进图(板块级新链,kw 吃 Nasdaq industry 字符串) ----------------
+    "finance": {
+        "name": "金融", "desc": "银行 → 保险 → 资管/券商/交易所 → 消费金融/Fintech",
+        "kw": ["major banks", "commercial banks", "savings institution", "insurer", "insurance",
+               "investment manager", "investment banker", "brokers", "finance", "bank", "fintech",
+               "trusts except", "investors services", "diversified financial"],
+        "layers": [
+            {"id": "FI-B", "name": "银行", "summary": "大型/区域/储蓄银行",
+             "kw": ["major banks", "commercial banks", "savings institution", "bank holding", "bancorp", "bancshares", "banks"]},
+            {"id": "FI-I", "name": "保险", "summary": "财险/寿险/特种险/再保险",
+             "kw": ["property-casualty", "life insurance", "specialty insurer", "insurance", "insurer", "reinsurance", "accident"]},
+            {"id": "FI-A", "name": "资管 · 券商 · 交易所", "summary": "投行/经纪/资产管理/信托",
+             "kw": ["investment manager", "investment banker", "brokers", "investors services", "trusts except", "asset management", "exchange", "capital markets"]},
+            {"id": "FI-F", "name": "消费金融 · Fintech", "summary": "信贷/支付/金融科技",
+             "kw": ["consumer services", "credit", "payment", "lending", "finance companies", "fintech", "mortgage"]},
+        ],
+        "default": "FI-A",
+    },
+    "real-estate": {
+        "name": "地产 / REIT", "desc": "REITs → 开发建造 → 运营服务",
+        "kw": ["real estate investment trust", "reit", "real estate", "homebuilding", "building operators", "property management"],
+        "layers": [
+            {"id": "RE-R", "name": "REITs", "summary": "权益/抵押 REIT(住宅/商业/工业/数据中心)",
+             "kw": ["real estate investment trust", "reit"]},
+            {"id": "RE-D", "name": "开发 · 建造", "summary": "住宅开发/建筑商",
+             "kw": ["homebuilding", "building operators", "developer", "construction"]},
+            {"id": "RE-S", "name": "运营 · 服务", "summary": "物管/经纪/地产服务",
+             "kw": ["real estate", "property management", "brokerage"]},
+        ],
+        "default": "RE-R",
+    },
+    "software-internet": {
+        "name": "软件 / 互联网", "desc": "基础软件/SaaS → 互联网平台 → IT 服务 → 通信网络",
+        "kw": ["prepackaged software", "edp services", "programming data processing", "internet",
+               "computer software", "telecommunications equipment", "computer communications",
+               "cable & other pay television", "broadcasting", "information services", "saas"],
+        "layers": [
+            {"id": "SW-S", "name": "软件 · SaaS", "summary": "基础/应用软件",
+             "kw": ["prepackaged software", "computer software", "saas", "software"]},
+            {"id": "SW-I", "name": "互联网 · 数据平台", "summary": "平台/数据处理/信息服务",
+             "kw": ["programming data processing", "internet", "information services", "data processing"]},
+            {"id": "SW-T", "name": "IT 服务 · 咨询", "summary": "EDP/系统集成/外包",
+             "kw": ["edp services", "consulting", "it services", "computer services"]},
+            {"id": "SW-N", "name": "通信 · 网络", "summary": "通信设备/有线/广电",
+             "kw": ["telecommunications equipment", "computer communications", "cable & other pay television",
+                    "broadcasting", "radio and television", "communications equipment", "telecom"]},
+        ],
+        "default": "SW-S",
+    },
+    "industrials": {
+        "name": "工业 / 制造", "desc": "材料/化工 → 装备机械 → 航空航天 → 运输物流 → 建筑工程",
+        "kw": ["industrial machinery", "major chemicals", "steel", "metal fabrications", "aerospace",
+               "military/government", "trucking", "railroads", "marine transportation", "air freight",
+               "electrical products", "building materials", "paper", "forest products", "plastic",
+               "mining & quarrying", "engineering", "office equipment", "containers", "specialty chemicals"],
+        "layers": [
+            {"id": "IN-M", "name": "材料 · 化工", "summary": "化工/钢铁/纸品/塑料/建材",
+             "kw": ["major chemicals", "specialty chemicals", "steel", "iron ore", "paper", "forest products",
+                    "plastic", "building materials", "mining & quarrying", "containers", "glass", "aluminum"]},
+            {"id": "IN-E", "name": "装备 · 机械", "summary": "工业机械/电气/零部件",
+             "kw": ["industrial machinery", "electrical products", "metal fabrications", "electronic components",
+                    "office equipment", "fluid controls", "industrial specialties", "tools"]},
+            {"id": "IN-A", "name": "航空 · 航天", "summary": "Aerospace/军工技术服务",
+             "kw": ["aerospace", "military/government"]},
+            {"id": "IN-T", "name": "运输 · 物流", "summary": "海运/卡车/铁路/空运",
+             "kw": ["marine transportation", "trucking", "railroads", "air freight", "courier", "transportation", "logistics", "airline", "air services"]},
+            {"id": "IN-C", "name": "建筑 · 工程", "summary": "工程建造/基建服务",
+             "kw": ["engineering", "construction", "water sewer", "pipeline construction"]},
+        ],
+        "default": "IN-E",
+    },
+    "energy": {
+        "name": "能源 / 油气", "desc": "上游勘探 → 中游管输 → 下游炼销 → 油服 → 煤炭",
+        "kw": ["oil & gas production", "integrated oil", "oilfield services", "oil refining",
+               "oil/gas transmission", "coal mining", "petroleum", "natural gas"],
+        "layers": [
+            {"id": "EN-U", "name": "上游 · 勘探开采", "summary": "E&P/一体化油企",
+             "kw": ["oil & gas production", "integrated oil", "exploration"]},
+            {"id": "EN-M", "name": "中游 · 管输", "summary": "管道/运输/储运",
+             "kw": ["oil/gas transmission", "pipeline", "midstream", "natural gas distribution"]},
+            {"id": "EN-D", "name": "下游 · 炼化销售", "summary": "炼厂/成品油分销",
+             "kw": ["oil refining", "marketing", "petroleum products"]},
+            {"id": "EN-S", "name": "油服 · 设备", "summary": "油田服务/钻采设备",
+             "kw": ["oilfield services", "drilling", "oil services"]},
+            {"id": "EN-C", "name": "煤炭", "summary": "动力煤/焦煤",
+             "kw": ["coal mining", "coal"]},
+        ],
+        "default": "EN-U",
+    },
+    "utilities": {
+        "name": "公用事业", "desc": "发电 → 电力公司 → 燃气/水务 → 环保",
+        "kw": ["electric utilities", "power generation", "natural gas distribution", "water supply",
+               "environmental services", "utility", "utilities"],
+        "layers": [
+            {"id": "UT-P", "name": "发电 · IPP", "summary": "独立发电/可再生电力",
+             "kw": ["power generation", "independent power", "renewable"]},
+            {"id": "UT-E", "name": "电力公司", "summary": "受监管电网/综合电力",
+             "kw": ["electric utilities", "electric"]},
+            {"id": "UT-G", "name": "燃气 · 水务", "summary": "燃气分销/供水",
+             "kw": ["natural gas distribution", "water supply", "gas distribution", "water"]},
+            {"id": "UT-V", "name": "环保 · 其他", "summary": "环境服务/固废",
+             "kw": ["environmental services", "waste"]},
+        ],
+        "default": "UT-E",
+    },
+    "consumer-retail": {
+        "name": "大消费", "desc": "品牌消费品 → 食品饮料 → 零售渠道 → 餐饮酒店休闲 → 汽车耐用 → 商业服务",
+        "kw": ["restaurants", "hotels", "retail", "apparel", "packaged foods", "beverages", "food",
+               "amusement", "recreation", "business services", "professional services", "auto parts",
+               "automotive", "clothing", "department", "specialty stores", "specialty distribution", "consumer",
+               "movies", "entertainment", "casino", "homebuilding", "furniture", "household"],
+        "layers": [
+            {"id": "CR-B", "name": "品牌 · 服饰家居", "summary": "服装/鞋/家居/个护品牌",
+             "kw": ["apparel", "clothing", "shoe", "furniture", "household products", "consumer specialties",
+                    "cosmetics", "plastic products"]},
+            {"id": "CR-F", "name": "食品 · 饮料", "summary": "包装食品/饮料/农业",
+             "kw": ["packaged foods", "beverages", "specialty foods", "meat", "poultry", "farming",
+                    "seeds", "milling", "food distributors"]},
+            {"id": "CR-R", "name": "零售 · 渠道", "summary": "商超/专卖/电商/药店",
+             "kw": ["food chains", "department", "specialty stores", "catalog", "specialty distribution",
+                    "drug stores", "supermarkets", "retail", "e-commerce"]},
+            {"id": "CR-L", "name": "餐饮 · 酒店 · 休闲", "summary": "餐厅/度假/娱乐/博彩",
+             "kw": ["restaurants", "hotels", "resorts", "amusement", "recreation", "movies",
+                    "entertainment", "casino", "gaming", "cruise", "leisure"]},
+            {"id": "CR-A", "name": "汽车 · 耐用", "summary": "传统整车/零部件/售后",
+             "kw": ["auto parts", "auto manufacturing", "automotive", "motor vehicles", "tires", "rv"]},
+            {"id": "CR-S", "name": "商业 · 专业服务", "summary": "B2B 服务/人力/广告",
+             "kw": ["business services", "professional services", "advertising", "staffing",
+                    "diversified commercial", "consumer services", "rental", "education"]},
+        ],
+        "default": "CR-S",
+    },
+}
+
+# 板块兜底:关键词全部不中时按 sector 进默认层(保证已判读 100% 进图)
+SECTOR_FALLBACK: dict[str, tuple[str, str]] = {
+    "finance": ("finance", "FI-A"),
+    "real estate": ("real-estate", "RE-R"),
+    "technology": ("software-internet", "SW-S"),
+    "telecommunications": ("software-internet", "SW-N"),
+    "industrials": ("industrials", "IN-E"),
+    "basic materials": ("industrials", "IN-M"),
+    "energy": ("energy", "EN-U"),
+    "utilities": ("utilities", "UT-E"),
+    "consumer discretionary": ("consumer-retail", "CR-R"),
+    "consumer staples": ("consumer-retail", "CR-F"),
+    "health care": ("biotech", "BT-D"),
+    "miscellaneous": ("industrials", "IN-E"),
 }
 
 
@@ -183,9 +341,24 @@ def parse_curated_seed() -> dict:
     return seed
 
 
+_KW_RE: dict[str, re.Pattern] = {}
+
+
+def kw_hit(kw: str, text: str) -> bool:
+    """纯 ASCII 关键词按词边界匹配(治 'cro'⊂Microelectronics、'api'⊂Capital、'rv'⊂services、
+    'bank'⊂bankers 这类子串误伤,2026-06-11 抽检发现);含中文的保持子串匹配。"""
+    if kw.isascii():
+        pat = _KW_RE.get(kw)
+        if pat is None:
+            pat = re.compile(r"(?<![a-z0-9])" + re.escape(kw) + r"(?![a-z0-9])")
+            _KW_RE[kw] = pat
+        return bool(pat.search(text))
+    return kw in text
+
+
 def pick_layer(text: str, chain: dict) -> str:
     for layer in chain["layers"]:
-        if any(k in text for k in layer["kw"]):
+        if any(kw_hit(k, text) for k in layer["kw"]):
             return layer["id"]
     return chain["default"]
 
@@ -195,7 +368,7 @@ def classify(text: str, placement_entry: dict):
     for ind, chain in CHAINS.items():
         if ind in placement_entry:   # 种子已定,保留
             continue
-        if any(k in text for k in chain["kw"]):
+        if any(kw_hit(k, text) for k in chain["kw"]):
             placement_entry[ind] = pick_layer(text, chain)
 
 
@@ -213,12 +386,27 @@ def main():
         text = f"{e.get('name','')} {e.get('thesis','')} {e.get('sector','')} {' '.join(e.get('concepts',[]))}".lower()
         classify(text, placement.setdefault(code, {}))
 
-    # 美股 us-analyses
+    # 美股 us-analyses(join us-stocks 的 Nasdaq industry 字符串 —— 新链关键词主要吃它)
+    try:
+        uss = {s["sym"]: s for s in json.load(open(PUB / "us-stocks.json", encoding="utf-8"))["stocks"]}
+    except Exception:
+        uss = {}
     us = json.load(open(US, encoding="utf-8")).get("stocks", {})
+    fallback_n = 0
     for sym, v in us.items():
+        m = uss.get(sym) or {}
         ch = v.get("chain") or {}
-        text = f"{v.get('name','')} {ch.get('industry','')} {ch.get('role','')} {v.get('sector','')}".lower()
-        classify(text, placement.setdefault(sym, {}))
+        text = (f"{v.get('name','')} {ch.get('industry','')} {ch.get('role','')} "
+                f"{v.get('sector','')} {m.get('industry','')} {m.get('sector','')}").lower()
+        entry = placement.setdefault(sym, {})
+        classify(text, entry)
+        if not entry:
+            # 板块兜底:已判读的必须进图(进该板块链的默认层,逻辑至少是板块级正确)
+            sec = str(m.get("sector") or v.get("sector") or "").lower()
+            ind, layer = SECTOR_FALLBACK.get(sec, ("consumer-retail", "CR-S"))
+            entry[ind] = layer
+            fallback_n += 1
+    print(f"  板块兜底放置: {fallback_n} 只")
 
     # 去掉空 entry
     placement = {k: v for k, v in placement.items() if v}

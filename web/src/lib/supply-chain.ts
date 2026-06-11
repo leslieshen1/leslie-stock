@@ -560,7 +560,9 @@ export function filterByIndustry<T extends { ticker: string; industries?: Indust
   items: T[],
   id: IndustryId,
 ): T[] {
-  if (id === "AI") return items; // AI = 全部
+  // AI 链 = 手工策展(无 industries 字段)+ 带 "AI" 标签的补充项。
+  // 不能返回全部:全市场注入后(2026-06-11,4098 只判读全进图)银行/零售会挤进 AI 链。
+  if (id === "AI") return items.filter((c) => !c.industries || c.industries.includes("AI" as IndustryId));
   return items.filter((c) => {
     // 优先看公司自带的 industries tag
     if (c.industries && c.industries.includes(id)) return true;
@@ -596,10 +598,13 @@ export function mergeSupplement(
   items: CompanyWithHeat[],
   supplement: SupplementItem[] | null,
 ): CompanyWithHeat[] {
-  // 给现有 items 默认 industries: ["AI"]
+  // 策展表(supply-chain.ts)本身就是 AI 链:无论是否带其他 industries 标签,AI 永远是成员。
+  // 标签只做加法 —— 否则带 humanoid/defense 标的策展项会从 AI 链消失(2026-06-11 踩过,AI 链一度只剩 119)。
   const augmented = items.map((c) => ({
     ...c,
-    industries: c.industries ?? (["AI"] as IndustryId[]),
+    industries: c.industries
+      ? (c.industries.includes("AI" as IndustryId) ? c.industries : ([...c.industries, "AI"] as IndustryId[]))
+      : (["AI"] as IndustryId[]),
   }));
   if (!supplement) return augmented;
   const existing = new Set(augmented.map((c) => c.ticker));

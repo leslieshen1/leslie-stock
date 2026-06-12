@@ -25,6 +25,9 @@ function num(s: unknown): number | null {
 }
 const isUS = (s: string) => !/\.(SS|SZ|HK)$/i.test(s);
 
+// 高频 ETF 直通:assetclass 一次到位,免 stocks→400→etf 两连击(QQQ 实测省一半延迟)
+const KNOWN_ETFS = new Set(["QQQ", "SPY", "DIA", "IWM", "GLD", "SLV", "TLT", "HYG", "XLK", "XLF", "XLE", "SMH", "SOXX", "ARKK", "IBIT", "VTI", "VOO"]);
+
 // 美股:Nasdaq info。盘前 primaryData=盘前价(涨跌相对昨收),secondaryData=昨收。
 // assetclass 必须匹配证券类型:对 ETF(SPY/QQQ…)用 stocks 会 400,所以失败时回退 etf。
 async function usQuote(sym: string, assetclass: "stocks" | "etf" = "stocks"): Promise<Quote | null> {
@@ -81,7 +84,9 @@ export async function GET(req: Request) {
   const out: Record<string, Quote> = {};
   await Promise.all(
     syms.map(async (sym) => {
-      const q = isUS(sym) ? await usQuote(sym) : await yahooQuote(sym);
+      const q = isUS(sym)
+        ? await usQuote(sym, KNOWN_ETFS.has(sym.toUpperCase()) ? "etf" : "stocks")
+        : await yahooQuote(sym);
       if (q) out[sym.toUpperCase()] = q;
     })
   );

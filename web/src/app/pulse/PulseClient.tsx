@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import PulseField from "./PulseField";
 import {
   LAYERS,
@@ -173,6 +173,7 @@ export default function PulseClient({
   chainPlacement?: Record<string, Record<string, string>>;
 }) {
   const router = useRouter();
+  const sp = useSearchParams();   // ?industry=&highlight= 客户端读(服务端读会逼整页强动态)
   const { t, lang } = useLang();
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
   // 30 天趋势懒加载:之前 6.4MB trends.json 走服务端 props,把首页拖死(2026-06-12 抓包);
@@ -184,7 +185,7 @@ export default function PulseClient({
     trendsLoaded.current = true;
     fetch("/data/trends.json").then((r) => r.json()).then(setLazyTrends).catch(() => { trendsLoaded.current = false; });
   }, [selected]);
- const [industry, setIndustry] = useState<string>(initialIndustry ?? "AI");
+ const [industry, setIndustry] = useState<string>(initialIndustry ?? sp.get("industry") ?? "AI");
  const [region, setRegion] = useState<Region | "ALL">("US");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
@@ -192,7 +193,7 @@ export default function PulseClient({
   // 镜头切换 → 筛选档复位(热度/评分/分歧三套档位语义不同,id 集也不同)
   useEffect(() => { setTier("all"); }, [colorMode]);
   // 从详情页跳转过来时高亮的 ticker
-  const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
+  const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? sp.get("highlight"));
   // 全盘实时报价(/api/market,Nasdaq 快照 60s 缓存)
   const [liveQ, setLiveQ] = useState<Record<string, { price: number | null; pct: number | null }>>({});
 

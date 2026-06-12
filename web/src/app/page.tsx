@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import { Suspense } from "react";
 import path from "path";
 import PulseClient from "./pulse/PulseClient";
 import {
@@ -113,10 +114,12 @@ async function loadPanelSummary(): Promise<PanelSummary> {
   }
 }
 
+// 5 分钟增量缓存:粒子数据本来就是日更(实时价/分数走客户端轮询),没必要每请求现组装 5MB —— 
+// 之前 TTFB 2.3s 全花在这(2026-06-12 实测)。searchParams 已移到客户端读,本页可静态化。
+export const revalidate = 300;
+
 export default async function HomePage({
-  searchParams,
 }: {
-  searchParams: Promise<{ industry?: string; highlight?: string }>;
 }) {
   const [snapshot, supplement, panelSummary, industryMap, usHeat, macro, usPrices, usFund] = await Promise.all([
     loadSnapshot(),
@@ -168,24 +171,15 @@ export default async function HomePage({
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
 
 
-  // URL params: ?industry=rare-metals&highlight=002428
-  const sp = await searchParams;
- const ALLOWED_INDUSTRIES = ["AI", "humanoid", "defense", "rare-metals", "biotech"] as const;
-  const initialIndustry =
-    sp.industry && ALLOWED_INDUSTRIES.includes(sp.industry as typeof ALLOWED_INDUSTRIES[number])
-      ? (sp.industry as typeof ALLOWED_INDUSTRIES[number])
-      : undefined;
-  const initialHighlight = sp.highlight;
 
   return (
  <main className="mx-auto max-w-[1480px] px-6 pb-10 pt-3">
       <MacroBar series={macro} />
       <PremarketStrip />
+      <Suspense>
       <PulseClient
         items={items}
         liveCount={liveCount}
-        initialIndustry={initialIndustry}
-        initialHighlight={initialHighlight}
         panelSummary={scopedScores}
         masterOrder={panelSummary.order}
         coveredCount={coveredCount}
@@ -194,6 +188,7 @@ export default async function HomePage({
         chainIndustries={industryMap.industries}
         chainPlacement={scopedPlacement}
       />
+      </Suspense>
 
  <footer className="mt-12 pt-2 text-center">
  <p className="text-[10px] text-faint">

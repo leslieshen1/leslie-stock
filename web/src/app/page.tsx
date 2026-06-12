@@ -167,8 +167,6 @@ export default async function HomePage({
  const liveCount = items.filter((i) => i.dataSource === "live").length;
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
 
-  // 30 天 trend 从静态 JSON 读
-  const trends = await loadTrends();
 
   // URL params: ?industry=rare-metals&highlight=002428
   const sp = await searchParams;
@@ -185,7 +183,6 @@ export default async function HomePage({
       <PremarketStrip />
       <PulseClient
         items={items}
-        trends={trends}
         liveCount={liveCount}
         initialIndustry={initialIndustry}
         initialHighlight={initialHighlight}

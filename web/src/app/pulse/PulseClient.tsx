@@ -175,6 +175,15 @@ export default function PulseClient({
   const router = useRouter();
   const { t, lang } = useLang();
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
+  // 30 天趋势懒加载:之前 6.4MB trends.json 走服务端 props,把首页拖死(2026-06-12 抓包);
+  // 现在选中粒子才 fetch(浏览器缓存,只付一次)
+  const [lazyTrends, setLazyTrends] = useState<Record<string, TrendPt[]>>(trends);
+  const trendsLoaded = useRef(Object.keys(trends).length > 0);
+  useEffect(() => {
+    if (!selected || trendsLoaded.current) return;
+    trendsLoaded.current = true;
+    fetch("/data/trends.json").then((r) => r.json()).then(setLazyTrends).catch(() => { trendsLoaded.current = false; });
+  }, [selected]);
  const [industry, setIndustry] = useState<string>(initialIndustry ?? "AI");
  const [region, setRegion] = useState<Region | "ALL">("US");
  const [tier, setTier] = useState<string>("all");
@@ -279,12 +288,6 @@ export default function PulseClient({
     return out;
   }, [itemsScored, aiItems, industryDefs, chainPlacement]);
 
-  // 当前 industry 的 layers
-  const activeLayers = useMemo(() => {
-    const def = industryDefs.find((d) => d.id === industry) ?? industryDefs[0];
-    return def.layers.map((L) => ({ id: L.id, name: L.name }));
-  }, [industry, industryDefs]);
-
   // 当前 industry 的 edges（仅 AI 有策展上下游连线;数据驱动链暂无）
   const activeEdges = useMemo(() => (industry === "AI" ? SUPPLY_EDGES : []), [industry]);
 
@@ -298,6 +301,16 @@ export default function PulseClient({
       return score >= t.min && score <= t.max;
     });
   }, [industryItems, region, tier, colorMode]);
+
+  // 当前 industry 的 layers(零成员的层隐藏 —— 区域/筛选切换后空荡的"幽灵层"很怪,2026-06-12 抓包)
+  const activeLayers = useMemo(() => {
+    const def = industryDefs.find((d) => d.id === industry) ?? industryDefs[0];
+    const present = new Set(filtered.map((c) => c.layer));
+    const layers = def.layers.map((L) => ({ id: L.id, name: L.name }));
+    const nonEmpty = layers.filter((L) => present.has(L.id as never));
+    return nonEmpty.length > 0 ? nonEmpty : layers;
+  }, [industry, industryDefs, filtered]);
+
 
   // 当前镜头下"有判读"的可见标的数
   const coveredInView = useMemo(
@@ -633,7 +646,7 @@ export default function PulseClient({
             edges={SUPPLY_EDGES}
             colorMode={colorMode}
             onSelect={setSelected}
-            trend={trends[selected.ticker] || []}
+            trend={lazyTrends[selected.ticker] || []}
           />
         ) : (
           <EmptyHint />

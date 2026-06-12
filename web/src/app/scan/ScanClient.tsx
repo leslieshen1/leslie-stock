@@ -92,25 +92,37 @@ export default function ScanClient() {
   const [loading, setLoading] = useState(true);
   const [priceFlash, setPriceFlash] = useState<Record<string, "up" | "down">>({});
   const pricesRef = useRef<Record<string, number>>({});
+  // 首屏只拉美股必需(us-stocks 1.3MB + 摘要 + 印股票);A股 manifest(2.5MB)和 ETF(0.5MB)
+  // 切到对应页签才取 —— 移动端首开列表从 ~4.5MB 降到 ~1.6MB(2026-06-12 性能整治)
   useEffect(() => {
     let alive = true;
     Promise.all([
-      fetch("/data/aleabit_manifest.json").then((r) => r.json()).catch(() => []),
       fetch("/data/us-stocks.json").then((r) => r.json()).then((j) => j.stocks || j).catch(() => []),
       fetch("/data/dilution-flags.json").then((r) => r.json()).then((j) => j.flags || {}).catch(() => ({})),
       fetch("/data/us-panel-summary.json").then((r) => r.json()).catch(() => ({ order: [], stocks: {} })),
-      fetch("/data/us-etfs.json").then((r) => r.json()).then((j) => j.etfs || []).catch(() => []),
-    ]).then(([a, u, d, p, e]) => {
+    ]).then(([u, d, p]) => {
       if (!alive) return;
-      setItems(a as AleabitManifestEntry[]);
       setUsStocks(u as UsStock[]);
       setDilutionFlags(d as Record<string, DilutionFlag>);
       setUsPanels(p as UsPanelSummary);
-      setEtfs(e as EtfRow[]);
       setLoading(false);
     });
     return () => { alive = false; };
   }, []);
+  // ETF 表(0.5MB)延后取:不在首屏关键路径上
+  useEffect(() => {
+    const id = setTimeout(() => {
+      fetch("/data/us-etfs.json").then((r) => r.json()).then((j) => setEtfs((j.etfs || []) as EtfRow[])).catch(() => {});
+    }, 1500);
+    return () => clearTimeout(id);
+  }, []);
+  const aLoaded = useRef(false);
+  useEffect(() => {
+    if (market !== "a" || aLoaded.current) return;
+    aLoaded.current = true;
+    fetch("/data/aleabit_manifest.json").then((r) => r.json())
+      .then((a) => setItems(a as AleabitManifestEntry[])).catch(() => { aLoaded.current = false; });
+  }, [market]);
 
   // 全盘实时:轮询 /api/market(Nasdaq 快照,服务端 60s 缓存),合并最新 price/pct
   useEffect(() => {
@@ -510,6 +522,11 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
   const [sortCol, setSortCol] = usePersisted<UsSortCol>("us:sortcol", "mcap");
   const [sortDir, setSortDir] = usePersisted<"asc" | "desc">("us:sortdir", "desc");
   const [page, setPage] = useState(0);
+  // 移动端筛选 chips 默认收起(整卡占满首屏,内容全被挤到折叠线下,2026-06-12 抓包);桌面恒展开
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const activeFilterCount =
+    (sectorSet.size > 0 ? 1 : 0) + (capTier !== "all" ? 1 : 0) + (dilu !== "all" ? 1 : 0) +
+    (panelF !== "all" ? 1 : 0) + (masterF !== "all" ? 1 : 0);
 
   const flagCount = Object.keys(flags).length;
   const order = panels.order.length ? panels.order : MASTERS.map((m) => m.key);
@@ -680,6 +697,14 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
  placeholder={t("搜代码 / 公司 / 行业…", "Search ticker / company / industry…")}
  className="flex-1 min-w-[180px] rounded-lg border border-line px-3 py-1.5 text-sm focus:border-faint focus:outline-none"
           />
+          <button
+            onClick={() => setFiltersOpen((v) => !v)}
+            className={`rounded-lg border px-3 py-1.5 text-sm transition sm:hidden ${
+              filtersOpen || activeFilterCount > 0 ? "border-accent/40 text-accent" : "border-line text-muted"
+            }`}
+          >
+            {t("筛选", "Filters")}{activeFilterCount > 0 ? ` · ${activeFilterCount}` : ""} {filtersOpen ? "▴" : "▾"}
+          </button>
           {(sectorSet.size > 0 || capTier !== "all" || dilu !== "all" || panelF !== "all" || masterF !== "all" || search) && (
             <button
               onClick={() => { setSectorSet(new Set()); setCapTier("all"); setDilu("all"); setPanelF("all"); setMasterF("all"); setSearch(""); }}
@@ -690,9 +715,9 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
           )}
         </div>
 
-        {/* 以下三类筛选只对股票有意义,ETF 模式隐藏 */}
+        {/* 以下三类筛选只对股票有意义,ETF 模式隐藏;移动端默认收起 */}
         {secType !== "etf" && (
-        <>
+        <div className={filtersOpen ? "block" : "hidden sm:block"}>
         {/* 印股票 / 稀释风险 */}
         {flagCount > 0 && (
  <div className="mb-2 flex flex-wrap items-center gap-1.5">
@@ -790,7 +815,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
             );
           })}
         </div>
-        </>
+        </div>
         )}
       </div>
 

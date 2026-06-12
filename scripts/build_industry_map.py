@@ -37,8 +37,10 @@ CHAINS: dict = {
         "layers": [
             {"id": "RM-U", "name": "上游 · 矿山", "summary": "稀土/锗/钨/锡/钼/铜钴/金 资源",
              "kw": ["矿", "矿业", "矿山", "采选", "资源", "开采", "precious metals", "metal mining", "mining", "uranium"]},
-            {"id": "RM-M", "name": "中游 · 冶炼提纯", "summary": "粗炼→高纯",
-             "kw": ["冶炼", "提纯", "高纯", "电解", "湿法", "火法", "锌锗", "钴业"]},
+            {"id": "RM-M", "name": "中游 · 冶炼提纯", "summary": "粗炼→高纯/转化富集",
+             "kw": ["冶炼", "提纯", "高纯", "电解", "湿法", "火法", "锌锗", "钴业",
+                    "浓缩", "enrichment", "refining", "refiner", "smelting", "smelter",
+                    "conversion", "processing", "separation"]},
             {"id": "RM-D", "name": "下游 · 深加工", "summary": "合金/化合物/单晶/衬底/靶材",
              "kw": ["合金", "化合物", "单晶", "衬底", "靶材", "深加工", "磁材", "永磁", "粉末", "inp", "磷化铟"]},
             {"id": "RM-A", "name": "应用 · 终端", "summary": "光通信衬底/红外/MRI/航发",

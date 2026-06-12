@@ -68,10 +68,10 @@ export default function MarketCalendar({ events }: { events: CalEvent[] }) {
                     <span className={`shrink-0 rounded px-1 py-0.5 text-[9px] ${e.kind === "macro" ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"}`}>
                       {e.kind === "macro" ? <T zh="宏观" en="Macro" /> : <T zh="财报" en="Earnings" />}
                     </span>
-                    <span className={`shrink-0 ${e.hi ? "font-semibold text-ink" : "text-muted"}`}>
+                    <span className={`min-w-0 truncate ${e.hi ? "font-semibold text-ink" : "text-muted"}`}>
                       {e.hi && "🔴 "}{e.title}
                     </span>
-                    {e.detail && <span className="truncate text-faint">{e.detail}</span>}
+                    {e.detail && <span className="hidden truncate text-faint sm:inline">{e.detail}</span>}
                   </div>
                 ))}
               </div>

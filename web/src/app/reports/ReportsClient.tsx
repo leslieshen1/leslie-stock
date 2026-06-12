@@ -122,8 +122,8 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
                   {r.typeLabel}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-baseline gap-2">
-                    <h2 className="truncate text-sm font-semibold text-ink">{r.title}</h2>
+                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                    <h2 className="min-w-0 text-sm font-semibold text-ink sm:truncate">{r.title}</h2>
                     {r.timeET && <span className="shrink-0 text-[11px] text-faint">{r.timeET}</span>}
                   </div>
                   {!isOpen && r.tone && <p className="mt-1 truncate text-xs text-muted">{r.tone}</p>}

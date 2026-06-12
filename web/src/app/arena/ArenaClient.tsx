@@ -127,8 +127,28 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
         )}
       </header>
 
-      {/* 排行榜(实时重排) */}
-      <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      {/* 排行榜 · 移动端紧凑行(5 行一屏看完,不滚长卡) */}
+      <div className="mb-4 space-y-1.5 sm:hidden">
+        {live.map((m, i) => (
+          <a key={m.key} href={`#${m.key}`}
+            className="flex items-center gap-2.5 rounded-lg border border-line bg-surface px-3 py-2">
+            <span className="w-7 shrink-0 text-center font-mono text-[12px]">{medals[i]}</span>
+            <div className="min-w-0 flex-1">
+              <div className="text-[13px] font-semibold leading-tight text-ink">{mName(m)}</div>
+              <div className="truncate text-[10px] text-muted">{mSchool(m)} · {m.positions.length} {t("仓", "pos")}</div>
+            </div>
+            <div className="shrink-0 text-right">
+              <div className="font-mono text-[13px] font-semibold tabular-nums text-ink">{fmtUsd(m.liveNav)}</div>
+              <div className={`font-mono text-[11px] font-semibold tabular-nums ${m.liveRet >= 0 ? "text-up" : "text-down"}`}>
+                {m.liveRet >= 0 ? "+" : ""}{m.liveRet.toFixed(2)}%
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {/* 排行榜 · 桌面卡片(实时重排) */}
+      <div className="mb-6 hidden gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-5">
         {live.map((m, i) => (
           <a key={m.key} href={`#${m.key}`}
             className="rounded-xl border border-line bg-surface p-4 transition hover:border-accent/40">
@@ -159,7 +179,46 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
               </span>
             </div>
 
-            <div className="overflow-x-auto rounded-xl border border-line">
+            {/* 持仓 · 移动端双行卡(表格塞 375px 没法读) */}
+            <div className="divide-y divide-line/60 rounded-xl border border-line bg-surface sm:hidden">
+              {m.positions.map((p) => {
+                const q = quotes[p.sym];
+                const px = q?.price ?? p.price;
+                const pnl = (px / p.entry - 1) * 100;
+                const day = q?.pct ?? p.dayPct;
+                const fl = flash[p.sym];
+                const flCls = fl === "up" ? "bg-up-soft" : fl === "down" ? "bg-down-soft" : "";
+                return (
+                  <Link key={p.sym} href={`/stock/${p.sym}?market=us`}
+                    className="flex items-center justify-between gap-3 px-3 py-2.5">
+                    <div className="min-w-0">
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="font-mono text-[13px] font-semibold text-ink">{p.sym}</span>
+                        <span className="truncate text-[10px] text-muted">{p.name.slice(0, 16)}</span>
+                      </div>
+                      <div className="mt-0.5 font-mono text-[10px] tabular-nums text-faint">
+                        {p.shares.toLocaleString()} {t("股", "sh")} @ ${p.entry.toFixed(2)}
+                        {day != null && (
+                          <span className={day >= 0 ? "text-up" : "text-down"}> · {t("今日", "today")} {day >= 0 ? "+" : ""}{day.toFixed(2)}%</span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <div className={`font-mono text-[13px] tabular-nums text-ink transition-colors duration-700 ${flCls}`}>${px.toFixed(2)}</div>
+                      <div className={`font-mono text-[12px] font-semibold tabular-nums ${pnl >= 0 ? "text-up" : "text-down"}`}>
+                        {pnl >= 0 ? "+" : ""}{pnl.toFixed(2)}%
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+              {m.positions.length === 0 && (
+                <div className="py-5 text-center text-xs text-faint">{t("空仓 —— 现金也是仓位", "All cash — cash is a position too")}</div>
+              )}
+            </div>
+
+            {/* 持仓 · 桌面表格 */}
+            <div className="hidden overflow-x-auto rounded-xl border border-line sm:block">
               <table className="w-full text-sm">
                 <thead className="border-b border-line bg-surface text-left text-xs text-muted">
                   <tr>

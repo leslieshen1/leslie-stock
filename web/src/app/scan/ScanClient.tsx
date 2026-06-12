@@ -794,8 +794,63 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
         )}
       </div>
 
-      {/* 表格 */}
- <div className="overflow-x-auto rounded-xl border border-line">
+      {/* 移动端卡片列表(表格塞 375px 没法读;桌面保持表格) */}
+      <div className="divide-y divide-line/60 rounded-xl border border-line bg-surface sm:hidden">
+        {pageItems.map((s, idx) => {
+          const rank = safePage * US_PAGE_SIZE + idx + 1;
+          const inList = has(s.sym, "us");
+          const isUp = (s.pct ?? 0) >= 0;
+          const fl = flash[s.sym];
+          const flCls = fl === "up" ? "bg-up-soft" : fl === "down" ? "bg-down-soft" : "";
+          const a = s.type === "etf" ? null : avgOf(panels.stocks[s.sym]);
+          return (
+            <div key={s.sym} onClick={() => router.push(`/stock/${s.sym}?market=us`)}
+                 className="flex cursor-pointer items-center gap-2 px-3 py-2.5">
+              <span className="w-6 shrink-0 text-right font-mono text-[10px] tabular-nums text-faint">{rank}</span>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-mono text-[13px] font-semibold text-ink">{s.sym}</span>
+                  {s.type === "etf" && <EtfBadge />}
+                  {flags[s.sym] && <DilutionBadge flag={flags[s.sym]} />}
+                  <span className="truncate text-[10px] text-muted">{s.name}</span>
+                </div>
+                <div className="mt-0.5 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tabular-nums text-faint">
+                  <span className="shrink-0">{s.type === "etf" ? (s.ret1y != null ? `1Y ${s.ret1y >= 0 ? "+" : ""}${s.ret1y}%` : "—") : fmtCap(s.mcapB)}</span>
+                  {a != null && (
+                    <span className={`shrink-0 font-semibold ${a >= 65 ? "text-up" : a >= 50 ? "text-accent" : "text-muted"}`}>{t("均", "avg")} {Math.round(a)}</span>
+                  )}
+                  <span className="truncate">{s.industry || s.sector}</span>
+                </div>
+              </div>
+              <div className="shrink-0 text-right">
+                <div className={`font-mono text-[13px] tabular-nums text-ink transition-colors duration-700 ${flCls}`}>
+                  {s.price != null ? `$${s.price.toFixed(2)}` : "—"}
+                </div>
+                <div className={`font-mono text-[12px] font-semibold tabular-nums ${flCls || (isUp ? "text-up" : "text-down")}`}>
+                  {s.pct != null ? `${isUp ? "+" : ""}${s.pct.toFixed(2)}%` : "—"}
+                </div>
+              </div>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggle({ code: s.sym, market: "us", name: s.name, sector: s.sector,
+                           score: 0, verdict: "", verdict_label: "",
+                           market_cap_yi: s.mcapB != null ? s.mcapB * 10 : null, layer: null, thesis: "" });
+                }}
+                className={`shrink-0 px-1 text-base ${inList ? "text-accent" : "text-faint"}`}
+              >
+                {inList ? "\u2605" : "\u2606"}
+              </button>
+            </div>
+          );
+        })}
+        {pageItems.length === 0 && (
+          <div className="py-10 text-center text-sm text-faint">{t("没有符合条件的股票", "No stocks match your filters")}</div>
+        )}
+      </div>
+
+      {/* 表格(桌面) */}
+ <div className="hidden overflow-x-auto rounded-xl border border-line sm:block">
  <table className="w-full text-sm">
  <thead className="border-b border-line bg-surface text-left text-xs">
             <tr>

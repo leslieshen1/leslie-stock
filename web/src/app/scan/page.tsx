@@ -15,7 +15,7 @@ export default function ScanPage() {
       <ScanClient />
 
  <footer className="mt-16 border-t border-line pt-6 text-center text-xs text-faint">
-        我不是股神 · Not a Stock Guru · A股 Serenity 框架 + 美股 Nasdaq 全市场（非投资建议）
+        我不是股神 · Not a Stock God · A股 Serenity 框架 + 美股 Nasdaq 全市场（非投资建议）
       </footer>
     </main>
   );

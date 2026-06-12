@@ -13,6 +13,7 @@ ROOT = Path(__file__).parent.parent
 DB = ROOT / "web" / "public" / "data" / "us-analyses.json"
 MASTERS = ROOT / "data" / "masters.json"
 OUT = ROOT / "web" / "public" / "data" / "us-panel-summary.json"
+BLURBS = ROOT / "web" / "public" / "data" / "us-blurbs.json"   # sym → 分歧线一句话(观察列表当描述)
 
 
 def main():
@@ -27,6 +28,16 @@ def main():
         out[sym] = {"sc": sc, "div": div}
     OUT.write_text(json.dumps({"order": order, "stocks": out}, ensure_ascii=False), encoding="utf-8")
     print(f"✓ {len(out)} 只五方摘要 → us-panel-summary.json (masters 顺序: {order})")
+
+    # 美股一句话描述:五方分歧线截断(观察列表里 A股有 thesis、美股之前是空白 —— 2026-06-12 补齐)
+    blurbs = {}
+    for sym, v in stocks.items():
+        d = str(v.get("divergence") or "").strip()
+        if d:
+            blurbs[sym] = d[:120]
+    BLURBS.write_text(json.dumps(blurbs, ensure_ascii=False), encoding="utf-8")
+    kb = BLURBS.stat().st_size // 1024
+    print(f"✓ {len(blurbs)} 条分歧线 → us-blurbs.json({kb} KB)")
 
 
 if __name__ == "__main__":

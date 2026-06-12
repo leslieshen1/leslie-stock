@@ -149,7 +149,7 @@ export default function PortfolioPage() {
       <PortfolioTabs holdings={holdings} />
 
  <footer className="mt-16 border-t border-line pt-6 text-center text-xs text-faint">
-        <T zh="我不是股神 · 五方独立判读 · v0.6" en="Not a Stock Guru · Five independent reads · v0.6" />
+        <T zh="我不是股神 · 五方独立判读 · v0.6" en="Not a Stock God · Five independent reads · v0.6" />
       </footer>
     </main>
   );

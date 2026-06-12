@@ -24,6 +24,7 @@ export default function WatchlistClient() {
   const { t, lang } = useLang();
   const [sortBy, setSortBy] = useState<SortKey>("added");
   const [panels, setPanels] = useState<PanelSummary>({ order: [], stocks: {} });
+  const [blurbs, setBlurbs] = useState<Record<string, string>>({});
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
   const [flash, setFlash] = useState<Record<string, "up" | "down">>({});
   const prev = useRef<Record<string, number>>({});
@@ -31,6 +32,8 @@ export default function WatchlistClient() {
   // 五方摘要(均分来源,和 /scan 同源)
   useEffect(() => {
     fetch("/data/us-panel-summary.json").then((r) => r.json()).then(setPanels).catch(() => {});
+    // 美股一句话描述(五方分歧线):A股收藏时存了 thesis,美股存的是空 —— 渲染时从这里补
+    fetch("/data/us-blurbs.json").then((r) => r.json()).then(setBlurbs).catch(() => {});
   }, []);
 
   // 实时报价:30s 轮询,后台标签自动停
@@ -139,6 +142,7 @@ export default function WatchlistClient() {
           const key = `${w.code}-${w.market}`;
           return (
             <Row key={key} item={w} onRemove={remove} score={unified[key] ?? null}
+                 blurb={w.market === "us" ? blurbs[w.code] : undefined}
                  quote={quotes[quoteSym(w).toUpperCase()]} flash={flash[quoteSym(w).toUpperCase()]} lang={lang} t={t} />
           );
         })}
@@ -148,16 +152,18 @@ export default function WatchlistClient() {
 }
 
 function Row({
-  item: w, onRemove, score, quote, flash, lang, t,
+  item: w, onRemove, score, blurb, quote, flash, lang, t,
 }: {
   item: LocalWatchEntry;
   onRemove: (code: string, market: string) => void;
   score: { label: string; labelEn: string; value: number } | null;
+  blurb?: string;
   quote?: Quote;
   flash?: "up" | "down";
   lang: "zh" | "en";
   t: (zh: string, en: string) => string;
 }) {
+  const desc = w.thesis || blurb;
   const marketLabel = w.market === "a" ? t("A股", "A-share") : w.market === "hk" ? t("港股", "HK") : t("美股", "US");
   const marketColor = w.market === "a" ? "text-down" : "text-accent";
   const flCls = flash === "up" ? "bg-up-soft" : flash === "down" ? "bg-down-soft" : "";
@@ -201,8 +207,8 @@ function Row({
               <span className="text-faint">·</span>
               <span className="text-faint">{t("加入于", "added")} {w.added_at.slice(0, 10)}</span>
             </div>
-            {w.thesis && (
-              <p className="mt-1 truncate text-[11px] text-muted group-hover:whitespace-normal group-hover:text-ink">{w.thesis}</p>
+            {desc && (
+              <p className="mt-1 truncate text-[11px] text-muted group-hover:whitespace-normal group-hover:text-ink">{desc}</p>
             )}
           </div>
 

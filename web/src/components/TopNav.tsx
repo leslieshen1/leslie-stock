@@ -33,7 +33,7 @@ export default function TopNav() {
  <div className="mx-auto flex h-[60px] max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
 
         {/* Brand lockup — 双行编辑部款 */}
- <Link href="/" className="flex items-center gap-2.5 shrink-0 group" title="我不是股神 · Not a Stock Guru">
+ <Link href="/" className="flex items-center gap-2.5 shrink-0 group" title="我不是股神 · Not a Stock God">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="我不是股神" width={32} height={32}
                className="h-8 w-8 rounded-[9px] object-cover ring-1 ring-white/10 shrink-0 transition group-hover:ring-accent/40" />
@@ -42,7 +42,7 @@ export default function TopNav() {
  我不是<span className="text-accent">股神</span>
             </span>
  <span className="mt-[3px] hidden font-mono text-[8.5px] uppercase tracking-[0.32em] text-faint sm:block">
-              Not a Stock Guru
+              Not a Stock God
             </span>
           </span>
         </Link>

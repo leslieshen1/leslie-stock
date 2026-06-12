@@ -242,7 +242,7 @@ export default function ScanClient() {
         <button
           onClick={() => setMarket("us")}
           className={`rounded-md px-4 py-1.5 font-medium transition ${
- market === "us" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+ market === "us" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
           {t("美股 · 全市场", "US · Full Market")} {usStocks.length > 0 ? usStocks.length : ""}
@@ -250,7 +250,7 @@ export default function ScanClient() {
         <button
           onClick={() => setMarket("a")}
           className={`rounded-md px-4 py-1.5 font-medium transition ${
- market === "a" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+ market === "a" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
           {t("A 股 · 瓶颈狙击", "A-Shares · Bottleneck Sniper")}
@@ -278,7 +278,7 @@ export default function ScanClient() {
               onClick={() => toggle(scoreBuckets, b.key, setScoreBuckets)}
               className={`rounded-lg border px-3 py-2.5 text-left transition ${
                 active
- ? "border-surface-3 bg-surface-3 text-white"
+ ? "border-surface-3 bg-surface-3 text-ink"
  : "border-line bg-surface text-muted hover:border-line-2"
               }`}
             >
@@ -334,7 +334,7 @@ export default function ScanClient() {
                 onClick={() => toggle(verdictSet, v.key, setVerdictSet)}
                 className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
                   active
- ? "bg-surface-3 text-white"
+ ? "bg-surface-3 text-ink"
  : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
@@ -355,7 +355,7 @@ export default function ScanClient() {
                 onClick={() => toggle(layerSet, l, setLayerSet)}
                 className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
                   active
- ? "bg-surface-3 text-white"
+ ? "bg-surface-3 text-ink"
  : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
@@ -654,7 +654,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
             key={k}
             onClick={() => setSecType(k)}
             className={`rounded-md px-3.5 py-1.5 font-medium transition ${
- secType === k ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+ secType === k ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
             }`}
           >
             {label}
@@ -746,7 +746,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
                 key={k}
                 onClick={() => setMasterF(k)}
                 className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
-                  masterF === k ? "bg-surface-3 text-white" : "bg-surface-2 text-muted hover:bg-line"
+                  masterF === k ? "bg-surface-3 text-ink" : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
                 {k === "all" ? t("不限", "Any") : masterLabel(k, lang)}
@@ -764,7 +764,7 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
               key={t.key}
               onClick={() => setCapTier(t.key)}
               className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
- capTier === t.key ? "bg-surface-3 text-white" : "bg-surface-2 text-muted hover:bg-line"
+ capTier === t.key ? "bg-surface-3 text-ink" : "bg-surface-2 text-muted hover:bg-line"
               }`}
             >
               {t.label}

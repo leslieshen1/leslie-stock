@@ -18,7 +18,7 @@ export type Report = {
 
 const BADGE: Record<string, string> = {
   premarket: "bg-accent/15 text-accent border-accent/30",
-  intraday: "bg-surface-3 text-white border-line",
+  intraday: "bg-surface-3 text-ink border-line",
   close: "bg-down-soft text-down border-down/30",
 };
 
@@ -91,7 +91,7 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
             key={k}
             onClick={() => setFilter(k)}
             className={`rounded-md px-3.5 py-1.5 font-medium transition ${
-              filter === k ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+              filter === k ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
             }`}
           >
             {t(zhLabel, enLabel)}

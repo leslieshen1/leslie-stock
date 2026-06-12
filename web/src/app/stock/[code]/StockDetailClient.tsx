@@ -390,7 +390,7 @@ function SignalCard({ s }: { s: AleabitSignal }) {
  ? "bg-up text-white"
     : partial
  ? "bg-accent text-white"
- : "bg-line-2 text-white";
+ : "bg-line-2 text-ink";
 
   // v2+ 用了 evidence 字段
   const evidence = (s as unknown as { evidence?: string }).evidence;

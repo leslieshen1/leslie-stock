@@ -14,7 +14,7 @@ export default function PortfolioTabs({ holdings }: { holdings: React.ReactNode 
         <button
           onClick={() => setTab("watch")}
           className={`rounded-md px-4 py-1.5 font-medium transition ${
- tab === "watch" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+ tab === "watch" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
           {t("观察列表", "Watchlist")}
@@ -22,7 +22,7 @@ export default function PortfolioTabs({ holdings }: { holdings: React.ReactNode 
         <button
           onClick={() => setTab("hold")}
           className={`rounded-md px-4 py-1.5 font-medium transition ${
- tab === "hold" ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+ tab === "hold" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
           {t("持仓", "Holdings")}

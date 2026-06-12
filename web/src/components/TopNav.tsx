@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import SearchBox from "./SearchBox";
 import MarketStatus from "./MarketStatus";
 import { useLang, LangToggle } from "@/lib/i18n";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavItem {
   href: string;
@@ -79,7 +80,8 @@ export default function TopNav() {
           <MarketStatus />
         </div>
 
-        {/* 语言切换 */}
+        {/* 主题 + 语言切换 */}
+        <ThemeToggle />
         <LangToggle />
 
         {/* Buy — 赤陶渐变小 CTA */}

@@ -39,7 +39,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
- <html lang="zh-CN" className={`h-full antialiased ${fraunces.variable} ${splineMono.variable}`}>
+ <html lang="zh-CN" suppressHydrationWarning className={`h-full antialiased ${fraunces.variable} ${splineMono.variable}`}>
+ <head>
+        {/* 首帧防闪:渲染前按 localStorage 设主题(默认暗色,失败静默) */}
+        <script dangerouslySetInnerHTML={{ __html:
+          `try{if(localStorage.getItem("theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}` }} />
+ </head>
  <body className="min-h-full">
       <LangProvider>
         <TopNav />

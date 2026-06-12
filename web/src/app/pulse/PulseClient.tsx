@@ -359,7 +359,7 @@ export default function PulseClient({
                 onClick={() => setIndustry(ind.id)}
                 className={`flex shrink-0 items-baseline gap-1.5 px-2.5 py-1 rounded-md text-[13px] font-medium transition ${
                   active
- ? "bg-surface-3 text-white "
+ ? "bg-surface-3 text-ink "
                     : isPrimary
  ? "bg-surface-2 text-accent hover:bg-surface-2 ring-1 ring-accent/30"
  : "bg-surface text-muted hover:bg-surface-2 ring-1 ring-line"
@@ -436,7 +436,7 @@ export default function PulseClient({
                 onClick={() => setRegion(r.id)}
                 className={`px-2.5 py-1 rounded-md text-xs font-medium transition ${
                   region === r.id
- ? "bg-surface-3 text-white"
+ ? "bg-surface-3 text-ink"
  : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
@@ -458,7 +458,7 @@ export default function PulseClient({
                 onClick={() => setTier(ht.id)}
                 className={`text-left px-3 py-1.5 rounded-md text-xs font-medium transition ${
                   tier === ht.id
- ? "bg-surface-3 text-white"
+ ? "bg-surface-3 text-ink"
  : "bg-surface text-muted hover:bg-surface-2"
                 }`}
               >
@@ -477,7 +477,7 @@ export default function PulseClient({
             <button
               onClick={() => setHighlightLayer(null)}
               className={`text-left px-2.5 py-1.5 rounded-md text-xs transition ${
- !highlightLayer ? "bg-surface-3 text-white" : "text-muted hover:bg-surface-2"
+ !highlightLayer ? "bg-surface-3 text-ink" : "text-muted hover:bg-surface-2"
               }`}
             >
               {t(`全部 ${activeLayers.length} 层`, `All ${activeLayers.length} layers`)}
@@ -488,7 +488,7 @@ export default function PulseClient({
                 onClick={() => setHighlightLayer(L.id === highlightLayer ? null : (L.id as LayerId))}
                 className={`text-left px-2.5 py-1.5 rounded-md text-xs transition ${
                   highlightLayer === L.id
- ? "bg-surface-3 text-white"
+ ? "bg-surface-3 text-ink"
  : "text-muted hover:bg-surface-2"
                 }`}
               >

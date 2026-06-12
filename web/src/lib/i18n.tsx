@@ -46,7 +46,7 @@ export function LangToggle() {
           onClick={() => setLang(l)}
           aria-label={l === "zh" ? "切换到中文" : "Switch to English"}
           className={`rounded-md px-2 py-1 transition ${
-            lang === l ? "bg-surface-3 text-white" : "text-muted hover:text-ink"
+            lang === l ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
           {l === "zh" ? "中" : "EN"}

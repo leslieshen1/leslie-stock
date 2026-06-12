@@ -21,4 +21,6 @@ else
   echo "机械模式(当天没有报告 spec)" >> logs/cards.log
   uv run python scripts/share_card.py --type close >> logs/cards.log 2>&1
 fi
+# 云端引擎兜底触发(cron 20:20 ET 不可靠时由此保底;幂等)
+gh workflow run arena-engine.yml --ref main >> logs/cards.log 2>&1 || true
 echo "----- done $(date) -----" >> logs/cards.log

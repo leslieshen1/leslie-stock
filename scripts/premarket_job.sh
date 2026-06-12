@@ -16,5 +16,6 @@ echo "===== 盘前报告 $(date) =====" >> logs/premarket.log
 uv run python scripts/premarket_report.py >> logs/premarket.log 2>&1
 # 盘前分享卡 → ~/Downloads(AInvest 品牌,拿了就发)
 uv run python scripts/share_card.py --type premarket >> logs/premarket.log 2>&1
-# 五神对决大脑已上云(GitHub Actions arena-brain.yml),本地不再跑
+# 五神对决大脑已上云;GitHub cron 不可靠(2026-06-12 实测整天没自燃)→ 本地兜底触发(幂等,双跑安全)
+gh workflow run arena-brain.yml --ref main >> logs/arena.log 2>&1 || true
 echo "----- done $(date) -----" >> logs/premarket.log

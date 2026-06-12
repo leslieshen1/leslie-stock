@@ -790,9 +790,149 @@
    "reason": "大盘经历利好不涨后的隔夜修复，真正主动抢的是防务避险线，ESLT 盘前高开说明资金在往地缘/军工避风港挤，顺着最诚实的盘口走。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 30,
+   "fill_date": "2026-06-12",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里的八门生意都有我看得懂的护城河，今天的盘口热闹并没有给我一个足够大的安全边际去用好生意换另一门好生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 31,
+   "fill_date": "2026-06-12",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂了，也都够本分；盘前涨跌和FOMC不是我卖好公司的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 32,
+   "fill_date": "2026-06-12",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位全是我认的真瓶颈，盘前资金还在沿着‘每台量产都分一块’的链条加速，今天不为了换热闹去砍掉有效卡脖子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 33,
+   "fill_date": "2026-06-12",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "LLY",
+   "reason": "这不是逆风,但今天流动性最猛的风不在肥胖药,而在AI算力和电力链,盘前还红盘里它独自发软,我把弹药挪去更高贝塔。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 34,
+   "fill_date": "2026-06-12",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "APP",
+   "reason": "AI软件/应用端被ORCL和ADBE连续处刑后,我不跟流动性硬扛,这匹马没有跑赢就先砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 35,
+   "fill_date": "2026-06-12",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "NBIS",
+   "reason": "AI算力洪流里最纯的高弹性载体之一,盘前+6%还在被资金抢,顺风时我要骑最猛的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 36,
+   "fill_date": "2026-06-12",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "NVTS",
+   "reason": "AI电力瓶颈叙事正在加速,小盘高贝塔盘前近双位数确认资金在追,赔率不对称就上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 37,
+   "fill_date": "2026-06-12",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "ESLT",
+   "reason": "大盘风险偏好这么强它盘前还-5%多，防务避风港这笔钱在松动，先走，情绪票翻脸极快。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 38,
+   "fill_date": "2026-06-12",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "CASY",
+   "reason": "今天盘口是小盘和AI设备吸钱，CASY这种慢牛防守盘前逆势发冷，资金效率不够，死水没戏。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 39,
+   "fill_date": "2026-06-12",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前弱但高空头+散户情绪还没彻底散，先让轧空期权看一眼，记住它翻脸会非常快。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 40,
+   "fill_date": "2026-06-12",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "国防+AR小盘仍在盘前接力，热钱还没明显撤，继续顺风但不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 41,
+   "fill_date": "2026-06-12",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "UCTT",
+   "reason": "半导体设备是昨晚到今早最干净的资金主线，盘前继续+4%说明钱还在往AI铲子里挤。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 42,
+   "fill_date": "2026-06-12",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ICHR",
+   "reason": "同属AI设备热钱区，昨天强、今早还能高开，情绪在上行段但必须防拥挤反杀。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 43,
+   "fill_date": "2026-06-12",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "VSAT",
+   "reason": "这是从冰点往上翻的空头回补盘，盘前继续绿，说明轧空资金还没走完。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 30,
+ "next_order_id": 44,
  "notes": [
   {
    "date": "2026-06-12",

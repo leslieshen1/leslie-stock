@@ -210,7 +210,7 @@ def ahead_events(date: str, mega) -> list[dict]:
         rows.append({"when": when(mega["date"]), "name": f'{IPO_ALIAS.get(mega["sym"], mega["name"])} IPO ({mega["sym"]})',
                      "detail": "biggest IPO ever" if big else "mega IPO", "hi": True, "_d": mega["date"]})
     try:
-        for m in json.loads((ROOT / "data" / "cards" / "ahead.json").read_text(encoding="utf-8")):
+        for m in json.loads((ROOT / "web" / "public" / "data" / "ahead.json").read_text(encoding="utf-8")):
             if date < str(m.get("date", "")) <= horizon:
                 rows.append({"when": when(m["date"]), "name": str(m.get("name", ""))[:42],
                              "detail": str(m.get("detail", ""))[:40], "hi": bool(m.get("hi")), "_d": m["date"]})

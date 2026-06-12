@@ -116,6 +116,24 @@ const REGIONS: { id: Region | "ALL"; label: string; labelEn: string }[] = [
  { id: "JP", label: "日", labelEn: "JP" },
 ];
 
+// 筛选档按镜头语义切换:过热度用热度档;评分镜头用信念档(对齐图例 30/55/75);分歧镜头用撕裂档。
+// 之前所有镜头都挂"过热≥85"——和综合镜头的"回避/看多/高信念"图例对不上(2026-06-12 抓包)。
+const FILTER_TIERS: Record<string, { id: string; label: string; labelEn: string; min: number; max: number }[]> = {
+  score: [
+    { id: "all", label: "全部", labelEn: "All", min: 0, max: 100 },
+    { id: "hot", label: "看多 ≥75", labelEn: "Bullish ≥75", min: 75, max: 100 },
+    { id: "warm", label: "中性 55-75", labelEn: "Neutral 55-75", min: 55, max: 75 },
+    { id: "fair", label: "偏空 30-55", labelEn: "Bearish 30-55", min: 30, max: 55 },
+    { id: "cool", label: "回避 <30", labelEn: "Avoid <30", min: 0, max: 30 },
+  ],
+  div: [
+    { id: "all", label: "全部", labelEn: "All", min: 0, max: 100 },
+    { id: "hot", label: "撕裂 ≥40", labelEn: "Torn ≥40", min: 40, max: 100 },
+    { id: "warm", label: "分歧 25-40", labelEn: "Split 25-40", min: 25, max: 40 },
+    { id: "cool", label: "共识 <25", labelEn: "Consensus <25", min: 0, max: 25 },
+  ],
+};
+
 const HEAT_TIERS = [
  { id: "all", label: "全部", labelEn: "All", min: 0,  max: 100 },
  { id: "hot", label: "过热 ≥85", labelEn: "Overheated ≥85", min: 85, max: 100 },
@@ -162,6 +180,8 @@ export default function PulseClient({
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
  const [colorMode, setColorMode] = useState<string>("heat");
+  // 镜头切换 → 筛选档复位(热度/评分/分歧三套档位语义不同,id 集也不同)
+  useEffect(() => { setTier("all"); }, [colorMode]);
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? null);
   // 全盘实时报价(/api/market,Nasdaq 快照 60s 缓存)
@@ -269,7 +289,8 @@ export default function PulseClient({
   const activeEdges = useMemo(() => (industry === "AI" ? SUPPLY_EDGES : []), [industry]);
 
   const filtered = useMemo(() => {
-    const t = HEAT_TIERS.find((x) => x.id === tier)!;
+    const tiers = colorMode === "heat" ? HEAT_TIERS : colorMode === "divergence" ? FILTER_TIERS.div : FILTER_TIERS.score;
+    const t = tiers.find((x) => x.id === tier) ?? tiers[0];
     return industryItems.filter((c) => {
       if (region !== "ALL" && c.region !== region) return false;
       const score = lensValueOf(c, colorMode);
@@ -446,13 +467,13 @@ export default function PulseClient({
           </div>
         </div>
 
-        {/* 热度阈值 */}
+        {/* 阈值筛选(标题随镜头语义) */}
  <div className="rounded-xl border border-line bg-surface p-5">
  <div className="text-xs uppercase tracking-wider text-faint font-mono mb-3">
-            Heat Filter
+            {colorMode === "heat" ? "Heat Filter" : colorMode === "divergence" ? "Divergence Filter" : "Score Filter"}
           </div>
  <div className="flex flex-col gap-1.5">
-            {HEAT_TIERS.map((ht) => (
+            {(colorMode === "heat" ? HEAT_TIERS : colorMode === "divergence" ? FILTER_TIERS.div : FILTER_TIERS.score).map((ht) => (
               <button
                 key={ht.id}
                 onClick={() => setTier(ht.id)}

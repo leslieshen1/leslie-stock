@@ -56,6 +56,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
   const mName = (m: Master) => (lang === "en" ? MASTER_EN[m.key]?.name ?? m.name : m.name);
   const mSchool = (m: Master) => (lang === "en" ? MASTER_EN[m.key]?.school ?? m.school : m.school);
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
+  const [openTrades, setOpenTrades] = useState<Record<string, boolean>>({});
   const [flash, setFlash] = useState<Record<string, "up" | "down">>({});
   const prev = useRef<Record<string, number>>({});
 
@@ -273,7 +274,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
 
             {m.trades.length > 0 && (
               <div className="mt-2 space-y-1">
-                {m.trades.slice(0, 6).map((tr, j) => (
+                {(openTrades[m.key] ? m.trades : m.trades.slice(0, 6)).map((tr, j) => (
                   <div key={j} className="flex flex-wrap items-baseline gap-x-2 text-xs">
                     <span className="font-mono text-faint">{tr.date}</span>
                     <span className={`font-mono font-semibold ${tr.side === "BUY" ? "text-up" : "text-down"}`}>
@@ -287,6 +288,16 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                     <span className="text-muted">— {tr.reason}</span>
                   </div>
                 ))}
+                {m.trades.length > 6 && (
+                  <button
+                    onClick={() => setOpenTrades((o) => ({ ...o, [m.key]: !o[m.key] }))}
+                    className="mt-1 w-full rounded-lg border border-dashed border-line py-1.5 text-[11px] text-muted transition hover:border-faint hover:text-ink"
+                  >
+                    {openTrades[m.key]
+                      ? t("收起,只看最近 6 笔", "Collapse to latest 6")
+                      : t(`展开全部 ${m.trades.length} 笔`, `Show all ${m.trades.length} trades`)}
+                  </button>
+                )}
               </div>
             )}
           </section>

@@ -280,11 +280,10 @@ function ConsensusRow({ r, rank, maxN }: { r: ConRow; rank: number; maxN: number
         <div className="absolute inset-y-0 left-0 rounded-full bg-accent/70" style={{ width: `${(r.n / maxN) * 100}%` }} />
       </div>
       <span className="tnum w-16 shrink-0 text-right text-[11px] text-faint">均 {r.avgPct.toFixed(1)}%</span>
-      {r.net !== 0 && (
-        <span className={`tnum w-8 shrink-0 text-right text-[11px] font-medium ${r.net > 0 ? "text-up" : "text-down"}`}>
-          {r.net > 0 ? `+${r.net}` : r.net}
-        </span>
-      )}
+      {/* 恒占位:net=0 的行少这一列会比别人宽 8px,"均 x%" 整列错位(2026-06-12 抓包) */}
+      <span className={`tnum w-8 shrink-0 text-right text-[11px] font-medium ${r.net > 0 ? "text-up" : r.net < 0 ? "text-down" : "text-faint"}`}>
+        {r.net > 0 ? `+${r.net}` : r.net < 0 ? r.net : "\u00b7"}
+      </span>
     </Link>
   );
 }

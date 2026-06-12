@@ -137,7 +137,7 @@ def market_context() -> str:
     except Exception:
         pass
     try:
-        ahead = json.loads((ROOT / "data/cards/ahead.json").read_text(encoding="utf-8"))
+        ahead = json.loads((ROOT / "web/public/data/ahead.json").read_text(encoding="utf-8"))
         today = datetime.now(ET).strftime("%Y-%m-%d")
         horizon = (datetime.now(ET) + timedelta(days=7)).strftime("%Y-%m-%d")
         evs = [f"{m['date']} {m['name']}({m.get('detail','')})" for m in ahead if today <= str(m.get("date", "")) <= horizon]

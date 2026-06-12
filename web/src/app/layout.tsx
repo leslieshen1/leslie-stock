@@ -23,7 +23,7 @@ const splineMono = Spline_Sans_Mono({
 });
 
 export const metadata: Metadata = {
- metadataBase: new URL("https://web-liart-one-53.vercel.app"),
+ metadataBase: new URL("https://stockgod.xyz"),
  title: "我不是股神 · Not a Stock God",
  description: "AI 驱动的全景股票可视化平台。你不是股神，但股神陪你一起看股票。五方独立判读 · A 股 / 港股 / 美股 / 加密。",
  openGraph: {

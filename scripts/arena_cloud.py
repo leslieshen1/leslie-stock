@@ -27,7 +27,7 @@ from arena_brain import (RULES as BRAIN_RULES, ndt, parse_orders,        # noqa:
                          build_prompt, market_context)
 
 import os                                                                # noqa: E402
-QUOTE_API = os.environ.get("QUOTE_API", "https://web-liart-one-53.vercel.app/api/quote")
+QUOTE_API = os.environ.get("QUOTE_API", "https://stockgod.xyz/api/quote")
 
 
 # ---------------- 状态 ----------------

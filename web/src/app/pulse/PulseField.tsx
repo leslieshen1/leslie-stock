@@ -37,6 +37,8 @@ interface Props {
   marketAvg: number;            // mode 对应的全局平均
   colorMode: ColorMode;
   onSelect: (c: CompanyWithHeat | null) => void;
+  /** false = 板块分组(无上下游语义):不画流光/箭头/上游下游标签,只留分组轨 */
+  flow?: boolean;
   /** 双击方块 → 直接打开个股完整分析页 */
   onOpen?: (c: CompanyWithHeat) => void;
   selectedId: string | null;
@@ -110,7 +112,7 @@ function tripleColor(score: number, alpha: number): string {
 
 export default function PulseField({
   items, edges, marketAvg, colorMode,
-  onSelect, onOpen, selectedId, highlightLayer,
+  onSelect, onOpen, selectedId, highlightLayer, flow = true,
   layers, lensLabel = "热度",
 }: Props) {
   // 当前 industry 的 layers（不传 = AI 默认）
@@ -133,6 +135,8 @@ export default function PulseField({
   const tickerMapRef = useRef<Map<string, Particle>>(new Map());
 
   useEffect(() => { selectedIdRef.current = selectedId; }, [selectedId]);
+  const flowRef = useRef(flow);
+  useEffect(() => { flowRef.current = flow; }, [flow]);
   useEffect(() => { highlightRef.current = highlightLayer; }, [highlightLayer]);
   useEffect(() => { colorModeRef.current = colorMode; }, [colorMode]);
   useEffect(() => { lensLabelRef.current = lensLabel; }, [lensLabel]);
@@ -290,8 +294,8 @@ export default function PulseField({
       ctx.lineTo(spineX, h - laneH * 0.5);
       ctx.stroke();
 
-      // 节点间的「流光」 — 一个亮点沿主轴从上往下走（上游→下游）
-      if (LIVE.length > 1) {
+      // 节点间的「流光」 — 一个亮点沿主轴从上往下走（上游→下游)。板块分组(无流向)不画
+      if (LIVE.length > 1 && flowRef.current) {
         const flowY = laneH * 0.5 + (h - laneH) * spinePulseT;
         const flowGrad = ctx.createRadialGradient(spineX, flowY, 0, spineX, flowY, 14);
  flowGrad.addColorStop(0, "rgba(180, 220, 255, 0.65)");
@@ -319,8 +323,8 @@ export default function PulseField({
         ctx.arc(spineX, cy, 7, 0, Math.PI * 2);
         ctx.stroke();
 
-        // 向下箭头（最后一层不画）
-        if (i < LIVE.length - 1) {
+        // 向下箭头（最后一层不画;板块分组无流向不画）
+        if (i < LIVE.length - 1 && flowRef.current) {
           const arrowY = cy + laneH * 0.5;
  ctx.fillStyle = dim ? "rgba(180, 200, 255, 0.18)" : "rgba(180, 220, 255, 0.55)";
           ctx.beginPath();
@@ -332,13 +336,15 @@ export default function PulseField({
         }
       }
 
-      // 顶部「上游」/ 底部「下游 / 应用」标签
+      // 顶部「上游」/ 底部「下游」标签 —— 只有真产业链才有流向语义;板块分组不标
+      if (flowRef.current) {
  ctx.fillStyle = "rgba(180, 220, 255, 0.55)";
  ctx.font = "9px 'JetBrains Mono', monospace";
  ctx.textBaseline = "top";
  ctx.fillText("上游", spineX - 9, 6);
  ctx.textBaseline = "bottom";
  ctx.fillText("下游", spineX - 9, h - 6);
+      }
 
       // ===== Layer 背景分隔线 + 标签 =====
       for (let i = 0; i < LIVE.length; i++) {

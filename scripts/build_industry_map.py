@@ -30,7 +30,7 @@ OUT = PUB / "industry-map.json"
 # ============================================================
 CHAINS: dict = {
     "rare-metals": {
-        "name": "稀有 / 战略金属", "desc": "矿山 → 冶炼 → 深加工 → 应用",
+        "kind": "chain", "name": "稀有 / 战略金属", "desc": "矿山 → 冶炼 → 深加工 → 应用",
         "kw": ["稀土", "锗", "锡矿", "钨", "钽", "铟", "镓", "钼", "铂", "铂族", "黄金", "白银",
                "稀有金属", "战略金属", "小金属", "钴", "镍", "锂矿", "矿业", "有色", "贵金属",
                "precious metals", "metal mining", "other metals and minerals", "rare earth", "uranium"],
@@ -49,7 +49,7 @@ CHAINS: dict = {
         "default": "RM-D",
     },
     "humanoid": {
-        "name": "人形机器人", "desc": "永磁 → 减速器 → 丝杠 → 伺服 → 传感器 → 整机",
+        "kind": "chain", "name": "人形机器人", "desc": "永磁 → 减速器 → 丝杠 → 伺服 → 传感器 → 整机",
         "kw": ["humanoid", "人形", "机器人", "减速器", "丝杠", "伺服", "灵巧手", "谐波",
                "rv 减速", "无框电机", "六维力", "optimus", "执行器"],
         "layers": [
@@ -69,7 +69,7 @@ CHAINS: dict = {
         "default": "HM-4",
     },
     "defense": {
-        "name": "国防 / 军工", "desc": "特材 → 航发 → 军用电子 → 武器 → 整机",
+        "kind": "chain", "name": "国防 / 军工", "desc": "特材 → 航发 → 军用电子 → 武器 → 整机",
         "kw": ["军工", "军用", "国防", "航发", "航天", "航空", "导弹", "雷达", "隐身", "无人机",
                "uav", "兵器", "舰", "潜艇", "战机", "总装", "惯导", "北斗", "民爆", "含能", "军品"],
         "layers": [
@@ -88,7 +88,7 @@ CHAINS: dict = {
         "default": "DF-E",
     },
     "biotech": {
-        "name": "生物医药", "desc": "试剂 → API → 创新药 → CRO/CDMO → 医械",
+        "kind": "chain", "name": "生物医药", "desc": "试剂 → API → 创新药 → CRO/CDMO → 医械",
         "kw": ["医药", "创新药", "cro", "cdmo", "api", "原料药", "医械", "诊断", "ivd", "疫苗",
                "试剂", "培养基", "adc", "mrna", "抗体", "血制品", "血浆", "细胞", "测序", "影像",
                "内窥镜", "植入", "造影", "核药", "双抗", "生物", "制药", "药业",
@@ -116,7 +116,7 @@ CHAINS: dict = {
     },
     # ---------------- 新增大类 ----------------
     "ev": {
-        "name": "新能源车", "desc": "锂电材料 → 电芯 → 三电 → 整车 → 补能",
+        "kind": "chain", "name": "新能源车", "desc": "锂电材料 → 电芯 → 三电 → 整车 → 补能",
         "kw": ["新能源车", "电动车", "锂电", "动力电池", "electric vehicle", " ev ", "整车",
                "充电桩", "三电", "锂电池", "正极", "负极", "电解液", "隔膜", "磷酸铁锂", "三元",
                "tesla", "byd", "比亚迪", "蔚来", "小鹏", "理想", "rivian", "lucid", "新能源汽车"],
@@ -136,7 +136,7 @@ CHAINS: dict = {
         "default": "EV-1",
     },
     "solar-storage": {
-        "name": "光伏 / 储能", "desc": "硅料 → 电池组件 → 逆变储能 → 风电",
+        "kind": "chain", "name": "光伏 / 储能", "desc": "硅料 → 电池组件 → 逆变储能 → 风电",
         "kw": ["光伏", "solar", "储能", "energy storage", "逆变", "硅料", "硅片", "电池片",
                "组件", "异质结", "topcon", "perc", "风电", "光storage", "pv", "bess", "多晶硅"],
         "layers": [
@@ -152,7 +152,7 @@ CHAINS: dict = {
         "default": "SS-2",
     },
     "consumer": {
-        "name": "消费电子", "desc": "芯片 → 光声 → 显示 → 结构 → 组装 → 品牌",
+        "kind": "chain", "name": "消费电子", "desc": "芯片 → 光声 → 显示 → 结构 → 组装 → 品牌",
         "kw": ["消费电子", "手机", "smartphone", "apple", "苹果", "可穿戴", "tws", "ar/vr",
                "面板", "摄像头", "声学", "无线耳机", "智能终端", "折叠屏", "果链", "wearable",
                "semiconductor", "consumer electronics"],
@@ -174,7 +174,7 @@ CHAINS: dict = {
     },
     # ---------------- 2026-06-11 扩容:让全部已判读美股进图(板块级新链,kw 吃 Nasdaq industry 字符串) ----------------
     "finance": {
-        "name": "金融", "desc": "银行 → 保险 → 资管/券商/交易所 → 消费金融/Fintech",
+        "kind": "sector", "name": "金融", "desc": "银行 · 保险 · 资管/券商/交易所 · 消费金融/Fintech",
         "kw": ["major banks", "commercial banks", "savings institution", "insurer", "insurance",
                "investment manager", "investment banker", "brokers", "finance", "bank", "fintech",
                "trusts except", "investors services", "diversified financial"],
@@ -191,7 +191,7 @@ CHAINS: dict = {
         "default": "FI-A",
     },
     "real-estate": {
-        "name": "地产 / REIT", "desc": "REITs → 开发建造 → 运营服务",
+        "kind": "sector", "name": "地产 / REIT", "desc": "REITs · 开发建造 · 运营服务",
         "kw": ["real estate investment trust", "reit", "real estate", "homebuilding", "building operators", "property management"],
         "layers": [
             {"id": "RE-R", "name": "REITs", "summary": "权益/抵押 REIT(住宅/商业/工业/数据中心)",
@@ -204,7 +204,7 @@ CHAINS: dict = {
         "default": "RE-R",
     },
     "software-internet": {
-        "name": "软件 / 互联网", "desc": "基础软件/SaaS → 互联网平台 → IT 服务 → 通信网络",
+        "kind": "sector", "name": "软件 / 互联网", "desc": "基础软件/SaaS · 互联网平台 · IT 服务 · 通信网络",
         "kw": ["prepackaged software", "edp services", "programming data processing", "internet",
                "computer software", "telecommunications equipment", "computer communications",
                "cable & other pay television", "broadcasting", "information services", "saas"],
@@ -222,7 +222,7 @@ CHAINS: dict = {
         "default": "SW-S",
     },
     "industrials": {
-        "name": "工业 / 制造", "desc": "材料/化工 → 装备机械 → 航空航天 → 运输物流 → 建筑工程",
+        "kind": "sector", "name": "工业 / 制造", "desc": "材料/化工 · 装备机械 · 航空航天 · 运输物流 · 建筑工程",
         "kw": ["industrial machinery", "major chemicals", "steel", "metal fabrications", "aerospace",
                "military/government", "trucking", "railroads", "marine transportation", "air freight",
                "electrical products", "building materials", "paper", "forest products", "plastic",
@@ -244,7 +244,7 @@ CHAINS: dict = {
         "default": "IN-E",
     },
     "energy": {
-        "name": "能源 / 油气", "desc": "上游勘探 → 中游管输 → 下游炼销 → 油服 → 煤炭",
+        "kind": "chain", "name": "能源 / 油气", "desc": "上游勘探 → 中游管输 → 下游炼销 → 油服 → 煤炭",
         "kw": ["oil & gas production", "integrated oil", "oilfield services", "oil refining",
                "oil/gas transmission", "coal mining", "petroleum", "natural gas"],
         "layers": [
@@ -262,7 +262,7 @@ CHAINS: dict = {
         "default": "EN-U",
     },
     "utilities": {
-        "name": "公用事业", "desc": "发电 → 电力公司 → 燃气/水务 → 环保",
+        "kind": "sector", "name": "公用事业", "desc": "发电 · 电力公司 · 燃气/水务 · 环保",
         "kw": ["electric utilities", "power generation", "natural gas distribution", "water supply",
                "environmental services", "utility", "utilities"],
         "layers": [
@@ -278,7 +278,7 @@ CHAINS: dict = {
         "default": "UT-E",
     },
     "consumer-retail": {
-        "name": "大消费", "desc": "品牌消费品 → 食品饮料 → 零售渠道 → 餐饮酒店休闲 → 汽车耐用 → 商业服务",
+        "kind": "sector", "name": "大消费", "desc": "品牌消费品 · 食品饮料 · 零售渠道 · 餐饮酒店休闲 · 汽车耐用 · 商业服务",
         "kw": ["restaurants", "hotels", "retail", "apparel", "packaged foods", "beverages", "food",
                "amusement", "recreation", "business services", "professional services", "auto parts",
                "automotive", "clothing", "department", "specialty stores", "specialty distribution", "consumer",
@@ -414,7 +414,7 @@ def main():
     placement = {k: v for k, v in placement.items() if v}
 
     industries = [
-        {"id": ind, "name": c["name"], "desc": c["desc"],
+        {"id": ind, "name": c["name"], "desc": c["desc"], "kind": c.get("kind", "chain"),
          "layers": [{"id": L["id"], "name": L["name"], "summary": L["summary"]} for L in c["layers"]]}
         for ind, c in CHAINS.items()
     ]

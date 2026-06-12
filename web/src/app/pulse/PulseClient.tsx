@@ -103,7 +103,7 @@ export function fmtCapB(b: number | null | undefined): string {
 
 // ===== 产业链(数据驱动,来自 industry-map.json;AI 用 supply-chain 的 L0-L7)=====
 type ChainLayerDef = { id: string; name: string; summary?: string };
-type ChainDef = { id: string; name: string; desc: string; layers: ChainLayerDef[] };
+type ChainDef = { id: string; name: string; desc: string; kind?: "chain" | "sector"; layers: ChainLayerDef[] };
 
 const REGIONS: { id: Region | "ALL"; label: string; labelEn: string }[] = [
  { id: "ALL", label: "全部", labelEn: "All" },
@@ -579,6 +579,7 @@ export default function PulseClient({
           colorMode={colorMode}
           lensLabel={curLensLabel}
           onSelect={setSelected}
+          flow={industry === "AI" || (industryDefs.find((d) => d.id === industry) as ChainDef | undefined)?.kind !== "sector"}
           onOpen={(c) => router.push(stockHref(c.ticker))}
           selectedId={selected?.id ?? null}
           highlightLayer={highlightLayer}

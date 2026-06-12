@@ -699,8 +699,10 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
           />
           <button
             onClick={() => setFiltersOpen((v) => !v)}
-            className={`rounded-lg border px-3 py-1.5 text-sm transition sm:hidden ${
-              filtersOpen || activeFilterCount > 0 ? "border-accent/40 text-accent" : "border-line text-muted"
+            className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition sm:hidden ${
+              filtersOpen || activeFilterCount > 0
+                ? "bg-accent text-black"
+                : "border border-accent/30 bg-accent-soft text-accent"
             }`}
           >
             {t("筛选", "Filters")}{activeFilterCount > 0 ? ` · ${activeFilterCount}` : ""} {filtersOpen ? "▴" : "▾"}

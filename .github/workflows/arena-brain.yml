@@ -1,0 +1,33 @@
+# 五神对决 · 大脑(开盘前决策)—— 08:30 ET 看实时盘口下单,收盘由 arena-engine 撮合。
+# 注:cron 是 UTC;美东夏令时 12:30 UTC = 08:30 ET(冬令时会变成 07:30 ET,可接受)。
+name: arena-brain
+on:
+  schedule:
+    - cron: "30 12 * * 1-5"
+  workflow_dispatch: {}
+concurrency: arena
+permissions:
+  contents: write
+jobs:
+  brain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: 五位股神开盘前决策(NDT gpt-5.5)
+        env:
+          NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
+          NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
+        run: python scripts/arena_cloud.py brain
+      - name: 提交决策单
+        run: |
+          git config user.name "arena-bot"
+          git config user.email "arena-bot@users.noreply.github.com"
+          git add data/arena-state.json
+          if git diff --cached --quiet; then echo "无变化"; exit 0; fi
+          git commit -m "arena: 大脑决策 $(date -u +%F)"
+          for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done

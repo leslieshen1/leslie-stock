@@ -1,0 +1,31 @@
+# 五神对决 · 引擎(收盘撮合)—— 机械止损 → AI 单 → 规则兜底 → 结账 → arena.json。
+# 00:20 UTC(周二~六)= 20:20 ET(周一~五,EDT)。依赖本地 17:00 ET refresh 已把
+# 当日收盘(us-stocks/price-history-30d)提交上库;数据不新鲜时自动跳过不乱记账。
+name: arena-engine
+on:
+  schedule:
+    - cron: "20 0 * * 2-6"
+  workflow_dispatch: {}
+concurrency: arena
+permissions:
+  contents: write
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: 收盘撮合 + 结账
+        run: python scripts/arena_cloud.py engine
+      - name: 提交账本
+        run: |
+          git config user.name "arena-bot"
+          git config user.email "arena-bot@users.noreply.github.com"
+          git add data/arena-state.json web/public/data/arena.json
+          if git diff --cached --quiet; then echo "无变化"; exit 0; fi
+          git commit -m "arena: 收盘结账 $(date -u +%F)"
+          for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done

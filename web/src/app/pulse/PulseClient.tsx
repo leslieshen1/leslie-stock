@@ -278,15 +278,25 @@ export default function PulseClient({
       .map((c) => ({ ...c, layer: chainPlacement[c.ticker][industry] as typeof c.layer }));
   }, [itemsScored, aiItems, industry, chainPlacement]);
 
-  // 每个 industry 的数量（tab badge）
+  // 每个 industry 的数量(tab badge)—— 跟随当前区域/档位筛选。
+  // 之前数全球全量:人形机器人标 108,切进去 REGION=美股 只剩几颗,数字在撒谎(2026-06-12 抓包)。
   const industryCounts = useMemo(() => {
-    const out: Record<string, number> = { AI: aiItems.length };
+    const tiers = colorMode === "heat" ? HEAT_TIERS : colorMode === "divergence" ? FILTER_TIERS.div : FILTER_TIERS.score;
+    const tt = tiers.find((x) => x.id === tier) ?? tiers[0];
+    const pass = (c: (typeof itemsScored)[number]) => {
+      if (region !== "ALL" && c.region !== region) return false;
+      const score = lensValueOf(c, colorMode);
+      if (score == null) return tier === "all";
+      return score >= tt.min && score <= tt.max;
+    };
+    const base = itemsScored.filter(pass);
+    const out: Record<string, number> = { AI: aiItems.filter(pass).length };
     for (const def of industryDefs) {
       if (def.id === "AI") continue;
-      out[def.id] = itemsScored.filter((c) => chainPlacement[c.ticker]?.[def.id]).length;
+      out[def.id] = base.filter((c) => chainPlacement[c.ticker]?.[def.id]).length;
     }
     return out;
-  }, [itemsScored, aiItems, industryDefs, chainPlacement]);
+  }, [itemsScored, aiItems, industryDefs, chainPlacement, region, tier, colorMode]);
 
   // 当前 industry 的 edges（仅 AI 有策展上下游连线;数据驱动链暂无）
   const activeEdges = useMemo(() => (industry === "AI" ? SUPPLY_EDGES : []), [industry]);

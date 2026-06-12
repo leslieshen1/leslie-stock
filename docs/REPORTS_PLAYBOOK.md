@@ -24,6 +24,8 @@
 - **盘后定格数(20:00 ET 后)**:`/api/quote/{sym}/extended-trading?assetclass=stocks&markettype=post` → `infoTable.rows[0].consolidated`(此时 info 端点的 primary 已滚回日内收盘,拿不到盘后)。
 - 指数用 ETF 代理:SPY=标普500 · QQQ=**纳指100**(≠纳指综合!分化大的日子必须并列写明,如 2026-06-11 综合 +2.54 vs 100 +3.38)· DIA=道指 · IWM=罗素2000。
 - **盘后涨跌口径**:extended-trading 的 consolidated 是「较昨收累计」;报告/卡片写盘后变动必须用「盘后价÷当日收盘-1」,或显式标注「较昨收合计」。裸数字默认=盘后结算口径。
+- **盘中抓数必须校验时间戳**:`lastTradeTimestamp` 必须=今天且非 "Closed at"(脏边缘节点会把昨天收盘当实时返回);不合格就重试换节点,最多 4 次。
+- **IPO 首日大坑(2026-06-12 SpaceX 的教训)**:首笔撮合前(常到中午),info 端点返回**发行价占位 + 0.00%**——看着像"平开零溢价",其实根本还没开始交易。新股必须等 `summary` 端点出现 TodayHighLow / ShareVolume 才算在交易,涨跌一律手算:现价 ÷ 发行价(PreviousClose 字段)- 1。
 - **必查两个日历(别再漏宏观 —— 2026-06-09 漏了 CPI 的教训):**
   - 宏观:Finnhub `calendar/economic` → CPI / PPI / PCE / FOMC / 非农 / 失业金,**带日期+时间(ET)**。
   - 财报:Finnhub `calendar/earnings` → 今日盘前/盘后 + 明日重头,**公司名没有就只写代码、绝不猜**。

@@ -59,12 +59,12 @@
   "footer": [
     {
       "when": "Today:",
-      "name": "Nasdaq +3.38%",
+      "name": "QQQ +3.38%",
       "dim": "hot PPI bought"
     },
     {
       "when": "Tonight:",
-      "name": "ADBE -11%"
+      "name": "ADBE -5.5%"
     },
     {
       "when": "Fri:",

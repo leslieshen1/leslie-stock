@@ -22,7 +22,8 @@
 - **盘前**:对比基准 = **上一交易日收盘**(secondaryData);pm 涨跌 = primaryData。
 - **盘中 / 收盘**:涨跌 = 当日(primaryData percentageChange)。
 - **盘后定格数(20:00 ET 后)**:`/api/quote/{sym}/extended-trading?assetclass=stocks&markettype=post` → `infoTable.rows[0].consolidated`(此时 info 端点的 primary 已滚回日内收盘,拿不到盘后)。
-- 指数用 ETF 代理:SPY=标普 · QQQ=纳指 · DIA=道指 · IWM=罗素。
+- 指数用 ETF 代理:SPY=标普500 · QQQ=**纳指100**(≠纳指综合!分化大的日子必须并列写明,如 2026-06-11 综合 +2.54 vs 100 +3.38)· DIA=道指 · IWM=罗素2000。
+- **盘后涨跌口径**:extended-trading 的 consolidated 是「较昨收累计」;报告/卡片写盘后变动必须用「盘后价÷当日收盘-1」,或显式标注「较昨收合计」。裸数字默认=盘后结算口径。
 - **必查两个日历(别再漏宏观 —— 2026-06-09 漏了 CPI 的教训):**
   - 宏观:Finnhub `calendar/economic` → CPI / PPI / PCE / FOMC / 非农 / 失业金,**带日期+时间(ET)**。
   - 财报:Finnhub `calendar/earnings` → 今日盘前/盘后 + 明日重头,**公司名没有就只写代码、绝不猜**。

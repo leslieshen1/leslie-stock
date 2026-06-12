@@ -185,8 +185,8 @@
   {
    "master": "druckenmiller",
    "sym": "KLAC",
-   "shares": 53,
-   "entry": 2135.64,
+   "shares": 530,
+   "entry": 213.564,
    "entry_date": "2026-06-10"
   },
   {
@@ -792,5 +792,11 @@
    "note": ""
   }
  ],
- "next_order_id": 30
+ "next_order_id": 30,
+ "notes": [
+  {
+   "date": "2026-06-12",
+   "event": "KLAC 10:1 拆股,持仓调账(53→530股,成本 2135.64→213.564)"
+  }
+ ]
 }

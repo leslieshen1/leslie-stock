@@ -167,6 +167,13 @@ export default async function StockDetailPage({
         {usPanel?.chain?.role && (
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">{usPanel.chain.role}</p>
         )}
+        {/* 串联热力图:跳回首页并自动定位选中这只(revealAndSelect 跨产业/区域) */}
+        {usPanel && (
+          <Link href={`/?highlight=${encodeURIComponent(code)}`}
+            className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-accent/30 bg-accent-soft px-3 py-1.5 text-xs font-semibold text-accent transition hover:brightness-110">
+            在热力图中定位 →
+          </Link>
+        )}
       </header>
 
       {dilution && <DilutionWarning flag={dilution} />}

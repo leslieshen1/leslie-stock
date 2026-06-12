@@ -203,7 +203,7 @@ export default function PulseClient({
     if (!highlightTicker) return;
     const target = items.find((x) => x.ticker === highlightTicker);
     if (target) {
-      setSelected(target);
+      revealAndSelect(target as CompanyWithHeat);
       setHighlightTicker(null); // 只触发一次
     }
   }, [highlightTicker, items]);
@@ -279,6 +279,18 @@ export default function PulseClient({
       .filter((c) => chainPlacement[c.ticker]?.[industry])
       .map((c) => ({ ...c, layer: chainPlacement[c.ticker][industry] as typeof c.layer }));
   }, [itemsScored, aiItems, industry, chainPlacement]);
+
+  // 粒子定位搜索(2026-06-12):5000+ 粒子靠肉眼找不现实,输入代码/名称 → revealAndSelect
+  const [locQ, setLocQ] = useState("");
+  const locMatches = useMemo(() => {
+    const q = locQ.trim().toLowerCase();
+    if (q.length < 1) return [];
+    const byTicker = itemsScored.filter((c) => c.ticker.toLowerCase().startsWith(q));
+    const byName = itemsScored.filter(
+      (c) => !c.ticker.toLowerCase().startsWith(q) && (c.name || "").toLowerCase().includes(q));
+    return [...byTicker, ...byName].slice(0, 8);
+  }, [locQ, itemsScored]);
+
 
   // 每个 industry 的数量(tab badge)—— 跟随当前区域/档位筛选。
   // 之前数全球全量:人形机器人标 108,切进去 REGION=美股 只剩几颗,数字在撒谎(2026-06-12 抓包)。
@@ -394,6 +406,30 @@ export default function PulseClient({
  <p className="hidden min-w-0 truncate text-xs text-faint lg:block">
               {t(`${industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头`, `${industryItems.length} names · size = market cap · color = lens`)}
             </p>
+          </div>
+          {/* 粒子定位搜索 */}
+          <div className="relative w-full sm:w-[220px]">
+            <input
+              value={locQ}
+              onChange={(e) => setLocQ(e.target.value)}
+              placeholder={t("定位:代码 / 名称…", "Locate: ticker / name…")}
+              className="w-full rounded-lg border border-line bg-surface px-3 py-1.5 text-sm focus:border-faint focus:outline-none"
+            />
+            {locMatches.length > 0 && (
+              <div className="absolute left-0 right-0 top-full z-30 mt-1 overflow-hidden rounded-lg border border-line bg-surface shadow-xl">
+                {locMatches.map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => { revealAndSelect(c); setLocQ(""); }}
+                    className="flex w-full items-baseline gap-2 px-3 py-1.5 text-left text-sm transition hover:bg-surface-2"
+                  >
+                    <span className="font-mono font-semibold text-ink">{c.ticker}</span>
+                    <span className="truncate text-xs text-muted">{c.name}</span>
+                    <span className="ml-auto shrink-0 text-[10px] text-faint">{c.region}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
  <div className="flex items-center gap-2 text-xs font-mono">
             {coveredCount > 0 ? (

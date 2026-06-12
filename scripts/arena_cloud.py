@@ -139,8 +139,38 @@ def run_engine() -> None:
                                  "shares": p["shares"], "price": round(px, 4), "reason": reason, "src": src})
             return True
 
-        # ① 机械纪律(风控地板,AI 无权豁免)
+        # ⓪ 拆股/并股自愈:前一交易日收盘与现价量级断裂、但官方当日涨跌正常 → 公司行动,
+        #    按整数比例调账(NAV 不变),当日豁免止损/动量 —— KLAC 2026-06-12 10:1 拆股差点被当 -89% 误砍
+        split_adjusted: set[str] = set()
         for sym, p in list(pos.items()):
+            u = uni.get(sym)
+            cl = hist["closes"].get(sym) or {}
+            ds = sorted(cl)
+            if not u or len(ds) < 2 or abs(u["pct"]) >= 25:
+                continue
+            prev2 = cl[ds[-2]]
+            if not prev2 or not u["price"]:
+                continue
+            k_float = prev2 / u["price"] * (1 + u["pct"] / 100)
+            if k_float >= 1.8:                      # 正向拆股(如 10:1)
+                k = round(k_float)
+                if k >= 2 and abs(k_float - k) / k < 0.08:
+                    p["shares"] = p["shares"] * k
+                    p["entry"] = round(p["entry"] / k, 4)
+                    split_adjusted.add(sym)
+                    st.setdefault("notes", []).append({"date": date, "event": f"{sym} {k}:1 拆股自动调账({mk})"})
+            elif k_float <= 0.4:                    # 并股(如 1:10)
+                k = round(1 / k_float)
+                if k >= 3 and abs(1 / k_float - k) / k < 0.08 and p["shares"] >= k:
+                    p["shares"] = p["shares"] // k
+                    p["entry"] = round(p["entry"] * k, 4)
+                    split_adjusted.add(sym)
+                    st.setdefault("notes", []).append({"date": date, "event": f"{sym} 1:{k} 并股自动调账({mk})"})
+
+        # ① 机械纪律(风控地板,AI 无权豁免;拆并股当日豁免——历史序列被断裂污染)
+        for sym, p in list(pos.items()):
+            if sym in split_adjusted:
+                continue
             u = uni.get(sym)
             if not u:
                 continue

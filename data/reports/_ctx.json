@@ -1,154 +1,154 @@
 {
- "asof_et": "2026-06-11 08:30 ET Thu",
+ "asof_et": "2026-06-12 08:35 ET Fri",
  "direction": {
   "标普500": {
-   "pm_pct": "+0.43%",
-   "yesterday_pct": "-1.58%"
+   "pm_pct": "+0.38%",
+   "yesterday_pct": "+1.70%"
   },
   "纳指100": {
-   "pm_pct": "+0.83%",
-   "yesterday_pct": "-2.00%"
+   "pm_pct": "+0.15%",
+   "yesterday_pct": "+3.38%"
   },
   "道指": {
-   "pm_pct": "+0.41%",
-   "yesterday_pct": "-1.80%"
+   "pm_pct": "+0.64%",
+   "yesterday_pct": "+1.82%"
   },
   "罗素2000": {
-   "pm_pct": "+0.74%",
-   "yesterday_pct": "-1.04%"
+   "pm_pct": "+0.49%",
+   "yesterday_pct": "+0.54%"
   }
  },
  "market_status": "Pre-Market",
  "premarket_gainers": [
   {
-   "sym": "MAAS",
-   "name": "Maase Inc. Class A",
-   "pm_price": "$12.00",
-   "pm_pct": "+9.39%",
-   "yesterday_pct": null,
-   "yesterday_close": null
+   "sym": "SATS",
+   "name": "EchoStar  Corporation",
+   "pm_price": "$135.9821",
+   "pm_pct": "+6.13%",
+   "yesterday_pct": "+11.19%",
+   "yesterday_close": "$128.13"
   },
   {
-   "sym": "STRL",
-   "name": "Sterling Infrastructure Inc.",
-   "pm_price": "$820.00",
-   "pm_pct": "+6.46%",
-   "yesterday_pct": "-8.52%",
-   "yesterday_close": "$770.25"
+   "sym": "ALAB",
+   "name": "Astera Labs Inc.",
+   "pm_price": "$382.97",
+   "pm_pct": "+4.22%",
+   "yesterday_pct": "+11.07%",
+   "yesterday_close": "$367.47"
   },
   {
-   "sym": "AXTI",
-   "name": "AXT Inc",
-   "pm_price": "$89.93",
-   "pm_pct": "+5.44%",
-   "yesterday_pct": "+8.84%",
-   "yesterday_close": "$85.29"
+   "sym": "GGAL",
+   "name": "Grupo Financiero Galicia S.A.",
+   "pm_price": "$56.97",
+   "pm_pct": "+2.82%",
+   "yesterday_pct": "+11.67%",
+   "yesterday_close": "$55.41"
+  },
+  {
+   "sym": "TEO",
+   "name": "Telecom Argentina SA",
+   "pm_price": "$16.4284",
+   "pm_pct": "+2.81%",
+   "yesterday_pct": "+12.30%",
+   "yesterday_close": "$15.98"
+  },
+  {
+   "sym": "ARM",
+   "name": "Arm Holdings plc",
+   "pm_price": "$351.59",
+   "pm_pct": "+2.74%",
+   "yesterday_pct": "+11.32%",
+   "yesterday_close": "$342.23"
+  },
+  {
+   "sym": "CAMT",
+   "name": "Camtek Ltd.",
+   "pm_price": "$188.70",
+   "pm_pct": "+2.47%",
+   "yesterday_pct": "+10.47%",
+   "yesterday_close": "$184.15"
   },
   {
    "sym": "UEC",
    "name": "Uranium Energy Corp.",
-   "pm_price": "$9.8008",
-   "pm_pct": "+4.04%",
-   "yesterday_pct": "-11.55%",
-   "yesterday_close": "$9.42"
+   "pm_price": "$10.87",
+   "pm_pct": "+2.26%",
+   "yesterday_pct": "+12.85%",
+   "yesterday_close": "$10.63"
   },
   {
-   "sym": "INTC",
-   "name": "Intel Corporation",
-   "pm_price": "$111.03",
-   "pm_pct": "+3.73%",
-   "yesterday_pct": "-0.82%",
-   "yesterday_close": "$107.04"
-  },
-  {
-   "sym": "GNRC",
-   "name": "Generac Holdlings Inc.",
-   "pm_price": "$247.94",
-   "pm_pct": "+3.69%",
-   "yesterday_pct": "-8.38%",
-   "yesterday_close": "$239.11"
-  },
-  {
-   "sym": "MAIR",
-   "name": "Madison Air Solutions Corporation Class A",
-   "pm_price": "$38.66",
-   "pm_pct": "+3.34%",
-   "yesterday_pct": "-7.77%",
-   "yesterday_close": "$37.41"
-  },
-  {
-   "sym": "FDXF",
-   "name": "FedEx Freight Holding Company Inc.",
-   "pm_price": "$180.55",
-   "pm_pct": "+2.97%",
-   "yesterday_pct": "-6.96%",
-   "yesterday_close": "$175.35"
+   "sym": "USAR",
+   "name": "USA Rare Earth Inc. Class A",
+   "pm_price": "$23.01",
+   "pm_pct": "+1.99%",
+   "yesterday_pct": "+10.97%",
+   "yesterday_close": "$22.56"
   }
  ],
  "premarket_losers": [
   {
-   "sym": "ORCL",
-   "name": "Oracle Corporation",
-   "pm_price": "$181.44",
-   "pm_pct": "-9.85%",
-   "yesterday_pct": "-2.21%",
-   "yesterday_close": "$201.26"
+   "sym": "ESLT",
+   "name": "Elbit Systems Ltd.",
+   "pm_price": "$877.0132",
+   "pm_pct": "-3.96%",
+   "yesterday_pct": "+11.51%",
+   "yesterday_close": "$913.20"
   },
   {
-   "sym": "SKM",
-   "name": "SK Telecom Co. Ltd.",
-   "pm_price": "$36.65",
-   "pm_pct": "-3.07%",
-   "yesterday_pct": "-8.25%",
-   "yesterday_close": "$37.81"
+   "sym": "SMCI",
+   "name": "Super Micro Computer Inc.",
+   "pm_price": "$30.95",
+   "pm_pct": "-3.19%",
+   "yesterday_pct": "+9.22%",
+   "yesterday_close": "$31.97"
   },
   {
-   "sym": "AAOI",
-   "name": "Applied Optoelectronics Inc.",
-   "pm_price": "$170.8643",
-   "pm_pct": "-2.44%",
-   "yesterday_pct": "+7.52%",
-   "yesterday_close": "$175.13"
+   "sym": "STM",
+   "name": "STMicroelectronics N.V.",
+   "pm_price": "$76.18",
+   "pm_pct": "-2.48%",
+   "yesterday_pct": "+10.43%",
+   "yesterday_close": "$78.12"
   },
   {
-   "sym": "AU",
-   "name": "AngloGold Ashanti PLC",
-   "pm_price": "$76.5916",
-   "pm_pct": "-2.39%",
-   "yesterday_pct": "-7.06%",
-   "yesterday_close": "$78.47"
+   "sym": "MRVL",
+   "name": "Marvell Technology Inc.",
+   "pm_price": "$274.02",
+   "pm_pct": "-2.38%",
+   "yesterday_pct": "+11.13%",
+   "yesterday_close": "$280.71"
   },
   {
-   "sym": "DNTH",
-   "name": "Dianthus Therapeutics Inc.",
-   "pm_price": "$75.05",
-   "pm_pct": "-1.79%",
-   "yesterday_pct": "-9.64%",
-   "yesterday_close": "$76.42"
+   "sym": "KLAC",
+   "name": "KLA Corporation",
+   "pm_price": "$236.89",
+   "pm_pct": "-1.77%",
+   "yesterday_pct": "+12.92%",
+   "yesterday_close": "$2,411.64"
   },
   {
-   "sym": "FRMI",
-   "name": "Fermi Inc.",
-   "pm_price": "$6.77",
-   "pm_pct": "-1.74%",
-   "yesterday_pct": "+22.60%",
-   "yesterday_close": "$6.89"
+   "sym": "MU",
+   "name": "Micron Technology Inc.",
+   "pm_price": "$978.99",
+   "pm_pct": "-1.70%",
+   "yesterday_pct": "+11.66%",
+   "yesterday_close": "$995.87"
   },
   {
-   "sym": "GDS",
-   "name": "GDS Holdings Limited ADS",
-   "pm_price": "$33.00",
-   "pm_pct": "-1.43%",
-   "yesterday_pct": "-7.28%",
-   "yesterday_close": "$33.48"
+   "sym": "LRCX",
+   "name": "Lam Research Corporation",
+   "pm_price": "$356.50",
+   "pm_pct": "-1.66%",
+   "yesterday_pct": "+12.65%",
+   "yesterday_close": "$362.52"
   },
   {
-   "sym": "FCFS",
-   "name": "FirstCash Holdings Inc.",
-   "pm_price": "$209.2401",
-   "pm_pct": "-1.18%",
-   "yesterday_pct": "-7.68%",
-   "yesterday_close": "$211.73"
+   "sym": "AEIS",
+   "name": "Advanced Energy Industries Inc.",
+   "pm_price": "$335.17",
+   "pm_pct": "-1.54%",
+   "yesterday_pct": "+10.46%",
+   "yesterday_close": "$340.40"
   }
  ],
  "earnings": [
@@ -165,287 +165,98 @@
    "hour": "",
    "epsEst": null,
    "date": "2026-06-12"
-  },
-  {
-   "sym": "SVIN",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "GTEN",
-   "name": "Gores Holdings X Inc. Class A ordinary shares",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "MCRAA",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "HMMR",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "MH",
-   "name": "McGraw Hill Inc.",
-   "hour": "bmo",
-   "epsEst": 0.1743,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "BTOC",
-   "name": "Armlogi Holding Corp.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "CLEV",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "NIMU",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "NIMU",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "LBSR",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "AUSI",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "PPIH",
-   "name": "Perma-Pipe International Holdings Inc.",
-   "hour": "",
-   "epsEst": 0.4896,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "NATH",
-   "name": "Nathan's Famous Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "CRWS",
-   "name": "Crown Crafts Inc",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "JVA",
-   "name": "Coffee Holding Co. Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "OLOX",
-   "name": "Olenox Industries Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "CRCW",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "HITC",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "SKKY",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "VRA",
-   "name": "Vera Bradley Inc.",
-   "hour": "bmo",
-   "epsEst": -0.3333,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "LOVE",
-   "name": "The Lovesac Company",
-   "hour": "bmo",
-   "epsEst": -1.0183,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "HOFT",
-   "name": "Hooker Furnishings Corporation",
-   "hour": "bmo",
-   "epsEst": -0.0408,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "PPIH",
-   "name": "Perma-Pipe International Holdings Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "ZDGE",
-   "name": "Zedge Inc. Class B",
-   "hour": "amc",
-   "epsEst": 0.051,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "ADBE",
-   "name": "Adobe Inc.",
-   "hour": "amc",
-   "epsEst": 5.9385,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "LEN",
-   "name": "Lennar Corporation Class A",
-   "hour": "amc",
-   "epsEst": 1.261,
-   "date": "2026-06-11"
-  },
-  {
-   "sym": "WTER",
-   "name": null,
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-06-11"
   }
  ],
  "news": [
   {
-   "h": "SpaceX IPO won’t ‘break’ the bull market. But investors are worried about what comes next",
+   "h": "Former Tesla board member says SpaceX needs to achieve 2 of its 3 moonshots to keep its valuation",
    "src": "CNBC",
-   "sum": "As far as Wall Street is concerned, the stock market has what it takes to absorb the new supply."
+   "sum": "SpaceX has achieved its goal of becoming the largest IPO on record."
   },
   {
-   "h": "How family offices are investing in the final frontier beyond SpaceX",
+   "h": "UK economy began to feel fallout from Iran war in April, data shows - Reuters",
+   "src": "Reuters",
+   "sum": "UK economy began to feel fallout from Iran war in April, data shows  Reuters"
+  },
+  {
+   "h": "Taking Kharg Island would pose risks for US troops - Reuters",
+   "src": "Reuters",
+   "sum": "Taking Kharg Island would pose risks for US troops  Reuters"
+  },
+  {
+   "h": "U.S.-Iran peace memorandum could be signed on Sunday in Geneva, source says - Reuters",
+   "src": "Reuters",
+   "sum": "U.S.-Iran peace memorandum could be signed on Sunday in Geneva, source says  Reuters"
+  },
+  {
+   "h": "India rupee surges as oil nosedives on rising bets of US-Iran peace deal - Reuters",
+   "src": "Reuters",
+   "sum": "India rupee surges as oil nosedives on rising bets of US-Iran peace deal  Reuters"
+  },
+  {
+   "h": "Dollar steadies as traders weigh prospects for Iran ceasefire - Reuters",
+   "src": "Reuters",
+   "sum": "Dollar steadies as traders weigh prospects for Iran ceasefire  Reuters"
+  },
+  {
+   "h": "Oil falls to near two-month lows as Trump calls off threatened strikes on Iran - Reuters",
+   "src": "Reuters",
+   "sum": "Oil falls to near two-month lows as Trump calls off threatened strikes on Iran  Reuters"
+  },
+  {
+   "h": "Honeywell CEO says AI will 'redefine automation' as labor shortages mount",
    "src": "CNBC",
-   "sum": "Personal investment firms of the ultra-rich are interested in space startups even without Elon Musk's name attached."
+   "sum": "Honeywell CEO Vimal Kapur said AI is poised to \"redefine automation\" by helping companies turn operational data into actionable insights."
   },
   {
-   "h": "US and Iran wrangle over frozen funds as they edge toward interim deal, Iranian sources say - Reuters",
+   "h": "Wall Street indexes jump, Trump says strikes against Iran canceled - Reuters",
    "src": "Reuters",
-   "sum": "US and Iran wrangle over frozen funds as they edge toward interim deal, Iranian sources say  Reuters"
+   "sum": "Wall Street indexes jump, Trump says strikes against Iran canceled  Reuters"
   },
   {
-   "h": "Iron ore remains unaffected by Iran war, but China's May data baffles - Reuters",
+   "h": "Iran-born engineer wins bail ahead of U.S. trial tied to deadly drone strike - Reuters",
    "src": "Reuters",
-   "sum": "Iron ore remains unaffected by Iran war, but China's May data baffles  Reuters"
+   "sum": "Iran-born engineer wins bail ahead of U.S. trial tied to deadly drone strike  Reuters"
   },
   {
-   "h": "Treasury yields steady as investors monitor inflation data, U.S. strikes in Iran",
+   "h": "Iran players conduct first open practice at Tijuana camp - Reuters",
+   "src": "Reuters",
+   "sum": "Iran players conduct first open practice at Tijuana camp  Reuters"
+  },
+  {
+   "h": "Iran says no final decision made on possible US agreement, IRNA says - Reuters",
+   "src": "Reuters",
+   "sum": "Iran says no final decision made on possible US agreement, IRNA says  Reuters"
+  },
+  {
+   "h": "Trump says he believes Iran's supreme leader has approved deal with US - Reuters",
+   "src": "Reuters",
+   "sum": "Trump says he believes Iran's supreme leader has approved deal with US  Reuters"
+  },
+  {
+   "h": "Trump says 'great' Iran settlement will trigger opening of Strait of Hormuz - Reuters",
+   "src": "Reuters",
+   "sum": "Trump says 'great' Iran settlement will trigger opening of Strait of Hormuz  Reuters"
+  },
+  {
+   "h": "Trump says attack on Kharg Island off the table for now - Reuters",
+   "src": "Reuters",
+   "sum": "Trump says attack on Kharg Island off the table for now  Reuters"
+  },
+  {
+   "h": "Eaton moves one step closer to becoming a cleaner bet on the AI boom",
    "src": "CNBC",
-   "sum": "U.S. Treasurys steadied Thursday, as investors monitored developments in the Middle East conflict ahead of further inflation data."
+   "sum": "Auto parts manufacturer Dana has agreed to combine with Eaton's Mobility business in a deal that values the unit at $5.1 billion."
   },
   {
-   "h": "Iran and Ukraine loom over G7 as France accommodates Trump - Reuters",
-   "src": "Reuters",
-   "sum": "Iran and Ukraine loom over G7 as France accommodates Trump  Reuters"
-  },
-  {
-   "h": "Indian refiners bolster crude, LPG supplies despite Iran conflict - Reuters",
-   "src": "Reuters",
-   "sum": "Indian refiners bolster crude, LPG supplies despite Iran conflict  Reuters"
-  },
-  {
-   "h": "Three Indian sailors confirmed dead in US strike off Oman, separate incident reported - Reuters",
-   "src": "Reuters",
-   "sum": "Three Indian sailors confirmed dead in US strike off Oman, separate incident reported  Reuters"
-  },
-  {
-   "h": "US and Iranian attacks dent ceasefire, Iranian sources say talks intensify - Reuters",
-   "src": "Reuters",
-   "sum": "US and Iranian attacks dent ceasefire, Iranian sources say talks intensify  Reuters"
-  },
-  {
-   "h": "East African ministers to unveil budgets amid Iran fuel shock, debt strains - Reuters",
-   "src": "Reuters",
-   "sum": "East African ministers to unveil budgets amid Iran fuel shock, debt strains  Reuters"
-  },
-  {
-   "h": "Rupee drops on dollar demand from oil cos, nearly erases RBI-led gains - Reuters",
-   "src": "Reuters",
-   "sum": "Rupee drops on dollar demand from oil cos, nearly erases RBI-led gains  Reuters"
-  },
-  {
-   "h": "US Department of Justice formally moves to drop Halkbank case - Reuters",
-   "src": "Reuters",
-   "sum": "US Department of Justice formally moves to drop Halkbank case  Reuters"
-  },
-  {
-   "h": "Indian shares fall on Iran war, hot US inflation; IT leads losses - Reuters",
-   "src": "Reuters",
-   "sum": "Indian shares fall on Iran war, hot US inflation; IT leads losses  Reuters"
-  },
-  {
-   "h": "Gold rebounds from six-month low; US inflation data in focus - Reuters",
-   "src": "Reuters",
-   "sum": "Gold rebounds from six-month low; US inflation data in focus  Reuters"
-  },
-  {
-   "h": "Peace hopes steady Europe ahead of expected ECB rate hike - Reuters",
-   "src": "Reuters",
-   "sum": "Peace hopes steady Europe ahead of expected ECB rate hike  Reuters"
-  },
-  {
-   "h": "Oil falls as traders digest escalation in US-Iran strikes - Reuters",
-   "src": "Reuters",
-   "sum": "Oil falls as traders digest escalation in US-Iran strikes  Reuters"
-  },
-  {
-   "h": "Company moves from Singapore to cheaper, more spacious Malaysia show rising global mobility trend",
+   "h": "Intel soars on double upgrade from BofA. Here's what Jim Cramer says investors must do",
    "src": "CNBC",
-   "sum": "Lower costs, tax incentives and access to a larger market have seen a raft of companies shift operations to Malaysia from Singapore."
+   "sum": "Jim Cramer said investors who don't own any Intel need to get in."
   },
   {
-   "h": "US military says none of its warships struck in Strait of Hormuz - Reuters",
+   "h": "Iran's Fars news agency says Iran has not yet agreed text for MoU with U.S. - Reuters",
    "src": "Reuters",
-   "sum": "US military says none of its warships struck in Strait of Hormuz  Reuters"
+   "sum": "Iran's Fars news agency says Iran has not yet agreed text for MoU with U.S.  Reuters"
   }
  ]
 }

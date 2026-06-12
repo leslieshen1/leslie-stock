@@ -1,0 +1,74 @@
+{
+  "headline": "Hot PPI got bought. Then Adobe blew up after hours.",
+  "panels": [
+    {
+      "icon": "chip",
+      "title": "Semis ripped",
+      "items": [
+        [
+          "MU",
+          "+11.66%"
+        ],
+        [
+          "ARM",
+          "+11.32%"
+        ],
+        [
+          "MRVL",
+          "+11.13%"
+        ]
+      ]
+    },
+    {
+      "icon": "bolt",
+      "title": "Software got sold",
+      "items": [
+        [
+          "ORCL",
+          "-8.53%"
+        ],
+        [
+          "MSFT",
+          "-1.77%"
+        ],
+        [
+          "META",
+          "-0.45%"
+        ]
+      ]
+    },
+    {
+      "icon": "clock",
+      "title": "After hours · settled",
+      "items": [
+        [
+          "ADBE",
+          "-5.54%"
+        ],
+        [
+          "LEN",
+          "-2.05%"
+        ],
+        [
+          "MU",
+          "+0.30%"
+        ]
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "when": "Today:",
+      "name": "Nasdaq +3.38%",
+      "dim": "hot PPI bought"
+    },
+    {
+      "when": "Tonight:",
+      "name": "ADBE -11%"
+    },
+    {
+      "when": "Fri:",
+      "name": "SpaceX IPO"
+    }
+  ]
+}

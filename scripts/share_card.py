@@ -447,7 +447,7 @@ def build_html(ctx: dict) -> str:
   <div class="head">{ctx["headline"]}</div>
   <div class="grid">{idx_cards}</div>
   <div class="panels">{panels_html}</div>
-  <div class="next"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/></svg></span><span class="lab">Next 24 hours:</span>{nxt_html}</div>
+  <div class="next"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/></svg></span><span class="lab">Next 24h:</span>{nxt_html}</div>
   <div class="aime-glow"></div><div class="ring"></div>
   <img class="aime" src="file://{aime}"/>
   <div class="ft">All times Eastern Time (ET) &middot; Data: Nasdaq &middot; AInvest</div>

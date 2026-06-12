@@ -117,6 +117,11 @@ export default async function StockDetailPage({
   const holders = getStockHolders(code);
   const dilution = market === "us" ? loadDilutionFlags()[code.toUpperCase()] : undefined;
 
+  // 市值显示:$2.18T / $43B / $940M
+  const fmtCap = (b?: number | null) =>
+    b == null ? null : b >= 1000 ? `$${(b / 1000).toFixed(2)}T` : b >= 1 ? `$${b.toFixed(1)}B` : `$${Math.round(b * 1000)}M`;
+  const mcap = fmtCap(usPanel?.mcapB);
+
  const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
   const marketTone =
  market === "a"
@@ -138,18 +143,30 @@ export default async function StockDetailPage({
  <span className="text-faint">/</span>
  <span className="text-muted">{initial?.name || code}</span>
         </div>
- <div className="flex items-baseline gap-3">
+ <div className="flex flex-wrap items-baseline gap-3">
  <h1 className="text-3xl font-semibold tracking-tight text-ink">
-            {initial?.name || code}
+            {usPanel?.name || initial?.name || code}
           </h1>
  <code className="font-mono text-base text-muted">{code}</code>
           <span className={`inline-flex rounded-md border px-2 py-0.5 text-xs font-medium ${marketTone}`}>
             {marketLabel}
           </span>
         </div>
+        {/* 市值 · 行业 · 链定位 —— 之前页头只有代码+价格,连公司是干嘛的都不知道(2026-06-12 反馈) */}
+        {(mcap || usPanel?.sector || usPanel?.chain?.industry) && (
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+            {mcap && <span>市值 <span className="font-mono font-semibold text-ink">{mcap}</span></span>}
+            {usPanel?.sector && <span>{usPanel.sector}</span>}
+            {usPanel?.chain?.industry && <span className="text-accent">{usPanel.chain.industry}</span>}
+          </div>
+        )}
         <div className="mt-2">
           <LivePrice code={code} market={market} initialPrice={fundamentals?.px ?? null} />
         </div>
+        {/* 公司画像:判读时生成的业务角色一句话(库里现成的"描述") */}
+        {usPanel?.chain?.role && (
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">{usPanel.chain.role}</p>
+        )}
       </header>
 
       {dilution && <DilutionWarning flag={dilution} />}

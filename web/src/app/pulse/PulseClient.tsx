@@ -173,6 +173,7 @@ export default function PulseClient({
   chainPlacement?: Record<string, Record<string, string>>;
 }) {
   const router = useRouter();
+  const fieldWrapRef = useRef<HTMLDivElement>(null);
   const sp = useSearchParams();   // ?industry=&highlight= 客户端读(服务端读会逼整页强动态)
   const { t, lang } = useLang();
   const [selected, setSelected] = useState<CompanyWithHeat | null>(null);
@@ -301,6 +302,26 @@ export default function PulseClient({
 
   // 当前 industry 的 edges（仅 AI 有策展上下游连线;数据驱动链暂无）
   const activeEdges = useMemo(() => (industry === "AI" ? SUPPLY_EDGES : []), [industry]);
+
+  // 从面板(上下游/排行榜)点选:不光换面板,还要让画布"跳转并选中"——
+  // 自动切到能看见它的产业/区域/档位,再把画布滚进视野(2026-06-12 用户反馈:点 TSM 画布无反应)
+  function revealAndSelect(c: CompanyWithHeat) {
+    setSelected(c);
+    const inIndustry = industry === "AI"
+      ? aiItems.some((x) => x.ticker === c.ticker)
+      : !!chainPlacement[c.ticker]?.[industry];
+    if (!inIndustry) {
+      const tags = (c as { industries?: string[] }).industries;
+      const next = (!tags || tags.includes("AI"))
+        ? "AI"
+        : (Object.keys(chainPlacement[c.ticker] || {})[0] ?? "AI");
+      setIndustry(next);
+      setHighlightLayer(null);
+    }
+    if (region !== "ALL" && c.region !== region) setRegion("ALL");
+    if (tier !== "all") setTier("all");
+    fieldWrapRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 
   const filtered = useMemo(() => {
     const tiers = colorMode === "heat" ? HEAT_TIERS : colorMode === "divergence" ? FILTER_TIERS.div : FILTER_TIERS.score;
@@ -572,6 +593,7 @@ export default function PulseClient({
           <ColorScale lens={colorMode} />
         </div>
 
+        <div ref={fieldWrapRef}>
         <PulseField
           items={filtered}
           edges={activeEdges}
@@ -585,6 +607,7 @@ export default function PulseClient({
           highlightLayer={highlightLayer}
           layers={activeLayers}
         />
+        </div>
 
         {/* 排行榜 */}
  <div className="grid grid-cols-2 gap-4">
@@ -603,7 +626,7 @@ export default function PulseClient({
                 return (
                   <button
                     key={c.id}
-                    onClick={() => setSelected(c)}
+                    onClick={() => revealAndSelect(c)}
  className="w-full flex items-center gap-2 text-left px-2 py-1.5 rounded-md hover:bg-surface-2 transition"
                   >
  <span className="font-mono text-[10px] text-faint w-4">{i + 1}</span>
@@ -632,7 +655,7 @@ export default function PulseClient({
                 return (
                   <button
                     key={c.id}
-                    onClick={() => setSelected(c)}
+                    onClick={() => revealAndSelect(c)}
  className="w-full flex items-center gap-2 text-left px-2 py-1.5 rounded-md hover:bg-surface-2 transition"
                   >
  <span className="font-mono text-[10px] text-faint w-4">{i + 1}</span>
@@ -657,7 +680,7 @@ export default function PulseClient({
             allItems={itemsScored}
             edges={SUPPLY_EDGES}
             colorMode={colorMode}
-            onSelect={setSelected}
+            onSelect={revealAndSelect}
             trend={lazyTrends[selected.ticker] || []}
           />
         ) : (

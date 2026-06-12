@@ -26,11 +26,22 @@ function dayLabel(date: string, todayET: string) {
 }
 
 export default function MarketCalendar({ events }: { events: CalEvent[] }) {
-  if (!events.length) return null;
   const todayET = fmtET(new Date());
 
+  // "接下来盯什么" = 只看今天(ET)及以后。数据是抓取时刻的窗口,展示必须按"现在"过滤——
+  // 否则隔天看就是馊的(2026-06-12 用户抓包:6/11 的 ADBE 还挂着)。同日去重(Finnhub 偶发重复行)。
+  const seen = new Set<string>();
+  const fresh = events.filter((e) => {
+    if (e.date < todayET) return false;
+    const k = `${e.date}|${e.kind}|${e.sym || e.title}|${e.timeET}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+  if (!fresh.length) return null;
+
   const byDate = new Map<string, CalEvent[]>();
-  for (const e of events) {
+  for (const e of fresh) {
     if (!byDate.has(e.date)) byDate.set(e.date, []);
     byDate.get(e.date)!.push(e);
   }

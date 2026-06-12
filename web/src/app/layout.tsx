@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import TopNav from "@/components/TopNav";
+import MobileTabBar from "@/components/MobileTabBar";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
 import { LangProvider, T } from "@/lib/i18n";
 
@@ -65,6 +66,9 @@ export default function RootLayout({
  <p className="kicker mt-5 !text-faint">© Not a Stock Guru · Not Financial Advice</p>
           </div>
         </footer>
+        {/* 底部 Tab 栏占位(仅移动端,防止内容被固定栏遮住) */}
+        <div className="h-[58px] md:hidden" />
+        <MobileTabBar />
       </LangProvider>
       </body>
     </html>

@@ -48,7 +48,8 @@ export default function TopNav() {
         </Link>
 
         {/* 主导航 — active 用下划线(编辑部),hover 升墨色 */}
- <nav className="flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-2">
+ {/* 移动端隐藏(横滑会把对决/盘报藏出屏外,入口在底部 MobileTabBar) */}
+ <nav className="hidden min-w-0 flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-2 md:flex">
           {NAV.map((item) => {
             const active = item.match(pathname);
             return (

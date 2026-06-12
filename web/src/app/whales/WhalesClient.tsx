@@ -126,7 +126,9 @@ function InvestorCard({ inv }: { inv: Investor }) {
  <header className="mb-4 flex items-start justify-between">
         <div>
  <div className="flex items-center gap-2">
- <h3 className="text-[15px] font-semibold text-ink">{inv.name}</h3>
+ <Link href={`/whales/${inv.slug}`} className="hover:text-accent">
+ <h3 className="text-[15px] font-semibold text-ink hover:text-accent">{inv.name}</h3>
+ </Link>
  <span className="rounded border border-line bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium text-muted">
               {TYPE_META[inv.type].label}
             </span>
@@ -158,6 +160,12 @@ function InvestorCard({ inv }: { inv: Investor }) {
           );
         })}
       </div>
+      {inv.holdings.length > 0 && (
+        <Link href={`/whales/${inv.slug}`}
+          className="mt-3 inline-block text-xs font-medium text-accent hover:underline">
+          完整持仓 {inv.holdings.length} 只 →
+        </Link>
+      )}
     </section>
   );
 }
@@ -251,6 +259,7 @@ function ConsensusPanel({ con, period }: { con: Con; period: string }) {
       <p className="mt-4 text-[11px] text-faint">
         共识 ≠ 正确 —— 大佬扎堆也可能一起踏空。看的是「谁在重仓、谁在加减」,自己判断。
       </p>
+
     </section>
   );
 }

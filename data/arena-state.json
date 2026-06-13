@@ -3,8 +3,8 @@
   "buffett": 41420.59,
   "duan": 40172.16,
   "serenity": 50780.49,
-  "druckenmiller": 83413.74,
-  "sentiment": 417661.36
+  "druckenmiller": 11.51,
+  "sentiment": 254848.19
  },
  "positions": [
   {
@@ -170,13 +170,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "LLY",
-   "shares": 101,
-   "entry": 1136.37,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "GS",
    "shares": 114,
    "entry": 1001.29,
@@ -185,8 +178,8 @@
   {
    "master": "druckenmiller",
    "sym": "KLAC",
-   "shares": 530,
-   "entry": 213.564,
+   "shares": 5300,
+   "entry": 21.3564,
    "entry_date": "2026-06-10"
   },
   {
@@ -198,23 +191,9 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "APP",
-   "shares": 233,
-   "entry": 492.98,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "BMA",
    "shares": 1312,
    "entry": 87.65,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "CASY",
-   "shares": 163,
-   "entry": 915.6,
    "entry_date": "2026-06-10"
   },
   {
@@ -233,17 +212,38 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "GEV",
-   "shares": 133,
-   "entry": 906.79,
-   "entry_date": "2026-06-11"
+   "sym": "NBIS",
+   "shares": 1132,
+   "entry": 232.36,
+   "entry_date": "2026-06-12"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "NVTS",
+   "shares": 7510,
+   "entry": 23.39,
+   "entry_date": "2026-06-12"
   },
   {
    "master": "sentiment",
-   "sym": "ESLT",
-   "shares": 170,
-   "entry": 913.2,
-   "entry_date": "2026-06-11"
+   "sym": "UCTT",
+   "shares": 1389,
+   "entry": 108.9,
+   "entry_date": "2026-06-12"
+  },
+  {
+   "master": "sentiment",
+   "sym": "ICHR",
+   "shares": 1743,
+   "entry": 86.8,
+   "entry_date": "2026-06-12"
+  },
+  {
+   "master": "sentiment",
+   "sym": "VSAT",
+   "shares": 2157,
+   "entry": 70.17,
+   "entry_date": "2026-06-12"
   }
  ],
  "nav": [
@@ -296,6 +296,31 @@
    "master": "sentiment",
    "date": "2026-06-11",
    "nav": 1037902.58
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-12",
+   "nav": 1004021.37
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-12",
+   "nav": 1001460.83
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-12",
+   "nav": 1093097.22
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-12",
+   "nav": 2288500.45
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-12",
+   "nav": 1009110.9
   }
  ],
  "trades": [
@@ -718,6 +743,106 @@
    "price": 913.2,
    "reason": "大盘经历利好不涨后的隔夜修复，真正主动抢的是防务避险线，ESLT 盘前高开说明资金在往地缘/军工避风港挤，顺着最诚实的盘口走。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GEV",
+   "shares": 133,
+   "price": 940.66,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "LLY",
+   "shares": 101,
+   "price": 1133.0,
+   "reason": "这不是逆风,但今天流动性最猛的风不在肥胖药,而在AI算力和电力链,盘前还红盘里它独自发软,我把弹药挪去更高贝塔。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "APP",
+   "shares": 233,
+   "price": 496.77,
+   "reason": "AI软件/应用端被ORCL和ADBE连续处刑后,我不跟流动性硬扛,这匹马没有跑赢就先砍掉。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "NBIS",
+   "shares": 1132,
+   "price": 232.36,
+   "reason": "AI算力洪流里最纯的高弹性载体之一,盘前+6%还在被资金抢,顺风时我要骑最猛的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "NVTS",
+   "shares": 7510,
+   "price": 23.39,
+   "reason": "AI电力瓶颈叙事正在加速,小盘高贝塔盘前近双位数确认资金在追,赔率不对称就上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "ESLT",
+   "shares": 170,
+   "price": 854.06,
+   "reason": "大盘风险偏好这么强它盘前还-5%多，防务避风港这笔钱在松动，先走，情绪票翻脸极快。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CASY",
+   "shares": 163,
+   "price": 895.14,
+   "reason": "今天盘口是小盘和AI设备吸钱，CASY这种慢牛防守盘前逆势发冷，资金效率不够，死水没戏。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "UCTT",
+   "shares": 1389,
+   "price": 108.9,
+   "reason": "半导体设备是昨晚到今早最干净的资金主线，盘前继续+4%说明钱还在往AI铲子里挤。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "ICHR",
+   "shares": 1743,
+   "price": 86.8,
+   "reason": "同属AI设备热钱区，昨天强、今早还能高开，情绪在上行段但必须防拥挤反杀。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-12",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "VSAT",
+   "shares": 2157,
+   "price": 70.17,
+   "reason": "这是从冰点往上翻的空头回补盘，盘前继续绿，说明轧空资金还没走完。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -798,7 +923,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里的八门生意都有我看得懂的护城河，今天的盘口热闹并没有给我一个足够大的安全边际去用好生意换另一门好生意。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -808,7 +933,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，也都够本分；盘前涨跌和FOMC不是我卖好公司的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -818,7 +943,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位全是我认的真瓶颈，盘前资金还在沿着‘每台量产都分一块’的链条加速，今天不为了换热闹去砍掉有效卡脖子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -828,7 +953,7 @@
    "action": "SELL",
    "sym": "LLY",
    "reason": "这不是逆风,但今天流动性最猛的风不在肥胖药,而在AI算力和电力链,盘前还红盘里它独自发软,我把弹药挪去更高贝塔。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -838,7 +963,7 @@
    "action": "SELL",
    "sym": "APP",
    "reason": "AI软件/应用端被ORCL和ADBE连续处刑后,我不跟流动性硬扛,这匹马没有跑赢就先砍掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -848,7 +973,7 @@
    "action": "BUY",
    "sym": "NBIS",
    "reason": "AI算力洪流里最纯的高弹性载体之一,盘前+6%还在被资金抢,顺风时我要骑最猛的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -858,7 +983,7 @@
    "action": "BUY",
    "sym": "NVTS",
    "reason": "AI电力瓶颈叙事正在加速,小盘高贝塔盘前近双位数确认资金在追,赔率不对称就上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -868,7 +993,7 @@
    "action": "SELL",
    "sym": "ESLT",
    "reason": "大盘风险偏好这么强它盘前还-5%多，防务避风港这笔钱在松动，先走，情绪票翻脸极快。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -878,7 +1003,7 @@
    "action": "SELL",
    "sym": "CASY",
    "reason": "今天盘口是小盘和AI设备吸钱，CASY这种慢牛防守盘前逆势发冷，资金效率不够，死水没戏。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -888,7 +1013,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前弱但高空头+散户情绪还没彻底散，先让轧空期权看一眼，记住它翻脸会非常快。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -898,7 +1023,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "国防+AR小盘仍在盘前接力，热钱还没明显撤，继续顺风但不恋战。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -908,7 +1033,7 @@
    "action": "BUY",
    "sym": "UCTT",
    "reason": "半导体设备是昨晚到今早最干净的资金主线，盘前继续+4%说明钱还在往AI铲子里挤。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -918,7 +1043,7 @@
    "action": "BUY",
    "sym": "ICHR",
    "reason": "同属AI设备热钱区，昨天强、今早还能高开，情绪在上行段但必须防拥挤反杀。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -928,7 +1053,7 @@
    "action": "BUY",
    "sym": "VSAT",
    "reason": "这是从冰点往上翻的空头回补盘，盘前继续绿，说明轧空资金还没走完。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],
@@ -937,6 +1062,10 @@
   {
    "date": "2026-06-12",
    "event": "KLAC 10:1 拆股,持仓调账(53→530股,成本 2135.64→213.564)"
+  },
+  {
+   "date": "2026-06-12",
+   "event": "KLAC 10:1 拆股自动调账(druckenmiller)"
   }
  ]
 }

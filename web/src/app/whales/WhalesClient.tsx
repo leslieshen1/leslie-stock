@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Waves } from "lucide-react";
+import { Waves, Landmark } from "lucide-react";
 import {
   type Investor, type Holding, type InvestorType,
   CHANGE_META, TYPE_META,
 } from "@/lib/whales-types";
 import { useLang } from "@/lib/i18n";
+import type { CongressData } from "@/lib/congress-types";
+import CongressView from "./CongressView";
 
 type Filter = "all" | InvestorType;
+type Lens = "13f" | "congress";
 
 // 共识分析：把所有超级投资者的持仓按 ticker 聚合
 type ConRow = {
@@ -21,8 +24,13 @@ type Con = {
   mostHeld: ConRow[]; netBuys: ConRow[]; netSells: ConRow[];
 };
 
-export default function WhalesClient({ investors }: { investors: Investor[] }) {
+export default function WhalesClient({ investors, congress, avg }: {
+  investors: Investor[];
+  congress?: CongressData;
+  avg?: Record<string, number>;
+}) {
  const { t, lang } = useLang();
+ const [lens, setLens] = useState<Lens>("13f");
  const [filter, setFilter] = useState<Filter>("all");
 
   const filtered = useMemo(
@@ -81,40 +89,71 @@ export default function WhalesClient({ investors }: { investors: Investor[] }) {
  <div className="flex items-center gap-2.5">
  <Waves className="h-5 w-5 text-accent" strokeWidth={1.75} />
  <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("聪明钱", "Smart Money")}</h1>
- <span className="text-sm text-faint">{lang === "en" ? (investors[0]?.latest_period || "") : `Smart Money · ${investors[0]?.latest_period || ""}`}</span>
         </div>
  <p className="mt-1.5 text-sm text-muted">
-          {t(
-            "看仓位占比与变动,不只看谁持有 —— 重仓、试探、派发,是完全不同的信号。",
-            "Watch position size and changes, not just who holds it — a core position, a starter stake and a distribution are very different signals.",
-          )}
+          {lens === "13f"
+            ? t(
+                "看仓位占比与变动,不只看谁持有 —— 重仓、试探、派发,是完全不同的信号。",
+                "Watch position size and changes, not just who holds it — a core position, a starter stake and a distribution are very different signals.",
+              )
+            : t(
+                "国会议员的交易,法律要求在 45 天内公开申报 —— 看谁在买什么、和五方判读对不对得上。",
+                "Members of Congress must disclose trades within 45 days by law — see who's buying what, and whether it lines up with the five-master read.",
+              )}
         </p>
       </header>
 
-      {/* 筛选 */}
- <div className="inline-flex rounded-lg border border-line bg-surface p-0.5">
- <FilterBtn active={filter === "all"} onClick={() => setFilter("all")}>全部</FilterBtn>
-        {types.map((t) => (
-          <FilterBtn key={t} active={filter === t} onClick={() => setFilter(t)}>
-            {TYPE_META[t].label}
-          </FilterBtn>
-        ))}
-      </div>
-
-      {/* 聪明钱共识分析 */}
-      {(filter === "all" || filter === "superinvestor") && con.mostHeld.length > 0 && (
-        <ConsensusPanel con={con} period={period} />
+      {/* 镜头切换:机构 13F / 国会 Congress */}
+      {congress && congress.members.length > 0 && (
+        <div className="inline-flex rounded-lg border border-line bg-surface p-0.5">
+          <LensBtn active={lens === "13f"} onClick={() => setLens("13f")} icon={<Waves className="h-3.5 w-3.5" strokeWidth={2} />}>
+            {t("机构 13F", "Institutions")}
+          </LensBtn>
+          <LensBtn active={lens === "congress"} onClick={() => setLens("congress")} icon={<Landmark className="h-3.5 w-3.5" strokeWidth={2} />}>
+            {t(`国会 · ${congress.n_members}`, `Congress · ${congress.n_members}`)}
+          </LensBtn>
+        </div>
       )}
 
-      {/* 投资者卡片 */}
- <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {filtered.map((inv) => <InvestorCard key={inv.slug} inv={inv} />)}
-      </div>
+      {lens === "congress" && congress ? (
+        <CongressView data={congress} avg={avg || {}} />
+      ) : (
+        <>
+          {/* 筛选 */}
+          <div className="inline-flex rounded-lg border border-line bg-surface p-0.5">
+            <FilterBtn active={filter === "all"} onClick={() => setFilter("all")}>{t("全部", "All")}</FilterBtn>
+            {types.map((ty) => (
+              <FilterBtn key={ty} active={filter === ty} onClick={() => setFilter(ty)}>
+                {TYPE_META[ty].label}
+              </FilterBtn>
+            ))}
+          </div>
 
- <p className="text-center text-xs text-faint">
-        美股 13F 季度滞后 45 天 · A 股基金季报 · 议员交易 Capitol Trades · 仓位为披露时点 · 非投资建议
-      </p>
+          {/* 聪明钱共识分析 */}
+          {(filter === "all" || filter === "superinvestor") && con.mostHeld.length > 0 && (
+            <ConsensusPanel con={con} period={period} />
+          )}
+
+          {/* 投资者卡片 */}
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            {filtered.map((inv) => <InvestorCard key={inv.slug} inv={inv} />)}
+          </div>
+
+          <p className="text-center text-xs text-faint">
+            美股 13F 季度滞后 45 天 · A 股基金季报 · 仓位为披露时点 · 非投资建议
+          </p>
+        </>
+      )}
     </div>
+  );
+}
+
+function LensBtn({ active, onClick, icon, children }: { active: boolean; onClick: () => void; icon: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <button onClick={onClick}
+      className={`inline-flex items-center gap-1.5 rounded-md px-3.5 py-1.5 text-[13px] font-medium transition ${active ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
+      {icon}{children}
+    </button>
   );
 }
 

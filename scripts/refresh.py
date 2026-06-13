@@ -63,6 +63,11 @@ def main():
     print("\n=== 2) 从 leslie.db 派生全部前端 JSON ===")
     run([sys.executable, "scripts/build_json.py"])
 
+    # 国会交易(独立外部源:众议院 PTR 申报,PDF 缓存复用;失败不阻断刷新)
+    print("\n--- 国会议员交易申报(House PTR → congress.json) ---")
+    if run([sys.executable, "scripts/build_congress.py"]) != 0:
+        print("⚠ 国会数据刷新失败,沿用已有 congress.json")
+
     print("\n✅ 数据已最新(leslie.db = 真相源)。")
 
     if "--deploy" in sys.argv:

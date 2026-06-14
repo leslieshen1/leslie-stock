@@ -81,7 +81,7 @@ function usePersisted<T>(key: string, initial: T) {
 }
 
 export default function ScanClient() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [market, setMarket] = usePersisted<"a" | "us">("market", "us");
   // 数据客户端按需 fetch(静态 JSON,浏览器会缓存),避免 SSR 把 4MB 塞进 HTML
   const [items, setItems] = useState<AleabitManifestEntry[]>([]);
@@ -163,6 +163,9 @@ export default function ScanClient() {
   const [verdictSet, setVerdictSet] = usePersisted<Set<string>>("a:verdict", new Set());
   const [layerSet, setLayerSet] = usePersisted<Set<string>>("a:layer", new Set());
   const [conceptSet, setConceptSet] = usePersisted<Set<string>>("a:concept", new Set());
+  // 五方判读筛选(与美股同一套):覆盖/高分/共识/分歧 + 按单个股神
+  const [aPanelF, setAPanelF] = usePersisted<"all" | "covered" | "high" | "consensus" | "diverge">("a:panelF", "all");
+  const [aMasterF, setAMasterF] = usePersisted<string>("a:masterF", "all");
  const [sortBy, setSortBy] = usePersisted<SortKey>("a:sort", "score");
  const [search, setSearch] = usePersisted<string>("a:search", "");
  const [conceptSearch, setConceptSearch] = useState("");
@@ -190,20 +193,15 @@ export default function ScanClient() {
   const filtered = useMemo(() => {
     let r = items;
 
-    // 分数桶(按五方均分)
-    if (scoreBuckets.size > 0) {
-      r = r.filter((i) =>
-        SCORE_BUCKETS.some(
-          (b) => scoreBuckets.has(b.key) && aSc(i) >= b.min && aSc(i) <= b.max
-        )
-      );
-    }
-
-    if (verdictSet.size > 0) {
-      r = r.filter((i) => verdictSet.has(i.verdict));
-    }
-    if (layerSet.size > 0) {
- r = r.filter((i) => layerSet.has(String(i.layer ?? "null")));
+    // 五方判读筛选(与美股同一套)
+    if (aPanelF === "covered") r = r.filter((i) => aPanels.stocks[i.code]);
+    else if (aPanelF === "high") r = r.filter((i) => (avgOf(aPanels.stocks[i.code]) ?? -1) >= 65);
+    else if (aPanelF === "consensus")
+      r = r.filter((i) => { const p = aPanels.stocks[i.code]; return !!p && (avgOf(p) ?? -1) >= 60 && p.div <= 25; });
+    else if (aPanelF === "diverge") r = r.filter((i) => (aPanels.stocks[i.code]?.div ?? 0) >= 40);
+    if (aMasterF !== "all") {
+      const mi = aPanels.order.indexOf(aMasterF);
+      if (mi >= 0) r = r.filter((i) => (aPanels.stocks[i.code]?.sc[mi] ?? -1) >= 70);
     }
     if (conceptSet.size > 0) {
       r = r.filter((i) => (i.concepts || []).some((c) => conceptSet.has(c)));
@@ -231,7 +229,7 @@ export default function ScanClient() {
 
     return r;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items, aPanels, scoreBuckets, verdictSet, layerSet, conceptSet, search, sortBy]);
+  }, [items, aPanels, aPanelF, aMasterF, conceptSet, search, sortBy]);
 
   // /scan 只放个股;ETF 已拆到独立的 /etf 板块业绩页(2026-06-14)
   const usSecs: UsSec[] = useMemo(
@@ -276,31 +274,39 @@ export default function ScanClient() {
         <UsScanView stocks={usSecs} flags={dilutionFlags} panels={usPanels} flash={priceFlash} />
       ) : (
       <>
-      {/* 顶部统计 */}
- <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-6">
-        {SCORE_BUCKETS.map((b) => {
-          const count = items.filter(
-            (i) => aSc(i) >= b.min && aSc(i) <= b.max
-          ).length;
-          const active = scoreBuckets.has(b.key);
-          return (
-            <button
-              key={b.key}
-              onClick={() => toggle(scoreBuckets, b.key, setScoreBuckets)}
-              className={`rounded-lg border px-3 py-2.5 text-left transition ${
-                active
- ? "border-surface-3 bg-surface-3 text-ink"
- : "border-line bg-surface text-muted hover:border-line-2"
-              }`}
-            >
- <p className="text-[11px] uppercase tracking-wider opacity-70">
-                {b.label}
-              </p>
- <p className="mt-0.5 font-mono text-xl font-semibold">{count}</p>
-            </button>
-          );
-        })}
-      </div>
+      {/* 五方判读筛选(与美股 UsScanView 同一套)*/}
+      {(() => {
+        const covered = items.filter((i) => aPanels.stocks[i.code]).length;
+        const high = items.filter((i) => (avgOf(aPanels.stocks[i.code]) ?? -1) >= 65).length;
+        const consensus = items.filter((i) => { const p = aPanels.stocks[i.code]; return !!p && (avgOf(p) ?? -1) >= 60 && p.div <= 25; }).length;
+        const diverge = items.filter((i) => (aPanels.stocks[i.code]?.div ?? 0) >= 40).length;
+        const ord = aPanels.order.length ? aPanels.order : ["buffett", "duan", "serenity", "druckenmiller", "sentiment"];
+        return covered > 0 ? (
+          <div className="mb-4 space-y-2">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="mr-1 text-xs text-accent">{t("⬡ 五方判读:", "⬡ Five-Master Panel:")}</span>
+              {([["all", t("全部", "All")], ["covered", t(`已判读(${covered})`, `Covered (${covered})`)],
+                 ["high", t(`高分 均≥65(${high})`, `High avg≥65 (${high})`)],
+                 ["consensus", t(`共识好票(${consensus})`, `Consensus (${consensus})`)],
+                 ["diverge", t(`分歧大(${diverge})`, `Divergence (${diverge})`)]] as const).map(([k, label]) => (
+                <button key={k} onClick={() => setAPanelF(k)}
+                  className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${aPanelF === k ? "bg-accent text-black" : "bg-surface-2 text-muted hover:bg-line"}`}>
+                  {label}
+                </button>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="mr-1 text-xs text-muted">{t("谁看多 ≥70:", "Bullish per master ≥70:")}</span>
+              {["all", ...ord].map((k) => (
+                <button key={k} onClick={() => setAMasterF(k)}
+                  className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${aMasterF === k ? "bg-surface-3 text-ink" : "bg-surface-2 text-muted hover:bg-line"}`}>
+                  {k === "all" ? t("不限", "Any") : masterLabel(k, lang)}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : null;
+      })()}
 
       {/* 筛选条 */}
  <div className="sticky top-2 z-10 mb-4 rounded-xl border border-line bg-surface/95 p-4 backdrop-blur">
@@ -323,8 +329,8 @@ export default function ScanClient() {
           </select>
           <button
             onClick={() => {
-              setVerdictSet(new Set());
-              setLayerSet(new Set());
+              setAPanelF("all");
+              setAMasterF("all");
               setConceptSet(new Set());
  setSearch("");
             }}

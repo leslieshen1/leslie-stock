@@ -34,9 +34,21 @@ def main():
     stocks: dict = dict(usm["stocks"])  # US 五方
     us_n = len(stocks)
 
+    # A股五方(已判读的 ≥50亿)优先;a-panel-summary 镜像 us-panel-summary 的 {sc,div}
+    a5 = {}
+    try:
+        a5 = json.load(open(PUB / "a-panel-summary.json", encoding="utf-8")).get("stocks", {})
+    except Exception:
+        pass
+    for code, v in a5.items():
+        if code not in stocks:
+            stocks[code] = v
+    a5_n = len(a5)
+
+    # 剩余 A股(未五方)退回 manifest 的 Serenity 单分
     man = json.load(open(MAN, encoding="utf-8"))
     rows = man if isinstance(man, list) else man.get("items", [])
-    a_n = 0
+    a_ser = 0
     for e in rows:
         code = e.get("code")
         score = e.get("score")
@@ -45,10 +57,10 @@ def main():
         sc = [None] * len(order)
         sc[si] = score
         stocks[code] = {"sc": sc, "div": 0}
-        a_n += 1
+        a_ser += 1
 
     OUT.write_text(json.dumps({"order": order, "generated_at": analyzed_at, "stocks": stocks}, ensure_ascii=False), encoding="utf-8")
-    print(f"✓ pulse-scores.json: US 五方 {us_n} + A股 Serenity {a_n} = {len(stocks)} · 判读于 {analyzed_at}")
+    print(f"✓ pulse-scores.json: US 五方 {us_n} + A股五方 {a5_n} + A股 Serenity {a_ser} = {len(stocks)} · 判读于 {analyzed_at}")
 
 
 if __name__ == "__main__":

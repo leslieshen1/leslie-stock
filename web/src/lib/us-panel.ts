@@ -21,9 +21,11 @@ export type UsPanel = {
 
 export function loadUsPanel(sym: string): UsPanel | null {
   const s = sym.toUpperCase();
+  // A 股代码是纯数字(如 600519)→ 找 a-panels/;美股是字母 → us-panels/。无冲突。
+  const dir = /^\d+$/.test(sym) ? "a-panels" : "us-panels";
   const candidates = [
-    path.join(process.cwd(), "public", "data", "us-panels", `${s}.json`),
-    path.resolve(process.cwd(), "..", "web", "public", "data", "us-panels", `${s}.json`),
+    path.join(process.cwd(), "public", "data", dir, `${s}.json`),
+    path.resolve(process.cwd(), "..", "web", "public", "data", dir, `${s}.json`),
   ];
   for (const p of candidates) {
     try {

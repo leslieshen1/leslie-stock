@@ -112,8 +112,8 @@ export default async function StockDetailPage({
   const news = loadNews(code); // 个股新闻(Google News)
   const earnings = loadEarnings(code); // 下次财报(Finnhub,需 key)
   const options = loadOptions(code); // 期权 gamma(Polygon,需 key)
-  // 有五方面板时,旧的单一框架深度分析(MU/CRCL/CBRS)退场,不再并存矛盾
-  const initial = usPanel ? null : loadAnalysis(code, market);
+  // 有五方面板时美股的旧单框架退场;A 股保留 aleabit/Serenity 深度分析(与五方面板互补)
+  const initial = (usPanel && market === "us") ? null : loadAnalysis(code, market);
   const holders = getStockHolders(code);
   const dilution = market === "us" ? loadDilutionFlags()[code.toUpperCase()] : undefined;
 

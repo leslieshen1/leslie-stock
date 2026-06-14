@@ -8,14 +8,14 @@ export default function ScanPage() {
  <main className="mx-auto max-w-7xl px-6 pb-10 pt-3">
  <header className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-line pb-3">
  <h1 className="text-[22px] font-semibold tracking-tight text-ink">全市场扫描</h1>
- <p className="hidden text-xs text-faint sm:block">美股 · 市值/动量 | A股 · 瓶颈狙击</p>
+ <p className="hidden text-xs text-faint sm:block">美股 + A股 · 五方判读(段永平/巴菲特/Serenity/德鲁肯米勒/情绪)</p>
  <Link href="/portfolio" className="ml-auto text-xs font-medium text-accent hover:underline"> 我的观察列表</Link>
       </header>
 
       <ScanClient />
 
  <footer className="mt-16 border-t border-line pt-6 text-center text-xs text-faint">
-        我不是股神 · Not a Stock God · A股 Serenity 框架 + 美股 Nasdaq 全市场（非投资建议）
+        我不是股神 · Not a Stock God · A股 + 美股统一五方判读（非投资建议）
       </footer>
     </main>
   );

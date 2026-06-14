@@ -88,6 +88,7 @@ export default function ScanClient() {
   const [usStocks, setUsStocks] = useState<UsStock[]>([]);
   const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
+  const [aPanels, setAPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });  // A股五方
   const [loading, setLoading] = useState(true);
   const [priceFlash, setPriceFlash] = useState<Record<string, "up" | "down">>({});
   const pricesRef = useRef<Record<string, number>>({});
@@ -113,6 +114,8 @@ export default function ScanClient() {
     aLoaded.current = true;
     fetch("/data/aleabit_manifest.json").then((r) => r.json())
       .then((a) => setItems(a as AleabitManifestEntry[])).catch(() => { aLoaded.current = false; });
+    fetch("/data/a-panel-summary.json").then((r) => r.json())
+      .then((p) => setAPanels(p as UsPanelSummary)).catch(() => {});
   }, [market]);
 
   // 全盘实时:轮询 /api/market(Nasdaq 快照,服务端 60s 缓存),合并最新 price/pct
@@ -181,14 +184,17 @@ export default function ScanClient() {
     return list.slice(0, q ? 60 : 40);
   }, [allConcepts, conceptSearch]);
 
+  // A 股每只的代表分:有五方就用五方均分,没有(<50亿)退回 Serenity 瓶颈分 —— 与美股同一把尺
+  const aSc = (i: AleabitManifestEntry) => avgOf(aPanels.stocks[i.code]) ?? i.score;
+
   const filtered = useMemo(() => {
     let r = items;
 
-    // 分数桶
+    // 分数桶(按五方均分)
     if (scoreBuckets.size > 0) {
       r = r.filter((i) =>
         SCORE_BUCKETS.some(
-          (b) => scoreBuckets.has(b.key) && i.score >= b.min && i.score <= b.max
+          (b) => scoreBuckets.has(b.key) && aSc(i) >= b.min && aSc(i) <= b.max
         )
       );
     }
@@ -213,13 +219,19 @@ export default function ScanClient() {
     }
 
     r = [...r];
- if (sortBy === "score") r.sort((a, b) => b.score - a.score);
+    // 按分排序时:有五方判读的(大中盘)优先靠前,再按五方均分;没判读的小盘(Serenity 兜底)沉底 ——
+    // 否则瓶颈分天然偏高的小盘会霸占顶部,列表又变回"瓶颈狙击"的样子
+ if (sortBy === "score") r.sort((a, b) => {
+      const ca = aPanels.stocks[a.code] ? 1 : 0, cb = aPanels.stocks[b.code] ? 1 : 0;
+      return cb - ca || aSc(b) - aSc(a);
+    });
  else if (sortBy === "mcap")
       r.sort((a, b) => (b.market_cap_yi ?? 0) - (a.market_cap_yi ?? 0));
  else if (sortBy === "name") r.sort((a, b) => a.name.localeCompare(b.name));
 
     return r;
-  }, [items, scoreBuckets, verdictSet, layerSet, conceptSet, search, sortBy]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items, aPanels, scoreBuckets, verdictSet, layerSet, conceptSet, search, sortBy]);
 
   // /scan 只放个股;ETF 已拆到独立的 /etf 板块业绩页(2026-06-14)
   const usSecs: UsSec[] = useMemo(
@@ -252,7 +264,7 @@ export default function ScanClient() {
  market === "a" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
-          {t("A 股 · 瓶颈狙击", "A-Shares · Bottleneck Sniper")}
+          {t("A 股 · 全市场", "A-Shares · Full Market")} {items.length > 0 ? items.length : ""}
         </button>
       </div>
 
@@ -268,7 +280,7 @@ export default function ScanClient() {
  <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-6">
         {SCORE_BUCKETS.map((b) => {
           const count = items.filter(
-            (i) => i.score >= b.min && i.score <= b.max
+            (i) => aSc(i) >= b.min && aSc(i) <= b.max
           ).length;
           const active = scoreBuckets.has(b.key);
           return (
@@ -305,7 +317,7 @@ export default function ScanClient() {
             onChange={(e) => setSortBy(e.target.value as SortKey)}
  className="rounded-lg border border-line px-3 py-1.5 text-sm"
           >
- <option value="score">{t("按 Score", "By Score")}</option>
+ <option value="score">{t("按五方均分", "By 5-Master Avg")}</option>
  <option value="mcap">{t("按市值", "By Mkt Cap")}</option>
  <option value="name">{t("按名称", "By Name")}</option>
           </select>
@@ -320,48 +332,6 @@ export default function ScanClient() {
           >
             {t("清除筛选", "Clear Filters")}
           </button>
-        </div>
-
-        {/* Verdict 筛选 */}
- <div className="mb-2 flex flex-wrap items-center gap-1.5">
- <span className="mr-1 text-xs text-muted">Verdict:</span>
-          {VERDICTS.map((v) => {
-            const active = verdictSet.has(v.key);
-            return (
-              <button
-                key={v.key}
-                onClick={() => toggle(verdictSet, v.key, setVerdictSet)}
-                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
-                  active
- ? "bg-surface-3 text-ink"
- : "bg-surface-2 text-muted hover:bg-line"
-                }`}
-              >
-                {v.short}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Layer 筛选 */}
- <div className="mb-2 flex flex-wrap items-center gap-1.5">
- <span className="mr-1 text-xs text-muted">Layer:</span>
- {["1", "2", "3", "4", "null"].map((l) => {
-            const active = layerSet.has(l);
-            return (
-              <button
-                key={l}
-                onClick={() => toggle(layerSet, l, setLayerSet)}
-                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
-                  active
- ? "bg-surface-3 text-ink"
- : "bg-surface-2 text-muted hover:bg-line"
-                }`}
-              >
- {l === "null" ? "N/A" : `L${l}`}
-              </button>
-            );
-          })}
         </div>
 
         {/* 概念筛选 — 热门优先 + 搜索 + 限高滚动(同花顺标准概念) */}
@@ -415,7 +385,7 @@ export default function ScanClient() {
       {/* 列表 */}
  <div className="space-y-2">
         {filtered.slice(0, 200).map((i) => (
-          <RowCard key={`${i.code}-${i.market}`} item={i} />
+          <RowCard key={`${i.code}-${i.market}`} item={i} sum={aPanels.stocks[i.code]} order={aPanels.order} />
         ))}
         {filtered.length > 200 && (
  <p className="py-4 text-center text-xs text-faint">
@@ -1010,8 +980,9 @@ function PageBtn({ label, disabled, onClick }: { label: string; disabled: boolea
   );
 }
 
-function RowCard({ item: i }: { item: AleabitManifestEntry }) {
+function RowCard({ item: i, sum, order }: { item: AleabitManifestEntry; sum?: { sc: (number | null)[]; div: number }; order: string[] }) {
   const { t } = useLang();
+  const avg = avgOf(sum);  // 五方均分(有判读才有)
  const marketLabel = i.market === "a" ? t("A股", "A-Share") : i.market === "hk" ? t("港股", "HK") : t("美股", "US");
   const marketColor =
  i.market === "a" ? "text-down" : i.market === "hk" ? "text-accent" : "text-accent";
@@ -1048,7 +1019,7 @@ function RowCard({ item: i }: { item: AleabitManifestEntry }) {
  <h3 className="text-sm font-semibold text-ink truncate">{i.name}</h3>
  <span className="font-mono text-xs text-faint">{i.code}</span>
               <span className={`text-[10px] font-medium ${marketColor}`}>{marketLabel}</span>
-              {i.layer && (
+              {avg == null && i.layer && (
  <span className="text-[10px] text-muted">L{i.layer}</span>
               )}
             </div>
@@ -1058,42 +1029,42 @@ function RowCard({ item: i }: { item: AleabitManifestEntry }) {
                   {t(`${i.market_cap_yi.toFixed(0)} 亿`, `${(i.market_cap_yi / 10).toFixed(1)}B`)}
                 </span>
               )}
-              {i.sector && (
+              {avg == null && i.sector && (
                 <>
  <span className="text-faint">·</span>
  <span className="truncate">{i.sector}</span>
                 </>
               )}
- {i.verdict_label && i.verdict !== "not_aleabit_territory" && (
+ {avg == null && i.verdict_label && i.verdict !== "not_aleabit_territory" && (
                 <>
  <span className="text-faint">·</span>
                   <span className={verdictColor(i.verdict)}>{i.verdict_label}</span>
                 </>
               )}
             </div>
- {i.thesis && i.verdict !== "not_aleabit_territory" && (
+ {avg == null && i.thesis && i.verdict !== "not_aleabit_territory" && (
  <p className="mt-1 truncate text-[11px] text-muted group-hover:whitespace-normal group-hover:text-ink">
                 {i.thesis}
               </p>
             )}
           </div>
 
-          {/* 分数区 */}
+          {/* 分数区 —— 有五方就显示五方雷达+均分(与美股一致);没有的小盘退回 Serenity 瓶颈分 */}
  <div className="flex shrink-0 items-center gap-3">
- <div className="text-right">
- <p className="text-[9px] uppercase tracking-wider text-faint">{t("信号", "Signals")}</p>
- <p className="font-mono text-xs text-muted">{i.signals_hit}/7</p>
-            </div>
- <div className="text-right">
- <p className="text-[9px] uppercase tracking-wider text-accent">{t("瓶颈", "Bottleneck")}</p>
-              <p
-                className={`font-mono text-lg font-semibold tabular-nums ${scoreColor(
-                  i.score
-                )}`}
-              >
-                {i.score}
-              </p>
-            </div>
+            {avg != null ? (
+              <>
+                <MasterDots sum={sum} order={order.length ? order : ["buffett", "duan", "serenity", "druckenmiller", "sentiment"]} />
+                <div className="text-right">
+                  <p className="text-[9px] uppercase tracking-wider text-faint">{t("五方均分", "Avg")}</p>
+                  <p className={`font-mono text-lg font-semibold tabular-nums ${scoreColor(avg)}`}>{Math.round(avg)}</p>
+                </div>
+              </>
+            ) : (
+              <div className="text-right">
+                <p className="text-[9px] uppercase tracking-wider text-accent">{t("瓶颈", "Bottleneck")}</p>
+                <p className={`font-mono text-lg font-semibold tabular-nums ${scoreColor(i.score)}`}>{i.score}</p>
+              </div>
+            )}
           </div>
         </div>
       </Link>

@@ -546,15 +546,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
 
   return (
     <>
-      {/* 个股 / ETF 分段 —— 美股股票留本页,ETF 跳独立页;A 股无 ETF 不显示 */}
-      {!isA && (
- <div className="mb-2.5 ml-2 inline-flex rounded-lg border border-line bg-surface p-0.5 text-sm">
-        <span className="rounded-md bg-surface-3 px-3.5 py-1.5 font-medium text-ink">{t("个股", "Stocks")} {stockCount}</span>
-        <Link href="/etf" className="rounded-md px-3.5 py-1.5 font-medium text-muted transition hover:text-ink">
-          {t("ETF 板块业绩", "ETFs")} →
-        </Link>
-      </div>
-      )}
+      {/* ETF 已是独立的导航页(/etf),列表只放个股,不再出现 ETF 入口 */}
 
       {/* 涨跌统计 */}
  <div className="mb-2.5 flex flex-wrap items-center gap-4 text-[13px]">

@@ -13,7 +13,7 @@ export default function WhalesPage() {
   const avg = loadAvgScores();
 
   return (
- <main className="mx-auto max-w-5xl px-6 pb-8 pt-3">
+ <main className="mx-auto max-w-6xl px-6 pb-8 pt-3">
       <WhalesClient investors={investors} congress={congress} avg={avg} />
     </main>
   );

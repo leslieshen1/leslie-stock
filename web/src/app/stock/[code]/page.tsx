@@ -20,12 +20,17 @@ import EarningsChip from "./EarningsChip";
 import OptionsGammaLine from "./OptionsGammaLine";
 import LivePrice from "./LivePrice";
 
-// ETF 识别:us-etfs.json(Nasdaq ETF 全列表)。ETF 没有五方/基本面/持仓这些个股功能,
-// 走专属精简页,不渲染一页空壳。
-type EtfRec = { sym: string; name: string; price: number | null; pct: number | null; ret1y: number | null };
+// ETF 详情:etf-analyses.json(板块/业绩/费率/判决/介绍)。ETF 没有五方/产业链/持仓,
+// 但有自己的一套:1年/3年/5年回报、最大回撤、波动、AUM、费率 + 段巴判决 + 一句话介绍。
+type EtfRec = {
+  sym: string; name: string; price: number | null; pct: number | null;
+  ret1y: number | null; ret3y: number | null; ret5y: number | null; mdd: number | null;
+  vol: number | null; years: number | null; aum: number | null; expense: number | null; yield: number | null;
+  sector: string; kind: string; verdict: string; cls: "up" | "neutral" | "down"; why: string; blurb: string;
+};
 async function loadEtf(code: string): Promise<EtfRec | null> {
   try {
-    const p = path.join(process.cwd(), "public", "data", "us-etfs.json");
+    const p = path.join(process.cwd(), "public", "data", "etf-analyses.json");
     const list = JSON.parse(await fs.readFile(p, "utf-8")).etfs as EtfRec[];
     return list.find((e) => e.sym === code.toUpperCase()) ?? null;
   } catch {
@@ -34,14 +39,26 @@ async function loadEtf(code: string): Promise<EtfRec | null> {
 }
 
 function EtfDetail({ etf }: { etf: EtfRec }) {
-  const up1y = (etf.ret1y ?? 0) >= 0;
+  const tone: Record<string, string> = {
+    up: "border-up/30 bg-up-soft text-up", neutral: "border-accent/25 bg-accent/10 text-accent", down: "border-down/30 bg-down-soft text-down",
+  };
+  const aumStr = etf.aum == null ? "—" : etf.aum >= 1e6 ? `$${(etf.aum / 1e6).toFixed(etf.aum >= 1e7 ? 0 : 1)}B` : `$${(etf.aum / 1e3).toFixed(0)}M`;
+  const pctCell = (v: number | null) =>
+    v == null ? <span className="text-faint">—</span> : <span className={v >= 0 ? "text-up" : "text-down"}>{v >= 0 ? "+" : ""}{Math.round(v)}%</span>;
+  const Metric = ({ label, children, sub }: { label: string; children: React.ReactNode; sub?: string }) => (
+    <div className="rounded-xl border border-line bg-surface px-4 py-3">
+      <p className="text-[10px] uppercase tracking-wider text-faint">{label}</p>
+      <p className="mt-0.5 font-mono text-xl font-semibold text-ink tabular-nums">{children}</p>
+      {sub && <p className="mt-0.5 text-[10px] text-faint">{sub}</p>}
+    </div>
+  );
   return (
     <main className="mx-auto max-w-6xl px-6 py-8">
-      <header className="mb-6">
+      <header className="mb-5">
         <div className="mb-3 flex items-center gap-2 text-xs">
           <Link href="/" className="text-muted hover:text-ink">热力图</Link>
           <span className="text-faint">/</span>
-          <Link href="/scan" className="text-muted hover:text-ink">扫描</Link>
+          <Link href="/etf" className="text-muted hover:text-ink">ETF</Link>
           <span className="text-faint">/</span>
           <span className="text-muted">{etf.name || etf.sym}</span>
         </div>
@@ -49,39 +66,47 @@ function EtfDetail({ etf }: { etf: EtfRec }) {
           <h1 className="text-3xl font-semibold tracking-tight text-ink">{etf.name || etf.sym}</h1>
           <code className="font-mono text-base text-muted">{etf.sym}</code>
           <span className="inline-flex rounded-md border border-accent/30 bg-surface-2 px-2 py-0.5 text-xs font-medium text-accent">ETF</span>
-          <span className="inline-flex rounded-md border border-accent/30 bg-surface-2 px-2 py-0.5 text-xs font-medium text-accent">美股</span>
+          {etf.sector && <span className="inline-flex rounded-md border border-line bg-surface-2 px-2 py-0.5 text-xs font-medium text-muted">{etf.sector}</span>}
+          <span className={`inline-flex rounded-md border px-2 py-0.5 text-xs font-medium ${tone[etf.cls]}`}>{etf.verdict}</span>
         </div>
         <div className="mt-2">
           <LivePrice code={etf.sym} market="us" initialPrice={etf.price ?? null} />
         </div>
+        {etf.blurb && <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">{etf.blurb}</p>}
       </header>
 
-      <div className="mb-4 grid grid-cols-2 gap-3 sm:max-w-md">
-        <div className="rounded-xl border border-line bg-surface px-4 py-3">
-          <p className="text-[10px] uppercase tracking-wider text-faint">近 1 年回报</p>
-          <p className={`mt-0.5 font-mono text-xl font-semibold ${up1y ? "text-up" : "text-down"}`}>
-            {etf.ret1y != null ? `${up1y ? "+" : ""}${etf.ret1y}%` : "—"}
-          </p>
-        </div>
-        <div className="rounded-xl border border-line bg-surface px-4 py-3">
-          <p className="text-[10px] uppercase tracking-wider text-faint">快照价(上次收盘)</p>
-          <p className="mt-0.5 font-mono text-xl font-semibold text-ink">
-            {etf.price != null ? `$${etf.price.toFixed(2)}` : "—"}
-            {etf.pct != null && (
-              <span className={`ml-2 text-sm ${etf.pct >= 0 ? "text-up" : "text-down"}`}>
-                {etf.pct >= 0 ? "+" : ""}{etf.pct.toFixed(2)}%
-              </span>
-            )}
-          </p>
-        </div>
+      {/* 业绩:1年 / 3年 / 5年 / 最大回撤 / 波动 */}
+      <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <Metric label="近 1 年">{pctCell(etf.ret1y)}</Metric>
+        <Metric label="近 3 年">{pctCell(etf.ret3y)}</Metric>
+        <Metric label="近 5 年" sub={etf.years != null ? `约 ${etf.years} 年历史` : undefined}>{pctCell(etf.ret5y)}</Metric>
+        <Metric label="最大回撤">
+          <span className={etf.mdd == null ? "text-faint" : etf.mdd >= -20 ? "text-up" : etf.mdd >= -40 ? "text-accent" : "text-down"}>
+            {etf.mdd == null ? "—" : `${Math.round(etf.mdd)}%`}
+          </span>
+        </Metric>
+        <Metric label="年化波动">{etf.vol == null ? <span className="text-faint">—</span> : `${Math.round(etf.vol)}%`}</Metric>
       </div>
 
-      <div className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-muted">
-        这是一只 <span className="font-medium text-ink">ETF(交易所交易基金)</span>——五方判读、基本面、产业链位置、大佬持仓是<span className="text-ink">个股</span>功能,不适用于 ETF。
-        想看全部 ETF,回 <Link href="/scan" className="text-accent hover:underline">列表 · ETF 视图</Link>。
+      {/* 规模 / 费率 / 股息 */}
+      <div className="mb-4 grid grid-cols-3 gap-3 sm:max-w-lg">
+        <Metric label="规模 AUM">{aumStr}</Metric>
+        <Metric label="费率">{etf.expense == null ? "—" : `${etf.expense}%`}</Metric>
+        <Metric label="股息率">{etf.yield == null ? "—" : `${etf.yield}%`}</Metric>
       </div>
 
-      <footer className="mt-10 text-center text-[10px] text-faint">实时行情(Nasdaq)· 非投资建议</footer>
+      {/* 段永平 / 巴菲特 判决 */}
+      {etf.why && (
+        <div className="rounded-xl border border-line bg-surface px-4 py-3.5">
+          <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-accent">段永平 / 巴菲特镜头</p>
+          <p className="text-sm leading-relaxed text-ink">{etf.why}</p>
+        </div>
+      )}
+
+      <p className="mt-4 text-[11px] leading-relaxed text-faint">
+        数据 = Nasdaq(AUM/费率)+ 5 年日线算回报与最大回撤。回报为区间累计、非年化;最大回撤=区间内峰值到谷底最大跌幅。判决是费率+类型的机械映射 · 非投资建议。
+      </p>
+      <div className="mt-3"><Link href="/etf" className="text-xs font-medium text-accent hover:underline">← 回 ETF 板块业绩</Link></div>
     </main>
   );
 }

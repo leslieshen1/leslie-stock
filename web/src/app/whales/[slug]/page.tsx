@@ -47,7 +47,7 @@ export default async function WhaleDetail({ params }: { params: Promise<{ slug: 
   const cuts = holdings.filter((h) => h.change_type === "trim" || h.change_type === "exit").length;
 
   return (
-    <main className="mx-auto max-w-4xl px-4 pb-12 pt-3 sm:px-6">
+    <main className="mx-auto max-w-6xl px-4 pb-12 pt-3 sm:px-6">
       <div className="mb-3 flex items-center gap-2 text-xs">
         <Link href="/whales" className="text-muted hover:text-ink"><T zh="聪明钱" en="Whales" /></Link>
         <span className="text-faint">/</span>

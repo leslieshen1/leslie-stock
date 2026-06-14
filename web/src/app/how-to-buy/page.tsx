@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function HowToBuyPage() {
   return (
- <main className="mx-auto max-w-4xl px-6 py-10">
+ <main className="mx-auto max-w-6xl px-6 py-10">
       {/* Hero */}
  <header className="mb-10">
  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-accent">Guide · 2026.06 更新</p>

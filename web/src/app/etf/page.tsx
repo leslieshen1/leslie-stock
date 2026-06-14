@@ -9,7 +9,7 @@ export const revalidate = 300;
 
 export default function EtfPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-8 pt-3 sm:px-6">
+    <main className="mx-auto max-w-6xl px-4 pb-8 pt-3 sm:px-6">
       <EtfClient />
     </main>
   );

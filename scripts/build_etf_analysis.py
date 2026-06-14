@@ -196,10 +196,29 @@ def fetch_metrics(sym: str) -> dict:
 SUPERS = ["宽基", "行业", "主题", "因子策略", "债券", "商品", "工具", "其他"]
 
 
+def blurb(sec: str, sup: str, e: dict) -> str:
+    """一句话介绍(这只 ETF 是干嘛的)—— 按大类模板 + 板块名 + 关键事实。"""
+    exp = e.get("expense")
+    aum = e.get("aum")
+    aum_s = f",规模 ${aum / 1e6:.0f}B" if aum and aum >= 1e6 else (f",规模 ${aum / 1e3:.0f}M" if aum else "")
+    exp_s = f",费率 {exp:g}%" if exp is not None else ""
+    base = {
+        "宽基": f"{sec}指数,一篮子分散持有、适合长期定投的底仓",
+        "行业": f"{sec}行业基金,押注单一板块,本质是择时——看清前十大持仓再决定",
+        "主题": f"{sec}主题基金,押注这条赛道的成长叙事,弹性大波动也大",
+        "因子策略": f"{sec}策略基金,在指数上叠加因子/规则,逻辑得自己看懂别被名字买了",
+        "债券": f"{sec},债券类配置/避险工具,看久期和信用、不是成长资产",
+        "商品": f"{sec},商品类不产生现金流(黄金不下蛋),只能做配置/对冲",
+        "工具": f"{sec}型杠杆/反向工具,日内复利损耗,只适合短线投机不是投资",
+    }.get(sup, f"{sec}")
+    return base + exp_s + aum_s + "。"
+
+
 def _classify_into(e: dict) -> dict:
     sec, sup = classify(e["sym"], e["name"])
     v = verdict(sup, e.get("expense"))
-    return {**e, "sector": sec, "kind": sup, "verdict": v["tag"], "cls": v["cls"], "why": v["why"]}
+    return {**e, "sector": sec, "kind": sup, "verdict": v["tag"], "cls": v["cls"], "why": v["why"],
+            "blurb": blurb(sec, sup, e)}
 
 
 def main():

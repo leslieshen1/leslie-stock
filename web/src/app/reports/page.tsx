@@ -36,7 +36,7 @@ export default async function ReportsPage() {
     })),
   ].sort((a, b) => a.date.localeCompare(b.date) || (a.timeET || "").localeCompare(b.timeET || ""));
   return (
-    <main className="mx-auto max-w-3xl px-6 pb-10 pt-3">
+    <main className="mx-auto max-w-6xl px-6 pb-10 pt-3">
       <header className="mb-3 flex flex-wrap items-baseline gap-x-3">
         <h1 className="text-[22px] font-semibold tracking-tight text-ink"><T zh="盘报" en="Reports" /></h1>
         <p className="text-xs text-faint"><T zh="市场日历 · 今日大事 · 盘前/收盘总结 · 非投资建议" en="Calendar · Today's Events · Pre-market & Close Notes · Not Financial Advice" /></p>

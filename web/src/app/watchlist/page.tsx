@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function WatchlistPage() {
   return (
- <main className="mx-auto max-w-5xl px-6 py-10">
+ <main className="mx-auto max-w-6xl px-6 py-10">
  <header className="mb-6 border-b border-line pb-6">
  <div className="mb-3 flex items-center gap-3 text-sm">
  <Link href="/" className="text-muted hover:text-ink">

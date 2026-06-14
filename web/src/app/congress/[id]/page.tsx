@@ -19,7 +19,7 @@ export default async function CongressDetail({ params }: { params: Promise<{ id:
   const pm = PARTY_META[m.party];
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-12 pt-3 sm:px-6">
+    <main className="mx-auto max-w-6xl px-4 pb-12 pt-3 sm:px-6">
       <div className="mb-3 flex items-center gap-2 text-xs">
         <Link href="/whales" className="text-muted hover:text-ink"><T zh="聪明钱" en="Smart Money" /></Link>
         <span className="text-faint">/</span>

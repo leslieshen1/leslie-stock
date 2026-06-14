@@ -75,14 +75,25 @@ def main():
         json.dumps({"order": ORDER, "stocks": analyses}, ensure_ascii=False), encoding="utf-8")
     (PUB / "a-panel-summary.json").write_text(
         json.dumps({"order": ORDER, "stocks": summary}, ensure_ascii=False), encoding="utf-8")
-    # 逐 code 拆分(详情页按需读一只,不加载全量)—— 镜像 us-panels/
+    # 逐 code 拆分(详情页按需读一只)—— 字段对齐 us-panels/,让 A 股详情页与美股完全同构
+    import re
+    NOISE = {"上证50", "沪深300", "中证500", "中证100", "创业板", "科创板", "科创50", "权重股",
+             "大盘股", "中盘股", "小盘股", "百元股", "周期股", "蓝筹股", "MSCI概念", "富时罗素"}
+    def clean_role(thesis: str) -> str:
+        # 去掉提到瓶颈/aleabit 框架的噪声句(对非瓶颈股,thesis 常以"与瓶颈狙击框架无关"结尾)
+        segs = [s for s in re.split(r"[,，。；]", thesis or "")
+                if s.strip() and not re.search(r"瓶颈|aleabit|狙击|框架|领域", s)]
+        return "，".join(segs).strip()
     apdir = PUB / "a-panels"
     apdir.mkdir(exist_ok=True)
     for code, a in analyses.items():
-        chain = {"industry": (a["concepts"][0] if a["concepts"] else a["sector"]),
-                 "layer": "", "role": "", "upstream": [], "downstream": []}
+        # A 股 concepts 是题材标签不是 GICS 行业(比亚迪标"无线充电"会误导),不当行业用;
+        # 业务身份交给画像一句话(role)。chain.industry 留空。
+        chain = {"industry": "", "layer": "",
+                 "role": clean_role((a["panel"].get("serenity", {}) or {}).get("reasoning", "")),
+                 "upstream": [], "downstream": []}
         apdir.joinpath(f"{code}.json").write_text(json.dumps(
-            {"name": a["name"], "mcapB": None, "sector": a["sector"],
+            {"name": a["name"], "mcapB": None, "mcapYi": a["cap"], "sector": "",
              "panel": a["panel"], "chain": chain, "divergence": a["divergence"]},
             ensure_ascii=False), encoding="utf-8")
     print(f"✅ a-analyses.json + a-panel-summary.json + a-panels/{len(analyses)} — {len(analyses)} 只 A 股五方")

@@ -6,6 +6,7 @@ export type UsPanel = {
   rank?: number;
   name?: string;
   mcapB?: number | null;
+  mcapYi?: number | null;  // A股市值(亿 RMB);美股用 mcapB($B)
   sector?: string;
   // 开放式:masterKey → 该方判读。加股神=加一个 key,老数据缺哪方=显示"未覆盖"
   panel: Record<string, Stance | undefined>;

@@ -112,15 +112,17 @@ export default async function StockDetailPage({
   const news = loadNews(code); // 个股新闻(Google News)
   const earnings = loadEarnings(code); // 下次财报(Finnhub,需 key)
   const options = loadOptions(code); // 期权 gamma(Polygon,需 key)
-  // 有五方面板时美股的旧单框架退场;A 股保留 aleabit/Serenity 深度分析(与五方面板互补)
-  const initial = (usPanel && market === "us") ? null : loadAnalysis(code, market);
+  // 有五方面板就走统一的精简版(A 股与美股同构,不再额外渲染 aleabit 瓶颈那套);无面板才看旧分析
+  const initial = usPanel ? null : loadAnalysis(code, market);
   const holders = getStockHolders(code);
   const dilution = market === "us" ? loadDilutionFlags()[code.toUpperCase()] : undefined;
 
-  // 市值显示:$2.18T / $43B / $940M
+  // 市值显示:美股 $2.18T/$43B/$940M;A 股 X 亿(人民币)—— 只是计价市场不同
   const fmtCap = (b?: number | null) =>
     b == null ? null : b >= 1000 ? `$${(b / 1000).toFixed(2)}T` : b >= 1 ? `$${b.toFixed(1)}B` : `$${Math.round(b * 1000)}M`;
-  const mcap = fmtCap(usPanel?.mcapB);
+  const mcap = usPanel?.mcapYi != null
+    ? `${usPanel.mcapYi >= 10000 ? `${(usPanel.mcapYi / 10000).toFixed(2)} 万亿` : `${Math.round(usPanel.mcapYi)} 亿`}`
+    : fmtCap(usPanel?.mcapB);
 
  const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
   const marketTone =

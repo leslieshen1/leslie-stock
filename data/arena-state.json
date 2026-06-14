@@ -178,8 +178,8 @@
   {
    "master": "druckenmiller",
    "sym": "KLAC",
-   "shares": 5300,
-   "entry": 21.3564,
+   "shares": 530,
+   "entry": 213.564,
    "entry_date": "2026-06-10"
   },
   {
@@ -315,7 +315,7 @@
   {
    "master": "druckenmiller",
    "date": "2026-06-12",
-   "nav": 2288500.45
+   "nav": 1074344.65
   },
   {
    "master": "sentiment",
@@ -1066,6 +1066,18 @@
   {
    "date": "2026-06-12",
    "event": "KLAC 10:1 拆股自动调账(druckenmiller)"
+  },
+  {
+   "date": "2026-06-12",
+   "event": "KLAC 二次调账纠错:5300->530 股(手工+引擎自愈重复 x10),druck NAV 扣回幻影 $1.21M"
+  }
+ ],
+ "splits": [
+  {
+   "sym": "KLAC",
+   "date": "2026-06-12",
+   "k": 10,
+   "master": "druckenmiller"
   }
  ]
 }

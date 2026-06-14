@@ -141,8 +141,20 @@ def run_engine() -> None:
 
         # ⓪ 拆股/并股自愈:前一交易日收盘与现价量级断裂、但官方当日涨跌正常 → 公司行动,
         #    按整数比例调账(NAV 不变),当日豁免止损/动量 —— KLAC 2026-06-12 10:1 拆股差点被当 -89% 误砍
+        #    幂等台账 st["splits"]:同一 sym 25 天内已调过就跳过(防手工+引擎/多日重复 ×10,2026-06-12 踩过)
+        from datetime import date as _date
+        def _within(d1: str, d2: str, n: int) -> bool:
+            try:
+                a = _date.fromisoformat(d1); b = _date.fromisoformat(d2)
+                return abs((a - b).days) <= n
+            except Exception:
+                return False
+        ledger = st.setdefault("splits", [])
+        recent = {(s["sym"], s.get("master")) for s in ledger if _within(s.get("date", ""), date, 25)}
         split_adjusted: set[str] = set()
         for sym, p in list(pos.items()):
+            if (sym, mk) in recent:                 # 该股该 master 近期已调账,绝不重复
+                continue
             u = uni.get(sym)
             cl = hist["closes"].get(sym) or {}
             ds = sorted(cl)
@@ -158,6 +170,7 @@ def run_engine() -> None:
                     p["shares"] = p["shares"] * k
                     p["entry"] = round(p["entry"] / k, 4)
                     split_adjusted.add(sym)
+                    ledger.append({"sym": sym, "date": date, "k": k, "master": mk})
                     st.setdefault("notes", []).append({"date": date, "event": f"{sym} {k}:1 拆股自动调账({mk})"})
             elif k_float <= 0.4:                    # 并股(如 1:10)
                 k = round(1 / k_float)
@@ -165,6 +178,7 @@ def run_engine() -> None:
                     p["shares"] = p["shares"] // k
                     p["entry"] = round(p["entry"] * k, 4)
                     split_adjusted.add(sym)
+                    ledger.append({"sym": sym, "date": date, "k": -k, "master": mk})
                     st.setdefault("notes", []).append({"date": date, "event": f"{sym} 1:{k} 并股自动调账({mk})"})
 
         # ① 机械纪律(风控地板,AI 无权豁免;拆并股当日豁免——历史序列被断裂污染)

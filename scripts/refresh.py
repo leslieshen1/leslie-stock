@@ -68,6 +68,11 @@ def main():
     if run([sys.executable, "scripts/build_congress.py"]) != 0:
         print("⚠ 国会数据刷新失败,沿用已有 congress.json")
 
+    # ETF 段永平/巴菲特镜头(Nasdaq 逐只 AUM/费率,~15min;失败不阻断)
+    print("\n--- ETF 镜头(Nasdaq → etf-analyses.json) ---")
+    if run([sys.executable, "scripts/build_etf_analysis.py"]) != 0:
+        print("⚠ ETF 数据刷新失败,沿用已有 etf-analyses.json")
+
     print("\n✅ 数据已最新(leslie.db = 真相源)。")
 
     if "--deploy" in sys.argv:

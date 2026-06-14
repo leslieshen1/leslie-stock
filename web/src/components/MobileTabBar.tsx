@@ -29,6 +29,14 @@ const TABS: { href: string; zh: string; en: string; match: (p: string) => boolea
     ),
   },
   {
+    href: "/etf", zh: "ETF", en: "ETF", match: (p) => p.startsWith("/etf"),
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={SW} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
+    ),
+  },
+  {
     href: "/whales", zh: "聪明钱", en: "Whales", match: (p) => p.startsWith("/whales"),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={SW} strokeLinecap="round" strokeLinejoin="round">
@@ -72,7 +80,7 @@ export default function MobileTabBar() {
       className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-base/92 backdrop-blur-md md:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="grid grid-cols-6">
+      <div className="grid grid-cols-7">
         {TABS.map((tb) => {
           const active = tb.match(pathname);
           return (
@@ -83,8 +91,8 @@ export default function MobileTabBar() {
                 active ? "text-accent" : "text-muted"
               }`}
             >
-              <span className="h-[20px] w-[20px]">{tb.icon}</span>
-              <span className="text-[10px] font-medium leading-none">{lang === "zh" ? tb.zh : tb.en}</span>
+              <span className="h-[19px] w-[19px]">{tb.icon}</span>
+              <span className="text-[9.5px] font-medium leading-none">{lang === "zh" ? tb.zh : tb.en}</span>
             </Link>
           );
         })}

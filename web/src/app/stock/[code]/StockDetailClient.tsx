@@ -144,26 +144,33 @@ export default function StockDetailClient({ code, market, initial, holders = [],
   return (
  <div className="space-y-8">
       {/* ============ HERO ============ */}
- <section className="rounded-2xl border border-line bg-surface p-8">
+ <section className={`rounded-2xl border bg-surface ${hasPanel ? "border-line p-6" : "border-line p-8"}`}>
+        {/* 有五方面板时,瓶颈分只是其中一方(Serenity)的专项视角,降权不再当主评分 */}
+        {hasPanel && (
+          <header className="mb-4 flex items-baseline gap-2">
+            <h2 className="text-base font-semibold text-ink">Serenity · 瓶颈狙击</h2>
+            <span className="text-xs text-muted">五方中专看产业链「卡脖子」环节的一方 —— 多数公司本就不在这条线上</span>
+          </header>
+        )}
  <div className="grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr] md:items-start">
-          {/* 大评分 */}
+          {/* 评分(有五方面板时缩小、改标签) */}
  <div className="flex items-center gap-6">
  <div className="text-center">
-              <div className={`font-mono text-6xl font-bold tracking-tight ${scoreColor(score)}`}>
+              <div className={`font-mono font-bold tracking-tight ${scoreColor(score)} ${hasPanel ? "text-4xl" : "text-6xl"}`}>
  {score || "—"}
               </div>
  <div className="mt-1 text-xs uppercase tracking-wider text-faint">
-                Bottleneck Score
+                {hasPanel ? "瓶颈分" : "Bottleneck Score"}
               </div>
             </div>
- <div className="h-20 w-px bg-line" />
+ <div className={`w-px bg-line ${hasPanel ? "h-14" : "h-20"}`} />
             <div>
  <p className="text-xs uppercase tracking-wider text-faint">Signals</p>
- <p className="mt-1 font-mono text-3xl font-semibold text-ink">
+ <p className={`mt-1 font-mono font-semibold text-ink ${hasPanel ? "text-2xl" : "text-3xl"}`}>
  {signalsHit}<span className="text-base text-faint">/{signals.length || 6}</span>
               </p>
  <p className="mt-3 text-xs uppercase tracking-wider text-faint">Red Flags</p>
- <p className="mt-1 font-mono text-2xl font-semibold text-down">
+ <p className={`mt-1 font-mono font-semibold text-down ${hasPanel ? "text-xl" : "text-2xl"}`}>
                 {redFlags.length}
               </p>
             </div>

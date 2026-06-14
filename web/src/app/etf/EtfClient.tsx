@@ -2,151 +2,209 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useLang } from "@/lib/i18n";
-import { type EtfData, type EtfRow, KINDS, CLS_TONE } from "@/lib/etf-types";
+import { type EtfData, type EtfRow, SUPERS, SORTS, CLS_TONE } from "@/lib/etf-types";
 
 function EtfLogo({ sym }: { sym: string }) {
   const [bad, setBad] = useState(false);
   if (bad || !sym)
-    return <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 text-[10px] font-bold text-accent">{sym.slice(0, 2)}</span>;
+    return <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-[9px] font-bold text-accent">{sym.slice(0, 2)}</span>;
   return <img src={`https://assets.parqet.com/logos/symbol/${sym}?format=png&size=44`} alt={sym}
-    onError={() => setBad(true)} className="h-7 w-7 shrink-0 rounded-full border border-line bg-white object-cover" />;
+    onError={() => setBad(true)} className="h-6 w-6 shrink-0 rounded-full border border-line bg-white object-cover" />;
 }
 
-function fmtAum(k: number | null, lang: string): string {
+function fmtAum(k: number | null): string {
   if (!k) return "—";
   const usd = k * 1000;
   if (usd >= 1e9) return `$${(usd / 1e9).toFixed(usd >= 1e10 ? 0 : 1)}B`;
   if (usd >= 1e6) return `$${(usd / 1e6).toFixed(0)}M`;
   return `$${(usd / 1e3).toFixed(0)}K`;
 }
-function fmtPct(v: number | null): string {
-  return v == null ? "—" : `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`;
+function pctCls(v: number | null): string {
+  return v == null ? "text-faint" : v >= 0 ? "text-up" : "text-down";
 }
+function fmtPct(v: number | null): string {
+  return v == null ? "—" : `${v >= 0 ? "+" : ""}${Math.round(v)}%`;
+}
+function mddCls(v: number | null): string {
+  if (v == null) return "text-faint";
+  if (v >= -20) return "text-up";
+  if (v >= -40) return "text-accent";
+  return "text-down";
+}
+
+const METRIC = (e: EtfRow, k: string): number | null =>
+  k === "aum" ? e.aum : k === "ret1y" ? e.ret1y : k === "ret5y" ? e.ret5y : k === "mdd" ? e.mdd : e.aum;
 
 export default function EtfClient() {
   const { t, lang } = useLang();
   const [data, setData] = useState<EtfData | null>(null);
-  const [kind, setKind] = useState<string>("all");
+  const [sup, setSup] = useState<string>("行业");
+  const [sort, setSort] = useState<string>("aum");
   const [q, setQ] = useState("");
-  const [limit, setLimit] = useState(120);
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     fetch("/data/etf-analyses.json").then((r) => r.json()).then(setData).catch(() => {});
   }, []);
 
-  const filtered = useMemo(() => {
-    if (!data) return [];
-    const qq = q.trim().toUpperCase();
-    return data.etfs.filter((e) => {
-      if (kind !== "all" && e.kind !== kind) return false;
-      if (qq && !e.sym.includes(qq) && !e.name.toUpperCase().includes(qq)) return false;
-      return true;
+  const sortRows = useMemo(() => (rows: EtfRow[]) => {
+    const k = sort;
+    return [...rows].sort((a, b) => {
+      const va = METRIC(a, k), vb = METRIC(b, k);
+      if (va == null && vb == null) return (b.aum || 0) - (a.aum || 0);
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      return vb - va; // 全部降序:规模大/回报高/回撤小(mdd 负,-10 > -50)在前
     });
-  }, [data, kind, q]);
+  }, [sort]);
 
-  // 判决摘要(段永平/巴菲特镜头的四种立场)
-  const summary = useMemo(() => {
-    if (!data) return null;
-    const by = (pred: (e: EtfRow) => boolean) => data.etfs.filter(pred).length;
-    return {
-      index: by((e) => e.verdict.includes("指数定投") || e.verdict.includes("可长持")),
-      allocate: by((e) => e.cls === "neutral" && (e.kind === "债券" || e.kind === "商品")),
-      timing: by((e) => e.verdict.includes("择时") || e.verdict.includes("策略")),
-      gamble: by((e) => e.cls === "down"),
-    };
-  }, [data]);
-
-  useEffect(() => setLimit(120), [kind, q]);
+  // 搜索:扁平结果;否则按板块分组
+  const qq = q.trim().toUpperCase();
+  const groups = useMemo(() => {
+    if (!data) return [];
+    let etfs = sup === "all" ? data.etfs : data.etfs.filter((e) => e.kind === sup);
+    if (qq) etfs = data.etfs.filter((e) => e.sym.includes(qq) || e.name.toUpperCase().includes(qq));
+    if (qq) return [{ sector: "__search", n: etfs.length, rows: sortRows(etfs) }];
+    const map = new Map<string, EtfRow[]>();
+    for (const e of etfs) (map.get(e.sector) || map.set(e.sector, []).get(e.sector)!).push(e);
+    return [...map.entries()]
+      .map(([sector, rows]) => ({ sector, n: rows.length, rows: sortRows(rows) }))
+      .sort((a, b) => b.rows.reduce((s, e) => s + (e.aum || 0), 0) - a.rows.reduce((s, e) => s + (e.aum || 0), 0));
+  }, [data, sup, qq, sortRows]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <header>
-        <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("ETF · 段永平/巴菲特镜头", "ETFs · Buffett / Duan lens")}</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("ETF · 板块业绩", "ETFs · by sector & track record")}</h1>
         <p className="mt-1.5 text-sm leading-relaxed text-muted">
           {t(
-            "ETF 是篮子不是生意,五位价投不直接打分。换个问法:这只值不值得长持?巴菲特一辈子只推荐普通人买一种——低费率宽基指数。其余都是择时押注、配置工具,或纯赌场(杠杆/反向)。看清你买的到底是什么。",
-            "An ETF is a basket, not a business — so the five masters don't score it. Different question: is it worth holding for the long run? Buffett only ever recommended one thing for ordinary people — a low-cost broad index. Everything else is a timing bet, an allocation tool, or a casino chip (leveraged/inverse).",
+            "ETF 是篮子不是生意。按它押注的板块归类,看同一条赛道里谁跑得好(1年/5年)、谁回撤狠(最大回撤)。低费率宽基定投友好,杠杆反向是赌场——巴菲特/段永平的话照旧。",
+            "An ETF is a basket. Grouped by the bet it makes — within one lane, who ran (1Y/5Y) and who bled (max drawdown). Low-cost broad index for holding; leveraged/inverse is a casino.",
           )}
         </p>
       </header>
 
-      {summary && (
-        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-          <Stat label={t("指数定投友好", "Index, hold")} value={summary.index} tone="up" hint={t("低费率宽基", "low-cost broad")} />
-          <Stat label={t("配置/避险", "Allocation")} value={summary.allocate} tone="neutral" hint={t("债/商品", "bond/commodity")} />
-          <Stat label={t("择时押注", "Timing bets")} value={summary.timing} tone="neutral" hint={t("行业/主题/策略", "sector/theme")} />
-          <Stat label={t("投机工具", "Casino chips")} value={summary.gamble} tone="down" hint={t("杠杆/反向", "leveraged/inverse")} />
-        </div>
-      )}
-
-      <div className="flex flex-col gap-2.5">
+      {/* 控制条 */}
+      <div className="space-y-2.5">
         <input value={q} onChange={(e) => setQ(e.target.value)}
           placeholder={t("搜代码 / 名称…", "Search ticker / name…")}
           className="w-full max-w-xs rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink outline-none placeholder:text-faint focus:border-accent/50" />
         <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <Chip active={kind === "all"} onClick={() => setKind("all")}>{t("全部", "All")}{data ? ` ${data.n}` : ""}</Chip>
-          {KINDS.map((k) => (
-            <Chip key={k.key} active={kind === k.key} onClick={() => setKind(k.key)}>
-              {t(k.zh, k.en)}{data?.kinds[k.key] ? ` ${data.kinds[k.key]}` : ""}
+          {SUPERS.map((s) => (
+            <Chip key={s.key} active={sup === s.key && !qq} onClick={() => { setSup(s.key); setQ(""); }}>
+              {t(s.zh, s.en)}{data?.supers[s.key] ? ` ${data.supers[s.key]}` : ""}
             </Chip>
           ))}
+        </div>
+        <div className="flex items-center gap-2 text-xs">
+          <span className="text-faint">{t("排序", "Sort")}</span>
+          <div className="inline-flex rounded-lg border border-line bg-surface p-0.5">
+            {SORTS.map((s) => (
+              <button key={s.key} onClick={() => setSort(s.key)}
+                className={`rounded-md px-2.5 py-1 text-[12px] font-medium transition ${sort === s.key ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
+                {t(s.zh, s.en)}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
       {!data && <p className="py-10 text-center text-sm text-faint">{t("加载中…", "Loading…")}</p>}
 
-      <div className="divide-y divide-line/60 overflow-hidden rounded-xl border border-line bg-surface">
-        {filtered.slice(0, limit).map((e) => <EtfRowItem key={e.sym} e={e} lang={lang} t={t} />)}
-        {data && filtered.length === 0 && <p className="px-4 py-8 text-center text-sm text-faint">{t("无匹配", "No match")}</p>}
+      <div className="space-y-4">
+        {groups.map((g) => (
+          <SectorBlock key={g.sector} sector={g.sector} rows={g.rows} sort={sort}
+            open={expanded.has(g.sector) || g.sector === "__search"} t={t}
+            onToggle={() => setExpanded((prev) => { const n = new Set(prev); n.has(g.sector) ? n.delete(g.sector) : n.add(g.sector); return n; })} />
+        ))}
+        {data && groups.length === 0 && <p className="py-8 text-center text-sm text-faint">{t("无匹配", "No match")}</p>}
       </div>
-      {filtered.length > limit && (
-        <button onClick={() => setLimit((n) => n + 200)}
-          className="mx-auto block rounded-lg border border-line bg-surface px-4 py-2 text-sm font-medium text-muted transition hover:text-ink">
-          {t(`展开更多(还有 ${filtered.length - limit})`, `Show more (${filtered.length - limit} more)`)}
-        </button>
-      )}
 
       <p className="text-center text-[11px] leading-relaxed text-faint">
         {t(
-          `数据 = Nasdaq(AUM/费率/beta,逐只)。共 ${data?.n ?? "—"} 只 ETF,按 AUM 排序。判决是段永平/巴菲特方法论的机械映射(费率+类型),不是个股式五方判读 · 不生息的商品、杠杆/反向是工具不是投资 · 非投资建议。`,
-          `Data = Nasdaq (AUM / expense / beta, per fund). ${data?.n ?? "—"} ETFs by AUM. Verdicts are a mechanical mapping of Buffett/Duan principles (cost + type), not a per-business five-master read · not financial advice.`,
+          `数据 = Nasdaq(AUM/费率 + 5年日线算回报与最大回撤)。${data?.n ?? "—"} 只 ETF、${data?.sectors.length ?? "—"} 个板块。回报为区间累计,非年化;最大回撤=区间内峰值到谷底最大跌幅 · 判决是费率+类型的机械映射 · 非投资建议。`,
+          `Data = Nasdaq (AUM/expense + returns & max drawdown from 5y daily). ${data?.n ?? "—"} ETFs across ${data?.sectors.length ?? "—"} sectors. Returns are cumulative; max drawdown = largest peak-to-trough drop · not financial advice.`,
         )}
       </p>
     </div>
   );
 }
 
-function EtfRowItem({ e, lang, t }: { e: EtfRow; lang: string; t: (zh: string, en: string) => string }) {
+function SectorBlock({ sector, rows, sort, open, onToggle, t }: {
+  sector: string; rows: EtfRow[]; sort: string; open: boolean; onToggle: () => void; t: (zh: string, en: string) => string;
+}) {
+  const search = sector === "__search";
+  const withRet = rows.filter((e) => e.ret5y != null);
+  const withMdd = rows.filter((e) => e.mdd != null);
+  const best = withRet.length ? withRet.reduce((a, b) => ((b.ret5y || 0) > (a.ret5y || 0) ? b : a)) : null;
+  const worst = withMdd.length ? withMdd.reduce((a, b) => ((b.mdd || 0) < (a.mdd || 0) ? b : a)) : null;
+  const totAum = rows.reduce((s, e) => s + (e.aum || 0), 0);
+  const shown = open ? rows : rows.slice(0, 6);
+
   return (
-    <div className="flex items-center gap-3 px-3 py-3 sm:px-4">
-      <EtfLogo sym={e.sym} />
-      <div className="min-w-0 flex-1">
-        <div className="flex items-center gap-2">
-          <span className="font-mono text-[13px] font-semibold text-ink">{e.sym}</span>
-          <span className={`shrink-0 rounded border px-1 py-0.5 text-[9px] font-medium ${CLS_TONE[e.cls]}`}>{e.verdict}</span>
+    <section className="overflow-hidden rounded-xl border border-line bg-surface">
+      {!search && (
+        <button onClick={onToggle} className="flex w-full items-center gap-2 px-4 py-3 text-left transition hover:bg-surface-2">
+          <span className="text-[15px] font-semibold text-ink">{sector}</span>
+          <span className="rounded-full bg-surface-3 px-2 py-0.5 text-[10px] font-medium text-muted">{rows.length}</span>
+          <span className="font-mono text-[11px] text-faint">{fmtAum(totAum)}</span>
+          <span className="flex-1" />
+          {best && best.ret5y != null && (
+            <span className="hidden items-center gap-1 text-[11px] sm:flex">
+              <span className="text-faint">{t("5年最强", "best 5Y")}</span>
+              <span className="font-mono font-semibold text-ink">{best.sym}</span>
+              <span className="font-mono font-semibold text-up">+{Math.round(best.ret5y)}%</span>
+            </span>
+          )}
+          {worst && worst.mdd != null && (
+            <span className="ml-2 hidden items-center gap-1 text-[11px] sm:flex">
+              <span className="text-faint">{t("最深回撤", "worst DD")}</span>
+              <span className="font-mono font-semibold text-down">{Math.round(worst.mdd)}%</span>
+            </span>
+          )}
+          <svg className={`h-4 w-4 shrink-0 text-faint transition ${open ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      )}
+      {(open || search) && (
+        <div className="border-t border-line/60">
+          {/* 列头 */}
+          <div className="flex items-center gap-2 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-faint sm:px-4">
+            <span className="w-5 shrink-0" /><span className="flex-1">{t("代码", "Ticker")}</span>
+            <span className="w-12 shrink-0 text-right sm:w-14">{t("规模", "AUM")}</span>
+            <span className="w-11 shrink-0 text-right sm:w-12">1Y</span>
+            <span className="w-11 shrink-0 text-right sm:w-12">5Y</span>
+            <span className="w-12 shrink-0 text-right sm:w-14">{t("回撤", "MaxDD")}</span>
+          </div>
+          <div className="divide-y divide-line/50">
+            {shown.map((e) => <EtfRowItem key={e.sym} e={e} t={t} />)}
+          </div>
+          {!search && rows.length > 6 && (
+            <button onClick={onToggle} className="w-full py-2 text-center text-[11px] font-medium text-accent hover:underline">
+              {open ? t("收起", "Collapse") : t(`展开全部 ${rows.length}`, `Show all ${rows.length}`)}
+            </button>
+          )}
         </div>
-        <div className="mt-0.5 truncate text-xs text-muted">{e.name}</div>
-        <div className="mt-1 text-[11px] leading-snug text-faint">{e.thesis || e.why}</div>
-      </div>
-      <div className="shrink-0 text-right">
-        <div className="font-mono text-[13px] font-semibold text-ink">{fmtAum(e.aum, lang)}</div>
-        <div className="mt-0.5 flex items-center justify-end gap-1.5 font-mono text-[10px] text-faint">
-          <span>{e.expense != null ? `${e.expense}%` : "—"}</span>
-          <span className="text-line">·</span>
-          <span className={e.ret1y != null && e.ret1y >= 0 ? "text-up" : "text-down"}>{fmtPct(e.ret1y)} 1y</span>
-        </div>
-      </div>
-    </div>
+      )}
+    </section>
   );
 }
 
-function Stat({ label, value, tone, hint }: { label: string; value: number; tone: "up" | "neutral" | "down"; hint: string }) {
-  const c = tone === "up" ? "text-up" : tone === "down" ? "text-down" : "text-accent";
+const DOT: Record<string, string> = { up: "bg-up", neutral: "bg-accent", down: "bg-down" };
+
+function EtfRowItem({ e }: { e: EtfRow; t: (zh: string, en: string) => string }) {
   return (
-    <div className="rounded-lg border border-line bg-surface px-3 py-2.5">
-      <div className="text-[10px] text-faint">{label}</div>
-      <div className={`tnum mt-0.5 text-lg font-semibold ${c}`}>{value}</div>
-      <div className="text-[9px] text-faint">{hint}</div>
+    <div className="flex items-center gap-2 px-3 py-2 sm:px-4">
+      <EtfLogo sym={e.sym} />
+      <div className="flex min-w-0 flex-1 items-center gap-1.5">
+        <span className={`h-1.5 w-1.5 shrink-0 rounded-full sm:hidden ${DOT[e.cls]}`} title={e.verdict} />
+        <span className="font-mono text-[13px] font-semibold text-ink">{e.sym}</span>
+        <span className={`hidden shrink-0 rounded border px-1 py-px text-[9px] font-medium sm:inline-block ${CLS_TONE[e.cls]}`}>{e.verdict}</span>
+        <span className="hidden truncate text-[11px] text-muted sm:block">{e.name}</span>
+      </div>
+      <span className="w-12 shrink-0 text-right font-mono text-[12px] text-ink sm:w-14">{fmtAum(e.aum)}</span>
+      <span className={`w-11 shrink-0 text-right font-mono text-[12px] sm:w-12 ${pctCls(e.ret1y)}`}>{fmtPct(e.ret1y)}</span>
+      <span className={`w-11 shrink-0 text-right font-mono text-[12px] sm:w-12 ${pctCls(e.ret5y)}`}>{fmtPct(e.ret5y)}</span>
+      <span className={`w-12 shrink-0 text-right font-mono text-[12px] sm:w-14 ${mddCls(e.mdd)}`}>{e.mdd == null ? "—" : `${Math.round(e.mdd)}%`}</span>
     </div>
   );
 }

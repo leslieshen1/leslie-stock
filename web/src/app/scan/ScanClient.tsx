@@ -86,14 +86,12 @@ export default function ScanClient() {
   // 数据客户端按需 fetch(静态 JSON,浏览器会缓存),避免 SSR 把 4MB 塞进 HTML
   const [items, setItems] = useState<AleabitManifestEntry[]>([]);
   const [usStocks, setUsStocks] = useState<UsStock[]>([]);
-  const [etfs, setEtfs] = useState<EtfRow[]>([]);
   const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [loading, setLoading] = useState(true);
   const [priceFlash, setPriceFlash] = useState<Record<string, "up" | "down">>({});
   const pricesRef = useRef<Record<string, number>>({});
-  // 首屏只拉美股必需(us-stocks 1.3MB + 摘要 + 印股票);A股 manifest(2.5MB)和 ETF(0.5MB)
-  // 切到对应页签才取 —— 移动端首开列表从 ~4.5MB 降到 ~1.6MB(2026-06-12 性能整治)
+  // 首屏只拉美股个股(us-stocks 1.3MB + 摘要 + 印股票);A股 manifest(2.5MB)切页签才取
   useEffect(() => {
     let alive = true;
     Promise.all([
@@ -108,13 +106,6 @@ export default function ScanClient() {
       setLoading(false);
     });
     return () => { alive = false; };
-  }, []);
-  // ETF 表(0.5MB)延后取:不在首屏关键路径上
-  useEffect(() => {
-    const id = setTimeout(() => {
-      fetch("/data/us-etfs.json").then((r) => r.json()).then((j) => setEtfs((j.etfs || []) as EtfRow[])).catch(() => {});
-    }, 1500);
-    return () => clearTimeout(id);
   }, []);
   const aLoaded = useRef(false);
   useEffect(() => {
@@ -230,15 +221,11 @@ export default function ScanClient() {
     return r;
   }, [items, scoreBuckets, verdictSet, layerSet, conceptSet, search, sortBy]);
 
-  // 股票 + ETF 合并成统一列表(type 区分);股票实时价由轮询更新,ETF 用文件快照
-  const usSecs: UsSec[] = useMemo(() => [
-    ...usStocks.map((s) => ({ ...s, type: "stock" as const })),
-    ...etfs.map((e) => ({
-      sym: e.sym, name: e.name, price: e.price, pct: e.pct,
-      mcapB: null, sector: "", industry: "", vol: null, country: "",
-      type: "etf" as const, ret1y: e.ret1y,
-    })),
-  ], [usStocks, etfs]);
+  // /scan 只放个股;ETF 已拆到独立的 /etf 板块业绩页(2026-06-14)
+  const usSecs: UsSec[] = useMemo(
+    () => usStocks.map((s) => ({ ...s, type: "stock" as const })),
+    [usStocks],
+  );
 
   function toggle(set: Set<string>, key: string, setter: (s: Set<string>) => void) {
     const next = new Set(set);
@@ -509,8 +496,8 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
   const router = useRouter();
   const { t, lang } = useLang();
   const { has, toggle } = useWatchlist();
-  // 证券类型:股票 / ETF / 全部(持久化,默认股票=保持原视图)
-  const [secType, setSecType] = usePersisted<"stock" | "etf" | "all">("us:type", "stock");
+  // /scan 只看个股;ETF 已独立到 /etf —— secType 恒为 stock(useState 保留联合类型,etf 分支不报错)
+  const [secType] = useState<"stock" | "etf" | "all">("stock");
   // 筛选/排序均持久化:点进个股再返回,条件不丢
   const [search, setSearch] = usePersisted<string>("us:search", "");
   const [sectorSet, setSectorSet] = usePersisted<Set<string>>("us:sector", new Set());
@@ -664,19 +651,12 @@ function UsScanView({ stocks, flags, panels, flash = {} }: { stocks: UsSec[]; fl
 
   return (
     <>
-      {/* 股票 / ETF / 全部 分段 —— 区分证券类型 */}
+      {/* 个股 / ETF 分段 —— 股票留本页,ETF 跳独立的板块业绩页 */}
  <div className="mb-2.5 ml-2 inline-flex rounded-lg border border-line bg-surface p-0.5 text-sm">
-        {([["stock", `${t("股票", "Stocks")} ${stockCount}`], ["etf", `ETF ${etfCount}`], ["all", t("全部", "All")]] as const).map(([k, label]) => (
-          <button
-            key={k}
-            onClick={() => setSecType(k)}
-            className={`rounded-md px-3.5 py-1.5 font-medium transition ${
- secType === k ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
-            }`}
-          >
-            {label}
-          </button>
-        ))}
+        <span className="rounded-md bg-surface-3 px-3.5 py-1.5 font-medium text-ink">{t("个股", "Stocks")} {stockCount}</span>
+        <Link href="/etf" className="rounded-md px-3.5 py-1.5 font-medium text-muted transition hover:text-ink">
+          {t("ETF 板块业绩", "ETFs")} →
+        </Link>
       </div>
 
       {/* 涨跌统计 */}

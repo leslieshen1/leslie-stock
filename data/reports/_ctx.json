@@ -1,493 +1,155 @@
 {
- "asof_et": "2026-06-15 08:30 ET Mon",
+ "asof_et": "2026-06-15 10:16 ET Mon",
  "direction": {
   "标普500": {
-   "pm_pct": "+1.22%",
-   "yesterday_pct": "+0.54%"
+   "pm_pct": "+1.51%",
+   "yesterday_pct": null
   },
   "纳指100": {
-   "pm_pct": "+2.10%",
-   "yesterday_pct": "+0.59%"
+   "pm_pct": "+2.54%",
+   "yesterday_pct": null
   },
   "道指": {
-   "pm_pct": "+0.94%",
-   "yesterday_pct": "+0.73%"
+   "pm_pct": "+1.08%",
+   "yesterday_pct": null
   },
   "罗素2000": {
-   "pm_pct": "+1.66%",
-   "yesterday_pct": "+0.87%"
+   "pm_pct": "+1.08%",
+   "yesterday_pct": null
   }
  },
- "market_status": "Pre-Market",
+ "market_status": "Open",
  "premarket_gainers": [
   {
    "sym": "AXTI",
    "name": "AXT Inc",
-   "pm_price": "$109.40",
-   "pm_pct": "+12.57%",
-   "yesterday_pct": "+10.01%",
-   "yesterday_close": "$97.18"
-  },
-  {
-   "sym": "MU",
-   "name": "Micron Technology Inc.",
-   "pm_price": "$1,060.01",
-   "pm_pct": "+7.99%",
-   "yesterday_pct": "-1.43%",
-   "yesterday_close": "$981.61"
-  },
-  {
-   "sym": "STX",
-   "name": "Seagate Technology Holdings PLC Ordinary Shares (Ireland)",
-   "pm_price": "$1,002.12",
-   "pm_pct": "+7.63%",
-   "yesterday_pct": "+7.25%",
-   "yesterday_close": "$931.04"
+   "pm_price": "$112.12",
+   "pm_pct": "+15.37%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   },
   {
    "sym": "WDC",
    "name": "Western Digital Corporation",
-   "pm_price": "$604.77",
-   "pm_pct": "+7.43%",
-   "yesterday_pct": "+6.35%",
-   "yesterday_close": "$562.925"
-  },
-  {
-   "sym": "AMKR",
-   "name": "Amkor Technology Inc.",
-   "pm_price": "$88.60",
-   "pm_pct": "+7.03%",
-   "yesterday_pct": "+8.71%",
-   "yesterday_close": "$82.78"
-  },
-  {
-   "sym": "MSTR",
-   "name": "Strategy Inc Common Stock Class A",
-   "pm_price": "$132.0589",
-   "pm_pct": "+6.52%",
-   "yesterday_pct": "+3.18%",
-   "yesterday_close": "$123.97"
+   "pm_price": "$636.00",
+   "pm_pct": "+12.98%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   },
   {
    "sym": "AUGO",
    "name": "Aura Minerals Inc.",
-   "pm_price": "$64.83",
-   "pm_pct": "+6.47%",
-   "yesterday_pct": "+7.62%",
-   "yesterday_close": "$60.89"
+   "pm_price": "$68.33",
+   "pm_pct": "+12.22%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   },
   {
-   "sym": "FORM",
-   "name": "FormFactor Inc. FormFactor Inc.",
-   "pm_price": "$148.00",
-   "pm_pct": "+6.31%",
-   "yesterday_pct": "+6.89%",
-   "yesterday_close": "$139.21"
+   "sym": "STX",
+   "name": "Seagate Technology Holdings PLC Ordinary Shares (Ireland)",
+   "pm_price": "$1,019.155",
+   "pm_pct": "+9.46%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "CRCL",
+   "name": "Circle Internet Group Inc. Class A",
+   "pm_price": "$84.4499",
+   "pm_pct": "+8.49%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "SPCX",
+   "name": "Space Exploration Technologies Corp. Class A",
+   "pm_price": "$174.49",
+   "pm_pct": "+8.41%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "MU",
+   "name": "Micron Technology Inc.",
+   "pm_price": "$1,061.82",
+   "pm_pct": "+8.17%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "AMD",
+   "name": "Advanced Micro Devices Inc.",
+   "pm_price": "$553.23",
+   "pm_pct": "+8.14%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   }
  ],
  "premarket_losers": [
   {
    "sym": "WDS",
    "name": "Woodside Energy Group Limited American Depositary Shares each representing one Ordinary Share",
-   "pm_price": "$21.2981",
-   "pm_pct": "-7.68%",
-   "yesterday_pct": "+6.17%",
-   "yesterday_close": "$23.07"
+   "pm_price": "$21.27",
+   "pm_pct": "-7.80%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   },
   {
    "sym": "XOM",
    "name": "Exxon Mobil Corporation",
-   "pm_price": "$142.25",
-   "pm_pct": "-3.24%",
-   "yesterday_pct": "+0.28%",
-   "yesterday_close": "$147.01"
+   "pm_price": "$139.45",
+   "pm_pct": "-5.14%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   },
   {
    "sym": "ESLT",
    "name": "Elbit Systems Ltd.",
-   "pm_price": "$833.00",
-   "pm_pct": "-2.47%",
-   "yesterday_pct": "-6.48%",
-   "yesterday_close": "$854.06"
+   "pm_price": "$823.00",
+   "pm_pct": "-3.64%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   },
   {
-   "sym": "WBI",
-   "name": "WaterBridge Infrastructure LLC Class A Shares Representing Limited Liability Company Interests",
-   "pm_price": "$31.65",
-   "pm_pct": "-2.44%",
-   "yesterday_pct": "+6.36%",
-   "yesterday_close": "$32.44"
+   "sym": "MAAS",
+   "name": "Maase Inc. Class A",
+   "pm_price": "$14.48",
+   "pm_pct": "-2.56%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "ROKU",
+   "name": "Roku Inc. Class A",
+   "pm_price": "$140.805",
+   "pm_pct": "-1.99%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "ALB",
+   "name": "Albemarle Corporation",
+   "pm_price": "$167.97",
+   "pm_pct": "-1.44%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "LUNR",
+   "name": "Intuitive Machines Inc. Class A",
+   "pm_price": "$26.34",
+   "pm_pct": "-1.05%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   },
   {
    "sym": "WMT",
    "name": "Walmart Inc.",
-   "pm_price": "$119.86",
-   "pm_pct": "-0.97%",
-   "yesterday_pct": "+0.45%",
-   "yesterday_close": "$121.04"
-  },
-  {
-   "sym": "ARM",
-   "name": "Arm Holdings plc",
-   "pm_price": "$378.10",
-   "pm_pct": "-0.71%",
-   "yesterday_pct": "+11.27%",
-   "yesterday_close": "$380.81"
-  },
-  {
-   "sym": "COST",
-   "name": "Costco Wholesale Corporation",
-   "pm_price": "$978.00",
-   "pm_pct": "-0.44%",
-   "yesterday_pct": "+0.68%",
-   "yesterday_close": "$982.35"
-  },
-  {
-   "sym": "BIRK",
-   "name": "Birkenstock Holding plc",
-   "pm_price": "$48.56",
-   "pm_pct": "-0.39%",
-   "yesterday_pct": "+5.50%",
-   "yesterday_close": "$48.75"
+   "pm_price": "$119.89",
+   "pm_pct": "-0.95%",
+   "yesterday_pct": null,
+   "yesterday_close": null
   }
  ],
- "earnings": [
-  {
-   "sym": "GMS",
-   "name": null,
-   "hour": "amc",
-   "epsEst": 1.551,
-   "date": "2026-06-16"
-  },
-  {
-   "sym": "LZB",
-   "name": "La-Z-Boy Incorporated",
-   "hour": "amc",
-   "epsEst": 0.8248,
-   "date": "2026-06-16"
-  },
-  {
-   "sym": "PURE",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-16"
-  },
-  {
-   "sym": "RFL",
-   "name": "Rafael Holdings Inc. Class B",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-16"
-  },
-  {
-   "sym": "SEED",
-   "name": "Origin Agritech Limited",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-16"
-  },
-  {
-   "sym": "SOUB",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-16"
-  },
-  {
-   "sym": "WLY",
-   "name": "John Wiley & Sons Inc.",
-   "hour": "bmo",
-   "epsEst": 1.6665,
-   "date": "2026-06-16"
-  },
-  {
-   "sym": "AIOT",
-   "name": "PowerFleet Inc.",
-   "hour": "bmo",
-   "epsEst": -0.0061,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "BANX",
-   "name": "ArrowMark Financial Corp.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "CHAI",
-   "name": "Core AI Holdings Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "CODA",
-   "name": "Coda Octopus Group Inc. Common stock",
-   "hour": "bmo",
-   "epsEst": 0.1326,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "DDDX",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "DIDIY",
-   "name": null,
-   "hour": "",
-   "epsEst": -0.0052,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "DOMO",
-   "name": "Domo Inc. Class B",
-   "hour": "amc",
-   "epsEst": -0.0673,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "EBZT",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "ENZ",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "IGC",
-   "name": "IGC Pharma Inc.",
-   "hour": "",
-   "epsEst": -0.0212,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "JRSH",
-   "name": "Jerash Holdings (US) Inc.",
-   "hour": "bmo",
-   "epsEst": -0.0102,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "KCRD",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "KOAN",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "LVO",
-   "name": "LiveOne Inc.",
-   "hour": "amc",
-   "epsEst": -0.2929,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "NMEX",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "POWW",
-   "name": "Outdoor Holding Company",
-   "hour": "",
-   "epsEst": -0.0102,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "RFIL",
-   "name": "RF Industries Ltd.",
-   "hour": "amc",
-   "epsEst": 0.0918,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "RYES",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "SENR",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "SNOA",
-   "name": "Sonoma Pharmaceuticals Inc.",
-   "hour": "amc",
-   "epsEst": -0.204,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "SNRG",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "STRM",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "TBHC",
-   "name": null,
-   "hour": "",
-   "epsEst": -0.663,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "TVTV",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "VNCE",
-   "name": "Vince Holding Corp.",
-   "hour": "",
-   "epsEst": -0.1326,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "VTGN",
-   "name": "Vistagen Therapeutics Inc.",
-   "hour": "amc",
-   "epsEst": -0.3434,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "XAIR",
-   "name": "Beyond Air Inc.",
-   "hour": "amc",
-   "epsEst": -0.578,
-   "date": "2026-06-15"
-  },
-  {
-   "sym": "ZEOX",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-15"
-  }
- ],
- "news": [
-  {
-   "h": "Fox to buy streaming device maker Roku for $22 billion",
-   "src": "CNBC",
-   "sum": "Fox, the owner of the news and sports networks, said it has reached a deal to acquire Roku for about $22 billion in enterprise value."
-  },
-  {
-   "h": "Shippers remain cautious on Hormuz strait transit after US and Iran agree deal - Reuters",
-   "src": "Reuters",
-   "sum": "Shippers remain cautious on Hormuz strait transit after US and Iran agree deal  Reuters"
-  },
-  {
-   "h": "STOXX 600 hits record high after US-Iran preliminary peace deal - Reuters",
-   "src": "Reuters",
-   "sum": "STOXX 600 hits record high after US-Iran preliminary peace deal  Reuters"
-  },
-  {
-   "h": "Why an Iran peace deal won't pull the yen back from the brink - Reuters",
-   "src": "Reuters",
-   "sum": "Why an Iran peace deal won't pull the yen back from the brink  Reuters"
-  },
-  {
-   "h": "China bonds emerge as surprise haven as Iran war reshapes portfolios - Reuters",
-   "src": "Reuters",
-   "sum": "China bonds emerge as surprise haven as Iran war reshapes portfolios  Reuters"
-  },
-  {
-   "h": "Iran, US agree to halt war and reopen Hormuz, sending oil prices tumbling - Reuters",
-   "src": "Reuters",
-   "sum": "Iran, US agree to halt war and reopen Hormuz, sending oil prices tumbling  Reuters"
-  },
-  {
-   "h": "G7 leaders meet in France after U.S. and Iran declare agreement to end war - Reuters",
-   "src": "Reuters",
-   "sum": "G7 leaders meet in France after U.S. and Iran declare agreement to end war  Reuters"
-  },
-  {
-   "h": "Iran peace deal won't change BOJ's rate-hike plans, ex-central bank economist says - Reuters",
-   "src": "Reuters",
-   "sum": "Iran peace deal won't change BOJ's rate-hike plans, ex-central bank economist says  Reuters"
-  },
-  {
-   "h": "Indian rupee, bonds to get a boost from Iran peace deal, eye Fed move - Reuters",
-   "src": "Reuters",
-   "sum": "Indian rupee, bonds to get a boost from Iran peace deal, eye Fed move  Reuters"
-  },
-  {
-   "h": "Japanese shippers await details on Hormuz reopening, mine clearance - Reuters",
-   "src": "Reuters",
-   "sum": "Japanese shippers await details on Hormuz reopening, mine clearance  Reuters"
-  },
-  {
-   "h": "Trump veers toward exit in Iran war but risks loom - Reuters",
-   "src": "Reuters",
-   "sum": "Trump veers toward exit in Iran war but risks loom  Reuters"
-  },
-  {
-   "h": "Dollar hovers around 10-day low as US, Iran reach peace deal - Reuters",
-   "src": "Reuters",
-   "sum": "Dollar hovers around 10-day low as US, Iran reach peace deal  Reuters"
-  },
-  {
-   "h": "Gold hits near one-week high after US-Iran peace deal - Reuters",
-   "src": "Reuters",
-   "sum": "Gold hits near one-week high after US-Iran peace deal  Reuters"
-  },
-  {
-   "h": "Global leaders react to announcement of US-Iran peace agreement - Reuters",
-   "src": "Reuters",
-   "sum": "Global leaders react to announcement of US-Iran peace agreement  Reuters"
-  },
-  {
-   "h": "VIEW Markets cheer Iran deal, wait for oil to start flowing - Reuters",
-   "src": "Reuters",
-   "sum": "VIEW Markets cheer Iran deal, wait for oil to start flowing  Reuters"
-  },
-  {
-   "h": "UK, France, Germany and Italy ready to lift Iran sanctions after US-Iran deal - Reuters",
-   "src": "Reuters",
-   "sum": "UK, France, Germany and Italy ready to lift Iran sanctions after US-Iran deal  Reuters"
-  },
-  {
-   "h": "Shares and bonds surge, oil slides on Iran deal - Reuters",
-   "src": "Reuters",
-   "sum": "Shares and bonds surge, oil slides on Iran deal  Reuters"
-  },
-  {
-   "h": "Fragile Iran deal offers oil relief, but Hormuz risks remain - Reuters",
-   "src": "Reuters",
-   "sum": "Fragile Iran deal offers oil relief, but Hormuz risks remain  Reuters"
-  }
- ]
+ "earnings": []
 }

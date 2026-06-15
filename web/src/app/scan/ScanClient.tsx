@@ -90,6 +90,7 @@ export default function ScanClient() {
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [aPanels, setAPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });  // A股五方
   const [aQuotes, setAQuotes] = useState<Record<string, { price: number | null; pct: number | null; vol: number | null; mcapYi: number | null }>>({});  // A股实时(腾讯)
+  const [aIndustry, setAIndustry] = useState<Record<string, string>>({});  // A股真·产业板块(新浪+概念,非题材)
   const [loading, setLoading] = useState(true);
   const [priceFlash, setPriceFlash] = useState<Record<string, "up" | "down">>({});
   const pricesRef = useRef<Record<string, number>>({});
@@ -117,6 +118,8 @@ export default function ScanClient() {
       .then((a) => setItems(a as AleabitManifestEntry[])).catch(() => { aLoaded.current = false; });
     fetch("/data/a-panel-summary.json").then((r) => r.json())
       .then((p) => setAPanels(p as UsPanelSummary)).catch(() => {});
+    fetch("/data/a-industry.json").then((r) => r.json())
+      .then((m) => setAIndustry(m as Record<string, string>)).catch(() => {});
   }, [market]);
   // A股实时行情(腾讯,服务端 60s 缓存)→ 价格/涨跌/成交量/市值,与美股 /api/market 对齐
   useEffect(() => {
@@ -248,20 +251,18 @@ export default function ScanClient() {
     [usStocks],
   );
 
-  // A 股也整成 UsSec → 复用美股同一张表(行情来自腾讯,市值=亿RMB,行业=首个非噪声概念)
-  const A_NOISE = useMemo(() => new Set(["上证50", "沪深300", "中证500", "中证100", "创业板", "科创板", "科创50", "权重股", "大盘股", "中盘股", "小盘股", "百元股", "周期股", "蓝筹股", "中盘成长", "大盘成长"]), []);
+  // A 股也整成 UsSec → 复用美股同一张表(行情来自腾讯,市值=亿RMB,行业=真·产业板块 a-industry)
   const aSecs: UsSec[] = useMemo(
     () => items.map((i) => {
       const q = aQuotes[i.code];
-      const ind = (i.concepts || []).find((c) => !A_NOISE.has(c)) || "";
       return {
         sym: i.code, name: i.name, price: q?.price ?? null, pct: q?.pct ?? null,
         mcapB: q?.mcapYi ?? i.market_cap_yi ?? null,   // A 股这里装的是「亿 RMB」,显示按 market 区分
-        sector: ind, industry: "", vol: q?.vol ?? null, country: "CN",
+        sector: aIndustry[i.code] || "", industry: "", vol: q?.vol ?? null, country: "CN",
         type: "stock" as const, ret1y: null,
       };
     }),
-    [items, aQuotes, A_NOISE],
+    [items, aQuotes, aIndustry],
   );
 
   function toggle(set: Set<string>, key: string, setter: (s: Set<string>) => void) {

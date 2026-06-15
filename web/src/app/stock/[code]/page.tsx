@@ -7,6 +7,7 @@ import { loadDilutionFlags } from "@/lib/dilution";
 import { loadUsPanel } from "@/lib/us-panel";
 import { loadStockTypes } from "@/lib/stock-type";
 import { loadFundamentals } from "@/lib/fundamentals";
+import { fetchAFundamentals } from "@/lib/a-fundamentals";
 import { loadNews } from "@/lib/news";
 import { loadEarnings } from "@/lib/earnings";
 import { loadOptions } from "@/lib/options";
@@ -15,6 +16,7 @@ import DilutionWarning from "./DilutionWarning";
 import MasterPanel from "./MasterPanel";
 import StockTypeCard from "./StockTypeCard";
 import FundamentalsStrip from "./FundamentalsStrip";
+import AStatsStrip from "./AStatsStrip";
 import NewsStrip from "./NewsStrip";
 import EarningsChip from "./EarningsChip";
 import OptionsGammaLine from "./OptionsGammaLine";
@@ -133,7 +135,8 @@ export default async function StockDetailPage({
   // 五方面板:有就显示(美股全量 + 已录入五方的 A 股,如 688017 绿的谐波)
   const usPanel = loadUsPanel(code);
   const stockTypes = loadStockTypes(code); // 类型轴:先定该用什么尺子量
-  const fundamentals = loadFundamentals(code); // 真实基本面(Yahoo)
+  const fundamentals = loadFundamentals(code); // 真实基本面(Yahoo,美股)
+  const aFund = market === "a" ? await fetchAFundamentals(code) : null; // A 股盘面(腾讯,实时 PE/PB/换手)
   const news = loadNews(code); // 个股新闻(Google News)
   const earnings = loadEarnings(code); // 下次财报(Finnhub,需 key)
   const options = loadOptions(code); // 期权 gamma(Polygon,需 key)
@@ -220,6 +223,12 @@ export default async function StockDetailPage({
       {fundamentals && (
         <div className="mb-4">
           <FundamentalsStrip f={fundamentals} types={stockTypes} />
+        </div>
+      )}
+
+      {aFund && (
+        <div className="mb-4">
+          <AStatsStrip f={aFund} />
         </div>
       )}
 

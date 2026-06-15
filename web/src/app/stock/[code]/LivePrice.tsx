@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { marketStatus, type MktState } from "@/lib/market-status";
 
+type MktInfo = { state: MktState; label: string };
+
 // Yahoo 符号:US 直用代码;A股 6→.SS / 0·3→.SZ;港股补零 .HK
 function yahooSym(code: string, market: string): string {
   if (market === "a") {
@@ -29,15 +31,15 @@ export default function LivePrice({
   const ysym = yahooSym(code, market);
   const [q, setQ] = useState<Q>({ price: initialPrice ?? null, pct: null });
   const [flash, setFlash] = useState<"" | "up" | "down">("");
-  const [mkt, setMkt] = useState<MktState | null>(null);
+  const [mkt, setMkt] = useState<MktInfo | null>(null);
   const prev = useRef<number | null>(initialPrice ?? null);
 
   useEffect(() => {
-    const tick = () => setMkt(marketStatus(new Date()).state);
+    const tick = () => setMkt(marketStatus(new Date(), market));
     tick();
     const id = setInterval(tick, 60_000);
     return () => clearInterval(id);
-  }, []);
+  }, [market]);
 
   useEffect(() => {
     let alive = true;
@@ -66,13 +68,16 @@ export default function LivePrice({
   if (q.price == null) return null;
   const up = (q.pct ?? 0) >= 0;
   const cur = market === "us" ? "$" : "";
-  // 美股优先用 API 的 session(权威);A/港股回退到客户端美东时段(沿用旧行为)
+  // 美股优先用 API 的 session(权威);A/港股按交易所所在时区算盘口状态(北京/香港时间)
   const sess: "pre" | "regular" | "post" | "closed" | MktState =
-    market === "us" && q.session ? q.session : (mkt ?? "closed");
+    market === "us" && q.session ? q.session : (mkt?.state ?? "closed");
   const live = sess === "regular" || sess === "open";
+  // 美股用简短口径(实时/盘前/盘后/休市);A/港股直接用 market-status 的精确标签(交易中/午间休市/已收盘…)
   const sessLabel =
-    sess === "pre" ? "盘前" : live ? "实时" : sess === "post" ? "盘后" : "休市";
-  const ext = sess === "pre" || sess === "post"; // 延伸时段:显示昨收做基准
+    market === "us"
+      ? sess === "pre" ? "盘前" : live ? "实时" : sess === "post" ? "盘后" : "休市"
+      : (mkt?.label ?? "休市");
+  const ext = market === "us" && (sess === "pre" || sess === "post"); // 延伸时段:显示昨收做基准
   return (
     <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
       <span

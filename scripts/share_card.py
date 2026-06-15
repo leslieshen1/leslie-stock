@@ -17,6 +17,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -35,8 +36,13 @@ PUB = ROOT / "web" / "public" / "data"
 ASSETS = ROOT / "assets" / "brand-ainvest"
 LOGO_SKILL = Path.home() / ".claude" / "skills" / "ainvest-design" / "assets" / "stock-logos"
 LOGO_CACHE = ASSETS / "stock-logos"   # parqet 下载缓存(入库,跑一次永久复用)
-OUT_DIR = Path.home() / "Downloads" / "AInvest卡片"   # 专属文件夹,好找
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# 本地默认落 Downloads 好找;CI 用 CARD_OUT_DIR 指到仓库内目录(再 commit 出去)
+OUT_DIR = Path(os.environ.get("CARD_OUT_DIR") or (Path.home() / "Downloads" / "AInvest卡片"))
+# Chrome 路径:env 优先 → Linux 常见二进制(CI) → Mac 默认
+CHROME = (os.environ.get("CHROME_BIN")
+          or shutil.which("google-chrome-stable") or shutil.which("google-chrome")
+          or shutil.which("chromium-browser") or shutil.which("chromium")
+          or "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 
 NH = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
       "accept": "application/json", "origin": "https://www.nasdaq.com", "referer": "https://www.nasdaq.com/"}

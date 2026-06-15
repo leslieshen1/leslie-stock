@@ -1,0 +1,71 @@
+name: premarket-report-card
+
+# 盘前报告(gpt-5.5)+ 分享卡片 —— 全程线上,脱离本地 Mac。
+# 08:30 ET = 12:30 UTC(EDT;冬令时会变 07:30 ET,可接受)。开盘前约 1h。
+# 报告发布到 /reports(git push → Vercel Git 集成自动部署);卡片落 data/cards/ 一并提交。
+on:
+  schedule:
+    - cron: "30 12 * * 1-5"
+  workflow_dispatch: {}
+
+concurrency:
+  group: premarket
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  premarket:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Sync Python deps
+        run: uv sync
+
+      - name: Install Chrome (卡片渲染用)
+        run: |
+          wget -q -O /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get update -q
+          sudo apt-get install -y /tmp/chrome.deb
+
+      - name: 盘前报告(gpt-5.5)→ 发布 → 卡片
+        env:
+          NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
+          NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
+          FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
+          CARD_OUT_DIR: data/cards
+          CHROME_BIN: /usr/bin/google-chrome-stable
+        run: |
+          set -e
+          ET_DATE=$(TZ=America/New_York date +%Y-%m-%d)
+          ET_YMD=$(TZ=America/New_York date +%Y%m%d)
+          # 1) 报告(gpt-5.5;云端无邮件 secret → --no-email)
+          uv run python scripts/premarket_report.py --no-email
+          MD="data/reports/premarket_${ET_YMD}.md"
+          TITLE=$(head -1 "$MD" | sed 's/^# *//')
+          # 2) 发布到 /reports
+          uv run python scripts/publish_report.py --type premarket --time "08:30 ET" \
+            --title "$TITLE" --file "$MD" --date "$ET_DATE"
+          # 3) 分享卡片(渲染失败不阻塞报告发布)
+          uv run python scripts/share_card.py --type premarket || echo "⚠ 卡片渲染失败,跳过(报告已发)"
+
+      - name: Commit & push(触发 Vercel Git 集成部署)
+        run: |
+          git config user.name "premarket-bot"
+          git config user.email "premarket-bot@users.noreply.github.com"
+          git add web/public/data/reports.json data/reports/ data/cards/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "无变化,跳过"; exit 0; fi
+          git commit -m "report: 盘前报告 + 卡片 $(TZ=America/New_York date +%F)(线上 gpt-5.5)"
+          for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { safeCode, safeUnder } from "./sanitize";
 
 export type Stance = { verdict: string; score: number; judgment: string; reasoning: string };
 export type UsPanel = {
@@ -21,13 +22,15 @@ export type UsPanel = {
 };
 
 export function loadUsPanel(sym: string): UsPanel | null {
-  const s = sym.toUpperCase();
+  const c = safeCode(sym);
+  if (!c) return null;
+  const s = c.toUpperCase();
   // A 股代码是纯数字(如 600519)→ 找 a-panels/;美股是字母 → us-panels/。无冲突。
-  const dir = /^\d+$/.test(sym) ? "a-panels" : "us-panels";
+  const dir = /^\d+$/.test(c) ? "a-panels" : "us-panels";
   const candidates = [
-    path.join(process.cwd(), "public", "data", dir, `${s}.json`),
-    path.resolve(process.cwd(), "..", "web", "public", "data", dir, `${s}.json`),
-  ];
+    safeUnder(path.join(process.cwd(), "public", "data", dir), `${s}.json`),
+    safeUnder(path.resolve(process.cwd(), "..", "web", "public", "data", dir), `${s}.json`),
+  ].filter((p): p is string => !!p);
   for (const p of candidates) {
     try {
       const raw = fs.readFileSync(p, "utf-8");

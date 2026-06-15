@@ -3,6 +3,7 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { LESLIE_STOCK_ROOT, ANALYSES_DIRECTORY, loadAnalysis } from "@/lib/data";
+import { safeCode, safeMarket } from "@/lib/sanitize";
 
 type Status = "ok" | "pending" | "absent";
 
@@ -16,13 +17,17 @@ export async function GET(
 ) {
   const { code } = await ctx.params;
   const url = new URL(req.url);
-  const market = (url.searchParams.get("market") || "a").toLowerCase();
+  const c = safeCode(code);
+  const m = safeMarket(url.searchParams.get("market") || "a");
+  if (!c || !m) {
+    return NextResponse.json({ status: "absent" as Status }, { status: 400 });
+  }
 
-  const data = loadAnalysis(code, market);
+  const data = loadAnalysis(c, m);
   if (data) {
     return NextResponse.json({ status: "ok" as Status, data });
   }
-  if (fs.existsSync(lockPath(code, market))) {
+  if (fs.existsSync(lockPath(c, m))) {
     return NextResponse.json({ status: "pending" as Status });
   }
   return NextResponse.json({ status: "absent" as Status }, { status: 404 });
@@ -34,7 +39,11 @@ export async function POST(
 ) {
   const { code } = await ctx.params;
   const url = new URL(req.url);
-  const market = (url.searchParams.get("market") || "a").toLowerCase();
+  const c = safeCode(code);
+  const m = safeMarket(url.searchParams.get("market") || "a");
+  if (!c || !m) {
+    return NextResponse.json({ status: "absent" as Status }, { status: 400 });
+  }
   const force = url.searchParams.get("force") === "1";
 
   // 云端部署：只读 cache，不能 spawn Python
@@ -42,7 +51,7 @@ export async function POST(
   const readOnly = !!process.env.VERCEL || process.env.READ_ONLY === "1";
 
   if (readOnly) {
-    const cached = loadAnalysis(code, market);
+    const cached = loadAnalysis(c, m);
     if (cached) {
       return NextResponse.json({ status: "ok" as Status, data: cached });
     }
@@ -57,14 +66,14 @@ export async function POST(
   }
 
   // 本地：可以 spawn Python 子进程跑新分析
-  const lock = lockPath(code, market);
+  const lock = lockPath(c, m);
 
   if (fs.existsSync(lock)) {
     return NextResponse.json({ status: "pending" as Status });
   }
 
   if (!force) {
-    const cached = loadAnalysis(code, market);
+    const cached = loadAnalysis(c, m);
     if (cached) {
       return NextResponse.json({ status: "ok" as Status, data: cached });
     }
@@ -73,12 +82,12 @@ export async function POST(
   fs.mkdirSync(ANALYSES_DIRECTORY, { recursive: true });
   fs.writeFileSync(lock, new Date().toISOString());
 
-  const args = ["run", "python", "-m", "screener.analyze_one", code, market, "--quiet"];
+  const args = ["run", "python", "-m", "screener.analyze_one", c, m, "--quiet"];
   if (force) args.push("--force");
 
   const uvBin = process.env.UV_BIN || "/opt/homebrew/bin/uv";
 
-  const logFile = path.join(ANALYSES_DIRECTORY, `${code}_${market}.log`);
+  const logFile = path.join(ANALYSES_DIRECTORY, `${c}_${m}.log`);
   const out = fs.openSync(logFile, "w");
   const err = fs.openSync(logFile, "a");
 

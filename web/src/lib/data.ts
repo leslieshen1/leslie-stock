@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { parse } from "csv-parse/sync";
 import { marked } from "marked";
+import { safeCode, safeMarket, safeUnder } from "./sanitize";
 
 // 数据目录优先级：web/data（部署用）→ ../data（本地开发回退）
 const WEB_DATA = path.join(process.cwd(), "data");
@@ -288,8 +289,10 @@ export type NewsAnalysis = {
 };
 
 export function loadNewsAnalysis(code: string, market: string): NewsAnalysis | null {
-  const p = path.join(LESLIE_STOCK_ROOT, "data", "news_analyzed", `${code}_${market}.json`);
-  if (!fs.existsSync(p)) return null;
+  const c = safeCode(code), m = safeMarket(market);
+  if (!c || !m) return null;
+  const p = safeUnder(path.join(LESLIE_STOCK_ROOT, "data", "news_analyzed"), `${c}_${m}.json`);
+  if (!p || !fs.existsSync(p)) return null;
   try {
     return JSON.parse(fs.readFileSync(p, "utf-8")) as NewsAnalysis;
   } catch {
@@ -399,8 +402,10 @@ export function loadAleabitManifest(): AleabitManifestEntry[] {
 }
 
 export function loadAnalysis(code: string, market: string): Analysis | null {
-  const p = path.join(ANALYSES_DIR, `${code}_${market}.json`);
-  if (!fs.existsSync(p)) return null;
+  const c = safeCode(code), m = safeMarket(market);
+  if (!c || !m) return null;
+  const p = safeUnder(ANALYSES_DIR, `${c}_${m}.json`);
+  if (!p || !fs.existsSync(p)) return null;
   try {
     return JSON.parse(fs.readFileSync(p, "utf-8")) as Analysis;
   } catch {
@@ -409,11 +414,17 @@ export function loadAnalysis(code: string, market: string): Analysis | null {
 }
 
 export function analysisExists(code: string, market: string): boolean {
-  return fs.existsSync(path.join(ANALYSES_DIR, `${code}_${market}.json`));
+  const c = safeCode(code), m = safeMarket(market);
+  if (!c || !m) return false;
+  const p = safeUnder(ANALYSES_DIR, `${c}_${m}.json`);
+  return !!p && fs.existsSync(p);
 }
 
 export function analysisPending(code: string, market: string): boolean {
-  return fs.existsSync(path.join(ANALYSES_DIR, `${code}_${market}.lock`));
+  const c = safeCode(code), m = safeMarket(market);
+  if (!c || !m) return false;
+  const p = safeUnder(ANALYSES_DIR, `${c}_${m}.lock`);
+  return !!p && fs.existsSync(p);
 }
 
 export function formatMarketCap(v: number | null): string {

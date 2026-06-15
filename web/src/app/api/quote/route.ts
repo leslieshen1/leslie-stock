@@ -1,5 +1,8 @@
 // 实时个股报价。美股走 Nasdaq(盘前/盘后/盘中都给真价 + session + 昨收),A股/港股走 Yahoo。
 // /api/quote?syms=NVDA,AAPL,688017.SS —— US 传纯代码;A股带 .SS/.SZ,港股 .HK。
+// 放量护栏:每 IP 限流 + 每代码 12s 合并缓存 + 上游超时 + 失败回退"上次好值"(见 api-guard)。
+import { clientIp, rateLimit, tooMany, cacheGet, cacheSet, fetchWithTimeout } from "@/lib/api-guard";
+
 export const dynamic = "force-dynamic";
 
 type Quote = {
@@ -32,9 +35,10 @@ const KNOWN_ETFS = new Set(["QQQ", "SPY", "DIA", "IWM", "GLD", "SLV", "TLT", "HY
 // assetclass 必须匹配证券类型:对 ETF(SPY/QQQ…)用 stocks 会 400,所以失败时回退 etf。
 async function usQuote(sym: string, assetclass: "stocks" | "etf" = "stocks"): Promise<Quote | null> {
   try {
-    const r = await fetch(
+    const r = await fetchWithTimeout(
       `https://api.nasdaq.com/api/quote/${encodeURIComponent(sym)}/info?assetclass=${assetclass}`,
-      { headers: NH, cache: "no-store" }
+      { headers: NH, cache: "no-store" },
+      7000,
     );
     if (!r.ok) return assetclass === "stocks" ? usQuote(sym, "etf") : null;
     const d = (await r.json())?.data;
@@ -62,7 +66,7 @@ async function usQuote(sym: string, assetclass: "stocks" | "etf" = "stocks"): Pr
 async function yahooQuote(sym: string): Promise<Quote | null> {
   try {
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=5m&range=1d`;
-    const r = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" }, cache: "no-store" });
+    const r = await fetchWithTimeout(url, { headers: { "user-agent": "Mozilla/5.0" }, cache: "no-store" }, 7000);
     if (!r.ok) return null;
     const m = (await r.json())?.chart?.result?.[0]?.meta;
     const price = m?.regularMarketPrice;
@@ -76,6 +80,10 @@ async function yahooQuote(sym: string): Promise<Quote | null> {
 }
 
 export async function GET(req: Request) {
+  // 限流:每 IP 200 次/分钟。正常单页轮询 ~3-9 次/分,留足余量,只挡机器人/爬虫。
+  const rl = rateLimit(`quote:${clientIp(req)}`, 200, 60_000);
+  if (!rl.ok) return tooMany(rl.retryAfter);
+
   const syms = (new URL(req.url).searchParams.get("syms") || "")
     .split(",")
     .map((s) => s.trim())
@@ -84,11 +92,30 @@ export async function GET(req: Request) {
   const out: Record<string, Quote> = {};
   await Promise.all(
     syms.map(async (sym) => {
+      const up = sym.toUpperCase();
+      // 12s 合并缓存:多客户端/快速轮询同一代码时,不重复打上游
+      const hit = cacheGet<Quote>(`q:${up}`);
+      if (hit) {
+        out[up] = hit;
+        return;
+      }
       const q = isUS(sym)
-        ? await usQuote(sym, KNOWN_ETFS.has(sym.toUpperCase()) ? "etf" : "stocks")
+        ? await usQuote(sym, KNOWN_ETFS.has(up) ? "etf" : "stocks")
         : await yahooQuote(sym);
-      if (q) out[sym.toUpperCase()] = q;
+      if (q) {
+        out[up] = q;
+        cacheSet(`q:${up}`, q, 12_000); // 短缓存:合并轮询
+        cacheSet(`good:${up}`, q, 30 * 60_000); // 上次好值:上游挂了用它兜底
+      } else {
+        // 降级:上游超时/失败 → 返回最近一次好值,避免价格变空白
+        const good = cacheGet<Quote>(`good:${up}`);
+        if (good) out[up] = good;
+      }
     })
   );
-  return Response.json({ quotes: out, ts: Date.now() }, { headers: { "cache-control": "no-store" } });
+  return Response.json(
+    { quotes: out, ts: Date.now() },
+    // 同一代码 URL 在边缘也短缓存,热门票多人同看时进一步削上游
+    { headers: { "cache-control": "s-maxage=8, stale-while-revalidate=20" } },
+  );
 }

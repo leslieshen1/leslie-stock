@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "node:fs";
 import path from "node:path";
+import { clientIp, rateLimit, tooMany } from "@/lib/api-guard";
 
 type ManifestItem = {
   code: string;
@@ -115,6 +116,10 @@ function loadManifest(): ManifestItem[] {
 }
 
 export async function GET(req: Request) {
+  // 限流:每 IP 120 次/分钟(防止有人用搜索接口整库爬取)
+  const rl = rateLimit(`search:${clientIp(req)}`, 120, 60_000);
+  if (!rl.ok) return tooMany(rl.retryAfter);
+
   const url = new URL(req.url);
   const q = (url.searchParams.get("q") || "").trim().toLowerCase();
   const limit = Number(url.searchParams.get("limit") || "12");

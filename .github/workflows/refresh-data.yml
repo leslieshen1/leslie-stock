@@ -50,20 +50,21 @@ jobs:
             git push
           fi
 
-      # 部署:仅当配了 VERCEL_TOKEN 才走 CLI 部署;没配则跳过(不再让整个 run 变红)。
-      # 未配 token 时,上一步 git push 到 main 会由 Vercel 的 Git 集成自动部署
+      # 部署:配了 VERCEL_TOKEN 才走 CLI 部署;没配则跳过(不再让整个 run 变红)。
+      # 未配 token 时,上一步 git push 到 main 由 Vercel Git 集成自动部署
       # (vercel.json: git.deploymentEnabled.main = true),数据照样上线。
+      # 注:GitHub Actions 不允许在 step 的 if: 里引用 secrets,故在 bash 里判空。
       - name: Deploy to Vercel (CLI, 可选)
-        if: ${{ success() && secrets.VERCEL_TOKEN != '' }}
+        if: success()
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "未配 VERCEL_TOKEN —— 跳过 CLI 部署,改由 git push→main 经 Vercel Git 集成自动部署。"
+            exit 0
+          fi
           cd web
           npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
           npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN
-
-      - name: 部署方式说明
-        if: ${{ success() && secrets.VERCEL_TOKEN == '' }}
-        run: echo "未配 VERCEL_TOKEN —— 跳过 CLI 部署,改由 git push→main 触发 Vercel Git 集成自动部署。"

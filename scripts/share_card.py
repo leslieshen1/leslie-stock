@@ -143,7 +143,8 @@ def gather(card_type: str) -> dict:
     nxt = []
     try:
         evs = json.loads((PUB / "market-calendar.json").read_text(encoding="utf-8"))["events"]
-        nxt = [e for e in evs if e.get("hi")][:2]
+        # 不在这里截断;日期临近筛选 + 截断放到渲染时(那边才算 today),避免把远期事件当近期挂
+        nxt = [e for e in evs if e.get("hi")]
     except Exception:
         pass
     # 诚实性:盘口状态和卡片类型必须匹配 —— 不在该时段就自动降级 close,绝不冒充
@@ -367,12 +368,25 @@ def build_html(ctx: dict) -> str:
     if rel0 and rel0.get("est") is not None:
         nxt_html += (f'<span class="nx"><b class="nx-w">Out:</b> <b>{rel0["name"]} {rel0["act"]:g}</b>'
                      f' <span style="color:#64748B">vs {rel0["est"]:g} est</span></span>')
-    for e in ([] if ctx.get("footer_override") else ctx["next"][:2]):
+    # 「Next 24h」只挂真正临近(未来 ≤2 天)的看点。否则会把 9 天后的财报(如 MU 6/24)
+    #  当成 "Wed after the close" 塞进来 → 读者误以为本周/今晚(2026-06-15 MU 事故)。
+    near_next = []
+    if not ctx.get("footer_override"):
+        for e in ctx.get("next", []):
+            try:
+                dd = (datetime.strptime(e["date"], "%Y-%m-%d").date() - today_et).days
+            except Exception:
+                continue
+            if 0 <= dd <= 14:
+                near_next.append(e)
+    for e in near_next[:2]:
         if rel0 and e.get("kind") == "macro" and rel0["name"].split()[0].lower() in e.get("title", "").lower():
             continue  # 已出的不再当"看点"挂着
         try:
             d = datetime.strptime(e["date"], "%Y-%m-%d").date()
-            when = "Today" if d == today_et else "Tomorrow" if (d - today_et).days == 1 else d.strftime("%a")
+            # ≤2 天:Today/Tomorrow,再远(本周内)给「周几 月日」避免歧义
+            when = ("Today" if d == today_et else "Tomorrow" if (d - today_et).days == 1
+                    else d.strftime("%a %-m/%-d"))
         except Exception:
             when = ""
         t_raw = str(e.get("timeET") or "")
@@ -447,7 +461,7 @@ def build_html(ctx: dict) -> str:
   <div class="head">{ctx["headline"]}</div>
   <div class="grid">{idx_cards}</div>
   <div class="panels">{panels_html}</div>
-  <div class="next"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/></svg></span><span class="lab">Next 24h:</span>{nxt_html}</div>
+  <div class="next"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/></svg></span><span class="lab">Upcoming:</span>{nxt_html}</div>
   <div class="aime-glow"></div><div class="ring"></div>
   <img class="aime" src="file://{aime}"/>
   <div class="ft">All times Eastern Time (ET) &middot; Data: Nasdaq &middot; AInvest</div>

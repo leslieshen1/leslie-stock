@@ -124,23 +124,23 @@ def classify(sym: str, name: str) -> tuple[str, str]:
 def verdict(kind: str, expense: float | None) -> dict:
     e = expense
     if kind == "工具":
-        return {"tag": "投机工具", "cls": "down", "why": "杠杆/反向,日内复利损耗,段永平 Stop Doing:不杠杆不做空,不是投资是赌场工具。"}
+        return {"tag": "杠杆 / 反向", "cls": "down", "why": "杠杆与反向产品存在日内复利损耗,偏短线投机工具,不适合长期持有。"}
     if kind == "宽基":
         if e is not None and e <= 0.10:
-            return {"tag": "指数定投友好", "cls": "up", "why": f"低费率宽基({e:g}%)——巴菲特唯一推荐普通人买的东西:长期定投、躺着拿。"}
+            return {"tag": "低费率宽基", "cls": "up", "why": f"宽基指数,费率 {e:g}% 较低,适合长期定投与作为核心持仓。"}
         if e is not None and e <= 0.30:
-            return {"tag": "可长持·费率尚可", "cls": "up", "why": f"宽基底子好,费率 {e:g}% 中等,长持可以但有更便宜的同类。"}
-        return {"tag": "宽基·费率偏高", "cls": "neutral", "why": f"宽基逻辑没错,但费率{'' if e is None else f' {e:g}%'}偏高,长期复利被费率吃掉,找更便宜的。"}
+            return {"tag": "宽基 · 费率适中", "cls": "up", "why": f"宽基指数,费率 {e:g}% 适中,可长期持有,同类中有费率更低者。"}
+        return {"tag": "宽基 · 费率偏高", "cls": "neutral", "why": f"宽基逻辑成立,但费率{'' if e is None else f' {e:g}%'}偏高,长期复利受费率拖累,可比较同类。"}
     if kind == "商品":
-        return {"tag": "配置/对冲·不生息", "cls": "neutral", "why": "商品不产生现金流(巴菲特:黄金不下蛋),只能做配置/对冲,不是生意。"}
+        return {"tag": "商品 · 配置", "cls": "neutral", "why": "商品不产生现金流,适合用于资产配置或对冲,不属于经营性资产。"}
     if kind == "债券":
-        return {"tag": "配置/避险工具", "cls": "neutral", "why": "债券是配置和避险工具,看久期和信用,不是成长资产。"}
+        return {"tag": "债券 · 配置", "cls": "neutral", "why": "债券属于配置与避险工具,关注久期与信用,非成长资产。"}
     if kind in ("行业", "主题"):
         hi = (e is not None and e >= 0.50)
-        return {"tag": "择时押注·看清成分", "cls": "down" if hi else "neutral",
-                "why": f"押注单一{'赛道' if kind=='主题' else '行业'},本质是择时{'+高费率('+format(e,'g')+'%)更要小心' if hi else ''};看清前十大成分再决定。"}
+        return {"tag": "行业 / 主题", "cls": "down" if hi else "neutral",
+                "why": f"押注单一{'主题' if kind=='主题' else '行业'},本质偏择时{'，且费率('+format(e,'g')+'%)偏高' if hi else ''};建议先了解前十大成分。"}
     if kind == "因子策略":
-        return {"tag": "策略增强·懂了再买", "cls": "neutral", "why": "因子/红利/buffer 等策略型,逻辑要自己看懂,别被名字买了。"}
+        return {"tag": "因子 / 策略", "cls": "neutral", "why": "因子、红利、buffer 等策略型产品,需理解其规则与适用场景后再决定。"}
     return {"tag": "看清成分再说", "cls": "neutral", "why": "混合型,先搞清它到底装了什么。"}
 
 
@@ -203,13 +203,13 @@ def blurb(sec: str, sup: str, e: dict) -> str:
     aum_s = f",规模 ${aum / 1e6:.0f}B" if aum and aum >= 1e6 else (f",规模 ${aum / 1e3:.0f}M" if aum else "")
     exp_s = f",费率 {exp:g}%" if exp is not None else ""
     base = {
-        "宽基": f"{sec}指数,一篮子分散持有、适合长期定投的底仓",
-        "行业": f"{sec}行业基金,押注单一板块,本质是择时——看清前十大持仓再决定",
-        "主题": f"{sec}主题基金,押注这条赛道的成长叙事,弹性大波动也大",
-        "因子策略": f"{sec}策略基金,在指数上叠加因子/规则,逻辑得自己看懂别被名字买了",
-        "债券": f"{sec},债券类配置/避险工具,看久期和信用、不是成长资产",
-        "商品": f"{sec},商品类不产生现金流(黄金不下蛋),只能做配置/对冲",
-        "工具": f"{sec}型杠杆/反向工具,日内复利损耗,只适合短线投机不是投资",
+        "宽基": f"{sec}指数基金,分散持有,适合长期定投与作为核心持仓",
+        "行业": f"{sec}行业基金,集中于单一行业,本质偏择时,建议先了解前十大持仓",
+        "主题": f"{sec}主题基金,押注该主题的成长预期,弹性与波动均较大",
+        "因子策略": f"{sec}策略基金,在指数基础上叠加因子或规则,需理解其逻辑后再决定",
+        "债券": f"{sec},属于配置与避险工具,关注久期与信用,非成长资产",
+        "商品": f"{sec},商品不产生现金流,适合用于配置或对冲",
+        "工具": f"{sec}型杠杆 / 反向产品,存在日内复利损耗,仅适合短线交易",
     }.get(sup, f"{sec}")
     return base + exp_s + aum_s + "。"
 

@@ -75,8 +75,8 @@ export default function MasterPanel({ data }: { data: UsPanel }) {
   return (
     <section className="mb-8">
       <header className="mb-3 flex items-baseline gap-3">
-        <h2 className="text-lg font-semibold text-ink">{covered} 方独立判读</h2>
-        <span className="text-xs text-faint">各用各的标尺,可以互相打架——分歧本身是信号</span>
+        <h2 className="text-lg font-semibold text-ink">{covered} 方独立评分</h2>
+        <span className="text-xs text-faint">五位投资人各按自身框架独立评分,分歧越大越值得关注</span>
       </header>
 
       {/* 雷达图 hero:5 方评分即 5 维,形状本身就是分歧 */}
@@ -87,12 +87,12 @@ export default function MasterPanel({ data }: { data: UsPanel }) {
         <div className="flex-1 self-stretch sm:border-l sm:border-line sm:pl-5">
           {data.divergence ? (
             <>
-              <div className="text-xs font-semibold text-accent">⚖ 他们在哪儿打架</div>
+              <div className="text-xs font-semibold text-accent">分歧焦点</div>
               <p className="mt-1.5 text-sm leading-relaxed text-ink">{data.divergence}</p>
             </>
           ) : (
             <p className="text-sm leading-relaxed text-muted">
-              离中心越远 = 那一方越看好;形状越尖、越不规则 = 分歧越大。饱满的五边形才是全员共识。
+              雷达各顶点为一方评分,越靠外评分越高;形状越规整代表五方越一致,越不规则代表分歧越大。
             </p>
           )}
         </div>

@@ -138,7 +138,7 @@ export default function HowToBuyPage() {
 
       {/* 风险 */}
  <section className="mb-10 rounded-2xl border border-down/30 bg-down-soft/50 p-6">
- <h2 className="mb-3 text-base font-semibold text-down"> 必读风险（别跳过）</h2>
+ <h2 className="mb-3 text-base font-semibold text-down"> 必读风险</h2>
  <ul className="space-y-2 text-sm text-down">
           {[
  "仅限非美用户 —— 这些服务一般不对美国居民开放,看你所在地的可用性",
@@ -146,7 +146,7 @@ export default function HowToBuyPage() {
  "监管不确定 —— SEC 上周刚延迟了代币化资产的 innovation exemption,法律框架还在变",
  "对手方风险 —— Binance 走 Nest+Alpaca 分层结构,任一环节出问题可能影响你的持仓",
  "流动性有限 —— 代币化股票二级市场深度不如真交易所,极端行情可能滑点大",
- "自托管风险（Bitget）—— 私钥丢了没人能帮你找回",
+ "自托管风险（Bitget）—— 私钥一旦丢失即无法找回",
           ].map((r, i) => (
  <li key={i} className="flex items-start gap-2">
  <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-down" />

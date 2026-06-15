@@ -1,8 +1,8 @@
 import EtfClient from "./EtfClient";
 
 export const metadata = {
-  title: "ETF · 段永平/巴菲特镜头 | 我不是股神",
-  description: "4500+ 只美股 ETF 的段永平/巴菲特判读:低费率宽基定投友好、行业主题择时押注、杠杆反向是赌场。看清你买的是什么。",
+  title: "ETF · 板块业绩 | 我不是股神",
+  description: "4500+ 只美股 ETF,按跟踪板块归类,提供 1 年 / 5 年回报、最大回撤、费率与规模,并附段永平 / 巴菲特视角的简要判读。",
 };
 
 export const revalidate = 300;

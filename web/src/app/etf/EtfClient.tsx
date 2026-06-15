@@ -78,8 +78,8 @@ export default function EtfClient() {
         <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("ETF · 板块业绩", "ETFs · by sector & track record")}</h1>
         <p className="mt-1.5 text-sm leading-relaxed text-muted">
           {t(
-            "ETF 是篮子不是生意。按它押注的板块归类,看同一条赛道里谁跑得好(1年/5年)、谁回撤狠(最大回撤)。低费率宽基定投友好,杠杆反向是赌场——巴菲特/段永平的话照旧。",
-            "An ETF is a basket. Grouped by the bet it makes — within one lane, who ran (1Y/5Y) and who bled (max drawdown). Low-cost broad index for holding; leveraged/inverse is a casino.",
+            "ETF 按跟踪的板块归类,展示各自的 1 年 / 5 年回报与最大回撤。低费率宽基适合长期持有;杠杆、反向产品波动与损耗较大,仅适合短线。",
+            "ETFs grouped by the sector they track, with 1-year / 5-year return and maximum drawdown. Low-cost broad-market funds suit long-term holding; leveraged and inverse products carry high volatility and decay.",
           )}
         </p>
       </header>

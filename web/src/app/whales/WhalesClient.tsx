@@ -93,11 +93,11 @@ export default function WhalesClient({ investors, congress, avg }: {
  <p className="mt-1.5 text-sm text-muted">
           {lens === "13f"
             ? t(
-                "看仓位占比与变动,不只看谁持有 —— 重仓、试探、派发,是完全不同的信号。",
-                "Watch position size and changes, not just who holds it — a core position, a starter stake and a distribution are very different signals.",
+                "关注仓位占比与季度变动 —— 重仓、建仓与减持代表不同含义,而非仅看是否持有。",
+                "Position size and quarterly change matter, not just whether a name is held — a core holding, a new stake and a reduction each carry different meaning.",
               )
             : t(
-                "国会议员的交易,法律要求在 45 天内公开申报 —— 看谁在买什么、和五方判读对不对得上。",
+                "美国国会议员的证券交易须在 45 天内依法公开申报;结合五方评分查看其买卖标的。",
                 "Members of Congress must disclose trades within 45 days by law — see who's buying what, and whether it lines up with the five-master read.",
               )}
         </p>
@@ -296,7 +296,7 @@ function ConsensusPanel({ con, period }: { con: Con; period: string }) {
       </div>
 
       <p className="mt-4 text-[11px] text-faint">
-        共识 ≠ 正确 —— 大佬扎堆也可能一起踏空。看的是「谁在重仓、谁在加减」,自己判断。
+        共识不等于正确,机构集中持有同样可能集体误判。数据仅反映持仓与变动,供独立判断参考。
       </p>
 
     </section>

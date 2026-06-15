@@ -630,7 +630,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                 {label}
               </button>
             ))}
-            <span className="text-[10px] text-faint">{t("共识好票 = 均分≥60 且分歧≤25(五方都点头);分歧 = 评分极差,越大越有争议", "Consensus Picks = avg ≥60 & divergence ≤25 (all five agree); divergence = score range — higher means more contested")}</span>
+            <span className="text-[10px] text-faint">{t("共识 = 均分 ≥60 且分歧 ≤25(五方评分一致);分歧 = 五方评分极差,数值越大争议越大", "Consensus = avg ≥60 & divergence ≤25 (the five align); divergence = score range, larger means more contested")}</span>
           </div>
         )}
 
@@ -649,7 +649,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                 {k === "all" ? t("不限", "Any") : masterLabel(k, lang)}
               </button>
             ))}
-            <span className="text-[10px] text-faint">{t("叠加生效:可先选「巴菲特」再排「均分」,找他重仓别人嫌弃的票", "Filters stack: pick Buffett then sort by Avg to find names he loves but others shun")}</span>
+            <span className="text-[10px] text-faint">{t("可叠加:先按某位投资人筛选,再按均分排序,定位单一视角与综合评价的差异", "Stackable: filter by one investor, then sort by average to surface single-view vs. consensus gaps")}</span>
           </div>
         )}
 

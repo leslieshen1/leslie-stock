@@ -109,7 +109,7 @@ def gather():
 
 
 PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。现在是美东开盘前约 1 小时(盘前时段)。
-读取文件 {ctxfile}(JSON)。字段含义务必看清:
+下面这条 user 消息给你一份 JSON 数据。字段含义务必看清:
 - direction=四大指数 ETF:pm_pct=盘前涨跌(相对**上一交易日收盘**),yesterday_pct=上一交易日(昨天)当天涨跌。
 - premarket_gainers/losers=按盘前涨跌排序的异动票:pm_pct=盘前(相对昨日收盘),yesterday_pct=**昨天(上一交易日)当天的真实收盘涨跌**,yesterday_close=昨日收盘价。
 - earnings=今明财报、news=隔夜新闻。
@@ -131,6 +131,26 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 只输出第 1-5 节的 markdown 正文,不要外层大标题、不要前后多余的话,不要提'五方'或任何内部产品功能。"""
 
 
+def llm_write(system_prompt: str, ctx: dict) -> str:
+    """NDT gpt-5.5 综述 —— 线上(GitHub Actions)/ 本地同一条 API,不依赖本地 claude CLI。"""
+    key = os.environ.get("NDT_API_KEY")
+    base = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
+    if not key:
+        print("❌ 缺 NDT_API_KEY(.env / GitHub secrets)"); sys.exit(1)
+    try:
+        r = requests.post(f"{base}/v1/chat/completions",
+                          headers={"Authorization": f"Bearer {key}"},
+                          json={"model": "gpt-5.5", "max_tokens": 1800,
+                                "messages": [{"role": "system", "content": system_prompt},
+                                             {"role": "user", "content": json.dumps(ctx, ensure_ascii=False)}]},
+                          timeout=120).json()
+    except Exception as e:
+        print("❌ NDT 请求失败:", e); sys.exit(1)
+    if r.get("error"):
+        print("❌ NDT error:", r["error"]); sys.exit(1)
+    return (r["choices"][0]["message"]["content"] or "").strip()
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     print("📰 抓真盘前数据(Nasdaq)...")
@@ -141,15 +161,17 @@ def main():
     print(f"   盘口 {ctx.get('market_status')} · 方向 " + " ".join(f"{k}{v['pm_pct']}" for k, v in d.items() if v.get("pm_pct"))
           + f" · 异动 {len(ctx.get('premarket_gainers', []))+len(ctx.get('premarket_losers', []))} · 财报 {len(ctx.get('earnings', []))} · 新闻 {len(ctx.get('news', []))}")
 
-    print("🧠 Claude 综述...")
-    r = subprocess.run(["claude", "-p", PROMPT.format(ctxfile=str(ctxfile))],
-                       capture_output=True, text=True, cwd=str(ROOT), timeout=600)
-    report = (r.stdout or "").strip()
+    print("🧠 gpt-5.5 综述(NDT,线上/本地同一条)...")
+    report = llm_write(PROMPT, ctx)
     if not report:
-        print("❌ Claude 无输出:", (r.stderr or "")[:200]); sys.exit(1)
-    # 去掉模型可能自带的大标题/空行(外层已加 H1),避免重复
+        print("❌ gpt-5.5 无输出"); sys.exit(1)
+    # 砍掉模型可能加的 meta 前言/大标题:正文从第一个 ## 二级标题开始(gpt-5.5 偶尔会先写
+    # "我先按…来写:" 这种旁白,甚至和 ## 标题挤在一行,故按 "## " 出现位置切,而非逐行)。
+    cut = report.find("## ")
+    if cut > 0:
+        report = report[cut:]
     lines = report.splitlines()
-    while lines and (lines[0].startswith("# ") or not lines[0].strip()):
+    while lines and (lines[0].startswith("# ") and not lines[0].startswith("## ") or not lines[0].strip()):
         lines.pop(0)
     report = "\n".join(lines).strip()
 

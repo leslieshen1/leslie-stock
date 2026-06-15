@@ -1,11 +1,11 @@
 name: premarket-report-card
 
 # 盘前报告(gpt-5.5)+ 分享卡片 —— 全程线上,脱离本地 Mac。
-# 08:30 ET = 12:30 UTC(EDT;冬令时会变 07:30 ET,可接受)。开盘前约 1h。
+# 北京 20:35 = 12:35 UTC = 美东 08:35 ET(EDT,开盘前约 1h;冬令时变 07:35 ET 可接受)。
 # 报告发布到 /reports(git push → Vercel Git 集成自动部署);卡片落 data/cards/ 一并提交。
 on:
   schedule:
-    - cron: "30 12 * * 1-5"
+    - cron: "35 12 * * 1-5"
   workflow_dispatch: {}
 
 concurrency:

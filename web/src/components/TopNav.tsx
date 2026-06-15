@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import SearchBox from "./SearchBox";
 import MarketStatus from "./MarketStatus";
@@ -28,6 +29,7 @@ const NAV: NavItem[] = [
 export default function TopNav() {
   const pathname = usePathname();
   const { lang, t } = useLang();
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
  <header className="sticky top-0 z-40 border-b border-line bg-base/85 backdrop-blur-md">
@@ -72,7 +74,21 @@ export default function TopNav() {
           })}
         </nav>
 
-        {/* 搜索框 */}
+        {/* 移动/平板搜索入口(SearchBox 在 lg 起才出现,这里补 <lg 的搜索)*/}
+        <button
+          type="button"
+          onClick={() => setSearchOpen((v) => !v)}
+          aria-label={t("搜索", "Search")}
+          aria-expanded={searchOpen}
+          className="ml-auto shrink-0 rounded-lg border border-line bg-surface p-2 text-muted transition hover:text-ink lg:hidden"
+        >
+          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+
+        {/* 搜索框(桌面) */}
  <div className="hidden lg:block w-[260px] shrink-0">
  <SearchBox compact placeholder={t("搜代码 / 名称 / 板块…", "Search ticker / name / sector…")} />
         </div>
@@ -100,6 +116,17 @@ export default function TopNav() {
         </Link>
 
       </div>
+
+      {/* 移动/平板搜索浮层(展开在 bar 下方,选中即关) */}
+      {searchOpen && (
+        <div className="border-t border-line bg-base/95 px-3 py-2.5 backdrop-blur-md lg:hidden">
+          <SearchBox
+            autoFocus
+            placeholder={t("搜代码 / 名称 / 板块…", "Search ticker / name / sector…")}
+            onNavigate={() => setSearchOpen(false)}
+          />
+        </div>
+      )}
     </header>
   );
 }

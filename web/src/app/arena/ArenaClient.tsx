@@ -128,6 +128,13 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
         )}
       </header>
 
+      {/* 法务标注:选手是 AI 按公开方法论的模拟,非本人真实业绩/持仓 */}
+      <p className="mb-4 rounded-lg border border-line bg-surface-2/60 px-3 py-2 text-[11px] leading-relaxed text-muted">
+        <span className="font-semibold text-faint">{t("AI 方法论模拟", "AI methodology simulation")}</span>{" "}
+        {t("—— 五位选手是依据各投资人公开方法论运行的 AI 智能体,其虚拟盘业绩、持仓与决策均由 AI 生成,并非本人真实业绩、持仓或操作。虚拟盘 · 教育用途 · 非投资建议。",
+           "— the five contestants are AI agents run on each investor's publicly known methodology. Their paper-trading performance, holdings, and decisions are AI-generated and are NOT the real person's actual track record, holdings, or actions. Paper trading · educational · not financial advice.")}
+      </p>
+
       {/* 排行榜 · 移动端紧凑行(5 行一屏看完,不滚长卡) */}
       <div className="mb-4 space-y-1.5 sm:hidden">
         {live.map((m, i) => (

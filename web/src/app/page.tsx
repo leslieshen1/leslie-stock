@@ -12,6 +12,7 @@ import {
 import { loadTrends } from "@/lib/pulse-static";
 import MacroBar, { type MacroSeries } from "@/components/MacroBar";
 import PremarketStrip from "@/components/PremarketStrip";
+import OnboardingBanner from "@/components/OnboardingBanner";
 
 // Home = Heatmap（不藏起来）
 async function loadMacro(): Promise<MacroSeries[]> {
@@ -174,6 +175,7 @@ export default async function HomePage({
 
   return (
  <main className="mx-auto max-w-[1480px] px-6 pb-10 pt-3">
+      <OnboardingBanner />
       <MacroBar series={macro} />
       <PremarketStrip />
       <Suspense>

@@ -20,9 +20,11 @@ type SearchResult = {
 type Props = {
   compact?: boolean;     // TopNav 紧凑版
   placeholder?: string;
+  autoFocus?: boolean;   // 移动端浮层打开即聚焦
+  onNavigate?: () => void; // 选中跳转后回调(移动端用于关闭浮层)
 };
 
-export default function SearchBox({ compact = false, placeholder }: Props) {
+export default function SearchBox({ compact = false, placeholder, autoFocus = false, onNavigate }: Props) {
  const [q, setQ] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [open, setOpen] = useState(false);
@@ -77,10 +79,16 @@ export default function SearchBox({ compact = false, placeholder }: Props) {
  return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // 移动端浮层打开即聚焦
+  useEffect(() => {
+    if (autoFocus) inputRef.current?.focus();
+  }, [autoFocus]);
+
   function go(r: SearchResult) {
     router.push(`/stock/${r.code}?market=${r.market}`);
     setOpen(false);
  setQ("");
+    onNavigate?.();
   }
 
   function onKey(e: React.KeyboardEvent) {

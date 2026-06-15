@@ -79,6 +79,12 @@ export default function MasterPanel({ data }: { data: UsPanel }) {
         <span className="text-xs text-faint">五位投资人各按自身框架独立评分,分歧越大越值得关注</span>
       </header>
 
+      {/* 法务标注:人设是 AI 按公开方法论的模拟,非本人真实观点/持仓(放量前必须显著) */}
+      <p className="mb-3 rounded-lg border border-line bg-surface-2/60 px-3 py-2 text-[11px] leading-relaxed text-muted">
+        <span className="font-semibold text-faint">AI 方法论模拟</span> —— 以下五方判读由 AI 依据各投资人公开的投资方法论生成,
+        <span className="font-medium text-ink">并非本人真实观点、发言或持仓</span>,亦不代表其本人。仅供研究参考,非投资建议。
+      </p>
+
       {/* 雷达图 hero:5 方评分即 5 维,形状本身就是分歧 */}
       <div className="mb-4 flex flex-col items-center gap-2 rounded-2xl border border-line bg-base/40 p-4 sm:flex-row sm:gap-5">
         <div className="shrink-0">

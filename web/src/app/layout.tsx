@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Fraunces, Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import TopNav from "@/components/TopNav";
 import MobileTabBar from "@/components/MobileTabBar";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
@@ -63,13 +65,23 @@ export default function RootLayout({
    <T zh="所有内容为信息整理与个人研究记录,非投资建议,不构成对任何证券、平台或交易所的要约或背书。股票、加密货币、代币化资产均涉及重大风险,可能损失全部本金。风险请自行分辨与承担。页面含邀请链接(含返佣)。交易前请自行研究并确认所在司法管辖区的合规性。"
       en="All content is informational and personal research, not investment advice, and is not an offer or endorsement of any security, platform, or exchange. Stocks, crypto, and tokenized assets carry substantial risk including total loss of principal. You are solely responsible for your decisions. Pages may contain referral links. Do your own research and confirm compliance in your jurisdiction." />
             </p>
- <p className="kicker mt-5 !text-faint">© Not a Stock God · Not Financial Advice</p>
+ <p className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[12px]">
+              <Link href="/about" className="text-muted transition hover:text-ink"><T zh="关于 / 方法论" en="About / Methodology" /></Link>
+              <span className="text-line">·</span>
+              <Link href="/terms" className="text-muted transition hover:text-ink"><T zh="服务条款" en="Terms" /></Link>
+              <span className="text-line">·</span>
+              <Link href="/privacy" className="text-muted transition hover:text-ink"><T zh="隐私政策" en="Privacy" /></Link>
+              <span className="text-line">·</span>
+              <Link href="/how-to-buy" className="text-muted transition hover:text-ink"><T zh="如何买" en="How to Buy" /></Link>
+            </p>
+ <p className="kicker mt-4 !text-faint">© Not a Stock God · Not Financial Advice</p>
           </div>
         </footer>
         {/* 底部 Tab 栏占位(仅移动端,防止内容被固定栏遮住) */}
         <div className="h-[58px] md:hidden" />
         <MobileTabBar />
       </LangProvider>
+      <Analytics />
       </body>
     </html>
   );

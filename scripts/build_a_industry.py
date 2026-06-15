@@ -124,7 +124,29 @@ def sina_map() -> dict[str, str]:
     return code2
 
 
+def from_opus():
+    """合并 a_industry.workflow(opus 判主业)的 /tmp/aind_*.json → a-industry.json。全覆盖、最准。"""
+    import glob, sys
+    out = {}
+    for f in sorted(glob.glob("/tmp/aind_*.json")):
+        try:
+            for r in json.load(open(f, encoding="utf-8")):
+                if r.get("code") and r.get("ind"):
+                    out[r["code"]] = r["ind"].strip()
+        except Exception:
+            continue
+    OUT.write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
+    dist = Counter(out.values())
+    print(f"✅ a-industry.json(opus)— {len(out)} 只 · {len(dist)} 个产业板块")
+    for name, n in dist.most_common():
+        print(f"     {name}: {n}")
+    sys.exit(0)
+
+
 def main():
+    import sys
+    if "--from-opus" in sys.argv:
+        from_opus()
     man = {x["code"]: x for x in json.loads((PUB / "aleabit_manifest.json").read_text(encoding="utf-8"))}
     print("新浪 49 行业兜底拉取中…")
     sina = sina_map()

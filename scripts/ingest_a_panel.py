@@ -37,6 +37,9 @@ def serenity_master(score, verdict_label: str, thesis: str) -> dict:
             "judgment": (verdict_label or "")[:120], "reasoning": (thesis or "")[:300]}
 
 
+SER_VALID = {"high conviction", "worth watching", "crowded but valid", "not a bottleneck"}
+
+
 def main():
     man = {x["code"]: x for x in json.loads(MAN.read_text(encoding="utf-8"))}
     rows = {}
@@ -51,10 +54,22 @@ def main():
             continue
     print(f"四方有效判读: {len(rows)} 只")
 
+    # Serenity 用她的思维重判(aser_*.json);没有的退回 manifest 映射
+    aser = {}
+    for f in sorted(glob.glob("/tmp/aser_*.json")):
+        try:
+            for r in json.load(open(f, encoding="utf-8")):
+                s = r.get("serenity") or {}
+                if r.get("code") and s.get("verdict") in SER_VALID:
+                    aser[r["code"]] = s
+        except Exception:
+            continue
+    print(f"Serenity 重判: {len(aser)} 只")
+
     analyses, summary = {}, {}
     for code, r in rows.items():
         m = man.get(code, {})
-        ser = serenity_master(m.get("score"), m.get("verdict_label", ""), m.get("thesis", ""))
+        ser = aser.get(code) or serenity_master(m.get("score"), m.get("verdict_label", ""), m.get("thesis", ""))
         panel = {**r["panel"], "serenity": ser}
         scores = []
         for k in ORDER:

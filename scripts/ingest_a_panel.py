@@ -3,7 +3,7 @@
 用法: uv run python scripts/ingest_a_panel.py
 """
 from __future__ import annotations
-import glob, json
+import glob, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -80,10 +80,15 @@ def main():
                 scores.append(None)
         nums = [x for x in scores if x is not None]
         div = round(max(nums) - min(nums)) if len(nums) >= 2 else 0
+        # 分歧文案里 4 方判读时硬写了旧 Serenity 分(如"Serenity 给 78"),Serenity 重判后会对不上 —— 同步成新分
+        div_txt = r.get("divergence", "")
+        ss = ser.get("score")
+        if ss is not None and div_txt:
+            div_txt = re.sub(r"(Serenity[^0-9]{0,8})\d{1,3}", lambda mt: mt.group(1) + str(round(ss)), div_txt, count=1)
         analyses[code] = {"name": m.get("name", code), "cap": m.get("market_cap_yi"),
                           "sector": m.get("sector", ""), "layer": m.get("layer"),
                           "concepts": (m.get("concepts") or [])[:8],
-                          "panel": panel, "divergence": r.get("divergence", "")}
+                          "panel": panel, "divergence": div_txt}
         summary[code] = {"sc": scores, "div": div}
 
     (PUB / "a-analyses.json").write_text(
@@ -91,7 +96,6 @@ def main():
     (PUB / "a-panel-summary.json").write_text(
         json.dumps({"order": ORDER, "stocks": summary}, ensure_ascii=False), encoding="utf-8")
     # 逐 code 拆分(详情页按需读一只)—— 字段对齐 us-panels/,让 A 股详情页与美股完全同构
-    import re
     NOISE = {"上证50", "沪深300", "中证500", "中证100", "创业板", "科创板", "科创50", "权重股",
              "大盘股", "中盘股", "小盘股", "百元股", "周期股", "蓝筹股", "MSCI概念", "富时罗素"}
     def clean_role(thesis: str) -> str:

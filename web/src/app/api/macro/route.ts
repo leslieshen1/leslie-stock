@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { fetchWithTimeout } from "@/lib/api-guard";
 
 // 实时宏观/指数(Yahoo v8 chart,免费无 key)。前端 MacroBar 轮询。
 // fetch 带 revalidate=30 → 服务端 30s 缓存,不砸 Yahoo。失败回落静态 macro.json。
@@ -25,7 +26,7 @@ const SERIES = [
 async function liveOne(sym: string): Promise<{ price: number; pct: number | null } | null> {
   try {
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=5m&range=1d`;
-    const r = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" }, next: { revalidate: 30 } });
+    const r = await fetchWithTimeout(url, { headers: { "user-agent": "Mozilla/5.0" }, next: { revalidate: 30 } }, 6000);
     if (!r.ok) return null;
     const m = (await r.json())?.chart?.result?.[0]?.meta;
     const price = m?.regularMarketPrice;

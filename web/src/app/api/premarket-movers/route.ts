@@ -1,5 +1,8 @@
 // 盘前/盘后异动条数据源。盘前时段拉一批流动性大票的 Nasdaq 盘前价,返回涨跌前几名。
-// 整盘 screener 盘前只给收盘价,所以这里逐只拉(固定 ~40 只)+ 60s 内存缓存,避免打爆。
+// 整盘 screener 盘前只给收盘价,所以这里逐只拉(固定 ~40 只)+ CDN s-maxage 让边缘合并,
+// 避免每个冷实例都对 Nasdaq 打 40 个无超时请求。
+import { clientIp, rateLimit, tooMany, fetchWithTimeout } from "@/lib/api-guard";
+
 export const dynamic = "force-dynamic";
 
 const NH = {
@@ -30,9 +33,10 @@ function num(s: unknown): number | null {
 
 async function one(sym: string): Promise<{ m: Mover; status: string } | null> {
   try {
-    const r = await fetch(
+    const r = await fetchWithTimeout(
       `https://api.nasdaq.com/api/quote/${encodeURIComponent(sym)}/info?assetclass=stocks`,
-      { headers: NH, cache: "no-store" }
+      { headers: NH, cache: "no-store" },
+      5000,
     );
     if (!r.ok) return null;
     const d = (await r.json())?.data;
@@ -53,9 +57,12 @@ async function one(sym: string): Promise<{ m: Mover; status: string } | null> {
 
 let cache: Payload | null = null;
 
-export async function GET() {
+export async function GET(req: Request) {
+  const rl = rateLimit(`pmm:${clientIp(req)}`, 60, 60_000);
+  if (!rl.ok) return tooMany(rl.retryAfter);
+
   if (cache && Date.now() - cache.ts < 60_000) {
-    return Response.json(cache, { headers: { "cache-control": "no-store" } });
+    return Response.json(cache, { headers: { "cache-control": "s-maxage=60, stale-while-revalidate=120" } });
   }
   const settled = await Promise.all(POOL.map(one));
   const rows = settled.filter(Boolean) as { m: Mover; status: string }[];
@@ -70,13 +77,14 @@ export async function GET() {
     : "closed";
   const label = session === "pre" ? "盘前异动" : session === "post" ? "盘后异动" : session === "regular" ? "盘中异动" : "";
   const movers = rows.map((r) => r.m).sort((a, b) => (b.pct ?? -999) - (a.pct ?? -999));
+  // 跌幅榜从「gainers 之后」取,避免存活行数 < 12 时同一只票同时进涨幅榜和跌幅榜
   const payload: Payload = {
     session,
     label,
     gainers: movers.slice(0, 6),
-    losers: movers.slice(-6).reverse(),
+    losers: movers.slice(Math.max(6, movers.length - 6)).reverse(),
     ts: Date.now(),
   };
   cache = payload;
-  return Response.json(payload, { headers: { "cache-control": "no-store" } });
+  return Response.json(payload, { headers: { "cache-control": "s-maxage=60, stale-while-revalidate=120" } });
 }

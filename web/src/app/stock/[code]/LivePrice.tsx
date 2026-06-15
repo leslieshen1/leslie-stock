@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { marketStatus, type MktState } from "@/lib/market-status";
+import { marketStatus, MKT_LABEL_EN, type MktState } from "@/lib/market-status";
+import { useLang } from "@/lib/i18n";
 
 type MktInfo = { state: MktState; label: string };
 
@@ -28,6 +29,7 @@ export default function LivePrice({
 }: {
   code: string; market: "a" | "hk" | "us"; initialPrice?: number | null;
 }) {
+  const { t, lang } = useLang();
   const ysym = yahooSym(code, market);
   const [q, setQ] = useState<Q>({ price: initialPrice ?? null, pct: null });
   const [flash, setFlash] = useState<"" | "up" | "down">("");
@@ -75,8 +77,10 @@ export default function LivePrice({
   // 美股用简短口径(实时/盘前/盘后/休市);A/港股直接用 market-status 的精确标签(交易中/午间休市/已收盘…)
   const sessLabel =
     market === "us"
-      ? sess === "pre" ? "盘前" : live ? "实时" : sess === "post" ? "盘后" : "休市"
-      : (mkt?.label ?? "休市");
+      ? sess === "pre" ? t("盘前", "Pre") : live ? t("实时", "Live") : sess === "post" ? t("盘后", "After") : t("休市", "Closed")
+      : lang === "en"
+        ? (MKT_LABEL_EN[mkt?.label ?? ""] ?? mkt?.label ?? "Closed")
+        : (mkt?.label ?? "休市");
   const ext = market === "us" && (sess === "pre" || sess === "post"); // 延伸时段:显示昨收做基准
   return (
     <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">

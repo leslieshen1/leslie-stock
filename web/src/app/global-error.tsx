@@ -35,9 +35,11 @@ export default function GlobalError({
         <p style={{ fontSize: 13, letterSpacing: "0.2em", color: "#d98a6a", margin: 0 }}>
           NOT A STOCK GOD
         </p>
-        <h1 style={{ fontSize: 20, fontWeight: 600, margin: "16px 0 6px" }}>页面崩了一下</h1>
-        <p style={{ fontSize: 14, color: "#a8a29a", margin: 0, maxWidth: 420, lineHeight: 1.6 }}>
-          Something went wrong —— 刷新页面通常就能恢复。
+        <h1 style={{ fontSize: 20, fontWeight: 600, margin: "16px 0 6px" }}>
+          页面崩了一下 · Something broke
+        </h1>
+        <p style={{ fontSize: 14, color: "#a8a29a", margin: 0, maxWidth: 460, lineHeight: 1.6 }}>
+          刷新页面通常就能恢复。 · Reloading usually fixes it.
         </p>
         <button
           onClick={reset}
@@ -53,7 +55,7 @@ export default function GlobalError({
             cursor: "pointer",
           }}
         >
-          重试
+          重试 · Retry
         </button>
       </body>
     </html>

@@ -84,3 +84,10 @@ export function marketStatus(now: Date, market: Market = "us"): { state: MktStat
   if (market === "hk") return hkStatus(now);
   return usStatus(now);
 }
+
+// 盘口标签中→英(英文模式用)。覆盖美股 + A股 + 港股全部 label。
+export const MKT_LABEL_EN: Record<string, string> = {
+  "周末休市": "Weekend", "假日休市": "Holiday", "开盘中": "Open", "盘前": "Pre",
+  "盘后": "After", "已收盘": "Closed", "集合竞价": "Pre-auction", "开市前": "Pre-open",
+  "交易中": "Live", "午间休市": "Lunch break",
+};

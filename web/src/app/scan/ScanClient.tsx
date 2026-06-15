@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import AiPersonaNote from "@/components/AiPersonaNote";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { AleabitManifestEntry } from "@/lib/data";
@@ -274,6 +275,7 @@ export default function ScanClient() {
 
   return (
     <>
+      <AiPersonaNote className="mb-2.5" />
       {/* 市场切换（默认美股） */}
  <div className="mb-2.5 inline-flex rounded-lg border border-line bg-surface p-0.5 text-sm">
         <button

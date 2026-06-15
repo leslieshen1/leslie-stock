@@ -4,6 +4,7 @@
 // + 全市场实时报价(美股 Nasdaq / A股·港股 Yahoo,经 /api/quote 批量,30s 轮询,变价闪烁)。
 
 import Link from "next/link";
+import AiPersonaNote from "@/components/AiPersonaNote";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useWatchlist, type LocalWatchEntry } from "@/lib/useWatchlist";
 import { useLang } from "@/lib/i18n";
@@ -116,6 +117,7 @@ export default function WatchlistClient() {
 
   return (
     <>
+      <AiPersonaNote className="mb-4" />
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <p className="flex items-center gap-2 text-xs text-muted">
           <span className="font-mono font-semibold text-ink">{items.length}</span> {t("只跟踪中", "tracked")}

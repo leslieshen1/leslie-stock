@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
@@ -111,6 +112,41 @@ function EtfDetail({ etf }: { etf: EtfRec }) {
       <div className="mt-3"><Link href="/etf" className="text-xs font-medium text-accent hover:underline">← 回 ETF 板块业绩</Link></div>
     </main>
   );
+}
+
+// B3:每只票自己的 title/description/OG/canonical(原来 14710 页共用 layout 通用 meta → 长尾 SEO 作废)
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ code: string }>;
+  searchParams: Promise<{ market?: string }>;
+}): Promise<Metadata> {
+  const { code } = await params;
+  const sp = await searchParams;
+  const m = (["a", "hk", "us"].includes((sp.market || "a").toLowerCase()) ? (sp.market || "a").toLowerCase() : "a") as "a" | "hk" | "us";
+
+  if (m === "us") {
+    const etf = await loadEtf(code);
+    if (etf) {
+      const name = etf.name || etf.sym;
+      const title = `${name}(${etf.sym})· ETF 板块业绩 | 我不是股神`;
+      const description = (etf.blurb || `${etf.sector ? etf.sector + " · " : ""}近 1 年 / 5 年回报、最大回撤、费率与规模。`).slice(0, 160);
+      return { title, description, openGraph: { title, description }, alternates: { canonical: `/stock/${etf.sym}?market=us` } };
+    }
+  }
+
+  const panel = loadUsPanel(code);
+  const initial = panel ? null : loadAnalysis(code, m);
+  const name = panel?.name || initial?.name || code;
+  const sector = panel?.sector || panel?.chain?.industry || "";
+  const mkt = m === "a" ? "A 股" : m === "hk" ? "港股" : "美股";
+  const title = `${name}(${code})五方判读 · 我不是股神`;
+  const lead = `${mkt}${sector ? " · " + sector : ""}`;
+  const tail = panel?.divergence || "巴菲特 / 段永平 / 德鲁肯米勒 / Serenity / 情绪 五方独立评分(AI 模拟,非投资建议)";
+  const description = `${lead} —— ${tail}`.slice(0, 160);
+  const canonical = m === "a" ? `/stock/${code}` : `/stock/${code}?market=${m}`;
+  return { title, description, openGraph: { title, description }, alternates: { canonical } };
 }
 
 export default async function StockDetailPage({

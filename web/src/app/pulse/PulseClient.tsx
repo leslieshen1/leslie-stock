@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import AiPersonaNote from "@/components/AiPersonaNote";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import PulseField from "./PulseField";
@@ -12,6 +13,7 @@ import {
   INDUSTRIES,
   filterByIndustry,
   type CompanyWithHeat,
+  type Fundamentals,
   type LayerId,
   type Region,
   type IndustryId,
@@ -483,6 +485,8 @@ export default function PulseClient({
           })}
         </div>
       </header>
+
+      <AiPersonaNote className="mb-3" />
 
  <div className="grid grid-cols-12 gap-5">
       {/* ===== 左侧：过滤 + 排行 ===== */}
@@ -994,7 +998,20 @@ function SparklineBlock({ trend, mode }: { trend: TrendPt[]; mode: "heat" | "tri
 // ---- 基本面数据块 ----
 function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
   const { t } = useLang();
-  const f = c.fundamentals;
+  // B2:基本面不再随首页全量下发;美股节点选中时按需拉这一只(/api/fundamentals)。
+  const [fetched, setFetched] = useState<Fundamentals | null>(null);
+  useEffect(() => {
+    setFetched(null);
+    if (c.fundamentals || c.dataSource !== "live") return; // A股/serenity 无此数据;已带则不拉
+    let alive = true;
+    fetch(`/api/fundamentals?syms=${encodeURIComponent(c.ticker)}`)
+      .then((r) => r.json())
+      .then((j) => { if (alive) setFetched((j.fundamentals?.[c.ticker.toUpperCase()] as Fundamentals) ?? null); })
+      .catch(() => { /* 静默:拿不到就不显示基本面块 */ });
+    return () => { alive = false; };
+  }, [c.ticker, c.fundamentals, c.dataSource]);
+
+  const f = c.fundamentals ?? fetched;
   if (!f) return null;
 
  const fmt = (v: number | undefined, suffix: string = "", digits: number = 1): string => {

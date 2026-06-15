@@ -171,6 +171,10 @@ export default async function HomePage({
  const liveCount = items.filter((i) => i.dataSource === "live").length;
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
 
+  // B2 瘦身:thesis / serenityScore 客户端从不读;fundamentals 仅详情面板用(改为选中时
+  // /api/fundamentals 按需拉)。三者每只都序列化进首页 HTML → 4.4MB 大头,剥掉再传。
+  const slimItems = items.map(({ thesis: _t, serenityScore: _s, fundamentals: _f, ...rest }) => rest);
+
 
 
   return (
@@ -180,7 +184,7 @@ export default async function HomePage({
       <PremarketStrip />
       <Suspense>
       <PulseClient
-        items={items}
+        items={slimItems}
         liveCount={liveCount}
         panelSummary={scopedScores}
         masterOrder={panelSummary.order}

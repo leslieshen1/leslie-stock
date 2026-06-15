@@ -194,20 +194,43 @@ def gather(card_type: str) -> dict:
 
 # ---------- ② 文案(relay 探活,降级规则) ----------
 def relay_headline(ctx: dict) -> str | None:
+    """gpt-5.5 写标题。喂卡片实际展示的双向数据(指数 + 各 panel top movers + 已出宏观),
+    不再只喂跌幅榜(那会写出 'semis lagging' 这类与面板打架的话)。输出再过方向一致性校验。"""
     key, base = os.environ.get("NDT_API_KEY"), os.environ.get("NDT_BASE_URL", "https://api.nadoutong.org")
     if not key:
         return None
     try:
-        compact = {"idx": {s: r["pct"] for s, r in ctx["idx"].items()},
-                   "down": [{x["sym"]: x["pct"]} for x in ctx["megaDown"] + ctx["semiDown"]]}
+        idx = {s: r["pct"] for s, r in ctx["idx"].items()}
+        movers = {p["title"]: [f'{it.get("sym", "")} {it["pct"]:+.1f}%'
+                               for it in p["items"] if it.get("pct") is not None]
+                  for p in ctx.get("panels", [])}
+        rel = ctx.get("released") or []
+        compact = {"indices_pct": idx, "panels_shown": movers,
+                   "macro_released": [{r["name"]: f'{r["act"]:g} vs {r["est"]:g} est'} for r in rel if r.get("est") is not None]}
+        sys_msg = ("You write ONE English market headline (<=10 words, no emoji), punchy and accurate. "
+                   "It MUST be consistent with the data shown: never call a sector lagging/weak if its "
+                   "listed names are up, nor rallying if they are down. Anchor overall direction on the indices.")
         r = requests.post(f"{base}/v1/chat/completions", headers={"Authorization": f"Bearer {key}"},
-                          json={"model": "gpt-5.4-mini", "max_tokens": 60,
-                                "messages": [{"role": "user", "content":
-                                              "One-line English market headline (<=10 words, no emoji): " + json.dumps(compact)}]},
+                          json={"model": "gpt-5.5", "max_tokens": 60,
+                                "messages": [{"role": "system", "content": sys_msg},
+                                             {"role": "user", "content": json.dumps(compact, ensure_ascii=False)}]},
                           timeout=30).json()
         if r.get("error"):
             return None
-        return r["choices"][0]["message"]["content"].strip().strip('"')
+        hl = r["choices"][0]["message"]["content"].strip().strip('"').strip()
+        # 方向一致性校验:普涨却唱空(或普跌却唱多)→ 弃用,让上层退回规则版
+        n = len(idx) or 1
+        greens = sum(1 for v in idx.values() if (v or 0) > 0)
+        low = hl.lower()
+        neg = any(w in low for w in ("lag", "weak", "drag", "soft", "fall", "lower", "sink", "slip",
+                                     "slide", "tumble", "sell-off", "selloff", "retreat", "slump", " red"))
+        pos = any(w in low for w in ("rally", "gain", "green", "lead", "higher", "jump", "surge",
+                                     "rise", "climb", "pop", "advance"))
+        if greens >= n * 0.75 and neg and not pos:
+            return None
+        if greens <= n * 0.25 and pos and not neg:
+            return None
+        return hl if 0 < len(hl) <= 90 else None
     except Exception:
         return None
 
@@ -495,10 +518,10 @@ def main():
         ctx["headline"] = spec["headline"]
         print(f"   headline[报告]: {ctx['headline']}")
     else:
-        # 标题用规则版(确定性、与卡内面板一致)。LLM 版只喂了跌幅榜偏数据,会写出
-        # "semis lagging" 这类与面板(AXTI/MU 在涨)打架的话(2026-06-15 事故)。
-        ctx["headline"] = rule_headline(ctx)
-        print(f"   headline[规则]: {ctx['headline']}")
+        # gpt-5.5 写标题(喂双向面板数据 + 方向一致性校验);校验不过或上游不可用 → 规则版兜底
+        hl = relay_headline(ctx)
+        ctx["headline"] = hl or rule_headline(ctx)
+        print(f"   headline[{'gpt-5.5' if hl else '规则'}]: {ctx['headline']}")
     if spec.get("panels"):
         ctx["panels"] = spec["panels"]      # [{icon,title,items:[[sym,"+7.52%"],...]}]
     if spec.get("footer"):

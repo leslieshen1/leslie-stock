@@ -82,6 +82,13 @@ def chart_points(sym: str) -> list[float]:
         ys = [r["y"] for r in rows if r.get("y") is not None and in_session(r.get("z"))]
         if len(ys) < 10:
             ys = [r["y"] for r in rows if r.get("y") is not None]  # 盘前时段:有什么画什么
+        # 去离群点:分时/盘前数据偶发 0 或跳变会被画成假尖刺(2026-06-15 走势线事故)。
+        # 指数当日波动远小于 ±8%,故剔除偏离中位数 >8% 的点。
+        if len(ys) >= 5:
+            srt = sorted(ys)
+            med = srt[len(srt) // 2]
+            if med > 0:
+                ys = [y for y in ys if 0.92 * med <= y <= 1.08 * med]
         if len(ys) > 80:
             step = len(ys) / 80
             ys = [ys[int(i * step)] for i in range(80)]
@@ -488,9 +495,10 @@ def main():
         ctx["headline"] = spec["headline"]
         print(f"   headline[报告]: {ctx['headline']}")
     else:
-        hl = relay_headline(ctx)
-        ctx["headline"] = hl or rule_headline(ctx)
-        print(f"   headline[{'AI' if hl else '规则'}]: {ctx['headline']}")
+        # 标题用规则版(确定性、与卡内面板一致)。LLM 版只喂了跌幅榜偏数据,会写出
+        # "semis lagging" 这类与面板(AXTI/MU 在涨)打架的话(2026-06-15 事故)。
+        ctx["headline"] = rule_headline(ctx)
+        print(f"   headline[规则]: {ctx['headline']}")
     if spec.get("panels"):
         ctx["panels"] = spec["panels"]      # [{icon,title,items:[[sym,"+7.52%"],...]}]
     if spec.get("footer"):

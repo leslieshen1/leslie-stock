@@ -13,6 +13,7 @@ import { loadTrends } from "@/lib/pulse-static";
 import MacroBar, { type MacroSeries } from "@/components/MacroBar";
 import PremarketStrip from "@/components/PremarketStrip";
 import OnboardingBanner from "@/components/OnboardingBanner";
+import { T } from "@/lib/i18n";
 
 // Home = Heatmap（不藏起来）
 async function loadMacro(): Promise<MacroSeries[]> {
@@ -175,10 +176,26 @@ export default async function HomePage({
   // /api/fundamentals 按需拉)。三者每只都序列化进首页 HTML → 4.4MB 大头,剥掉再传。
   const slimItems = items.map(({ thesis: _t, serenityScore: _s, fundamentals: _f, ...rest }) => rest);
 
+  // 主题B 诚实化:热度/评分快照超阈值(36h,正常日更 <24h)就明确告知「数据延迟」,
+  // 而不是悄悄把旧数据(甚至退市公司的冻结估值)当最新展示。实时价走 /api/market 轮询不受影响。
+  const heatAgeMs = usHeat.generated_at
+    ? Date.now() - new Date(usHeat.generated_at.replace(" UTC", "Z").replace(" ", "T")).getTime()
+    : 0;
+  const dataStale = heatAgeMs > 36 * 3_600_000;
+  const heatHours = Math.round(heatAgeMs / 3_600_000);
+
 
 
   return (
  <main className="mx-auto max-w-[1480px] px-6 pb-10 pt-3">
+      {dataStale && (
+        <div className="mb-3 rounded-lg border border-[#e0a23d]/35 bg-[#e0a23d]/10 px-3 py-2 text-[12px] leading-relaxed text-[#e0a23d]">
+          <T
+            zh={`⚠ 数据延迟 —— 行情 / 评分快照约 ${heatHours} 小时未更新,部分热度与评分可能不是最新(实时价仍在轮询更新)。`}
+            en={`⚠ Data delayed — the heat/score snapshot is ~${heatHours}h old; some metrics may be stale (live prices still update via polling).`}
+          />
+        </div>
+      )}
       <OnboardingBanner />
       <MacroBar series={macro} />
       <PremarketStrip />

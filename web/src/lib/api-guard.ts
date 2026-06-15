@@ -14,12 +14,13 @@ export function clientIp(req: Request): string {
   );
 }
 
-// —— 滑动窗口限流 ——
+// —— 固定窗口限流(窗口到点重置;边界处理论上可放行至多 2×limit,对防滥用够用)——
 const buckets = new Map<string, { count: number; reset: number }>();
 export function rateLimit(key: string, limit: number, windowMs: number): { ok: boolean; retryAfter: number } {
   const now = Date.now();
   const b = buckets.get(key);
   if (!b || now > b.reset) {
+    sweep(); // 借新建桶的时机顺手清过期桶(自带 >5000 阈值,平时近乎零开销)
     buckets.set(key, { count: 1, reset: now + windowMs });
     return { ok: true, retryAfter: 0 };
   }

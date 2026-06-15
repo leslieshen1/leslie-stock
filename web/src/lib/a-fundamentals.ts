@@ -36,7 +36,9 @@ export async function fetchAFundamentals(code: string): Promise<AFund | null> {
       next: { revalidate: 60 },
     });
     if (!r.ok) return null;
-    const txt = await r.text();
+    // 腾讯是 GBK;fetch().text() 只按 UTF-8 解码,会把名字解成乱码,且名字里若含 0x7E(~)
+    // 字节会多切一刀导致后面 PE/PB 等字段错位。用 GBK 正确解码,~ 分隔与字段位才稳。
+    const txt = new TextDecoder("gbk").decode(await r.arrayBuffer());
     const m = txt.match(/="([^"]*)"/);
     if (!m) return null;
     const p = m[1].split("~");

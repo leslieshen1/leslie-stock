@@ -59,7 +59,8 @@ export async function GET(req: Request) {
               headers: { referer: "https://gu.qq.com/", "user-agent": "Mozilla/5.0" },
               next: { revalidate: 60 },
             }, 7000);
-            const txt = await r.text();
+            // GBK 正确解码(同 a-fundamentals):避免名字含 0x7E 字节把 ~ 字段切错位
+            const txt = new TextDecoder("gbk").decode(await r.arrayBuffer());
             for (const line of txt.split(";")) {
               const m = line.match(/v_(?:sh|sz|bj)(\d{6})="(.*)"/);
               if (!m) continue;
@@ -75,9 +76,10 @@ export async function GET(req: Request) {
     }
     const count = Object.keys(quotes).length;
     if (count > 0) {
-      A_LAST_GOOD = { quotes, ts: Date.now() };
+      // 只在快照足够完整(≥半数)时才更新"上次好值",避免偶发的部分批失败把它污染成稀疏集
+      if (count >= syms.length * 0.5) A_LAST_GOOD = { quotes, ts: Date.now() };
       return Response.json(
-        { quotes, ts: A_LAST_GOOD.ts, count },
+        { quotes, ts: Date.now(), count },
         { headers: { "cache-control": "s-maxage=60" } },
       );
     }

@@ -1042,20 +1042,55 @@ function SparklineBlock({ trend, mode }: { trend: TrendPt[]; mode: "heat" | "tri
 }
 
 // ---- 基本面数据块 ----
+// A 股盘面(腾讯 /api/a-fundamentals 返回的子集)
+type AFundLite = { pe: number | null; pb: number | null; turnover: number | null; amplitude: number | null; mcapYi: number | null; circYi: number | null };
+
 function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
   const { t } = useLang();
-  // B2:基本面不再随首页全量下发;美股节点选中时按需拉这一只(/api/fundamentals)。
+  const isA = /^\d{6}$/.test(c.ticker);
+  // B2:基本面不再随首页全量下发,选中时按需拉。美股 → /api/fundamentals(us-fundamentals);
+  // A 股 → /api/a-fundamentals(腾讯实时 PE/PB/换手/市值)—— 之前 A 股走美股源查不到,整块空着。
   const [fetched, setFetched] = useState<Fundamentals | null>(null);
+  const [aFund, setAFund] = useState<AFundLite | null>(null);
   useEffect(() => {
-    setFetched(null);
-    if (c.fundamentals || (c.dataSource !== "live" && c.dataSource !== "snapshot")) return; // A股/serenity 无此数据;已带则不拉(snapshot=尚未轮询到的美股,也拉)
+    setFetched(null); setAFund(null);
     let alive = true;
-    fetch(`/api/fundamentals?syms=${encodeURIComponent(c.ticker)}`)
-      .then((r) => r.json())
-      .then((j) => { if (alive) setFetched((j.fundamentals?.[c.ticker.toUpperCase()] as Fundamentals) ?? null); })
-      .catch(() => { /* 静默:拿不到就不显示基本面块 */ });
+    if (isA) {
+      fetch(`/api/a-fundamentals?code=${encodeURIComponent(c.ticker)}`)
+        .then((r) => r.json())
+        .then((j) => { if (alive) setAFund((j.fund as AFundLite) ?? null); })
+        .catch(() => { /* 静默 */ });
+    } else if (!c.fundamentals && (c.dataSource === "live" || c.dataSource === "snapshot")) {
+      fetch(`/api/fundamentals?syms=${encodeURIComponent(c.ticker)}`)
+        .then((r) => r.json())
+        .then((j) => { if (alive) setFetched((j.fundamentals?.[c.ticker.toUpperCase()] as Fundamentals) ?? null); })
+        .catch(() => { /* 静默:拿不到就不显示基本面块 */ });
+    }
     return () => { alive = false; };
-  }, [c.ticker, c.fundamentals, c.dataSource]);
+  }, [c.ticker, c.fundamentals, c.dataSource, isA]);
+
+  // ---- A 股盘面块 ----
+  if (isA) {
+    if (!aFund) return null;
+    const n1 = (v: number | null, suf = ""): string => (v == null || !Number.isFinite(v) ? "—" : `${v.toFixed(1)}${suf}`);
+    const cap = (yi: number | null): string => (yi == null ? "—" : yi >= 10000 ? `¥${(yi / 10000).toFixed(2)}万亿` : `¥${Math.round(yi)}亿`);
+    const peCol = (pe: number | null) => (!pe || pe < 0 ? "text-faint" : pe < 20 ? "text-up" : pe < 40 ? "text-muted" : pe < 80 ? "text-accent" : "text-down");
+    return (
+      <div className="mt-5 pt-4 border-t border-line">
+        <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-2">
+          {t("A 股盘面 · 腾讯实时", "A-share stats · live")}
+        </div>
+        <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
+          <FundRow label="PE (TTM)" value={n1(aFund.pe, "x")} valueColor={peCol(aFund.pe)} />
+          <FundRow label="P/B" value={n1(aFund.pb, "x")} />
+          <FundRow label={t("换手率", "Turnover")} value={n1(aFund.turnover, "%")} />
+          <FundRow label={t("振幅", "Amplitude")} value={n1(aFund.amplitude, "%")} />
+          <FundRow label={t("总市值", "Mkt cap")} value={cap(aFund.mcapYi)} />
+          <FundRow label={t("流通市值", "Float cap")} value={cap(aFund.circYi)} />
+        </div>
+      </div>
+    );
+  }
 
   const f = c.fundamentals ?? fetched;
   if (!f) return null;

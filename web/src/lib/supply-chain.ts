@@ -252,6 +252,7 @@ export interface CompanyWithHeat extends Company {
   // Serenity 评分（如果是 supplement 来源）
   serenityScore?: number;
   thesis?: string;
+  liveMcapYi?: number | null;   // A 股实时总市值(亿 RMB,来自 /api/a-market),用于面板与详情页一致
 }
 
 export const COMPANIES_WITH_HEAT: CompanyWithHeat[] = COMPANIES.map((c) => ({

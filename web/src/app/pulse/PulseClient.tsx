@@ -198,7 +198,7 @@ export default function PulseClient({
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? sp.get("highlight"));
   // 全盘实时报价(/api/market,Nasdaq 快照 60s 缓存)
-  const [liveQ, setLiveQ] = useState<Record<string, { price: number | null; pct: number | null }>>({});
+  const [liveQ, setLiveQ] = useState<Record<string, { price: number | null; pct: number | null; mcapYi?: number | null }>>({});
 
   // 跳转过来时自动打开对应公司的 detail drawer
   useEffect(() => {
@@ -215,14 +215,23 @@ export default function PulseClient({
     setHighlightLayer(null);
   }, [industry]);
 
-  // 全盘实时:轮询 /api/market(~60s),拿最新 price/pct
+  // 全盘实时:US 走 /api/market(Nasdaq),A 股(6位代码节点)走 /api/a-market(腾讯,带 ¥总市值)。
+  // 之前只轮 /api/market → A 股节点永远是 manifest 里的旧价(和详情页实时价对不上)。
+  const hasA = useMemo(() => items.some((i) => /^\d{6}$/.test(i.ticker)), [items]);
   useEffect(() => {
     let alive = true;
     const poll = async () => {
       try {
-        const r = await fetch("/api/market", { cache: "no-store" });
-        const j = await r.json();
-        if (alive && j.quotes && Object.keys(j.quotes).length) setLiveQ(j.quotes);
+        const tasks: Promise<{ quotes?: Record<string, { price: number | null; pct: number | null; mcapYi?: number | null }> } | null>[] = [
+          fetch("/api/market", { cache: "no-store" }).then((r) => r.json()).catch(() => null),
+        ];
+        if (hasA) tasks.push(fetch("/api/a-market", { cache: "no-store" }).then((r) => r.json()).catch(() => null));
+        const [us, a] = await Promise.all(tasks);
+        if (!alive) return;
+        const merged: Record<string, { price: number | null; pct: number | null; mcapYi?: number | null }> = {};
+        if (us?.quotes) Object.assign(merged, us.quotes);
+        if (a?.quotes) for (const [code, q] of Object.entries(a.quotes)) merged[code] = { price: q.price, pct: q.pct, mcapYi: q.mcapYi };
+        if (Object.keys(merged).length) setLiveQ(merged);
       } catch {
         /* 静默 */
       }
@@ -230,7 +239,7 @@ export default function PulseClient({
     const id = setInterval(poll, 60_000);
     poll();
     return () => { alive = false; clearInterval(id); };
-  }, []);
+  }, [hasA]);
 
   // 综合 = 已判读各方真实评分均值(null = 未判读 → 粒子灰色),和镜头/详情面板同源 —— 绝不前端现算第二套
   const itemsScored = useMemo(
@@ -247,6 +256,7 @@ export default function PulseClient({
       if (q) {
         if (q.price != null) base.livePrice = q.price;
         if (q.pct != null) { base.pct = q.pct; base.dataSource = "live"; }
+        if (q.mcapYi != null) base.liveMcapYi = q.mcapYi;
       }
       return base;
     }),
@@ -716,7 +726,7 @@ export default function PulseClient({
  <aside className="col-span-12 lg:col-span-3">
         {selected ? (
           <DetailPanel
-            c={selected}
+            c={itemsScored.find((i) => i.ticker === selected.ticker) ?? selected}
             allItems={itemsScored}
             edges={SUPPLY_EDGES}
             colorMode={colorMode}
@@ -815,7 +825,11 @@ function DetailPanel({
  <span className="font-mono text-sm font-semibold text-muted">{c.ticker}</span>
  <span className="text-xs text-muted">{c.region}</span>
  <span className="text-xs text-faint">·</span>
- <span className="tnum text-xs text-muted">{fmtCapB(c.marketCapB)}</span>
+ <span className="tnum text-xs text-muted">{
+                c.region === "CN" && c.liveMcapYi != null
+                  ? (c.liveMcapYi >= 10000 ? `¥${(c.liveMcapYi / 10000).toFixed(2)} 万亿` : `¥${Math.round(c.liveMcapYi)} 亿`)
+                  : fmtCapB(c.marketCapB)
+              }</span>
  {c.dataSource === "live" ? (
  <span className="font-mono text-[9px] font-semibold px-1.5 py-0.5 rounded bg-up-soft text-up border border-up/30">
                 LIVE
@@ -830,7 +844,7 @@ function DetailPanel({
  <div className="mt-1.5 flex items-baseline gap-2 font-mono text-xs">
               <span className={`rounded px-1 font-semibold transition-colors duration-700 ${
                 priceFlash === "up" ? "bg-up-soft text-up" : priceFlash === "down" ? "bg-down-soft text-down" : "text-ink"
-              }`}>${c.livePrice.toFixed(2)}</span>
+              }`}>{c.region === "CN" ? "¥" : c.region === "HK" ? "HK$" : "$"}{c.livePrice.toFixed(2)}</span>
               {c.pct != null && (
                 <span className={c.pct >= 0 ? "text-up" : "text-down"}>
                   {c.pct >= 0 ? "+" : ""}{c.pct.toFixed(2)}%

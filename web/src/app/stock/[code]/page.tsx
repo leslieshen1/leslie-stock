@@ -184,8 +184,10 @@ export default async function StockDetailPage({
   // 市值显示:美股 $2.18T/$43B/$940M;A 股 X 亿(人民币)—— 只是计价市场不同
   const fmtCap = (b?: number | null) =>
     b == null ? null : b >= 1000 ? `$${(b / 1000).toFixed(2)}T` : b >= 1 ? `$${b.toFixed(1)}B` : `$${Math.round(b * 1000)}M`;
-  const mcap = usPanel?.mcapYi != null
-    ? `${usPanel.mcapYi >= 10000 ? `${(usPanel.mcapYi / 10000).toFixed(2)} 万亿` : `${Math.round(usPanel.mcapYi)} 亿`}`
+  // A 股优先用实时总市值(腾讯,随价波动),退回静态面板值;避免和热力图/盘面对不上
+  const mcapYiLive = market === "a" && aFund?.mcapYi != null ? aFund.mcapYi : usPanel?.mcapYi;
+  const mcap = mcapYiLive != null
+    ? `${mcapYiLive >= 10000 ? `${(mcapYiLive / 10000).toFixed(2)} 万亿` : `${Math.round(mcapYiLive)} 亿`}`
     : fmtCap(usPanel?.mcapB);
 
  const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";

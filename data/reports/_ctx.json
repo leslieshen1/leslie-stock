@@ -1,152 +1,152 @@
 {
- "asof_et": "2026-06-15 10:16 ET Mon",
+ "asof_et": "2026-06-16 12:05 ET Tue",
  "direction": {
   "标普500": {
-   "pm_pct": "+1.51%",
+   "pm_pct": "-0.18%",
    "yesterday_pct": null
   },
   "纳指100": {
-   "pm_pct": "+2.54%",
+   "pm_pct": "-1.16%",
    "yesterday_pct": null
   },
   "道指": {
-   "pm_pct": "+1.08%",
+   "pm_pct": "+0.82%",
    "yesterday_pct": null
   },
   "罗素2000": {
-   "pm_pct": "+1.08%",
+   "pm_pct": "-0.25%",
    "yesterday_pct": null
   }
  },
  "market_status": "Open",
  "premarket_gainers": [
   {
-   "sym": "AXTI",
-   "name": "AXT Inc",
-   "pm_price": "$112.12",
-   "pm_pct": "+15.37%",
+   "sym": "SPCX",
+   "name": "Space Exploration Technologies Corp. Class A",
+   "pm_price": "$212.4988",
+   "pm_pct": "+10.39%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "XE",
+   "name": "X-Energy Inc. Class A",
+   "pm_price": "$22.70",
+   "pm_pct": "+7.58%",
+   "yesterday_pct": null,
+   "yesterday_close": null
+  },
+  {
+   "sym": "HIMS",
+   "name": "Hims & Hers Health Inc. Class A",
+   "pm_price": "$31.58",
+   "pm_pct": "+4.67%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
    "sym": "WDC",
    "name": "Western Digital Corporation",
-   "pm_price": "$636.00",
-   "pm_pct": "+12.98%",
+   "pm_price": "$683.72",
+   "pm_pct": "+4.62%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "AUGO",
-   "name": "Aura Minerals Inc.",
-   "pm_price": "$68.33",
-   "pm_pct": "+12.22%",
+   "sym": "NBIS",
+   "name": "Nebius Group N.V. Class A",
+   "pm_price": "$269.9464",
+   "pm_pct": "+3.80%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "STX",
-   "name": "Seagate Technology Holdings PLC Ordinary Shares (Ireland)",
-   "pm_price": "$1,019.155",
-   "pm_pct": "+9.46%",
+   "sym": "JPM",
+   "name": "JP Morgan Chase & Co.",
+   "pm_price": "$330.65",
+   "pm_pct": "+3.52%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "CRCL",
-   "name": "Circle Internet Group Inc. Class A",
-   "pm_price": "$84.4499",
-   "pm_pct": "+8.49%",
+   "sym": "STEP",
+   "name": "StepStone Group Inc. Class A",
+   "pm_price": "$48.65",
+   "pm_pct": "+3.40%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "SPCX",
-   "name": "Space Exploration Technologies Corp. Class A",
-   "pm_price": "$174.49",
-   "pm_pct": "+8.41%",
-   "yesterday_pct": null,
-   "yesterday_close": null
-  },
-  {
-   "sym": "MU",
-   "name": "Micron Technology Inc.",
-   "pm_price": "$1,061.82",
-   "pm_pct": "+8.17%",
-   "yesterday_pct": null,
-   "yesterday_close": null
-  },
-  {
-   "sym": "AMD",
-   "name": "Advanced Micro Devices Inc.",
-   "pm_price": "$553.23",
-   "pm_pct": "+8.14%",
+   "sym": "AFRM",
+   "name": "Affirm Holdings Inc. Class A",
+   "pm_price": "$74.29",
+   "pm_pct": "+3.32%",
    "yesterday_pct": null,
    "yesterday_close": null
   }
  ],
  "premarket_losers": [
   {
-   "sym": "WDS",
-   "name": "Woodside Energy Group Limited American Depositary Shares each representing one Ordinary Share",
-   "pm_price": "$21.27",
-   "pm_pct": "-7.80%",
+   "sym": "AXTI",
+   "name": "AXT Inc",
+   "pm_price": "$99.67",
+   "pm_pct": "-10.00%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "XOM",
-   "name": "Exxon Mobil Corporation",
-   "pm_price": "$139.45",
-   "pm_pct": "-5.14%",
+   "sym": "AAOI",
+   "name": "Applied Optoelectronics Inc.",
+   "pm_price": "$177.38",
+   "pm_pct": "-7.40%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "ESLT",
-   "name": "Elbit Systems Ltd.",
-   "pm_price": "$823.00",
-   "pm_pct": "-3.64%",
+   "sym": "FOXA",
+   "name": "Fox Corporation Class A",
+   "pm_price": "$51.46",
+   "pm_pct": "-6.03%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "MAAS",
-   "name": "Maase Inc. Class A",
-   "pm_price": "$14.48",
-   "pm_pct": "-2.56%",
+   "sym": "RGTI",
+   "name": "Rigetti Computing Inc.",
+   "pm_price": "$21.3401",
+   "pm_pct": "-5.99%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "ROKU",
-   "name": "Roku Inc. Class A",
-   "pm_price": "$140.805",
-   "pm_pct": "-1.99%",
+   "sym": "INTC",
+   "name": "Intel Corporation",
+   "pm_price": "$120.46",
+   "pm_pct": "-5.79%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "ALB",
-   "name": "Albemarle Corporation",
-   "pm_price": "$167.97",
-   "pm_pct": "-1.44%",
+   "sym": "FOX",
+   "name": "Fox Corporation Class B",
+   "pm_price": "$47.095",
+   "pm_pct": "-5.73%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "LUNR",
-   "name": "Intuitive Machines Inc. Class A",
-   "pm_price": "$26.34",
-   "pm_pct": "-1.05%",
+   "sym": "QBTS",
+   "name": "D-Wave Quantum Inc.",
+   "pm_price": "$24.835",
+   "pm_pct": "-5.43%",
    "yesterday_pct": null,
    "yesterday_close": null
   },
   {
-   "sym": "WMT",
-   "name": "Walmart Inc.",
-   "pm_price": "$119.89",
-   "pm_pct": "-0.95%",
+   "sym": "XNDU",
+   "name": "Xanadu Quantum Technologies Limited Class B Subordinate Voting Shares",
+   "pm_price": "$13.235",
+   "pm_pct": "-5.06%",
    "yesterday_pct": null,
    "yesterday_close": null
   }

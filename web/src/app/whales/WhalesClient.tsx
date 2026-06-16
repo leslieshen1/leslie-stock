@@ -14,6 +14,50 @@ import CongressView from "./CongressView";
 type Filter = "all" | InvestorType;
 type Lens = "13f" | "congress";
 
+// 机构头像:无真人照 → 风格化字母牌(渐变按类型),学国会那版的视觉密度
+const AV_COLOR: Record<string, { from: string; to: string }> = {
+  superinvestor: { from: "#1e3a8a", to: "#3b82f6" }, // 价投 蓝
+  fund: { from: "#5b21b6", to: "#a78bfa" },           // 基金 紫
+  politician: { from: "#9a3412", to: "#e0734d" },     // 议员 琥珀
+  hot_money: { from: "#9f1239", to: "#fb7185" },       // 游资 玫红
+  northbound: { from: "#065f46", to: "#10b981" },     // 北向 绿
+};
+function InvestorAvatar({ inv, size }: { inv: Investor; size: number }) {
+  const v = AV_COLOR[inv.type] ?? { from: "#3f3f46", to: "#71717a" };
+  const init = ((inv.name_en || inv.name || "?").trim()[0] || "?").toUpperCase();
+  const gid = `iav-${inv.slug}-${size}`;
+  return (
+    <svg width={size} height={size} viewBox="0 0 44 44" className="shrink-0" role="img" aria-label={inv.name}>
+      <defs>
+        <linearGradient id={gid} x1="6" y1="2" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor={v.from} /><stop offset="100%" stopColor={v.to} />
+        </linearGradient>
+      </defs>
+      <circle cx="22" cy="22" r="21" fill={`url(#${gid})`} />
+      <ellipse cx="22" cy="15" rx="13" ry="8" fill="#fff" opacity="0.12" />
+      <text x="22" y="23.5" textAnchor="middle" dominantBaseline="central" fill="#fff"
+        fontSize="18" fontWeight="700" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>{init}</text>
+    </svg>
+  );
+}
+
+// 持仓 ticker logo:美股走 parqet,A 股(无 logo 源)用首字母牌
+function HoldingLogo({ ticker, market, size = 18 }: { ticker: string; market: string; size?: number }) {
+  const [bad, setBad] = useState(false);
+  if (market === "a" || bad || !ticker)
+    return (
+      <span style={{ width: size, height: size, fontSize: size * 0.5 }}
+        className="inline-flex shrink-0 items-center justify-center rounded-full bg-accent/10 font-bold text-accent">
+        {ticker?.[0] ?? "?"}
+      </span>
+    );
+  return (
+    <img src={`https://assets.parqet.com/logos/symbol/${ticker}?format=png&size=36`} alt={ticker}
+      onError={() => setBad(true)} style={{ width: size, height: size }} loading="lazy" decoding="async"
+      className="shrink-0 rounded-full border border-line bg-white object-cover" />
+  );
+}
+
 // 共识分析：把所有超级投资者的持仓按 ticker 聚合
 type ConRow = {
   ticker: string; name: string; n: number; avgPct: number;
@@ -82,6 +126,13 @@ export default function WhalesClient({ investors, congress, avg }: {
  return (["superinvestor", "fund", "politician", "hot_money", "northbound"] as InvestorType[]).filter((t) => s.has(t));
   }, [investors]);
 
+  // 顶部 featured 横滑卡(学国会"热门议员"):知名价投,持仓多的在前。不按收益排(13F 无收益)
+  const featured = useMemo(
+    () => investors.filter((i) => i.type === "superinvestor")
+      .sort((a, b) => (b.holdings_count || 0) - (a.holdings_count || 0)).slice(0, 12),
+    [investors],
+  );
+
   return (
  <div className="space-y-7">
       {/* Header */}
@@ -129,6 +180,34 @@ export default function WhalesClient({ investors, congress, avg }: {
             ))}
           </div>
 
+          {/* 知名价投:横滑 featured(学国会"热门议员")*/}
+          {(filter === "all" || filter === "superinvestor") && featured.length > 0 && (
+            <section>
+              <h2 className="mb-2 text-[12px] font-medium uppercase tracking-wider text-faint">{t("知名价投", "Notable investors")}</h2>
+              <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {featured.map((inv) => {
+                  const top = inv.holdings[0];
+                  return (
+                    <Link key={`feat-${inv.slug}`} href={`/whales/${inv.slug}`}
+                      className="group w-[150px] shrink-0 rounded-xl border border-line bg-surface p-3 text-center transition hover:border-line-2">
+                      <div className="flex justify-center"><InvestorAvatar inv={inv} size={56} /></div>
+                      <div className="mt-2 truncate text-[13px] font-semibold text-ink group-hover:text-accent">{inv.name}</div>
+                      <div className="mt-0.5 truncate text-[10px] text-faint">{inv.entity || TYPE_META[inv.type].label}</div>
+                      {top && (
+                        <div className="mt-2 flex items-center justify-center gap-1">
+                          <HoldingLogo ticker={top.ticker} market={top.market} size={16} />
+                          <span className="tnum truncate text-[11px] font-medium text-ink">{top.ticker}</span>
+                          {top.pct_of_portfolio != null && <span className="tnum text-[10px] text-faint">{top.pct_of_portfolio}%</span>}
+                        </div>
+                      )}
+                      <div className="mt-1 text-[10px] text-faint">{inv.holdings_count} {t("持仓", "holdings")}</div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
           {/* 聪明钱共识分析 */}
           {(filter === "all" || filter === "superinvestor") && con.mostHeld.length > 0 && (
             <ConsensusPanel con={con} period={period} />
@@ -158,25 +237,25 @@ function LensBtn({ active, onClick, icon, children }: { active: boolean; onClick
 }
 
 function InvestorCard({ inv }: { inv: Investor }) {
+  const { t } = useLang();
   const maxPct = Math.max(...inv.holdings.map((h) => h.pct_of_portfolio || 0), 1);
 
   return (
  <section className="rounded-xl border border-line bg-surface p-5 transition hover:border-line-2">
- <header className="mb-4 flex items-start justify-between">
-        <div>
+ <header className="mb-4 flex items-start gap-3">
+        <Link href={`/whales/${inv.slug}`}><InvestorAvatar inv={inv} size={44} /></Link>
+        <div className="min-w-0 flex-1">
  <div className="flex items-center gap-2">
- <Link href={`/whales/${inv.slug}`} className="hover:text-accent">
- <h3 className="text-[15px] font-semibold text-ink hover:text-accent">{inv.name}</h3>
- </Link>
- <span className="rounded border border-line bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium text-muted">
+ <Link href={`/whales/${inv.slug}`} className="truncate text-[15px] font-semibold text-ink hover:text-accent">{inv.name}</Link>
+ <span className="shrink-0 rounded border border-line bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium text-muted">
               {TYPE_META[inv.type].label}
             </span>
           </div>
- {inv.entity && <p className="mt-1 text-xs text-faint">{inv.entity}</p>}
+ {inv.entity && <p className="mt-0.5 truncate text-xs text-faint">{inv.entity}</p>}
         </div>
- <div className="text-right">
- <div className="tnum text-xs text-faint">{inv.latest_period}</div>
- {inv.aum_usd && <div className="tnum mt-0.5 text-xs text-muted">${(inv.aum_usd / 1e9).toFixed(1)}B</div>}
+ <div className="shrink-0 text-right">
+ <div className="tnum text-[15px] font-semibold text-ink">{inv.holdings_count ?? inv.holdings.length}</div>
+ <div className="text-[10px] text-faint">{t("持仓", "holdings")}</div>
         </div>
       </header>
 
@@ -185,7 +264,7 @@ function InvestorCard({ inv }: { inv: Investor }) {
       )}
 
  <div className="space-y-1">
-        {inv.holdings.slice(0, 10).map((h, i) => {
+        {inv.holdings.slice(0, 6).map((h, i) => {
  const clickable = h.market === "a";
  const inner = inv.type === "politician"
             ? <TradeRow h={h} />
@@ -214,8 +293,9 @@ function HoldingBar({ h, maxPct, clickable }: { h: Holding; maxPct: number; clic
  const cm = CHANGE_META[h.change_type || "hold"];
   const barW = ((h.pct_of_portfolio || 0) / maxPct) * 100;
   return (
- <div className="flex items-center gap-2.5">
+ <div className="flex items-center gap-2">
  <span className="tnum w-4 shrink-0 text-right text-[10px] text-faint">{h.rank_in_portfolio}</span>
+ <HoldingLogo ticker={h.ticker} market={h.market} size={16} />
  <span className={`w-20 shrink-0 truncate text-[13px] ${clickable ? "text-ink group-hover:text-accent" : "text-muted"}`}>
         {h.stock_name}
       </span>

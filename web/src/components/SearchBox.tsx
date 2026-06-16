@@ -24,12 +24,32 @@ type Props = {
   onNavigate?: () => void; // 选中跳转后回调(移动端用于关闭浮层)
 };
 
+// A 股实时总市值(腾讯,与详情页同源)。搜索结果里的 market_cap_yi 是 manifest 静态值,
+// 个股上涨/股本变动后会和详情页对不上(如 688786 搜索 54亿 vs 详情 84亿)→ 用实时盖掉。
+// 模块级缓存:全站搜索框共享,60s 内不重复拉(/api/a-market 一次返回全部 A 股)。
+let A_LIVE_CAPS: { map: Record<string, number>; ts: number } | null = null;
+async function loadALiveCaps(): Promise<Record<string, number>> {
+  if (A_LIVE_CAPS && Date.now() - A_LIVE_CAPS.ts < 60_000) return A_LIVE_CAPS.map;
+  try {
+    const j = await fetch("/api/a-market", { cache: "no-store" }).then((r) => r.json());
+    const map: Record<string, number> = {};
+    for (const [code, q] of Object.entries((j.quotes || {}) as Record<string, { mcapYi?: number | null }>)) {
+      if (q && q.mcapYi != null) map[code] = q.mcapYi;
+    }
+    A_LIVE_CAPS = { map, ts: Date.now() };
+    return map;
+  } catch {
+    return A_LIVE_CAPS?.map ?? {};
+  }
+}
+
 export default function SearchBox({ compact = false, placeholder, autoFocus = false, onNavigate }: Props) {
  const [q, setQ] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [aLive, setALive] = useState<Record<string, number>>({}); // A股实时市值覆盖
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
@@ -55,6 +75,11 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
       }
     }, 180);
   }, [q]);
+
+  // 结果含 A 股时,拉一次实时市值覆盖 manifest 静态值(与详情页腾讯实时一致)
+  useEffect(() => {
+    if (results.some((r) => r.market === "a")) loadALiveCaps().then(setALive);
+  }, [results]);
 
   // 关闭下拉
   useEffect(() => {
@@ -189,13 +214,15 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
                   </div>
                 </div>
  <div className="shrink-0 flex items-center gap-2 text-[10px]">
-                  {r.market_cap_yi && (
- <span className="text-faint font-mono">
-                      {r.market_cap_yi >= 1000
-                        ? `${(r.market_cap_yi / 1000).toFixed(1)}千亿`
-                        : `${r.market_cap_yi.toFixed(0)}亿`}
-                    </span>
-                  )}
+                  {(() => {
+                    // A 股用实时市值(腾讯,与详情页一致),拿不到才退回 manifest 静态值
+                    const capYi = r.market === "a" ? (aLive[r.code] ?? r.market_cap_yi) : r.market_cap_yi;
+                    return capYi ? (
+                      <span className="text-faint font-mono">
+                        {capYi >= 1000 ? `${(capYi / 1000).toFixed(1)}千亿` : `${capYi.toFixed(0)}亿`}
+                      </span>
+                    ) : null;
+                  })()}
                   {r.score > 0 && (
                     <span
                       className={`font-mono font-semibold ${

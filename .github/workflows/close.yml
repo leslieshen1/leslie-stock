@@ -43,6 +43,7 @@ jobs:
       - name: 收盘复盘(gpt-5.5)→ 发布 → 卡片
         env:
           NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
+          NDT_CLAUDE_KEY: ${{ secrets.NDT_CLAUDE_KEY }}
           NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
           FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
           CARD_OUT_DIR: data/cards

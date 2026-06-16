@@ -6,9 +6,14 @@ export const dynamic = "force-dynamic";
 
 const OK_EVENTS = new Set(["pageview", "click"]);
 
+// 服务端兜底过滤 bot(客户端已挡一层;双保险让 DAU ≈ 真人)
+const BOT_RE =
+  /bot|crawl|spider|slurp|mediapartners|bingpreview|facebookexternal|whatsapp|telegram|embedly|applebot|googlebot|bingbot|yandex|baidu|sogou|duckduck|headless|phantom|puppeteer|playwright|selenium|lighthouse|pagespeed|gtmetrix|pingdom|uptime|statuscake|datadog|newrelic|scrapy|python-requests|axios|node-fetch|okhttp|curl|wget|semrush|ahrefs|mj12|petalbot|bytespider|gptbot|claudebot|ccbot|amazonbot|chatgpt|perplexity/i;
+
 export async function POST(req: Request) {
   const r = redis();
   if (!r) return new Response(null, { status: 204 });
+  if (BOT_RE.test(req.headers.get("user-agent") || "")) return new Response(null, { status: 204 });
 
   let body: { aid?: unknown; event?: unknown; path?: unknown; label?: unknown };
   try {

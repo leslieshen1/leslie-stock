@@ -5,6 +5,19 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+// 机器人/爬虫/headless 过滤:让 DAU ≈ 真人(navigator.webdriver + 已知 bot UA)。
+const BOT_RE =
+  /bot|crawl|spider|slurp|mediapartners|bingpreview|facebookexternal|whatsapp|telegram|embedly|applebot|googlebot|bingbot|yandex|baidu|sogou|duckduck|headless|phantom|puppeteer|playwright|selenium|lighthouse|pagespeed|gtmetrix|pingdom|uptime|statuscake|datadog|newrelic|scrapy|python-requests|axios|node-fetch|okhttp|curl|wget|semrush|ahrefs|mj12|petalbot|bytespider|gptbot|claudebot|ccbot|amazonbot|chatgpt|perplexity/i;
+
+function isBot(): boolean {
+  try {
+    if (navigator.webdriver) return true;
+    return BOT_RE.test(navigator.userAgent || "");
+  } catch {
+    return false;
+  }
+}
+
 function anonId(): string {
   try {
     let id = localStorage.getItem("sg_aid");
@@ -21,6 +34,7 @@ function anonId(): string {
 }
 
 function send(event: string, data: Record<string, string>) {
+  if (isBot()) return;
   const aid = anonId();
   if (!aid) return;
   try {

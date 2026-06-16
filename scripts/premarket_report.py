@@ -120,8 +120,9 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 - **时间轴铁律:今天是盘前,基准是"昨天(上一交易日)收盘"。yesterday_pct 是昨天那一天的涨跌,pm_pct 是盘前相对昨天收盘。先判断"昨天是涨是跌",再判断"盘前是延续还是反转/降速"。绝不要把更早之前的行情当成昨天,也不要假设昨天之前发生了什么(除非新闻里写了)。**
 - **不是投资建议**——是「该看什么」的框架与信号。不喊单、不给目标价、不保证。
 - 结合新闻找因果,不流水账。
+- **有深度,不是摘要**:每条主线讲透"机构在怎么想、资金往哪走、谁站在对面",给出可跟踪的关键价位或触发条件;至少点出一个市场可能还没在定价的风险或反共识点。宁可少讲两只票,也要把主线讲到位。
 
-结构(markdown,600-900 字。**不要输出大标题/日期**——外层已加,直接从下面第 1 节开始,每节用 ## 二级标题):
+结构(markdown,1200-1800 字。**不要输出大标题/日期**——外层已加,直接从下面第 1 节开始,每节用 ## 二级标题):
 1. **一句话定调** —— 盘前大盘方向(ETF 盘前涨跌)给的体温:今天开盘大概率往哪边、谁在领。
 2. **盘前在发生什么** —— 挑出**主线**。每条主线讲两步:①昨天(yesterday_pct)这批票是涨是跌 ②盘前(pm_pct)是顺昨天延续、还是掉头反转/降速。例:昨天大涨+盘前续涨=动能延续(注意是否降速);昨天大涨+盘前转跌=获利了结;昨天大跌+盘前反弹=超卖反抽。再接上因果。
 3. **隔夜消息面** —— 3-4 条新闻驱动的因果(地缘/宏观/油价等)。
@@ -132,23 +133,29 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 
 
 def llm_write(system_prompt: str, ctx: dict) -> str:
-    """NDT gpt-5.5 综述 —— 线上(GitHub Actions)/ 本地同一条 API,不依赖本地 claude CLI。"""
-    key = os.environ.get("NDT_API_KEY")
+    """Claude Opus 4.8 综述 —— NDT 的 Anthropic 端点(/v1/messages)。
+    报告专用 key:NDT_CLAUDE_KEY(NDT 的 gpt key 不带 Claude,故跟其它脚本的 NDT_API_KEY 分开)。
+    model 可用 NDT_REPORT_MODEL 覆盖(默认 claude-opus-4-8)。线上/本地同一条 API。"""
+    key = os.environ.get("NDT_CLAUDE_KEY") or os.environ.get("NDT_API_KEY")
     base = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
+    model = os.environ.get("NDT_REPORT_MODEL", "claude-opus-4-8")
     if not key:
-        print("❌ 缺 NDT_API_KEY(.env / GitHub secrets)"); sys.exit(1)
+        print("❌ 缺 NDT_CLAUDE_KEY(.env / GitHub secrets)"); sys.exit(1)
     try:
-        r = requests.post(f"{base}/v1/chat/completions",
-                          headers={"Authorization": f"Bearer {key}"},
-                          json={"model": "gpt-5.5", "max_tokens": 1800,
-                                "messages": [{"role": "system", "content": system_prompt},
-                                             {"role": "user", "content": json.dumps(ctx, ensure_ascii=False)}]},
-                          timeout=120).json()
+        r = requests.post(f"{base}/v1/messages",
+                          headers={"Authorization": f"Bearer {key}",
+                                   "Content-Type": "application/json",
+                                   "anthropic-version": "2023-06-01"},
+                          json={"model": model, "max_tokens": 5000,
+                                "system": system_prompt,
+                                "messages": [{"role": "user", "content": json.dumps(ctx, ensure_ascii=False)}]},
+                          timeout=180).json()
     except Exception as e:
         print("❌ NDT 请求失败:", e); sys.exit(1)
     if r.get("error"):
         print("❌ NDT error:", r["error"]); sys.exit(1)
-    return (r["choices"][0]["message"]["content"] or "").strip()
+    parts = r.get("content") or []
+    return "".join(p.get("text", "") for p in parts if p.get("type") == "text").strip()
 
 
 def main():
@@ -161,10 +168,10 @@ def main():
     print(f"   盘口 {ctx.get('market_status')} · 方向 " + " ".join(f"{k}{v['pm_pct']}" for k, v in d.items() if v.get("pm_pct"))
           + f" · 异动 {len(ctx.get('premarket_gainers', []))+len(ctx.get('premarket_losers', []))} · 财报 {len(ctx.get('earnings', []))} · 新闻 {len(ctx.get('news', []))}")
 
-    print("🧠 gpt-5.5 综述(NDT,线上/本地同一条)...")
+    print("🧠 Claude Opus 4.8 综述(NDT /v1/messages)...")
     report = llm_write(PROMPT, ctx)
     if not report:
-        print("❌ gpt-5.5 无输出"); sys.exit(1)
+        print("❌ 模型无输出"); sys.exit(1)
     # 砍掉模型可能加的 meta 前言/大标题:正文从第一个 ## 二级标题开始(gpt-5.5 偶尔会先写
     # "我先按…来写:" 这种旁白,甚至和 ## 标题挤在一行,故按 "## " 出现位置切,而非逐行)。
     cut = report.find("## ")

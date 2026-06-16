@@ -919,22 +919,9 @@ def main() -> int:
         out_dir = os.path.join(ROOT, "public", "data")  # 同上:ROOT 已是 web,不再加 "web"(trends/coverage/events 也曾跑偏)
         os.makedirs(out_dir, exist_ok=True)
 
-        # 1. trends.json — 每个 ticker × 30 天 (date, close, heat)
-        trends = {}
-        rows = conn.execute(
-            """SELECT p.ticker, p.date, p.close, m.heat
-               FROM prices_daily p
-               LEFT JOIN metrics_daily m ON m.ticker = p.ticker AND m.snapshot_date = p.date
-               WHERE p.date >= DATE('now','-45 days')
-               ORDER BY p.ticker, p.date"""
-        ).fetchall()
-        for tk, d, close, heat in rows:
-            trends.setdefault(tk, []).append({"date": d, "close": close, "heat": heat})
-        # 每只取最后 30 个
-        trends = {k: v[-30:] for k, v in trends.items() if len(v) >= 5}
-        with open(os.path.join(out_dir, "trends.json"), "w", encoding="utf-8") as f:
-            json.dump(trends, f, ensure_ascii=False, separators=(",", ":"))
-        print(f"[export] trends.json {len(trends)} tickers", flush=True)
+        # 注意:trends.json 不在这里写。它由 scripts/build_trends.py 维护(覆盖全量约 4700 票),
+        # fetch_pulse 只有这 118 个策展供应链节点 —— 写了会把 4703 票的 trends 覆盖成 118 票
+        # (2026-06-16 踩坑:之前双 web 路径让本导出从没真正落盘,修好路径后反而会误清 build_trends 的成果)。
 
         # 2. coverage.json — 每个 ticker 每个字段的覆盖度
         cov_rows = conn.execute(
@@ -1035,7 +1022,8 @@ def main() -> int:
         ),
     )
     conn.commit()
-    conn.close()
+    # 不在此处 close:下面 export_static_json() 还要用 conn 读 trends/coverage/events
+    # (之前在这里就 conn.close() → 那三个导出全挂 "Cannot operate on a closed database")
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -1055,6 +1043,8 @@ def main() -> int:
         export_static_json()
     except Exception as e:
         print(f"[export] failed: {type(e).__name__}: {e}", flush=True)
+    finally:
+        conn.close()  # 静态导出读完 DB 再关(无论成败都关,不泄连接)
 
     print(f"[done] ok={len(items)}(full={ok_count} partial={partial_count}) "
           f"missing={len(errors)} time={elapsed:.1f}s", flush=True)

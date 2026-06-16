@@ -234,9 +234,10 @@ export default async function StockDetailPage({
         <div className="mt-2">
           <LivePrice code={code} market={market} initialPrice={fundamentals?.px ?? null} />
         </div>
-        {/* 公司画像:判读时生成的业务角色一句话(库里现成的"描述") */}
-        {usPanel?.chain?.role && (
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">{usPanel.chain.role}</p>
+        {/* 公司介绍:中性一句话「这公司是干嘛的」。chain.role 已被 Serenity 的 thesis 污染(A股近100%),
+            不再当介绍用——她的观点在下方五方面板的 serenity 格里;这里只读干净的 desc(Opus 4.8 生成)。 */}
+        {usPanel?.desc && (
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">{usPanel.desc}</p>
         )}
         {/* 串联热力图:跳回首页并自动定位选中这只(revealAndSelect 跨产业/区域) */}
         {usPanel && (

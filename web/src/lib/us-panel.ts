@@ -6,6 +6,7 @@ export type Stance = { verdict: string; score: number; judgment: string; reasoni
 export type UsPanel = {
   rank?: number;
   name?: string;
+  desc?: string;  // 中性公司介绍一句话(generate);chain.role 曾被 Serenity thesis 污染,不再当介绍用
   mcapB?: number | null;
   mcapYi?: number | null;  // A股市值(亿 RMB);美股用 mcapB($B)
   sector?: string;

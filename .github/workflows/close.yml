@@ -4,8 +4,8 @@ name: close-report-card
 # 北京 10:00am = 02:00 UTC = 美东前一日 22:00(已收盘)。周二~六(对应美股周一~五收盘)。
 # 报告发布到 /reports(git push → Vercel Git 集成自动部署);卡片落 data/cards/ 一并提交。
 on:
-  schedule:
-    - cron: "0 2 * * 2-6"
+  # 定时触发改由 Vercel Cron 准点派发(/api/cron/close → 本 workflow)。
+  # GitHub 自家 schedule 在本仓库延迟数小时/常丢,已弃用。保留手动 + Vercel 入口。
   workflow_dispatch: {}
 
 concurrency:

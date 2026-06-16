@@ -121,7 +121,8 @@ export default function MasterPanel({ data }: { data: UsPanel }) {
             {data.chain.industry}
             <span className="ml-2 rounded bg-surface-2 px-1.5 py-0.5 text-[10px] text-muted">{data.chain.layer}</span>
           </p>
-          <p className="mt-1 text-xs leading-relaxed text-muted">{data.chain.role}</p>
+          {/* 用干净的公司介绍 desc,不再用被 Serenity thesis 污染的 chain.role */}
+          {data.desc && <p className="mt-1 text-xs leading-relaxed text-muted">{data.desc}</p>}
           <div className="mt-2.5 space-y-1.5 text-xs">
             <div className="flex gap-2">
               <span className="shrink-0 text-faint">上游</span>

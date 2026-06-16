@@ -100555,7 +100555,8 @@
   "rsi": 73,
   "sentiment": 73,
   "industries": [
-   "defense"
+   "defense",
+   "software-internet"
   ],
   "_serenity_score": 73,
   "_verdict": "",

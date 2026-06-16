@@ -3,8 +3,8 @@
   "buffett": 41420.59,
   "duan": 40172.16,
   "serenity": 50780.49,
-  "druckenmiller": 11.51,
-  "sentiment": 254848.19
+  "druckenmiller": 137720.01,
+  "sentiment": 102036.61
  },
  "positions": [
   {
@@ -177,30 +177,9 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "KLAC",
-   "shares": 530,
-   "entry": 213.564,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "LRCX",
    "shares": 357,
    "entry": 321.8,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "BMA",
-   "shares": 1312,
-   "entry": 87.65,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "CLOV",
-   "shares": 30674,
-   "entry": 4.89,
    "entry_date": "2026-06-10"
   },
   {
@@ -244,6 +223,27 @@
    "shares": 2157,
    "entry": 70.17,
    "entry_date": "2026-06-12"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "CAMT",
+   "shares": 654,
+   "entry": 197.75,
+   "entry_date": "2026-06-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "AMKR",
+   "shares": 1758,
+   "entry": 85.44,
+   "entry_date": "2026-06-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "SPCX",
+   "shares": 780,
+   "entry": 192.5,
+   "entry_date": "2026-06-15"
   }
  ],
  "nav": [
@@ -321,6 +321,31 @@
    "master": "sentiment",
    "date": "2026-06-12",
    "nav": 1009110.9
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-15",
+   "nav": 1013161.67
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-15",
+   "nav": 1009589.1
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-15",
+   "nav": 1140512.51
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-15",
+   "nav": 1125221.27
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-15",
+   "nav": 1001450.02
   }
  ],
  "trades": [
@@ -843,6 +868,66 @@
    "price": 70.17,
    "reason": "这是从冰点往上翻的空头回补盘，盘前继续绿，说明轧空资金还没走完。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "KLAC",
+   "shares": 530,
+   "price": 256.42,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "BMA",
+   "shares": 1312,
+   "price": 99.95,
+   "reason": "BMA这笔没错，但今天流动性的风明显从阿根廷宏观转向AI半导体加速，我要把钱从慢风里拔出来追最猛的主流。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "CAMT",
+   "shares": 654,
+   "price": 197.75,
+   "reason": "半导体资本开支盘前全面爆发，CAMT是这条AI设备链里更小、更尖、更有弹性的载体，顺风加速时我宁愿骑它。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-15",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CLOV",
+   "shares": 30674,
+   "price": 4.81,
+   "reason": "医疗散户高空头票今天不是资金主线，盘前只小红说明钱没往这里挤，先把死水/慢水让给更热的盘口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "AMKR",
+   "shares": 1758,
+   "price": 85.44,
+   "reason": "半导体存储和封测链盘前集体抢筹，AMKR是热钱顺着主线扩散的温和拥挤标的，钱在进就跟。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "SPCX",
+   "shares": 780,
+   "price": 192.5,
+   "reason": "SpaceX/太空叙事仍是全市场最强吸金黑洞，虽然已经很热但盘口还在加速，顺势吃情绪溢价但必须承认翻脸会极快。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -1063,7 +1148,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我看不出今天有什么生意因为盘前的热闹而突然更值钱，也看不出手里的好生意需要因为报价跳动而换掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1073,7 +1158,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，也都能十年存续，盘前热闹和油价新闻不改变它们的本质，没必要为几根K线换来换去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1083,7 +1168,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓都是我认的真瓶颈，今天盘前全线被资金验证；STX 很香，但我不为了追另一条明牌洪流去砍掉手里同样不可替代的卡脖子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1093,7 +1178,7 @@
    "action": "SELL",
    "sym": "BMA",
    "reason": "BMA这笔没错，但今天流动性的风明显从阿根廷宏观转向AI半导体加速，我要把钱从慢风里拔出来追最猛的主流。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1103,7 +1188,7 @@
    "action": "BUY",
    "sym": "CAMT",
    "reason": "半导体资本开支盘前全面爆发，CAMT是这条AI设备链里更小、更尖、更有弹性的载体，顺风加速时我宁愿骑它。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1113,7 +1198,7 @@
    "action": "SELL",
    "sym": "CLOV",
    "reason": "医疗散户高空头票今天不是资金主线，盘前只小红说明钱没往这里挤，先把死水/慢水让给更热的盘口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1123,7 +1208,7 @@
    "action": "BUY",
    "sym": "AMKR",
    "reason": "半导体存储和封测链盘前集体抢筹，AMKR是热钱顺着主线扩散的温和拥挤标的，钱在进就跟。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1133,7 +1218,7 @@
    "action": "BUY",
    "sym": "SPCX",
    "reason": "SpaceX/太空叙事仍是全市场最强吸金黑洞，虽然已经很热但盘口还在加速，顺势吃情绪溢价但必须承认翻脸会极快。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

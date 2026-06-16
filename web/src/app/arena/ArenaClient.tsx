@@ -42,10 +42,34 @@ const MASTER_VISUAL: Record<string, { from: string; to: string; glyph: string; r
   sentiment:     { from: "#9f1239", to: "#fb7185", glyph: "情", ring: "#fb7185" },
 };
 
+// 真人/本人头像(用户提供)。sentiment 没有真人 → 永远走风格化。照片加载失败自动回退风格化。
+const MASTER_PHOTO: Record<string, string> = {
+  buffett: "/masters/buffett.jpg",
+  duan: "/masters/duan.jpg",
+  serenity: "/masters/serenity.jpg",
+  druckenmiller: "/masters/druckenmiller.jpg",
+};
+
 function MasterAvatar({ mkey, size = 44 }: { mkey: string; size?: number }) {
   const uid = useId();
   const gid = `mav-${uid}`;
   const v = MASTER_VISUAL[mkey] ?? { from: "#3f3f46", to: "#71717a", glyph: "?", ring: "#71717a" };
+  const photo = MASTER_PHOTO[mkey];
+  const [imgBad, setImgBad] = useState(false);
+  if (photo && !imgBad) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={photo}
+        alt={mkey}
+        width={size}
+        height={size}
+        onError={() => setImgBad(true)}
+        className="shrink-0 rounded-full object-cover"
+        style={{ width: size, height: size, boxShadow: `0 0 0 1.5px ${v.ring}aa, 0 1px 3px rgba(0,0,0,0.25)` }}
+      />
+    );
+  }
   return (
     <svg width={size} height={size} viewBox="0 0 44 44" className="shrink-0" role="img" aria-label={mkey}>
       <defs>
@@ -62,6 +86,30 @@ function MasterAvatar({ mkey, size = 44 }: { mkey: string; size?: number }) {
         {v.glyph}
       </text>
     </svg>
+  );
+}
+
+// 精致排名徽章:前三金/银/铜金属渐变 + 数字,四五名中性
+const RANK_STYLE = [
+  { bg: "linear-gradient(135deg,#fde68a 0%,#f59e0b 58%,#b45309 100%)", fg: "#5b2c06", ring: "#f59e0b" },
+  { bg: "linear-gradient(135deg,#f8fafc 0%,#cbd5e1 55%,#94a3b8 100%)", fg: "#334155", ring: "#cbd5e1" },
+  { bg: "linear-gradient(135deg,#fcd9a8 0%,#d08b45 58%,#8a4b1e 100%)", fg: "#ffffff", ring: "#d08b45" },
+];
+function RankBadge({ rank, size = 18 }: { rank: number; size?: number }) {
+  const common = "inline-flex shrink-0 items-center justify-center rounded-full font-bold tabular-nums leading-none";
+  const s = RANK_STYLE[rank];
+  if (s) {
+    return (
+      <span className={common} style={{ width: size, height: size, fontSize: Math.round(size * 0.52),
+        background: s.bg, color: s.fg, boxShadow: `0 0 0 1px ${s.ring}, 0 1px 2px rgba(0,0,0,0.25)` }}>
+        {rank + 1}
+      </span>
+    );
+  }
+  return (
+    <span className={`${common} bg-surface-2 text-faint`} style={{ width: size, height: size, fontSize: Math.round(size * 0.5) }}>
+      {rank + 1}
+    </span>
   );
 }
 
@@ -144,7 +192,6 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
 
   const session = Object.values(quotes)[0]?.session;
   const liveOn = Object.keys(quotes).length > 0;
-  const medals = ["🥇", "🥈", "🥉", "4th", "5th"];
 
   return (
     <main className="mx-auto max-w-6xl px-6 pb-12 pt-3">
@@ -174,7 +221,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
         {live.map((m, i) => (
           <a key={m.key} href={`#${m.key}`}
             className={`flex items-center gap-2.5 rounded-xl border bg-surface px-3 py-2 ${i === 0 ? "border-accent/40 ring-1 ring-accent/15" : "border-line"}`}>
-            <span className="w-5 shrink-0 text-center text-[13px] leading-none">{medals[i]}</span>
+            <span className="flex w-5 shrink-0 justify-center"><RankBadge rank={i} size={18} /></span>
             <MasterAvatar mkey={m.key} size={34} />
             <div className="min-w-0 flex-1">
               <div className="text-[13px] font-semibold leading-tight text-ink">{mName(m)}</div>
@@ -198,7 +245,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
               i === 0 ? "border-accent/40 ring-1 ring-accent/20" : "border-line hover:border-accent/40"
             }`}>
             {/* 奖牌角标 */}
-            <span className="absolute right-3 top-3 text-[15px] leading-none">{medals[i]}</span>
+            <span className="absolute right-3 top-3"><RankBadge rank={i} size={20} /></span>
             {/* 头像 + 名字 */}
             <div className="flex items-center gap-3">
               <MasterAvatar mkey={m.key} size={46} />
@@ -228,7 +275,8 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
           <section key={m.key} id={m.key} className="scroll-mt-20">
             <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
               <MasterAvatar mkey={m.key} size={36} />
-              <h2 className="text-base font-semibold text-ink">{medals[i]} {mName(m)}</h2>
+              <RankBadge rank={i} size={20} />
+              <h2 className="text-base font-semibold text-ink">{mName(m)}</h2>
               <span className="text-xs text-muted">{mSchool(m)}</span>
               <span className="font-mono text-xs tabular-nums text-muted">
                 {t("持仓", "Positions")} {m.positions.length} · {t("现金", "Cash")} {fmtUsd(m.cash)}

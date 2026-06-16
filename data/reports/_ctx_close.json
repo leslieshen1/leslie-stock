@@ -1,0 +1,124 @@
+{
+ "asof_et": "2026-06-15 22:41 ET Mon",
+ "indices": {
+  "标普500": {
+   "close_pct": "+1.76%",
+   "close_price": "$754.83"
+  },
+  "纳指100": {
+   "close_pct": "+3.14%",
+   "close_price": "$744.00"
+  },
+  "道指": {
+   "close_pct": "+1.05%",
+   "close_price": "$518.44"
+  },
+  "罗素2000": {
+   "close_pct": "+0.58%",
+   "close_price": "$294.64"
+  }
+ },
+ "market_status": "Closed",
+ "gainers": [
+  {
+   "sym": "SPCX",
+   "name": "Space Exploration Technologies Corp. Class A",
+   "close_price": "$192.50",
+   "close_pct": "+19.60%"
+  },
+  {
+   "sym": "XNDU",
+   "name": "Xanadu Quantum Technologies Limited Class B Subordinate Voting Shares",
+   "close_price": "$13.94",
+   "close_pct": "+18.24%"
+  },
+  {
+   "sym": "WDC",
+   "name": "Western Digital Corporation",
+   "close_price": "$653.53",
+   "close_pct": "+16.10%"
+  },
+  {
+   "sym": "AXTI",
+   "name": "AXT Inc",
+   "close_price": "$110.74",
+   "close_pct": "+13.95%"
+  },
+  {
+   "sym": "GPGI",
+   "name": "GPGI Inc. Class A",
+   "close_price": "$14.57",
+   "close_pct": "+13.83%"
+  },
+  {
+   "sym": "XE",
+   "name": "X-Energy Inc. Class A",
+   "close_price": "$21.10",
+   "close_pct": "+13.50%"
+  },
+  {
+   "sym": "AAOI",
+   "name": "Applied Optoelectronics Inc.",
+   "close_price": "$191.55",
+   "close_pct": "+13.31%"
+  },
+  {
+   "sym": "HIMS",
+   "name": "Hims & Hers Health Inc. Class A",
+   "close_price": "$30.17",
+   "close_pct": "+12.49%"
+  }
+ ],
+ "losers": [
+  {
+   "sym": "FOXA",
+   "name": "Fox Corporation Class A",
+   "close_price": "$54.76",
+   "close_pct": "-16.84%"
+  },
+  {
+   "sym": "FOX",
+   "name": "Fox Corporation Class B",
+   "close_price": "$49.955",
+   "close_pct": "-15.22%"
+  },
+  {
+   "sym": "SSL",
+   "name": "Sasol Ltd.",
+   "close_price": "$11.39",
+   "close_pct": "-12.38%"
+  },
+  {
+   "sym": "FISV",
+   "name": "Fiserv Inc.",
+   "close_price": "$47.91",
+   "close_pct": "-10.91%"
+  },
+  {
+   "sym": "CENX",
+   "name": "Century Aluminum Company",
+   "close_price": "$54.55",
+   "close_pct": "-10.85%"
+  },
+  {
+   "sym": "VG",
+   "name": "Venture Global Inc. Class A common stock",
+   "close_price": "$11.70",
+   "close_pct": "-10.55%"
+  },
+  {
+   "sym": "WDS",
+   "name": "Woodside Energy Group Limited American Depositary Shares each representing one Ordinary Share",
+   "close_price": "$20.66",
+   "close_pct": "-10.45%"
+  },
+  {
+   "sym": "RGC",
+   "name": "Regencell Bioscience Holdings Limited",
+   "close_price": "$17.09",
+   "close_pct": "-9.24%"
+  }
+ ],
+ "earnings": [],
+ "news": []
+}

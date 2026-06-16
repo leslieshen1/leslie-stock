@@ -69,3 +69,15 @@ jobs:
           if git diff --cached --quiet; then echo "无变化,跳过"; exit 0; fi
           git commit -m "report: 盘前报告 + 卡片 $(TZ=America/New_York date +%F)(线上 gpt-5.5)"
           for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done
+
+      - name: Deploy to Vercel(报告发布到 /reports 要靠它,别只 commit)
+        if: success()
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then echo "无 VERCEL_TOKEN —— 跳过部署(报告已进仓库,但不会上线!请配 VERCEL_TOKEN)"; exit 0; fi
+          cd web
+          npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
+          npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN

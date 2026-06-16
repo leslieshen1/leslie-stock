@@ -1047,16 +1047,18 @@ type AFundLite = { pe: number | null; pb: number | null; turnover: number | null
 
 function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
   const { t } = useLang();
-  const isA = /^\d{6}$/.test(c.ticker);
-  // B2:基本面不再随首页全量下发,选中时按需拉。美股 → /api/fundamentals(us-fundamentals);
-  // A 股 → /api/a-fundamentals(腾讯实时 PE/PB/换手/市值)—— 之前 A 股走美股源查不到,整块空着。
+  const isCN = /^\d{6}$/.test(c.ticker);
+  const isHK = c.region === "HK";
+  const isAorHK = isCN || isHK;
+  // B2:基本面选中时按需拉。美股 → /api/fundamentals(us-fundamentals);A 股/港股 → /api/a-fundamentals
+  // (腾讯实时;港股口径只有 PE + 总市值)。之前 A 股和港股都走美股源查不到 → 整块空着。
   const [fetched, setFetched] = useState<Fundamentals | null>(null);
   const [aFund, setAFund] = useState<AFundLite | null>(null);
   useEffect(() => {
     setFetched(null); setAFund(null);
     let alive = true;
-    if (isA) {
-      fetch(`/api/a-fundamentals?code=${encodeURIComponent(c.ticker)}`)
+    if (isAorHK) {
+      fetch(`/api/a-fundamentals?code=${encodeURIComponent(c.ticker)}${isHK ? "&market=hk" : ""}`)
         .then((r) => r.json())
         .then((j) => { if (alive) setAFund((j.fund as AFundLite) ?? null); })
         .catch(() => { /* 静默 */ });
@@ -1067,26 +1069,31 @@ function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
         .catch(() => { /* 静默:拿不到就不显示基本面块 */ });
     }
     return () => { alive = false; };
-  }, [c.ticker, c.fundamentals, c.dataSource, isA]);
+  }, [c.ticker, c.fundamentals, c.dataSource, isAorHK, isHK]);
 
-  // ---- A 股盘面块 ----
-  if (isA) {
+  // ---- A 股 / 港股盘面块 ----
+  if (isAorHK) {
     if (!aFund) return null;
     const n1 = (v: number | null, suf = ""): string => (v == null || !Number.isFinite(v) ? "—" : `${v.toFixed(1)}${suf}`);
-    const cap = (yi: number | null): string => (yi == null ? "—" : yi >= 10000 ? `¥${(yi / 10000).toFixed(2)}万亿` : `¥${Math.round(yi)}亿`);
+    const curUnit = isHK ? "HK$" : "¥";
+    const cap = (yi: number | null): string => (yi == null ? "—" : yi >= 10000 ? `${curUnit}${(yi / 10000).toFixed(2)}万亿` : `${curUnit}${Math.round(yi)}亿`);
     const peCol = (pe: number | null) => (!pe || pe < 0 ? "text-faint" : pe < 20 ? "text-up" : pe < 40 ? "text-muted" : pe < 80 ? "text-accent" : "text-down");
+    const rows: { label: string; value: string; col?: string }[] = [
+      { label: "PE (TTM)", value: n1(aFund.pe, "x"), col: peCol(aFund.pe) },
+      { label: "P/B", value: n1(aFund.pb, "x") },
+      { label: t("换手率", "Turnover"), value: n1(aFund.turnover, "%") },
+      { label: t("振幅", "Amplitude"), value: n1(aFund.amplitude, "%") },
+      { label: t("总市值", "Mkt cap"), value: cap(aFund.mcapYi) },
+      { label: t("流通市值", "Float cap"), value: cap(aFund.circYi) },
+    ].filter((r) => r.value !== "—"); // 港股只剩 PE + 总市值,空字段不占位
+    if (!rows.length) return null;
     return (
       <div className="mt-5 pt-4 border-t border-line">
         <div className="text-[10px] font-mono uppercase tracking-wider text-faint mb-2">
-          {t("A 股盘面 · 腾讯实时", "A-share stats · live")}
+          {isHK ? t("港股盘面 · 腾讯实时", "HK stats · live") : t("A 股盘面 · 腾讯实时", "A-share stats · live")}
         </div>
         <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
-          <FundRow label="PE (TTM)" value={n1(aFund.pe, "x")} valueColor={peCol(aFund.pe)} />
-          <FundRow label="P/B" value={n1(aFund.pb, "x")} />
-          <FundRow label={t("换手率", "Turnover")} value={n1(aFund.turnover, "%")} />
-          <FundRow label={t("振幅", "Amplitude")} value={n1(aFund.amplitude, "%")} />
-          <FundRow label={t("总市值", "Mkt cap")} value={cap(aFund.mcapYi)} />
-          <FundRow label={t("流通市值", "Float cap")} value={cap(aFund.circYi)} />
+          {rows.map((r) => <FundRow key={r.label} label={r.label} value={r.value} valueColor={r.col} />)}
         </div>
       </div>
     );

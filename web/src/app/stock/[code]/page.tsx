@@ -172,7 +172,7 @@ export default async function StockDetailPage({
   const usPanel = loadUsPanel(code);
   const stockTypes = loadStockTypes(code); // 类型轴:先定该用什么尺子量
   const fundamentals = loadFundamentals(code); // 真实基本面(Yahoo,美股)
-  const aFund = market === "a" ? await fetchAFundamentals(code) : null; // A 股盘面(腾讯,实时 PE/PB/换手)
+  const aFund = market === "a" || market === "hk" ? await fetchAFundamentals(code, market) : null; // A 股/港股盘面(腾讯,实时;港股只有 PE+市值)
   const news = loadNews(code); // 个股新闻(Google News)
   const earnings = loadEarnings(code); // 下次财报(Finnhub,需 key)
   const options = loadOptions(code); // 期权 gamma(Polygon,需 key)
@@ -184,12 +184,13 @@ export default async function StockDetailPage({
   // 市值显示:美股 $2.18T/$43B/$940M;A 股 X 亿(人民币)—— 只是计价市场不同
   const fmtCap = (b?: number | null) =>
     b == null ? null : b >= 1000 ? `$${(b / 1000).toFixed(2)}T` : b >= 1 ? `$${b.toFixed(1)}B` : `$${Math.round(b * 1000)}M`;
-  // A 股优先用实时总市值(腾讯,随价波动),退回静态面板值;避免和热力图/盘面对不上
-  const mcapYiLive = market === "a" && aFund?.mcapYi != null ? aFund.mcapYi : usPanel?.mcapYi;
+  // A 股/港股优先用实时总市值(腾讯,随价波动),退回静态面板值;避免和热力图/盘面对不上
+  const mcapYiLive = (market === "a" || market === "hk") && aFund?.mcapYi != null ? aFund.mcapYi : usPanel?.mcapYi;
+  const cnCur = market === "hk" ? "HK$" : "¥"; // 港股 HKD,A 股 RMB
   // 美股市值统一读 us-fundamentals(带 generated_at,日更,与「今日大事」同源),弃用无时间戳、可冻数周的 us-panels.mcapB
   // —— 之前 NVDA 这里显 $5.43T(us-panels)而别处 $5.14T,MSFT 差 15%,同一公司两页两个市值伤可信度
   const mcap = mcapYiLive != null
-    ? `${mcapYiLive >= 10000 ? `${(mcapYiLive / 10000).toFixed(2)} 万亿` : `${Math.round(mcapYiLive)} 亿`}`
+    ? `${cnCur}${mcapYiLive >= 10000 ? `${(mcapYiLive / 10000).toFixed(2)} 万亿` : `${Math.round(mcapYiLive)} 亿`}`
     : fmtCap(fundamentals?.mcapB ?? usPanel?.mcapB);
 
  const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";

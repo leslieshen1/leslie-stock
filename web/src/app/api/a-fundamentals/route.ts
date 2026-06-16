@@ -11,10 +11,12 @@ export async function GET(req: Request) {
   const rl = rateLimit(`afund:${clientIp(req)}`, 120, 60_000);
   if (!rl.ok) return tooMany(rl.retryAfter);
 
-  const code = safeCode((new URL(req.url).searchParams.get("code") || "").trim());
+  const sp = new URL(req.url).searchParams;
+  const code = safeCode((sp.get("code") || "").trim());
   if (!code) return Response.json({ fund: null });
+  const market = sp.get("market") === "hk" ? "hk" : undefined; // 港股走腾讯 hk 符号
 
-  const fund = await fetchAFundamentals(code);
+  const fund = await fetchAFundamentals(code, market);
   return Response.json(
     { fund },
     { headers: { "cache-control": "s-maxage=60, stale-while-revalidate=120" } },

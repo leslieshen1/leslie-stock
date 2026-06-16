@@ -15,7 +15,8 @@ export type AFund = {
   tradeTs: string | null; // 最新成交时间 yyyymmddHHMMSS
 };
 
-function tencentSym(code: string): string | null {
+function tencentSym(code: string, market?: string): string | null {
+  if (market === "hk") return "hk" + code.replace(/\D/g, "").padStart(5, "0"); // 港股 700 → hk00700
   if (/^6/.test(code)) return "sh" + code; // 沪市主板 / 科创板(688)
   if (/^[03]/.test(code)) return "sz" + code; // 深市主板 / 创业板(300)
   if (/^[48]/.test(code)) return "bj" + code; // 北交所
@@ -27,9 +28,10 @@ const num = (s: string | undefined): number | null => {
   return Number.isFinite(v) ? v : null;
 };
 
-export async function fetchAFundamentals(code: string): Promise<AFund | null> {
-  const sym = tencentSym(code);
+export async function fetchAFundamentals(code: string, market?: string): Promise<AFund | null> {
+  const sym = tencentSym(code, market);
   if (!sym) return null;
+  const isHK = sym.startsWith("hk"); // 港股腾讯字段布局与 A 股不同:可靠的只有 PE[39] + 总市值[44]
   try {
     const r = await fetch(`https://qt.gtimg.cn/q=${sym}`, {
       headers: { referer: "https://gu.qq.com/", "user-agent": "Mozilla/5.0" },
@@ -43,17 +45,19 @@ export async function fetchAFundamentals(code: string): Promise<AFund | null> {
     if (!m) return null;
     const p = m[1].split("~");
     if (p.length < 47) return null;
+    // 港股:[38]换手/[43]振幅/[46]市净率/[33][34]高低 在腾讯港股口径里不可靠([46] 实为代码),
+    // 只取确认可解析的 PE[39] + 总市值[44];A 股按完整字段。
     return {
       prevClose: num(p[4]),
       open: num(p[5]),
-      hi: num(p[33]),
-      lo: num(p[34]),
-      turnover: num(p[38]),
+      hi: isHK ? null : num(p[33]),
+      lo: isHK ? null : num(p[34]),
+      turnover: isHK ? null : num(p[38]),
       pe: num(p[39]),
-      amplitude: num(p[43]),
-      circYi: num(p[44]),
-      mcapYi: num(p[45]),
-      pb: num(p[46]),
+      amplitude: isHK ? null : num(p[43]),
+      circYi: isHK ? null : num(p[44]),
+      mcapYi: isHK ? num(p[44]) : num(p[45]),
+      pb: isHK ? null : num(p[46]),
       tradeTs: p[30] || null,
     };
   } catch {

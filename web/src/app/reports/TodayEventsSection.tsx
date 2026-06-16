@@ -29,10 +29,10 @@ function EarnList({ title, rows, small }: { title: ReactNode; rows: TodayEvents[
             <span className="tnum w-14 shrink-0 font-semibold text-ink">${r.sym}</span>
             <span className="min-w-0 flex-1 truncate text-muted">{r.name || "—"}</span>
             {r.mcapB != null && r.mcapB >= 1 && (
-              <span className="tnum shrink-0 text-faint">${Math.round(r.mcapB)}B</span>
+              <span className="tnum hidden sm:inline shrink-0 text-faint">${Math.round(r.mcapB)}B</span>
             )}
             {r.eps != null && (
-              <span className="tnum shrink-0 text-faint">EPS est {r.eps.toFixed(2)}</span>
+              <span className="tnum hidden sm:inline shrink-0 text-faint">EPS est {r.eps.toFixed(2)}</span>
             )}
           </div>
         ))}
@@ -72,7 +72,7 @@ export default function TodayEventsSection({ ev }: { ev: TodayEvents | null }) {
                 {i.name}({i.sym}) · {i.exch}
               </span>
               <span className="tnum shrink-0 text-[11px] text-faint">
-                {i.price && <><T zh="定价" en="Priced" /> <span className="text-muted">${i.price}</span> · </>}
+                {i.price && <span className="hidden sm:inline"><T zh="定价" en="Priced" /> <span className="text-muted">${i.price}</span> · </span>}
                 <T zh="募资" en="Raising" /> <span className="text-muted">${i.valB >= 1 ? i.valB.toFixed(0) + "B" : (i.valB * 1000).toFixed(0) + "M"}</span>
               </span>
             </div>
@@ -88,7 +88,7 @@ export default function TodayEventsSection({ ev }: { ev: TodayEvents | null }) {
               {m.hi ? (
                 <span className="shrink-0 rounded bg-accent/15 px-1 py-px text-[9px] font-semibold text-accent"><T zh="重磅" en="Major" /></span>
               ) : (
-                <span className="w-[34px] shrink-0" />
+                <span className="w-[38px] shrink-0" />
               )}
               <span className={`min-w-0 flex-1 truncate ${m.hi ? "font-semibold text-ink" : "text-muted"}`}>{m.name}</span>
               <Est est={m.est} prev={m.prev} />

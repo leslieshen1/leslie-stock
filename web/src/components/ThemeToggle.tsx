@@ -30,7 +30,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       title={light ? "切换到暗色 / Dark" : "切换到浅色 / Light"}
       aria-label="Toggle theme"
-      className="inline-flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg border border-line bg-surface text-muted transition hover:text-ink"
+      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-surface text-muted transition hover:text-ink"
     >
       {light ? (
         /* 月亮:当前浅色,点击回暗 */

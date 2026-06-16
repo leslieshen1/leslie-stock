@@ -300,7 +300,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                         <span className="font-mono text-[13px] font-semibold text-ink">{p.sym}</span>
                         <span className="truncate text-[10px] text-muted">{p.name.slice(0, 16)}</span>
                       </div>
-                      <div className="mt-0.5 font-mono text-[10px] tabular-nums text-faint">
+                      <div className="mt-0.5 truncate font-mono text-[11px] tabular-nums text-faint">
                         {p.shares.toLocaleString()} {t("股", "sh")} @ ${p.entry.toFixed(2)}
                         {day != null && (
                           <span className={day >= 0 ? "text-up" : "text-down"}> · {t("今日", "today")} {day >= 0 ? "+" : ""}{day.toFixed(2)}%</span>
@@ -388,13 +388,13 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                     )}
                     <span className="font-mono font-semibold text-ink">{tr.sym}</span>
                     <span className="font-mono tabular-nums text-muted">{tr.shares.toLocaleString()} {t("股", "sh")} @ ${tr.price.toFixed(2)}</span>
-                    <span className="text-muted">— {tr.reason}</span>
+                    <span className="basis-full text-muted sm:basis-auto">— {tr.reason}</span>
                   </div>
                 ))}
                 {m.trades.length > 6 && (
                   <button
                     onClick={() => setOpenTrades((o) => ({ ...o, [m.key]: !o[m.key] }))}
-                    className="mt-1 w-full rounded-lg border border-dashed border-line py-1.5 text-[11px] text-muted transition hover:border-faint hover:text-ink"
+                    className="mt-1 flex min-h-[40px] w-full items-center justify-center rounded-lg border border-dashed border-line py-2.5 text-xs text-muted transition hover:border-faint hover:text-ink"
                   >
                     {openTrades[m.key]
                       ? t("收起,只看最近 6 笔", "Collapse to latest 6")

@@ -192,7 +192,7 @@ function MemberCard({ m, avg }: { m: CongressMember; avg: Record<string, number>
   const { t, lang } = useLang();
   const buys = m.trades.filter((x) => x.side === "buy").length;
   return (
-    <section className="rounded-xl border border-line bg-surface p-5 transition hover:border-line-2">
+    <section className="rounded-xl border border-line bg-surface p-4 sm:p-5 transition hover:border-line-2">
       <header className="mb-3 flex items-start gap-3">
         <Link href={`/congress/${m.id}`}><Avatar m={m} size={44} /></Link>
         <div className="min-w-0 flex-1">
@@ -217,14 +217,13 @@ function MemberCard({ m, avg }: { m: CongressMember; avg: Record<string, number>
           const a = avg[tr.ticker];
           return (
             <Link key={`${tr.ticker}-${tr.date}-${i}`} href={`/stock/${tr.ticker}?market=us`}
-              className="group flex items-center gap-2 rounded-md px-1.5 py-1 transition hover:bg-surface-2">
+              className="group flex items-center gap-1.5 rounded-md px-1.5 py-1 transition hover:bg-surface-2">
               <SideChip t={tr} />
               <TickerLogo sym={tr.ticker} />
-              <span className="tnum w-14 shrink-0 text-[12px] font-semibold text-ink group-hover:text-accent">{tr.ticker}</span>
-              {a != null && <span className={`tnum shrink-0 text-[10px] ${a >= 65 ? "text-up" : a >= 50 ? "text-accent" : "text-faint"}`}>{t("均", "avg")} {a}</span>}
-              <span className="flex-1" />
-              <span className="tnum shrink-0 text-[11px] text-muted">{tr.size}</span>
-              <span className="tnum w-12 shrink-0 text-right text-[10px] text-faint">{fmtDate(tr.date, lang)}</span>
+              <span className="tnum max-w-14 truncate min-w-0 text-[12px] font-semibold text-ink group-hover:text-accent">{tr.ticker}</span>
+              {a != null && <span className={`tnum hidden sm:inline-flex text-[10px] ${a >= 65 ? "text-up" : a >= 50 ? "text-accent" : "text-faint"}`}>{t("均", "avg")} {a}</span>}
+              <span className="tnum min-w-0 flex-1 truncate text-right text-[11px] text-muted">{tr.size}</span>
+              <span className="tnum w-12 shrink-0 hidden sm:block text-right text-[10px] text-faint">{fmtDate(tr.date, lang)}</span>
             </Link>
           );
         })}
@@ -243,7 +242,7 @@ function MemberCard({ m, avg }: { m: CongressMember; avg: Record<string, number>
 function Seg({ active, onClick, dot, children }: { active: boolean; onClick: () => void; dot?: string; children: React.ReactNode }) {
   return (
     <button onClick={onClick}
-      className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[13px] font-medium transition ${active ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
+      className={`inline-flex items-center gap-1.5 rounded-md px-3 py-2 sm:py-1.5 text-[13px] font-medium transition ${active ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
       {dot && <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />}
       {children}
     </button>

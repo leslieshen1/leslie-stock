@@ -13,7 +13,7 @@ export default function PortfolioTabs({ holdings }: { holdings: React.ReactNode 
  <div className="mb-6 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
         <button
           onClick={() => setTab("watch")}
-          className={`rounded-md px-4 py-1.5 font-medium transition ${
+          className={`rounded-md px-4 py-2 font-medium transition ${
  tab === "watch" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
@@ -21,7 +21,7 @@ export default function PortfolioTabs({ holdings }: { holdings: React.ReactNode 
         </button>
         <button
           onClick={() => setTab("hold")}
-          className={`rounded-md px-4 py-1.5 font-medium transition ${
+          className={`rounded-md px-4 py-2 font-medium transition ${
  tab === "hold" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >

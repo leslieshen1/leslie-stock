@@ -22,7 +22,7 @@ export default function HowToBuyPage() {
  <section className="mb-10 rounded-2xl border border-line bg-surface p-6">
  <h2 className="mb-4 text-base font-semibold text-ink">为什么不推荐传统券商</h2>
  <div className="overflow-x-auto">
- <table className="w-full min-w-[560px] text-sm">
+ <table className="w-full min-w-[480px] text-sm">
             <thead>
  <tr className="border-b border-line text-left text-xs text-muted">
  <th className="py-2 pr-4"></th>

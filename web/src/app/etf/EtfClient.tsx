@@ -99,10 +99,10 @@ export default function EtfClient() {
         </div>
         <div className="flex items-center gap-2 text-xs">
           <span className="text-faint">{t("排序", "Sort")}</span>
-          <div className="inline-flex rounded-lg border border-line bg-surface p-0.5">
+          <div className="inline-flex gap-0.5 rounded-lg border border-line bg-surface p-0.5">
             {SORTS.map((s) => (
               <button key={s.key} onClick={() => setSort(s.key)}
-                className={`rounded-md px-2.5 py-1 text-[12px] font-medium transition ${sort === s.key ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
+                className={`rounded-md px-3 py-1.5 text-[13px] font-medium transition ${sort === s.key ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
                 {t(s.zh, s.en)}
               </button>
             ))}
@@ -170,7 +170,7 @@ function SectorBlock({ sector, rows, sort, open, onToggle, t }: {
         <div className="border-t border-line/60">
           {/* 列头 */}
           <div className="flex items-center gap-2 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-faint sm:px-4">
-            <span className="w-5 shrink-0" /><span className="flex-1">{t("代码", "Ticker")}</span>
+            <span className="w-6 shrink-0" /><span className="flex-1">{t("代码", "Ticker")}</span>
             <span className="w-12 shrink-0 text-right sm:w-14">{t("规模", "AUM")}</span>
             <span className="w-11 shrink-0 text-right sm:w-12">1Y</span>
             <span className="w-11 shrink-0 text-right sm:w-12">5Y</span>
@@ -205,7 +205,7 @@ function EtfRowItem({ e }: { e: EtfRow; t: (zh: string, en: string) => string })
         <span className={`hidden shrink-0 rounded border px-1 py-px text-[9px] font-medium sm:inline-block ${CLS_TONE[e.cls]}`}>{e.verdict}</span>
         {/* 宽屏:英文名(限宽)+ 中文介绍填中间空白;窄屏:只显示中文介绍(没有则退回名字) */}
         <span className="hidden max-w-[190px] shrink-0 truncate text-[11px] text-muted lg:block" title={e.name}>{e.name}</span>
-        <span className="hidden min-w-0 flex-1 truncate text-[11px] text-faint sm:block" title={e.blurb || e.name}>{e.blurb || e.name}</span>
+        <span className="block min-w-0 flex-1 truncate text-[11px] text-faint" title={e.blurb || e.name}>{e.blurb || e.name}</span>
       </div>
       <span className="w-12 shrink-0 text-right font-mono text-[12px] text-ink sm:w-14">{fmtAum(e.aum)}</span>
       <span className={`w-11 shrink-0 text-right font-mono text-[12px] sm:w-12 ${pctCls(e.ret1y)}`}>{fmtPct(e.ret1y)}</span>
@@ -218,7 +218,7 @@ function EtfRowItem({ e }: { e: EtfRow; t: (zh: string, en: string) => string })
 function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button onClick={onClick}
-      className={`shrink-0 whitespace-nowrap rounded-lg border px-3 py-1.5 text-[12px] font-medium transition ${active ? "border-accent/40 bg-accent/10 text-accent" : "border-line bg-surface text-muted hover:text-ink"}`}>
+      className={`shrink-0 whitespace-nowrap rounded-lg border px-3 py-2 text-[13px] font-medium transition ${active ? "border-accent/40 bg-accent/10 text-accent" : "border-line bg-surface text-muted hover:text-ink"}`}>
       {children}
     </button>
   );

@@ -15,12 +15,12 @@ export default function AStatsStrip({ f }: { f: AFund }) {
   if (!cells.length) return null;
 
   return (
-    <div className="rounded-2xl border border-line bg-surface p-5">
-      <div className="mb-3 flex items-baseline justify-between">
+    <div className="rounded-2xl border border-line bg-surface p-4 sm:p-5">
+      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1">
         <span className="text-sm font-semibold text-ink">盘面数据</span>
         <span className="text-[10px] text-faint">数据 腾讯行情 · 实时</span>
       </div>
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-6">
         {cells.map((c) => (
           <div key={c.label} className="rounded-lg border border-line bg-surface-2 px-2.5 py-2">
             <div className="text-[10px] text-faint">{c.label}</div>

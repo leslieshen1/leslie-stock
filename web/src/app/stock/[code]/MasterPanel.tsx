@@ -86,7 +86,7 @@ export default function MasterPanel({ data }: { data: UsPanel }) {
       </p>
 
       {/* 雷达图 hero:5 方评分即 5 维,形状本身就是分歧 */}
-      <div className="mb-4 flex flex-col items-center gap-2 rounded-2xl border border-line bg-base/40 p-4 sm:flex-row sm:gap-5">
+      <div className="mb-4 flex flex-col items-center gap-2 rounded-2xl border border-line bg-base/40 p-3 sm:flex-row sm:gap-5 sm:p-4">
         <div className="shrink-0">
           <MasterRadar panel={data.panel} />
         </div>

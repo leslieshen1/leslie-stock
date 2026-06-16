@@ -29,7 +29,7 @@ const PROSE =
   "[&_h2]:mb-2 [&_h2]:mt-5 [&_h2]:text-[15px] [&_h2]:font-semibold [&_h2]:text-ink [&>h2:first-child]:mt-0 " +
   "[&_strong]:font-semibold [&_strong]:text-ink [&_p]:my-2 " +
   "[&_ul]:my-2 [&_ul]:space-y-1 [&_li]:ml-4 [&_li]:list-disc [&_li]:marker:text-faint " +
-  "[&_table]:my-3 [&_table]:w-full [&_table]:text-xs " +
+  "[&_table]:my-3 [&_table]:w-full [&_table]:text-xs [&_table]:block [&_table]:overflow-x-auto [&_table]:whitespace-nowrap " +
   "[&_th]:border-b [&_th]:border-line [&_th]:py-1.5 [&_th]:pr-3 [&_th]:text-left [&_th]:font-medium [&_th]:text-muted " +
   "[&_td]:border-b [&_td]:border-line/50 [&_td]:py-1.5 [&_td]:pr-3 [&_td]:align-top " +
   "[&_blockquote]:mt-3 [&_blockquote]:border-l-2 [&_blockquote]:border-line [&_blockquote]:pl-3 [&_blockquote]:text-[11px] [&_blockquote]:text-faint " +
@@ -85,12 +85,12 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
   let globalIdx = -1; // 全列表第一篇默认展开
   return (
     <>
-      <div className="mb-5 inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
+      <div className="mb-5 flex w-full sm:inline-flex rounded-lg border border-line bg-surface p-1 text-sm">
         {TABS.map(([k, zhLabel, enLabel]) => (
           <button
             key={k}
             onClick={() => setFilter(k)}
-            className={`rounded-md px-3.5 py-1.5 font-medium transition ${
+            className={`flex-1 sm:flex-none text-center rounded-md px-3 py-2 font-medium transition ${
               filter === k ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
             }`}
           >
@@ -132,7 +132,7 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
               </button>
               {isOpen && (
                 <div
-                  className={`border-t border-line px-5 py-4 ${PROSE}`}
+                  className={`border-t border-line px-4 sm:px-5 py-4 ${PROSE}`}
                   dangerouslySetInnerHTML={{ __html: marked.parse(r.body) as string }}
                 />
               )}

@@ -173,7 +173,7 @@ export default function PulseField({
   function layoutParticles(w: number, h: number) {
     const LIVE = layersRef.current;
     const laneH = h / LIVE.length;
-    const padX = 100;
+    const padX = w < 480 ? 44 : 100;
     const usableW = w - padX - 30;
 
     const now = performance.now();
@@ -245,10 +245,48 @@ export default function PulseField({
     function onLeave() { mouseRef.current = null; hoverRef.current = null; }
     function onClick() { onSelect(hoverRef.current ? hoverRef.current.data : null); }
     function onDblClick() { if (hoverRef.current && onOpen) onOpen(hoverRef.current.data); }
+
+    // 触摸命中:手机没有 mousemove 前置,onClick 会拿到 null。这里 tap 直接算最近粒子并选中。
+    // start/move/end 区分「点选」与「滑动滚屏」:只有几乎没移动的 tap 才 select,且只在命中时 preventDefault,不拦截页面滚动。
+    function hitTest(cx: number, cy: number): Particle | null {
+      let nearest: Particle | null = null;
+      let nd = 30; // 指尖容差,比鼠标(20)大一圈
+      for (const p of particlesRef.current) {
+        const d = Math.hypot(cx - p.x, cy - p.y);
+        if (d < nd) { nd = d; nearest = p; }
+      }
+      return nearest;
+    }
+    let tsx = 0, tsy = 0, tMoved = false;
+    function onTouchStart(e: TouchEvent) {
+      const t0 = e.touches[0];
+      if (!t0) return;
+      tsx = t0.clientX; tsy = t0.clientY; tMoved = false;
+    }
+    function onTouchMove(e: TouchEvent) {
+      const t0 = e.touches[0];
+      if (!t0) return;
+      if (Math.hypot(t0.clientX - tsx, t0.clientY - tsy) > 10) tMoved = true;
+    }
+    function onTouchEnd(e: TouchEvent) {
+      if (tMoved || !canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const tx = tsx - rect.left, ty = tsy - rect.top;
+      const hit = hitTest(tx, ty);
+      if (hit) {
+        mouseRef.current = { x: tx, y: ty };
+        hoverRef.current = hit;
+        onSelect(hit.data);
+        e.preventDefault(); // 抑制随后的 ghost click
+      }
+    }
  canvas.addEventListener("mousemove", onMove);
  canvas.addEventListener("mouseleave", onLeave);
  canvas.addEventListener("click", onClick);
  canvas.addEventListener("dblclick", onDblClick);
+ canvas.addEventListener("touchstart", onTouchStart, { passive: true });
+ canvas.addEventListener("touchmove", onTouchMove, { passive: true });
+ canvas.addEventListener("touchend", onTouchEnd, { passive: false });
 
     // 光晕 sprite 缓存:每种颜色的 radial 渐变只离屏画一次,逐帧用 drawImage 贴(GPU 合成)。
     // 之前是每粒子每帧 createRadialGradient —— 1461 粒 × 60fps ≈ 每秒 9 万次渐变分配,页面发卡的元凶。
@@ -274,6 +312,8 @@ export default function PulseField({
     function tick(t: number) {
       if (!ctx) return;
       const { w, h } = sizeRef.current;
+      const narrow = w < 480;
+      const padX = narrow ? 44 : 100;
 
       // 拖尾背景：从 0.20 调到 0.45，让画面更快擦除（不再糊）
  ctx.fillStyle = "rgba(6, 8, 16, 0.45)";
@@ -284,7 +324,7 @@ export default function PulseField({
       const laneH = h / LIVE.length;
 
       // ===== 产业链上下游主轴（spine）：左侧垂直轴 + 节点 + 箭头流向 =====
-      const spineX = 22;
+      const spineX = narrow ? 12 : 22;
       const spinePulseT = (t / 2200) % 1; // 0..1 循环
       // 主轴垂直线（贯穿所有节点中心）
  ctx.strokeStyle = "rgba(180, 200, 255, 0.18)";
@@ -354,17 +394,25 @@ export default function PulseField({
  ctx.strokeStyle = dim ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.065)";
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(40, yTop); // 从 spine 右侧起，避免与轴重叠
+        ctx.moveTo(narrow ? 24 : 40, yTop); // 从 spine 右侧起，避免与轴重叠
         ctx.lineTo(w, yTop);
         ctx.stroke();
 
- ctx.fillStyle = dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.55)";
- ctx.font = "10px 'JetBrains Mono', monospace";
- ctx.textBaseline = "top";
-        ctx.fillText(L.id, 40, yTop + 10);
- ctx.font = "13px 'Inter', system-ui, sans-serif";
- ctx.fillStyle = dim ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.85)";
-        ctx.fillText(L.name, 70, yTop + 8);
+        // 窄屏只画一行层名(小字、靠左),宽屏画 id + 全名
+        if (narrow) {
+          ctx.font = "11px 'Inter', system-ui, sans-serif";
+          ctx.fillStyle = dim ? "rgba(255,255,255,0.22)" : "rgba(255,255,255,0.78)";
+          ctx.textBaseline = "top";
+          ctx.fillText(L.name, 24, yTop + 7);
+        } else {
+          ctx.fillStyle = dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.55)";
+          ctx.font = "10px 'JetBrains Mono', monospace";
+          ctx.textBaseline = "top";
+          ctx.fillText(L.id, 40, yTop + 10);
+          ctx.font = "13px 'Inter', system-ui, sans-serif";
+          ctx.fillStyle = dim ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.85)";
+          ctx.fillText(L.name, 70, yTop + 8);
+        }
       }
 
       // 鼠标命中
@@ -388,7 +436,7 @@ export default function PulseField({
         p.targetY = laneTop + 28 + (1 - s) * (laneH - 50);
         p.y += (p.targetY - p.y) * 0.012;
 
-        if (p.x < 100 || p.x > w - 28) p.vx *= -1;
+        if (p.x < padX || p.x > w - 28) p.vx *= -1;
         if (p.y < laneTopB || p.y > laneBot) p.vy *= -1;
       }
 
@@ -556,6 +604,9 @@ export default function PulseField({
  canvas.removeEventListener("mouseleave", onLeave);
  canvas.removeEventListener("click", onClick);
  canvas.removeEventListener("dblclick", onDblClick);
+ canvas.removeEventListener("touchstart", onTouchStart);
+ canvas.removeEventListener("touchmove", onTouchMove);
+ canvas.removeEventListener("touchend", onTouchEnd);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
  if (wrap) wrap.style.transform = "";
     };
@@ -565,7 +616,7 @@ export default function PulseField({
   return (
     <div
       ref={wrapRef}
- className="relative h-[720px] w-full overflow-hidden rounded-2xl bg-[#06080F] origin-center will-change-transform"
+ className="relative h-[520px] w-full overflow-hidden rounded-2xl bg-[#06080F] sm:h-[720px] origin-center will-change-transform"
     >
  <canvas ref={canvasRef} className="block h-full w-full" />
  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />

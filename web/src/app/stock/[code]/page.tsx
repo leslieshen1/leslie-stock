@@ -202,7 +202,7 @@ export default async function StockDetailPage({
  : "bg-surface-2 text-accent border-accent/30";
 
   return (
- <main className="mx-auto max-w-6xl px-6 py-8">
+ <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
       {/* 面包屑 + 股票名 */}
  <header className="mb-6">
  <div className="mb-3 flex items-center gap-2 text-xs">
@@ -214,14 +214,16 @@ export default async function StockDetailPage({
  <span className="text-faint">/</span>
  <span className="text-muted">{initial?.name || code}</span>
         </div>
- <div className="flex flex-wrap items-baseline gap-3">
- <h1 className="text-3xl font-semibold tracking-tight text-ink">
+ <div>
+ <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink">
             {usPanel?.name || initial?.name || code}
           </h1>
+ <div className="flex flex-wrap items-center gap-2 mt-1">
  <code className="font-mono text-base text-muted">{code}</code>
           <span className={`inline-flex rounded-md border px-2 py-0.5 text-xs font-medium ${marketTone}`}>
             {marketLabel}
           </span>
+          </div>
         </div>
         {/* 市值 · 行业 · 链定位 —— 之前页头只有代码+价格,连公司是干嘛的都不知道(2026-06-12 反馈) */}
         {(mcap || usPanel?.sector || usPanel?.chain?.industry) && (

@@ -9,6 +9,7 @@
     "fetch-pulse": "python3 ../data/fetch_pulse.py"
   },
   "dependencies": {
+    "@upstash/redis": "^1.38.0",
     "@vercel/analytics": "^2.0.1",
     "csv-parse": "^6.2.1",
     "lucide-react": "^1.17.0",

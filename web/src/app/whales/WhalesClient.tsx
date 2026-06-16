@@ -77,9 +77,11 @@ export default function WhalesClient({ investors, congress, avg }: {
  const [lens, setLens] = useState<Lens>("13f");
  const [filter, setFilter] = useState<Filter>("all");
 
+  // 政客/议员归口「国会」镜头(那里 96 人 + 6886 笔,远比 13F 里这 3 个丰富),13F 不再混入
+  const insts = useMemo(() => investors.filter((i) => i.type !== "politician"), [investors]);
   const filtered = useMemo(
- () => (filter === "all" ? investors : investors.filter((i) => i.type === filter)),
-    [investors, filter],
+ () => (filter === "all" ? insts : insts.filter((i) => i.type === filter)),
+    [insts, filter],
   );
 
   const period = useMemo(
@@ -122,9 +124,9 @@ export default function WhalesClient({ investors, congress, avg }: {
   }, [investors]);
 
   const types = useMemo(() => {
-    const s = new Set(investors.map((i) => i.type));
- return (["superinvestor", "fund", "politician", "hot_money", "northbound"] as InvestorType[]).filter((t) => s.has(t));
-  }, [investors]);
+    const s = new Set(insts.map((i) => i.type));
+ return (["superinvestor", "fund", "hot_money", "northbound"] as InvestorType[]).filter((t) => s.has(t));
+  }, [insts]);
 
   // 顶部 featured 横滑卡(学国会"热门议员"):知名价投,持仓多的在前。不按收益排(13F 无收益)
   const featured = useMemo(
@@ -230,7 +232,7 @@ export default function WhalesClient({ investors, congress, avg }: {
 function LensBtn({ active, onClick, icon, children }: { active: boolean; onClick: () => void; icon: React.ReactNode; children: React.ReactNode }) {
   return (
     <button onClick={onClick}
-      className={`inline-flex items-center gap-1.5 rounded-md px-3.5 py-1.5 text-[13px] font-medium transition ${active ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
+      className={`inline-flex items-center gap-1.5 rounded-md px-3.5 py-2 sm:py-1.5 text-[13px] font-medium transition ${active ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
       {icon}{children}
     </button>
   );
@@ -241,7 +243,7 @@ function InvestorCard({ inv }: { inv: Investor }) {
   const maxPct = Math.max(...inv.holdings.map((h) => h.pct_of_portfolio || 0), 1);
 
   return (
- <section className="rounded-xl border border-line bg-surface p-5 transition hover:border-line-2">
+ <section className="rounded-xl border border-line bg-surface p-4 sm:p-5 transition hover:border-line-2">
  <header className="mb-4 flex items-start gap-3">
         <Link href={`/whales/${inv.slug}`}><InvestorAvatar inv={inv} size={44} /></Link>
         <div className="min-w-0 flex-1">
@@ -296,16 +298,16 @@ function HoldingBar({ h, maxPct, clickable }: { h: Holding; maxPct: number; clic
  <div className="flex items-center gap-2">
  <span className="tnum w-4 shrink-0 text-right text-[10px] text-faint">{h.rank_in_portfolio}</span>
  <HoldingLogo ticker={h.ticker} market={h.market} size={16} />
- <span className={`w-20 shrink-0 truncate text-[13px] ${clickable ? "text-ink group-hover:text-accent" : "text-muted"}`}>
+ <span className={`w-16 sm:w-20 shrink-0 truncate text-[13px] ${clickable ? "text-ink group-hover:text-accent" : "text-muted"}`}>
         {h.stock_name}
       </span>
- <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-surface-2">
+ <div className="relative h-1.5 flex-1 min-w-[48px] overflow-hidden rounded-full bg-surface-2">
  <div className="absolute inset-y-0 left-0 rounded-full bg-accent/70" style={{ width: `${barW}%` }} />
       </div>
- <span className="tnum w-12 shrink-0 text-right text-xs text-muted">{h.pct_of_portfolio}%</span>
+ <span className="tnum w-10 shrink-0 text-right text-xs text-muted">{h.pct_of_portfolio}%</span>
  {h.change_type && h.change_type !== "hold" ? (
-        <span className={`w-12 shrink-0 rounded border px-1 py-0.5 text-center text-[9px] font-medium ${cm.tone}`}>{cm.label}</span>
- ) : <span className="w-12 shrink-0" />}
+        <span className={`hidden sm:inline-flex w-12 shrink-0 rounded border px-1 py-0.5 text-center text-[9px] font-medium ${cm.tone}`}>{cm.label}</span>
+ ) : <span className="hidden sm:block w-12 shrink-0" />}
     </div>
   );
 }
@@ -333,7 +335,7 @@ function FilterBtn({ active, onClick, children }: { active: boolean; onClick: ()
   return (
     <button
       onClick={onClick}
-      className={`rounded-md px-3 py-1.5 text-[13px] font-medium transition ${
+      className={`rounded-md px-3 py-2 sm:py-1.5 text-[13px] font-medium transition ${
  active ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
       }`}
     >

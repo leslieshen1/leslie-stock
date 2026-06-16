@@ -30,7 +30,7 @@ export default function MasterRadar({ panel }: { panel: UsPanel["panel"] }) {
   const dataPoly = rows.map((r, i) => pt((r.score ?? 0) / 100, i).join(",")).join(" ");
 
   return (
-    <svg viewBox="0 0 340 250" className="w-full max-w-[340px]" role="img" aria-label="5 方评分雷达图">
+    <svg viewBox="0 0 360 250" className="w-full max-w-[360px]" role="img" aria-label="5 方评分雷达图">
       <defs>
         <radialGradient id="mr-fill" cx="50%" cy="50%" r="62%">
           <stop offset="0%" stopColor="rgba(224,115,77,0.34)" />

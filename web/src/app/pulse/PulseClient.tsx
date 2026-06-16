@@ -461,7 +461,7 @@ export default function PulseClient({
                   <button
                     key={c.id}
                     onClick={() => { revealAndSelect(c); setLocQ(""); }}
-                    className="flex w-full items-baseline gap-2 px-3 py-1.5 text-left text-sm transition hover:bg-surface-2"
+                    className="flex w-full items-baseline gap-2 px-3 py-2 sm:py-1.5 text-left text-sm transition hover:bg-surface-2"
                   >
                     <span className="font-mono font-semibold text-ink">{c.ticker}</span>
                     <span className="truncate text-xs text-muted">{c.name}</span>
@@ -688,7 +688,7 @@ export default function PulseClient({
         </div>
 
         {/* 排行榜 */}
- <div className="grid grid-cols-2 gap-4">
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div className="rounded-xl border border-line bg-surface p-4">
  <div className="flex items-baseline justify-between mb-3">
  <h3 className="text-sm font-semibold text-ink">
@@ -705,7 +705,7 @@ export default function PulseClient({
                   <button
                     key={c.id}
                     onClick={() => revealAndSelect(c)}
- className="w-full flex items-center gap-2 text-left px-2 py-1.5 rounded-md hover:bg-surface-2 transition"
+ className="w-full flex items-center gap-2 text-left px-2 py-1.5 min-h-[40px] rounded-md hover:bg-surface-2 transition"
                   >
  <span className="font-mono text-[10px] text-faint w-4">{i + 1}</span>
  <span className="font-mono text-xs font-semibold text-ink w-14 truncate">{c.ticker}</span>
@@ -734,7 +734,7 @@ export default function PulseClient({
                   <button
                     key={c.id}
                     onClick={() => revealAndSelect(c)}
- className="w-full flex items-center gap-2 text-left px-2 py-1.5 rounded-md hover:bg-surface-2 transition"
+ className="w-full flex items-center gap-2 text-left px-2 py-1.5 min-h-[40px] rounded-md hover:bg-surface-2 transition"
                   >
  <span className="font-mono text-[10px] text-faint w-4">{i + 1}</span>
  <span className="font-mono text-xs font-semibold text-ink w-14 truncate">{c.ticker}</span>
@@ -837,7 +837,7 @@ function DetailPanel({
   }, [c.ticker, allItems, edges]);
 
   return (
- <div className="rounded-xl border border-line bg-surface p-5 sticky top-6">
+ <div className="rounded-xl border border-line bg-surface p-5 lg:sticky lg:top-6">
       {/* 公司头 */}
  <div className="flex items-baseline justify-between">
  <div className="flex-1">
@@ -1198,7 +1198,7 @@ function ChainRow({ c, mode, onClick }: { c: ScoredItem; mode: string; onClick: 
   return (
     <button
       onClick={() => onClick(c)}
- className="w-full flex items-center gap-2 text-left px-2 py-1 rounded hover:bg-surface-2 transition"
+ className="w-full flex items-center gap-2 text-left px-2 py-2 sm:py-1 rounded hover:bg-surface-2 transition"
     >
       <span
  className="w-2 h-2 rounded-full shrink-0"

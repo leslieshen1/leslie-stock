@@ -45,13 +45,13 @@ export default function FundamentalsStrip({
   ].filter((c) => c.val !== "—");
 
   return (
-    <div className="rounded-2xl border border-line bg-surface p-5">
-      <div className="mb-3 flex items-baseline justify-between">
+    <div className="rounded-2xl border border-line bg-surface p-4 sm:p-5">
+      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1">
         <span className="text-sm font-semibold text-ink">真实基本面</span>
         <span className="text-[10px] text-faint">高亮 = 这类股该重点看 · 数据 Yahoo · 估值随实时价</span>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-6">
         {cells.map((c) => {
           const on = hi.has(c.key);
           return (

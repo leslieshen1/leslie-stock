@@ -286,7 +286,7 @@ export default function ScanClient() {
  <div className="mb-2.5 inline-flex rounded-lg border border-line bg-surface p-0.5 text-sm">
         <button
           onClick={() => setMarket("us")}
-          className={`rounded-md px-4 py-1.5 font-medium transition ${
+          className={`rounded-md px-3 py-1.5 whitespace-nowrap sm:px-4 font-medium transition ${
  market === "us" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
@@ -294,7 +294,7 @@ export default function ScanClient() {
         </button>
         <button
           onClick={() => setMarket("a")}
-          className={`rounded-md px-4 py-1.5 font-medium transition ${
+          className={`rounded-md px-3 py-1.5 whitespace-nowrap sm:px-4 font-medium transition ${
  market === "a" ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"
           }`}
         >
@@ -606,14 +606,14 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
               <button
                 key={k}
                 onClick={() => setDilu(k)}
-                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+                className={`min-h-9 inline-flex items-center rounded-full px-2.5 py-1.5 text-[11px] transition ${
  dilu === k ? "bg-down-soft text-down border border-down/40" : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
                 {label}
               </button>
             ))}
- <span className="text-[10px] text-faint">{t("货架额度 ≫ 市值,可近乎无限增发(SEC EDGAR · 已排除大公司常规融资)", "Shelf capacity ≫ market cap — near-unlimited share issuance (SEC EDGAR · routine large-cap financing excluded)")}</span>
+ <span className="text-[11px] sm:text-[10px] text-faint">{t("货架额度 ≫ 市值,可近乎无限增发(SEC EDGAR · 已排除大公司常规融资)", "Shelf capacity ≫ market cap — near-unlimited share issuance (SEC EDGAR · routine large-cap financing excluded)")}</span>
           </div>
         )}
 
@@ -631,14 +631,14 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
               <button
                 key={k}
                 onClick={() => setPanelF(k)}
-                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+                className={`min-h-9 inline-flex items-center rounded-full px-2.5 py-1.5 text-[11px] transition ${
                   panelF === k ? "bg-accent text-black" : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
                 {label}
               </button>
             ))}
-            <span className="text-[10px] text-faint">{t("共识 = 均分 ≥60 且分歧 ≤25(五方评分一致);分歧 = 五方评分极差,数值越大争议越大", "Consensus = avg ≥60 & divergence ≤25 (the five align); divergence = score range, larger means more contested")}</span>
+            <span className="text-[11px] sm:text-[10px] text-faint">{t("共识 = 均分 ≥60 且分歧 ≤25(五方评分一致);分歧 = 五方评分极差,数值越大争议越大", "Consensus = avg ≥60 & divergence ≤25 (the five align); divergence = score range, larger means more contested")}</span>
           </div>
         )}
 
@@ -650,14 +650,14 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
               <button
                 key={k}
                 onClick={() => setMasterF(k)}
-                className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+                className={`min-h-9 inline-flex items-center rounded-full px-2.5 py-1.5 text-[11px] transition ${
                   masterF === k ? "bg-surface-3 text-ink" : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
                 {k === "all" ? t("不限", "Any") : masterLabel(k, lang)}
               </button>
             ))}
-            <span className="text-[10px] text-faint">{t("可叠加:先按某位投资人筛选,再按均分排序,定位单一视角与综合评价的差异", "Stackable: filter by one investor, then sort by average to surface single-view vs. consensus gaps")}</span>
+            <span className="text-[11px] sm:text-[10px] text-faint">{t("可叠加:先按某位投资人筛选,再按均分排序,定位单一视角与综合评价的差异", "Stackable: filter by one investor, then sort by average to surface single-view vs. consensus gaps")}</span>
           </div>
         )}
 
@@ -668,7 +668,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
             <button
               key={t.key}
               onClick={() => setCapTier(t.key)}
-              className={`rounded-full px-2.5 py-0.5 text-[11px] transition ${
+              className={`min-h-9 inline-flex items-center rounded-full px-2.5 py-1.5 text-[11px] transition ${
  capTier === t.key ? "bg-surface-3 text-ink" : "bg-surface-2 text-muted hover:bg-line"
               }`}
             >
@@ -678,7 +678,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
         </div>
 
         {/* 行业 */}
- <div className="flex max-h-[60px] flex-wrap items-center gap-1.5 overflow-y-auto">
+ <div className="flex max-h-none sm:max-h-[60px] flex-wrap items-center gap-1.5 sm:overflow-y-auto">
  <span className="mr-1 text-xs text-muted">{t("行业:", "Sector:")}</span>
           {sectors.map(([name, count]) => {
             const active = sectorSet.has(name);
@@ -686,7 +686,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
               <button
                 key={name}
                 onClick={() => toggleSector(name)}
-                className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] transition ${
+                className={`shrink-0 min-h-9 inline-flex items-center rounded-full px-2.5 py-1.5 text-[11px] transition ${
  active ? "bg-accent text-black" : "bg-surface-2 text-muted hover:bg-line"
                 }`}
               >
@@ -717,7 +717,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                   <span className="font-mono text-[13px] font-semibold text-ink">{s.sym}</span>
                   {s.type === "etf" && <EtfBadge />}
                   {flags[s.sym] && <DilutionBadge flag={flags[s.sym]} />}
-                  <span className="truncate text-[10px] text-muted">{s.name}</span>
+                  <span className="truncate text-[11px] text-muted">{s.name}</span>
                 </div>
                 <div className="mt-0.5 flex items-center gap-1.5 overflow-hidden font-mono text-[10px] tabular-nums text-faint">
                   <span className="shrink-0">{s.type === "etf" ? (s.ret1y != null ? `1Y ${s.ret1y >= 0 ? "+" : ""}${s.ret1y}%` : "—") : capOf(s.mcapB)}</span>
@@ -742,7 +742,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                            score: 0, verdict: "", verdict_label: "",
                            market_cap_yi: isA ? s.mcapB : (s.mcapB != null ? s.mcapB * 10 : null), layer: null, thesis: "" });
                 }}
-                className={`shrink-0 px-1 text-base ${inList ? "text-accent" : "text-faint"}`}
+                className={`shrink-0 px-2 py-2 -mr-1 text-lg min-w-9 min-h-9 inline-flex items-center justify-center ${inList ? "text-accent" : "text-faint"}`}
               >
                 {inList ? "\u2605" : "\u2606"}
               </button>
@@ -851,11 +851,11 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
             : t("无结果", "No results")}
         </span>
  <div className="flex items-center gap-1">
-          <PageBtn label={t("« 首页", "« First")} disabled={safePage === 0} onClick={() => setPage(0)} />
+          <span className="hidden sm:inline-flex"><PageBtn label={t("« 首页", "« First")} disabled={safePage === 0} onClick={() => setPage(0)} /></span>
           <PageBtn label={t("‹ 上一页", "‹ Prev")} disabled={safePage === 0} onClick={() => setPage(safePage - 1)} />
  <span className="px-2 font-mono text-xs text-muted">{safePage + 1} / {totalPages}</span>
           <PageBtn label={t("下一页 ›", "Next ›")} disabled={safePage >= totalPages - 1} onClick={() => setPage(safePage + 1)} />
-          <PageBtn label={t("末页 »", "Last »")} disabled={safePage >= totalPages - 1} onClick={() => setPage(totalPages - 1)} />
+          <span className="hidden sm:inline-flex"><PageBtn label={t("末页 »", "Last »")} disabled={safePage >= totalPages - 1} onClick={() => setPage(totalPages - 1)} /></span>
         </div>
       </div>
     </>
@@ -897,7 +897,7 @@ function PageBtn({ label, disabled, onClick }: { label: string; disabled: boolea
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`rounded-md border px-2.5 py-1 text-xs transition ${
+      className={`rounded-md border px-3 py-2 text-xs min-h-9 transition ${
         disabled
  ? "cursor-not-allowed border-line/50 text-faint/50"
  : "border-line text-muted hover:bg-surface-2 hover:text-ink"

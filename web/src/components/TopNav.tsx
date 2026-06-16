@@ -36,12 +36,12 @@ export default function TopNav() {
  <div className="mx-auto flex h-[60px] max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
 
         {/* Brand lockup — 双行编辑部款 */}
- <Link href="/" className="flex items-center gap-2.5 shrink-0 group" title="我不是股神 · Not a Stock God">
+ <Link href="/" className="flex items-center gap-2.5 min-w-0 flex-1 md:flex-none group" title="我不是股神 · Not a Stock God">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="我不是股神" width={32} height={32}
                className="h-8 w-8 rounded-[9px] object-cover ring-1 ring-white/10 shrink-0 transition group-hover:ring-accent/40" />
           <span className="flex flex-col leading-none">
- <span className="text-[16px] font-semibold tracking-tight text-ink whitespace-nowrap">
+ <span className="text-[15px] sm:text-[16px] font-semibold tracking-tight text-ink truncate">
  我不是<span className="text-accent">股神</span>
             </span>
  <span className="mt-[3px] hidden font-mono text-[8.5px] uppercase tracking-[0.32em] text-faint sm:block">
@@ -52,20 +52,20 @@ export default function TopNav() {
 
         {/* 主导航 — active 用下划线(编辑部),hover 升墨色 */}
  {/* 移动端隐藏(横滑会把对决/盘报藏出屏外,入口在底部 MobileTabBar) */}
- <nav className="hidden min-w-0 flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-2 md:flex">
+ <nav className="hidden min-w-0 flex-1 items-center gap-0.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:ml-2 lg:flex">
           {NAV.map((item) => {
             const active = item.match(pathname);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative shrink-0 px-2 py-2 text-[13px] font-medium transition sm:px-3 ${
+                className={`relative shrink-0 px-2 py-2 text-[13px] font-medium transition lg:px-3 ${
                   active ? "text-ink" : "text-muted hover:text-ink"
                 }`}
               >
  <span>{lang === "zh" ? item.label : item.en}</span>
                 <span
-                  className={`pointer-events-none absolute inset-x-2 -bottom-[1px] h-[2px] rounded-full transition-all duration-300 sm:inset-x-3 ${
+                  className={`pointer-events-none absolute inset-x-2 -bottom-[1px] h-[2px] rounded-full transition-all duration-300 lg:inset-x-3 ${
  active ? "bg-accent opacity-100" : "bg-accent opacity-0"
                   }`}
                 />
@@ -74,13 +74,16 @@ export default function TopNav() {
           })}
         </nav>
 
+        {/* 右侧控件统一成一个 shrink-0 组,让左侧品牌区吸收所有收缩 */}
+        <div className="ml-auto flex items-center gap-2 shrink-0">
+
         {/* 移动/平板搜索入口(SearchBox 在 lg 起才出现,这里补 <lg 的搜索)*/}
         <button
           type="button"
           onClick={() => setSearchOpen((v) => !v)}
           aria-label={t("搜索", "Search")}
           aria-expanded={searchOpen}
-          className="ml-auto shrink-0 rounded-lg border border-line bg-surface p-2 text-muted transition hover:text-ink lg:hidden"
+          className="shrink-0 rounded-lg border border-line bg-surface p-2 text-muted transition hover:text-ink xl:hidden"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8" />
@@ -89,12 +92,12 @@ export default function TopNav() {
         </button>
 
         {/* 搜索框(桌面) */}
- <div className="hidden lg:block w-[260px] shrink-0">
+ <div className="hidden xl:block w-[260px] shrink-0">
  <SearchBox compact placeholder={t("搜代码 / 名称 / 板块…", "Search ticker / name / sector…")} />
         </div>
 
         {/* 盘口状态 — 休市时让用户知道价格"不跳"是正常;手机太挤,藏(sm 起显示)*/}
-        <div className="ml-auto hidden shrink-0 sm:ml-0 sm:block">
+        <div className="hidden shrink-0 lg:block">
           <MarketStatus />
         </div>
 
@@ -106,7 +109,7 @@ export default function TopNav() {
         <Link
           href="/how-to-buy"
           title="如何买美股 · How to buy US stocks"
-          className="shrink-0 rounded-lg px-3.5 py-1.5 text-[13px] font-semibold text-[#1a0f08] transition hover:brightness-110"
+          className="shrink-0 min-h-[36px] inline-flex items-center rounded-lg px-3.5 py-2 text-[13px] font-semibold text-[#1a0f08] transition hover:brightness-110"
           style={{
             background: "linear-gradient(135deg, #eda57f 0%, #d98a6a 55%, #c2754f 100%)",
             boxShadow: "0 1px 0 rgba(255,255,255,0.25) inset, 0 4px 14px rgba(217,138,106,0.22)",
@@ -114,6 +117,8 @@ export default function TopNav() {
         >
           Buy
         </Link>
+
+        </div>
 
       </div>
 

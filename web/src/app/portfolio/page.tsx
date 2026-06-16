@@ -37,7 +37,8 @@ export default function PortfolioPage() {
           </div>
         ) : (
  <div className="overflow-hidden rounded-xl border border-line bg-surface">
- <table className="w-full text-sm">
+ <div className="overflow-x-auto">
+ <table className="w-full min-w-[640px] text-sm">
  <thead className="bg-surface text-xs uppercase tracking-wider text-muted">
                 <tr>
  <th className="px-4 py-3 text-left font-medium"><T zh="股票" en="Stock" /></th>
@@ -86,6 +87,7 @@ export default function PortfolioPage() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         )}
       </section>
@@ -119,7 +121,7 @@ export default function PortfolioPage() {
         </div>
         {briefing ? (
           <article
- className="prose-leslie rounded-xl border border-line bg-surface p-8"
+ className="prose-leslie overflow-x-auto rounded-xl border border-line bg-surface p-4 sm:p-8"
             dangerouslySetInnerHTML={{ __html: briefing.html }}
           />
         ) : (

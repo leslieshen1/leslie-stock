@@ -95,13 +95,13 @@ export default function AboutPage() {
       </Section>
 
       <div className="mt-9 flex flex-wrap gap-3 border-t border-line pt-6">
-        <Link href="/" className="rounded-lg border border-accent/30 bg-accent-soft px-4 py-2 text-sm font-semibold text-accent transition hover:brightness-110">
+        <Link href="/" className="rounded-lg border border-accent/30 bg-accent-soft px-4 py-2.5 text-sm font-semibold text-accent transition hover:brightness-110">
           <T zh="开始看 →" en="Start exploring →" />
         </Link>
-        <Link href="/terms" className="rounded-lg border border-line bg-surface px-4 py-2 text-sm text-muted transition hover:text-ink">
+        <Link href="/terms" className="rounded-lg border border-line bg-surface px-4 py-2.5 text-sm text-muted transition hover:text-ink">
           <T zh="服务条款" en="Terms" />
         </Link>
-        <Link href="/privacy" className="rounded-lg border border-line bg-surface px-4 py-2 text-sm text-muted transition hover:text-ink">
+        <Link href="/privacy" className="rounded-lg border border-line bg-surface px-4 py-2.5 text-sm text-muted transition hover:text-ink">
           <T zh="隐私政策" en="Privacy" />
         </Link>
       </div>

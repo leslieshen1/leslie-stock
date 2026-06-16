@@ -188,7 +188,7 @@ export default async function HomePage({
 
 
   return (
- <main className="mx-auto max-w-[1480px] px-6 pb-10 pt-3">
+ <main className="mx-auto max-w-[1480px] px-3 sm:px-6 pb-10 pt-3">
       {dataStale && (
         <div className="mb-3 rounded-lg border border-[#e0a23d]/35 bg-[#e0a23d]/10 px-3 py-2 text-[12px] leading-relaxed text-[#e0a23d]">
           <T

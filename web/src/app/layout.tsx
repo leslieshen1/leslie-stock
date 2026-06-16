@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import TopNav from "@/components/TopNav";
 import MobileTabBar from "@/components/MobileTabBar";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { LangProvider, T } from "@/lib/i18n";
 
 // Terminal Luxury 字体系统:Fraunces = 编辑部衬线(拉丁 display 时刻),
@@ -55,7 +56,7 @@ export default function RootLayout({
         {children}
         {/* 全站合规声明 — 编辑部版式 */}
  <footer className="mt-16 border-t border-line">
- <div className="mx-auto max-w-[1480px] px-6 py-9 text-center text-[11px] leading-relaxed text-faint">
+ <div className="mx-auto max-w-[1480px] px-3 sm:px-6 py-9 text-center text-[11px] leading-relaxed text-faint">
             <p className="font-display text-[15px] italic tracking-wide text-muted">Not a Stock God</p>
  <p className="mt-1.5 text-[12px] text-muted"><T zh="你不是股神,但股神陪你一起看股票" en="You're not a stock god — but five of them watch the market with you." /></p>
  <p className="mt-4 font-medium text-muted">
@@ -77,11 +78,12 @@ export default function RootLayout({
  <p className="kicker mt-4 !text-faint">© Not a Stock God · Not Financial Advice</p>
           </div>
         </footer>
-        {/* 底部 Tab 栏占位(仅移动端,防止内容被固定栏遮住) */}
-        <div className="h-[58px] md:hidden" />
+        {/* 底部 Tab 栏占位(移动/平板 <lg,防止内容被固定栏遮住) */}
+        <div className="h-[58px] lg:hidden" />
         <MobileTabBar />
       </LangProvider>
       <Analytics />
+      <AnalyticsTracker />
       </body>
     </html>
   );

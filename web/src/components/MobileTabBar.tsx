@@ -1,6 +1,6 @@
 "use client";
 
-// 移动端底部 Tab 栏(md 以下显示)—— 顶部导航横滑会把"对决/盘报"藏出屏外,
+// 移动/平板底部 Tab 栏(lg 以下显示)—— 桌面顶栏要塞 7 个入口 + 控件,平板宽度放不下(英文标签更长),
 // 没人会去滑;底栏 6 个入口一屏全见,App 惯例。桌面端隐藏。
 
 import Link from "next/link";
@@ -77,7 +77,7 @@ export default function MobileTabBar() {
   const { lang } = useLang();
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-base/92 backdrop-blur-md md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-base/92 backdrop-blur-md lg:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="grid grid-cols-7">
@@ -87,12 +87,12 @@ export default function MobileTabBar() {
             <Link
               key={tb.href}
               href={tb.href}
-              className={`flex flex-col items-center gap-0.5 py-2 transition ${
+              className={`flex flex-col items-center gap-0.5 py-2 min-h-[48px] justify-center transition ${
                 active ? "text-accent" : "text-muted"
               }`}
             >
-              <span className="h-[19px] w-[19px]">{tb.icon}</span>
-              <span className="text-[9.5px] font-medium leading-none">{lang === "zh" ? tb.zh : tb.en}</span>
+              <span className="h-5 w-5">{tb.icon}</span>
+              <span className="text-[10px] tracking-tight font-medium leading-none">{lang === "zh" ? tb.zh : tb.en}</span>
             </Link>
           );
         })}

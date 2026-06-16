@@ -71,7 +71,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
 
     return (
       <div className="space-y-8">
-        <section className="rounded-2xl border border-line bg-surface p-8 text-center">
+        <section className="rounded-2xl border border-line bg-surface p-6 sm:p-8 text-center">
           <p className="mb-1.5 text-base font-medium text-ink">{hasPanel ? "外部资料 & 持仓" : "暂无深度分析"}</p>
           <p className="mx-auto mb-6 max-w-md text-sm leading-relaxed text-muted">
             {hasPanel
@@ -144,7 +144,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
   return (
  <div className="space-y-8">
       {/* ============ HERO ============ */}
- <section className={`rounded-2xl border bg-surface ${hasPanel ? "border-line p-6" : "border-line p-8"}`}>
+ <section className={`rounded-2xl border bg-surface ${hasPanel ? "border-line p-6" : "border-line p-6 sm:p-8"}`}>
         {/* 有五方面板时,瓶颈分只是其中一方(Serenity)的专项视角,降权不再当主评分 */}
         {hasPanel && (
           <header className="mb-4 flex items-baseline gap-2">
@@ -154,9 +154,9 @@ export default function StockDetailClient({ code, market, initial, holders = [],
         )}
  <div className="grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr] md:items-start">
           {/* 评分(有五方面板时缩小、改标签) */}
- <div className="flex items-center gap-6">
+ <div className="flex items-center gap-4 sm:gap-6">
  <div className="text-center">
-              <div className={`font-mono font-bold tracking-tight ${scoreColor(score)} ${hasPanel ? "text-4xl" : "text-6xl"}`}>
+              <div className={`font-mono font-bold tracking-tight ${scoreColor(score)} ${hasPanel ? "text-4xl" : "text-5xl sm:text-6xl"}`}>
  {score || "—"}
               </div>
  <div className="mt-1 text-xs uppercase tracking-wider text-faint">
@@ -252,7 +252,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
               </p>
             )}
           </header>
- <div className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-ink">
+ <div className="whitespace-pre-wrap break-words font-mono text-sm leading-relaxed text-ink">
             {thesis}
           </div>
         </section>
@@ -454,16 +454,16 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
  const buy = h.change_type === "add" || h.change_type === "new";
  const sell = h.change_type === "trim" || h.change_type === "exit";
           return (
- <div key={i} className="flex items-center gap-3">
+ <div key={i} className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3">
               <Link
                 href={`/whales`}
- className="w-28 shrink-0 truncate text-sm font-medium text-ink hover:text-accent"
+ className="w-full sm:w-28 shrink-0 truncate text-sm font-medium text-ink hover:text-accent"
  title={h.entity || ""}
               >
  <span className="text-[10px] text-faint">{tm.label}</span> {h.investor}
               </Link>
               {isPolitician ? (
-                <>
+                <div className="flex items-center gap-2 w-full">
                   <span className={`w-12 shrink-0 rounded border px-1 py-0.5 text-center text-[10px] font-medium ${
  buy ? "bg-up-soft text-up border-up/30"
  : sell ? "bg-down-soft text-down border-down/30"
@@ -472,9 +472,9 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
                   </span>
  <span className="flex-1 font-mono text-xs text-muted">{h.amount_range}</span>
  <span className="shrink-0 font-mono text-[10px] text-faint">{h.trade_date}</span>
-                </>
+                </div>
               ) : (
-                <>
+                <div className="flex items-center gap-2 w-full sm:flex-1">
  <div className="relative h-5 flex-1 overflow-hidden rounded bg-surface-2">
                     <div
                       className={`absolute inset-y-0 left-0 rounded ${
@@ -487,7 +487,7 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
                   <span className={`w-14 shrink-0 rounded border px-1 py-0.5 text-center text-[10px] font-medium ${cm.tone}`}>
                     {cm.label}
                   </span>
-                </>
+                </div>
               )}
             </div>
           );
@@ -660,20 +660,20 @@ function EventsSection({ events, code, market }: { events: RecentEvent[]; code: 
 function EventRow({ event }: { event: RecentEvent }) {
   const link = event.pdf_url || event.url;
   return (
- <li className="flex items-center gap-3 rounded-lg py-1 px-2 text-sm transition hover:bg-surface-2">
+ <li className="flex items-start gap-3 rounded-lg py-2 px-2 text-sm transition hover:bg-surface-2">
  <span className="shrink-0 text-xs">{event.pdf_url ? "" : ""}</span>
  <span className="shrink-0 font-mono text-xs text-faint">{event.ann_date}</span>
       <a
         href={link}
  target="_blank"
  rel="noopener noreferrer"
- className="min-w-0 flex-1 truncate text-muted hover:text-accent hover:underline"
+ className="min-w-0 flex-1 line-clamp-2 text-muted hover:text-accent hover:underline"
         title={event.title}
       >
         {event.title}
       </a>
       {event.keyword && (
- <span className="hidden shrink-0 rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] text-muted sm:inline-block">
+ <span className="inline-block shrink-0 rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] text-muted">
           {event.keyword}
         </span>
       )}

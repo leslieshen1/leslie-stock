@@ -25,7 +25,7 @@ export default function WatchlistSidebar() {
       {/* 收起把手 */}
       <button
         onClick={() => setOpen(true)}
- className={`fixed left-0 top-1/2 z-30 -translate-y-1/2 flex flex-col items-center gap-1.5 rounded-r-xl border border-l-0 border-line bg-surface py-3 pl-2 pr-2.5 transition hover:bg-surface-2 ${open ? "pointer-events-none opacity-0" : "opacity-100"}`}
+ className={`fixed left-0 top-1/2 z-30 -translate-y-1/2 hidden sm:flex flex-col items-center gap-1.5 rounded-r-xl border border-l-0 border-line bg-surface py-3 pl-2 pr-2.5 transition hover:bg-surface-2 ${open ? "pointer-events-none opacity-0" : "opacity-100"}`}
  aria-label="打开观察列表"
       >
  <Star className="h-4 w-4 text-accent" strokeWidth={1.75} fill="currentColor" fillOpacity={0.2} />

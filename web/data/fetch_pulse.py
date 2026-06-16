@@ -176,8 +176,11 @@ TICKER_MAP: dict[str, str] = {
     "2018":   "2018.HK",      # 瑞声
 }
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUTPUT_PATH = os.path.join(ROOT, "web", "public", "data", "pulse-snapshot.json")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # = .../web(本文件在 web/data/)
+# BUG 修复:之前是 ROOT/"web"/"public"/"data" → 多一层 web → 写到 web/web/public/data 死路。
+# 站点读的是 web/public/data,于是 pulse-snapshot 静默冻结 20 天(refresh_all 和 GitHub Actions 都白跑)。
+# ROOT 已经是 web,这里及下方 out_dir 都不能再加一层 "web"。DB_PATH 用 ROOT/"data" 本就对。
+OUTPUT_PATH = os.path.join(ROOT, "public", "data", "pulse-snapshot.json")
 DB_PATH = os.path.join(ROOT, "data", "pulse.db")
 
 
@@ -913,7 +916,7 @@ def main() -> int:
 
     # ===== 导出静态 JSON 给前端读（Vercel 静态化） =====
     def export_static_json():
-        out_dir = os.path.join(ROOT, "web", "public", "data")
+        out_dir = os.path.join(ROOT, "public", "data")  # 同上:ROOT 已是 web,不再加 "web"(trends/coverage/events 也曾跑偏)
         os.makedirs(out_dir, exist_ok=True)
 
         # 1. trends.json — 每个 ticker × 30 天 (date, close, heat)

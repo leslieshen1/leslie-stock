@@ -116,7 +116,10 @@ export default function ScanClient() {
     if (market !== "a" || aLoaded.current) return;
     aLoaded.current = true;
     fetch("/data/aleabit_manifest.json").then((r) => r.json())
-      .then((a) => setItems(a as AleabitManifestEntry[])).catch(() => { aLoaded.current = false; });
+      // A 股 tab 只放真 A 股:manifest 里混着 Serenity 覆盖的少量美股/港股(MU 美光、CBRS、CRCL 等,
+      // market!="a"),不过滤会被当 A 股按 ¥ 显示、还取不到腾讯价 → 与详情页对不上。
+      .then((a) => setItems((a as AleabitManifestEntry[]).filter((x) => x.market === "a")))
+      .catch(() => { aLoaded.current = false; });
     fetch("/data/a-panel-summary.json").then((r) => r.json())
       .then((p) => setAPanels(p as UsPanelSummary)).catch(() => {});
     fetch("/data/a-industry.json").then((r) => r.json())

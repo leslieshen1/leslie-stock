@@ -1220,9 +1220,79 @@
    "reason": "SpaceX/太空叙事仍是全市场最强吸金黑洞，虽然已经很热但盘口还在加速，顺势吃情绪溢价但必须承认翻脸会极快。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 52,
+   "fill_date": "2026-06-16",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里已经是八门看得懂、护城河够宽的生意，今天没有哪一个价格给我足够大的安全边际去折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 53,
+   "fill_date": "2026-06-16",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看得懂，也都能看十年，今天盘前这点波动不构成让我换生意的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 54,
+   "fill_date": "2026-06-16",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "CORZ",
+   "reason": "CORZ 是算力电力瓶颈但不是每台下游量产都必须吃的独家 BOM，我把这格让给更硬的单点卡脖子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 55,
+   "fill_date": "2026-06-16",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "STX",
+   "reason": "HAMR 良率、磁头和大容量 nearline 盘是 AI 数据落盘洪流的真窄门，双寡头供给里每座训练集群都要分它一块，贵和拥挤不是我卖飞真瓶颈的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 56,
+   "fill_date": "2026-06-16",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "HOOD",
+   "reason": "流动性一回来，散户风险偏好、加密 beta 和交易量会同时放大，HOOD 是今天盘前最顺风、弹性最干净的增量载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 57,
+   "fill_date": "2026-06-16",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "VSAT",
+   "reason": "这票从空头回补段走到现在，盘口已经不再给强承接，盘前还弱，离机械止损太近，我不把资金继续耗在情绪转冷的回补票上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 58,
+   "fill_date": "2026-06-16",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "HMY",
+   "reason": "金矿这边资金还在进，盘前继续有买盘，FOMC 前贵金属情绪有避险和趋势双重拥挤但尚未彻底狂热，拿它替掉死水弱票。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 52,
+ "next_order_id": 59,
  "notes": [
   {
    "date": "2026-06-12",

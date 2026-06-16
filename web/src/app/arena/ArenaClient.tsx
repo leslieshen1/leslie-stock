@@ -3,7 +3,7 @@
 // 五神对决 — 客户端实时层:持仓现价/盈亏/NAV/排名 30s 轮询跳动(复用 /api/quote,和全站一致)。
 // 结算口径不变:NAV 曲线、成本、交易流水都来自引擎(05:00 收盘结账);这里只是"此刻的活估值"。
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 
@@ -31,6 +31,39 @@ type Quote = { price: number; pct: number | null; session?: string };
 
 const SESSION_ZH: Record<string, string> = { pre: "盘前", regular: "盘中", post: "盘后", closed: "已收盘" };
 const fmtUsd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
+
+// 选手头像 —— 不用真人照片(与"AI 模拟·非本人"法务标注一致 + 避免肖像权);
+// 风格化:每位一套渐变 + 字形,颜色对应流派(价值绿/蓝、alpha 琥珀/紫、资金流玫红)。
+const MASTER_VISUAL: Record<string, { from: string; to: string; glyph: string; ring: string }> = {
+  buffett:       { from: "#065f46", to: "#10b981", glyph: "巴", ring: "#10b981" },
+  duan:          { from: "#1e3a8a", to: "#3b82f6", glyph: "段", ring: "#3b82f6" },
+  serenity:      { from: "#9a3412", to: "#e0734d", glyph: "S",  ring: "#e0734d" },
+  druckenmiller: { from: "#5b21b6", to: "#a78bfa", glyph: "德", ring: "#a78bfa" },
+  sentiment:     { from: "#9f1239", to: "#fb7185", glyph: "情", ring: "#fb7185" },
+};
+
+function MasterAvatar({ mkey, size = 44 }: { mkey: string; size?: number }) {
+  const uid = useId();
+  const gid = `mav-${uid}`;
+  const v = MASTER_VISUAL[mkey] ?? { from: "#3f3f46", to: "#71717a", glyph: "?", ring: "#71717a" };
+  return (
+    <svg width={size} height={size} viewBox="0 0 44 44" className="shrink-0" role="img" aria-label={mkey}>
+      <defs>
+        <linearGradient id={gid} x1="6" y1="2" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor={v.from} />
+          <stop offset="100%" stopColor={v.to} />
+        </linearGradient>
+      </defs>
+      <circle cx="22" cy="22" r="20" fill={`url(#${gid})`} />
+      <circle cx="22" cy="22" r="20.75" fill="none" stroke={v.ring} strokeOpacity="0.55" strokeWidth="1.5" />
+      <ellipse cx="22" cy="15" rx="13" ry="8" fill="#ffffff" opacity="0.12" />
+      <text x="22" y="23.5" textAnchor="middle" dominantBaseline="central" fill="#ffffff"
+        fontSize="17" fontWeight="700" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+        {v.glyph}
+      </text>
+    </svg>
+  );
+}
 
 function NavSpark({ hist, start, emptyLabel, live }: { hist: { nav: number }[]; start: number; emptyLabel: string; live?: number }) {
   if (hist.length < 2)
@@ -140,8 +173,9 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
       <div className="mb-4 space-y-1.5 sm:hidden">
         {live.map((m, i) => (
           <a key={m.key} href={`#${m.key}`}
-            className="flex items-center gap-2.5 rounded-lg border border-line bg-surface px-3 py-2">
-            <span className="w-7 shrink-0 text-center font-mono text-[12px]">{medals[i]}</span>
+            className={`flex items-center gap-2.5 rounded-xl border bg-surface px-3 py-2 ${i === 0 ? "border-accent/40 ring-1 ring-accent/15" : "border-line"}`}>
+            <span className="w-5 shrink-0 text-center text-[13px] leading-none">{medals[i]}</span>
+            <MasterAvatar mkey={m.key} size={34} />
             <div className="min-w-0 flex-1">
               <div className="text-[13px] font-semibold leading-tight text-ink">{mName(m)}</div>
               <div className="truncate text-[10px] text-muted">{mSchool(m)} · {m.positions.length} {t("仓", "pos")}</div>
@@ -156,20 +190,32 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
         ))}
       </div>
 
-      {/* 排行榜 · 桌面卡片(实时重排) */}
+      {/* 排行榜 · 桌面卡片(实时重排,头像 + 奖牌) */}
       <div className="mb-6 hidden gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-5">
         {live.map((m, i) => (
           <a key={m.key} href={`#${m.key}`}
-            className="rounded-xl border border-line bg-surface p-4 transition hover:border-accent/40">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[11px] text-faint">{medals[i]}</span>
-              <span className="text-[10px] text-faint">{m.positions.length} {t("仓", "pos")}</span>
+            className={`group relative overflow-hidden rounded-2xl border bg-surface p-4 transition hover:-translate-y-0.5 hover:shadow-lg ${
+              i === 0 ? "border-accent/40 ring-1 ring-accent/20" : "border-line hover:border-accent/40"
+            }`}>
+            {/* 奖牌角标 */}
+            <span className="absolute right-3 top-3 text-[15px] leading-none">{medals[i]}</span>
+            {/* 头像 + 名字 */}
+            <div className="flex items-center gap-3">
+              <MasterAvatar mkey={m.key} size={46} />
+              <div className="min-w-0 flex-1 pr-5">
+                <div className="truncate text-[15px] font-semibold leading-tight text-ink">{mName(m)}</div>
+                <div className="truncate text-[10px] text-muted">{mSchool(m)}</div>
+              </div>
             </div>
-            <div className="mt-1 text-[15px] font-semibold text-ink">{mName(m)}</div>
-            <div className="text-[10px] text-muted">{mSchool(m)}</div>
-            <div className="mt-2 font-mono text-lg font-semibold tabular-nums text-ink">{fmtUsd(m.liveNav)}</div>
-            <div className={`font-mono text-sm font-semibold tabular-nums ${m.liveRet >= 0 ? "text-up" : "text-down"}`}>
-              {m.liveRet >= 0 ? "+" : ""}{m.liveRet.toFixed(2)}%
+            {/* NAV + 收益 + 仓位 */}
+            <div className="mt-3 flex items-end justify-between">
+              <div className="min-w-0">
+                <div className="font-mono text-lg font-semibold tabular-nums text-ink">{fmtUsd(m.liveNav)}</div>
+                <div className={`font-mono text-sm font-semibold tabular-nums ${m.liveRet >= 0 ? "text-up" : "text-down"}`}>
+                  {m.liveRet >= 0 ? "+" : ""}{m.liveRet.toFixed(2)}%
+                </div>
+              </div>
+              <span className="shrink-0 rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-faint">{m.positions.length} {t("仓", "pos")}</span>
             </div>
             <div className="mt-2"><NavSpark hist={m.navHist} start={arena.start_cash} live={m.liveNav} emptyLabel={t("首个交易日 · 曲线明天开始生长", "Day one · curve starts tomorrow")} /></div>
           </a>
@@ -180,7 +226,8 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
       <div className="space-y-8">
         {live.map((m, i) => (
           <section key={m.key} id={m.key} className="scroll-mt-20">
-            <div className="mb-2 flex flex-wrap items-baseline gap-x-3">
+            <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <MasterAvatar mkey={m.key} size={36} />
               <h2 className="text-base font-semibold text-ink">{medals[i]} {mName(m)}</h2>
               <span className="text-xs text-muted">{mSchool(m)}</span>
               <span className="font-mono text-xs tabular-nums text-muted">

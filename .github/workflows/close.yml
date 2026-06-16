@@ -1,0 +1,69 @@
+name: close-report-card
+
+# 收盘复盘(gpt-5.5)+ 收盘卡片 —— 全程线上,脱离本地 Mac。
+# 北京 10:00am = 02:00 UTC = 美东前一日 22:00(已收盘)。周二~六(对应美股周一~五收盘)。
+# 报告发布到 /reports(git push → Vercel Git 集成自动部署);卡片落 data/cards/ 一并提交。
+on:
+  schedule:
+    - cron: "0 2 * * 2-6"
+  workflow_dispatch: {}
+
+concurrency:
+  group: close
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Sync Python deps
+        run: uv sync
+
+      - name: Install Chrome (卡片渲染用)
+        run: |
+          wget -q -O /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get update -q
+          sudo apt-get install -y /tmp/chrome.deb
+
+      - name: 收盘复盘(gpt-5.5)→ 发布 → 卡片
+        env:
+          NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
+          NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
+          FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
+          CARD_OUT_DIR: data/cards
+          CHROME_BIN: /usr/bin/google-chrome-stable
+        run: |
+          set -e
+          # 北京 10:00am 时美东是前一日 22:00 → ET 日期就是刚收盘那天
+          ET_DATE=$(TZ=America/New_York date +%Y-%m-%d)
+          ET_YMD=$(TZ=America/New_York date +%Y%m%d)
+          uv run python scripts/close_report.py --no-email
+          MD="data/reports/close_${ET_YMD}.md"
+          TITLE=$(head -1 "$MD" | sed 's/^# *//')
+          uv run python scripts/publish_report.py --type close --time "16:00 ET" \
+            --title "$TITLE" --file "$MD" --date "$ET_DATE"
+          uv run python scripts/share_card.py --type close || echo "⚠ 卡片渲染失败,跳过(报告已发)"
+
+      - name: Commit & push(触发 Vercel Git 集成部署)
+        run: |
+          git config user.name "close-bot"
+          git config user.email "close-bot@users.noreply.github.com"
+          git add web/public/data/reports.json data/reports/ data/cards/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "无变化,跳过"; exit 0; fi
+          git commit -m "report: 收盘复盘 + 卡片 $(TZ=America/New_York date +%F)(线上 gpt-5.5)"
+          for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done

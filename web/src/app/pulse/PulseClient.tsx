@@ -862,6 +862,10 @@ function DetailPanel({
  <span className="font-mono text-[9px] font-semibold px-1.5 py-0.5 rounded bg-up-soft text-up border border-up/30">
                 LIVE
               </span>
+            ) : c.dataSource === "snapshot" ? (
+ <span className="font-mono text-[9px] font-semibold px-1.5 py-0.5 rounded bg-surface-2 text-faint border border-line">
+                {t("收盘", "EOD")}
+              </span>
             ) : (
  <span className="font-mono text-[9px] font-semibold px-1.5 py-0.5 rounded bg-accent-soft text-accent border border-accent/30">
                 MOCK
@@ -1044,7 +1048,7 @@ function FundamentalsBlock({ c }: { c: CompanyWithHeat }) {
   const [fetched, setFetched] = useState<Fundamentals | null>(null);
   useEffect(() => {
     setFetched(null);
-    if (c.fundamentals || c.dataSource !== "live") return; // A股/serenity 无此数据;已带则不拉
+    if (c.fundamentals || (c.dataSource !== "live" && c.dataSource !== "snapshot")) return; // A股/serenity 无此数据;已带则不拉(snapshot=尚未轮询到的美股,也拉)
     let alive = true;
     fetch(`/api/fundamentals?syms=${encodeURIComponent(c.ticker)}`)
       .then((r) => r.json())

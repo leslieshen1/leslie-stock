@@ -143,7 +143,8 @@ export default async function HomePage({
       valuationPct: hv.val ?? m.valuationPct, rsi: hv.rsi ?? m.rsi, momentum20d: hv.mom ?? m.momentum20d };
     const up = usPrices[it.ticker];
     if (up && up.price != null) {
-      m = { ...m, livePrice: up.price, pct: up.pct, dataSource: "live" as const };
+      // 快照价(us-stocks 日更),非实时 —— 标 "snapshot" 不标 "live";客户端 /api/market 轮询回来才升 "live"
+      m = { ...m, livePrice: up.price, pct: up.pct, dataSource: "snapshot" as const };
       if (up.mcapB != null) m = { ...m, marketCapB: up.mcapB };
     }
     // 基本面只认 us-fundamentals(和详情页同一口径);没有就清空,不留 12 天前的旧 snapshot

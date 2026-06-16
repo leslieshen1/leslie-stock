@@ -240,7 +240,7 @@ export interface Fundamentals {
 // 自动计算所有公司的 heat（默认 mock）
 export interface CompanyWithHeat extends Company {
   heat: number;
-  dataSource: "live" | "mock" | "serenity";
+  dataSource: "live" | "snapshot" | "mock" | "serenity";
   livePrice?: number;
   pct?: number | null;        // 当日涨跌%（与 list 同源:us-stocks / /api/market）
   pos52?: number | null;      // 过热度分项:离 52 周高点位置（0-100）
@@ -308,7 +308,7 @@ export function enrichWithSnapshot(snapshot: PulseSnapshot | null): CompanyWithH
       ...c,
       ...enriched,
       heat: computeHeat(enriched),
-      dataSource: "live",
+      dataSource: "snapshot", // 构建期快照价(日更),非实时;客户端首轮 /api/market·a-market 轮询回来才升 "live"
       livePrice: live.price,
       liveBar: live.lastBar,
       fundamentals: live.fundamentals,

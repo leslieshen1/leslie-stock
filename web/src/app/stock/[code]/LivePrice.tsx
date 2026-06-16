@@ -3,19 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { marketStatus, MKT_LABEL_EN, type MktState } from "@/lib/market-status";
 import { useLang } from "@/lib/i18n";
+import { yahooSym } from "@/lib/quote-sym";
 
 type MktInfo = { state: MktState; label: string };
-
-// Yahoo 符号:US 直用代码;A股 6→.SS / 0·3→.SZ;港股补零 .HK
-function yahooSym(code: string, market: string): string {
-  if (market === "a") {
-    if (/^6/.test(code)) return `${code}.SS`;
-    if (/^[039]/.test(code)) return `${code}.SZ`;
-    return code;
-  }
-  if (market === "hk") return `${code.replace(/\D/g, "").padStart(4, "0")}.HK`;
-  return code.toUpperCase();
-}
 
 type Q = {
   price: number | null;

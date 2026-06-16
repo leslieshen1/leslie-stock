@@ -262,7 +262,7 @@ export default async function StockDetailPage({
 
       {fundamentals && (
         <div className="mb-4">
-          <FundamentalsStrip f={fundamentals} types={stockTypes} />
+          <FundamentalsStrip f={fundamentals} types={stockTypes} code={code} market={market} />
         </div>
       )}
 

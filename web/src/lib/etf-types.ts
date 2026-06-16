@@ -22,6 +22,7 @@ export type EtfRow = {
   cls: "up" | "neutral" | "down";
   why: string;
   thesis?: string;
+  blurb?: string;          // 一句话中文介绍(Opus 4.8 生成,列表/详情页展示)
 };
 
 export type SectorAgg = { sector: string; super: string; n: number; aum: number };

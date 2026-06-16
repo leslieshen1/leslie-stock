@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { type EtfData, type EtfRow, SUPERS, SORTS, CLS_TONE } from "@/lib/etf-types";
 
@@ -193,19 +194,24 @@ const DOT: Record<string, string> = { up: "bg-up", neutral: "bg-accent", down: "
 
 function EtfRowItem({ e }: { e: EtfRow; t: (zh: string, en: string) => string }) {
   return (
-    <div className="flex items-center gap-2 px-3 py-2 sm:px-4">
+    <Link
+      href={`/stock/${e.sym}?market=us`}
+      className="flex items-center gap-2 px-3 py-2 transition hover:bg-surface-2 sm:px-4"
+    >
       <EtfLogo sym={e.sym} />
-      <div className="flex min-w-0 flex-1 items-center gap-1.5">
+      <div className="flex min-w-0 flex-1 items-center gap-2">
         <span className={`h-1.5 w-1.5 shrink-0 rounded-full sm:hidden ${DOT[e.cls]}`} title={e.verdict} />
-        <span className="font-mono text-[13px] font-semibold text-ink">{e.sym}</span>
+        <span className="shrink-0 font-mono text-[13px] font-semibold text-ink">{e.sym}</span>
         <span className={`hidden shrink-0 rounded border px-1 py-px text-[9px] font-medium sm:inline-block ${CLS_TONE[e.cls]}`}>{e.verdict}</span>
-        <span className="hidden truncate text-[11px] text-muted sm:block">{e.name}</span>
+        {/* 宽屏:英文名(限宽)+ 中文介绍填中间空白;窄屏:只显示中文介绍(没有则退回名字) */}
+        <span className="hidden max-w-[190px] shrink-0 truncate text-[11px] text-muted lg:block" title={e.name}>{e.name}</span>
+        <span className="hidden min-w-0 flex-1 truncate text-[11px] text-faint sm:block" title={e.blurb || e.name}>{e.blurb || e.name}</span>
       </div>
       <span className="w-12 shrink-0 text-right font-mono text-[12px] text-ink sm:w-14">{fmtAum(e.aum)}</span>
       <span className={`w-11 shrink-0 text-right font-mono text-[12px] sm:w-12 ${pctCls(e.ret1y)}`}>{fmtPct(e.ret1y)}</span>
       <span className={`w-11 shrink-0 text-right font-mono text-[12px] sm:w-12 ${pctCls(e.ret5y)}`}>{fmtPct(e.ret5y)}</span>
       <span className={`w-12 shrink-0 text-right font-mono text-[12px] sm:w-14 ${mddCls(e.mdd)}`}>{e.mdd == null ? "—" : `${Math.round(e.mdd)}%`}</span>
-    </div>
+    </Link>
   );
 }
 

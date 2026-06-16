@@ -26,9 +26,15 @@ import {
 import { MASTERS } from "@/lib/masters";
 import { useLang, type Lang } from "@/lib/i18n";
 
-// 个股分析页链接:6 位纯数字 = A 股,其余按美股(热力图里两类都有)
-function stockHref(ticker: string): string {
-  return `/stock/${ticker}?market=${/^\d{6}$/.test(ticker) ? "a" : "us"}`;
+// 个股分析页链接:按节点 region 选 market —— CN→a / HK→hk / 美股→us。
+// 不能"6位=a 其余=us"一刀切:港股 3-4 位会被带成 ?market=us → 详情页 Yahoo 拿裸 "700" 取不到价、端到端打不开。
+function stockHref(ticker: string, region?: string): string {
+  const market =
+    region === "CN" ? "a" :
+    region === "HK" ? "hk" :
+    region === "US" ? "us" :
+    /^\d{6}$/.test(ticker) ? "a" : "us"; // 无 region 时退回旧启发式(台/韩/日详情页暂不支持,落 us)
+  return `/stock/${ticker}?market=${market}`;
 }
 
 // ===== 英文显示映射(纯展示层,zh 数据/逻辑不动)=====
@@ -189,7 +195,9 @@ export default function PulseClient({
     fetch("/data/trends.json").then((r) => r.json()).then(setLazyTrends).catch(() => { trendsLoaded.current = false; });
   }, [selected]);
  const [industry, setIndustry] = useState<string>(initialIndustry ?? sp.get("industry") ?? "AI");
- const [region, setRegion] = useState<Region | "ALL">("US");
+ // 默认全市场:之前默认 'US' 把 A 股占主体的链(人形 161/186、国防 361/501、新能源车、光伏储能…)整条藏掉,
+ // tab badge 4-5 倍低报(人形机器人显 24 实为 113)。A 股是覆盖主体,不该被默认筛选挡在门外。
+ const [region, setRegion] = useState<Region | "ALL">("ALL");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
  const [colorMode, setColorMode] = useState<string>("heat");
@@ -197,8 +205,8 @@ export default function PulseClient({
   useEffect(() => { setTier("all"); }, [colorMode]);
   // 从详情页跳转过来时高亮的 ticker
   const [highlightTicker, setHighlightTicker] = useState<string | null>(initialHighlight ?? sp.get("highlight"));
-  // 全盘实时报价(/api/market,Nasdaq 快照 60s 缓存)
-  const [liveQ, setLiveQ] = useState<Record<string, { price: number | null; pct: number | null; mcapYi?: number | null }>>({});
+  // 全盘实时报价(/api/market,Nasdaq 快照 60s 缓存)。mcapB = 美股实时市值($B);mcapYi = A股实时市值(¥亿)
+  const [liveQ, setLiveQ] = useState<Record<string, { price: number | null; pct: number | null; mcapYi?: number | null; mcapB?: number | null }>>({});
 
   // 跳转过来时自动打开对应公司的 detail drawer
   useEffect(() => {
@@ -215,22 +223,41 @@ export default function PulseClient({
     setHighlightLayer(null);
   }, [industry]);
 
-  // 全盘实时:US 走 /api/market(Nasdaq),A 股(6位代码节点)走 /api/a-market(腾讯,带 ¥总市值)。
-  // 之前只轮 /api/market → A 股节点永远是 manifest 里的旧价(和详情页实时价对不上)。
+  // 全盘实时:US 走 /api/market(Nasdaq,含实时市值/量),A 股(6位代码)走 /api/a-market(腾讯,带 ¥总市值),
+  // 港/台/韩节点(.HK/.TW/.KS)走 /api/quote(Yahoo)。之前后两类够不着任何实时源 → 节点价冻在 20 天前的快照却标 LIVE。
   const hasA = useMemo(() => items.some((i) => /^\d{6}$/.test(i.ticker)), [items]);
+  // 港/台/韩策展节点 → Yahoo 符号(与详情页 LivePrice 同款后缀规则);键回节点 ticker 用于 merge
+  const extSyms = useMemo(() => {
+    const out: { ys: string; ticker: string }[] = [];
+    for (const i of items) {
+      if (i.region === "HK") out.push({ ys: `${i.ticker.replace(/\D/g, "").padStart(4, "0")}.HK`, ticker: i.ticker });
+      else if (i.region === "TW") out.push({ ys: `${i.ticker}.TW`, ticker: i.ticker });
+      else if (i.region === "KR") out.push({ ys: `${i.ticker}.KS`, ticker: i.ticker });
+    }
+    return out;
+  }, [items]);
+  const extKey = extSyms.map((e) => e.ys).join(",");
   useEffect(() => {
     let alive = true;
+    type LQ = { price: number | null; pct: number | null; mcapYi?: number | null; mcapB?: number | null };
     const poll = async () => {
       try {
-        const tasks: Promise<{ quotes?: Record<string, { price: number | null; pct: number | null; mcapYi?: number | null }> } | null>[] = [
+        const tasks: Promise<{ quotes?: Record<string, LQ> } | null>[] = [
           fetch("/api/market", { cache: "no-store" }).then((r) => r.json()).catch(() => null),
         ];
         if (hasA) tasks.push(fetch("/api/a-market", { cache: "no-store" }).then((r) => r.json()).catch(() => null));
-        const [us, a] = await Promise.all(tasks);
+        else tasks.push(Promise.resolve(null));
+        if (extKey) tasks.push(fetch(`/api/quote?syms=${encodeURIComponent(extKey)}`, { cache: "no-store" }).then((r) => r.json()).catch(() => null));
+        else tasks.push(Promise.resolve(null));
+        const [us, a, ext] = await Promise.all(tasks);
         if (!alive) return;
-        const merged: Record<string, { price: number | null; pct: number | null; mcapYi?: number | null }> = {};
-        if (us?.quotes) Object.assign(merged, us.quotes);
+        const merged: Record<string, LQ> = {};
+        if (us?.quotes) Object.assign(merged, us.quotes); // 美股:price/pct/mcapB/vol
         if (a?.quotes) for (const [code, q] of Object.entries(a.quotes)) merged[code] = { price: q.price, pct: q.pct, mcapYi: q.mcapYi };
+        if (ext?.quotes) for (const { ys, ticker } of extSyms) {
+          const q = ext.quotes[ys.toUpperCase()];
+          if (q && q.price != null) merged[ticker] = { price: q.price, pct: q.pct };
+        }
         if (Object.keys(merged).length) setLiveQ(merged);
       } catch {
         /* 静默 */
@@ -239,7 +266,7 @@ export default function PulseClient({
     const id = setInterval(poll, 60_000);
     poll();
     return () => { alive = false; clearInterval(id); };
-  }, [hasA]);
+  }, [hasA, extKey, extSyms]);
 
   // 综合 = 已判读各方真实评分均值(null = 未判读 → 粒子灰色),和镜头/详情面板同源 —— 绝不前端现算第二套
   const itemsScored = useMemo(
@@ -257,6 +284,7 @@ export default function PulseClient({
         if (q.price != null) base.livePrice = q.price;
         if (q.pct != null) { base.pct = q.pct; base.dataSource = "live"; }
         if (q.mcapYi != null) base.liveMcapYi = q.mcapYi;
+        if (q.mcapB != null) base.marketCapB = q.mcapB; // 美股实时市值覆盖构建期静态快照(NVDA 不再冻在 $5.14T)
       }
       return base;
     }),
@@ -652,7 +680,7 @@ export default function PulseClient({
           lensLabel={curLensLabel}
           onSelect={setSelected}
           flow={industry === "AI" || (industryDefs.find((d) => d.id === industry) as ChainDef | undefined)?.kind !== "sector"}
-          onOpen={(c) => router.push(stockHref(c.ticker))}
+          onOpen={(c) => router.push(stockHref(c.ticker, c.region))}
           selectedId={selected?.id ?? null}
           highlightLayer={highlightLayer}
           layers={activeLayers}
@@ -818,7 +846,7 @@ function DetailPanel({
               {layer.id} · {layer.name} · {c.segment}
             </span>
           </div>
- <Link href={stockHref(c.ticker)} title={t("打开完整分析", "Open full analysis")} className="group inline-block">
+ <Link href={stockHref(c.ticker, c.region)} title={t("打开完整分析", "Open full analysis")} className="group inline-block">
  <h3 className="text-2xl font-semibold tracking-tight text-ink transition group-hover:text-accent">{c.name} <span className="text-base text-faint transition group-hover:text-accent">↗</span></h3>
           </Link>
  <div className="mt-1 flex items-baseline gap-2 flex-wrap">
@@ -857,7 +885,7 @@ function DetailPanel({
 
       {/* 完整分析入口 —— 热力图唯一的深链,必须显眼(选中即见,不藏在 tab 里) */}
       <Link
-        href={stockHref(c.ticker)}
+        href={stockHref(c.ticker, c.region)}
         className="mt-4 flex items-center justify-center gap-1.5 rounded-lg border border-accent/40 bg-accent-soft px-3 py-2 text-[13px] font-semibold text-accent transition hover:brightness-110"
       >
         {t("完整五方分析 · K线 · 新闻 →", "Full 5-master analysis · Chart · News →")}
@@ -906,7 +934,7 @@ function DetailPanel({
 
       {/* Tab 内容 */}
  <div className="mt-4">
- {tab === "heat" ? <HeatView c={c} /> : <MasterAIView masters={masters} ticker={c.ticker} />}
+ {tab === "heat" ? <HeatView c={c} /> : <MasterAIView masters={masters} ticker={c.ticker} region={c.region} />}
       </div>
 
       {/* 基本面数据 */}
@@ -1184,7 +1212,7 @@ function HeatView({ c }: { c: CompanyWithHeat }) {
 }
 
 // ---- AI 五方判读(真分,来自 pulse-scores,和镜头/详情页同源)----
-function MasterAIView({ masters, ticker }: { masters?: MastersJoin; ticker: string }) {
+function MasterAIView({ masters, ticker, region }: { masters?: MastersJoin; ticker: string; region?: string }) {
   const { t, lang } = useLang();
   const has = !!masters && Object.values(masters.byKey).some((v) => v != null);
   return (
@@ -1218,7 +1246,7 @@ function MasterAIView({ masters, ticker }: { masters?: MastersJoin; ticker: stri
           </div>
         </>
       )}
-      <Link href={stockHref(ticker)} className="mt-4 inline-block text-xs text-accent hover:underline">
+      <Link href={stockHref(ticker, region)} className="mt-4 inline-block text-xs text-accent hover:underline">
         {t("看完整五方分析 →", "See the full 5-master analysis →")}
       </Link>
     </div>

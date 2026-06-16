@@ -26,7 +26,8 @@ function num(s: unknown): number | null {
   const n = parseFloat(String(s).replace(/[$,%\s]/g, ""));
   return Number.isFinite(n) ? n : null;
 }
-const isUS = (s: string) => !/\.(SS|SZ|HK)$/i.test(s);
+// 带交易所后缀的走 Yahoo;其余(裸代码)按美股走 Nasdaq。台股 .TW / 韩股 .KS 也归 Yahoo(热力图港台韩节点用)
+const isUS = (s: string) => !/\.(SS|SZ|HK|TW|KS)$/i.test(s);
 
 // 高频 ETF 直通:assetclass 一次到位,免 stocks→400→etf 两连击(QQQ 实测省一半延迟)
 const KNOWN_ETFS = new Set(["QQQ", "SPY", "DIA", "IWM", "GLD", "SLV", "TLT", "HYG", "XLK", "XLF", "XLE", "SMH", "SOXX", "ARKK", "IBIT", "VTI", "VOO"]);

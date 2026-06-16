@@ -51,6 +51,7 @@ export async function GET(req: Request) {
   }
   return Response.json(
     { fundamentals: out },
-    { headers: { "cache-control": "s-maxage=3600, stale-while-revalidate=86400" } },
+    // 源是日更静态文件:之前 1h/24h-SWR 让边缘最长服务 24h 陈旧 PE/PB。收紧到 5min,贴近日更节奏
+    { headers: { "cache-control": "s-maxage=300, stale-while-revalidate=600" } },
   );
 }

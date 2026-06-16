@@ -7,7 +7,9 @@ export const dynamic = "force-dynamic";
 
 const URL_NASDAQ = "https://api.nasdaq.com/api/screener/stocks?tableonly=false&limit=10000&download=true";
 
-type Quotes = Record<string, { price: number | null; pct: number | null }>;
+// mcapB/vol 也一并回出:美股市值/成交量全站本来无实时通道(scan/热力图都吃构建期静态快照,
+// NVDA 冻在 $5.14T、排序锚旧值)。Nasdaq screener 同一行本就带 marketCap+volume,顺手带上。
+type Quotes = Record<string, { price: number | null; pct: number | null; mcapB?: number | null; vol?: number | null }>;
 let MKT_LAST_GOOD: { quotes: Quotes; ts: number } | null = null;
 
 function num(s: unknown): number | null {
@@ -39,7 +41,13 @@ export async function GET(req: Request) {
     for (const row of rows) {
       const sym = String(row.symbol || "").trim().toUpperCase();
       if (sym && !sym.includes("^") && !sym.includes("/")) {
-        quotes[sym] = { price: num(row.lastsale), pct: num(row.pctchange) };
+        const mc = num(row.marketCap); // 原始美元市值,转 $B(2 位)
+        quotes[sym] = {
+          price: num(row.lastsale),
+          pct: num(row.pctchange),
+          mcapB: mc != null ? Math.round(mc / 1e7) / 100 : null,
+          vol: num(row.volume),
+        };
       }
     }
     if (Object.keys(quotes).length === 0) throw new Error("empty");

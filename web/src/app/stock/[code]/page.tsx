@@ -186,9 +186,11 @@ export default async function StockDetailPage({
     b == null ? null : b >= 1000 ? `$${(b / 1000).toFixed(2)}T` : b >= 1 ? `$${b.toFixed(1)}B` : `$${Math.round(b * 1000)}M`;
   // A 股优先用实时总市值(腾讯,随价波动),退回静态面板值;避免和热力图/盘面对不上
   const mcapYiLive = market === "a" && aFund?.mcapYi != null ? aFund.mcapYi : usPanel?.mcapYi;
+  // 美股市值统一读 us-fundamentals(带 generated_at,日更,与「今日大事」同源),弃用无时间戳、可冻数周的 us-panels.mcapB
+  // —— 之前 NVDA 这里显 $5.43T(us-panels)而别处 $5.14T,MSFT 差 15%,同一公司两页两个市值伤可信度
   const mcap = mcapYiLive != null
     ? `${mcapYiLive >= 10000 ? `${(mcapYiLive / 10000).toFixed(2)} 万亿` : `${Math.round(mcapYiLive)} 亿`}`
-    : fmtCap(usPanel?.mcapB);
+    : fmtCap(fundamentals?.mcapB ?? usPanel?.mcapB);
 
  const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
   const marketTone =

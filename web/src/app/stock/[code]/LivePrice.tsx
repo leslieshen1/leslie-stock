@@ -34,7 +34,8 @@ export default function LivePrice({
   const [q, setQ] = useState<Q>({ price: initialPrice ?? null, pct: null });
   const [flash, setFlash] = useState<"" | "up" | "down">("");
   const [mkt, setMkt] = useState<MktInfo | null>(null);
-  const prev = useRef<number | null>(initialPrice ?? null);
+  // 初值 null(不种 stale 价):首帧 poll 把"上一收盘种子"校正到实时价时不该闪一次涨/跌 —— 那不是真跳动
+  const prev = useRef<number | null>(null);
 
   useEffect(() => {
     const tick = () => setMkt(marketStatus(new Date(), market));

@@ -142,7 +142,7 @@ export default function ScanClient() {
       try {
         const r = await fetch("/api/market", { cache: "no-store" });
         const j = await r.json();
-        const q = (j.quotes || {}) as Record<string, { price: number | null; pct: number | null }>;
+        const q = (j.quotes || {}) as Record<string, { price: number | null; pct: number | null; mcapB?: number | null; vol?: number | null }>;
         if (!alive || !Object.keys(q).length) return;
         // 算涨跌闪烁:对比上次价(首轮无 ref → 不闪,作为基线)
         const f: Record<string, "up" | "down"> = {};
@@ -156,7 +156,10 @@ export default function ScanClient() {
         setUsStocks((prev) =>
           prev.map((s) => {
             const nq = q[s.sym];
-            return nq && nq.price != null ? { ...s, price: nq.price, pct: nq.pct } : s;
+            // 市值/成交量也一并刷新(之前只更 price/pct → 市值列冻结、默认按旧市值排序)
+            return nq && nq.price != null
+              ? { ...s, price: nq.price, pct: nq.pct, mcapB: nq.mcapB ?? s.mcapB, vol: nq.vol ?? s.vol }
+              : s;
           }),
         );
         if (Object.keys(f).length) {

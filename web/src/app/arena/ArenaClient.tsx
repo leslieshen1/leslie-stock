@@ -32,10 +32,11 @@ type Quote = { price: number; pct: number | null; session?: string };
 const SESSION_ZH: Record<string, string> = { pre: "盘前", regular: "盘中", post: "盘后", closed: "已收盘" };
 const fmtUsd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 
-function NavSpark({ hist, start, emptyLabel }: { hist: { nav: number }[]; start: number; emptyLabel: string }) {
+function NavSpark({ hist, start, emptyLabel, live }: { hist: { nav: number }[]; start: number; emptyLabel: string; live?: number }) {
   if (hist.length < 2)
     return <div className="flex h-[36px] items-end text-[10px] text-faint">{emptyLabel}</div>;
-  const vals = hist.map((h) => h.nav);
+  // 末点拼上实时 NAV → 曲线终点 = 卡片上方那个实时大数字(否则曲线停在昨收,与大数字打架)
+  const vals = live != null ? [...hist.map((h) => h.nav), live] : hist.map((h) => h.nav);
   const min = Math.min(...vals, start), max = Math.max(...vals, start);
   const span = max - min || 1;
   const W = 150, H = 36;
@@ -170,7 +171,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
             <div className={`font-mono text-sm font-semibold tabular-nums ${m.liveRet >= 0 ? "text-up" : "text-down"}`}>
               {m.liveRet >= 0 ? "+" : ""}{m.liveRet.toFixed(2)}%
             </div>
-            <div className="mt-2"><NavSpark hist={m.navHist} start={arena.start_cash} emptyLabel={t("首个交易日 · 曲线明天开始生长", "Day one · curve starts tomorrow")} /></div>
+            <div className="mt-2"><NavSpark hist={m.navHist} start={arena.start_cash} live={m.liveNav} emptyLabel={t("首个交易日 · 曲线明天开始生长", "Day one · curve starts tomorrow")} /></div>
           </a>
         ))}
       </div>
@@ -193,7 +194,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                 const q = quotes[p.sym];
                 const px = q?.price ?? p.price;
                 const pnl = (px / p.entry - 1) * 100;
-                const day = q?.pct ?? p.dayPct;
+                const day = q?.pct ?? null; // 无实时报价 → "—",不拿 arena.json 的昨日 dayPct 充"今日"
                 const fl = flash[p.sym];
                 const flCls = fl === "up" ? "bg-up-soft" : fl === "down" ? "bg-down-soft" : "";
                 return (
@@ -244,7 +245,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                     const q = quotes[p.sym];
                     const px = q?.price ?? p.price;
                     const pnl = (px / p.entry - 1) * 100;
-                    const day = q?.pct ?? p.dayPct;
+                    const day = q?.pct ?? null; // 无实时报价 → "—",不拿 arena.json 的昨日 dayPct 充"今日"
                     const fl = flash[p.sym];
                     const flCls = fl === "up" ? "bg-up-soft" : fl === "down" ? "bg-down-soft" : "";
                     return (

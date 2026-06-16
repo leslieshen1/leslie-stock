@@ -83,10 +83,17 @@ function etTimeOf(utc: string): { date: string; hm: string } | null {
 
 async function usNames(): Promise<Record<string, { name: string; mcapB: number | null }>> {
   try {
-    const p = path.join(process.cwd(), "public", "data", "us-stocks.json");
-    const j = JSON.parse(await fs.readFile(p, "utf-8"));
+    const dir = path.join(process.cwd(), "public", "data");
+    // 名称取 us-stocks;市值取 us-fundamentals(带 generated_at,与个股详情页 hero 同源 → 跨页市值一致)
+    const [stocksRaw, fundRaw] = await Promise.all([
+      fs.readFile(path.join(dir, "us-stocks.json"), "utf-8"),
+      fs.readFile(path.join(dir, "us-fundamentals.json"), "utf-8").catch(() => "{}"),
+    ]);
+    const fund = (JSON.parse(fundRaw).stocks || {}) as Record<string, { mcapB?: number | null }>;
     const out: Record<string, { name: string; mcapB: number | null }> = {};
-    for (const s of j.stocks || []) out[s.sym] = { name: s.name || "", mcapB: s.mcapB ?? null };
+    for (const s of JSON.parse(stocksRaw).stocks || []) {
+      out[s.sym] = { name: s.name || "", mcapB: fund[s.sym]?.mcapB ?? s.mcapB ?? null };
+    }
     return out;
   } catch {
     return {};

@@ -127,10 +127,10 @@ export default function StockDetailClient({ code, market, initial, holders = [],
   const redFlags = currentVersion?.red_flags || a?.red_flags || [];
   const signalsHit = currentVersion?.signals_hit || a?.signals_hit || 0;
 
-  const mc = initial.raw_quote?.market_cap as number | null | undefined;
+  // 市值不在这里渲染:页头已用实时市值(A股腾讯 / 美股 us-fundamentals),这里的 raw_quote 是判读时的冻结快照,
+  // 两个市值并排会打架(实测 000001 此处 2078亿 vs 页头实时 2125亿)。PE/PB 多数记录为空、极少渲染,保留兜底。
   const pe = initial.raw_quote?.pe_ttm as number | null | undefined;
   const pb = initial.raw_quote?.pb as number | null | undefined;
- const mcStr = mc ? `${(mc / 1e8).toFixed(1)} 亿` : "—";
 
   const ticker = code; // for external links
  const isSH = market === "a" && code.startsWith("6");
@@ -189,7 +189,6 @@ export default function StockDetailClient({ code, market, initial, holders = [],
               </p>
             )}
  <div className="flex flex-wrap items-center gap-4 text-sm">
- <span className="text-muted">市值 <span className="font-mono text-ink">{mcStr}</span></span>
  {pe != null && <span className="text-muted">PE <span className="font-mono text-ink">{pe.toFixed(1)}</span></span>}
  {pb != null && <span className="text-muted">PB <span className="font-mono text-ink">{pb.toFixed(1)}</span></span>}
  {initial.sector && <span className="text-muted">{initial.sector}</span>}

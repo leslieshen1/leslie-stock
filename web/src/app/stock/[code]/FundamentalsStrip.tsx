@@ -53,7 +53,7 @@ export default function FundamentalsStrip({
     <div className="rounded-2xl border border-line bg-surface p-5">
       <div className="mb-3 flex items-baseline justify-between">
         <span className="text-sm font-semibold text-ink">真实基本面</span>
-        <span className="text-[10px] text-faint">高亮 = 这类股该重点看 · 数据 Yahoo</span>
+        <span className="text-[10px] text-faint">高亮 = 这类股该重点看 · 数据 Yahoo · 估值/目标价按上一收盘价</span>
       </div>
 
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">

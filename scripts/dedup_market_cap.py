@@ -80,6 +80,7 @@ CLASSIFY_FIX: dict[str, tuple[str, str]] = {
     "PYPL": ("Finance", "Business Services"),                              # PayPal:支付
     "GPN":  ("Finance", "Business Services"),                              # Global Payments:支付
     "MSCI": ("Finance", "Finance: Consumer Services"),                     # MSCI:金融数据
+    "ETN":  ("Industrials", "Industrial Machinery/Components"),            # 伊顿:工业(电气),非科技
     "WMT":  ("Consumer Staples", "Department/Specialty Retail Stores"),    # 沃尔玛:必需消费
     "PM":   ("Consumer Staples", "Tobacco"),                              # 菲莫:烟草≠"医疗"
     "MO":   ("Consumer Staples", "Tobacco"),                              # 奥驰亚:烟草
@@ -105,7 +106,7 @@ for _grp, _syms in {
     "AI算力": "NVDA AMD",
     "存储": "MU WDC SNDK STX",
     "光模块": "COHR LITE FN AAOI POET",
-    "半导体设备": "LRCX AMAT KLAC TER ENTG ONTO COHU",
+    "半导体设备": "LRCX AMAT KLAC TER ENTG ONTO COHU ASML",
 }.items():
     for _s in _syms.split():
         TECH_SUB_FIX[_s] = _grp
@@ -204,11 +205,9 @@ def dedup_us() -> float:
     for r in rows:
         r.pop("capDup", None)  # 清旧标记(幂等)
 
-    # 仅在 country==US 内分组(外国 ADR 本就不进美股聚合,country 过滤已挡)
+    # 全部美股上市票按公司名分组去重(不限注册地;海外注册的双重股权也一并合并)
     groups: dict[str, list] = defaultdict(list)
     for r in rows:
-        if r.get("country") != "United States":
-            continue
         n = norm_name(r.get("name"))
         if n:
             groups[n].append(r)
@@ -235,10 +234,11 @@ def dedup_us() -> float:
             r["sector"], r["industry"] = fx
             fixed += 1
 
-    # 每只票打子板块(前端可按大板块展开):assign_sub 按大板块分派
+    # 每只票打子板块(前端可按大板块展开):assign_sub 按大板块分派。
+    # 不限注册地 —— 所有美股上市票(含海外注册的希捷/埃森哲等)都要进板块。
     for r in rows:
         r.pop("sub", None)
-        if r.get("country") == "United States" and not r.get("capDup"):
+        if not r.get("capDup") and r.get("sector"):
             sub = assign_sub(r)
             if sub:
                 r["sub"] = sub
@@ -246,7 +246,7 @@ def dedup_us() -> float:
     # 债券/票据/ETN 等非股权工具:同样不计入股权市值聚合(复用 capDup 标记)
     debt, debt_cap = [], 0.0
     for r in rows:
-        if r.get("country") != "United States" or r.get("capDup"):
+        if r.get("capDup"):
             continue
         if DEBT_RE.search(str(r.get("name", ""))):
             r["capDup"] = True

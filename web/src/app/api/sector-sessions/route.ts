@@ -56,7 +56,8 @@ async function loadStatic() {
   const sm: Record<string, string> = {}, sub: Record<string, string> = {};
   const cap: Record<string, number> = {}, subCap: Record<string, number> = {};
   for (const s of all) {
-    if (s.country !== "United States" || !s.sector || s.capDup) continue;
+    // 所有美股上市票都进板块(不限注册地 —— 海外注册的希捷/埃森哲等也算)
+    if (!s.sector || s.capDup) continue;
     const seg = segZH(s.sector);
     const sym = String(s.sym);
     sm[sym] = seg;

@@ -49,10 +49,12 @@ export default function SectorSessions() {
   const session = data?.session || "";
   const sqrtSum = rows?.reduce((s, r) => s + Math.sqrt(Math.max(1, r.capB)), 0) || 1;
 
-  // 只显示有数据的时段列(空列不画);都空则兜底显示三列
-  const present = SKEYS.filter((c) => rows?.some((r) => r[c.k] != null || r.subs?.some((s) => s[c.k] != null)));
-  const cols = present.length ? present : SKEYS;
-  const gridCols = `minmax(92px,150px) repeat(${cols.length}, minmax(0,1fr))`;
+  // 盘前/盘中/盘后三段恒显示;有数据的时段宽(1fr),空时段做细列(56px)——保留三段结构又不留大白带
+  const dataKeys = new Set(
+    SKEYS.filter((c) => rows?.some((r) => r[c.k] != null || r.subs?.some((s) => s[c.k] != null))).map((c) => c.k),
+  );
+  const allEmpty = dataKeys.size === 0;
+  const gridCols = `minmax(92px,150px) ${SKEYS.map((c) => (allEmpty || dataKeys.has(c.k) ? "minmax(0,1fr)" : "56px")).join(" ")}`;
 
   return (
     <section className="mt-8">
@@ -73,7 +75,7 @@ export default function SectorSessions() {
       <div className="overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
         <div className="mb-1 grid gap-1 px-1 text-[11px] text-faint" style={{ gridTemplateColumns: gridCols }}>
           <span className="pl-1">板块 · 市值</span>
-          {cols.map((c) => (
+          {SKEYS.map((c) => (
             <span key={c.k} className={`flex items-center justify-center gap-1 ${session === c.label ? "font-medium text-up" : ""}`}>
               {session === c.label && <i className="h-1.5 w-1.5 animate-pulse rounded-full bg-up" />}
               {c.label}
@@ -107,7 +109,7 @@ export default function SectorSessions() {
                       </span>
                       <span className="text-[11px] leading-tight text-faint tnum">{fcap(r.capB)}</span>
                     </button>
-                    {cols.map((c) => <Cell key={c.k} p={r[c.k]} live={session === c.label} />)}
+                    {SKEYS.map((c) => <Cell key={c.k} p={r[c.k]} live={session === c.label} />)}
                   </div>
 
                   {isOpen && r.subs!.map((sub) => {
@@ -118,7 +120,7 @@ export default function SectorSessions() {
                           <span className="truncate text-[12px] leading-tight text-ink/90">{sub.sector}</span>
                           <span className="text-[10px] leading-tight text-faint tnum">{fcap(sub.capB)}</span>
                         </div>
-                        {cols.map((c) => <Cell key={c.k} p={sub[c.k]} live={session === c.label} />)}
+                        {SKEYS.map((c) => <Cell key={c.k} p={sub[c.k]} live={session === c.label} />)}
                       </div>
                     );
                   })}
@@ -129,7 +131,7 @@ export default function SectorSessions() {
         )}
       </div>
       <p className="mt-1.5 text-[10px] text-faint">
-        市值加权 · 当前时段随访问实时刷新,已过去时段定格 · 只显示有数据的时段 · 点 ▸ 展开子板块 · 非投资建议
+        市值加权 · 盘前/盘中/盘后三段(当前段实时·过去段定格·无数据段留空) · 点 ▸ 展开子板块 · 全部美股上市票 · 非投资建议
       </p>
     </section>
   );

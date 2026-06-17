@@ -54,7 +54,7 @@ export default function SectorSessions() {
     SKEYS.filter((c) => rows?.some((r) => r[c.k] != null || r.subs?.some((s) => s[c.k] != null))).map((c) => c.k),
   );
   const allEmpty = dataKeys.size === 0;
-  const gridCols = `minmax(92px,150px) ${SKEYS.map((c) => (allEmpty || dataKeys.has(c.k) ? "minmax(0,1fr)" : "56px")).join(" ")}`;
+  const gridCols = `minmax(82px,108px) ${SKEYS.map((c) => (allEmpty || dataKeys.has(c.k) ? "minmax(0,1fr)" : "52px")).join(" ")}`;
 
   return (
     <section className="mt-8">

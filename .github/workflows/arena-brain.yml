@@ -2,8 +2,7 @@
 # 注:cron 是 UTC;美东夏令时 12:30 UTC = 08:30 ET(冬令时会变成 07:30 ET,可接受)。
 name: arena-brain
 on:
-  schedule:
-    - cron: "30 12 * * 1-5"
+  # 触发改用 cron-job.org 准点打 /api/cron/arena-brain(GitHub schedule 常延迟/丢,已移除)
   workflow_dispatch: {}
 concurrency: arena
 permissions:

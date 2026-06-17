@@ -3,8 +3,7 @@
 # 当日收盘(us-stocks/price-history-30d)提交上库;数据不新鲜时自动跳过不乱记账。
 name: arena-engine
 on:
-  schedule:
-    - cron: "20 0 * * 2-6"
+  # 触发改用 cron-job.org 准点打 /api/cron/arena-engine(GitHub schedule 常延迟/丢,已移除)
   workflow_dispatch: {}
 concurrency: arena
 permissions:

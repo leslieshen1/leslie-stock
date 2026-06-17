@@ -52,6 +52,48 @@ def is_secondary(nm: str) -> int:
 # 债券/票据/ETN 等非股权工具:有"市值"和板块标签,但本质是债不是股权,不该进股权市值聚合。
 DEBT_RE = re.compile(r"\bnotes?\b|\bdebentures?\b|subordinated|\bSTRATS\b|\bETN\b|exchange[- ]traded note", re.I)
 
+# 分类修正(AI 审定 top200):Nasdaq 的 sector/industry 字段不少错位/陈旧,按公司真实业务覆盖。
+# 值=(sector, industry)。只收高把握的错;长尾待 step② / 全量。改 industry 同时惠及 scan/搜索/详情。
+CLASSIFY_FIX: dict[str, tuple[str, str]] = {
+    "SPCX": ("Industrials", "Aerospace"),                                  # SpaceX:航天≠"数据处理软件"
+    "QCOM": ("Technology", "Semiconductors"),                              # 高通≠"广播电视"
+    "GE":   ("Industrials", "Aerospace"),                                  # GE Aerospace≠"消费电子"
+    "GEV":  ("Industrials", "Industrial Machinery/Components"),            # GE Vernova:电力设备(原空白)
+    "PANW": ("Technology", "Computer Software: Prepackaged Software"),     # Palo Alto:安全软件≠"电脑外设"
+    "FTNT": ("Technology", "Computer Software: Prepackaged Software"),     # Fortinet 同上
+    "NEE":  ("Utilities", "Electric Utilities: Central"),                  # NextEra:电力≠"EDP Services"
+    "DASH": ("Consumer Discretionary", "Computer Software: Programming Data Processing"),  # DoorDash:互联网
+    "UBER": ("Technology", "Computer Software: Programming Data Processing"),               # Uber:互联网平台
+    "ABNB": ("Consumer Discretionary", "Computer Software: Programming Data Processing"),   # Airbnb:互联网平台
+    "GD":   ("Industrials", "Aerospace"),                                  # 通用动力:国防≠"海运"
+    "NOC":  ("Industrials", "Aerospace"),                                  # 诺斯罗普:国防
+    "LMT":  ("Industrials", "Aerospace"),                                  # 洛马
+    "TDG":  ("Industrials", "Aerospace"),                                  # TransDigm:航空件
+    "HWM":  ("Industrials", "Aerospace"),                                  # Howmet:航空≠"金属加工"
+    "DIS":  ("Communication Services", "Services-Misc. Amusement & Recreation"),
+    "NFLX": ("Communication Services", "Services-Misc. Amusement & Recreation"),  # 流媒体归媒体娱乐
+    "WBD":  ("Communication Services", "Services-Misc. Amusement & Recreation"),
+    "MSI":  ("Technology", "Computer Communications Equipment"),           # 摩托罗拉系统:通信设备≠"广播电视"
+    "V":    ("Finance", "Business Services"),                              # Visa:金融(支付),非可选消费
+    "MA":   ("Finance", "Business Services"),                              # 万事达 同上
+    "AXP":  ("Finance", "Finance: Consumer Services"),                     # 运通:金融
+    "WMT":  ("Consumer Staples", "Department/Specialty Retail Stores"),    # 沃尔玛:必需消费
+    "PM":   ("Consumer Staples", "Tobacco"),                              # 菲莫:烟草≠"医疗"
+    "MO":   ("Consumer Staples", "Tobacco"),                              # 奥驰亚:烟草
+    "TMO":  ("Health Care", "Medical/Dental Instruments"),                # 赛默飞:医疗器械/生命科学
+    "DHR":  ("Health Care", "Medical/Dental Instruments"),                # 丹纳赫 同上
+    "ISRG": ("Health Care", "Medical/Dental Instruments"),                # 直觉手术
+    "MDT":  ("Health Care", "Medical/Dental Instruments"),                # 美敦力
+    "ABT":  ("Health Care", "Medical/Dental Instruments"),                # 雅培:器械/诊断为主
+    "CVS":  ("Health Care", "Medical Specialities"),                      # CVS:医疗服务
+    "MCK":  ("Health Care", "Medical Specialities"),                      # 麦肯森:医药分销
+    "EMR":  ("Industrials", "Industrial Machinery/Components"),            # 艾默生:工业自动化≠"消费电子"
+    "HPE":  ("Technology", "Computer Manufacturing"),                      # HPE:服务器硬件
+    "PH":   ("Industrials", "Industrial Machinery/Components"),            # 派克汉尼汾≠"金属加工"
+    "APH":  ("Technology", "Electronic Components"),                       # 安费诺:连接器
+    "GLW":  ("Technology", "Electronic Components"),                       # 康宁:材料/元件
+}
+
 
 def dedup_us() -> float:
     p = PUB / "us-stocks.json"
@@ -83,6 +125,14 @@ def dedup_us() -> float:
                 dup_cap += float(r.get("mcapB") or 0)
                 flagged.append((r.get("sym"), primary.get("sym"), r.get("name"), float(r.get("mcapB") or 0)))
 
+    # 分类修正:按 CLASSIFY_FIX 覆盖错位的 sector/industry(惠及板块热力 + scan/搜索/详情)
+    fixed = 0
+    for r in rows:
+        fx = CLASSIFY_FIX.get(r.get("sym"))
+        if fx:
+            r["sector"], r["industry"] = fx
+            fixed += 1
+
     # 债券/票据/ETN 等非股权工具:同样不计入股权市值聚合(复用 capDup 标记)
     debt, debt_cap = [], 0.0
     for r in rows:
@@ -100,6 +150,7 @@ def dedup_us() -> float:
     print(f"[US] 债券/票据非股权工具: {len(debt)} 行,剔除 ${debt_cap/1000:.3f}T —— 核对有无误伤真公司:")
     for sym, nm, cap in sorted(debt, key=lambda x: -x[2])[:14]:
         print(f"    {sym:7} ${cap/1000:6.3f}T  {str(nm)[:50]}")
+    print(f"[US] 分类修正(CLASSIFY_FIX): {fixed} 只覆盖了错位的 sector/industry")
     return dup_cap + debt_cap
 
 

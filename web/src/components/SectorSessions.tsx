@@ -41,6 +41,8 @@ function indZH(k: string): string {
   if (h("medical special")) return "医疗·保险";
   if (h("medical/dental") || h("instruments")) return "医疗器械";
   if (h("beverages")) return "饮料";
+  if (h("tobacco")) return "烟草";
+  if (h("amusement") || h("recreation")) return "媒体娱乐";
   if (h("package goods") || h("cosmetics")) return "日化";
   if (h("edp services")) return "互联网·IT服务";
   return k; // 兜底原名

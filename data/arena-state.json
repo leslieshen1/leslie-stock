@@ -1290,9 +1290,99 @@
    "reason": "金矿这边资金还在进，盘前继续有买盘，FOMC 前贵金属情绪有避险和趋势双重拥挤但尚未彻底狂热，拿它替掉死水弱票。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 59,
+   "fill_date": "2026-06-17",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天没有哪一笔买卖能让我确信比继续持有这些宽护城河生意更聪明；价格波动不是我的指挥棒，内在价值才是。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 60,
+   "fill_date": "2026-06-17",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天没有一家持仓的十年生意和企业文化发生变化，盘口轮动和FOMC都不是我卖好公司的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 61,
+   "fill_date": "2026-06-17",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "FOMC 前不为风格轮动乱砍真瓶颈；我手里这十个仍是下游量产每一单位都要分一块的卡脖子位，高波动主题票可以震，但瓶颈没变就不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 62,
+   "fill_date": "2026-06-17",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CAMT",
+   "reason": "这笔高 beta 半导体设备没有按剧本走，AI 硬件二线资金被抽血时它还套我，错了就快砍，不跟它谈感情。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 63,
+   "fill_date": "2026-06-17",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "ETN",
+   "reason": "市场在从拥挤半导体往AI电力和工业资本开支扩散，ETN盘前继续顺风，是表达电力瓶颈这条宏观主线的干净高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 64,
+   "fill_date": "2026-06-17",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "OPTX",
+   "reason": "盘前纳指回暖它只蹭了零星绿，说明散户热度还在但真资金没回来，死水票先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 65,
+   "fill_date": "2026-06-17",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "VSAT",
+   "reason": "从冰点反弹后的回补力度明显钝化，盘口不再像主动进攻，更像空头回补尾声，先退出。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 66,
+   "fill_date": "2026-06-17",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "RBLX",
+   "reason": "它不是今天最热的票，但机构回补和低位情绪修复还在中段，拥挤度比AI硬件低，适合接风格切换的钱。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 67,
+   "fill_date": "2026-06-17",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "HLNE",
+   "reason": "昨晚资金明确从拥挤科技流向金融链，HLNE盘前不躁但有聪明钱加仓底色，买的是低调轮动而不是追高狂热。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 59,
+ "next_order_id": 68,
  "notes": [
   {
    "date": "2026-06-12",

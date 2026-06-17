@@ -7,13 +7,44 @@ import { useEffect, useState } from "react";
 type Row = { sector: string; capB: number; pre: number | null; mid: number | null; post: number | null };
 type Resp = { sectors: Row[]; session: string; day: string; isToday: boolean };
 
-const ZH: Record<string, string> = {
-  Technology: "科技", Finance: "金融", "Financial Services": "金融", "Health Care": "医疗", Healthcare: "医疗",
-  "Consumer Discretionary": "可选消费", "Consumer Staples": "必需消费", "Consumer Cyclical": "可选消费",
-  "Consumer Defensive": "必需消费", Industrials: "工业", Energy: "能源", Utilities: "公用事业",
-  "Real Estate": "地产", Telecommunications: "通信", "Communication Services": "通信",
-  "Basic Materials": "材料", Materials: "材料", Miscellaneous: "其他", Other: "其他",
-};
+// Nasdaq 细分行业 → 简短中文。关键词匹配(稳健应对名称细微差异),按龙头起的诚实名。
+// 注:Nasdaq 分类有怪处(运营商挂"电信设备"、NEE 混进 EDP),step② 会用定制主题清理。
+function indZH(k: string): string {
+  const s = (k || "").toLowerCase();
+  const h = (kw: string) => s.includes(kw);
+  if (h("semiconductor")) return "半导体";
+  if (h("programming data")) return "互联网·平台";
+  if (h("prepackaged")) return "软件";
+  if (h("computer manufacturing")) return "电脑·硬件";
+  if (h("computer communications")) return "网络设备";
+  if (h("pharmaceutical")) return "制药";
+  if (h("biological products")) return "生物药";
+  if (h("biotechnology")) return "生物医药";
+  if (h("major banks")) return "大型银行";
+  if (h("investment banker") || h("brokers")) return "投行·券商";
+  if (h("investment managers")) return "资管";
+  if (h("consumer services")) return "消费金融";
+  if (h("catalog")) return "电商";
+  if (h("building materials")) return "家居建材";
+  if (h("retail stores")) return "零售·商超";
+  if (h("restaurants")) return "餐饮";
+  if (h("industrial machinery")) return "工业机械";
+  if (h("auto manufacturing")) return "汽车";
+  if (h("aerospace")) return "航空国防";
+  if (h("real estate investment")) return "REITs";
+  if (h("business services")) return "支付·商服";
+  if (h("integrated oil")) return "综合油气";
+  if (h("oil & gas") || h("oil and gas")) return "油气开采";
+  if (h("electronic components")) return "电子元件";
+  if (h("telecommunications equipment")) return "电信运营";
+  if (h("electric utilities") || h("utilities")) return "电力公用";
+  if (h("medical special")) return "医疗·保险";
+  if (h("medical/dental") || h("instruments")) return "医疗器械";
+  if (h("beverages")) return "饮料";
+  if (h("package goods") || h("cosmetics")) return "日化";
+  if (h("edp services")) return "互联网·IT服务";
+  return k; // 兜底原名
+}
 
 function heat(p: number): { bg: string; fg: string } {
   if (p >= -0.05 && p <= 0.05) return { bg: "hsl(220 6% 27%)", fg: "rgba(255,255,255,.82)" };
@@ -83,7 +114,7 @@ export default function SectorSessions() {
 
       <div className="overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
         {/* 列头 */}
-        <div className="mb-1 grid grid-cols-[minmax(104px,168px)_1fr_1fr_1fr] gap-1 px-1 text-[11px] text-faint">
+        <div className="mb-1 grid grid-cols-[78px_1fr_1fr_1fr] sm:grid-cols-[minmax(116px,168px)_1fr_1fr_1fr] gap-1 px-1 text-[11px] text-faint">
           <span className="pl-1">板块 · 市值</span>
           {COLS.map((c) => (
             <span key={c.key} className={`flex items-center justify-center gap-1 ${session === c.label ? "font-medium text-up" : ""}`}>
@@ -100,16 +131,16 @@ export default function SectorSessions() {
         ) : (
           <div className="flex flex-col gap-1">
             {rows.map((r) => {
-              const h = Math.max(30, Math.round((Math.sqrt(Math.max(1, r.capB)) / sqrtSum) * 470));
+              const h = Math.max(28, Math.round((Math.sqrt(Math.max(1, r.capB)) / sqrtSum) * 640));
               return (
                 <div
                   key={r.sector}
-                  className="grid grid-cols-[minmax(104px,168px)_1fr_1fr_1fr] gap-1"
+                  className="grid grid-cols-[78px_1fr_1fr_1fr] sm:grid-cols-[minmax(116px,168px)_1fr_1fr_1fr] gap-1"
                   style={{ height: h }}
-                  title={`${ZH[r.sector] || r.sector} · ${fcap(r.capB)}`}
+                  title={`${indZH(r.sector)} · ${fcap(r.capB)}`}
                 >
                   <div className="flex flex-col justify-center overflow-hidden rounded-md bg-surface px-2.5">
-                    <span className="truncate text-[13px] leading-tight text-ink">{ZH[r.sector] || r.sector}</span>
+                    <span className="truncate text-[13px] leading-tight text-ink">{indZH(r.sector)}</span>
                     <span className="text-[11px] leading-tight text-faint tnum">{fcap(r.capB)}</span>
                   </div>
                   <Cell p={r.pre} live={session === "盘前"} />
@@ -122,7 +153,7 @@ export default function SectorSessions() {
         )}
       </div>
       <p className="mt-1.5 text-[10px] text-faint">
-        市值加权 · 当前时段随访问实时刷新,已过去时段定格在收段值,未到时段留空 · 板块按 GICS · 非投资建议
+        市值加权 · 当前时段随访问实时刷新,已过去时段定格在收段值,未到时段留空 · 按 Nasdaq 行业细分(top 24) · 非投资建议
       </p>
     </section>
   );

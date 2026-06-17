@@ -47,11 +47,11 @@ async function loadStatic() {
   const all: Record<string, unknown>[] = JSON.parse(await fs.readFile(p, "utf-8")).stocks || [];
   const sm: Record<string, string> = {}, cap: Record<string, number> = {};
   for (const s of all) {
-    // capDup:重复上市的副类股(双重股权/存托)或私有代理 —— 不计入市值聚合,避免一家算多次
-    if (s.country !== "United States" || !s.sector || s.capDup) continue;
-    const sec = String(s.sector);
-    sm[String(s.sym)] = sec;
-    if (Number(s.mcapB) > 0) cap[sec] = (cap[sec] || 0) + Number(s.mcapB);
+    // 按 Nasdaq 细分行业(industry)分组,比 12 个 GICS 板块细;capDup 不计入聚合
+    if (s.country !== "United States" || !s.industry || s.capDup) continue;
+    const key = String(s.industry);
+    sm[String(s.sym)] = key;
+    if (Number(s.mcapB) > 0) cap[key] = (cap[key] || 0) + Number(s.mcapB);
   }
   SECT_MAP = sm;
   SECT_CAP = cap;
@@ -121,6 +121,7 @@ export async function GET(req: Request) {
 
     const sectors = Object.keys(cap)
       .sort((a, b) => cap[b] - cap[a])
+      .slice(0, 24) // 取市值 top 24 行业(~77% 市值),其余长尾不铺满列表
       .map((sector) => {
         const fz = (f: "pre" | "mid" | "post") => (frozenOK ? HASH[f]?.[sector] ?? null : null);
         return {

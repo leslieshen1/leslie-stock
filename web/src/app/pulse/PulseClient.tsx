@@ -113,8 +113,8 @@ export function fmtCapB(b: number | null | undefined): string {
 type ChainLayerDef = { id: string; name: string; summary?: string };
 type ChainDef = { id: string; name: string; desc: string; kind?: "chain" | "sector"; layers: ChainLayerDef[] };
 
+// "全部"(ALL)去掉了:全市场一起上点太多太乱;默认美股,按需切单一市场。
 const REGIONS: { id: Region | "ALL"; label: string; labelEn: string }[] = [
- { id: "ALL", label: "全部", labelEn: "All" },
  { id: "US", label: "美股", labelEn: "US" },
  { id: "CN", label: "A 股", labelEn: "A-shares" },
  { id: "HK", label: "港股", labelEn: "HK" },
@@ -197,7 +197,7 @@ export default function PulseClient({
  const [industry, setIndustry] = useState<string>(initialIndustry ?? sp.get("industry") ?? "AI");
  // 默认全市场:之前默认 'US' 把 A 股占主体的链(人形 161/186、国防 361/501、新能源车、光伏储能…)整条藏掉,
  // tab badge 4-5 倍低报(人形机器人显 24 实为 113)。A 股是覆盖主体,不该被默认筛选挡在门外。
- const [region, setRegion] = useState<Region | "ALL">("ALL");
+ const [region, setRegion] = useState<Region | "ALL">("US");
  const [tier, setTier] = useState<string>("all");
   const [highlightLayer, setHighlightLayer] = useState<LayerId | null>(null);
  const [colorMode, setColorMode] = useState<string>("heat");
@@ -370,7 +370,7 @@ export default function PulseClient({
       setIndustry(next);
       setHighlightLayer(null);
     }
-    if (region !== "ALL" && c.region !== region) setRegion("ALL");
+    if (c.region && c.region !== region) setRegion(c.region as Region);
     if (tier !== "all") setTier("all");
     fieldWrapRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }

@@ -10,7 +10,6 @@ export const dynamic = "force-dynamic";
 
 const KEY = "sg:sect:cur";
 const FIELD: Record<string, "pre" | "mid" | "post"> = { 盘前: "pre", 盘中: "mid", 盘后: "post" };
-const EXPAND = "科技"; // 唯一可展开的大板块
 
 // GICS sector → 大板块中文(合并 通信+媒体、杂项+空白)
 const SECT_ZH: Record<string, string> = {
@@ -42,7 +41,7 @@ function etSession(): string {
 let SECT_MAP: Record<string, string> | null = null; // sym → 大板块
 let SUB_MAP: Record<string, string> | null = null;   // sym → 子主题(仅科技)
 let SECT_CAP: Record<string, number> | null = null;   // 大板块 → 市值
-let SUB_CAP: Record<string, number> | null = null;    // 子主题 → 市值
+let SUB_CAP: Record<string, number> | null = null;    // "大板块|子板块" → 市值(key 带前缀防串台)
 let LAST_SYNC = 0;
 let HASH: { day: string | null; pre: Sect | null; mid: Sect | null; post: Sect | null } = {
   day: null, pre: null, mid: null, post: null,
@@ -63,9 +62,10 @@ async function loadStatic() {
     sm[sym] = seg;
     const m = Number(s.mcapB);
     if (m > 0) cap[seg] = (cap[seg] || 0) + m;
-    if (seg === EXPAND && s.sub) {
-      sub[sym] = String(s.sub);
-      if (m > 0) subCap[String(s.sub)] = (subCap[String(s.sub)] || 0) + m;
+    if (s.sub) {
+      const k = `${seg}|${s.sub}`; // 前缀大板块,防同名子板块跨板块串台
+      sub[sym] = k;
+      if (m > 0) subCap[k] = (subCap[k] || 0) + m;
     }
   }
   SECT_MAP = sm; SUB_MAP = sub; SECT_CAP = cap; SUB_CAP = subCap;
@@ -130,12 +130,16 @@ export async function GET(req: Request) {
     });
 
     const cap = SECT_CAP || {}, subCap = SUB_CAP || {};
-    const subs = Object.keys(subCap).sort((a, b) => subCap[b] - subCap[a])
-      .map((sub) => ({ sector: sub, capB: Math.round(subCap[sub]), ...triple(sub) }));
-    const sectors = Object.keys(cap).sort((a, b) => cap[b] - cap[a]).map((seg) => ({
-      sector: seg, capB: Math.round(cap[seg]), ...triple(seg),
-      ...(seg === EXPAND && subs.length ? { subs } : {}),
-    }));
+    const subsSorted = Object.keys(subCap).sort((a, b) => subCap[b] - subCap[a]);
+    const sectors = Object.keys(cap).sort((a, b) => cap[b] - cap[a]).map((seg) => {
+      const pfx = `${seg}|`;
+      const segSubs = subsSorted.filter((k) => k.startsWith(pfx))
+        .map((k) => ({ sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...triple(k) }));
+      return {
+        sector: seg, capB: Math.round(cap[seg]), ...triple(seg),
+        ...(segSubs.length > 1 ? { subs: segSubs } : {}),
+      };
+    });
 
     return Response.json(
       { sectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },

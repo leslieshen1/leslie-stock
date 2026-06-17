@@ -57,7 +57,7 @@ export default function SectorSessions() {
             {data?.isToday ? `当前 · ${session}` : `上一交易日 ${data?.day || ""}`}
           </span>
         )}
-        <span className="text-xs text-faint">行高=市值 · 颜色=涨跌 · 点「科技 ▸」展开子主题</span>
+        <span className="text-xs text-faint">行高=市值 · 颜色=涨跌 · 点带 ▸ 的板块展开细分</span>
         <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-faint">
           {[-3, -1, 0, 1, 3].map((v) => <i key={v} className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: heat(v).bg }} />)}
           <span className="ml-1">−3% → +3%</span>
@@ -127,7 +127,7 @@ export default function SectorSessions() {
         )}
       </div>
       <p className="mt-1.5 text-[10px] text-faint">
-        市值加权 · 当前时段随访问实时刷新,已过去时段定格,未到时段留空 · 顶层大板块,点「科技」展开子主题 · 非投资建议
+        市值加权 · 当前时段随访问实时刷新,已过去时段定格,未到时段留空 · 顶层大板块,点 ▸ 展开子板块 · 非投资建议
       </p>
     </section>
   );

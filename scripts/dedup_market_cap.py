@@ -77,6 +77,9 @@ CLASSIFY_FIX: dict[str, tuple[str, str]] = {
     "V":    ("Finance", "Business Services"),                              # Visa:金融(支付),非可选消费
     "MA":   ("Finance", "Business Services"),                              # 万事达 同上
     "AXP":  ("Finance", "Finance: Consumer Services"),                     # 运通:金融
+    "PYPL": ("Finance", "Business Services"),                              # PayPal:支付
+    "GPN":  ("Finance", "Business Services"),                              # Global Payments:支付
+    "MSCI": ("Finance", "Finance: Consumer Services"),                     # MSCI:金融数据
     "WMT":  ("Consumer Staples", "Department/Specialty Retail Stores"),    # 沃尔玛:必需消费
     "PM":   ("Consumer Staples", "Tobacco"),                              # 菲莫:烟草≠"医疗"
     "MO":   ("Consumer Staples", "Tobacco"),                              # 奥驰亚:烟草
@@ -123,6 +126,77 @@ def tech_sub(s: dict) -> str:
     return "其他科技"
 
 
+# 个别票的子板块直接指定(行业字段不够准时)
+SUB_OVERRIDE = {
+    "V": "支付", "MA": "支付", "AXP": "支付", "PYPL": "支付", "COIN": "支付", "FI": "支付", "GPN": "支付",
+    "SPGI": "金融数据", "MCO": "金融数据", "ICE": "金融数据", "CME": "金融数据", "MSCI": "金融数据", "NDAQ": "金融数据",
+}
+
+
+def assign_sub(s: dict):
+    """给任意一只票分配子板块(按大板块分派 + industry 关键词 + sym 覆盖)。返回 None=不细分。"""
+    if s.get("sym") in SUB_OVERRIDE:
+        return SUB_OVERRIDE[s["sym"]]
+    sec = s.get("sector")
+    ind = (s.get("industry") or "").lower()
+    def h(*ks: str) -> bool:
+        return any(k in ind for k in ks)
+    if sec == "Technology":
+        return tech_sub(s)
+    if sec == "Finance":
+        if h("major banks", "banks"): return "银行"
+        if h("investment banker", "brokers"): return "投行券商"
+        if h("investment managers"): return "资管/PE"
+        if h("insur"): return "保险"
+        if h("consumer services", "finance: "): return "金融数据"
+        if h("business services"): return "支付"
+        return "其他金融"
+    if sec == "Health Care":
+        if h("pharmaceutical"): return "制药"
+        if h("biological", "laboratory analyt"): return "生物科技"
+        if h("medical/dental", "electromedical", "instruments", "specialties"): return "医疗器械"
+        if h("medical special", "hospital", "nursing", "health"): return "医疗服务"
+        if h("drug stores", "other pharma"): return "医药分销"
+        return "其他医疗"
+    if sec == "Industrials":
+        if h("aerospace", "military"): return "航空国防"
+        if h("railroad", "freight", "trucking", "marine transport", "courier", "transportation", "air "): return "运输物流"
+        if h("engineering", "construction &"): return "建筑工程"
+        if h("machinery", "metal fabrication", "electrical products", "industrial", "equipment", "pumps"): return "机械装备"
+        if h("commercial services", "environmental", "business services", "office equipment"): return "商业服务"
+        return "其他工业"
+    if sec == "Consumer Discretionary":
+        if h("auto manufacturing", "motor vehicle"): return "汽车"
+        if h("restaurant", "hotel", "resort", "amusement", "marine transport", "casino"): return "餐饮酒店旅游"
+        if h("catalog"): return "电商"
+        if h("retail", "stores", "shoe", "apparel", "clothing", "building materials", "auto & home"): return "零售品牌"
+        return "其他可选消费"
+    if sec == "Consumer Staples":
+        if h("tobacco"): return "烟草"
+        if h("beverage"): return "饮料"
+        if h("food"): return "食品"
+        if h("cosmetic", "package goods", "soap"): return "日化"
+        return "其他必需消费"
+    if sec == "Energy":
+        if h("integrated"): return "综合油气"
+        if h("production", "oil & gas"): return "油气开采"
+        if h("natural gas", "pipeline"): return "中游管输"
+        if h("field machinery", "oil and gas field"): return "油服设备"
+        return "其他能源"
+    if sec == "Utilities":
+        if h("electric", "power"): return "电力"
+        if h("gas", "water"): return "燃气水务"
+        return "其他公用"
+    if sec in ("Telecommunications", "Communication Services"):
+        if h("amusement", "cable", "recreation", "broadcast", "advertis", "publish"): return "媒体娱乐"
+        return "电信运营"
+    if sec in ("Basic Materials", "Materials"):
+        if h("chemical"): return "化工"
+        if h("metal", "mining", "precious", "steel", "gold", "copper"): return "金属矿业"
+        return "其他材料"
+    return None  # 地产(全 REIT)/ 其他 不细分
+
+
 def dedup_us() -> float:
     p = PUB / "us-stocks.json"
     d = json.loads(p.read_text(encoding="utf-8"))
@@ -161,11 +235,13 @@ def dedup_us() -> float:
             r["sector"], r["industry"] = fx
             fixed += 1
 
-    # 科技股打子主题(前端展开"科技"时用);非科技清掉
+    # 每只票打子板块(前端可按大板块展开):assign_sub 按大板块分派
     for r in rows:
         r.pop("sub", None)
-        if r.get("sector") == "Technology" and not r.get("capDup"):
-            r["sub"] = tech_sub(r)
+        if r.get("country") == "United States" and not r.get("capDup"):
+            sub = assign_sub(r)
+            if sub:
+                r["sub"] = sub
 
     # 债券/票据/ETN 等非股权工具:同样不计入股权市值聚合(复用 capDup 标记)
     debt, debt_cap = [], 0.0

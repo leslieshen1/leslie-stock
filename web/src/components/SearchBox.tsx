@@ -189,7 +189,7 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
                   <span
                     className={`shrink-0 inline-flex rounded px-1.5 py-0.5 text-[10px] font-medium ${
  r.market === "a"
- ? "bg-red-50 text-down"
+ ? "bg-down-soft text-down"
  : r.market === "hk"
  ? "bg-surface-2 text-accent"
  : "bg-surface-2 text-accent"

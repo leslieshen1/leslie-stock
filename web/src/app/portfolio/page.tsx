@@ -63,7 +63,7 @@ export default function PortfolioPage() {
                       <span
                         className={`inline-flex rounded px-2 py-0.5 text-xs font-medium ${
  p.market === "a"
- ? "bg-red-50 text-down"
+ ? "bg-down-soft text-down"
  : "bg-surface-2 text-accent"
                         }`}
                       >

@@ -130,7 +130,7 @@ export default async function CoveragePage() {
  <span className="inline-flex items-center gap-1.5 rounded bg-accent-soft text-accent px-2.5 py-1 border border-accent/30">
               部分 {partial}
             </span>
- <span className="inline-flex items-center gap-1.5 rounded bg-red-50 text-down px-2.5 py-1 border border-red-200">
+ <span className="inline-flex items-center gap-1.5 rounded bg-down-soft text-down px-2.5 py-1 border border-down/30">
               失败 {failed}
             </span>
  <span className="font-mono text-faint">/ {total}</span>

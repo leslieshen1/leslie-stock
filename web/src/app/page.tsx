@@ -13,6 +13,7 @@ import { loadTrends } from "@/lib/pulse-static";
 import MacroBar, { type MacroSeries } from "@/components/MacroBar";
 import PremarketStrip from "@/components/PremarketStrip";
 import OnboardingBanner from "@/components/OnboardingBanner";
+import HeatmapTreemap from "@/components/HeatmapTreemap";
 import { T } from "@/lib/i18n";
 
 // Home = Heatmap（不藏起来）
@@ -213,6 +214,9 @@ export default async function HomePage({
         chainPlacement={scopedPlacement}
       />
       </Suspense>
+
+      {/* finviz 式方块热力图(粒子场下面)—— 按市值大小 / 涨跌着色 / 板块分组 */}
+      <HeatmapTreemap />
 
  <footer className="mt-12 pt-2 text-center">
  <p className="text-[10px] text-faint">

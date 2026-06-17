@@ -9,9 +9,11 @@
     "fetch-pulse": "python3 ../data/fetch_pulse.py"
   },
   "dependencies": {
+    "@types/d3-hierarchy": "^3.1.7",
     "@upstash/redis": "^1.38.0",
     "@vercel/analytics": "^2.0.1",
     "csv-parse": "^6.2.1",
+    "d3-hierarchy": "^3.1.2",
     "lucide-react": "^1.17.0",
     "marked": "^18.0.4",
     "next": "16.2.6",

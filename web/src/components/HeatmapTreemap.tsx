@@ -1,12 +1,13 @@
 "use client";
 
-// finviz 式方块热力图:美股前 N 大,按板块分组,方块大小=市值,颜色=当日涨跌。
-// d3 squarified treemap 布局;数据走 /api/heatmap(服务端精简)。点方块 → 个股详情。
+// finviz 式方块热力图:前 N 大,按板块分组,方块大小=市值,颜色=当日涨跌。
+// 默认美股;可切 A 股。d3 squarified treemap;数据走 /api/heatmap(服务端精简)。点方块 → 个股详情。
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { hierarchy, treemap, treemapSquarify, type HierarchyRectangularNode } from "d3-hierarchy";
 
 type Slim = { sym: string; name: string; mcapB: number; pct: number; sector: string };
+type Market = "us" | "a";
 
 // finviz 配色:负=红、平=灰、正=绿,越极端越深
 function tileColor(pct: number): string {
@@ -15,19 +16,22 @@ function tileColor(pct: number): string {
   return pct < 0 ? `hsl(0 ${48 + t * 28}% ${34 - t * 16}%)` : `hsl(150 ${42 + t * 28}% ${30 - t * 13}%)`;
 }
 const fmtPct = (p: number) => `${p >= 0 ? "+" : ""}${p.toFixed(2)}%`;
-const fmtCap = (b: number) => (b >= 1000 ? `$${(b / 1000).toFixed(2)}T` : `$${Math.round(b)}B`);
 
 export default function HeatmapTreemap() {
+  const [market, setMarket] = useState<Market>("us");
   const [data, setData] = useState<Slim[] | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [w, setW] = useState(0);
 
   useEffect(() => {
-    fetch("/api/heatmap?n=500")
+    let alive = true;
+    setData(null);
+    fetch(`/api/heatmap?market=${market}&n=160`)
       .then((r) => r.json())
-      .then((j) => setData(j.stocks || []))
-      .catch(() => setData([]));
-  }, []);
+      .then((j) => { if (alive) setData(j.stocks || []); })
+      .catch(() => { if (alive) setData([]); });
+    return () => { alive = false; };
+  }, [market]);
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -38,6 +42,8 @@ export default function HeatmapTreemap() {
     return () => ro.disconnect();
   }, []);
 
+  const fmtCap = (b: number) => (market === "a" ? `¥${Math.round(b)}亿` : b >= 1000 ? `$${(b / 1000).toFixed(2)}T` : `$${Math.round(b)}B`);
+
   const layout = useMemo(() => {
     if (!data || data.length === 0 || w < 50) return null;
     const bySector = new Map<string, Slim[]>();
@@ -46,7 +52,7 @@ export default function HeatmapTreemap() {
       if (arr) arr.push(s);
       else bySector.set(s.sector, [s]);
     }
-    const H = Math.round(Math.min(760, Math.max(440, w * 0.52)));
+    const H = Math.round(Math.min(720, Math.max(420, w * 0.5)));
     const root = treemap<{ sector?: string; mcapB?: number } | Slim>()
       .size([w, H])
       .paddingTop(15)
@@ -64,41 +70,42 @@ export default function HeatmapTreemap() {
 
   return (
     <section className="mt-8">
-      <header className="mb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h2 className="text-lg font-semibold text-ink">标普热力图</h2>
-        <span className="text-xs text-faint">美股前 500 大 · 方块=市值 · 颜色=当日涨跌 · 点进详情</span>
+      <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <h2 className="text-lg font-semibold text-ink">{market === "a" ? "A股" : "美股"}热力图</h2>
+        {/* 市场切换 */}
+        <div className="inline-flex rounded-lg border border-line bg-surface p-0.5 text-[12px]">
+          {(["us", "a"] as Market[]).map((m) => (
+            <button key={m} onClick={() => setMarket(m)}
+              className={`rounded-md px-2.5 py-1 transition ${market === m ? "bg-surface-2 font-medium text-ink" : "text-muted hover:text-ink"}`}>
+              {m === "us" ? "美股" : "A股"}
+            </button>
+          ))}
+        </div>
+        <span className="text-xs text-faint">前 {data?.length || 160} 大 · 方块=市值 · 颜色=当日涨跌 · 点进详情</span>
         <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-faint">
-          <i className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: tileColor(-3) }} />
-          <i className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: tileColor(-1) }} />
-          <i className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: tileColor(0) }} />
-          <i className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: tileColor(1) }} />
-          <i className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: tileColor(3) }} />
+          {[-3, -1, 0, 1, 3].map((v) => <i key={v} className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: tileColor(v) }} />)}
           <span className="ml-1">−3% → +3%</span>
         </span>
       </header>
 
       <div ref={wrapRef} className="relative w-full overflow-hidden rounded-2xl border border-line bg-base/40">
         {!data ? (
-          <div className="flex h-[440px] items-center justify-center text-sm text-faint">加载热力图…</div>
+          <div className="flex h-[420px] items-center justify-center text-sm text-faint">加载{market === "a" ? "A股" : "美股"}热力图…</div>
         ) : data.length === 0 ? (
-          <div className="flex h-[440px] items-center justify-center text-sm text-faint">暂无数据</div>
+          <div className="flex h-[420px] items-center justify-center text-sm text-faint">暂无数据</div>
         ) : layout ? (
           <div className="relative" style={{ height: layout.H }}>
-            {/* 板块标签 */}
             {layout.root.children?.map((sec) => {
               const tw = sec.x1 - sec.x0;
               if (tw < 56) return null;
               return (
-                <div
-                  key={(sec.data as { sector?: string }).sector}
+                <div key={(sec.data as { sector?: string }).sector}
                   className="pointer-events-none absolute truncate px-1.5 text-[10px] font-semibold uppercase tracking-wide text-white/50"
-                  style={{ left: sec.x0, top: sec.y0, width: tw, height: 15, lineHeight: "15px" }}
-                >
+                  style={{ left: sec.x0, top: sec.y0, width: tw, height: 15, lineHeight: "15px" }}>
                   {(sec.data as { sector?: string }).sector}
                 </div>
               );
             })}
-            {/* 个股方块 */}
             {layout.root.leaves().map((lf) => {
               const d = lf.data as Slim;
               const tw = lf.x1 - lf.x0;
@@ -106,18 +113,15 @@ export default function HeatmapTreemap() {
               if (tw < 2 || th < 2) return null;
               const showText = tw >= 36 && th >= 22;
               const fs = Math.max(8, Math.min(22, Math.min(tw / 3.4, th / 2.3)));
+              const label = market === "a" ? d.name : d.sym;
               return (
-                <Link
-                  key={d.sym}
-                  href={`/stock/${d.sym}?market=us`}
-                  prefetch={false}
+                <Link key={d.sym} href={`/stock/${d.sym}?market=${market}`} prefetch={false}
                   title={`${d.name} · ${fmtCap(d.mcapB)} · ${fmtPct(d.pct)}`}
                   className="absolute flex flex-col items-center justify-center overflow-hidden text-center leading-none text-white/95 transition hover:z-10 hover:brightness-125 hover:ring-1 hover:ring-white/50"
-                  style={{ left: lf.x0, top: lf.y0, width: tw, height: th, background: tileColor(d.pct) }}
-                >
+                  style={{ left: lf.x0, top: lf.y0, width: tw, height: th, background: tileColor(d.pct) }}>
                   {showText && (
                     <>
-                      <span className="font-semibold" style={{ fontSize: fs }}>{d.sym}</span>
+                      <span className="max-w-full truncate px-0.5 font-semibold" style={{ fontSize: market === "a" ? Math.min(fs, 15) : fs }}>{label}</span>
                       {th >= 38 && <span className="opacity-80" style={{ fontSize: fs * 0.64 }}>{fmtPct(d.pct)}</span>}
                     </>
                   )}
@@ -126,10 +130,12 @@ export default function HeatmapTreemap() {
             })}
           </div>
         ) : (
-          <div className="h-[440px]" />
+          <div className="h-[420px]" />
         )}
       </div>
-      <p className="mt-1.5 text-[10px] text-faint">数据 · 美股最近收盘/刷新 · 板块按 GICS · 非投资建议</p>
+      <p className="mt-1.5 text-[10px] text-faint">
+        {market === "a" ? "A股 · 市值/行业静态 + 腾讯实时涨跌" : "美股 · 最近收盘/刷新 · 板块按 GICS"} · 非投资建议
+      </p>
     </section>
   );
 }

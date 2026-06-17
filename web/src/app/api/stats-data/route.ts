@@ -1,4 +1,5 @@
 import { redis, K, datesAsc, addDays } from "@/lib/stats";
+import { safeEqual } from "@/lib/api-guard";
 import type { Redis } from "@upstash/redis";
 
 // 私密看板数据源。Bearer token(STATS_TOKEN)鉴权;没接存储 → {connected:false}。
@@ -9,7 +10,7 @@ function authed(req: Request): boolean {
   if (!want) return false;
   const h = req.headers.get("authorization") || "";
   const tok = h.startsWith("Bearer ") ? h.slice(7) : new URL(req.url).searchParams.get("key") || "";
-  return tok.length > 0 && tok === want;
+  return tok.length > 0 && safeEqual(tok, want);
 }
 
 // 多个每日 ZSET 聚合出 Top N(label→总次数)

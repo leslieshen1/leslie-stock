@@ -4,6 +4,7 @@
 import "server-only";
 import { promises as fs } from "fs";
 import path from "path";
+import { fetchWithTimeout } from "@/lib/api-guard";
 
 export type MacroEvent = { t: string; hi: boolean; name: string; est: string; prev: string };
 export type EarnRow = { sym: string; name: string; mcapB: number | null; eps: number | null };
@@ -107,12 +108,12 @@ export async function loadTodayEvents(): Promise<TodayEvents | null> {
   try {
     const d7 = new Date(Date.parse(date + "T12:00:00Z") + 7 * 86400_000).toISOString().slice(0, 10);
     const [ecoR, earR, ipoR, names] = await Promise.all([
-      fetch(`https://finnhub.io/api/v1/calendar/economic?token=${key}`,
-            { next: { revalidate: 1800 } }).then((r) => r.json()),
-      fetch(`https://finnhub.io/api/v1/calendar/earnings?from=${date}&to=${date}&token=${key}`,
-            { next: { revalidate: 1800 } }).then((r) => r.json()),
-      fetch(`https://finnhub.io/api/v1/calendar/ipo?from=${date}&to=${d7}&token=${key}`,
-            { next: { revalidate: 1800 } }).then((r) => r.json()),
+      fetchWithTimeout(`https://finnhub.io/api/v1/calendar/economic?token=${key}`,
+            { next: { revalidate: 1800 } }, 6000).then((r) => r.json()),
+      fetchWithTimeout(`https://finnhub.io/api/v1/calendar/earnings?from=${date}&to=${date}&token=${key}`,
+            { next: { revalidate: 1800 } }, 6000).then((r) => r.json()),
+      fetchWithTimeout(`https://finnhub.io/api/v1/calendar/ipo?from=${date}&to=${d7}&token=${key}`,
+            { next: { revalidate: 1800 } }, 6000).then((r) => r.json()),
       usNames(),
     ]);
 

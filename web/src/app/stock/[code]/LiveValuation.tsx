@@ -57,7 +57,8 @@ export default function LiveValuation({
         </span>
       )}
       {reco && RECO[reco] && (
-        <span className="rounded-full bg-surface-2 px-2 py-0.5 text-[11px] text-muted">{RECO[reco]}</span>
+        // 第三方(Yahoo)分析师共识评级,显式归因,避免裸"买入/强烈买入"被误读为本站买卖指令
+        <span className="rounded-full bg-surface-2 px-2 py-0.5 text-[11px] text-muted">分析师评级 · {RECO[reco]}</span>
       )}
       {pos != null && (
         <span className="flex items-center gap-2 text-faint">

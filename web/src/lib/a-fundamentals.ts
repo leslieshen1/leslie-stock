@@ -1,3 +1,5 @@
+import { fetchWithTimeout } from "@/lib/api-guard";
+
 // A 股实时盘面(腾讯行情,免费无 key)。个股详情页服务端单只拉,补上美股有、A 股缺的基本面。
 // 字段索引(0-based,以 ~ 分隔):[4]昨收 [5]今开 [33]最高 [34]最低 [38]换手率
 //   [39]市盈率TTM [43]振幅 [44]流通市值(亿) [45]总市值(亿) [46]市净率 [30]最新成交时间。
@@ -33,10 +35,12 @@ export async function fetchAFundamentals(code: string, market?: string): Promise
   if (!sym) return null;
   const isHK = sym.startsWith("hk"); // 港股腾讯字段布局与 A 股不同:可靠的只有 PE[39] + 总市值[44]
   try {
-    const r = await fetch(`https://qt.gtimg.cn/q=${sym}`, {
+    // SSR 渲染路径上必须带超时:腾讯挂起时不能把整个 A/港股详情页拖到 socket 默认超时(白屏)。
+    // sym 经 encodeURIComponent,防特殊字符进 URL(与全站净化口径一致)。
+    const r = await fetchWithTimeout(`https://qt.gtimg.cn/q=${encodeURIComponent(sym)}`, {
       headers: { referer: "https://gu.qq.com/", "user-agent": "Mozilla/5.0" },
       next: { revalidate: 60 },
-    });
+    }, 6000);
     if (!r.ok) return null;
     // 腾讯是 GBK;fetch().text() 只按 UTF-8 解码,会把名字解成乱码,且名字里若含 0x7E(~)
     // 字节会多切一刀导致后面 PE/PB 等字段错位。用 GBK 正确解码,~ 分隔与字段位才稳。

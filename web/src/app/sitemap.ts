@@ -18,8 +18,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const staticPaths = [
     "", "/scan", "/etf", "/whales", "/arena", "/reports",
-    "/portfolio", "/watchlist", "/pulse", "/how-to-buy",
+    "/portfolio", "/watchlist", "/how-to-buy",
     "/about", "/terms", "/privacy",
+    // 注:/pulse 已 307 跳转到首页,不收进 sitemap(避免喂搜索引擎自跳转 URL)
   ];
   const out: MetadataRoute.Sitemap = staticPaths.map((p) => ({
     url: BASE + p,

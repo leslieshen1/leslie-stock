@@ -14,13 +14,16 @@ from __future__ import annotations
 import json, sys, time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 
 ROOT = Path(__file__).parent.parent
 PUB = ROOT / "web" / "public" / "data"
 STATE = ROOT / "data" / "arena-state.json"
-ET = timezone(timedelta(hours=-4))
+# DST 正确(夏令时 -4 / 冬令时 -5),与 cloud_price_refresh.py 同源;GH ubuntu runner 自带 tzdata。
+# 旧的硬编码 timezone(-4) 在冬令时会把 today_et 算错,午夜边界尤危(虽 00:20 UTC 跑时影响小)。
+ET = ZoneInfo("America/New_York")
 
 from arena_engine import RULES, SELL_VOICE, MASTERS, START_CASH          # noqa: E402
 from arena_brain import (RULES as BRAIN_RULES, ndt, parse_orders,        # noqa: E402

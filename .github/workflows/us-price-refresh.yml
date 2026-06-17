@@ -6,6 +6,11 @@ name: us-price-refresh
 # 可靠性:脚本抓不到足够多的票(<3000)直接中止不写;push 重试+rebase+autostash。
 
 on:
+  # 服务端兜底触发(不依赖本地 app、不依赖 cron-job.org 是否已配)。22:00 UTC 周一~五 = 收盘后
+  # (EDT 18:00 / EST 17:00 ET,都过 16:00 收盘)。若 cron-job.org 也配了 us-price job 那是准点主触发,
+  # 二者都跑无妨:脚本同日重刷幂等 + 收盘后窗口闸,GitHub cron 偶有延迟也只会写到有效收盘价。
+  schedule:
+    - cron: "0 22 * * 1-5"
   workflow_dispatch:
     inputs:
       dry:

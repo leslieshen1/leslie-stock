@@ -1,9 +1,13 @@
 # 五神对决 · 引擎(收盘撮合)—— 机械止损 → AI 单 → 规则兜底 → 结账 → arena.json。
-# 00:20 UTC(周二~六)= 20:20 ET(周一~五,EDT)。依赖本地 17:00 ET refresh 已把
-# 当日收盘(us-stocks/price-history-30d)提交上库;数据不新鲜时自动跳过不乱记账。
+# 00:20 UTC(周二~六)= 20:20 ET(周一~五,EDT)。依赖 us-price-refresh(云端 22:00 UTC,
+# 脱离本地 Mac)已把当日收盘 us-stocks/price-history-30d 提交上库;数据不新鲜时自动跳过不乱记账。
 name: arena-engine
 on:
-  # 触发改用 cron-job.org 准点打 /api/cron/arena-engine(GitHub schedule 常延迟/丢,已移除)
+  # 主触发:cron-job.org 准点打 /api/cron/arena-engine。下面 GitHub schedule 是服务端兜底
+  # (00:20 UTC 周二~六 = 周一~五 20:20 ET 收盘后,此时 22:00 UTC 价格刷新已写入当日收盘)。
+  # 引擎幂等(已结账→no-op、最新日≠今日→跳过),两路都触发也安全;concurrency:arena 串行化。
+  schedule:
+    - cron: "20 0 * * 2-6"
   workflow_dispatch: {}
 concurrency: arena
 permissions:

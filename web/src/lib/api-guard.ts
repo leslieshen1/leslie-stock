@@ -73,3 +73,12 @@ export async function fetchWithTimeout(
     clearTimeout(id);
   }
 }
+
+// —— 常量时间字符串比较(防 Bearer token 时序爆破)。纯 JS,不引 crypto,edge 运行时也安全。
+// 长度不等直接 false(长度非机密);否则逐字符 XOR 累积,不在首个不匹配处提前返回。
+export function safeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}

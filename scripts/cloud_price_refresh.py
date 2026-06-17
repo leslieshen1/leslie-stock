@@ -43,6 +43,13 @@ def main(dry: bool) -> None:
     if dry:
         print("✓ --dry:校验通过,不写文件"); return
 
+    # 闸③:只在收盘后窗口写(防盘中价/非交易时段被当收盘价写脏)。ET 周一~五、≥16:00 才写;
+    # 否则干净跳过(exit 0,非错误)—— 这样即便被误触发/GitHub schedule 误点,也绝不污染账本。
+    et = datetime.now(ET)
+    if et.weekday() >= 5 or et.hour < 16:
+        print(f"· {et:%Y-%m-%d %H:%M} ET 非收盘后窗口(需周一~五 ≥16:00)→ 跳过不写(clean skip)")
+        return
+
     today = datetime.now(ET).strftime("%Y-%m-%d")
 
     # ① us-stocks 价格(保留其它字段)
@@ -60,28 +67,32 @@ def main(dry: bool) -> None:
     us["generated_at"] = datetime.now(ET).strftime("%Y-%m-%d %H:%M ET")
     usp.write_text(json.dumps(us, ensure_ascii=False), encoding="utf-8")
 
-    # ② price-history 追加今日(close=现价);同日重刷则更新,否则 append + trim 30
+    # ② price-history 追加今日(close=现价)。
+    #    **结构铁律**:closes 是 {sym: {date: close}}(dict,非 list!见 export_arena_inputs.py:4,41-49),
+    #    dates 是 list[30日]。引擎 arena_cloud.py:69-77 按 sorted(cl.keys()) 取最近21/最新日、date=dates[-1]。
+    #    同日重刷=覆盖该 sym 的 today;否则给每个有报价的 sym 写 closes[sym][today]。trim:只留最近 30 个交易日。
     php = PUB / "price-history-30d.json"
     ph = json.loads(php.read_text(encoding="utf-8"))
-    dates, closes = ph.get("dates", []), ph.get("closes", {})
-    if today in dates:
-        idx = dates.index(today)
-        for sym, arr in closes.items():
-            q = quotes.get(sym)
-            if q and q.get("price") is not None and len(arr) > idx:
-                arr[idx] = q["price"]
-    else:
+    dates = ph.setdefault("dates", [])
+    closes = ph.setdefault("closes", {})
+    if today not in dates:
         dates.append(today)
-        for sym, arr in closes.items():
-            q = quotes.get(sym)
-            arr.append(q["price"] if (q and q.get("price") is not None) else (arr[-1] if arr else None))
-        if len(dates) > 30:
-            cut = len(dates) - 30
-            ph["dates"] = dates[cut:]
-            for sym in closes:
-                closes[sym] = closes[sym][cut:]
+    wrote = 0
+    for sym, c in closes.items():
+        if not isinstance(c, dict):   # 防御:结构异常立即中止,绝不写脏
+            sys.exit(f"❌ closes[{sym!r}] 不是 dict({type(c).__name__}),结构异常 → 中止不写(fail-safe)")
+        q = quotes.get(sym)
+        if q and q.get("price") is not None:
+            c[today] = q["price"]
+            wrote += 1
+    # trim:dates 只留最近 30 日,各 sym 同步裁剪(保持与权威写者一致)
+    if len(dates) > 30:
+        dates[:] = dates[-30:]
+    keep = set(dates)
+    for sym in list(closes):
+        closes[sym] = {d: v for d, v in closes[sym].items() if d in keep}
     php.write_text(json.dumps(ph, ensure_ascii=False), encoding="utf-8")
-    print(f"✓ 更新 {upd} 只 us-stocks 价 + price-history 追加/更新 {today}")
+    print(f"✓ 更新 {upd} 只 us-stocks 价 + price-history 写 {wrote} 只收盘 @ {today}(共 {len(dates)} 日)")
 
 
 if __name__ == "__main__":

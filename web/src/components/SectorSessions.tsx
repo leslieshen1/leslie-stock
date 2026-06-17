@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-type Row = { sector: string; capB: number; mid: number; pre: number | null; post: number | null };
+type Row = { sector: string; capB: number; mid: number | null; pre: number | null; post: number | null };
 
 const ZH: Record<string, string> = {
   Technology: "科技", Finance: "金融", "Financial Services": "金融", "Health Care": "医疗", Healthcare: "医疗",

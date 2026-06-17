@@ -2,11 +2,15 @@ import { promises as fs } from "fs";
 import path from "path";
 import { redis } from "@/lib/stats";
 
-// 板块·三段:今日(盘中)= us-stocks 按市值加权的板块涨跌(现成,日更);
-// 盘前/盘后 = Upstash 里当天的快照(/api/cron/sector-snapshot 一天三次写),没拍到就 null。
+// 板块·三段读取:有当天快照 → 盘前/盘中/盘后(Upstash,美东日期);
+// 完全没快照 → 只回退一列「最近收盘」(us-stocks 市值加权),不冒充。
 export const dynamic = "force-dynamic";
 
-type SectorRow = { sector: string; capB: number; mid: number; pre: number | null; post: number | null };
+type SectorRow = { sector: string; capB: number; mid: number | null; pre: number | null; post: number | null };
+
+function etDate(): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(new Date());
+}
 
 export async function GET() {
   try {
@@ -19,33 +23,40 @@ export async function GET() {
       a.cap += Number(s.mcapB);
       a.capPct += Number(s.mcapB) * Number(s.pct);
     }
+    const usWeighted: Record<string, number> = {};
+    for (const [sec, a] of Object.entries(agg)) if (a.cap) usWeighted[sec] = Math.round((a.capPct / a.cap) * 100) / 100;
 
-    // 盘前/盘后快照(Upstash,可选)
-    let pre: Record<string, number> = {};
-    let post: Record<string, number> = {};
+    let pre: Record<string, number> | null = null;
+    let midSnap: Record<string, number> | null = null;
+    let post: Record<string, number> | null = null;
     const r = redis();
     if (r) {
       try {
-        const today = new Date().toISOString().slice(0, 10);
-        const h = await r.hgetall<Record<string, string>>(`sg:sect:${today}`);
-        if (h?.pre) pre = typeof h.pre === "string" ? JSON.parse(h.pre) : (h.pre as unknown as Record<string, number>);
-        if (h?.post) post = typeof h.post === "string" ? JSON.parse(h.post) : (h.post as unknown as Record<string, number>);
+        const h = await r.hgetall<Record<string, unknown>>(`sg:sect:${etDate()}`);
+        const parse = (v: unknown): Record<string, number> | null =>
+          typeof v === "string" ? JSON.parse(v) : v && typeof v === "object" ? (v as Record<string, number>) : null;
+        if (h) {
+          pre = parse(h.pre);
+          midSnap = parse(h.mid);
+          post = parse(h.post);
+        }
       } catch {
-        /* 没快照 → 空 */
+        /* 没快照 */
       }
     }
+    const anySnap = !!(pre || midSnap || post);
 
     const sectors: SectorRow[] = Object.entries(agg)
       .map(([sector, a]) => ({
         sector,
         capB: Math.round(a.cap),
-        mid: a.cap ? Math.round((a.capPct / a.cap) * 100) / 100 : 0,
-        pre: pre[sector] != null ? Math.round(pre[sector] * 100) / 100 : null,
-        post: post[sector] != null ? Math.round(post[sector] * 100) / 100 : null,
+        mid: anySnap ? (midSnap?.[sector] ?? null) : (usWeighted[sector] ?? null),
+        pre: pre?.[sector] ?? null,
+        post: post?.[sector] ?? null,
       }))
       .sort((x, y) => y.capB - x.capB);
 
-    return Response.json({ sectors, ts: Date.now() }, { headers: { "cache-control": "s-maxage=120, stale-while-revalidate=600" } });
+    return Response.json({ sectors, anySnap, ts: Date.now() }, { headers: { "cache-control": "s-maxage=120, stale-while-revalidate=600" } });
   } catch {
     return Response.json({ sectors: [] });
   }

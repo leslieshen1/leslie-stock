@@ -23818,7 +23818,7 @@
      "source": "dataroma"
     },
     {
-     "ticker": "KW",
+     "ticker": "KW-OLD",
      "market": "us",
      "stock_name": "Kennedy-Wilson Holdings Inc.",
      "period": "15 May 2026",
@@ -61237,7 +61237,7 @@
     "period": "15 May 2026"
    }
   ],
-  "KW": [
+  "KW-OLD": [
    {
     "investor": "普雷姆·沃特萨",
     "slug": "prem-watsa",

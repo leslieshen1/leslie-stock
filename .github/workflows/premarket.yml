@@ -82,3 +82,12 @@ jobs:
           cd web
           npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
           npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN
+
+      # 顺手 ping 板块热力:此刻=盘前时段,访问一下就把「盘前」段定格进 Upstash
+      # (热力图是机会式快照,盘前没流量就空;piggyback 在这条已有的盘前 cron 上,不新增 cron)
+      - name: 触发板块「盘前」快照
+        if: always()
+        run: |
+          sleep 25
+          curl -s "https://stockgod.xyz/api/sector-sessions" -o /dev/null || true
+          echo "pinged /api/sector-sessions → 盘前段快照"

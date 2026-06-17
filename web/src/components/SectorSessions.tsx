@@ -1,11 +1,14 @@
 "use client";
 
-// 板块热力 · 盘前/盘中/盘后三段。顶层=大板块(~12),行高=√市值(量级,最小封底)。
-// 当前段实时(随访问刷)、过去段定格、未到段空。「科技」可就地展开看子主题(不跳转)。
+// 板块热力 · 盘前/盘中/盘后。顶层=大板块(~12),行高=√市值(量级,封顶防独大)。
+// 只渲染「有数据的时段」列(空列不画,免大片留白)。「科技」等可就地展开看子板块(不跳转)。
 import { Fragment, useEffect, useState } from "react";
 
+type SKey = "pre" | "mid" | "post";
 type Row = { sector: string; capB: number; pre: number | null; mid: number | null; post: number | null; subs?: Row[] };
 type Resp = { sectors: Row[]; session: string; day: string; isToday: boolean };
+
+const SKEYS: { k: SKey; label: string }[] = [{ k: "pre", label: "盘前" }, { k: "mid", label: "盘中" }, { k: "post", label: "盘后" }];
 
 function heat(p: number): { bg: string; fg: string } {
   if (p >= -0.05 && p <= 0.05) return { bg: "hsl(220 6% 27%)", fg: "rgba(255,255,255,.82)" };
@@ -16,14 +19,12 @@ function heat(p: number): { bg: string; fg: string } {
 }
 const fp = (p: number) => `${p >= 0 ? "+" : ""}${p.toFixed(1)}%`;
 const fcap = (b: number) => (b >= 1000 ? `$${(b / 1000).toFixed(1)}T` : `$${Math.round(b)}B`);
-const COLS = [{ k: "pre", label: "盘前" }, { k: "mid", label: "盘中" }, { k: "post", label: "盘后" }] as const;
-const GRID = "grid grid-cols-[78px_1fr_1fr_1fr] sm:grid-cols-[minmax(116px,168px)_1fr_1fr_1fr] gap-1";
 
 function Cell({ p, live }: { p: number | null; live: boolean }) {
-  if (p == null) return <div className="flex items-center justify-center rounded-md border border-dashed border-line/55 text-[12px] text-faint/55">—</div>;
+  if (p == null) return <div className="flex items-center justify-center rounded-md border border-dashed border-line/40 text-[12px] text-faint/45">—</div>;
   const c = heat(p);
   return (
-    <div className={`flex items-center justify-center rounded-md text-[13px] font-medium tnum ${live ? "ring-1 ring-white/35" : ""}`} style={{ background: c.bg, color: c.fg }}>
+    <div className={`flex items-center justify-center rounded-md text-[13px] font-medium tnum ${live ? "ring-1 ring-white/30" : ""}`} style={{ background: c.bg, color: c.fg }}>
       {fp(p)}
     </div>
   );
@@ -48,6 +49,11 @@ export default function SectorSessions() {
   const session = data?.session || "";
   const sqrtSum = rows?.reduce((s, r) => s + Math.sqrt(Math.max(1, r.capB)), 0) || 1;
 
+  // 只显示有数据的时段列(空列不画);都空则兜底显示三列
+  const present = SKEYS.filter((c) => rows?.some((r) => r[c.k] != null || r.subs?.some((s) => s[c.k] != null)));
+  const cols = present.length ? present : SKEYS;
+  const gridCols = `minmax(92px,150px) repeat(${cols.length}, minmax(0,1fr))`;
+
   return (
     <section className="mt-8">
       <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -65,9 +71,9 @@ export default function SectorSessions() {
       </header>
 
       <div className="overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
-        <div className={`mb-1 ${GRID} px-1 text-[11px] text-faint`}>
+        <div className="mb-1 grid gap-1 px-1 text-[11px] text-faint" style={{ gridTemplateColumns: gridCols }}>
           <span className="pl-1">板块 · 市值</span>
-          {COLS.map((c) => (
+          {cols.map((c) => (
             <span key={c.k} className={`flex items-center justify-center gap-1 ${session === c.label ? "font-medium text-up" : ""}`}>
               {session === c.label && <i className="h-1.5 w-1.5 animate-pulse rounded-full bg-up" />}
               {c.label}
@@ -82,13 +88,13 @@ export default function SectorSessions() {
         ) : (
           <div className="flex flex-col gap-1">
             {rows.map((r) => {
-              const h = Math.max(28, Math.round((Math.sqrt(Math.max(1, r.capB)) / sqrtSum) * 640));
+              const h = Math.min(108, Math.max(30, Math.round((Math.sqrt(Math.max(1, r.capB)) / sqrtSum) * 640)));
               const expandable = !!(r.subs && r.subs.length);
               const isOpen = expandable && open[r.sector];
               const subSqrt = r.subs?.reduce((s, x) => s + Math.sqrt(Math.max(1, x.capB)), 0) || 1;
               return (
                 <Fragment key={r.sector}>
-                  <div className={GRID} style={{ height: h }} title={`${r.sector} · ${fcap(r.capB)}`}>
+                  <div className="grid gap-1" style={{ gridTemplateColumns: gridCols, height: h }} title={`${r.sector} · ${fcap(r.capB)}`}>
                     <button
                       type="button"
                       disabled={!expandable}
@@ -96,27 +102,23 @@ export default function SectorSessions() {
                       className={`flex flex-col justify-center overflow-hidden rounded-md bg-surface px-2.5 text-left ${expandable ? "cursor-pointer hover:bg-surface-2" : ""}`}
                     >
                       <span className="flex items-center gap-1 text-[13px] leading-tight text-ink">
-                        {expandable && <span className="text-[10px] text-faint">{isOpen ? "▾" : "▸"}</span>}
+                        {expandable && <span className="text-[11px] text-up">{isOpen ? "▾" : "▸"}</span>}
                         <span className="truncate">{r.sector}</span>
                       </span>
                       <span className="text-[11px] leading-tight text-faint tnum">{fcap(r.capB)}</span>
                     </button>
-                    <Cell p={r.pre} live={session === "盘前"} />
-                    <Cell p={r.mid} live={session === "盘中"} />
-                    <Cell p={r.post} live={session === "盘后"} />
+                    {cols.map((c) => <Cell key={c.k} p={r[c.k]} live={session === c.label} />)}
                   </div>
 
                   {isOpen && r.subs!.map((sub) => {
-                    const sh = Math.max(24, Math.round((Math.sqrt(Math.max(1, sub.capB)) / subSqrt) * 300));
+                    const sh = Math.min(52, Math.max(26, Math.round((Math.sqrt(Math.max(1, sub.capB)) / subSqrt) * 280)));
                     return (
-                      <div key={sub.sector} className={`${GRID} pl-3`} style={{ height: sh }} title={`${sub.sector} · ${fcap(sub.capB)}`}>
-                        <div className="flex flex-col justify-center overflow-hidden rounded-md border-l-2 border-line bg-surface/60 px-2">
+                      <div key={sub.sector} className="grid gap-1 pl-3" style={{ gridTemplateColumns: gridCols, height: sh }} title={`${sub.sector} · ${fcap(sub.capB)}`}>
+                        <div className="flex flex-col justify-center overflow-hidden rounded-md border-l-2 border-up/40 bg-surface/50 px-2">
                           <span className="truncate text-[12px] leading-tight text-ink/90">{sub.sector}</span>
                           <span className="text-[10px] leading-tight text-faint tnum">{fcap(sub.capB)}</span>
                         </div>
-                        <Cell p={sub.pre} live={session === "盘前"} />
-                        <Cell p={sub.mid} live={session === "盘中"} />
-                        <Cell p={sub.post} live={session === "盘后"} />
+                        {cols.map((c) => <Cell key={c.k} p={sub[c.k]} live={session === c.label} />)}
                       </div>
                     );
                   })}
@@ -127,7 +129,7 @@ export default function SectorSessions() {
         )}
       </div>
       <p className="mt-1.5 text-[10px] text-faint">
-        市值加权 · 当前时段随访问实时刷新,已过去时段定格,未到时段留空 · 顶层大板块,点 ▸ 展开子板块 · 非投资建议
+        市值加权 · 当前时段随访问实时刷新,已过去时段定格 · 只显示有数据的时段 · 点 ▸ 展开子板块 · 非投资建议
       </p>
     </section>
   );

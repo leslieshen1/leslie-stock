@@ -19,7 +19,7 @@ except Exception:
     pass
 
 # 复用盘前报告的工具:Nasdaq 报价 / gpt-5.5 综述 / 大票池 / 路径 / Finnhub key
-from premarket_report import npm, llm_write, card_headline, _pctnum, LIQUID, PUB, OUT, FINN
+from premarket_report import npm, llm_write, card_headline, _pctnum, LIQUID, HOT_WATCH, PUB, OUT, FINN
 
 
 def gather():
@@ -36,7 +36,7 @@ def gather():
         time.sleep(0.15)
 
     # 2) 当日异动:候选池=固定大票 + us-stocks 高波动名;真实数字来自 Nasdaq(当日收盘涨跌)
-    uni = list(dict.fromkeys(LIQUID))
+    uni = list(dict.fromkeys(LIQUID + HOT_WATCH))
     names = {}
     try:
         us = json.loads((PUB / "us-stocks.json").read_text(encoding="utf-8")).get("stocks", [])
@@ -56,6 +56,8 @@ def gather():
     rows.sort(key=lambda r: _pctnum(r["close_pct"]), reverse=True)
     ctx["gainers"] = rows[:8]
     ctx["losers"] = rows[-8:][::-1]
+    wl = {r["sym"]: r for r in rows}
+    ctx["watchlist"] = [wl[s] for s in HOT_WATCH if s in wl]  # 固定热门票,每期必列
 
     # 3) 盘后/明日财报 + 消息面(Finnhub)
     ctx["earnings"] = []
@@ -82,6 +84,7 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的收盘分析师。
 下面这条 user 消息给你一份 JSON 数据。字段含义:
 - indices=四大指数 ETF 的**当日收盘涨跌**(close_pct)。
 - gainers/losers=当日**收盘涨跌**排序的异动票(close_pct=当日涨跌,close_price=收盘价)。
+- watchlist=固定热门追踪票(SPCX/MU 等市场重点关注的票),每期必须逐一覆盖;字段同 gainers。
 - earnings=今天盘后/明天的财报、news=消息面。
 
 风格(Leslie 口吻,务必遵守):
@@ -91,14 +94,15 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的收盘分析师。
 - 结合新闻找因果,不流水账。
 - **有深度,不是摘要**:每条主线讲透"今天谁在买谁在卖、为什么、资金轮动到哪",给出可观察的信号或关键价位;至少点出一个市场可能误读或还没消化的点。宁可少讲两只票,也要把主线讲到位。
 
-结构(markdown,1200-1800 字。**不要输出大标题/日期**——外层已加,直接从第 1 节开始,每节用 ## 二级标题):
+结构(markdown,1400-2000 字。**不要输出大标题/日期**——外层已加,直接从第 1 节开始,每节用 ## 二级标题):
 1. **一句话定调** —— 今天大盘收成什么样、谁领涨谁拖后。
 2. **今天的主线** —— 挑出 2-3 条主线(板块/题材),每条讲清"涨/跌了多少 + 为什么"。
-3. **消息面** —— 3-4 条驱动今天行情的新闻因果。
-4. **盘后 & 明日看点** —— 今天盘后谁出财报、明天有什么重头戏,市场在赌什么。earnings 有 name 用 name,没 name 只写代码、绝不猜公司名/业务。
-5. **一句话** —— 今天最该记住的那一点。
+3. **热门追踪** —— watchlist 这些市场重点盯的票今天收成什么样:每只一句,close_pct 收涨/收跌多少 + 简因(随大盘/逆势/财报反应)。不喊单、不给目标价。
+4. **消息面** —— 3-4 条驱动今天行情的新闻因果。
+5. **盘后 & 明日看点** —— 今天盘后谁出财报、明天有什么重头戏,市场在赌什么。earnings 有 name 用 name,没 name 只写代码、绝不猜公司名/业务。
+6. **一句话** —— 今天最该记住的那一点。
 
-只输出第 1-5 节 markdown 正文,不要外层大标题、不要前后多余的话,不要提'五方'或任何内部产品功能。"""
+只输出第 1-6 节 markdown 正文,不要外层大标题、不要前后多余的话,不要提'五方'或任何内部产品功能。"""
 
 
 def main():

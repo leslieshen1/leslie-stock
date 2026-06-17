@@ -30,6 +30,9 @@ NH = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit
 LIQUID = ("AAPL MSFT NVDA GOOGL AMZN META AVGO TSLA NFLX ORCL AMD MU TSM ARM SMCI AVGO QCOM "
           "JPM V MA COST WMT XOM UNH LLY HD BAC INTC PLTR COIN MSTR").split()
 
+# 固定热门追踪:每期盘报必列一个 watchlist 段(不管有无异动都覆盖)。可随时增删。
+HOT_WATCH = "SPCX MU NVDA AVGO AMD ARM SMCI PLTR TSLA COHR".split()
+
 
 def npm(sym, asset="stocks"):
     """Nasdaq 报价。盘前时段:primaryData=盘前价(涨跌=相对上一交易日收盘),
@@ -66,7 +69,7 @@ def gather():
 
     # 2) 盘前异动:候选池=固定大票 + us-stocks 高波动名(仅作"值得盯的流动性票"清单)。
     #    真实数字全来自 Nasdaq:yesterday_pct=昨日(上一交易日)真实收盘涨跌,pm_pct=盘前 vs 昨日收盘。
-    uni = list(dict.fromkeys(LIQUID))
+    uni = list(dict.fromkeys(LIQUID + HOT_WATCH))
     names = {}
     try:
         us = json.loads((PUB / "us-stocks.json").read_text(encoding="utf-8")).get("stocks", [])
@@ -86,6 +89,8 @@ def gather():
     rows.sort(key=lambda r: _pctnum(r["pm_pct"]), reverse=True)
     ctx["premarket_gainers"] = rows[:8]
     ctx["premarket_losers"] = rows[-8:][::-1]
+    wl = {r["sym"]: r for r in rows}
+    ctx["watchlist"] = [wl[s] for s in HOT_WATCH if s in wl]  # 固定热门票,每期必列
     ynames = {k: (v, None) for k, v in names.items()}  # 财报取名用
 
     # 3) 今日/明日财报(Finnhub)
@@ -112,6 +117,7 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 下面这条 user 消息给你一份 JSON 数据。字段含义务必看清:
 - direction=四大指数 ETF:pm_pct=盘前涨跌(相对**上一交易日收盘**),yesterday_pct=上一交易日(昨天)当天涨跌。
 - premarket_gainers/losers=按盘前涨跌排序的异动票:pm_pct=盘前(相对昨日收盘),yesterday_pct=**昨天(上一交易日)当天的真实收盘涨跌**,yesterday_close=昨日收盘价。
+- watchlist=固定热门追踪票(SPCX/MU 等市场重点关注的票),每期必须逐一覆盖;字段同 gainers。
 - earnings=今明财报、news=隔夜新闻。
 写一份**今日盘前看点**给外部读者看。
 
@@ -122,14 +128,15 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 - 结合新闻找因果,不流水账。
 - **有深度,不是摘要**:每条主线讲透"机构在怎么想、资金往哪走、谁站在对面",给出可跟踪的关键价位或触发条件;至少点出一个市场可能还没在定价的风险或反共识点。宁可少讲两只票,也要把主线讲到位。
 
-结构(markdown,1200-1800 字。**不要输出大标题/日期**——外层已加,直接从下面第 1 节开始,每节用 ## 二级标题):
+结构(markdown,1400-2000 字。**不要输出大标题/日期**——外层已加,直接从下面第 1 节开始,每节用 ## 二级标题):
 1. **一句话定调** —— 盘前大盘方向(ETF 盘前涨跌)给的体温:今天开盘大概率往哪边、谁在领。
 2. **盘前在发生什么** —— 挑出**主线**。每条主线讲两步:①昨天(yesterday_pct)这批票是涨是跌 ②盘前(pm_pct)是顺昨天延续、还是掉头反转/降速。例:昨天大涨+盘前续涨=动能延续(注意是否降速);昨天大涨+盘前转跌=获利了结;昨天大跌+盘前反弹=超卖反抽。再接上因果。
-3. **隔夜消息面** —— 3-4 条新闻驱动的因果(地缘/宏观/油价等)。
-4. **今日财报** —— 今天谁出(盘前/盘后)、明天的重头戏,市场在赌什么。earnings 里有 name 就用 name,**没有 name 的就只写代码、绝不要猜公司名/业务**。
-5. **一句风险提示** —— 今天最该当心的那一个。
+3. **热门追踪** —— watchlist 这些市场重点盯的票今天什么状态:每只一句,结合盘前(pm_pct)和昨日(yesterday_pct)说动能/位置(延续/反转/降速/超卖);没盘前数据的就用昨日收盘。不喊单、不给目标价。
+4. **隔夜消息面** —— 3-4 条新闻驱动的因果(地缘/宏观/油价等)。
+5. **今日财报** —— 今天谁出(盘前/盘后)、明天的重头戏,市场在赌什么。earnings 里有 name 就用 name,**没有 name 的就只写代码、绝不要猜公司名/业务**。
+6. **一句风险提示** —— 今天最该当心的那一个。
 
-只输出第 1-5 节的 markdown 正文,不要外层大标题、不要前后多余的话,不要提'五方'或任何内部产品功能。"""
+只输出第 1-6 节的 markdown 正文,不要外层大标题、不要前后多余的话,不要提'五方'或任何内部产品功能。"""
 
 
 def _claude(system: str, user: str, max_tokens: int = 5000) -> str:

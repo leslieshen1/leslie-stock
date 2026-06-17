@@ -6,9 +6,5 @@
   "regions": ["hkg1"],
   "env": {
     "READ_ONLY": "1"
-  },
-  "crons": [
-    { "path": "/api/cron/premarket", "schedule": "35 12 * * 1-5" },
-    { "path": "/api/cron/close", "schedule": "0 2 * * 2-6" }
-  ]
+  }
 }

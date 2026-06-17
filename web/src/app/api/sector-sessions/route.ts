@@ -47,7 +47,8 @@ async function loadStatic() {
   const all: Record<string, unknown>[] = JSON.parse(await fs.readFile(p, "utf-8")).stocks || [];
   const sm: Record<string, string> = {}, cap: Record<string, number> = {};
   for (const s of all) {
-    if (s.country !== "United States" || !s.sector) continue;
+    // capDup:重复上市的副类股(双重股权/存托)或私有代理 —— 不计入市值聚合,避免一家算多次
+    if (s.country !== "United States" || !s.sector || s.capDup) continue;
     const sec = String(s.sector);
     sm[String(s.sym)] = sec;
     if (Number(s.mcapB) > 0) cap[sec] = (cap[sec] || 0) + Number(s.mcapB);

@@ -63,6 +63,11 @@ def main():
     print("\n=== 2) 从 leslie.db 派生全部前端 JSON ===")
     run([sys.executable, "scripts/build_json.py"])
 
+    # 市值聚合去重:给重复上市的副类股(双重股权/存托)+ 私有代理打 capDup,
+    # 让板块/热力图按 !capDup 求和,一家公司只算一次。必须在 build_json 之后(派生会覆盖标记)。
+    print("\n--- 市值聚合去重(capDup) ---")
+    run([sys.executable, "scripts/dedup_market_cap.py"])
+
     # 国会交易(独立外部源:众议院 PTR 申报,PDF 缓存复用;失败不阻断刷新)
     print("\n--- 国会议员交易申报(House PTR → congress.json) ---")
     if run([sys.executable, "scripts/build_congress.py"]) != 0:

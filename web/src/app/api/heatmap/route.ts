@@ -15,7 +15,7 @@ async function usHeatmap(n: number): Promise<Slim[]> {
   const p = path.join(process.cwd(), "public", "data", "us-stocks.json");
   const all: Record<string, unknown>[] = JSON.parse(await fs.readFile(p, "utf-8")).stocks || [];
   return all
-    .filter((s) => s.country === "United States" && Number(s.mcapB) > 0 && s.sector && s.pct != null)
+    .filter((s) => s.country === "United States" && !s.capDup && Number(s.mcapB) > 0 && s.sector && s.pct != null)
     .sort((a, b) => Number(b.mcapB) - Number(a.mcapB))
     .slice(0, n)
     .map((s) => ({ sym: String(s.sym), name: String(s.name || s.sym), mcapB: r1(Number(s.mcapB)), pct: r2(Number(s.pct)), sector: String(s.sector) }));

@@ -160,6 +160,14 @@ def gather(card_type: str) -> dict:
         nxt = [e for e in evs if e.get("hi")]
     except Exception:
         pass
+    # 并入手填大事(ahead.json:FOMC/CPI 等)—— market-calendar 抓空时,footer 不能漏掉重磅(跟 /reports 同源)
+    try:
+        for a in json.loads((PUB / "ahead.json").read_text(encoding="utf-8")):
+            if a.get("date") and not any(e.get("date") == a["date"] and e.get("title") == a.get("name") for e in nxt):
+                nxt.append({"date": a["date"], "timeET": "", "kind": "macro",
+                            "title": a.get("name", ""), "detail": a.get("detail", ""), "hi": True})
+    except Exception:
+        pass
     # 诚实性:盘口状态和卡片类型必须匹配 —— 不在该时段就自动降级 close,绝不冒充
     status = (idx_map.get("SPY", {}).get("status") or "").lower()
     if card_type == "premarket" and "pre" not in status:

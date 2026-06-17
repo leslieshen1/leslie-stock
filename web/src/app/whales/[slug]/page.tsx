@@ -1,4 +1,5 @@
 // 单个大佬的 13F 持仓详情页 —— /whales/howard-marks
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { promises as fs } from "fs";
@@ -7,6 +8,22 @@ import { loadWhales } from "@/lib/whales";
 import { T } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
+
+// 每个大佬页独立 title/description(否则 81+ 个页共用全站默认标题 → 长尾 SEO 作废)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const inv = (loadWhales().investors || []).find((i) => i.slug === slug);
+  if (!inv) return { title: "大佬持仓 · 我不是股神" };
+  const n = (inv.holdings || []).length;
+  const title = `${inv.name}${inv.entity ? `(${inv.entity})` : ""}的 13F 持仓 · 我不是股神`;
+  const description = `${inv.name} 最新 13F 持仓(${inv.latest_period}):共 ${n} 只。季度披露、~45 天滞后,非实时,非投资建议。`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 const CHANGE: Record<string, { zh: string; en: string; cls: string }> = {
   new: { zh: "新建仓", en: "NEW", cls: "bg-up-soft text-up border-up/30" },

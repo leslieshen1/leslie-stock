@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { promises as fs } from "fs";
 import path from "path";
 import { loadAnalysis } from "@/lib/data";
+import { safeCode } from "@/lib/sanitize";
+import { T } from "@/lib/i18n";
 import { getStockHolders } from "@/lib/whales";
 import { loadDilutionFlags } from "@/lib/dilution";
 import { loadUsPanel } from "@/lib/us-panel";
@@ -49,7 +52,7 @@ function EtfDetail({ etf }: { etf: EtfRec }) {
   const aumStr = etf.aum == null ? "—" : etf.aum >= 1e6 ? `$${(etf.aum / 1e6).toFixed(etf.aum >= 1e7 ? 0 : 1)}B` : `$${(etf.aum / 1e3).toFixed(0)}M`;
   const pctCell = (v: number | null) =>
     v == null ? <span className="text-faint">—</span> : <span className={v >= 0 ? "text-up" : "text-down"}>{v >= 0 ? "+" : ""}{Math.round(v)}%</span>;
-  const Metric = ({ label, children, sub }: { label: string; children: React.ReactNode; sub?: string }) => (
+  const Metric = ({ label, children, sub }: { label: React.ReactNode; children: React.ReactNode; sub?: React.ReactNode }) => (
     <div className="rounded-xl border border-line bg-surface px-4 py-3">
       <p className="text-[10px] uppercase tracking-wider text-faint">{label}</p>
       <p className="mt-0.5 font-mono text-xl font-semibold text-ink tabular-nums">{children}</p>
@@ -60,7 +63,7 @@ function EtfDetail({ etf }: { etf: EtfRec }) {
     <main className="mx-auto max-w-6xl px-6 py-8">
       <header className="mb-5">
         <div className="mb-3 flex items-center gap-2 text-xs">
-          <Link href="/" className="text-muted hover:text-ink">热力图</Link>
+          <Link href="/" className="text-muted hover:text-ink"><T zh="热力图" en="Heatmap" /></Link>
           <span className="text-faint">/</span>
           <Link href="/etf" className="text-muted hover:text-ink">ETF</Link>
           <span className="text-faint">/</span>
@@ -81,36 +84,39 @@ function EtfDetail({ etf }: { etf: EtfRec }) {
 
       {/* 业绩:1年 / 3年 / 5年 / 最大回撤 / 波动 */}
       <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        <Metric label="近 1 年">{pctCell(etf.ret1y)}</Metric>
-        <Metric label="近 3 年">{pctCell(etf.ret3y)}</Metric>
-        <Metric label="近 5 年" sub={etf.years != null ? `约 ${etf.years} 年历史` : undefined}>{pctCell(etf.ret5y)}</Metric>
-        <Metric label="最大回撤">
+        <Metric label={<T zh="近 1 年" en="1Y" />}>{pctCell(etf.ret1y)}</Metric>
+        <Metric label={<T zh="近 3 年" en="3Y" />}>{pctCell(etf.ret3y)}</Metric>
+        <Metric label={<T zh="近 5 年" en="5Y" />} sub={etf.years != null ? <T zh={`约 ${etf.years} 年历史`} en={`~${etf.years}Y history`} /> : undefined}>{pctCell(etf.ret5y)}</Metric>
+        <Metric label={<T zh="最大回撤" en="Max Drawdown" />}>
           <span className={etf.mdd == null ? "text-faint" : etf.mdd >= -20 ? "text-up" : etf.mdd >= -40 ? "text-accent" : "text-down"}>
             {etf.mdd == null ? "—" : `${Math.round(etf.mdd)}%`}
           </span>
         </Metric>
-        <Metric label="年化波动">{etf.vol == null ? <span className="text-faint">—</span> : `${Math.round(etf.vol)}%`}</Metric>
+        <Metric label={<T zh="年化波动" en="Volatility" />}>{etf.vol == null ? <span className="text-faint">—</span> : `${Math.round(etf.vol)}%`}</Metric>
       </div>
 
       {/* 规模 / 费率 / 股息 */}
       <div className="mb-4 grid grid-cols-3 gap-3 sm:max-w-lg">
-        <Metric label="规模 AUM">{aumStr}</Metric>
-        <Metric label="费率">{etf.expense == null ? "—" : `${etf.expense}%`}</Metric>
-        <Metric label="股息率">{etf.yield == null ? "—" : `${etf.yield}%`}</Metric>
+        <Metric label={<T zh="规模 AUM" en="AUM" />}>{aumStr}</Metric>
+        <Metric label={<T zh="费率" en="Expense Ratio" />}>{etf.expense == null ? "—" : `${etf.expense}%`}</Metric>
+        <Metric label={<T zh="股息率" en="Yield" />}>{etf.yield == null ? "—" : `${etf.yield}%`}</Metric>
       </div>
 
       {/* 段永平 / 巴菲特 判决 */}
       {etf.why && (
         <div className="rounded-xl border border-line bg-surface px-4 py-3.5">
-          <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-accent">段永平 / 巴菲特镜头</p>
+          <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-accent"><T zh="段永平 / 巴菲特镜头" en="Duan Yongping / Buffett Lens" /></p>
           <p className="text-sm leading-relaxed text-ink">{etf.why}</p>
         </div>
       )}
 
       <p className="mt-4 text-[11px] leading-relaxed text-faint">
-        数据 = Nasdaq(AUM/费率)+ 5 年日线算回报与最大回撤。回报为区间累计、非年化;最大回撤=区间内峰值到谷底最大跌幅。判决是费率+类型的机械映射 · 非投资建议。
+        <T
+          zh="数据 = Nasdaq(AUM/费率)+ 5 年日线算回报与最大回撤。回报为区间累计、非年化;最大回撤=区间内峰值到谷底最大跌幅。判决是费率+类型的机械映射 · 非投资建议。"
+          en="Data = Nasdaq (AUM/expense) + 5Y daily bars for returns and max drawdown. Returns are cumulative over the window, not annualized; max drawdown = largest peak-to-trough drop in the window. The verdict is a mechanical map of expense + type · Not investment advice."
+        />
       </p>
-      <div className="mt-3"><Link href="/etf" className="text-xs font-medium text-accent hover:underline">← 回 ETF 板块业绩</Link></div>
+      <div className="mt-3"><Link href="/etf" className="text-xs font-medium text-accent hover:underline">← <T zh="回 ETF 板块业绩" en="Back to ETF performance" /></Link></div>
     </main>
   );
 }
@@ -123,9 +129,13 @@ export async function generateMetadata({
   params: Promise<{ code: string }>;
   searchParams: Promise<{ market?: string }>;
 }): Promise<Metadata> {
-  const { code } = await params;
+  const { code: rawCode } = await params;
+  const code = safeCode(rawCode);
   const sp = await searchParams;
   const m = (["a", "hk", "us"].includes((sp.market || "a").toLowerCase()) ? (sp.market || "a").toLowerCase() : "a") as "a" | "hk" | "us";
+
+  // 净化失败(非法代码:含路径分隔符 / 超长 / 含 ".."): 返回最小 metadata,实际 404 交给页面组件
+  if (!code) return { title: "我不是股神" };
 
   if (m === "us") {
     const etf = await loadEtf(code);
@@ -157,7 +167,11 @@ export default async function StockDetailPage({
   params: Promise<{ code: string }>;
   searchParams: Promise<{ market?: string }>;
 }) {
-  const { code } = await params;
+  const { code: rawCode } = await params;
+  // 路由参数净化:任何用 code 拼文件路径/上游 URL 的读取都必须先过 safeCode(杜绝 %2f/%2e 路径穿越)。
+  // 非法代码直接 404,不放进后续任何 loader。
+  const code = safeCode(rawCode);
+  if (!code) notFound();
   const sp = await searchParams;
  const marketRaw = (sp.market || "a").toLowerCase();
  const market = (["a", "hk", "us"].includes(marketRaw) ? marketRaw : "a") as
@@ -195,7 +209,7 @@ export default async function StockDetailPage({
     ? `${cnCur}${mcapYiLive >= 10000 ? `${(mcapYiLive / 10000).toFixed(2)} 万亿` : `${Math.round(mcapYiLive)} 亿`}`
     : fmtCap(fundamentals?.mcapB ?? usPanel?.mcapB);
 
- const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
+ const marketLabel = market === "a" ? <T zh="A 股" en="A-share" /> : market === "hk" ? <T zh="港股" en="HK" /> : <T zh="美股" en="US" />;
   const marketTone =
  market === "a"
  ? "bg-down-soft text-down border-down/30"
@@ -208,11 +222,11 @@ export default async function StockDetailPage({
       {/* 面包屑 + 股票名 */}
  <header className="mb-6">
  <div className="mb-3 flex items-center gap-2 text-xs">
- <Link href="/" className="text-muted hover:text-ink">热力图</Link>
+ <Link href="/" className="text-muted hover:text-ink"><T zh="热力图" en="Heatmap" /></Link>
  <span className="text-faint">/</span>
- <Link href="/scan" className="text-muted hover:text-ink">扫描</Link>
+ <Link href="/scan" className="text-muted hover:text-ink"><T zh="扫描" en="Scan" /></Link>
  <span className="text-faint">/</span>
- <Link href="/portfolio" className="text-muted hover:text-ink">观察</Link>
+ <Link href="/portfolio" className="text-muted hover:text-ink"><T zh="观察" en="Watchlist" /></Link>
  <span className="text-faint">/</span>
  <span className="text-muted">{initial?.name || code}</span>
         </div>
@@ -230,7 +244,7 @@ export default async function StockDetailPage({
         {/* 市值 · 行业 · 链定位 —— 之前页头只有代码+价格,连公司是干嘛的都不知道(2026-06-12 反馈) */}
         {(mcap || cls?.seg || usPanel?.sector || usPanel?.chain?.industry) && (
           <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
-            {mcap && <span>市值 <span className="font-mono font-semibold text-ink">{mcap}</span></span>}
+            {mcap && <span><T zh="市值" en="Mkt Cap" /> <span className="font-mono font-semibold text-ink">{mcap}</span></span>}
             {/* 板块标签:大板块 + 子板块(独立 chip,恒显);第二子板块兼营如有再加一枚。无 AI 分类则退回面板 sector */}
             {cls?.seg ? (
               <>
@@ -238,10 +252,11 @@ export default async function StockDetailPage({
                 {cls.sub && <span className="inline-flex rounded-md border border-line bg-surface-2 px-1.5 py-0.5 text-[11px] text-muted">{cls.sub}</span>}
               </>
             ) : (usPanel?.sector && <span>{usPanel.sector}</span>)}
-            {/* 第二子板块(可多个):非主营、跨板块兼营 —— 只详情页显示,不进热力图/产业图 */}
+            {/* 第二子板块(可多个):非主营、跨板块兼营 —— 只详情页显示,不进热力图/产业图。
+                title 为原生 string 属性,服务端组件无 lang 信号 → 保持中文(与全站服务端 title 一致);可见文案「兼」已双语。 */}
             {cls?.sub2?.map((s2) => (
               <span key={s2} className="inline-flex items-center rounded-md border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[11px] font-medium text-accent" title="第二子板块:非主营、但有显著业务的另一板块">
-                兼 {s2}
+                <T zh="兼" en="also" /> {s2}
               </span>
             ))}
             {usPanel?.chain?.industry && <span className="text-accent">{usPanel.chain.industry}</span>}
@@ -259,7 +274,7 @@ export default async function StockDetailPage({
         {usPanel && (
           <Link href={`/?highlight=${encodeURIComponent(code)}`}
             className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-accent/30 bg-accent-soft px-3 py-1.5 text-xs font-semibold text-accent transition hover:brightness-110">
-            在热力图中定位 →
+            <T zh="在热力图中定位" en="Locate on heatmap" /> →
           </Link>
         )}
       </header>

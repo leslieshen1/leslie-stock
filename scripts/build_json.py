@@ -148,7 +148,10 @@ def derive_us_raw(c):
                    ensure_ascii=False), encoding="utf-8")
     print(f"  us-stocks.json: {len(rows)}")
 
-    stocks = {sym: json.loads(data) for sym, data in c.execute("SELECT sym,data FROM us_analyses")}
+    # 排除纯数字代码(A股 6 位码偶尔误入美股库,如 688017 绿的谐波;美股 ticker 必含字母)
+    # → 防其混入 us-analyses / 详情页 / arena 候选池(详见全平台审计数据 parity)
+    stocks = {sym: json.loads(data) for sym, data in c.execute("SELECT sym,data FROM us_analyses")
+              if not sym.isdigit()}
     (PUB / "us-analyses.json").write_text(
         json.dumps({"generated_at": meta(c, "us_analyses_generated_at"), "stocks": stocks}, ensure_ascii=False),
         encoding="utf-8")

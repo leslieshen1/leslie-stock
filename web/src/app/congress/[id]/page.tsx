@@ -1,4 +1,5 @@
 // 单个议员的交易申报详情页 —— /congress/P000197
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { loadCongress, loadAvgScores, PARTY_META } from "@/lib/congress";
@@ -6,6 +7,21 @@ import { T } from "@/lib/i18n";
 import CongressMemberDetail from "./MemberDetail";
 
 export const dynamic = "force-dynamic";
+
+// 每个议员页独立 title/description(否则 96 个页共用全站默认标题 → 长尾 SEO 作废)
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const m = loadCongress().members.find((x) => x.id === id);
+  if (!m) return { title: "议员交易申报 · 我不是股神" };
+  const title = `${m.name} 的股票交易申报(众议院 PTR)· 我不是股神`;
+  const description = `${m.name}(${m.district})的国会股票交易公开申报:共 ${m.n_trades} 笔,最近 ${m.last_date}。滞后的公开,非实时跟单,非投资建议。`;
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 export default async function CongressDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

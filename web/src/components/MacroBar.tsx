@@ -1,10 +1,20 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 // 首页/Wire 顶部宏观条 —— 实时轮询 /api/macro(Yahoo,~30s),变化闪烁。
 export type MacroSeries = {
   sym: string; name: string; kind: string; price: number | null; pct: number | null;
+};
+
+// 宏观标的名是固定 UI 标签(非 AI 内容)。数据层(api/macro)只发中文 name,这里按 sym 映射 EN,
+// 不改数据流/轮询。落到表里没匹配上(理论不会)就回退中文 name。
+const NAME_EN: Record<string, string> = {
+  "^TNX": "UST 10Y", "^IRX": "UST 13W", "^FVX": "UST 5Y", "^TYX": "UST 30Y",
+  "^GSPC": "S&P 500", "^IXIC": "Nasdaq", "^DJI": "Dow Jones", "^RUT": "Russell 2000",
+  "^VIX": "VIX", "DX-Y.NYB": "Dollar Index", "GC=F": "Gold", "CL=F": "WTI Crude",
+  "BTC-USD": "Bitcoin", "ETH-USD": "Ethereum",
 };
 
 function fmtVal(s: MacroSeries): string {
@@ -15,6 +25,7 @@ function fmtVal(s: MacroSeries): string {
 }
 
 export default function MacroBar({ series: initial }: { series: MacroSeries[] }) {
+  const { lang } = useLang();
   const [series, setSeries] = useState<MacroSeries[]>(initial);
   const [flash, setFlash] = useState<Record<string, "up" | "down">>({});
   const prev = useRef<Record<string, number>>({});
@@ -71,7 +82,7 @@ export default function MacroBar({ series: initial }: { series: MacroSeries[] })
                 fl === "up" ? "bg-up/15" : fl === "down" ? "bg-down/15" : ""
               }`}
             >
-              <span className="text-muted">{s.name}</span>
+              <span className="text-muted">{lang === "en" ? (NAME_EN[s.sym] ?? s.name) : s.name}</span>
               <span className="tnum font-medium text-ink">{fmtVal(s)}</span>
               {s.pct != null && (
                 <span className={`tnum text-[11px] ${up ? "text-up" : "text-down"}`}>

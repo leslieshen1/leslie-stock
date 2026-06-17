@@ -4,10 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Star, X, ChevronRight } from "lucide-react";
 import { useWatchlist } from "@/lib/useWatchlist";
+import { useLang } from "@/lib/i18n";
 
 const MARKET_LABEL: Record<string, string> = { a: "SH/SZ", hk: "HK", us: "US" };
 
 export default function WatchlistSidebar() {
+  const { t } = useLang();
   const { items, ready, remove } = useWatchlist();
   const [open, setOpen] = useState(false);
 
@@ -26,11 +28,11 @@ export default function WatchlistSidebar() {
       <button
         onClick={() => setOpen(true)}
  className={`fixed left-0 top-1/2 z-30 -translate-y-1/2 hidden sm:flex flex-col items-center gap-1.5 rounded-r-xl border border-l-0 border-line bg-surface py-3 pl-2 pr-2.5 transition hover:bg-surface-2 ${open ? "pointer-events-none opacity-0" : "opacity-100"}`}
- aria-label="打开观察列表"
+ aria-label={t("打开观察列表", "Open watchlist")}
       >
  <Star className="h-4 w-4 text-accent" strokeWidth={1.75} fill="currentColor" fillOpacity={0.2} />
  <span className="tnum text-xs font-semibold text-ink">{items.length}</span>
- <span className="text-[10px] leading-tight text-faint" style={{ writingMode: "vertical-rl" }}>观察</span>
+ <span className="text-[10px] leading-tight text-faint" style={{ writingMode: "vertical-rl" }}>{t("观察", "Watch")}</span>
       </button>
 
       {/* 遮罩 */}
@@ -41,10 +43,10 @@ export default function WatchlistSidebar() {
  <header className="flex items-center justify-between border-b border-line px-4 py-3.5">
  <div className="flex items-center gap-2">
  <Star className="h-4 w-4 text-accent" strokeWidth={1.75} fill="currentColor" fillOpacity={0.2} />
- <h2 className="text-sm font-semibold text-ink">观察列表</h2>
+ <h2 className="text-sm font-semibold text-ink">{t("观察列表", "Watchlist")}</h2>
  <span className="tnum text-xs text-faint">{items.length}</span>
           </div>
- <button onClick={() => setOpen(false)} className="rounded p-1 text-faint transition hover:bg-surface-2 hover:text-ink" aria-label="收起">
+ <button onClick={() => setOpen(false)} className="rounded p-1 text-faint transition hover:bg-surface-2 hover:text-ink" aria-label={t("收起", "Collapse")}>
  <X className="h-4 w-4" />
           </button>
         </header>
@@ -52,10 +54,10 @@ export default function WatchlistSidebar() {
  <div className="flex-1 overflow-y-auto">
           {items.length === 0 ? (
  <div className="px-4 py-12 text-center">
- <p className="mb-1 text-sm text-muted">还没观察任何股票</p>
+ <p className="mb-1 text-sm text-muted">{t("还没观察任何股票", "No stocks watched yet")}</p>
  <p className="text-xs text-faint">
- 去<Link href="/" className="text-accent hover:underline" onClick={() => setOpen(false)}>热力图</Link>
- 或<Link href="/scan" className="text-accent hover:underline" onClick={() => setOpen(false)}>扫描</Link>页点收藏添加
+ {t("去", "Add from the ")}<Link href="/" className="text-accent hover:underline" onClick={() => setOpen(false)}>{t("热力图", "Heatmap")}</Link>
+ {t("或", " or ")}<Link href="/scan" className="text-accent hover:underline" onClick={() => setOpen(false)}>{t("扫描", "Scan")}</Link>{t("页点收藏添加", " pages")}
               </p>
             </div>
           ) : (
@@ -80,7 +82,7 @@ export default function WatchlistSidebar() {
                   <button
                     onClick={() => remove(it.code, it.market)}
  className="shrink-0 rounded p-1 text-faint opacity-0 transition hover:bg-down-soft hover:text-down group-hover:opacity-100"
- aria-label="移除"
+ aria-label={t("移除", "Remove")}
                   >
  <X className="h-3.5 w-3.5" />
                   </button>
@@ -92,7 +94,7 @@ export default function WatchlistSidebar() {
 
  <footer className="border-t border-line px-4 py-2.5">
  <Link href="/portfolio" onClick={() => setOpen(false)} className="inline-flex items-center gap-1 text-xs text-accent hover:underline">
- 完整观察页 <ChevronRight className="h-3 w-3" />
+ {t("完整观察页", "Full watchlist")} <ChevronRight className="h-3 w-3" />
           </Link>
         </footer>
       </aside>

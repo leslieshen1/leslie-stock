@@ -11,6 +11,7 @@ import type {
 } from "@/lib/data";
 import { INDUSTRIES, type IndustryId } from "@/lib/supply-chain";
 import { type TickerHolder, CHANGE_META, TYPE_META } from "@/lib/whales-types";
+import { useLang } from "@/lib/i18n";
 
 // 从 INDUSTRIES.tickers 反查 + sector 关键词 fallback
 const SECTOR_KW: { kw: string[]; id: IndustryId; emoji: string; name: string }[] = [
@@ -46,37 +47,38 @@ type Props = {
 };
 
 export default function StockDetailClient({ code, market, initial, holders = [], hasPanel = false }: Props) {
+  const { t } = useLang();
   const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
 
   if (!initial) {
-    const marketLabel = market === "a" ? "A 股" : market === "hk" ? "港股" : "美股";
+    const marketLabel = market === "a" ? t("A 股", "A-shares") : market === "hk" ? t("港股", "HK stocks") : t("美股", "US stocks");
     const isSH = market === "a" && code.startsWith("6");
     const xqSym = market === "a" ? `${isSH ? "SH" : "SZ"}${code}` : code;
     const links: { label: string; href: string }[] =
       market === "us"
         ? [
-            { label: "雪球", href: `https://xueqiu.com/S/${code}` },
+            { label: t("雪球", "Xueqiu"), href: `https://xueqiu.com/S/${code}` },
             { label: "Yahoo Finance", href: `https://finance.yahoo.com/quote/${code}` },
             { label: "TradingView", href: `https://www.tradingview.com/symbols/${code}/` },
           ]
         : market === "hk"
         ? [
-            { label: "雪球", href: `https://xueqiu.com/S/${code}` },
-            { label: "富途", href: `https://www.futunn.com/stock/${code}-HK` },
+            { label: t("雪球", "Xueqiu"), href: `https://xueqiu.com/S/${code}` },
+            { label: t("富途", "Futu"), href: `https://www.futunn.com/stock/${code}-HK` },
           ]
         : [
-            { label: "雪球", href: `https://xueqiu.com/S/${xqSym}` },
-            { label: "东方财富", href: `https://quote.eastmoney.com/${isSH ? "sh" : "sz"}${code}.html` },
+            { label: t("雪球", "Xueqiu"), href: `https://xueqiu.com/S/${xqSym}` },
+            { label: t("东方财富", "East Money"), href: `https://quote.eastmoney.com/${isSH ? "sh" : "sz"}${code}.html` },
           ];
 
     return (
       <div className="space-y-8">
         <section className="rounded-2xl border border-line bg-surface p-6 sm:p-8 text-center">
-          <p className="mb-1.5 text-base font-medium text-ink">{hasPanel ? "外部资料 & 持仓" : "暂无深度分析"}</p>
+          <p className="mb-1.5 text-base font-medium text-ink">{hasPanel ? t("外部资料 & 持仓", "External Resources & Holdings") : t("暂无深度分析", "No deep analysis yet")}</p>
           <p className="mx-auto mb-6 max-w-md text-sm leading-relaxed text-muted">
             {hasPanel
-              ? "五方独立判读见上。也可以去这些地方核对行情与基本面:"
-              : `深度分析目前重点覆盖 A 股，${marketLabel}标的还在排队。先去这些地方看行情与基本面：`}
+              ? t("五方独立判读见上。也可以去这些地方核对行情与基本面:", "The five-master reads are above. You can also cross-check quotes and fundamentals here:")
+              : t(`深度分析目前重点覆盖 A 股，${marketLabel}标的还在排队。先去这些地方看行情与基本面：`, `Deep analysis currently focuses on A-shares; ${marketLabel} are still in the queue. For now, check quotes and fundamentals here:`)}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {links.map((l) => (
@@ -94,7 +96,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
               href="/"
               className="rounded-lg border border-line px-3.5 py-1.5 text-sm text-muted transition hover:text-ink"
             >
-              ← 回热力图
+              ← {t("回热力图", "Back to heatmap")}
             </Link>
           </div>
         </section>
@@ -148,8 +150,8 @@ export default function StockDetailClient({ code, market, initial, holders = [],
         {/* 有五方面板时,瓶颈分只是其中一方(Serenity)的专项视角,降权不再当主评分 */}
         {hasPanel && (
           <header className="mb-4 flex items-baseline gap-2">
-            <h2 className="text-base font-semibold text-ink">Serenity · 瓶颈狙击</h2>
-            <span className="text-xs text-muted">五方中专看产业链「卡脖子」环节的一方 —— 多数公司本就不在这条线上</span>
+            <h2 className="text-base font-semibold text-ink">{t("Serenity · 瓶颈狙击", "Serenity · Bottleneck Sniping")}</h2>
+            <span className="text-xs text-muted">{t("五方中专看产业链「卡脖子」环节的一方 —— 多数公司本就不在这条线上", "The one of the five focused on supply-chain choke points — most companies simply aren't on this line")}</span>
           </header>
         )}
  <div className="grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr] md:items-start">
@@ -160,7 +162,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
  {score || "—"}
               </div>
  <div className="mt-1 text-xs uppercase tracking-wider text-faint">
-                {hasPanel ? "瓶颈分" : "Bottleneck Score"}
+                {hasPanel ? t("瓶颈分", "Bottleneck") : "Bottleneck Score"}
               </div>
             </div>
  <div className={`w-px bg-line ${hasPanel ? "h-14" : "h-20"}`} />
@@ -199,24 +201,24 @@ export default function StockDetailClient({ code, market, initial, holders = [],
               <Link
                 href={heatmapHref}
  className="group inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
-                title={`在「${ind.name}」热力图中查看`}
+                title={t(`在「${ind.name}」热力图中查看`, `View in the ${ind.name} heatmap`)}
               >
-                                <span>在「{ind.name}」热力图查看</span>
+                                <span>{t(`在「${ind.name}」热力图查看`, `View in ${ind.name} heatmap`)}</span>
  <span className="opacity-70 transition group-hover:translate-x-0.5">→</span>
               </Link>
             </div>
 
             {/* External links */}
  <div className="mt-3 flex flex-wrap gap-2">
- <ExtLink href={`http://www.cninfo.com.cn/new/disclosure/stock?stockCode=${ticker}`} label="巨潮 F10" />
+ <ExtLink href={`http://www.cninfo.com.cn/new/disclosure/stock?stockCode=${ticker}`} label={t("巨潮 F10", "CNINFO F10")} />
  {market === "a" && (
                 <>
- <ExtLink href={`https://xueqiu.com/S/${xueqiuPrefix}${ticker}`} label="雪球" />
- <ExtLink href={`https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=${eastPrefix}${ticker}`} label="东方财富 F10" />
+ <ExtLink href={`https://xueqiu.com/S/${xueqiuPrefix}${ticker}`} label={t("雪球", "Xueqiu")} />
+ <ExtLink href={`https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=${eastPrefix}${ticker}`} label={t("东方财富 F10", "East Money F10")} />
                 </>
               )}
- {market === "hk" && <ExtLink href={`https://xueqiu.com/S/${ticker}`} label="雪球 HK" />}
- {market === "us" && <ExtLink href={`https://xueqiu.com/S/${ticker}`} label="雪球 US" />}
+ {market === "hk" && <ExtLink href={`https://xueqiu.com/S/${ticker}`} label={t("雪球 HK", "Xueqiu HK")} />}
+ {market === "us" && <ExtLink href={`https://xueqiu.com/S/${ticker}`} label={t("雪球 US", "Xueqiu US")} />}
             </div>
           </div>
         </div>
@@ -226,9 +228,9 @@ export default function StockDetailClient({ code, market, initial, holders = [],
       {serenityHistory.length > 1 && (
  <section className="rounded-2xl border border-line bg-surface p-6">
  <header className="mb-5 flex items-baseline justify-between">
- <h2 className="text-base font-semibold text-ink"> 评分演化</h2>
+ <h2 className="text-base font-semibold text-ink">{t("评分演化", "Score Evolution")}</h2>
  <p className="text-xs text-muted">
-              {serenityHistory.length} 个版本 · 点击切换查看历史 thesis
+              {t(`${serenityHistory.length} 个版本 · 点击切换查看历史 thesis`, `${serenityHistory.length} versions · click to view past theses`)}
             </p>
           </header>
           <VersionTimeline
@@ -262,9 +264,9 @@ export default function StockDetailClient({ code, market, initial, holders = [],
       {signals.length > 0 && (
  <section className="rounded-2xl border border-line bg-surface p-6">
  <header className="mb-5 flex items-baseline justify-between">
- <h2 className="text-base font-semibold text-ink">✓ 瓶颈信号</h2>
+ <h2 className="text-base font-semibold text-ink">✓ {t("瓶颈信号", "Bottleneck Signals")}</h2>
  <p className="text-xs text-muted">
- 命中 <span className="font-mono font-semibold text-up">{signalsHit}</span> / {signals.length}
+ {t("命中", "Hit")} <span className="font-mono font-semibold text-up">{signalsHit}</span> / {signals.length}
             </p>
           </header>
  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -280,7 +282,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
  <section className="rounded-2xl border border-down/30 bg-down-soft/60 p-6">
  <header className="mb-4">
  <h2 className="text-base font-semibold text-down"> Red Flags</h2>
- <p className="text-xs text-down">{currentVersion?.version || "—"} 标注的风险点（{redFlags.length} 条）</p>
+ <p className="text-xs text-down">{t(`${currentVersion?.version || "—"} 标注的风险点（${redFlags.length} 条）`, `Risks flagged in ${currentVersion?.version || "—"} (${redFlags.length})`)}</p>
           </header>
  <ul className="space-y-2.5">
             {redFlags.map((f, i) => (
@@ -309,15 +311,17 @@ export default function StockDetailClient({ code, market, initial, holders = [],
       {/* ============ AI 资本支出关联（如有）============ */}
       {a?.ai_relevance && (
  <section className="rounded-2xl border border-line bg-surface-2/60 p-6">
- <h2 className="mb-2 text-base font-semibold text-accent"> AI 资本支出关联</h2>
+ <h2 className="mb-2 text-base font-semibold text-accent"> {t("AI 资本支出关联", "AI Capex Link")}</h2>
  <p className="text-sm leading-relaxed text-accent">{a.ai_relevance}</p>
         </section>
       )}
 
       {/* ============ Disclaimer ============ */}
  <p className="text-center text-xs text-faint">
-        基于 Serenity / 段巴 BG / aleabit 公开框架的风格复刻 · NOT 投资建议 ·
-        数据源：巨潮 公告 + Tushare 财务 + 手动 fact-check
+        {t(
+          "基于 Serenity / 段巴 BG / aleabit 公开框架的风格复刻 · NOT 投资建议 · 数据源：巨潮 公告 + Tushare 财务 + 手动 fact-check",
+          "A style replica based on the public Serenity / Duan-Buffett BG / aleabit frameworks · NOT investment advice · Sources: CNINFO filings + Tushare financials + manual fact-check"
+        )}
       </p>
     </div>
   );
@@ -420,15 +424,16 @@ function SignalCard({ s }: { s: AleabitSignal }) {
 // ============================================================
 
 function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: string }) {
+  const { t } = useLang();
   if (holders.length === 0) {
     // 空 = 信号:机构白马不碰,纯题材/游资盘（A 股 meme 视角）
     return (
  <section className="rounded-2xl border border-line bg-surface p-6">
- <h2 className="mb-2 text-base font-semibold text-ink"> 谁在持仓</h2>
+ <h2 className="mb-2 text-base font-semibold text-ink"> {t("谁在持仓", "Who Holds It")}</h2>
  <p className="text-sm leading-relaxed text-muted">
  {market === "a"
- ? "顶流基金 / 名人持仓里暂未出现这只 —— 机构白马不重仓,偏题材 / 游资盘(meme game 的典型特征)。"
- : "暂无已收录的名人 / 机构持仓数据。"}
+ ? t("顶流基金 / 名人持仓里暂未出现这只 —— 机构白马不重仓,偏题材 / 游资盘(meme game 的典型特征)。", "Not yet seen in top funds or notable portfolios — institutions aren't loading up; this leans theme- / hot-money-driven (a hallmark of the meme game).")
+ : t("暂无已收录的名人 / 机构持仓数据。", "No notable or institutional holding data on file yet.")}
         </p>
       </section>
     );
@@ -439,9 +444,9 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
   return (
  <section className="rounded-2xl border border-line bg-surface p-6">
  <header className="mb-4 flex items-baseline justify-between">
- <h2 className="text-base font-semibold text-ink"> 谁在持仓</h2>
+ <h2 className="text-base font-semibold text-ink"> {t("谁在持仓", "Who Holds It")}</h2>
  <Link href="/whales" className="text-xs text-accent hover:underline">
-          全部聪明钱 →
+          {t("全部聪明钱", "All smart money")} →
         </Link>
       </header>
  <div className="space-y-2.5">
@@ -468,7 +473,7 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
  buy ? "bg-up-soft text-up border-up/30"
  : sell ? "bg-down-soft text-down border-down/30"
  : "bg-surface text-muted border-line"}`}>
- {buy ? "买入" : sell ? "卖出" : "持有"}
+ {buy ? t("买入", "Buy") : sell ? t("卖出", "Sell") : t("持有", "Hold")}
                   </span>
  <span className="flex-1 font-mono text-xs text-muted">{h.amount_range}</span>
  <span className="shrink-0 font-mono text-[10px] text-faint">{h.trade_date}</span>
@@ -495,7 +500,7 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
       </div>
  {holders.some((h) => (h.pct || 0) < 1 && h.type === "superinvestor") && (
  <p className="mt-3 text-xs text-faint">
-           占比 &lt;1% 多为试探仓 / 研究标记,非重仓 conviction —— 看占比,别看名单。
+           {t("占比 <1% 多为试探仓 / 研究标记,非重仓 conviction —— 看占比,别看名单。", "Sub-1% positions are usually starter stakes or research tags, not high conviction — read the weight, not the name list.")}
         </p>
       )}
     </section>
@@ -507,6 +512,7 @@ function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: 
 // ============================================================
 
 function FinancialsSection({ quarters }: { quarters: FinancialQuarter[] }) {
+  const { t } = useLang();
   const data = useMemo(
     () =>
       [...quarters].reverse().map((q) => ({
@@ -525,21 +531,21 @@ function FinancialsSection({ quarters }: { quarters: FinancialQuarter[] }) {
   return (
  <section className="rounded-2xl border border-line bg-surface p-6">
  <header className="mb-5 flex items-baseline justify-between">
- <h2 className="text-base font-semibold text-ink"> 财务面（{quarters.length} 季）</h2>
- <p className="text-xs text-muted">来源 Tushare fina_indicator + income</p>
+ <h2 className="text-base font-semibold text-ink"> {t(`财务面（${quarters.length} 季）`, `Financials (${quarters.length}Q)`)}</h2>
+ <p className="text-xs text-muted">{t("来源 Tushare fina_indicator + income", "Source: Tushare fina_indicator + income")}</p>
       </header>
 
  <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* 营收 + YoY% */}
         <div>
- <p className="mb-1 text-xs font-medium text-muted">营收（亿元） + YoY%</p>
+ <p className="mb-1 text-xs font-medium text-muted">{t("营收（亿元） + YoY%", "Revenue (¥100M) + YoY%")}</p>
  <ResponsiveContainer width="100%" height={180}>
             <BarChart data={data} margin={{ top: 8, right: 10, bottom: 0, left: -20 }}>
  <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" />
  <XAxis dataKey="period" tick={{ fontSize: 11, fill: "#a1a1aa" }} />
  <YAxis tick={{ fontSize: 11, fill: "#a1a1aa" }} />
               <Tooltip
- formatter={(v, n) => [v as number, n === "revenue" ? "营收(亿)" : (n as string)]}
+ formatter={(v, n) => [v as number, n === "revenue" ? t("营收(亿)", "Revenue (¥100M)") : (n as string)]}
                 contentStyle={{ fontSize: 12, borderRadius: 8 }}
               />
  <Bar dataKey="revenue" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
@@ -549,7 +555,7 @@ function FinancialsSection({ quarters }: { quarters: FinancialQuarter[] }) {
 
         {/* ROE + 净利率 + 毛利率 */}
         <div>
- <p className="mb-1 text-xs font-medium text-muted">ROE · 净利率 · 毛利率（%）</p>
+ <p className="mb-1 text-xs font-medium text-muted">{t("ROE · 净利率 · 毛利率（%）", "ROE · Net Margin · Gross Margin (%)")}</p>
  <ResponsiveContainer width="100%" height={180}>
             <LineChart data={data} margin={{ top: 8, right: 10, bottom: 0, left: -20 }}>
  <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" />
@@ -558,8 +564,8 @@ function FinancialsSection({ quarters }: { quarters: FinancialQuarter[] }) {
               <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8 }} />
  <ReferenceLine y={0} stroke="#e4e4e7" />
  <Line type="monotone" dataKey="roe" stroke="#10b981" strokeWidth={2} dot={{ r: 3 }} name="ROE" />
- <Line type="monotone" dataKey="net_margin" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 3 }} name="净利率" />
- <Line type="monotone" dataKey="gross_margin" stroke="#3b82f6" strokeWidth={2} dot={{ r: 3 }} name="毛利率" />
+ <Line type="monotone" dataKey="net_margin" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 3 }} name={t("净利率", "Net Margin")} />
+ <Line type="monotone" dataKey="gross_margin" stroke="#3b82f6" strokeWidth={2} dot={{ r: 3 }} name={t("毛利率", "Gross Margin")} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -571,12 +577,12 @@ function FinancialsSection({ quarters }: { quarters: FinancialQuarter[] }) {
           <thead>
  <tr className="border-b border-line text-left text-xs text-muted">
  <th className="py-2 pr-3">Period</th>
- <th className="py-2 pr-3 text-right">营收 (亿)</th>
+ <th className="py-2 pr-3 text-right">{t("营收 (亿)", "Rev (¥100M)")}</th>
  <th className="py-2 pr-3 text-right">YoY%</th>
- <th className="py-2 pr-3 text-right">净利率%</th>
- <th className="py-2 pr-3 text-right">毛利率%</th>
+ <th className="py-2 pr-3 text-right">{t("净利率%", "Net%")}</th>
+ <th className="py-2 pr-3 text-right">{t("毛利率%", "Gross%")}</th>
  <th className="py-2 pr-3 text-right">ROE%</th>
- <th className="py-2 pr-3 text-right">负债率%</th>
+ <th className="py-2 pr-3 text-right">{t("负债率%", "Debt%")}</th>
             </tr>
           </thead>
           <tbody>
@@ -603,14 +609,15 @@ function FinancialsSection({ quarters }: { quarters: FinancialQuarter[] }) {
 // ============================================================
 
 const TIER_META = {
- 1: { label: "业绩 / 资本运作", color: "rose", emoji: "" },
- 2: { label: "产能 / 战略合作", color: "amber", emoji: "" },
- 3: { label: "股东动作", color: "blue", emoji: "" },
- 4: { label: "风险", color: "zinc", emoji: "" },
- 5: { label: "IR / 调研记录", color: "violet", emoji: "" },
+ 1: { label: "业绩 / 资本运作", labelEn: "Earnings / Capital Actions", color: "rose", emoji: "" },
+ 2: { label: "产能 / 战略合作", labelEn: "Capacity / Partnerships", color: "amber", emoji: "" },
+ 3: { label: "股东动作", labelEn: "Shareholder Moves", color: "blue", emoji: "" },
+ 4: { label: "风险", labelEn: "Risk", color: "zinc", emoji: "" },
+ 5: { label: "IR / 调研记录", labelEn: "IR / Research Notes", color: "violet", emoji: "" },
 } as const;
 
 function EventsSection({ events, code, market }: { events: RecentEvent[]; code: string; market: string }) {
+  const { t } = useLang();
   const grouped = useMemo(() => {
     const g: Record<number, RecentEvent[]> = { 1: [], 2: [], 3: [], 4: [], 5: [] };
     for (const e of events) g[e.tier]?.push(e);
@@ -620,9 +627,9 @@ function EventsSection({ events, code, market }: { events: RecentEvent[]; code: 
   return (
  <section className="rounded-2xl border border-line bg-surface p-6">
  <header className="mb-5 flex items-baseline justify-between">
- <h2 className="text-base font-semibold text-ink"> 关键公告（最近 1 年）</h2>
+ <h2 className="text-base font-semibold text-ink"> {t("关键公告（最近 1 年）", "Key Filings (past year)")}</h2>
  <p className="text-xs text-muted">
-          共 {events.length} 条 · 数据源：巨潮资讯（Tushare anns_d）
+          {t(`共 ${events.length} 条 · 数据源：巨潮资讯（Tushare anns_d）`, `${events.length} total · Source: CNINFO (Tushare anns_d)`)}
         </p>
       </header>
 
@@ -635,9 +642,9 @@ function EventsSection({ events, code, market }: { events: RecentEvent[]; code: 
             <div key={tier}>
  <div className="mb-2 flex items-center gap-2">
  <h3 className="text-sm font-semibold text-muted">
-                  Tier {tier} — {meta.label}
+                  Tier {tier} — {t(meta.label, meta.labelEn)}
                 </h3>
- <span className="font-mono text-xs text-faint">{items.length} 条</span>
+ <span className="font-mono text-xs text-faint">{t(`${items.length} 条`, `${items.length}`)}</span>
               </div>
  <ul className="space-y-1.5">
                 {items.slice(0, 12).map((e, i) => (
@@ -646,7 +653,7 @@ function EventsSection({ events, code, market }: { events: RecentEvent[]; code: 
               </ul>
               {items.length > 12 && (
  <p className="mt-2 font-mono text-xs text-faint">
-                  +{items.length - 12} 条更多（去巨潮 F10 看完整列表）
+                  {t(`+${items.length - 12} 条更多（去巨潮 F10 看完整列表）`, `+${items.length - 12} more (see full list on CNINFO F10)`)}
                 </p>
               )}
             </div>

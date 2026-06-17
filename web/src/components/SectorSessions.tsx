@@ -3,12 +3,15 @@
 // 板块热力 · 盘前/盘中/盘后。顶层=大板块(~12),行高=√市值(量级,封顶防独大)。
 // 只渲染「有数据的时段」列(空列不画,免大片留白)。「科技」等可就地展开看子板块(不跳转)。
 import { Fragment, useEffect, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 type SKey = "pre" | "mid" | "post";
 type Row = { sector: string; capB: number; pre: number | null; mid: number | null; post: number | null; subs?: Row[] };
 type Resp = { sectors: Row[]; session: string; day: string; isToday: boolean };
 
 const SKEYS: { k: SKey; label: string }[] = [{ k: "pre", label: "盘前" }, { k: "mid", label: "盘中" }, { k: "post", label: "盘后" }];
+// session/段位中文值是 API 口径(也用于 session===label 匹配),只在显示时翻译,匹配键保持中文不动
+const SESS_EN: Record<string, string> = { 盘前: "Pre", 盘中: "Open", 盘后: "After", 休市: "Closed", 实时: "Live", 午间休市: "Lunch" };
 
 function heat(p: number): { bg: string; fg: string } {
   if (p >= -0.05 && p <= 0.05) return { bg: "hsl(220 6% 27%)", fg: "rgba(255,255,255,.82)" };
@@ -31,6 +34,8 @@ function Cell({ p, live }: { p: number | null; live: boolean }) {
 }
 
 export default function SectorSessions() {
+  const { t, lang } = useLang();
+  const sLabel = (s: string) => (lang === "en" ? (SESS_EN[s] ?? s) : s);
   const [data, setData] = useState<Resp | null>(null);
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
@@ -59,13 +64,13 @@ export default function SectorSessions() {
   return (
     <section className="mt-8">
       <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-        <h2 className="text-lg font-semibold text-ink">板块热力</h2>
+        <h2 className="text-lg font-semibold text-ink">{t("板块热力", "Sector Heat")}</h2>
         {session && (
           <span className={`rounded-full px-2 py-0.5 text-[11px] ${session === "休市" ? "bg-surface-2 text-faint" : "bg-up-soft text-up"}`}>
-            {data?.isToday ? `当前 · ${session}` : `上一交易日 ${data?.day || ""}`}
+            {data?.isToday ? `${t("当前", "Now")} · ${sLabel(session)}` : `${t("上一交易日", "Prev session")} ${data?.day || ""}`}
           </span>
         )}
-        <span className="text-xs text-faint">行高=市值 · 颜色=涨跌 · 点带 ▸ 的板块展开细分</span>
+        <span className="text-xs text-faint">{t("行高=市值 · 颜色=涨跌 · 点带 ▸ 的板块展开细分", "Row height = cap · color = change · ▸ expands sub-sectors")}</span>
         <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-faint">
           {[-3, -1, 0, 1, 3].map((v) => <i key={v} className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: heat(v).bg }} />)}
           <span className="ml-1">−3% → +3%</span>
@@ -74,19 +79,19 @@ export default function SectorSessions() {
 
       <div className="overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
         <div className="mb-1 grid gap-1 px-1 text-[11px] text-faint" style={{ gridTemplateColumns: gridCols }}>
-          <span className="pl-1">板块 · 市值</span>
+          <span className="pl-1">{t("板块 · 市值", "Sector · Cap")}</span>
           {SKEYS.map((c) => (
             <span key={c.k} className={`flex items-center justify-center gap-1 ${session === c.label ? "font-medium text-up" : ""}`}>
               {session === c.label && <i className="h-1.5 w-1.5 animate-pulse rounded-full bg-up" />}
-              {c.label}
+              {sLabel(c.label)}
             </span>
           ))}
         </div>
 
         {!rows ? (
-          <div className="flex h-[360px] items-center justify-center text-sm text-faint">加载板块…</div>
+          <div className="flex h-[360px] items-center justify-center text-sm text-faint">{t("加载板块…", "Loading sectors…")}</div>
         ) : rows.length === 0 ? (
-          <div className="flex h-[360px] items-center justify-center text-sm text-faint">暂无数据</div>
+          <div className="flex h-[360px] items-center justify-center text-sm text-faint">{t("暂无数据", "No data")}</div>
         ) : (
           <div className="flex flex-col gap-1">
             {rows.map((r) => {
@@ -115,8 +120,8 @@ export default function SectorSessions() {
                   {isOpen && r.subs!.map((sub) => {
                     const sh = Math.min(52, Math.max(26, Math.round((Math.sqrt(Math.max(1, sub.capB)) / subSqrt) * 280)));
                     return (
-                      <div key={sub.sector} className="grid gap-1 pl-3" style={{ gridTemplateColumns: gridCols, height: sh }} title={`${sub.sector} · ${fcap(sub.capB)}`}>
-                        <div className="flex flex-col justify-center overflow-hidden rounded-md border-l-2 border-up/40 bg-surface/50 px-2">
+                      <div key={sub.sector} className="grid gap-1" style={{ gridTemplateColumns: gridCols, height: sh }} title={`${sub.sector} · ${fcap(sub.capB)}`}>
+                        <div className="ml-3 flex flex-col justify-center overflow-hidden rounded-md border-l-2 border-up/40 bg-surface/50 px-2">
                           <span className="truncate text-[12px] leading-tight text-ink/90">{sub.sector}</span>
                           <span className="text-[10px] leading-tight text-faint tnum">{fcap(sub.capB)}</span>
                         </div>
@@ -131,7 +136,10 @@ export default function SectorSessions() {
         )}
       </div>
       <p className="mt-1.5 text-[10px] text-faint">
-        市值加权 · 盘前/盘中/盘后三段(当前段实时·过去段定格·无数据段留空) · 点 ▸ 展开子板块 · 全部美股上市票 · 非投资建议
+        {t(
+          "市值加权 · 盘前/盘中/盘后三段(当前段实时·过去段定格·无数据段留空) · 点 ▸ 展开子板块 · 全部美股上市票 · 非投资建议",
+          "Cap-weighted · pre/open/after sessions (current live · past frozen · empty if no data) · ▸ expands sub-sectors · all US-listed · not financial advice",
+        )}
       </p>
     </section>
   );

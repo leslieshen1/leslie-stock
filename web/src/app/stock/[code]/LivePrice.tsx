@@ -92,7 +92,7 @@ export default function LivePrice({
         {sessLabel}
       </span>
       {ext && q.prevClose != null && (
-        <span className="tnum text-[10px] text-faint">昨收 {cur}{q.prevClose.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+        <span className="tnum text-[10px] text-faint">{t("昨收", "Prev")} {cur}{q.prevClose.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
       )}
     </div>
   );

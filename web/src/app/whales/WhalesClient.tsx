@@ -221,7 +221,10 @@ export default function WhalesClient({ investors, congress, avg }: {
           </div>
 
           <p className="text-center text-xs text-faint">
-            美股 13F 季度滞后 45 天 · A 股基金季报 · 仓位为披露时点 · 非投资建议
+            {t(
+              "美股 13F 季度滞后 45 天 · A 股基金季报 · 仓位为披露时点 · 非投资建议",
+              "US 13F lags 45 days · A-share fund filings · positions as of disclosure · not investment advice",
+            )}
           </p>
         </>
       )}
@@ -283,7 +286,7 @@ function InvestorCard({ inv }: { inv: Investor }) {
       {inv.holdings.length > 0 && (
         <Link href={`/whales/${inv.slug}`}
           className="mt-3 inline-block text-xs font-medium text-accent hover:underline">
-          完整持仓 {inv.holdings.length} 只 →
+          {t(`完整持仓 ${inv.holdings.length} 只`, `All ${inv.holdings.length} holdings`)} →
         </Link>
       )}
     </section>
@@ -314,13 +317,14 @@ function HoldingBar({ h, maxPct, clickable }: { h: Holding; maxPct: number; clic
 
 // 议员:交易流水
 function TradeRow({ h }: { h: Holding }) {
+ const { t } = useLang();
  const buy = h.change_type === "add" || h.change_type === "new";
  const sell = h.change_type === "trim" || h.change_type === "exit";
   return (
  <div className="flex items-center gap-2.5">
       <span className={`inline-flex w-11 shrink-0 items-center justify-center gap-0.5 rounded border px-1 py-0.5 text-[10px] font-medium ${
  buy ? "text-up border-up/25 bg-up-soft" : sell ? "text-down border-down/25 bg-down-soft" : "text-faint border-line bg-surface-2"}`}>
- {buy ? "买入" : sell ? "卖出" : "持有"}
+ {buy ? t("买入", "Buy") : sell ? t("卖出", "Sell") : t("持有", "Hold")}
       </span>
  <span className="flex-1 truncate text-[13px] text-ink">
  <span className="tnum text-xs text-faint">{h.ticker}</span> {h.stock_name}
@@ -346,25 +350,26 @@ function FilterBtn({ active, onClick, children }: { active: boolean; onClick: ()
 
 // ===== 聪明钱共识分析面板 =====
 function ConsensusPanel({ con, period }: { con: Con; period: string }) {
+  const { t } = useLang();
   const maxN = con.mostHeld[0]?.n || 1;
   return (
     <section className="rounded-xl border border-line bg-surface p-5">
       <header className="mb-4 flex flex-wrap items-baseline gap-x-2 gap-y-1">
-        <h2 className="text-[15px] font-semibold text-ink">聪明钱共识</h2>
+        <h2 className="text-[15px] font-semibold text-ink">{t("聪明钱共识", "Smart-money consensus")}</h2>
         <span className="text-xs text-faint">
-          {con.nSuper} 位价投大佬交叉持仓{period ? ` · ${period}` : ""} · 13F
+          {t(`${con.nSuper} 位价投大佬交叉持仓`, `${con.nSuper} value investors, overlapping holdings`)}{period ? ` · ${period}` : ""} · 13F
         </span>
       </header>
 
       <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-        <Stat label="价投大佬" value={con.nSuper} />
-        <Stat label="≥3 人共识" value={con.consensus3} />
-        <Stat label="本季净加码" value={con.netBuyCount} tone="up" />
-        <Stat label="本季净减持" value={con.netSellCount} tone="down" />
+        <Stat label={t("价投大佬", "Value investors")} value={con.nSuper} />
+        <Stat label={t("≥3 人共识", "≥3 in agreement")} value={con.consensus3} />
+        <Stat label={t("本季净加码", "Net buyers")} value={con.netBuyCount} tone="up" />
+        <Stat label={t("本季净减持", "Net sellers")} value={con.netSellCount} tone="down" />
       </div>
 
       <h3 className="mb-1.5 mt-5 text-[12px] font-medium uppercase tracking-wider text-faint">
-        最多大佬共同持有
+        {t("最多大佬共同持有", "Most widely held")}
       </h3>
       <div className="space-y-0.5">
         {con.mostHeld.map((r, i) => (
@@ -373,12 +378,15 @@ function ConsensusPanel({ con, period }: { con: Con; period: string }) {
       </div>
 
       <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-        <MoveCol title="本季加码最集中" tone="up" rows={con.netBuys} kind="buy" />
-        <MoveCol title="本季减持最集中" tone="down" rows={con.netSells} kind="sell" />
+        <MoveCol title={t("本季加码最集中", "Most-bought this quarter")} tone="up" rows={con.netBuys} kind="buy" />
+        <MoveCol title={t("本季减持最集中", "Most-sold this quarter")} tone="down" rows={con.netSells} kind="sell" />
       </div>
 
       <p className="mt-4 text-[11px] text-faint">
-        共识不等于正确,机构集中持有同样可能集体误判。数据仅反映持仓与变动,供独立判断参考。
+        {t(
+          "共识不等于正确,机构集中持有同样可能集体误判。数据仅反映持仓与变动,供独立判断参考。",
+          "Consensus isn't correctness — crowded positions can be a collective mistake. The data only reflects holdings and changes; use your own judgment.",
+        )}
       </p>
 
     </section>
@@ -396,6 +404,7 @@ function Stat({ label, value, tone }: { label: string; value: number; tone?: "up
 }
 
 function ConsensusRow({ r, rank, maxN }: { r: ConRow; rank: number; maxN: number }) {
+  const { t } = useLang();
   return (
     <Link
       href={`/stock/${r.ticker}?market=us`}
@@ -405,11 +414,11 @@ function ConsensusRow({ r, rank, maxN }: { r: ConRow; rank: number; maxN: number
       <span className="tnum w-4 shrink-0 text-right text-[10px] text-faint">{rank}</span>
       <span className="tnum w-14 shrink-0 text-[12px] font-semibold text-ink group-hover:text-accent">{r.ticker}</span>
       <span className="hidden w-28 shrink-0 truncate text-[12px] text-muted sm:block">{r.name}</span>
-      <span className="tnum shrink-0 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent">{r.n} 位</span>
+      <span className="tnum shrink-0 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent">{t(`${r.n} 位`, `${r.n}`)}</span>
       <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-surface-2">
         <div className="absolute inset-y-0 left-0 rounded-full bg-accent/70" style={{ width: `${(r.n / maxN) * 100}%` }} />
       </div>
-      <span className="tnum w-16 shrink-0 text-right text-[11px] text-faint">均 {r.avgPct.toFixed(1)}%</span>
+      <span className="tnum w-16 shrink-0 text-right text-[11px] text-faint">{t(`均 ${r.avgPct.toFixed(1)}%`, `avg ${r.avgPct.toFixed(1)}%`)}</span>
       {/* 恒占位:net=0 的行少这一列会比别人宽 8px,"均 x%" 整列错位(2026-06-12 抓包) */}
       <span className={`tnum w-8 shrink-0 text-right text-[11px] font-medium ${r.net > 0 ? "text-up" : r.net < 0 ? "text-down" : "text-faint"}`}>
         {r.net > 0 ? `+${r.net}` : r.net < 0 ? r.net : "\u00b7"}
@@ -421,6 +430,7 @@ function ConsensusRow({ r, rank, maxN }: { r: ConRow; rank: number; maxN: number
 function MoveCol({ title, tone, rows, kind }: {
   title: string; tone: "up" | "down"; rows: ConRow[]; kind: "buy" | "sell";
 }) {
+  const { t } = useLang();
   return (
     <div>
       <h3 className="mb-1.5 text-[12px] font-medium uppercase tracking-wider text-faint">{title}</h3>
@@ -436,9 +446,9 @@ function MoveCol({ title, tone, rows, kind }: {
             >
               <span className="tnum w-12 shrink-0 text-[12px] font-semibold text-ink group-hover:text-accent">{r.ticker}</span>
               <span className="flex-1 truncate text-[12px] text-muted">{r.name}</span>
-              <span className="tnum shrink-0 text-[10px] text-faint">{r.n}持</span>
+              <span className="tnum shrink-0 text-[10px] text-faint">{t(`${r.n}持`, `${r.n} hold`)}</span>
               <span className={`tnum w-12 shrink-0 text-right text-[11px] font-medium ${tone === "up" ? "text-up" : "text-down"}`}>
-                {tone === "up" ? "+" : "−"}{cnt} 位
+                {tone === "up" ? "+" : "−"}{cnt}{t(" 位", "")}
               </span>
             </Link>
           );

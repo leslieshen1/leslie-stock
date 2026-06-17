@@ -1,7 +1,10 @@
+"use client";
+
 import { MASTERS } from "@/lib/masters";
 import type { UsPanel } from "@/lib/us-panel";
+import { useLang } from "@/lib/i18n";
 
-// 5 方评分雷达图(纯 SVG,服务端渲染)。形状即分歧:饱满=共识,尖刺=打架。
+// 5 方评分雷达图(纯 SVG)。形状即分歧:饱满=共识,尖刺=打架。
 const CX = 170, CY = 130, R = 78, N = 5;
 
 function pt(frac: number, i: number): [number, number] {
@@ -21,8 +24,21 @@ function anchorOf(i: number): "start" | "middle" | "end" {
   return x > CX ? "start" : "end";
 }
 
+// 股神英文名(UI 框架层双语;MASTERS.name 是中文规范名)
+const MASTER_EN: Record<string, string> = {
+  buffett: "Buffett",
+  duan: "Duan Yongping",
+  serenity: "Serenity",
+  druckenmiller: "Druckenmiller",
+  sentiment: "Sentiment",
+};
+
 export default function MasterRadar({ panel }: { panel: UsPanel["panel"] }) {
-  const rows = MASTERS.map((m) => ({ name: m.name, score: panel[m.key]?.score ?? null }));
+  const { t, lang } = useLang();
+  const rows = MASTERS.map((m) => ({
+    name: lang === "en" ? (MASTER_EN[m.key] ?? m.name) : m.name,
+    score: panel[m.key]?.score ?? null,
+  }));
   const present = rows.map((r) => r.score).filter((s): s is number => s != null);
   const div = present.length >= 2 ? Math.max(...present) - Math.min(...present) : 0;
 
@@ -30,7 +46,7 @@ export default function MasterRadar({ panel }: { panel: UsPanel["panel"] }) {
   const dataPoly = rows.map((r, i) => pt((r.score ?? 0) / 100, i).join(",")).join(" ");
 
   return (
-    <svg viewBox="0 0 360 250" className="w-full max-w-[360px]" role="img" aria-label="5 方评分雷达图">
+    <svg viewBox="0 0 360 250" className="w-full max-w-[360px]" role="img" aria-label={t("五方评分雷达图", "Five-master score radar")}>
       <defs>
         <radialGradient id="mr-fill" cx="50%" cy="50%" r="62%">
           <stop offset="0%" stopColor="rgba(224,115,77,0.34)" />
@@ -69,7 +85,7 @@ export default function MasterRadar({ panel }: { panel: UsPanel["panel"] }) {
       </g>
 
       {/* 中心:分歧度 */}
-      <text x={CX} y={CY - 3} textAnchor="middle" fill="#6b7484" style={{ fontSize: 8, letterSpacing: 1 }}>分歧</text>
+      <text x={CX} y={CY - 3} textAnchor="middle" fill="#6b7484" style={{ fontSize: 8, letterSpacing: 1 }}>{t("分歧", "Spread")}</text>
       <text x={CX} y={CY + 12} textAnchor="middle" fontWeight={700}
             fill={div >= 40 ? "#e0734d" : "#7e8796"} style={{ fontSize: 16 }}>{div}</text>
 

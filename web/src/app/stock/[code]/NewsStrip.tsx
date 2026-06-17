@@ -1,4 +1,5 @@
 import type { NewsItem } from "@/lib/news";
+import { T } from "@/lib/i18n";
 
 // 个股近期新闻（Google News，免费）。轻量列表，标题外链。
 export default function NewsStrip({ items }: { items: NewsItem[] }) {
@@ -7,7 +8,7 @@ export default function NewsStrip({ items }: { items: NewsItem[] }) {
   return (
     <div className="rounded-2xl border border-line bg-surface p-5">
       <div className="mb-3 flex items-baseline justify-between">
-        <span className="text-sm font-semibold text-ink">近期新闻</span>
+        <span className="text-sm font-semibold text-ink"><T zh="近期新闻" en="Recent News" /></span>
         <span className="text-[10px] text-faint">Google News</span>
       </div>
       <ul className="space-y-2.5">

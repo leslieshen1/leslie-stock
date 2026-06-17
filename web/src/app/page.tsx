@@ -220,7 +220,10 @@ export default async function HomePage({
 
  <footer className="mt-12 pt-2 text-center">
  <p className="text-[10px] text-faint">
-          实时行情(Nasdaq/Yahoo)· 五方独立判读(AI)· 自攒历史 RSI/动量 · v0.6
+          <T
+            zh="实时行情(Nasdaq/Yahoo)· 五方独立判读(AI)· 自攒历史 RSI/动量 · v0.6"
+            en="Live quotes (Nasdaq/Yahoo) · Five independent reads (AI) · Self-built RSI/momentum history · v0.6"
+          />
         </p>
       </footer>
     </main>

@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { marked } from "marked";
 import { useLang } from "@/lib/i18n";
+import { safeHtml } from "@/lib/html-safe";
 
 export type Report = {
   id: string;
@@ -133,7 +134,7 @@ export default function ReportsClient({ reports }: { reports: Report[] }) {
               {isOpen && (
                 <div
                   className={`border-t border-line px-4 sm:px-5 py-4 ${PROSE}`}
-                  dangerouslySetInnerHTML={{ __html: marked.parse(r.body) as string }}
+                  dangerouslySetInnerHTML={{ __html: safeHtml(marked.parse(r.body) as string) }}
                 />
               )}
             </article>

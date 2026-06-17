@@ -13,9 +13,15 @@ const SIBLING_DATA = path.resolve(process.cwd(), "..", "data");
 const DATA_ROOT = fs.existsSync(WEB_DATA) ? WEB_DATA : SIBLING_DATA;
 const WHALES_PATH = path.join(DATA_ROOT, "whales.json");
 
+// mtime 模块缓存:whales.json 在个股页(getStockHolders)+ /whales 都读,避免每次重解析。
+let _whalesCache: { mtime: number; data: WhalesData } | null = null;
 export function loadWhales(): WhalesData {
   try {
-    return JSON.parse(fs.readFileSync(WHALES_PATH, "utf-8")) as WhalesData;
+    const mtime = fs.statSync(WHALES_PATH).mtimeMs;
+    if (!_whalesCache || _whalesCache.mtime !== mtime) {
+      _whalesCache = { mtime, data: JSON.parse(fs.readFileSync(WHALES_PATH, "utf-8")) as WhalesData };
+    }
+    return _whalesCache.data;
   } catch {
     return { investors: [], by_ticker: {} };
   }

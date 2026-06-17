@@ -3,6 +3,7 @@ import path from "node:path";
 import { parse } from "csv-parse/sync";
 import { marked } from "marked";
 import { safeCode, safeMarket, safeUnder } from "./sanitize";
+import { safeHtml } from "./html-safe";
 
 // 数据目录优先级：web/data（部署用）→ ../data（本地开发回退）
 const WEB_DATA = path.join(process.cwd(), "data");
@@ -71,7 +72,7 @@ export function loadLatestBriefing(): { date: string; markdown: string; html: st
   const dateMatch = latest.match(/briefing_(\d{4}-\d{2}-\d{2})\.md/);
   const date = dateMatch ? dateMatch[1] : "未知日期";
   const markdown = fs.readFileSync(path.join(DELIVERABLES_DIR, latest), "utf-8");
-  const html = marked.parse(markdown, { async: false }) as string;
+  const html = safeHtml(marked.parse(markdown, { async: false }) as string);
   return { date, markdown, html };
 }
 

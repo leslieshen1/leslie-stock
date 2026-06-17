@@ -1,122 +1,122 @@
 {
- "asof_et": "2026-06-15 23:00 ET Mon",
+ "asof_et": "2026-06-16 22:21 ET Tue",
  "indices": {
   "标普500": {
-   "close_pct": "+1.76%",
-   "close_price": "$754.83"
+   "close_pct": "-0.60%",
+   "close_price": "$750.33"
   },
   "纳指100": {
-   "close_pct": "+3.14%",
-   "close_price": "$744.00"
+   "close_pct": "-1.90%",
+   "close_price": "$729.86"
   },
   "道指": {
-   "close_pct": "+1.05%",
-   "close_price": "$518.44"
+   "close_pct": "+0.58%",
+   "close_price": "$521.44"
   },
   "罗素2000": {
-   "close_pct": "+0.58%",
-   "close_price": "$294.64"
+   "close_pct": "-0.87%",
+   "close_price": "$292.08"
   }
  },
  "market_status": "Closed",
  "gainers": [
   {
+   "sym": "TLN",
+   "name": "Talen Energy Corporation",
+   "close_price": "$406.51",
+   "close_pct": "+5.26%"
+  },
+  {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "close_price": "$192.50",
-   "close_pct": "+19.60%"
-  },
-  {
-   "sym": "XNDU",
-   "name": "Xanadu Quantum Technologies Limited Class B Subordinate Voting Shares",
-   "close_price": "$13.94",
-   "close_pct": "+18.24%"
-  },
-  {
-   "sym": "WDC",
-   "name": "Western Digital Corporation",
-   "close_price": "$653.53",
-   "close_pct": "+16.10%"
-  },
-  {
-   "sym": "AXTI",
-   "name": "AXT Inc",
-   "close_price": "$110.74",
-   "close_pct": "+13.95%"
-  },
-  {
-   "sym": "GPGI",
-   "name": "GPGI Inc. Class A",
-   "close_price": "$14.57",
-   "close_pct": "+13.83%"
-  },
-  {
-   "sym": "XE",
-   "name": "X-Energy Inc. Class A",
-   "close_price": "$21.10",
-   "close_pct": "+13.50%"
-  },
-  {
-   "sym": "AAOI",
-   "name": "Applied Optoelectronics Inc.",
-   "close_price": "$191.55",
-   "close_pct": "+13.31%"
+   "close_price": "$201.80",
+   "close_pct": "+4.83%"
   },
   {
    "sym": "HIMS",
    "name": "Hims & Hers Health Inc. Class A",
-   "close_price": "$30.17",
-   "close_pct": "+12.49%"
-  }
- ],
- "losers": [
-  {
-   "sym": "FOXA",
-   "name": "Fox Corporation Class A",
-   "close_price": "$54.76",
-   "close_pct": "-16.84%"
+   "close_price": "$31.47",
+   "close_pct": "+4.31%"
   },
   {
-   "sym": "FOX",
-   "name": "Fox Corporation Class B",
-   "close_price": "$49.955",
-   "close_pct": "-15.22%"
-  },
-  {
-   "sym": "SSL",
-   "name": "Sasol Ltd.",
-   "close_price": "$11.39",
-   "close_pct": "-12.38%"
+   "sym": "WDC",
+   "name": "Western Digital Corporation",
+   "close_price": "$681.08",
+   "close_pct": "+4.22%"
   },
   {
    "sym": "FISV",
    "name": "Fiserv Inc.",
-   "close_price": "$47.91",
-   "close_pct": "-10.91%"
+   "close_price": "$49.83",
+   "close_pct": "+4.01%"
   },
   {
-   "sym": "CENX",
-   "name": "Century Aluminum Company",
-   "close_price": "$54.55",
-   "close_pct": "-10.85%"
+   "sym": "AFRM",
+   "name": "Affirm Holdings Inc. Class A",
+   "close_price": "$74.69",
+   "close_pct": "+3.88%"
   },
   {
-   "sym": "VG",
-   "name": "Venture Global Inc. Class A common stock",
-   "close_price": "$11.70",
-   "close_pct": "-10.55%"
+   "sym": "JPM",
+   "name": "JP Morgan Chase & Co.",
+   "close_price": "$331.14",
+   "close_pct": "+3.68%"
   },
   {
-   "sym": "WDS",
-   "name": "Woodside Energy Group Limited American Depositary Shares each representing one Ordinary Share",
-   "close_price": "$20.66",
-   "close_pct": "-10.45%"
+   "sym": "V",
+   "name": "Visa Inc.",
+   "close_price": "$333.12",
+   "close_pct": "+2.87%"
+  }
+ ],
+ "losers": [
+  {
+   "sym": "AXTI",
+   "name": "AXT Inc",
+   "close_price": "$93.04",
+   "close_pct": "-15.98%"
   },
   {
-   "sym": "RGC",
-   "name": "Regencell Bioscience Holdings Limited",
-   "close_price": "$17.09",
-   "close_pct": "-9.24%"
+   "sym": "AAOI",
+   "name": "Applied Optoelectronics Inc.",
+   "close_price": "$170.81",
+   "close_pct": "-10.83%"
+  },
+  {
+   "sym": "MRVL",
+   "name": "Marvell Technology Inc.",
+   "close_price": "$278.67",
+   "close_pct": "-9.78%"
+  },
+  {
+   "sym": "SNAP",
+   "name": "Snap Inc. Class A",
+   "close_price": "$5.16",
+   "close_pct": "-9.63%"
+  },
+  {
+   "sym": "VECO",
+   "name": "Veeco Instruments Inc.",
+   "close_price": "$75.20",
+   "close_pct": "-9.44%"
+  },
+  {
+   "sym": "RGTI",
+   "name": "Rigetti Computing Inc.",
+   "close_price": "$20.64",
+   "close_pct": "-9.07%"
+  },
+  {
+   "sym": "QBTS",
+   "name": "D-Wave Quantum Inc.",
+   "close_price": "$23.94",
+   "close_pct": "-8.83%"
+  },
+  {
+   "sym": "INTC",
+   "name": "Intel Corporation",
+   "close_price": "$117.05",
+   "close_pct": "-8.45%"
   }
  ],
  "earnings": [],

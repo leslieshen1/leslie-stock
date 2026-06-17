@@ -4,14 +4,15 @@
 一家公司若有多个上市类别(双重股权 GOOGL/GOOG、存托凭证 GOOGM/GOOGN、优先股…),
 Nasdaq 每个类别都按"全公司市值"报,直接求和会把一家公司算好几次,板块/热力图市值虚高。
 
-本步骤给"重复上市的副类股 + 非公众流通的私有公司代理"打 `capDup: true` 标记:
+本步骤给"重复上市的副类股"打 `capDup: true` 标记:
   · 行本身保留(搜索/个股详情照常可见、各自显示自己的市值)
   · 只在"市值求和 / 市值加权"的消费端(/api/sector-sessions、/api/heatmap)按 !capDup 排除
 
-幂等可重跑。每次 refresh 在 build_json 之后跑一遍(build_json 从库派生会覆盖掉标记)。
+纯机械:只处理"同一家公司的多个上市类别"这一种重复,不替数据判断任何个股该不该算。
+幂等可重跑。每次 refresh 在 build_json 之后跑一遍(build_json 从库派生会覆盖标记)。
 
 范围(按 美股↔A股↔港股 一起查 2026-06-17):
-  · 美股 us-stocks.json —— 有双重股权/存托凭证重复(主要是 Alphabet 被算 4 次)+ SPCX 私有代理
+  · 美股 us-stocks.json —— 有双重股权/存托凭证重复(主要是 Alphabet 被算 4 次)
   · A股 aleabit_manifest.json —— 同名多票 = 0,无需去重(本脚本仅复核打印)
   · 港股 —— 无批量市值数据集(只在个股 /api/quote 层),无聚合可重复
 """
@@ -21,9 +22,6 @@ from pathlib import Path
 from collections import defaultdict
 
 PUB = Path(__file__).resolve().parent.parent / "web" / "public" / "data"
-
-# 已知"私有公司 / pre-IPO 代理"——不是公众流通普通股,排除出市值聚合。可编辑。
-PRIVATE_PROXIES = {"SPCX"}  # Space Exploration Technologies = SpaceX(未上市)
 
 
 def norm_name(nm: str) -> str:
@@ -78,20 +76,12 @@ def dedup_us() -> float:
                 dup_cap += float(r.get("mcapB") or 0)
                 flagged.append((r.get("sym"), primary.get("sym"), r.get("name"), float(r.get("mcapB") or 0)))
 
-    prox_cap = 0.0
-    for r in rows:
-        if r.get("sym") in PRIVATE_PROXIES:
-            r["capDup"] = True
-            prox_cap += float(r.get("mcapB") or 0)
-            flagged.append((r.get("sym"), "—private—", r.get("name"), float(r.get("mcapB") or 0)))
-
     p.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
-    print(f"[US] 双重股权/存托重复: {sum(1 for f in flagged if f[1] != '—private—')} 行,从聚合中剔除 ${dup_cap/1000:.2f}T")
-    print(f"[US] 私有公司代理: {len(PRIVATE_PROXIES)} 个,剔除 ${prox_cap/1000:.2f}T  ({', '.join(sorted(PRIVATE_PROXIES))})")
+    print(f"[US] 双重股权/存托重复: {len(flagged)} 行,从聚合中剔除 ${dup_cap/1000:.2f}T")
     print("  flagged(top):")
     for sym, prim, nm, cap in sorted(flagged, key=lambda x: -x[3])[:25]:
         print(f"    {sym:7} ← 主类 {prim:11} ${cap/1000:6.2f}T  {str(nm)[:36]}")
-    return dup_cap + prox_cap
+    return dup_cap
 
 
 def check_a():

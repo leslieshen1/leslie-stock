@@ -6,7 +6,12 @@ name: us-price-refresh
 # 可靠性:脚本抓不到足够多的票(<3000)直接中止不写;push 重试+rebase+autostash。
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "干跑:只抓+校验、不写不提交(盘中安全测管线用)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -24,7 +29,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: 刷新价格(/api/market → us-stocks + price-history,纯 stdlib 无依赖)
-        run: python scripts/cloud_price_refresh.py
+        run: python scripts/cloud_price_refresh.py ${{ inputs.dry == true && '--dry' || '' }}
       - name: 提交并推送
         run: |
           git config user.name "price-bot"

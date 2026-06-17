@@ -3,17 +3,24 @@ import path from "path";
 import { redis } from "@/lib/stats";
 import { fetchWithTimeout } from "@/lib/api-guard";
 
-// 板块热力 · 盘前/盘中/盘后三段。跟着页面实时数据走:
-//  · 当前所在时段 = 实时值(随访问每分钟刷)
-//  · 已经过去的时段 = 定格在它结束前最后一个值(不再变)
-//  · 还没到的时段 = 空(—)
-// 不靠定时 cron —— 谁打开页面、在哪个时段,就把那段刷成最新;时段一过它自然不再被写、定格了。
-// 过去段的值存 Upstash 单 key hash(按交易日重置)。CDN 缓存 s-maxage + 模块级 50s 节流,
-// 把"算+写"收敛到约每分钟一次(防访问量大时写爆 Upstash)。
+// 板块热力 · 盘前/盘中/盘后三段。顶层=清洗后的大板块(~12,按 GICS sector 合并),
+// 「科技」可展开看子主题(AI算力/存储/光模块/半导体/软件/互联网/硬件 —— 数据层 dedup_market_cap.py 打的 sub)。
+// 跟页面实时数据走:当前段实时(随访问刷)、过去段定格、未到段空。顶层与子主题共用一套 Upstash 单 key 定格。
 export const dynamic = "force-dynamic";
 
 const KEY = "sg:sect:cur";
 const FIELD: Record<string, "pre" | "mid" | "post"> = { 盘前: "pre", 盘中: "mid", 盘后: "post" };
+const EXPAND = "科技"; // 唯一可展开的大板块
+
+// GICS sector → 大板块中文(合并 通信+媒体、杂项+空白)
+const SECT_ZH: Record<string, string> = {
+  Technology: "科技", Industrials: "工业", "Consumer Discretionary": "可选消费",
+  Finance: "金融", "Financial Services": "金融", "Health Care": "医疗", Healthcare: "医疗",
+  "Consumer Staples": "必需消费", Utilities: "公用事业", Energy: "能源",
+  Telecommunications: "通信媒体", "Communication Services": "通信媒体",
+  "Real Estate": "地产", "Basic Materials": "材料", Materials: "材料", Miscellaneous: "其他",
+};
+const segZH = (sector: unknown): string => SECT_ZH[String(sector)] || "其他";
 
 function etNow(): Date {
   return new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
@@ -25,15 +32,17 @@ function etSession(): string {
   const et = etNow();
   if (et.getDay() === 0 || et.getDay() === 6) return "休市";
   const m = et.getHours() * 60 + et.getMinutes();
-  if (m >= 240 && m < 570) return "盘前"; // 04:00–09:30 ET
-  if (m >= 570 && m < 960) return "盘中"; // 09:30–16:00
-  if (m >= 960 && m < 1200) return "盘后"; // 16:00–20:00
+  if (m >= 240 && m < 570) return "盘前";
+  if (m >= 570 && m < 960) return "盘中";
+  if (m >= 960 && m < 1200) return "盘后";
   return "休市";
 }
 
-// ---- 模块级缓存(暖实例内复用,冷启重建)----
-let SECT_MAP: Record<string, string> | null = null; // sym → sector
-let SECT_CAP: Record<string, number> | null = null; // sector → 市值合计(行高用,静态稳定)
+// ---- 模块级缓存 ----
+let SECT_MAP: Record<string, string> | null = null; // sym → 大板块
+let SUB_MAP: Record<string, string> | null = null;   // sym → 子主题(仅科技)
+let SECT_CAP: Record<string, number> | null = null;   // 大板块 → 市值
+let SUB_CAP: Record<string, number> | null = null;    // 子主题 → 市值
 let LAST_SYNC = 0;
 let HASH: { day: string | null; pre: Sect | null; mid: Sect | null; post: Sect | null } = {
   day: null, pre: null, mid: null, post: null,
@@ -45,33 +54,42 @@ async function loadStatic() {
   if (SECT_MAP && SECT_CAP) return;
   const p = path.join(process.cwd(), "public", "data", "us-stocks.json");
   const all: Record<string, unknown>[] = JSON.parse(await fs.readFile(p, "utf-8")).stocks || [];
-  const sm: Record<string, string> = {}, cap: Record<string, number> = {};
+  const sm: Record<string, string> = {}, sub: Record<string, string> = {};
+  const cap: Record<string, number> = {}, subCap: Record<string, number> = {};
   for (const s of all) {
-    // 按 Nasdaq 细分行业(industry)分组,比 12 个 GICS 板块细;capDup 不计入聚合
-    if (s.country !== "United States" || !s.industry || s.capDup) continue;
-    const key = String(s.industry);
-    sm[String(s.sym)] = key;
-    if (Number(s.mcapB) > 0) cap[key] = (cap[key] || 0) + Number(s.mcapB);
+    if (s.country !== "United States" || !s.sector || s.capDup) continue;
+    const seg = segZH(s.sector);
+    const sym = String(s.sym);
+    sm[sym] = seg;
+    const m = Number(s.mcapB);
+    if (m > 0) cap[seg] = (cap[seg] || 0) + m;
+    if (seg === EXPAND && s.sub) {
+      sub[sym] = String(s.sub);
+      if (m > 0) subCap[String(s.sub)] = (subCap[String(s.sub)] || 0) + m;
+    }
   }
-  SECT_MAP = sm;
-  SECT_CAP = cap;
+  SECT_MAP = sm; SUB_MAP = sub; SECT_CAP = cap; SUB_CAP = subCap;
 }
 
-// 当前时段的实时板块涨跌(市值加权),数据同页面那条 /api/market
+// 当前段实时:大板块 + 子主题各自市值加权涨跌(同一份 /api/market 行情)。返回扁平 {key:pct}。
 async function computeLive(origin: string): Promise<Sect | null> {
   const mkt = await fetchWithTimeout(`${origin}/api/market`, {}, 12000).then((x) => x.json()).catch(() => null);
   const quotes: Record<string, { pct: number | null; mcapB: number | null }> = mkt?.quotes || {};
   if (!Object.keys(quotes).length || !SECT_MAP) return null;
   const agg: Record<string, { cap: number; capPct: number }> = {};
+  const add = (key: string, m: number, pct: number) => {
+    const a = (agg[key] ||= { cap: 0, capPct: 0 });
+    a.cap += m; a.capPct += m * pct;
+  };
   for (const [sym, q] of Object.entries(quotes)) {
-    const sec = SECT_MAP[sym];
-    if (!sec || q.pct == null || !(Number(q.mcapB) > 0)) continue;
-    const a = (agg[sec] ||= { cap: 0, capPct: 0 });
-    a.cap += Number(q.mcapB);
-    a.capPct += Number(q.mcapB) * Number(q.pct);
+    const seg = SECT_MAP[sym];
+    if (!seg || q.pct == null || !(Number(q.mcapB) > 0)) continue;
+    add(seg, Number(q.mcapB), Number(q.pct));
+    const sub = SUB_MAP?.[sym];
+    if (sub) add(sub, Number(q.mcapB), Number(q.pct));
   }
   const out: Sect = {};
-  for (const [sec, a] of Object.entries(agg)) if (a.cap) out[sec] = Math.round((a.capPct / a.cap) * 100) / 100;
+  for (const [k, a] of Object.entries(agg)) if (a.cap) out[k] = Math.round((a.capPct / a.cap) * 100) / 100;
   return Object.keys(out).length ? out : null;
 }
 
@@ -79,24 +97,15 @@ async function syncOnce(origin: string) {
   const session = etSession();
   const live = session !== "休市" ? await computeLive(origin) : null;
   LIVE = { session, sect: live };
-
   const r = redis();
-  if (!r) {
-    HASH = { day: null, pre: null, mid: null, post: null }; // 没接 Upstash → 只能给当前段实时,过去段无从定格
-    return;
-  }
+  if (!r) { HASH = { day: null, pre: null, mid: null, post: null }; return; }
   const today = etDate();
   let raw = ((await r.hgetall(KEY)) || {}) as Record<string, unknown>;
-  // 新交易日的第一段写入 → 清掉上一交易日的三段(否则旧 mid/post 会串进今天盘前)
-  if (session !== "休市" && raw.day !== today) {
-    await r.del(KEY);
-    raw = {};
-  }
+  if (session !== "休市" && raw.day !== today) { await r.del(KEY); raw = {}; }
   if (live && Object.keys(live).length) {
     await r.hset(KEY, { day: today, [FIELD[session]]: live });
     await r.expire(KEY, 60 * 60 * 24 * 3);
-    raw.day = today;
-    raw[FIELD[session]] = live;
+    raw.day = today; raw[FIELD[session]] = live;
   }
   const obj = (v: unknown): Sect | null => (v && typeof v === "object" ? (v as Sect) : null);
   HASH = { day: (raw.day as string) || null, pre: obj(raw.pre), mid: obj(raw.mid), post: obj(raw.post) };
@@ -106,35 +115,30 @@ export async function GET(req: Request) {
   try {
     await loadStatic();
     const now = Date.now();
-    if (now - LAST_SYNC > 50_000) {
-      await syncOnce(new URL(req.url).origin);
-      LAST_SYNC = now;
-    }
+    if (now - LAST_SYNC > 50_000) { await syncOnce(new URL(req.url).origin); LAST_SYNC = now; }
+
     const session = LIVE.session || etSession();
     const today = etDate();
     const realSession = session !== "休市";
-    const hashToday = HASH.day === today;
-    // 盘中/盘后:只认今天的定格;休市:看上一交易日(HASH 自身那天)的三段
-    const frozenOK = realSession ? hashToday : true;
+    const frozenOK = realSession ? HASH.day === today : true;
     const live = LIVE.sect;
-    const cap = SECT_CAP || {};
+    // 某个 key(板块或子主题)的三段值:当前段用实时,过去段用定格,未到段 null
+    const cell = (key: string, sess: "pre" | "mid" | "post", label: string) =>
+      session === label ? live?.[key] ?? null : (frozenOK ? HASH[sess]?.[key] ?? null : null);
+    const triple = (key: string) => ({
+      pre: cell(key, "pre", "盘前"), mid: cell(key, "mid", "盘中"), post: cell(key, "post", "盘后"),
+    });
 
-    const sectors = Object.keys(cap)
-      .sort((a, b) => cap[b] - cap[a])
-      .slice(0, 24) // 取市值 top 24 行业(~77% 市值),其余长尾不铺满列表
-      .map((sector) => {
-        const fz = (f: "pre" | "mid" | "post") => (frozenOK ? HASH[f]?.[sector] ?? null : null);
-        return {
-          sector,
-          capB: Math.round(cap[sector]),
-          pre: session === "盘前" ? live?.[sector] ?? null : fz("pre"),
-          mid: session === "盘中" ? live?.[sector] ?? null : fz("mid"),
-          post: session === "盘后" ? live?.[sector] ?? null : fz("post"),
-        };
-      });
+    const cap = SECT_CAP || {}, subCap = SUB_CAP || {};
+    const subs = Object.keys(subCap).sort((a, b) => subCap[b] - subCap[a])
+      .map((sub) => ({ sector: sub, capB: Math.round(subCap[sub]), ...triple(sub) }));
+    const sectors = Object.keys(cap).sort((a, b) => cap[b] - cap[a]).map((seg) => ({
+      sector: seg, capB: Math.round(cap[seg]), ...triple(seg),
+      ...(seg === EXPAND && subs.length ? { subs } : {}),
+    }));
 
     return Response.json(
-      { sectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || hashToday },
+      { sectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
       { headers: { "cache-control": "s-maxage=45, stale-while-revalidate=120" } },
     );
   } catch {

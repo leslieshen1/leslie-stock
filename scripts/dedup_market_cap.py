@@ -95,6 +95,34 @@ CLASSIFY_FIX: dict[str, tuple[str, str]] = {
 }
 
 
+# 科技板块内细分主题(前端展开"科技"时看):sym→子桶,其余按 industry 兜底。
+# 只拆科技(用户:热门的拆,其他没必要)。半导体进一步拆成 AI算力/存储/光模块/设备。
+TECH_SUB_FIX: dict[str, str] = {}
+for _grp, _syms in {
+    "AI算力": "NVDA AMD",
+    "存储": "MU WDC SNDK STX",
+    "光模块": "COHR LITE FN AAOI POET",
+    "半导体设备": "LRCX AMAT KLAC TER ENTG ONTO COHU",
+}.items():
+    for _s in _syms.split():
+        TECH_SUB_FIX[_s] = _grp
+
+
+def tech_sub(s: dict) -> str:
+    if s.get("sym") in TECH_SUB_FIX:
+        return TECH_SUB_FIX[s["sym"]]
+    ind = (s.get("industry") or "").lower()
+    if "semiconductor" in ind:
+        return "半导体(其他)"
+    if "prepackaged" in ind:
+        return "软件"
+    if "programming data" in ind:
+        return "互联网平台"
+    if any(k in ind for k in ("computer manufacturing", "electronic components", "communications equipment", "computer peripheral")):
+        return "硬件电子"
+    return "其他科技"
+
+
 def dedup_us() -> float:
     p = PUB / "us-stocks.json"
     d = json.loads(p.read_text(encoding="utf-8"))
@@ -132,6 +160,12 @@ def dedup_us() -> float:
         if fx:
             r["sector"], r["industry"] = fx
             fixed += 1
+
+    # 科技股打子主题(前端展开"科技"时用);非科技清掉
+    for r in rows:
+        r.pop("sub", None)
+        if r.get("sector") == "Technology" and not r.get("capDup"):
+            r["sub"] = tech_sub(r)
 
     # 债券/票据/ETN 等非股权工具:同样不计入股权市值聚合(复用 capDup 标记)
     debt, debt_cap = [], 0.0

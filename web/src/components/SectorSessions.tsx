@@ -3,7 +3,6 @@
 // 板块热力(实时):每行=一个板块,行高=√市值(量级,最小封底 30px 保可读),颜色=当前涨跌。
 // 跟着 /api/market 实时行情走(每分钟刷),带当前时段标签;不靠快照、不靠 cron。
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 type Row = { sector: string; capB: number; pct: number };
 
@@ -50,7 +49,7 @@ export default function SectorSessions() {
             实时 · {session}
           </span>
         )}
-        <span className="text-xs text-faint">行高=市值 · 颜色=当前涨跌 · 跟实时行情 · 点板块进扫描</span>
+        <span className="text-xs text-faint">行高=市值 · 颜色=当前涨跌 · 跟实时行情</span>
         <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-faint">
           {[-3, -1, 0, 1, 3].map((v) => <i key={v} className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: heat(v).bg }} />)}
           <span className="ml-1">−3% → +3%</span>
@@ -72,11 +71,9 @@ export default function SectorSessions() {
               const h = Math.max(30, Math.round((Math.sqrt(Math.max(1, r.capB)) / sqrtSum) * 470));
               const c = heat(r.pct);
               return (
-                <Link
+                <div
                   key={r.sector}
-                  href={`/scan?market=us`}
-                  prefetch={false}
-                  className="grid grid-cols-[minmax(150px,210px)_1fr] gap-1 transition hover:brightness-110"
+                  className="grid grid-cols-[minmax(150px,210px)_1fr] gap-1"
                   style={{ height: h }}
                   title={`${ZH[r.sector] || r.sector} · ${fcap(r.capB)} · ${fp(r.pct)}`}
                 >
@@ -87,7 +84,7 @@ export default function SectorSessions() {
                   <div className="flex items-center justify-center rounded-md text-[14px] font-medium tnum" style={{ background: c.bg, color: c.fg }}>
                     {fp(r.pct)}
                   </div>
-                </Link>
+                </div>
               );
             })}
           </div>

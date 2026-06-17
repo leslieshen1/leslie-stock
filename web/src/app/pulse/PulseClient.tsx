@@ -258,7 +258,9 @@ export default function PulseClient({
           const q = ext.quotes[ys.toUpperCase()];
           if (q && q.price != null) merged[ticker] = { price: q.price, pct: q.pct };
         }
-        if (Object.keys(merged).length) setLiveQ(merged);
+        // 并入上次、不整体替换:某一源(如 /api/market)这次超时/返空时,它的票要保留上次实时值,
+        // 不能因为本次 merged 里没有它就丢失 → 否则会回退到昨收快照,造成"实时↔快照"来回横跳。
+        if (Object.keys(merged).length) setLiveQ((prev) => ({ ...prev, ...merged }));
       } catch {
         /* 静默 */
       }

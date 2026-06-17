@@ -231,11 +231,16 @@ export default async function StockDetailPage({
         {(mcap || cls?.seg || usPanel?.sector || usPanel?.chain?.industry) && (
           <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
             {mcap && <span>市值 <span className="font-mono font-semibold text-ink">{mcap}</span></span>}
-            {/* AI 板块分类(大板块·主子板块);无则退回面板 sector */}
-            {cls?.seg ? <span>{cls.seg}{cls.sub ? ` · ${cls.sub}` : ""}</span> : (usPanel?.sector && <span>{usPanel.sector}</span>)}
-            {/* 第二子板块(非主营副主题,如 SpaceX 兼 AI算力)—— 只在详情页显示,不进热力图/产业图 */}
+            {/* 板块标签:大板块 + 子板块(独立 chip,恒显);第二子板块兼营如有再加一枚。无 AI 分类则退回面板 sector */}
+            {cls?.seg ? (
+              <>
+                <span className="inline-flex rounded-md border border-line bg-surface-2 px-1.5 py-0.5 text-[11px] text-muted">{cls.seg}</span>
+                {cls.sub && <span className="inline-flex rounded-md border border-line bg-surface-2 px-1.5 py-0.5 text-[11px] text-muted">{cls.sub}</span>}
+              </>
+            ) : (usPanel?.sector && <span>{usPanel.sector}</span>)}
+            {/* 第二子板块(非主营、跨板块兼营的另一子板块)—— 只在详情页显示,不进热力图/产业图 */}
             {cls?.sub2 && (
-              <span className="inline-flex items-center rounded-md border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[11px] font-medium text-accent" title="第二子板块(非主营业务)">
+              <span className="inline-flex items-center rounded-md border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[11px] font-medium text-accent" title="第二子板块:非主营、但有显著业务的另一板块">
                 兼 {cls.sub2}
               </span>
             )}

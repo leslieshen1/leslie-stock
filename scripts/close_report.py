@@ -19,7 +19,7 @@ except Exception:
     pass
 
 # 复用盘前报告的工具:Nasdaq 报价 / gpt-5.5 综述 / 大票池 / 路径 / Finnhub key
-from premarket_report import npm, llm_write, _pctnum, LIQUID, PUB, OUT, FINN
+from premarket_report import npm, llm_write, card_headline, _pctnum, LIQUID, PUB, OUT, FINN
 
 
 def gather():
@@ -126,6 +126,12 @@ def main():
     path = OUT / f"close_{et.strftime('%Y%m%d')}.md"
     path.write_text(md, encoding="utf-8")
     print(f"✓ 报告 → {path}  ({len(report)} 字)")
+
+    # 派生卡片 spec:英文标题随报告 → share_card.py --spec,保证图文同一个故事
+    hl = card_headline(report)
+    if hl:
+        (OUT / "close_spec.json").write_text(json.dumps({"headline": hl}, ensure_ascii=False), encoding="utf-8")
+        print(f"   🃏 卡片标题(随报告): {hl}")
 
     if "--no-email" not in sys.argv:
         try:

@@ -60,7 +60,7 @@ jobs:
           uv run python scripts/publish_report.py --type premarket --time "08:30 ET" \
             --title "$TITLE" --file "$MD" --date "$ET_DATE"
           # 3) 分享卡片(渲染失败不阻塞报告发布)
-          uv run python scripts/share_card.py --type premarket || echo "⚠ 卡片渲染失败,跳过(报告已发)"
+          uv run python scripts/share_card.py --type premarket --spec data/reports/premarket_spec.json || echo "⚠ 卡片渲染失败,跳过(报告已发)"
 
       - name: Commit & push(触发 Vercel Git 集成部署)
         run: |

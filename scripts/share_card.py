@@ -518,8 +518,12 @@ def main():
 
     spec = {}
     if args.spec:
-        raw = Path(args.spec).read_text(encoding="utf-8") if Path(args.spec).exists() else args.spec
-        spec = json.loads(raw)
+        try:
+            raw = Path(args.spec).read_text(encoding="utf-8") if Path(args.spec).exists() else args.spec
+            spec = json.loads(raw)
+        except Exception:
+            print(f"   ⚠ spec 不可用,用机械标题兜底:{str(args.spec)[:50]}")
+            spec = {}
     if spec.get("headline"):
         ctx["headline"] = spec["headline"]
         print(f"   headline[报告]: {ctx['headline']}")

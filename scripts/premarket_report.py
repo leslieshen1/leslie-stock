@@ -132,30 +132,48 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 只输出第 1-5 节的 markdown 正文,不要外层大标题、不要前后多余的话,不要提'五方'或任何内部产品功能。"""
 
 
-def llm_write(system_prompt: str, ctx: dict) -> str:
-    """Claude Opus 4.8 综述 —— NDT 的 Anthropic 端点(/v1/messages)。
+def _claude(system: str, user: str, max_tokens: int = 5000) -> str:
+    """NDT 的 Anthropic 端点(/v1/messages)调 Claude Opus 4.8。
     报告专用 key:NDT_CLAUDE_KEY(NDT 的 gpt key 不带 Claude,故跟其它脚本的 NDT_API_KEY 分开)。
     model 可用 NDT_REPORT_MODEL 覆盖(默认 claude-opus-4-8)。线上/本地同一条 API。"""
     key = os.environ.get("NDT_CLAUDE_KEY") or os.environ.get("NDT_API_KEY")
     base = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
     model = os.environ.get("NDT_REPORT_MODEL", "claude-opus-4-8")
     if not key:
-        print("❌ 缺 NDT_CLAUDE_KEY(.env / GitHub secrets)"); sys.exit(1)
-    try:
-        r = requests.post(f"{base}/v1/messages",
-                          headers={"Authorization": f"Bearer {key}",
-                                   "Content-Type": "application/json",
-                                   "anthropic-version": "2023-06-01"},
-                          json={"model": model, "max_tokens": 5000,
-                                "system": system_prompt,
-                                "messages": [{"role": "user", "content": json.dumps(ctx, ensure_ascii=False)}]},
-                          timeout=180).json()
-    except Exception as e:
-        print("❌ NDT 请求失败:", e); sys.exit(1)
+        raise RuntimeError("缺 NDT_CLAUDE_KEY(.env / GitHub secrets)")
+    r = requests.post(f"{base}/v1/messages",
+                      headers={"Authorization": f"Bearer {key}",
+                               "Content-Type": "application/json",
+                               "anthropic-version": "2023-06-01"},
+                      json={"model": model, "max_tokens": max_tokens,
+                            "system": system,
+                            "messages": [{"role": "user", "content": user}]},
+                      timeout=180).json()
     if r.get("error"):
-        print("❌ NDT error:", r["error"]); sys.exit(1)
+        raise RuntimeError(str(r["error"])[:200])
     parts = r.get("content") or []
     return "".join(p.get("text", "") for p in parts if p.get("type") == "text").strip()
+
+
+def llm_write(system_prompt: str, ctx: dict) -> str:
+    """Claude Opus 4.8 综述。"""
+    try:
+        return _claude(system_prompt, json.dumps(ctx, ensure_ascii=False), 5000)
+    except Exception as e:
+        print("❌ NDT 请求失败:", e); sys.exit(1)
+
+
+def card_headline(report_md: str) -> str | None:
+    """从写好的中文报告提炼一句英文卡片标题(与报告口径一致),给 share_card.py --spec 用。
+    失败 → None,卡片回退到自己的机械标题。"""
+    sys_p = ("You read a Chinese US-market report and output ONE English headline for a social card: "
+             "<=10 words, punchy, accurate, no emoji, no quotes, no markdown. It MUST match the report's "
+             "overall market direction and main theme. Output only the headline, nothing else.")
+    try:
+        hl = _claude(sys_p, report_md[:6000], 60).strip().strip('"').strip()
+        return hl if 0 < len(hl) <= 90 else None
+    except Exception:
+        return None
 
 
 def main():
@@ -188,6 +206,12 @@ def main():
     path = OUT / f"premarket_{et.strftime('%Y%m%d')}.md"
     path.write_text(md, encoding="utf-8")
     print(f"✓ 报告 → {path}  ({len(report)} 字)")
+
+    # 派生卡片 spec:英文标题随报告 → share_card.py --spec,保证图文同一个故事
+    hl = card_headline(report)
+    if hl:
+        (OUT / "premarket_spec.json").write_text(json.dumps({"headline": hl}, ensure_ascii=False), encoding="utf-8")
+        print(f"   🃏 卡片标题(随报告): {hl}")
 
     if "--no-email" not in sys.argv:
         try:

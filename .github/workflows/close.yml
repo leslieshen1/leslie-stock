@@ -58,7 +58,7 @@ jobs:
           TITLE=$(head -1 "$MD" | sed 's/^# *//')
           uv run python scripts/publish_report.py --type close --time "16:00 ET" \
             --title "$TITLE" --file "$MD" --date "$ET_DATE"
-          uv run python scripts/share_card.py --type close || echo "⚠ 卡片渲染失败,跳过(报告已发)"
+          uv run python scripts/share_card.py --type close --spec data/reports/close_spec.json || echo "⚠ 卡片渲染失败,跳过(报告已发)"
 
       - name: Commit & push(触发 Vercel Git 集成部署)
         run: |

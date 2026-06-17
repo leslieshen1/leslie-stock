@@ -48,7 +48,7 @@ jobs:
           else
             git commit -m "chore: 行情自动刷新 $(date -u +%Y-%m-%d)"
             # 重试 + rebase:main 被(手动/其它 bot)推过时不会因 non-fast-forward 整个 run 失败
-            for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done
+            for i in 1 2 3; do git push && break || { git pull --rebase --autostash; sleep 3; }; done
           fi
 
       # 部署:配了 VERCEL_TOKEN 才走 CLI 部署;没配则跳过(不再让整个 run 变红)。

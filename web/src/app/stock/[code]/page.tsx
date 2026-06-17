@@ -238,12 +238,12 @@ export default async function StockDetailPage({
                 {cls.sub && <span className="inline-flex rounded-md border border-line bg-surface-2 px-1.5 py-0.5 text-[11px] text-muted">{cls.sub}</span>}
               </>
             ) : (usPanel?.sector && <span>{usPanel.sector}</span>)}
-            {/* 第二子板块(非主营、跨板块兼营的另一子板块)—— 只在详情页显示,不进热力图/产业图 */}
-            {cls?.sub2 && (
-              <span className="inline-flex items-center rounded-md border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[11px] font-medium text-accent" title="第二子板块:非主营、但有显著业务的另一板块">
-                兼 {cls.sub2}
+            {/* 第二子板块(可多个):非主营、跨板块兼营 —— 只详情页显示,不进热力图/产业图 */}
+            {cls?.sub2?.map((s2) => (
+              <span key={s2} className="inline-flex items-center rounded-md border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[11px] font-medium text-accent" title="第二子板块:非主营、但有显著业务的另一板块">
+                兼 {s2}
               </span>
-            )}
+            ))}
             {usPanel?.chain?.industry && <span className="text-accent">{usPanel.chain.industry}</span>}
           </div>
         )}

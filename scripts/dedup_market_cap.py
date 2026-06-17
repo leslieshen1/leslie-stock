@@ -219,6 +219,13 @@ def load_ai() -> dict:
         return {}
 
 
+# 第二子板块人工覆盖:分类 AI(训练截止较早)不知道的近期并购/业务变动,在此手填(列表,可多个)。
+# 例:SpaceX 已并入 xAI(AI算力)+ 收购 Cursor(软件)→ 横跨多块,但 AI 判不出。
+SUB2_OVERRIDE: dict[str, list] = {
+    "SPCX": ["AI算力", "软件"],  # xAI 合并 + 收购 Cursor(2026,AI 不知道)
+}
+
+
 def dedup_us() -> float:
     p = PUB / "us-stocks.json"
     d = json.loads(p.read_text(encoding="utf-8"))
@@ -267,8 +274,15 @@ def dedup_us() -> float:
         a = AI.get(r.get("sym"))
         if a and a.get("seg") and a.get("sub"):
             r["seg"], r["sub"] = a["seg"], a["sub"]
-            if a.get("sub2"):
-                r["sub2"] = a["sub2"]
+            # 第二子板块(可多个):人工 override 优先,否则用 AI 判的单个;去掉与主子板块重复的、去重
+            ov = SUB2_OVERRIDE.get(r.get("sym"))
+            raw = ov if ov is not None else ([a["sub2"]] if a.get("sub2") else [])
+            subs2, seen = [], set()
+            for x in raw:
+                if x and x != a["sub"] and x not in seen:
+                    subs2.append(x); seen.add(x)
+            if subs2:
+                r["sub2"] = subs2
             ai_hit += 1
         else:
             r["seg"] = seg_zh(r["sector"])

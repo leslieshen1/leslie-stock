@@ -3,7 +3,7 @@ import path from "path";
 
 // 个股分类(AI 判读):sym → 大板块 seg / 主子板块 sub / 第二子板块 sub2(非主营,详情页打标签用)。
 // 源 web/public/data/us-class.json(scripts/dedup_market_cap.py 产出)。模块级缓存,避免每次详情页解析。
-export type UsClass = { seg?: string; sub?: string; sub2?: string | null };
+export type UsClass = { seg?: string; sub?: string; sub2?: string[] };
 
 let _cache: Record<string, UsClass> | null = null;
 

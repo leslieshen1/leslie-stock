@@ -8,6 +8,7 @@ import { loadDilutionFlags } from "@/lib/dilution";
 import { loadUsPanel } from "@/lib/us-panel";
 import { loadStockTypes } from "@/lib/stock-type";
 import { loadFundamentals } from "@/lib/fundamentals";
+import { loadUsClass } from "@/lib/us-class";
 import { fetchAFundamentals } from "@/lib/a-fundamentals";
 import { loadNews } from "@/lib/news";
 import { loadEarnings } from "@/lib/earnings";
@@ -180,6 +181,7 @@ export default async function StockDetailPage({
   const initial = usPanel ? null : loadAnalysis(code, market);
   const holders = getStockHolders(code);
   const dilution = market === "us" ? loadDilutionFlags()[code.toUpperCase()] : undefined;
+  const cls = market === "us" ? await loadUsClass(code) : null; // AI 板块分类(含第二子板块标签)
 
   // 市值显示:美股 $2.18T/$43B/$940M;A 股 X 亿(人民币)—— 只是计价市场不同
   const fmtCap = (b?: number | null) =>
@@ -226,10 +228,17 @@ export default async function StockDetailPage({
           </div>
         </div>
         {/* 市值 · 行业 · 链定位 —— 之前页头只有代码+价格,连公司是干嘛的都不知道(2026-06-12 反馈) */}
-        {(mcap || usPanel?.sector || usPanel?.chain?.industry) && (
+        {(mcap || cls?.seg || usPanel?.sector || usPanel?.chain?.industry) && (
           <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
             {mcap && <span>市值 <span className="font-mono font-semibold text-ink">{mcap}</span></span>}
-            {usPanel?.sector && <span>{usPanel.sector}</span>}
+            {/* AI 板块分类(大板块·主子板块);无则退回面板 sector */}
+            {cls?.seg ? <span>{cls.seg}{cls.sub ? ` · ${cls.sub}` : ""}</span> : (usPanel?.sector && <span>{usPanel.sector}</span>)}
+            {/* 第二子板块(非主营副主题,如 SpaceX 兼 AI算力)—— 只在详情页显示,不进热力图/产业图 */}
+            {cls?.sub2 && (
+              <span className="inline-flex items-center rounded-md border border-accent/40 bg-accent/10 px-1.5 py-0.5 text-[11px] font-medium text-accent" title="第二子板块(非主营业务)">
+                兼 {cls.sub2}
+              </span>
+            )}
             {usPanel?.chain?.industry && <span className="text-accent">{usPanel.chain.industry}</span>}
           </div>
         )}

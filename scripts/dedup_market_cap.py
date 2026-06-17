@@ -198,6 +198,27 @@ def assign_sub(s: dict):
     return None  # 地产(全 REIT)/ 其他 不细分
 
 
+# 英文 GICS sector → 中文大板块(尾巴小盘用;AI 已判的直接用 AI 的大板块)
+SEG_ZH = {
+    "Technology": "科技", "Finance": "金融", "Financial Services": "金融",
+    "Health Care": "医疗", "Healthcare": "医疗", "Consumer Discretionary": "可选消费",
+    "Consumer Staples": "必需消费", "Industrials": "工业", "Energy": "能源",
+    "Utilities": "公用事业", "Telecommunications": "通信媒体", "Communication Services": "通信媒体",
+    "Real Estate": "地产", "Basic Materials": "材料", "Materials": "材料", "Miscellaneous": "其他",
+}
+def seg_zh(sector) -> str:
+    return SEG_ZH.get(str(sector), "其他")
+
+
+# AI 判读结果(scripts/ai_sectors.json,classify-us-sectors workflow 产出):sym→{seg,sub,sub2}
+def load_ai() -> dict:
+    p = Path(__file__).resolve().parent / "ai_sectors.json"
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
 def dedup_us() -> float:
     p = PUB / "us-stocks.json"
     d = json.loads(p.read_text(encoding="utf-8"))
@@ -234,14 +255,27 @@ def dedup_us() -> float:
             r["sector"], r["industry"] = fx
             fixed += 1
 
-    # 每只票打子板块(前端可按大板块展开):assign_sub 按大板块分派。
-    # 不限注册地 —— 所有美股上市票(含海外注册的希捷/埃森哲等)都要进板块。
+    # 每只票打 大板块(seg)/主子板块(sub)/第二子板块(sub2)。
+    # ≥$1B 用 AI 判读(ai_sectors.json);尾巴小盘用规则(seg_zh + assign_sub)。不限注册地。
+    AI = load_ai()
+    ai_hit = 0
     for r in rows:
-        r.pop("sub", None)
-        if not r.get("capDup") and r.get("sector"):
-            sub = assign_sub(r)
-            if sub:
-                r["sub"] = sub
+        for k in ("seg", "sub", "sub2"):
+            r.pop(k, None)
+        if r.get("capDup") or not r.get("sector"):
+            continue
+        a = AI.get(r.get("sym"))
+        if a and a.get("seg") and a.get("sub"):
+            r["seg"], r["sub"] = a["seg"], a["sub"]
+            if a.get("sub2"):
+                r["sub2"] = a["sub2"]
+            ai_hit += 1
+        else:
+            r["seg"] = seg_zh(r["sector"])
+            s2 = assign_sub(r)
+            if s2:
+                r["sub"] = s2
+    print(f"[US] 分类:AI 判读命中 {ai_hit} 只,其余尾巴用规则;第二子板块 {sum(1 for r in rows if r.get('sub2'))} 只")
 
     # 债券/票据/ETN 等非股权工具:同样不计入股权市值聚合(复用 capDup 标记)
     debt, debt_cap = [], 0.0
@@ -254,6 +288,9 @@ def dedup_us() -> float:
             debt.append((r.get("sym"), r.get("name"), float(r.get("mcapB") or 0)))
 
     p.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    # 精简分类表给详情页用(sym→大板块/主子板块/第二子板块),省得详情页解析 1.3MB us-stocks
+    cls = {r["sym"]: {"seg": r.get("seg"), "sub": r.get("sub"), "sub2": r.get("sub2")} for r in rows if r.get("seg")}
+    (PUB / "us-class.json").write_text(json.dumps(cls, ensure_ascii=False), encoding="utf-8")
     print(f"[US] 双重股权/存托重复: {len(flagged)} 行,剔除 ${dup_cap/1000:.2f}T")
     for sym, prim, nm, cap in sorted(flagged, key=lambda x: -x[3])[:8]:
         print(f"    {sym:7} ← 主类 {prim:11} ${cap/1000:6.2f}T  {str(nm)[:36]}")

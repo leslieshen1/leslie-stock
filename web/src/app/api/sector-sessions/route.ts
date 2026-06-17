@@ -58,7 +58,7 @@ async function loadStatic() {
   for (const s of all) {
     // 所有美股上市票都进板块(不限注册地 —— 海外注册的希捷/埃森哲等也算)
     if (!s.sector || s.capDup) continue;
-    const seg = segZH(s.sector);
+    const seg = String(s.seg || segZH(s.sector)); // seg=AI 判的大板块(dedup 烤入),回退英文映射
     const sym = String(s.sym);
     sm[sym] = seg;
     const m = Number(s.mcapB);

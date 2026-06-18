@@ -54,6 +54,8 @@ jobs:
           ET_YMD=$(TZ=America/New_York date +%Y%m%d)
           # 1) 报告(Claude Opus 4.8;云端无邮件 secret → --no-email)
           uv run python scripts/premarket_report.py --no-email
+          # 1b) 市场日历(未来10天财报+宏观)—— 本地 refresh 已停,挪到这条云上 cron 每天刷;抓空不覆盖(脚本内已保护)
+          uv run python -m fetchers.market_calendar || echo "⚠ 日历抓取失败,保留旧数据"
           MD="data/reports/premarket_${ET_YMD}.md"
           TITLE=$(head -1 "$MD" | sed 's/^# *//')
           # 2) 发布到 /reports
@@ -66,7 +68,7 @@ jobs:
         run: |
           git config user.name "premarket-bot"
           git config user.email "premarket-bot@users.noreply.github.com"
-          git add web/public/data/reports.json data/reports/ data/cards/ 2>/dev/null || true
+          git add web/public/data/reports.json web/public/data/market-calendar.json data/reports/ data/cards/ 2>/dev/null || true
           if git diff --cached --quiet; then echo "无变化,跳过"; exit 0; fi
           git commit -m "report: 盘前报告 + 卡片 $(TZ=America/New_York date +%F)(线上 Claude Opus 4.8)"
           for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done

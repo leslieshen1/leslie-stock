@@ -133,6 +133,15 @@ def main():
     events = fetch_macro(d0, d1) + fetch_earnings(d0, d1)
     events.sort(key=lambda e: (e["date"], e.get("timeET") or "99:99", 0 if e["kind"] == "macro" else 1))
     gen = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    # 空结果保护:两源都抓空(Finnhub 限流/挂/key 失效)时绝不用空覆盖好数据 ——
+    # 2026-06-17 就是被一次空抓写成 events:[],害 /reports 日历(无事件即 return null)整块消失。
+    if not events:
+        try:
+            keep = [e for e in json.loads(OUT.read_text(encoding="utf-8")).get("events", []) if (e.get("date") or "") >= d0]
+        except Exception:
+            keep = []
+        print(f"  ⚠ 本次抓取为空 —— {('保留旧文件 %d 条未过期事件' % len(keep)) if keep else '旧文件也无未过期事件'},不写空覆盖")
+        return
     OUT.write_text(json.dumps({"generated_at": gen, "events": events}, ensure_ascii=False), encoding="utf-8")
     macro_n = sum(1 for e in events if e["kind"] == "macro")
     print(f"✅ {len(events)} 条(宏观 {macro_n} · 财报 {len(events)-macro_n}) → {OUT}")

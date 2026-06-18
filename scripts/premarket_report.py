@@ -157,39 +157,11 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 只输出第 1-6 节的 markdown 正文,不要外层大标题、不要前后多余的话,不要提'五方'或任何内部产品功能。"""
 
 
-def _claude(system: str, user: str, max_tokens: int = 5000, retries: int = 3) -> str:
-    """NDT 的 Anthropic 端点(/v1/messages)调 Claude Opus 4.8。
-    报告专用 key:NDT_CLAUDE_KEY(NDT 的 gpt key 不带 Claude,故跟其它脚本的 NDT_API_KEY 分开)。
-    model 可用 NDT_REPORT_MODEL 覆盖(默认 claude-opus-4-8)。线上/本地同一条 API。
-    NDT 偶发 MODEL_BUSY/overloaded(retryable)→ 退避重试,别让一次抖动废掉整篇报告。"""
-    key = os.environ.get("NDT_CLAUDE_KEY") or os.environ.get("NDT_API_KEY")
-    base = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
-    model = os.environ.get("NDT_REPORT_MODEL", "claude-opus-4-8")
-    if not key:
-        raise RuntimeError("缺 NDT_CLAUDE_KEY(.env / GitHub secrets)")
-    for attempt in range(retries + 1):
-        try:
-            r = requests.post(f"{base}/v1/messages",
-                              headers={"Authorization": f"Bearer {key}",
-                                       "Content-Type": "application/json",
-                                       "anthropic-version": "2023-06-01"},
-                              json={"model": model, "max_tokens": max_tokens,
-                                    "system": system,
-                                    "messages": [{"role": "user", "content": user}]},
-                              timeout=180).json()
-            if r.get("error"):
-                raise RuntimeError(str(r["error"])[:200])
-            parts = r.get("content") or []
-            text = "".join(p.get("text", "") for p in parts if p.get("type") == "text").strip()
-            if text:
-                return text
-            raise RuntimeError("空回复")
-        except Exception as e:
-            if attempt >= retries:
-                raise
-            print(f"   ↻ NDT 调用失败({str(e)[:90]}),{10 * (attempt + 1)}s 后重试…")
-            time.sleep(10 * (attempt + 1))
-    raise RuntimeError("NDT 重试耗尽")
+def _claude(system: str, user: str, max_tokens: int = 5000) -> str:
+    """报告综述。优先 Claude Opus 4.8(NDT /v1/messages),它过载(MODEL_BUSY)或失败时自动降级
+    gpt-5.5(/v1/responses)—— 统一在 ndt_llm.llm 里:退避重试 + 双模型兜底,一次过载不废整篇。"""
+    from ndt_llm import llm
+    return llm(user, system, max_tokens)
 
 
 def llm_write(system_prompt: str, ctx: dict) -> str:

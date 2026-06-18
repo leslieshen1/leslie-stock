@@ -46,30 +46,10 @@ RULES = {
 
 
 def ndt(prompt: str, retries: int = 1) -> str:
-    """NDT Anthropic 端点(/v1/messages)调 Claude Opus 4.8,返回纯文本。
-    (原 gpt-5.5 走 /v1/responses 流式;2026-06-18 换 Claude 4.8,与盘报 _claude 同通道。)"""
-    for attempt in range(retries + 1):
-        try:
-            r = requests.post(f"{NDT_BASE}/v1/messages",
-                              headers={"Authorization": f"Bearer {NDT_KEY}",
-                                       "Content-Type": "application/json",
-                                       "anthropic-version": "2023-06-01"},
-                              json={"model": MODEL, "max_tokens": 4000,
-                                    "messages": [{"role": "user", "content": prompt}]},
-                              timeout=300).json()
-            if r.get("error"):
-                raise RuntimeError(str(r["error"])[:300])
-            parts = r.get("content") or []
-            text = "".join(p.get("text", "") for p in parts if p.get("type") == "text").strip()
-            if text:
-                return text
-            raise RuntimeError("空回复")
-        except Exception as e:
-            if attempt >= retries:
-                raise
-            print(f"   ↻ 调用失败({e}),30s 后重试…")
-            time.sleep(30)
-    return ""
+    """五神决策。优先 Claude Opus 4.8,它过载(MODEL_BUSY)或失败时自动降级 gpt-5.5
+    —— 统一在 ndt_llm.llm 里:退避重试 + 双模型兜底。任一可用就有输出,不整批回退规则。"""
+    from ndt_llm import llm
+    return llm(prompt, max_tokens=4000)
 
 
 def parse_orders(text: str) -> dict | None:

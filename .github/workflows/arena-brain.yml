@@ -17,8 +17,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
-      - name: 五位股神开盘前决策(NDT gpt-5.5)
+      - name: 五位股神开盘前决策(NDT Claude Opus 4.8)
         env:
+          NDT_CLAUDE_KEY: ${{ secrets.NDT_CLAUDE_KEY }}
           NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
           NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
         run: python scripts/arena_cloud.py brain

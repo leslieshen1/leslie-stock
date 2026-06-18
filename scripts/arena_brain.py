@@ -8,7 +8,7 @@
 - 机械止损永远由引擎执行,AI 无权豁免(风控地板)
 - BUY 只能从"他评分 ≥ 阈值"的候选里挑(人设完整性),引擎二次校验
 - 任何一位调用失败 → 该股神当日回退 V1 规则,产线不断
-- NDT 通道:/v1/responses 且必须 stream:true(2026-06 实测非流式一律 MODEL_NOT_AVAILABLE)
+- NDT 通道:Claude Opus 4.8 走 Anthropic 式 /v1/messages(非流式;原 gpt-5.5 走 /v1/responses 流式,2026-06-18 已换)
 
 成本:每天 5 次调用,合计 ~2-3 万 token。
 """
@@ -30,8 +30,10 @@ import os
 DB = ROOT / "data" / "leslie.db"
 ET = timezone(timedelta(hours=-4))
 NDT_BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
-NDT_KEY = os.environ.get("NDT_API_KEY") or ""
-MODEL = "gpt-5.5"
+# 2026-06-18 五神决策从 gpt-5.5 换 Claude Opus 4.8(与盘报同模型、同 NDT Anthropic /v1/messages 通道)。
+# Claude 走 NDT_CLAUDE_KEY(NDT 的 gpt key 不带 Claude);无该 key 时回退 NDT_API_KEY(届时调用失败→规则兜底)。
+NDT_KEY = os.environ.get("NDT_CLAUDE_KEY") or os.environ.get("NDT_API_KEY") or ""
+MODEL = "claude-opus-4-8"
 
 # 与 arena_engine.RULES 同步(授权范围写进提示词,引擎照此校验)
 RULES = {
@@ -44,36 +46,24 @@ RULES = {
 
 
 def ndt(prompt: str, retries: int = 1) -> str:
-    """NDT /v1/responses 流式调用,返回纯文本。"""
-    body = {"model": MODEL, "stream": True, "input": prompt}
+    """NDT Anthropic 端点(/v1/messages)调 Claude Opus 4.8,返回纯文本。
+    (原 gpt-5.5 走 /v1/responses 流式;2026-06-18 换 Claude 4.8,与盘报 _claude 同通道。)"""
     for attempt in range(retries + 1):
         try:
-            with requests.post(f"{NDT_BASE}/v1/responses",
-                               headers={"Authorization": f"Bearer {NDT_KEY}",
-                                        "Content-Type": "application/json"},
-                               json=body, stream=True, timeout=300) as r:
-                r.raise_for_status()
-                r.encoding = "utf-8"  # SSE 无 charset 头时 requests 按 Latin-1 解,中文必乱码(6/11 踩过)
-                out = []
-                for line in r.iter_lines(decode_unicode=True):
-                    if not line or not line.startswith("data:"):
-                        continue
-                    data = line[5:].strip()
-                    if data == "[DONE]":
-                        break
-                    try:
-                        j = json.loads(data)
-                    except ValueError:
-                        continue
-                    t = j.get("type", "")
-                    if t == "response.output_text.delta":
-                        out.append(j.get("delta") or "")
-                    elif t in ("response.failed", "error"):
-                        raise RuntimeError(str(j)[:300])
-                text = "".join(out).strip()
-                if text:
-                    return text
-                raise RuntimeError("空回复")
+            r = requests.post(f"{NDT_BASE}/v1/messages",
+                              headers={"Authorization": f"Bearer {NDT_KEY}",
+                                       "Content-Type": "application/json",
+                                       "anthropic-version": "2023-06-01"},
+                              json={"model": MODEL, "max_tokens": 4000,
+                                    "messages": [{"role": "user", "content": prompt}]},
+                              timeout=300).json()
+            if r.get("error"):
+                raise RuntimeError(str(r["error"])[:300])
+            parts = r.get("content") or []
+            text = "".join(p.get("text", "") for p in parts if p.get("type") == "text").strip()
+            if text:
+                return text
+            raise RuntimeError("空回复")
         except Exception as e:
             if attempt >= retries:
                 raise
@@ -187,7 +177,7 @@ def main():
     ap.add_argument("--dry", action="store_true", help="只打印决策,不写 arena_orders(试跑)")
     args = ap.parse_args()
     if not NDT_KEY:
-        sys.exit("缺 NDT_API_KEY(.env)")
+        sys.exit("缺 NDT_CLAUDE_KEY(.env / GitHub secrets)")
 
     fill_date = datetime.now(ET).strftime("%Y-%m-%d")  # 20:30 北京 = 08:30 ET 同一交易日
     cx = sqlite3.connect(DB)

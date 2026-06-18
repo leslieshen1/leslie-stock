@@ -13,7 +13,7 @@ let A_LAST_GOOD: { quotes: Record<string, AQuote>; ts: number } | null = null;
 function tencentSym(code: string): string | null {
   if (/^6/.test(code)) return "sh" + code;          // 沪市主板/科创板(688)
   if (/^[03]/.test(code)) return "sz" + code;        // 深市主板/创业板(300)
-  if (/^[48]/.test(code)) return "bj" + code;        // 北交所
+  if (/^(?:[48]|92)/.test(code)) return "bj" + code; // 北交所(含新代码段 920xxx;9 开头只认 92,避开 900xxx 沪B股)
   return null;
 }
 

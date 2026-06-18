@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import AiPersonaNote from "@/components/AiPersonaNote";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -181,6 +181,8 @@ export default function PulseClient({
   chainPlacement?: Record<string, Record<string, string>>;
 }) {
   const router = useRouter();
+  // 稳定的"打开个股"回调 —— 内联函数会进粒子场 effect 依赖,每次 render 都重建动画(点一下就跳),useCallback 钉住身份
+  const handleOpen = useCallback((c: CompanyWithHeat) => router.push(stockHref(c.ticker, c.region)), [router]);
   const fieldWrapRef = useRef<HTMLDivElement>(null);
   const sp = useSearchParams();   // ?industry=&highlight= 客户端读(服务端读会逼整页强动态)
   const { t, lang } = useLang();
@@ -284,7 +286,7 @@ export default function PulseClient({
       const q = liveQ[c.ticker];
       if (q) {
         if (q.price != null) base.livePrice = q.price;
-        if (q.pct != null) { base.pct = q.pct; base.dataSource = "live"; }
+        if (q.pct != null) { base.pct = q.pct; base.dataSource = isMarketOpen(c.region) ? "live" : "snapshot"; }
         if (q.mcapYi != null) base.liveMcapYi = q.mcapYi;
         if (q.mcapB != null) base.marketCapB = q.mcapB; // 美股实时市值覆盖构建期静态快照(NVDA 不再冻在 $5.14T)
       }
@@ -387,6 +389,16 @@ export default function PulseClient({
       return score >= t.min && score <= t.max;
     });
   }, [industryItems, region, tier, colorMode]);
+
+  // 粒子场只看结构(代码/层/过热/评分,皆慢变量),不吃实时价 → 用结构签名钉住 items 身份:
+  // 每 60s 价格轮询不再换身份 → 画布不再重置("刷新/跳一下");成员/分数/层真变了才换。
+  // 详情面板的实时价另按 ticker 现查 itemsScored(见下方 c=...find),不受此影响。
+  const fieldSig = useMemo(
+    () => filtered.map((c) => `${c.id}:${c.layer}:${c.heat}:${c.triple ?? "-"}`).join("|"),
+    [filtered],
+  );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const fieldItems = useMemo(() => filtered, [fieldSig]);
 
   // 当前 industry 的 layers(零成员的层隐藏 —— 区域/筛选切换后空荡的"幽灵层"很怪,2026-06-12 抓包)
   const activeLayers = useMemo(() => {
@@ -675,14 +687,14 @@ export default function PulseClient({
 
         <div ref={fieldWrapRef}>
         <PulseField
-          items={filtered}
+          items={fieldItems}
           edges={activeEdges}
           marketAvg={pulse.avgHeat}
           colorMode={colorMode}
           lensLabel={curLensLabel}
           onSelect={setSelected}
           flow={industry === "AI" || (industryDefs.find((d) => d.id === industry) as ChainDef | undefined)?.kind !== "sector"}
-          onOpen={(c) => router.push(stockHref(c.ticker, c.region))}
+          onOpen={handleOpen}
           selectedId={selected?.id ?? null}
           highlightLayer={highlightLayer}
           layers={activeLayers}
@@ -1315,6 +1327,21 @@ function MasterBar({ name, school, score }: { name: string; school?: string; sco
   );
 }
 
+// 该地区市场此刻是否盘中 —— 收盘后行情源仍返收盘价,不该标 LIVE,应标「收盘」。
+function isMarketOpen(region?: string): boolean {
+  const tz = region === "CN" ? "Asia/Shanghai" : region === "HK" ? "Asia/Hong_Kong"
+    : region === "TW" ? "Asia/Taipei" : region === "KR" ? "Asia/Seoul" : "America/New_York";
+  const loc = new Date(new Date().toLocaleString("en-US", { timeZone: tz }));
+  const day = loc.getDay();
+  if (day === 0 || day === 6) return false;
+  const m = loc.getHours() * 60 + loc.getMinutes();
+  if (region === "CN") return (m >= 570 && m <= 690) || (m >= 780 && m <= 900); // 9:30-11:30 / 13:00-15:00
+  if (region === "HK") return (m >= 570 && m <= 720) || (m >= 780 && m <= 960); // 9:30-12:00 / 13:00-16:00
+  if (region === "TW") return m >= 540 && m <= 810; // 9:00-13:30
+  if (region === "KR") return m >= 540 && m <= 930; // 9:00-15:30
+  return m >= 240 && m < 1200;                       // 美股含盘前盘后 4:00-20:00 ET
+}
+
 function scoreColor(s: number): string {
  if (s >= 70) return "#059669"; // 绿
  if (s >= 55) return "#165DFF"; // 蓝
@@ -1367,14 +1394,16 @@ const HEX_STOPS = [
   { p: 1.00, h: 340, s: 92, l: 50 },
 ];
 // triple 色阶：低=红警（基本面差），高=金/绿（顶级好资产）
+// 红(回避)→ 去饱和中性 → 绿(看多)→ 亮翡翠(高信念)。单调暖→冷,中性去饱和不抢眼,
+// 高端用明度+青度拉开,避免原来 70/85/100 全是青绿看不出"看多 vs 高信念"。
 const TRIPLE_HEX_STOPS = [
-  { p: 0.00, h: 358, s: 88, l: 45 },
-  { p: 0.20, h:  18, s: 92, l: 48 },
-  { p: 0.40, h:  42, s: 92, l: 48 },
-  { p: 0.55, h: 200, s: 65, l: 42 },
-  { p: 0.70, h: 160, s: 70, l: 38 },
-  { p: 0.85, h: 145, s: 78, l: 36 },
-  { p: 1.00, h: 165, s: 90, l: 40 },
+  { p: 0.00, h: 356, s: 80, l: 42 }, // 回避 · 深红
+  { p: 0.25, h:  12, s: 84, l: 50 }, // 做空 · 红橙
+  { p: 0.42, h:  36, s: 88, l: 52 }, // 偏空 · 琥珀
+  { p: 0.52, h:  50, s: 30, l: 56 }, // 中性 · 去饱和黄(不抢眼)
+  { p: 0.66, h: 128, s: 46, l: 48 }, // 看多起 · 黄绿
+  { p: 0.82, h: 150, s: 64, l: 45 }, // 看多 · 绿
+  { p: 1.00, h: 168, s: 90, l: 55 }, // 高信念 · 亮翡翠(更亮更青,和看多分得开)
 ];
 function hex(stops: typeof HEX_STOPS, score: number): string {
   const t = Math.max(0, Math.min(100, score)) / 100;

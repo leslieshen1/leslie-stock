@@ -91,6 +91,7 @@ export default function ScanClient() {
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [aPanels, setAPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });  // A股五方
   const [aQuotes, setAQuotes] = useState<Record<string, { price: number | null; pct: number | null; vol: number | null; mcapYi: number | null }>>({});  // A股实时(腾讯)
+  const [usQuotes, setUsQuotes] = useState<Record<string, { price: number | null; pct: number | null; mcapB?: number | null; vol?: number | null }>>({});  // 美股实时(/api/market)→ 渲染时叠加,不直接改 usStocks(避竞态)
   const [aIndustry, setAIndustry] = useState<Record<string, string>>({});  // A股真·产业板块(新浪+概念,非题材)
   const [loading, setLoading] = useState(true);
   const [priceFlash, setPriceFlash] = useState<Record<string, "up" | "down">>({});
@@ -156,15 +157,10 @@ export default function ScanClient() {
           if (op != null && np !== op) f[sym] = np > op ? "up" : "down";
           pricesRef.current[sym] = np;
         }
-        setUsStocks((prev) =>
-          prev.map((s) => {
-            const nq = q[s.sym];
-            // 市值/成交量也一并刷新(之前只更 price/pct → 市值列冻结、默认按旧市值排序)
-            return nq && nq.price != null
-              ? { ...s, price: nq.price, pct: nq.pct, mcapB: nq.mcapB ?? s.mcapB, vol: nq.vol ?? s.vol }
-              : s;
-          }),
-        );
+        // 存进独立 state、由 usSecs 渲染时叠加(同 A 股 aSecs/aQuotes)。
+        // 旧做法 setUsStocks(合并) 有竞态:挂载首轮 poll 跑时 usStocks 还空(us-stocks.json 未加载完)→ 合并白做,
+        // 而 poll 60s 才再跑 → 这 60s 列表显示昨收快照(SPCX 191.82 实际已 176)。渲染时叠加无此问题。
+        setUsQuotes((prev) => ({ ...prev, ...q }));
         if (Object.keys(f).length) {
           setPriceFlash(f);
           flashTimer = setTimeout(() => alive && setPriceFlash({}), 1200);
@@ -254,8 +250,15 @@ export default function ScanClient() {
 
   // /scan 只放个股;ETF 已拆到独立的 /etf 板块业绩页(2026-06-14)
   const usSecs: UsSec[] = useMemo(
-    () => usStocks.map((s) => ({ ...s, type: "stock" as const })),
-    [usStocks],
+    () => usStocks.map((s) => {
+      const q = usQuotes[s.sym];  // 实时叠加(同 A 股 aSecs):价/涨跌/市值/量取实时,取不到回退快照
+      return {
+        ...s,
+        ...(q && q.price != null ? { price: q.price, pct: q.pct, mcapB: q.mcapB ?? s.mcapB, vol: q.vol ?? s.vol } : {}),
+        type: "stock" as const,
+      };
+    }),
+    [usStocks, usQuotes],
   );
 
   // A 股也整成 UsSec → 复用美股同一张表(行情来自腾讯,市值=亿RMB,行业=真·产业板块 a-industry)

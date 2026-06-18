@@ -1,122 +1,184 @@
 {
- "asof_et": "2026-06-16 22:54 ET Tue",
+ "asof_et": "2026-06-17 22:01 ET Wed",
  "indices": {
   "标普500": {
-   "close_pct": "-0.60%",
-   "close_price": "$750.33"
+   "close_pct": "-1.25%",
+   "close_price": "$740.96"
   },
   "纳指100": {
-   "close_pct": "-1.90%",
-   "close_price": "$729.86"
+   "close_pct": "-1.01%",
+   "close_price": "$722.51"
   },
   "道指": {
-   "close_pct": "+0.58%",
-   "close_price": "$521.44"
+   "close_pct": "-0.99%",
+   "close_price": "$516.30"
   },
   "罗素2000": {
-   "close_pct": "-0.87%",
-   "close_price": "$292.08"
+   "close_pct": "-0.75%",
+   "close_price": "$289.88"
   }
  },
  "market_status": "Closed",
  "gainers": [
   {
-   "sym": "TLN",
-   "name": "Talen Energy Corporation",
-   "close_price": "$406.51",
-   "close_pct": "+5.26%"
+   "sym": "QNT",
+   "name": "Quantinuum Inc. Class A",
+   "close_price": "$62.75",
+   "close_pct": "+13.21%"
   },
   {
-   "sym": "SPCX",
-   "name": "Space Exploration Technologies Corp. Class A",
-   "close_price": "$201.80",
-   "close_pct": "+4.83%"
+   "sym": "MAAS",
+   "name": "Maase Inc. Class A",
+   "close_price": "$17.94",
+   "close_pct": "+12.97%"
   },
   {
-   "sym": "HIMS",
-   "name": "Hims & Hers Health Inc. Class A",
-   "close_price": "$31.47",
-   "close_pct": "+4.31%"
+   "sym": "MRNA",
+   "name": "Moderna Inc.",
+   "close_price": "$61.80",
+   "close_pct": "+11.55%"
   },
   {
-   "sym": "WDC",
-   "name": "Western Digital Corporation",
-   "close_price": "$681.08",
-   "close_pct": "+4.22%"
+   "sym": "NAVN",
+   "name": "Navan Inc. Class A",
+   "close_price": "$20.99",
+   "close_pct": "+10.30%"
   },
   {
-   "sym": "FISV",
-   "name": "Fiserv Inc.",
-   "close_price": "$49.83",
-   "close_pct": "+4.01%"
+   "sym": "FRMI",
+   "name": "Fermi Inc.",
+   "close_price": "$8.66",
+   "close_pct": "+9.90%"
   },
   {
-   "sym": "AFRM",
-   "name": "Affirm Holdings Inc. Class A",
-   "close_price": "$74.69",
-   "close_pct": "+3.88%"
+   "sym": "HOOD",
+   "name": "Robinhood Markets Inc. Class A",
+   "close_price": "$105.20",
+   "close_pct": "+8.78%"
   },
   {
-   "sym": "JPM",
-   "name": "JP Morgan Chase & Co.",
-   "close_price": "$331.14",
-   "close_pct": "+3.68%"
+   "sym": "SIMO",
+   "name": "Silicon Motion Technology Corporation",
+   "close_price": "$307.12",
+   "close_pct": "+8.65%"
   },
   {
-   "sym": "V",
-   "name": "Visa Inc.",
-   "close_price": "$333.12",
-   "close_pct": "+2.87%"
+   "sym": "USAR",
+   "name": "USA Rare Earth Inc. Class A",
+   "close_price": "$23.55",
+   "close_pct": "+8.33%"
   }
  ],
  "losers": [
   {
-   "sym": "AXTI",
-   "name": "AXT Inc",
-   "close_price": "$93.04",
-   "close_pct": "-15.98%"
+   "sym": "RGC",
+   "name": "Regencell Bioscience Holdings Limited",
+   "close_price": "$14.82",
+   "close_pct": "-11.42%"
   },
   {
-   "sym": "AAOI",
-   "name": "Applied Optoelectronics Inc.",
-   "close_price": "$170.81",
-   "close_pct": "-10.83%"
+   "sym": "CVNA",
+   "name": "Carvana Co. Class A",
+   "close_price": "$62.86",
+   "close_pct": "-10.25%"
   },
   {
-   "sym": "MRVL",
-   "name": "Marvell Technology Inc.",
-   "close_price": "$278.67",
-   "close_pct": "-9.78%"
+   "sym": "MBLY",
+   "name": "Mobileye Global Inc. Class A",
+   "close_price": "$8.73",
+   "close_pct": "-9.25%"
+  },
+  {
+   "sym": "KMX",
+   "name": "CarMax Inc",
+   "close_price": "$47.43",
+   "close_pct": "-8.98%"
+  },
+  {
+   "sym": "RXO",
+   "name": "RXO Inc.",
+   "close_price": "$24.82",
+   "close_pct": "-8.78%"
+  },
+  {
+   "sym": "ENLT",
+   "name": "Enlight Renewable Energy Ltd.",
+   "close_price": "$80.53",
+   "close_pct": "-8.36%"
   },
   {
    "sym": "SNAP",
    "name": "Snap Inc. Class A",
-   "close_price": "$5.16",
-   "close_pct": "-9.63%"
+   "close_price": "$4.74",
+   "close_pct": "-8.14%"
   },
   {
-   "sym": "VECO",
-   "name": "Veeco Instruments Inc.",
-   "close_price": "$75.20",
-   "close_pct": "-9.44%"
+   "sym": "WING",
+   "name": "Wingstop Inc.",
+   "close_price": "$150.05",
+   "close_pct": "-7.79%"
+  }
+ ],
+ "watchlist": [
+  {
+   "sym": "SPCX",
+   "name": "Space Exploration Technologies Corp. Class A",
+   "close_price": "$191.82",
+   "close_pct": "-4.95%"
   },
   {
-   "sym": "RGTI",
-   "name": "Rigetti Computing Inc.",
-   "close_price": "$20.64",
-   "close_pct": "-9.07%"
+   "sym": "MU",
+   "name": "Micron Technology Inc.",
+   "close_price": "$1,043.19",
+   "close_pct": "+2.20%"
   },
   {
-   "sym": "QBTS",
-   "name": "D-Wave Quantum Inc.",
-   "close_price": "$23.94",
-   "close_pct": "-8.83%"
+   "sym": "NVDA",
+   "name": "NVIDIA Corporation",
+   "close_price": "$204.65",
+   "close_pct": "-1.33%"
   },
   {
-   "sym": "INTC",
-   "name": "Intel Corporation",
-   "close_price": "$117.05",
-   "close_pct": "-8.45%"
+   "sym": "AVGO",
+   "name": "Broadcom Inc.",
+   "close_price": "$392.90",
+   "close_pct": "+4.30%"
+  },
+  {
+   "sym": "AMD",
+   "name": "Advanced Micro Devices Inc.",
+   "close_price": "$512.48",
+   "close_pct": "+1.02%"
+  },
+  {
+   "sym": "ARM",
+   "name": "Arm Holdings plc",
+   "close_price": "$418.88",
+   "close_pct": "+5.69%"
+  },
+  {
+   "sym": "SMCI",
+   "name": "Super Micro Computer Inc.",
+   "close_price": "$27.78",
+   "close_pct": "-4.93%"
+  },
+  {
+   "sym": "PLTR",
+   "name": "Palantir Technologies Inc. Class A",
+   "close_price": "$130.63",
+   "close_pct": "-1.97%"
+  },
+  {
+   "sym": "TSLA",
+   "name": "Tesla Inc.",
+   "close_price": "$396.38",
+   "close_pct": "-2.05%"
+  },
+  {
+   "sym": "COHR",
+   "name": "Coherent Corp.",
+   "close_price": "$378.85",
+   "close_pct": "-1.03%"
   }
  ],
  "earnings": [],

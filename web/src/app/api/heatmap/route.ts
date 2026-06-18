@@ -29,9 +29,10 @@ function tencentSym(code: string): string | null {
   return null;
 }
 
-// 腾讯实时涨跌(只抓给定 codes,2 波并发)。字段 [32]=涨跌%。GBK 解码同 a-market。
-async function aPct(codes: string[]): Promise<Record<string, number>> {
-  const out: Record<string, number> = {};
+// 腾讯实时涨跌 + 总市值(只抓给定 codes,2 波并发)。字段 [32]=涨跌%、[45]=总市值(亿)。GBK 解码同 a-market。
+// A 股市值改走腾讯实时(manifest 静态市值会过时)→ 与美股 us-stocks 日更口径对齐,实际更实时。
+async function aLive(codes: string[]): Promise<Record<string, { pct: number; cap: number | null }>> {
+  const out: Record<string, { pct: number; cap: number | null }> = {};
   const syms = codes.map((c) => [c, tencentSym(c)] as const).filter(([, s]) => s);
   const batches: (readonly [string, string | null])[][] = [];
   for (let i = 0; i < syms.length; i += 80) batches.push(syms.slice(i, i + 80));
@@ -47,8 +48,10 @@ async function aPct(codes: string[]): Promise<Record<string, number>> {
         for (const line of txt.split(";")) {
           const m = line.match(/v_(?:sh|sz|bj)(\d{6})="(.*)"/);
           if (!m) continue;
-          const pct = parseFloat(m[2].split("~")[32] ?? "");
-          if (Number.isFinite(pct)) out[m[1]] = pct;
+          const f = m[2].split("~");
+          const pct = parseFloat(f[32] ?? "");
+          const cap = parseFloat(f[45] ?? "");
+          if (Number.isFinite(pct)) out[m[1]] = { pct, cap: Number.isFinite(cap) ? cap : null };
         }
       } catch {
         /* 单批失败跳过 */
@@ -70,14 +73,17 @@ async function aHeatmap(n: number): Promise<Slim[]> {
     .filter((m) => m.market === "a" && Number(m.market_cap_yi) > 0 && m.code)
     .sort((a, b) => Number(b.market_cap_yi) - Number(a.market_cap_yi))
     .slice(0, n);
-  const pct = await aPct(top.map((m) => String(m.code)));
-  return top.map((m) => ({
-    sym: String(m.code),
-    name: String(m.name || m.code),
-    mcapB: r1(Number(m.market_cap_yi)),
-    pct: r2(pct[String(m.code)] ?? 0),
-    sector: ind[String(m.code)] || "其他",
-  }));
+  const live = await aLive(top.map((m) => String(m.code)));
+  return top.map((m) => {
+    const lv = live[String(m.code)];
+    return {
+      sym: String(m.code),
+      name: String(m.name || m.code),
+      mcapB: r1(lv?.cap ?? Number(m.market_cap_yi)), // 市值用腾讯实时,拿不到回退 manifest 静态值
+      pct: r2(lv?.pct ?? 0),
+      sector: ind[String(m.code)] || "其他",
+    };
+  });
 }
 
 export async function GET(req: Request) {

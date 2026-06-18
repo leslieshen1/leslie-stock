@@ -491,8 +491,8 @@ export default function PulseClient({
           </div>
         </div>
 
-        {/* Industry Tabs — 手机横滑,桌面换行 */}
- <div className="flex flex-nowrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap items-center gap-2">
+        {/* Industry Tabs — 一条横滑条(桌面也不折行,右侧 mask 渐隐提示可滑),比 2 行折叠更整齐 */}
+ <div className="flex flex-nowrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-center gap-2 [mask-image:linear-gradient(to_right,#000_93%,transparent)] [-webkit-mask-image:linear-gradient(to_right,#000_93%,transparent)]">
           {industryDefs.map((ind) => {
             const active = industry === ind.id;
  const isPrimary = ind.id === "AI";

@@ -3,8 +3,8 @@
   "buffett": 41420.59,
   "duan": 40172.16,
   "serenity": 50780.49,
-  "druckenmiller": 137720.01,
-  "sentiment": 102036.61
+  "druckenmiller": 125596.61,
+  "sentiment": 90723.46
  },
  "positions": [
   {
@@ -183,13 +183,6 @@
    "entry_date": "2026-06-10"
   },
   {
-   "master": "sentiment",
-   "sym": "OPTX",
-   "shares": 11718,
-   "entry": 12.8,
-   "entry_date": "2026-06-10"
-  },
-  {
    "master": "druckenmiller",
    "sym": "NBIS",
    "shares": 1132,
@@ -219,20 +212,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "VSAT",
-   "shares": 2157,
-   "entry": 70.17,
-   "entry_date": "2026-06-12"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "CAMT",
-   "shares": 654,
-   "entry": 197.75,
-   "entry_date": "2026-06-15"
-  },
-  {
-   "master": "sentiment",
    "sym": "AMKR",
    "shares": 1758,
    "entry": 85.44,
@@ -244,6 +223,27 @@
    "shares": 780,
    "entry": 192.5,
    "entry_date": "2026-06-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "ETN",
+   "shares": 314,
+   "entry": 409.64,
+   "entry_date": "2026-06-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "RBLX",
+   "shares": 3138,
+   "entry": 48.02,
+   "entry_date": "2026-06-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "HLNE",
+   "shares": 1851,
+   "entry": 81.4,
+   "entry_date": "2026-06-17"
   }
  ],
  "nav": [
@@ -346,6 +346,31 @@
    "master": "sentiment",
    "date": "2026-06-15",
    "nav": 1001450.02
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-17",
+   "nav": 1001330.92
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-17",
+   "nav": 993693.38
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-17",
+   "nav": 1090357.38
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-17",
+   "nav": 1120305.46
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-17",
+   "nav": 1004582.8
   }
  ],
  "trades": [
@@ -928,6 +953,66 @@
    "price": 192.5,
    "reason": "SpaceX/太空叙事仍是全市场最强吸金黑洞，虽然已经很热但盘口还在加速，顺势吃情绪溢价但必须承认翻脸会极快。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-17",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "CAMT",
+   "shares": 654,
+   "price": 178.14,
+   "reason": "这笔高 beta 半导体设备没有按剧本走，AI 硬件二线资金被抽血时它还套我，错了就快砍，不跟它谈感情。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-17",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "ETN",
+   "shares": 314,
+   "price": 409.64,
+   "reason": "市场在从拥挤半导体往AI电力和工业资本开支扩散，ETN盘前继续顺风，是表达电力瓶颈这条宏观主线的干净高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "OPTX",
+   "shares": 11718,
+   "price": 12.87,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "VSAT",
+   "shares": 2157,
+   "price": 64.55,
+   "reason": "-8.0% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "RBLX",
+   "shares": 3138,
+   "price": 48.02,
+   "reason": "它不是今天最热的票，但机构回补和低位情绪修复还在中段，拥挤度比AI硬件低，适合接风格切换的钱。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "HLNE",
+   "shares": 1851,
+   "price": 81.4,
+   "reason": "昨晚资金明确从拥挤科技流向金融链，HLNE盘前不躁但有聪明钱加仓底色，买的是低调轮动而不是追高狂热。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -1228,8 +1313,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里已经是八门看得懂、护城河够宽的生意，今天没有哪一个价格给我足够大的安全边际去折腾。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-17 ≠ 下单日 2026-06-16"
   },
   {
    "id": 53,
@@ -1238,8 +1323,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看得懂，也都能看十年，今天盘前这点波动不构成让我换生意的理由。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-17 ≠ 下单日 2026-06-16"
   },
   {
    "id": 54,
@@ -1248,8 +1333,8 @@
    "action": "SELL",
    "sym": "CORZ",
    "reason": "CORZ 是算力电力瓶颈但不是每台下游量产都必须吃的独家 BOM，我把这格让给更硬的单点卡脖子。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-17 ≠ 下单日 2026-06-16"
   },
   {
    "id": 55,
@@ -1258,8 +1343,8 @@
    "action": "BUY",
    "sym": "STX",
    "reason": "HAMR 良率、磁头和大容量 nearline 盘是 AI 数据落盘洪流的真窄门，双寡头供给里每座训练集群都要分它一块，贵和拥挤不是我卖飞真瓶颈的理由。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-17 ≠ 下单日 2026-06-16"
   },
   {
    "id": 56,
@@ -1268,8 +1353,8 @@
    "action": "BUY",
    "sym": "HOOD",
    "reason": "流动性一回来，散户风险偏好、加密 beta 和交易量会同时放大，HOOD 是今天盘前最顺风、弹性最干净的增量载体。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-17 ≠ 下单日 2026-06-16"
   },
   {
    "id": 57,
@@ -1278,8 +1363,8 @@
    "action": "SELL",
    "sym": "VSAT",
    "reason": "这票从空头回补段走到现在，盘口已经不再给强承接，盘前还弱，离机械止损太近，我不把资金继续耗在情绪转冷的回补票上。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-17 ≠ 下单日 2026-06-16"
   },
   {
    "id": 58,
@@ -1288,8 +1373,8 @@
    "action": "BUY",
    "sym": "HMY",
    "reason": "金矿这边资金还在进，盘前继续有买盘，FOMC 前贵金属情绪有避险和趋势双重拥挤但尚未彻底狂热，拿它替掉死水弱票。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-17 ≠ 下单日 2026-06-16"
   },
   {
    "id": 59,
@@ -1298,7 +1383,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天没有哪一笔买卖能让我确信比继续持有这些宽护城河生意更聪明；价格波动不是我的指挥棒，内在价值才是。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1308,7 +1393,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天没有一家持仓的十年生意和企业文化发生变化，盘口轮动和FOMC都不是我卖好公司的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1318,7 +1403,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "FOMC 前不为风格轮动乱砍真瓶颈；我手里这十个仍是下游量产每一单位都要分一块的卡脖子位，高波动主题票可以震，但瓶颈没变就不动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1328,7 +1413,7 @@
    "action": "SELL",
    "sym": "CAMT",
    "reason": "这笔高 beta 半导体设备没有按剧本走，AI 硬件二线资金被抽血时它还套我，错了就快砍，不跟它谈感情。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1338,7 +1423,7 @@
    "action": "BUY",
    "sym": "ETN",
    "reason": "市场在从拥挤半导体往AI电力和工业资本开支扩散，ETN盘前继续顺风，是表达电力瓶颈这条宏观主线的干净高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1348,8 +1433,8 @@
    "action": "SELL",
    "sym": "OPTX",
    "reason": "盘前纳指回暖它只蹭了零星绿，说明散户热度还在但真资金没回来，死水票先砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 65,
@@ -1358,8 +1443,8 @@
    "action": "SELL",
    "sym": "VSAT",
    "reason": "从冰点反弹后的回补力度明显钝化，盘口不再像主动进攻，更像空头回补尾声，先退出。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 66,
@@ -1368,7 +1453,7 @@
    "action": "BUY",
    "sym": "RBLX",
    "reason": "它不是今天最热的票，但机构回补和低位情绪修复还在中段，拥挤度比AI硬件低，适合接风格切换的钱。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1378,7 +1463,7 @@
    "action": "BUY",
    "sym": "HLNE",
    "reason": "昨晚资金明确从拥挤科技流向金融链，HLNE盘前不躁但有聪明钱加仓底色，买的是低调轮动而不是追高狂热。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

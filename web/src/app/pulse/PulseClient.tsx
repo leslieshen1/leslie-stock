@@ -440,8 +440,8 @@ export default function PulseClient({
     <>
       {/* ===== 顶部 Industry Header（动态标题 + Tab 切换） ===== */}
  <header className="mb-3 border-b border-line pb-3">
- <div className="mb-2 flex items-baseline justify-between flex-wrap gap-x-3 gap-y-1">
-          <div className="flex min-w-0 items-baseline gap-3">
+ <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <div className="mr-auto flex min-w-0 items-baseline gap-3">
  <h1 className="shrink-0 text-[22px] font-semibold tracking-tight text-ink">
               {currentInd.name} · {t("脉冲热力图", "Pulse Heatmap")}
             </h1>

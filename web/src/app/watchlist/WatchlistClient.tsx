@@ -25,17 +25,26 @@ export default function WatchlistClient() {
   const { t, lang } = useLang();
   const [sortBy, setSortBy] = useState<SortKey>("added");
   const [panels, setPanels] = useState<PanelSummary>({ order: [], stocks: {} });
+  const [aPanels, setAPanels] = useState<PanelSummary>({ order: [], stocks: {} });
   const [blurbs, setBlurbs] = useState<Record<string, string>>({});
+  const [aBlurbs, setABlurbs] = useState<Record<string, string>>({});
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
   const [flash, setFlash] = useState<Record<string, "up" | "down">>({});
   const prev = useRef<Record<string, number>>({});
 
-  // 五方摘要(均分来源,和 /scan 同源)
+  // 五方摘要 + 一句话分歧线,按观察列表里实际有哪些市场懒加载(blurbs 单文件 ~900KB,没该市场的票就别拉)
+  const marketKey = useMemo(() => [...new Set(items.map((w) => w.market))].sort().join(","), [items]);
   useEffect(() => {
-    fetch("/data/us-panel-summary.json").then((r) => r.json()).then(setPanels).catch(() => {});
-    // 美股一句话描述(五方分歧线):A股收藏时存了 thesis,美股存的是空 —— 渲染时从这里补
-    fetch("/data/us-blurbs.json").then((r) => r.json()).then(setBlurbs).catch(() => {});
-  }, []);
+    if (marketKey.includes("us")) {
+      fetch("/data/us-panel-summary.json").then((r) => r.json()).then(setPanels).catch(() => {});
+      fetch("/data/us-blurbs.json").then((r) => r.json()).then(setBlurbs).catch(() => {});
+    }
+    if (marketKey.includes("a")) {
+      // A股和美股同源同构:五方摘要让评分实时查(不再只靠加入时存的死分)+ 分歧线一句话补进描述
+      fetch("/data/a-panel-summary.json").then((r) => r.json()).then(setAPanels).catch(() => {});
+      fetch("/data/a-blurbs.json").then((r) => r.json()).then(setABlurbs).catch(() => {});
+    }
+  }, [marketKey]);
 
   // 实时报价:30s 轮询,后台标签自动停
   const symMap = useMemo(() => items.map((w) => ({ key: `${w.code}-${w.market}`, sym: quoteSym(w) })), [items]);
@@ -70,21 +79,23 @@ export default function WatchlistClient() {
     return () => { stop = true; clearInterval(id); };
   }, [symMap]);
 
-  // 统一评分:美股 → 五方均分(panel summary);A股 → Serenity(历史瓶颈分);无 → null
+  // 统一评分:美股/A股 → 各自 panel-summary 的五方均分(实时、同口径);取不到再回退加入时存的分;都没有 → null(显示 —,绝不显示死值 0)
   const unified = useMemo(() => {
+    const avg = (p?: { sc: (number | null)[] }) => {
+      const xs = (p?.sc ?? []).filter((x): x is number => typeof x === "number");
+      return xs.length ? Math.round(xs.reduce((a, b) => a + b, 0) / xs.length) : null;
+    };
+    const stored = (w: LocalWatchEntry) =>
+      typeof w.score === "number" && w.score > 0 ? { label: "Serenity", labelEn: "Serenity", value: w.score } : null;
     const m: Record<string, { label: string; labelEn: string; value: number } | null> = {};
     for (const w of items) {
       const key = `${w.code}-${w.market}`;
-      if (w.market === "us") {
-        const p = panels.stocks[w.code];
-        const xs = (p?.sc ?? []).filter((x): x is number => typeof x === "number");
-        m[key] = xs.length ? { label: "五方均分", labelEn: "Panel avg", value: Math.round(xs.reduce((a, b) => a + b, 0) / xs.length) } : null;
-      } else {
-        m[key] = typeof w.score === "number" && w.score > 0 ? { label: "Serenity", labelEn: "Serenity", value: w.score } : null;
-      }
+      const summary = w.market === "us" ? panels : w.market === "a" ? aPanels : null;
+      const v = summary ? avg(summary.stocks[w.code]) : null;
+      m[key] = v != null ? { label: "五方均分", labelEn: "Panel avg", value: v } : stored(w);
     }
     return m;
-  }, [items, panels]);
+  }, [items, panels, aPanels]);
 
   if (!ready) {
     return (
@@ -144,7 +155,7 @@ export default function WatchlistClient() {
           const key = `${w.code}-${w.market}`;
           return (
             <Row key={key} item={w} onRemove={remove} score={unified[key] ?? null}
-                 blurb={w.market === "us" ? blurbs[w.code] : undefined}
+                 blurb={w.market === "us" ? blurbs[w.code] : w.market === "a" ? aBlurbs[w.code] : undefined}
                  quote={quotes[quoteSym(w).toUpperCase()]} flash={flash[quoteSym(w).toUpperCase()]} lang={lang} t={t} />
           );
         })}

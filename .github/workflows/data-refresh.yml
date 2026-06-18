@@ -1,0 +1,73 @@
+name: data-refresh
+
+# 云端数据刷新(脱离本地 Mac)—— 把原来本地 com.leslie.stock.refresh 跑的几个抓取搬上 CI:
+#   宏观指数条(macro)· 财报日历+市场新闻(finnhub)· ETF 列表(us_etfs)· 个股新闻(news_google)· 基本面估值(fundamentals)
+# 这些 fetcher 都直接写 web/public/data/*.json(DB 写入在 CI 无库时自动跳过),不依赖 leslie.db。
+# 价格/热度另由 us-price-refresh.yml 收盘后刷(price-history → us-stocks/us-heat),互不重叠。
+#
+# 触发:GitHub schedule 兜底(不可靠)+ workflow_dispatch(手动/补跑)+ 建议 cron-job.org 打 /api/cron/data-refresh 准点触发(同 reports/arena)。
+
+on:
+  schedule:
+    - cron: "30 22 * * 1-5"   # 收盘后(EDT 18:30 / EST 17:30 ET);GitHub schedule 常延迟/丢,仅兜底
+  workflow_dispatch:
+    inputs:
+      skip_fundamentals:
+        description: "跳过 fundamentals(它慢、Yahoo 限流风险大,只想快刷其余时勾上)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Sync Python deps
+        run: uv sync
+      - name: 抓取(各步独立,任一失败不阻塞其余;DB 写入在 CI 自动跳过)
+        env:
+          FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
+        run: |
+          uv run python -m fetchers.macro        || echo "⚠ macro 失败,保留旧"
+          uv run python -m fetchers.finnhub      || echo "⚠ finnhub 失败,保留旧"
+          uv run python -m fetchers.us_etfs      || echo "⚠ us_etfs 失败,保留旧"
+          uv run python -m fetchers.news_google  || echo "⚠ news_google 失败,保留旧"
+          if [ "${{ inputs.skip_fundamentals }}" != "true" ]; then
+            uv run python -m fetchers.fundamentals || echo "⚠ fundamentals 失败(慢/限流),保留旧"
+          fi
+      - name: 提交并推送(只 add 这几个数据 JSON,绝不碰 leslie.db / 代码)
+        run: |
+          git config user.name "data-bot"
+          git config user.email "data-bot@users.noreply.github.com"
+          git add web/public/data/macro.json web/public/data/earnings-calendar.json \
+                  web/public/data/market-news.json web/public/data/us-etfs.json \
+                  web/public/data/us-news.json web/public/data/us-fundamentals.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "数据无变化,跳过"; exit 0; fi
+          git commit -m "chore: 云端数据刷新(宏观/财报/新闻/ETF/基本面) $(TZ=America/New_York date +%F)"
+          for i in 1 2 3; do git push && break || { git pull --rebase --autostash; sleep 3; }; done
+      - name: Deploy to Vercel(push 已触发 Git 集成部署,这步是显式兜底)
+        if: success()
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then echo "无 VERCEL_TOKEN —— 跳过显式部署(靠 git 集成)"; exit 0; fi
+          cd web
+          npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
+          npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN

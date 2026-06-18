@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-17 22:16 ET Wed",
+ "asof_et": "2026-06-17 22:30 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-1.25%",
@@ -181,6 +181,266 @@
    "close_pct": "-1.03%"
   }
  ],
- "earnings": [],
- "news": []
+ "earnings": [
+  {
+   "sym": "SBSAA",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "AIMAU",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "RTON",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "DPG",
+   "name": "Duff & Phelps Utility and Infrastructure Fund Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "CYAN",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "DTF",
+   "name": "DTF Tax-Free Income 2028 Term Fund Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "IHT",
+   "name": "InnSuites Hospitality Trust Shares of Beneficial Interest",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "CRCW",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "KR",
+   "name": "Kroger Company (The)",
+   "hour": "bmo",
+   "epsEst": 1.637,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "MEI",
+   "name": "Methode Electronics Inc.",
+   "hour": "bmo",
+   "epsEst": -0.2121,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "ACN",
+   "name": "Accenture plc Class A Ordinary Shares (Ireland)",
+   "hour": "bmo",
+   "epsEst": 3.7537,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "MODD",
+   "name": "Modular Medical Inc.",
+   "hour": "amc",
+   "epsEst": -0.1122,
+   "date": "2026-06-18"
+  },
+  {
+   "sym": "EFR",
+   "name": "Eaton Vance Senior Floating-Rate Fund Common Shares of Beneficial Interest",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "IZM",
+   "name": "ICZOOM Group Inc. Class A",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "QEPC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "PBSV",
+   "name": null,
+   "hour": "",
+   "epsEst": 0.0306,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "FRD",
+   "name": "Friedman Industries Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "YI",
+   "name": "111 Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "EMCG",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "CMCM",
+   "name": "Cheetah Mobile Inc. American Depositary Shares each representing fifty (50) Class A",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "KMX",
+   "name": "CarMax Inc",
+   "hour": "bmo",
+   "epsEst": 0.9357,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "SWBI",
+   "name": "Smith & Wesson Brands Inc.",
+   "hour": "amc",
+   "epsEst": 0.2295,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "JBL",
+   "name": "Jabil Inc.",
+   "hour": "bmo",
+   "epsEst": 3.109,
+   "date": "2026-06-17"
+  },
+  {
+   "sym": "SB",
+   "name": "Safe Bulkers Inc Common Stock ($0.001 par value)",
+   "hour": "amc",
+   "epsEst": 0.0927,
+   "date": "2026-06-17"
+  }
+ ],
+ "news": [
+  {
+   "h": "Cramer's lightning round: Buy Cava",
+   "src": "CNBC",
+   "sum": "\"Mad Money\" host Jim Cramer rings the lightning round bell, which means he's giving his answers to callers' stock questions at rapid speed."
+  },
+  {
+   "h": "Databricks sales growth tops 80%, but margin are shrinking from swarm of AI agents",
+   "src": "CNBC",
+   "sum": "Databricks is seeing higher growth as AI agents assist with data analysis, but all that activity is significantly increasing costs."
+  },
+  {
+   "h": "Pope Leo says 'thanks be to God' for interim US-Iran peace deal - Reuters",
+   "src": "Reuters",
+   "sum": "Pope Leo says 'thanks be to God' for interim US-Iran peace deal  Reuters"
+  },
+  {
+   "h": "Exclusive: Iran deal includes $300 billion fund, more than half of which already committed, source says - Reuters",
+   "src": "Reuters",
+   "sum": "Exclusive: Iran deal includes $300 billion fund, more than half of which already committed, source says  Reuters"
+  },
+  {
+   "h": "SpaceX's blistering start still faces key tests that will determine the stock's true value",
+   "src": "CNBC",
+   "sum": "SpaceX's stock has yet to face true price discovery."
+  },
+  {
+   "h": "Lawmakers in the dark on Iran deal as Trump says he will send it to Congress - Reuters",
+   "src": "Reuters",
+   "sum": "Lawmakers in the dark on Iran deal as Trump says he will send it to Congress  Reuters"
+  },
+  {
+   "h": "Norway's Equinor doubles share buyback as Iran war boosts cash flow - Reuters",
+   "src": "Reuters",
+   "sum": "Norway's Equinor doubles share buyback as Iran war boosts cash flow  Reuters"
+  },
+  {
+   "h": "Lilly opens its checkbook again, and an insider buy at Broadcom captures our attention",
+   "src": "CNBC",
+   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
+  },
+  {
+   "h": "BMW lowers profit outlook due to China downturn, Iran war double whammy - Reuters",
+   "src": "Reuters",
+   "sum": "BMW lowers profit outlook due to China downturn, Iran war double whammy  Reuters"
+  },
+  {
+   "h": "Jim Cramer: Why we're headed back to pre-Iran war oil prices and what it means",
+   "src": "CNBC",
+   "sum": "A sustained decline in oil prices would reverberate positively through the economy."
+  },
+  {
+   "h": "Tehran can immediately sell oil upon signing US-Iran deal, US official says - Reuters",
+   "src": "Reuters",
+   "sum": "Tehran can immediately sell oil upon signing US-Iran deal, US official says  Reuters"
+  },
+  {
+   "h": "Hezbollah believes Iran will not sign final nuclear deal if Israel stays in Lebanon - Reuters",
+   "src": "Reuters",
+   "sum": "Hezbollah believes Iran will not sign final nuclear deal if Israel stays in Lebanon  Reuters"
+  },
+  {
+   "h": "Rivian laying off hundreds of workers amid R2 launch",
+   "src": "CNBC",
+   "sum": "Rivian said Tuesday it was laying off hundreds of workers, or less than 2% of its workforce."
+  },
+  {
+   "h": "Exclusive: The U.S. is using an Iranian smuggling tactic to sneak oil out of the Gulf - Reuters",
+   "src": "Reuters",
+   "sum": "Exclusive: The U.S. is using an Iranian smuggling tactic to sneak oil out of the Gulf  Reuters"
+  },
+  {
+   "h": "Wells Fargo's asset cap removal has not been the silver bullet we expected. What to do next",
+   "src": "CNBC",
+   "sum": "When Wells Fargo broke free of the Fed's asset cap, investors had expected big things. Twelve months later, the stock is stuck in the penalty box."
+  },
+  {
+   "h": "Veteran traders stunned as SpaceX fans bet on 80% overnight gains: 'I've never seen anything like it'",
+   "src": "CNBC",
+   "sum": "Believers in Elon Musk's astronomic vision for SpaceX are storming options."
+  },
+  {
+   "h": "Jim Cramer debates his next move on a software stock on an 11 day losing streak",
+   "src": "CNBC",
+   "sum": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET."
+  },
+  {
+   "h": "ECB will be proactive against high inflation even after Iran deal, Lane says - Reuters",
+   "src": "Reuters",
+   "sum": "ECB will be proactive against high inflation even after Iran deal, Lane says  Reuters"
+  }
+ ]
 }

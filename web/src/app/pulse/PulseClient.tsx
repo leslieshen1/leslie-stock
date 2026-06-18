@@ -542,7 +542,7 @@ export default function PulseClient({
             </div>
           </div>
  <div className="flex items-baseline gap-2">
- <span className="text-4xl font-semibold tabular-nums" style={{color: scoreHex(pulse.avgHeat, colorMode)}}>
+ <span className="text-[28px] leading-none font-semibold tabular-nums" style={{color: scoreHex(pulse.avgHeat, colorMode)}}>
               {pulse.avgHeat}
             </span>
  <span className="text-sm text-muted">/ 100</span>
@@ -550,19 +550,19 @@ export default function PulseClient({
  <div className="mt-1 text-sm font-medium" style={{color: scoreHex(pulse.avgHeat, colorMode)}}>
             {bandLabel(pulse.band.label, lang)}
           </div>
- <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+ <div className="mt-3 grid grid-cols-3 gap-2 text-center">
             <div>
- <div className="text-xl font-semibold text-down tabular-nums">{pulse.hotCount}</div>
+ <div className="text-lg font-semibold text-down tabular-nums">{pulse.hotCount}</div>
  <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">
  {curLens ? t(curLens.hi, curLens.hiEn) : t("高", "High")}
               </div>
             </div>
             <div>
- <div className="text-xl font-semibold text-ink tabular-nums">{pulse.total}</div>
+ <div className="text-lg font-semibold text-ink tabular-nums">{pulse.total}</div>
  <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">{t("总数", "Total")}</div>
             </div>
             <div>
- <div className="text-xl font-semibold text-accent tabular-nums">{pulse.coldCount}</div>
+ <div className="text-lg font-semibold text-accent tabular-nums">{pulse.coldCount}</div>
  <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">
  {curLens ? t(curLens.lo, curLens.loEn) : t("低", "Low")}
               </div>

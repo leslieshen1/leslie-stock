@@ -35,11 +35,13 @@ jobs:
           python-version: "3.12"
       - name: 刷新价格(/api/market → us-stocks + price-history,纯 stdlib 无依赖)
         run: python scripts/cloud_price_refresh.py ${{ inputs.dry == true && '--dry' || '' }}
+      - name: 重建过热度快照(price-history → us-heat,纯 stdlib;脱离本地 leslie.db)
+        run: python scripts/cloud_heat_refresh.py ${{ inputs.dry == true && '--dry' || '' }}
       - name: 提交并推送
         run: |
           git config user.name "price-bot"
           git config user.email "price-bot@users.noreply.github.com"
-          git add web/public/data/us-stocks.json web/public/data/price-history-30d.json
-          if git diff --cached --quiet; then echo "价格无变化,跳过"; exit 0; fi
-          git commit -m "chore: 云端收盘价刷新 $(TZ=America/New_York date +%F)"
+          git add web/public/data/us-stocks.json web/public/data/price-history-30d.json web/public/data/us-heat.json
+          if git diff --cached --quiet; then echo "价格/热度无变化,跳过"; exit 0; fi
+          git commit -m "chore: 云端收盘价 + 过热度刷新 $(TZ=America/New_York date +%F)"
           for i in 1 2 3; do git push && break || { git pull --rebase --autostash; sleep 3; }; done

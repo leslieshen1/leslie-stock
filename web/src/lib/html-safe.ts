@@ -5,7 +5,15 @@
 // 内容做纵深防御足够。
 export function safeHtml(html: string): string {
   return html
+    // ① 成对去除危险元素(含内容,否则只去标签会把 <script> 里的文本留下)
+    .replace(/<(script|style|iframe|object|embed|svg|form)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
+    // ② 去残余单个危险标签
     .replace(/<\/?(?:script|style|iframe|object|embed|link|meta|base|form|svg)\b[^>]*>/gi, "")
-    .replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
-    .replace(/\s(?:href|src)\s*=\s*(?:"\s*javascript:[^"]*"|'\s*javascript:[^']*'|javascript:[^\s>]+)/gi, "");
+    // ② 只在「标签内部」清理 on* 事件属性 + javascript:/data: 协议 —— 用 <[^>]+> 框住,
+    //    绝不碰标签外正文(否则正文里合法的 `onClick=`、代码块里的 `onload=` 会被误删,见审计回归 H1)。
+    .replace(/<[^>]+>/g, (tag) =>
+      tag
+        .replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+        .replace(/\s(?:href|src|xlink:href|formaction|action)\s*=\s*(?:"\s*(?:javascript|data):[^"]*"|'\s*(?:javascript|data):[^']*'|(?:javascript|data):[^\s>]+)/gi, ""),
+    );
 }

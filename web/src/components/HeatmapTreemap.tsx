@@ -5,6 +5,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { hierarchy, treemap, treemapSquarify, type HierarchyRectangularNode } from "d3-hierarchy";
+import { useLang } from "@/lib/i18n";
 
 type Slim = { sym: string; name: string; mcapB: number; pct: number; sector: string };
 type Market = "us" | "a";
@@ -18,6 +19,8 @@ function tileColor(pct: number): string {
 const fmtPct = (p: number) => `${p >= 0 ? "+" : ""}${p.toFixed(2)}%`;
 
 export default function HeatmapTreemap() {
+  const { t, lang } = useLang();
+  const mLabel = (m: Market) => (m === "a" ? t("A股", "A-share") : t("美股", "US"));
   const [market, setMarket] = useState<Market>("us");
   const [data, setData] = useState<Slim[] | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -71,17 +74,17 @@ export default function HeatmapTreemap() {
   return (
     <section className="mt-8">
       <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-        <h2 className="text-lg font-semibold text-ink">{market === "a" ? "A股" : "美股"}热力图</h2>
+        <h2 className="text-lg font-semibold text-ink">{lang === "en" ? `${mLabel(market)} Heatmap` : `${mLabel(market)}热力图`}</h2>
         {/* 市场切换 */}
         <div className="inline-flex rounded-lg border border-line bg-surface p-0.5 text-[12px]">
           {(["us", "a"] as Market[]).map((m) => (
             <button key={m} onClick={() => setMarket(m)}
               className={`rounded-md px-2.5 py-1 transition ${market === m ? "bg-surface-2 font-medium text-ink" : "text-muted hover:text-ink"}`}>
-              {m === "us" ? "美股" : "A股"}
+              {mLabel(m)}
             </button>
           ))}
         </div>
-        <span className="text-xs text-faint">前 {data?.length || 160} 大 · 方块=市值 · 颜色=当日涨跌 · 点进详情</span>
+        <span className="text-xs text-faint">{lang === "en" ? `Top ${data?.length || 160} · size=cap · color=daily change · click for detail` : `前 ${data?.length || 160} 大 · 方块=市值 · 颜色=当日涨跌 · 点进详情`}</span>
         <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-faint">
           {[-3, -1, 0, 1, 3].map((v) => <i key={v} className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: tileColor(v) }} />)}
           <span className="ml-1">−3% → +3%</span>
@@ -90,9 +93,9 @@ export default function HeatmapTreemap() {
 
       <div ref={wrapRef} className="relative w-full overflow-hidden rounded-2xl border border-line bg-base/40">
         {!data ? (
-          <div className="flex h-[420px] items-center justify-center text-sm text-faint">加载{market === "a" ? "A股" : "美股"}热力图…</div>
+          <div className="flex h-[420px] items-center justify-center text-sm text-faint">{lang === "en" ? `Loading ${mLabel(market)} heatmap…` : `加载${mLabel(market)}热力图…`}</div>
         ) : data.length === 0 ? (
-          <div className="flex h-[420px] items-center justify-center text-sm text-faint">暂无数据</div>
+          <div className="flex h-[420px] items-center justify-center text-sm text-faint">{t("暂无数据", "No data")}</div>
         ) : layout ? (
           <div className="relative" style={{ height: layout.H }}>
             {layout.root.children?.map((sec) => {
@@ -134,7 +137,10 @@ export default function HeatmapTreemap() {
         )}
       </div>
       <p className="mt-1.5 text-[10px] text-faint">
-        {market === "a" ? "A股 · 市值/行业静态 + 腾讯实时涨跌" : "美股 · 最近收盘/刷新 · 板块按 GICS"} · 非投资建议
+        {market === "a"
+          ? t("A股 · 行业静态 + 腾讯实时市值/涨跌", "A-share · static industry + Tencent live cap/change")
+          : t("美股 · 最近收盘/刷新 · 板块按 GICS", "US · latest close/refresh · GICS sectors")}
+        {t(" · 非投资建议", " · not financial advice")}
       </p>
     </section>
   );

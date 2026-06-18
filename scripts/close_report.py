@@ -77,6 +77,25 @@ def gather():
             ctx["news"] = [{"h": x.get("headline"), "src": x.get("source"), "sum": (x.get("summary") or "")[:160]} for x in (n or [])[:18]]
         except Exception:
             pass
+    # 兜底:CI 没配 FINNHUB_KEY(或抓取失败)时,读仓库里随刷新提交的文件,免得报告说"字段为空"。
+    # earnings 用 earnings-calendar(前瞻日历,按今日+次日筛);news 用 market-news(通用)。
+    if not ctx["earnings"]:
+        try:
+            ec = json.loads((PUB / "earnings-calendar.json").read_text(encoding="utf-8")).get("stocks", {})
+            want = {str(et.date()), str(et.date() + timedelta(days=1))}
+            for sym, rows in ec.items():
+                for r in (rows or []):
+                    if r.get("date") in want:
+                        ctx["earnings"].append({"sym": sym, "name": names.get(sym), "hour": r.get("hour"),
+                                                "epsEst": r.get("epsEst"), "date": r.get("date")})
+        except Exception:
+            pass
+    if not ctx["news"]:
+        try:
+            mn = json.loads((PUB / "market-news.json").read_text(encoding="utf-8")).get("items", [])
+            ctx["news"] = [{"h": x.get("title"), "src": x.get("source"), "sum": (x.get("summary") or "")[:160]} for x in mn[:18]]
+        except Exception:
+            pass
     return ctx
 
 

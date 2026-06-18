@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useLang } from "@/lib/i18n";
 
 // 盘前/盘后异动条 —— 只在延伸时段出现(盘前/盘后)。轮询 /api/premarket-movers。
 // 整盘看板里 screener 盘前只有收盘价,这里专门给一批大票的真盘前涨跌,补上"盘前在动什么"。
@@ -9,6 +10,7 @@ type Mover = { sym: string; price: number | null; pct: number | null; prevPct: n
 type Payload = { session: string; label: string; gainers: Mover[]; losers: Mover[]; ts: number };
 
 export default function PremarketStrip() {
+  const { t } = useLang();
   const [data, setData] = useState<Payload | null>(null);
 
   useEffect(() => {
@@ -52,12 +54,12 @@ export default function PremarketStrip() {
       <div className="flex items-center gap-x-3 whitespace-nowrap px-3.5 py-1.5 text-[11.5px]">
         <span className="flex shrink-0 items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-accent">
           <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-          {data.label}
+          {data.session === "pre" ? t("盘前异动", "Pre-mkt movers") : t("盘后异动", "After-hrs movers")}
         </span>
         {all.map((m) => (
           <Item key={m.sym} m={m} />
         ))}
-        <span className="shrink-0 pl-1 text-[10px] text-faint">较昨收</span>
+        <span className="shrink-0 pl-1 text-[10px] text-faint">{t("较昨收", "vs prev close")}</span>
       </div>
     </div>
   );

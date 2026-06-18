@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useLang } from "@/lib/i18n";
 
 type SearchResult = {
   code: string;
@@ -44,6 +45,7 @@ async function loadALiveCaps(): Promise<Record<string, number>> {
 }
 
 export default function SearchBox({ compact = false, placeholder, autoFocus = false, onNavigate }: Props) {
+  const { t } = useLang();
  const [q, setQ] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [open, setOpen] = useState(false);
@@ -157,7 +159,7 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
           onChange={(e) => setQ(e.target.value)}
           onFocus={() => q && setOpen(true)}
           onKeyDown={onKey}
- placeholder={placeholder || "搜代码 / 名称 / 板块 / thesis…"}
+ placeholder={placeholder || t("搜代码 / 名称 / 板块 / thesis…", "Search ticker / name / sector / thesis…")}
           className={inputClass}
         />
         {loading ? (
@@ -173,7 +175,7 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
  <div className="absolute left-0 right-0 top-full mt-2 z-50 max-h-[420px] overflow-auto rounded-lg border border-line bg-surface ">
           {results.length === 0 ? (
  <div className="px-4 py-3 text-sm text-muted">
- {q ? "没找到匹配" : "输入代码 / 名字 / 板块"}
+ {q ? t("没找到匹配", "No matches") : t("输入代码 / 名字 / 板块", "Type a ticker / name / sector")}
             </div>
           ) : (
             results.map((r, i) => (

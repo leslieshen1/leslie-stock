@@ -93,8 +93,9 @@ def gather():
     ctx["watchlist"] = [wl[s] for s in HOT_WATCH if s in wl]  # 固定热门票,每期必列
     ynames = {k: (v, None) for k, v in names.items()}  # 财报取名用
 
-    # 3) 今日/明日财报(Finnhub)
+    # 3) 今日/明日财报 + 隔夜市场新闻(Finnhub)
     ctx["earnings"] = []
+    ctx["news"] = []   # 必须先初始化:FINN 为空时下面整块跳过,否则 ctx 缺 news 字段
     if FINN:
         try:
             j = requests.get("https://finnhub.io/api/v1/calendar/earnings",
@@ -104,12 +105,29 @@ def gather():
                 ctx["earnings"].append({"sym": e.get("symbol"), "name": nm, "hour": e.get("hour"), "epsEst": e.get("epsEstimate"), "date": e.get("date")})
         except Exception:
             pass
-        # 4) 隔夜市场新闻
         try:
             n = requests.get("https://finnhub.io/api/v1/news", params={"category": "general", "token": FINN}, timeout=15).json()
             ctx["news"] = [{"h": x.get("headline"), "src": x.get("source"), "sum": (x.get("summary") or "")[:160]} for x in (n or [])[:18]]
         except Exception:
-            ctx["news"] = []
+            pass
+    # 兜底:CI 没配 FINNHUB_KEY(或抓取失败)→ 读仓库里随刷新提交的文件,免得报告"字段为空"。
+    if not ctx["earnings"]:
+        try:
+            ec = json.loads((PUB / "earnings-calendar.json").read_text(encoding="utf-8")).get("stocks", {})
+            want = {str(et.date()), str(et.date() + timedelta(days=1))}
+            for sym, rows in ec.items():
+                for r in (rows or []):
+                    if r.get("date") in want:
+                        ctx["earnings"].append({"sym": sym, "name": ynames.get(sym, (None, None))[0], "hour": r.get("hour"),
+                                                "epsEst": r.get("epsEst"), "date": r.get("date")})
+        except Exception:
+            pass
+    if not ctx["news"]:
+        try:
+            mn = json.loads((PUB / "market-news.json").read_text(encoding="utf-8")).get("items", [])
+            ctx["news"] = [{"h": x.get("title"), "src": x.get("source"), "sum": (x.get("summary") or "")[:160]} for x in mn[:18]]
+        except Exception:
+            pass
     return ctx
 
 

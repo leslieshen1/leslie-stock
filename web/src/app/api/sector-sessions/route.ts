@@ -21,6 +21,57 @@ const SECT_ZH: Record<string, string> = {
 };
 const segZH = (sector: unknown): string => SECT_ZH[String(sector)] || "其他";
 
+// A 股申万 34 行业 → 美股同款 12 大板块(静态映射,免 AI)。让 A 股板块能和美股并排比。
+const SW_TO_SEG: Record<string, string> = {
+  计算机软件: "科技", 电子元件: "科技", 半导体: "科技", 消费电子: "科技",
+  机械设备: "工业", 电力设备: "工业", 建筑建材: "工业", 交通运输: "工业", 国防军工: "工业", 光伏风电储能: "工业",
+  基础化工: "材料", 新材料: "材料", 有色金属: "材料", 钢铁: "材料",
+  汽车零部件: "可选消费", 汽车整车: "可选消费", 轻工纺服: "可选消费", 商贸零售: "可选消费", 家用电器: "可选消费",
+  食品饮料: "必需消费", 农林牧渔: "必需消费",
+  创新药生物药: "医疗", 医疗器械: "医疗", 中药医药商业: "医疗",
+  银行: "金融", 证券保险: "金融",
+  石油石化: "能源", 煤炭: "能源",
+  传媒互联网: "通信媒体", 通信: "通信媒体",
+  电力公用事业: "公用事业", 环保: "公用事业",
+  房地产: "地产",
+  综合: "其他",
+};
+
+let A_IND: Record<string, string> | null = null; // A 股 code → 申万行业
+async function loadAInd(): Promise<Record<string, string>> {
+  if (A_IND) return A_IND;
+  try {
+    const p = path.join(process.cwd(), "public", "data", "a-industry.json");
+    A_IND = JSON.parse(await fs.readFile(p, "utf-8"));
+  } catch {
+    A_IND = {};
+  }
+  return A_IND!;
+}
+
+type ASect = { sector: string; capB: number; pct: number };
+let A_SECTORS: ASect[] = []; // A 股 12 大板块当前聚合(随 syncOnce 刷新缓存)
+
+// A 股板块聚合:/api/a-market 实时(市值 mcapYi ¥亿 + 涨跌)→ 申万→大板块 → 市值加权涨跌。
+async function computeAShare(origin: string): Promise<ASect[]> {
+  const ind = await loadAInd();
+  const am = await fetchWithTimeout(`${origin}/api/a-market`, {}, 12000).then((x) => x.json()).catch(() => null);
+  const quotes: Record<string, { pct: number | null; mcapYi: number | null }> = am?.quotes || {};
+  if (!Object.keys(quotes).length) return A_SECTORS; // 抓不到就沿用上次,别清空
+  const agg: Record<string, { cap: number; capPct: number }> = {};
+  for (const [code, q] of Object.entries(quotes)) {
+    const seg = SW_TO_SEG[ind[code]] || "其他";
+    const cap = Number(q.mcapYi);
+    if (!(cap > 0) || q.pct == null) continue;
+    const a = (agg[seg] ||= { cap: 0, capPct: 0 });
+    a.cap += cap;
+    a.capPct += cap * Number(q.pct);
+  }
+  return Object.entries(agg)
+    .map(([sector, a]) => ({ sector, capB: Math.round(a.cap), pct: Math.round((a.capPct / a.cap) * 100) / 100 }))
+    .sort((x, y) => y.capB - x.capB);
+}
+
 function etNow(): Date {
   return new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
 }
@@ -98,6 +149,7 @@ async function syncOnce(origin: string) {
   const session = etSession();
   const live = session !== "休市" ? await computeLive(origin) : null;
   LIVE = { session, sect: live };
+  A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   const r = redis();
   if (!r) { HASH = { day: null, pre: null, mid: null, post: null }; return; }
   const today = etDate();
@@ -143,10 +195,10 @@ export async function GET(req: Request) {
     });
 
     return Response.json(
-      { sectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
+      { sectors, aSectors: A_SECTORS, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
       { headers: { "cache-control": "s-maxage=45, stale-while-revalidate=120" } },
     );
   } catch {
-    return Response.json({ sectors: [], session: "", day: "" });
+    return Response.json({ sectors: [], aSectors: [], session: "", day: "" });
   }
 }

@@ -54,12 +54,8 @@ export default function SectorSessions() {
   const session = data?.session || "";
   const sqrtSum = rows?.reduce((s, r) => s + Math.sqrt(Math.max(1, r.capB)), 0) || 1;
 
-  // 盘前/盘中/盘后三段恒显示;有数据的时段宽(1fr),空时段做细列(56px)——保留三段结构又不留大白带
-  const dataKeys = new Set(
-    SKEYS.filter((c) => rows?.some((r) => r[c.k] != null || r.subs?.some((s) => s[c.k] != null))).map((c) => c.k),
-  );
-  const allEmpty = dataKeys.size === 0;
-  const gridCols = `minmax(82px,108px) ${SKEYS.map((c) => (allEmpty || dataKeys.has(c.k) ? "minmax(0,1fr)" : "52px")).join(" ")}`;
+  // 盘前/盘中/盘后三列等宽恒显示(当前段实时、过去段定格、未到段留空显 —)—— 看一日板块轮动
+  const gridCols = "minmax(82px,108px) repeat(3, minmax(0,1fr))";
 
   return (
     <section className="mt-8">

@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
       "./public/data/us-news/**",
       "./public/data/stock-type-map.json",
       "./public/data/earnings-calendar.json",
-      "./public/data/us-options.json",
       // 个股页还读这几个,但单文件追踪不稳 → 显式兜底,防详情页持仓/摊薄/板块标签段空白
       "./public/data/us-class.json",
       "./public/data/dilution-flags.json",

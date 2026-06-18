@@ -2,6 +2,11 @@ import { promises as fs } from "fs";
 import path from "path";
 import ArenaClient, { type Arena } from "./ArenaClient";
 
+export const metadata = {
+  title: "五神对决 · 段永平/巴菲特/Serenity/德鲁肯米勒/情绪 虚拟盘 · 我不是股神",
+  description: "五位投资人格的 AI 模拟虚拟盘对决:每日收盘撮合结账、净值排名。虚拟盘 · 教育用途 · 非投资建议。",
+};
+
 export const dynamic = "force-dynamic";
 
 async function loadArena(): Promise<Arena | null> {

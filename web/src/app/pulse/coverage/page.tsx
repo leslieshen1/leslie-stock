@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { loadCoverage } from "@/lib/pulse-static";
 import { COMPANIES } from "@/lib/supply-chain";
+import { T } from "@/lib/i18n";
 
 // 与 buildCoverageMatrix 输出兼容的本地 type
 const FUND_FIELDS = [
@@ -31,6 +32,12 @@ const METRIC_LABELS: Record<(typeof METRIC_KEYS)[number], string> = {
  rsi: "RSI",
  sentiment: "情绪",
 };
+const METRIC_LABELS_EN: Record<(typeof METRIC_KEYS)[number], string> = {
+ valuation_pct: "Val. pctile",
+ momentum_20d: "20D mom.",
+ rsi: "RSI",
+ sentiment: "Sentiment",
+};
 
 const FUND_LABELS: Record<FundField, string> = {
  trailingPE: "trail PE",
@@ -45,6 +52,21 @@ const FUND_LABELS: Record<FundField, string> = {
  fcfMargin: "FCF margin",
  revenueGrowth: "营收增速",
  earningsGrowth: "盈利增速",
+ debtToEquity: "D/E",
+};
+const FUND_LABELS_EN: Record<FundField, string> = {
+ trailingPE: "trail PE",
+ forwardPE: "fwd PE",
+ priceToBook: "P/B",
+ priceToSales: "P/S",
+ roe: "ROE",
+ roa: "ROA",
+ profitMargin: "Net margin",
+ operatingMargin: "Op. margin",
+ grossMargin: "Gross margin",
+ fcfMargin: "FCF margin",
+ revenueGrowth: "Rev. growth",
+ earningsGrowth: "EPS growth",
  debtToEquity: "D/E",
 };
 
@@ -93,14 +115,14 @@ export default async function CoveragePage() {
 
   // 每个字段的全样本覆盖率
   const fieldCoverage = (() => {
-    const all: Record<string, { label: string; count: number; pct: number }> = {};
+    const all: Record<string, { label: string; labelEn: string; count: number; pct: number }> = {};
     METRIC_KEYS.forEach((k) => {
       const c = rows.filter((r) => r.hasMetrics[k]).length;
-      all[`m:${k}`] = { label: METRIC_LABELS[k], count: c, pct: total ? c / total : 0 };
+      all[`m:${k}`] = { label: METRIC_LABELS[k], labelEn: METRIC_LABELS_EN[k], count: c, pct: total ? c / total : 0 };
     });
     FUND_FIELDS.forEach((k) => {
       const c = rows.filter((r) => r.hasFundamentals[k]).length;
-      all[`f:${k}`] = { label: FUND_LABELS[k], count: c, pct: total ? c / total : 0 };
+      all[`f:${k}`] = { label: FUND_LABELS[k], labelEn: FUND_LABELS_EN[k], count: c, pct: total ? c / total : 0 };
     });
     return all;
   })();
@@ -115,23 +137,23 @@ export default async function CoveragePage() {
  <div className="flex items-baseline justify-between flex-wrap gap-3">
           <div>
  <h1 className="text-3xl font-semibold tracking-tight text-ink">
-              数据覆盖矩阵
+              <T zh="数据覆盖矩阵" en="Data Coverage Matrix" />
             </h1>
  <p className="mt-1 text-sm text-muted">
- 快照日期 {date ?? "—"} · 每个 ticker × 每个字段一目了然
+ <T zh="快照日期" en="Snapshot date" /> {date ?? "—"} · <T zh="每个 ticker × 每个字段一目了然" en="every ticker × every field at a glance" />
             </p>
           </div>
  <div className="flex items-center gap-3 text-xs">
  <span className="font-mono text-faint">SNAPSHOT</span>
  <span className="inline-flex items-center gap-1.5 rounded bg-up-soft text-up px-2.5 py-1 border border-up/30">
  <span className="h-1.5 w-1.5 rounded-full bg-up" />
-              完整 {fullOk}
+              <T zh="完整" en="Full" /> {fullOk}
             </span>
  <span className="inline-flex items-center gap-1.5 rounded bg-accent-soft text-accent px-2.5 py-1 border border-accent/30">
-              部分 {partial}
+              <T zh="部分" en="Partial" /> {partial}
             </span>
  <span className="inline-flex items-center gap-1.5 rounded bg-down-soft text-down px-2.5 py-1 border border-down/30">
-              失败 {failed}
+              <T zh="失败" en="Failed" /> {failed}
             </span>
  <span className="font-mono text-faint">/ {total}</span>
           </div>
@@ -141,19 +163,19 @@ export default async function CoveragePage() {
       {/* 最近 fetch_runs */}
  <section className="mb-8">
  <h2 className="text-sm font-semibold text-muted mb-2.5 font-mono uppercase tracking-wider">
-          最近抓取 · Fetch Runs
+          <T zh="最近抓取" en="Latest fetch" /> · Fetch Runs
         </h2>
  <div className="overflow-x-auto rounded-lg border border-line">
  <table className="w-full text-xs">
  <thead className="bg-surface text-muted">
               <tr>
- <th className="px-3 py-2 text-left font-medium">日期</th>
- <th className="px-3 py-2 text-left font-medium">开始</th>
- <th className="px-3 py-2 text-right font-medium">总数</th>
- <th className="px-3 py-2 text-right font-medium text-up">完整</th>
- <th className="px-3 py-2 text-right font-medium text-accent">部分</th>
- <th className="px-3 py-2 text-right font-medium text-down">失败</th>
- <th className="px-3 py-2 text-right font-medium">耗时</th>
+ <th className="px-3 py-2 text-left font-medium"><T zh="日期" en="Date" /></th>
+ <th className="px-3 py-2 text-left font-medium"><T zh="开始" en="Start" /></th>
+ <th className="px-3 py-2 text-right font-medium"><T zh="总数" en="Total" /></th>
+ <th className="px-3 py-2 text-right font-medium text-up"><T zh="完整" en="Full" /></th>
+ <th className="px-3 py-2 text-right font-medium text-accent"><T zh="部分" en="Partial" /></th>
+ <th className="px-3 py-2 text-right font-medium text-down"><T zh="失败" en="Failed" /></th>
+ <th className="px-3 py-2 text-right font-medium"><T zh="耗时" en="Duration" /></th>
               </tr>
             </thead>
  <tbody className="bg-surface">
@@ -169,7 +191,7 @@ export default async function CoveragePage() {
                 </tr>
               ))}
               {runs.length === 0 && (
- <tr><td colSpan={7} className="px-3 py-6 text-center text-faint">还没有 fetch 记录</td></tr>
+ <tr><td colSpan={7} className="px-3 py-6 text-center text-faint"><T zh="还没有 fetch 记录" en="No fetch runs yet" /></td></tr>
               )}
             </tbody>
           </table>
@@ -179,7 +201,7 @@ export default async function CoveragePage() {
       {/* 字段覆盖率 */}
  <section className="mb-8">
  <h2 className="text-sm font-semibold text-muted mb-2.5 font-mono uppercase tracking-wider">
-          每字段覆盖率
+          <T zh="每字段覆盖率" en="Per-field coverage" />
         </h2>
  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {Object.entries(fieldCoverage).map(([k, v]) => {
@@ -189,7 +211,7 @@ export default async function CoveragePage() {
             return (
  <div key={k} className="rounded-lg border border-line bg-surface p-3">
  <div className="flex items-baseline justify-between mb-1.5">
- <span className="text-xs text-muted truncate">{v.label}</span>
+ <span className="text-xs text-muted truncate"><T zh={v.label} en={v.labelEn} /></span>
                   <span className={`font-mono text-xs font-semibold tabular-nums ${txtColor}`}>
                     {pct.toFixed(0)}%
                   </span>
@@ -207,28 +229,28 @@ export default async function CoveragePage() {
       {/* 覆盖矩阵 */}
       <section>
  <h2 className="text-sm font-semibold text-muted mb-2.5 font-mono uppercase tracking-wider">
-          Ticker × 字段 覆盖矩阵
+          Ticker × <T zh="字段 覆盖矩阵" en="field coverage matrix" />
         </h2>
  <div className="overflow-x-auto rounded-lg border border-line">
  <table className="w-full text-[11px] font-mono">
  <thead className="bg-surface text-muted sticky top-0">
               <tr>
  <th className="px-2 py-2 text-left font-medium min-w-[60px]">Ticker</th>
- <th className="px-2 py-2 text-left font-medium min-w-[120px]">名称</th>
+ <th className="px-2 py-2 text-left font-medium min-w-[120px]"><T zh="名称" en="Name" /></th>
  <th className="px-2 py-2 text-left font-medium">L</th>
- <th className="px-2 py-2 text-left font-medium">区</th>
+ <th className="px-2 py-2 text-left font-medium"><T zh="区" en="Reg." /></th>
  <th className="px-2 py-2 text-center font-medium">ok</th>
                 {METRIC_KEYS.map((k) => (
  <th key={k} className="px-1 py-2 text-center font-medium min-w-[40px]" title={METRIC_LABELS[k]}>
-                    {METRIC_LABELS[k].slice(0, 4)}
+                    <T zh={METRIC_LABELS[k].slice(0, 4)} en={METRIC_LABELS_EN[k].slice(0, 4)} />
                   </th>
                 ))}
                 {FUND_FIELDS.map((k) => (
  <th key={k} className="px-1 py-2 text-center font-medium min-w-[40px]" title={FUND_LABELS[k]}>
-                    {FUND_LABELS[k]}
+                    <T zh={FUND_LABELS[k]} en={FUND_LABELS_EN[k]} />
                   </th>
                 ))}
- <th className="px-2 py-2 text-right font-medium">完整度</th>
+ <th className="px-2 py-2 text-right font-medium"><T zh="完整度" en="Coverage" /></th>
               </tr>
             </thead>
  <tbody className="bg-surface">
@@ -268,8 +290,7 @@ export default async function CoveragePage() {
       </section>
 
  <footer className="mt-12 border-t border-line pt-6 text-center text-xs text-faint">
-        行情数据每日更新 ·
-        缺 PE 多为亏损公司，缺其他字段需要 akshare 兜底
+        <T zh="行情数据每日更新 · 缺 PE 多为亏损公司，缺其他字段需要 akshare 兜底" en="Market data refreshed daily · missing PE is usually loss-making firms; other gaps fall back to akshare" />
       </footer>
     </main>
   );

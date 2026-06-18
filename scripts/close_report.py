@@ -1,7 +1,7 @@
 """收盘复盘 —— 每天北京 10:00am(美股隔夜已收盘,ET 约前一日 22:00)。
 复盘当日美股:谁领涨/领跌、主线、盘后财报、消息面。
 数据:Nasdaq(收盘价 + 当日涨跌,closed 时段 primaryData 即当日收盘)+ Finnhub(财报/新闻)。
-gpt-5.5 综述,线上(GitHub Actions)/本地同一条 API。
+Claude Opus 4.8 综述,线上(GitHub Actions)/本地同一条 API。
 用法: uv run python scripts/close_report.py [--no-email]
 """
 from __future__ import annotations
@@ -18,7 +18,7 @@ try:
 except Exception:
     pass
 
-# 复用盘前报告的工具:Nasdaq 报价 / gpt-5.5 综述 / 大票池 / 路径 / Finnhub key
+# 复用盘前报告的工具:Nasdaq 报价 / Claude Opus 4.8 综述 / 大票池 / 路径 / Finnhub key
 from premarket_report import npm, llm_write, card_headline, _pctnum, LIQUID, HOT_WATCH, PUB, OUT, FINN
 
 

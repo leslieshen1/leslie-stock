@@ -1,6 +1,6 @@
 name: close-report-card
 
-# 收盘复盘(gpt-5.5)+ 收盘卡片 —— 全程线上,脱离本地 Mac。
+# 收盘复盘(Claude Opus 4.8)+ 收盘卡片 —— 全程线上,脱离本地 Mac。
 # 北京 10:00am = 02:00 UTC = 美东前一日 22:00(已收盘)。周二~六(对应美股周一~五收盘)。
 # 报告发布到 /reports(git push → Vercel Git 集成自动部署);卡片落 data/cards/ 一并提交。
 on:
@@ -40,7 +40,7 @@ jobs:
           sudo apt-get update -q
           sudo apt-get install -y /tmp/chrome.deb
 
-      - name: 收盘复盘(gpt-5.5)→ 发布 → 卡片
+      - name: 收盘复盘(Claude Opus 4.8)→ 发布 → 卡片
         env:
           NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
           NDT_CLAUDE_KEY: ${{ secrets.NDT_CLAUDE_KEY }}
@@ -66,7 +66,7 @@ jobs:
           git config user.email "close-bot@users.noreply.github.com"
           git add web/public/data/reports.json data/reports/ data/cards/ 2>/dev/null || true
           if git diff --cached --quiet; then echo "无变化,跳过"; exit 0; fi
-          git commit -m "report: 收盘复盘 + 卡片 $(TZ=America/New_York date +%F)(线上 gpt-5.5)"
+          git commit -m "report: 收盘复盘 + 卡片 $(TZ=America/New_York date +%F)(线上 Claude Opus 4.8)"
           for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done
 
       - name: Deploy to Vercel(报告发布到 /reports 要靠它,别只 commit)

@@ -6,6 +6,11 @@ import TodayEventsSection from "./TodayEventsSection";
 import { loadTodayEvents } from "@/lib/today-events";
 import { T } from "@/lib/i18n";
 
+export const metadata = {
+  title: "盘报 · 盘前看点 + 收盘复盘 · 我不是股神",
+  description: "每日美股盘前看点 + 收盘复盘(Claude Opus 4.8 生成,Leslie 口吻)+ 市场日历 + 今日大事。非投资建议。",
+};
+
 export const dynamic = "force-dynamic";
 
 async function loadJSON<T>(file: string, key: string, fallback: T): Promise<T> {

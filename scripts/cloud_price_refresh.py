@@ -21,6 +21,14 @@ PUB = Path(__file__).resolve().parent.parent / "web" / "public" / "data"
 API = "https://stockgod.xyz/api/market"
 MIN_QUOTES = 3000   # 正常 /api/market 回 5000+;低于此视为抓取异常 → 中止(fail-safe)
 ET = ZoneInfo("America/New_York")
+# 美股全天休市日(周一~五但不开盘)。这些天跑会把上一交易日收盘当"今日"重复写 → price-history 多塞
+# 一个非交易日,动量窗口轻微偏移。每年初补下一年。2026-2027:
+US_HOLIDAYS = {
+    "2026-01-01", "2026-01-19", "2026-02-16", "2026-04-03", "2026-05-25", "2026-06-19",
+    "2026-07-03", "2026-09-07", "2026-11-26", "2026-12-25",
+    "2027-01-01", "2027-01-18", "2027-02-15", "2027-03-26", "2027-05-31", "2027-06-18",
+    "2027-07-05", "2027-09-06", "2027-11-25", "2027-12-24",
+}
 
 
 def fetch_payload() -> dict:
@@ -46,11 +54,11 @@ def main(dry: bool) -> None:
     # 闸③:只在收盘后窗口写(防盘中价/非交易时段被当收盘价写脏)。ET 周一~五、≥16:00 才写;
     # 否则干净跳过(exit 0,非错误)—— 这样即便被误触发/GitHub schedule 误点,也绝不污染账本。
     et = datetime.now(ET)
-    if et.weekday() >= 5 or et.hour < 16:
-        print(f"· {et:%Y-%m-%d %H:%M} ET 非收盘后窗口(需周一~五 ≥16:00)→ 跳过不写(clean skip)")
+    today = et.strftime("%Y-%m-%d")
+    if et.weekday() >= 5 or et.hour < 16 or today in US_HOLIDAYS:
+        why = "周末" if et.weekday() >= 5 else "假期休市" if today in US_HOLIDAYS else "未到收盘(<16:00)"
+        print(f"· {et:%Y-%m-%d %H:%M} ET 非交易日收盘窗口({why})→ 跳过不写(clean skip)")
         return
-
-    today = datetime.now(ET).strftime("%Y-%m-%d")
 
     # ① us-stocks 价格(保留其它字段)
     usp = PUB / "us-stocks.json"

@@ -215,7 +215,7 @@ def main():
     report = llm_write(PROMPT, ctx)
     if not report:
         print("❌ 模型无输出"); sys.exit(1)
-    # 砍掉模型可能加的 meta 前言/大标题:正文从第一个 ## 二级标题开始(gpt-5.5 偶尔会先写
+    # 砍掉模型可能加的 meta 前言/大标题:正文从第一个 ## 二级标题开始(Claude Opus 4.8 偶尔会先写
     # "我先按…来写:" 这种旁白,甚至和 ## 标题挤在一行,故按 "## " 出现位置切,而非逐行)。
     cut = report.find("## ")
     if cut > 0:

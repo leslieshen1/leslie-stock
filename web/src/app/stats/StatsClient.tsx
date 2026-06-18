@@ -3,6 +3,7 @@
 // 私密产品分析看板。口令存 localStorage,数据走 /api/stats-data(Bearer 鉴权)。
 // 全部自有数据(Upstash),不依赖任何外部分析。
 import { useCallback, useEffect, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 type Series = { date: string; dau: number; nw: number; pv: number };
 type RetRow = { dayN: number; pct: number | null; n: number };
@@ -24,6 +25,7 @@ const fmt = (n: number) => n.toLocaleString("en-US");
 const md = (d: string) => d.slice(5); // MM-DD
 
 export default function StatsClient() {
+  const { t } = useLang();
   const [token, setToken] = useState("");
   const [input, setInput] = useState("");
   const [days, setDays] = useState(30);
@@ -76,39 +78,41 @@ export default function StatsClient() {
   if (status === "need-auth" || status === "bad-auth") {
     return (
       <main className="mx-auto max-w-sm px-4 py-20 sm:px-6">
-        <h1 className="text-xl font-semibold text-ink">私密看板</h1>
-        <p className="mt-1 text-sm text-muted">输入访问口令(STATS_TOKEN)。</p>
+        <h1 className="text-xl font-semibold text-ink">{t("私密看板", "Private Dashboard")}</h1>
+        <p className="mt-1 text-sm text-muted">{t("输入访问口令(STATS_TOKEN)。", "Enter the access token (STATS_TOKEN).")}</p>
         <form onSubmit={submit} className="mt-5 space-y-3">
           <input
             type="password"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="口令"
+            placeholder={t("口令", "Token")}
             autoFocus
             className="w-full rounded-lg border border-line bg-surface px-3 py-2.5 text-sm text-ink outline-none transition focus:border-accent/60"
           />
-          {status === "bad-auth" && <p className="text-xs text-down">口令不对。</p>}
+          {status === "bad-auth" && <p className="text-xs text-down">{t("口令不对。", "Wrong token.")}</p>}
           <button type="submit" className="w-full rounded-lg bg-accent px-3 py-2.5 text-sm font-semibold text-[#1a0f08] transition hover:brightness-110">
-            进入
+            {t("进入", "Enter")}
           </button>
         </form>
       </main>
     );
   }
 
-  if (status === "loading") return <main className="mx-auto max-w-md px-6 py-24 text-center text-sm text-muted">加载中…</main>;
-  if (status === "error") return <main className="mx-auto max-w-md px-6 py-24 text-center text-sm text-down">读取失败,稍后重试。<button onClick={() => load(token, days)} className="ml-2 underline">重试</button></main>;
+  if (status === "loading") return <main className="mx-auto max-w-md px-6 py-24 text-center text-sm text-muted">{t("加载中…", "Loading…")}</main>;
+  if (status === "error") return <main className="mx-auto max-w-md px-6 py-24 text-center text-sm text-down">{t("读取失败,稍后重试。", "Failed to load. Try again later.")}<button onClick={() => load(token, days)} className="ml-2 underline">{t("重试", "Retry")}</button></main>;
 
   // ---------- 存储未连接 ----------
   if (status === "no-store") {
     return (
       <main className="mx-auto max-w-xl px-4 py-16 sm:px-6">
-        <h1 className="text-xl font-semibold text-ink">看板已就绪,但还没接存储</h1>
+        <h1 className="text-xl font-semibold text-ink">{t("看板已就绪,但还没接存储", "Dashboard is ready, but storage isn't connected yet")}</h1>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          埋点和看板代码都上线了,只差一个免费的 Upstash Redis。在 Vercel 后台 → Storage → 建一个 Upstash Redis(Marketplace,免费档),链接到本项目,
-          env 会自动注入,然后 redeploy 即可开始收集。
+          {t(
+            "埋点和看板代码都上线了,只差一个免费的 Upstash Redis。在 Vercel 后台 → Storage → 建一个 Upstash Redis(Marketplace,免费档),链接到本项目,env 会自动注入,然后 redeploy 即可开始收集。",
+            "Tracking and dashboard code are live — all that's missing is a free Upstash Redis. In the Vercel dashboard → Storage → create an Upstash Redis (Marketplace, free tier), link it to this project; the env vars inject automatically, then redeploy to start collecting.",
+          )}
         </p>
-        <button onClick={() => load(token, days)} className="mt-5 rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink transition hover:bg-surface-2">重新检查</button>
+        <button onClick={() => load(token, days)} className="mt-5 rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink transition hover:bg-surface-2">{t("重新检查", "Re-check")}</button>
       </main>
     );
   }
@@ -126,9 +130,9 @@ export default function StatsClient() {
       {/* 头 */}
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold text-ink">私密看板 · Stats</h1>
+          <h1 className="text-2xl font-semibold text-ink">{t("私密看板", "Private Dashboard")} · Stats</h1>
           <p className="mt-1 text-[12px] text-faint">
-            自有数据 · 匿名口径(无 cookie / 无 PII) · 按 UTC 天 · 更新于 {new Date(data.generatedAt).toLocaleString()}
+            {t("自有数据 · 匿名口径(无 cookie / 无 PII) · 按 UTC 天 · 更新于", "First-party data · anonymous (no cookies / no PII) · by UTC day · updated")} {new Date(data.generatedAt).toLocaleString()}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -136,31 +140,31 @@ export default function StatsClient() {
             {[7, 30, 60].map((d) => (
               <button key={d} onClick={() => changeDays(d)}
                 className={`rounded-md px-2.5 py-1 text-[12px] transition ${days === d ? "bg-surface-2 text-ink" : "text-muted hover:text-ink"}`}>
-                {d}天
+                {d}{t("天", "d")}
               </button>
             ))}
           </div>
-          <button onClick={() => load(token, days)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-[12px] text-muted transition hover:text-ink">刷新</button>
-          <button onClick={logout} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-[12px] text-faint transition hover:text-ink">退出</button>
+          <button onClick={() => load(token, days)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-[12px] text-muted transition hover:text-ink">{t("刷新", "Refresh")}</button>
+          <button onClick={logout} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-[12px] text-faint transition hover:text-ink">{t("退出", "Log out")}</button>
         </div>
       </div>
 
       {/* KPI */}
       <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Kpi label="今日 DAU" value={fmt(last?.dau ?? 0)} sub={prev ? `昨日 ${fmt(prev.dau)}` : ""} delta={prev ? (last?.dau ?? 0) - prev.dau : null} />
-        <Kpi label="今日新用户" value={fmt(last?.nw ?? 0)} sub="首次到访" />
-        <Kpi label="今日 PV" value={fmt(last?.pv ?? 0)} sub={prev ? `昨日 ${fmt(prev.pv)}` : ""} delta={prev ? (last?.pv ?? 0) - prev.pv : null} />
-        <Kpi label="近 7 日 PV" value={fmt(pv7)} sub={`DAU 峰值 ${fmt(dau7peak)}`} />
+        <Kpi label={t("今日 DAU", "DAU today")} value={fmt(last?.dau ?? 0)} sub={prev ? `${t("昨日", "yesterday")} ${fmt(prev.dau)}` : ""} delta={prev ? (last?.dau ?? 0) - prev.dau : null} />
+        <Kpi label={t("今日新用户", "New users today")} value={fmt(last?.nw ?? 0)} sub={t("首次到访", "first visit")} />
+        <Kpi label={t("今日 PV", "PV today")} value={fmt(last?.pv ?? 0)} sub={prev ? `${t("昨日", "yesterday")} ${fmt(prev.pv)}` : ""} delta={prev ? (last?.pv ?? 0) - prev.pv : null} />
+        <Kpi label={t("近 7 日 PV", "PV last 7d")} value={fmt(pv7)} sub={`${t("DAU 峰值", "DAU peak")} ${fmt(dau7peak)}`} />
       </div>
 
       {/* DAU / 新用户 趋势 */}
       <section className="mt-6 rounded-2xl border border-line bg-surface p-4 sm:p-5">
         <div className="mb-3 flex items-baseline justify-between">
-          <h2 className="text-sm font-semibold text-ink">DAU 趋势</h2>
+          <h2 className="text-sm font-semibold text-ink">{t("DAU 趋势", "DAU trend")}</h2>
           <div className="flex items-center gap-3 text-[11px] text-faint">
-            <span className="inline-flex items-center gap-1"><i className="inline-block h-2 w-2 rounded-sm bg-accent" />活跃</span>
-            <span className="inline-flex items-center gap-1"><i className="inline-block h-2 w-2 rounded-sm bg-up" />其中新用户</span>
-            <span>峰值 {fmt(maxV)}</span>
+            <span className="inline-flex items-center gap-1"><i className="inline-block h-2 w-2 rounded-sm bg-accent" />{t("活跃", "Active")}</span>
+            <span className="inline-flex items-center gap-1"><i className="inline-block h-2 w-2 rounded-sm bg-up" />{t("其中新用户", "of which new")}</span>
+            <span>{t("峰值", "Peak")} {fmt(maxV)}</span>
           </div>
         </div>
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-40 w-full text-accent">
@@ -181,22 +185,22 @@ export default function StatsClient() {
         <div className="mt-1.5 flex justify-between text-[10px] text-faint">
           <span>{md(s[0]?.date ?? "")}</span>
           {s.length > 8 && <span>{md(s[Math.floor(s.length / 2)]?.date ?? "")}</span>}
-          <span>{md(last?.date ?? "")}（今日）</span>
+          <span>{md(last?.date ?? "")}{t("（今日）", " (today)")}</span>
         </div>
       </section>
 
       {/* 留存三角 */}
       <section className="mt-6 rounded-2xl border border-line bg-surface p-4 sm:p-5">
         <div className="mb-1 flex items-baseline justify-between">
-          <h2 className="text-sm font-semibold text-ink">留存(新用户 cohort)</h2>
-          <span className="text-[11px] text-faint">每行 = 当天首次到访的人,之后第 N 天还回来的比例</span>
+          <h2 className="text-sm font-semibold text-ink">{t("留存(新用户 cohort)", "Retention (new-user cohort)")}</h2>
+          <span className="text-[11px] text-faint">{t("每行 = 当天首次到访的人,之后第 N 天还回来的比例", "Each row = users who first visited that day, and the % returning on day N")}</span>
         </div>
         <div className="overflow-x-auto">
           <table className="mt-2 w-full min-w-[560px] border-separate border-spacing-1 text-center text-[12px]">
             <thead>
               <tr className="text-faint">
                 <th className="px-2 py-1 text-left font-medium">Cohort</th>
-                <th className="px-1 py-1 font-medium">人数</th>
+                <th className="px-1 py-1 font-medium">{t("人数", "Users")}</th>
                 {Array.from({ length: 8 }, (_, n) => <th key={n} className="px-1 py-1 font-medium">D{n}</th>)}
               </tr>
             </thead>
@@ -210,7 +214,7 @@ export default function StatsClient() {
                       {cell.pct == null ? (
                         <span className="text-faint/40">·</span>
                       ) : (
-                        <span className="relative z-10 text-ink" title={`${cell.n} 人`}>{cell.pct}%</span>
+                        <span className="relative z-10 text-ink" title={`${cell.n} ${t("人", "users")}`}>{cell.pct}%</span>
                       )}
                       {cell.pct != null && cell.dayN > 0 && (
                         <span className="absolute inset-0 rounded bg-accent" style={{ opacity: (cell.pct / 100) * 0.7 }} />
@@ -226,11 +230,11 @@ export default function StatsClient() {
 
       {/* Top 页面 / Top 点击 */}
       <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <TopList title="热门页面（近 7 日 PV）" items={data.topPages} />
-        <TopList title="热门点击 / 互动（近 7 日）" items={data.topClicks} />
+        <TopList title={t("热门页面（近 7 日 PV）", "Top pages (PV last 7d)")} items={data.topPages} />
+        <TopList title={t("热门点击 / 互动（近 7 日）", "Top clicks / interactions (last 7d)")} items={data.topClicks} />
       </div>
 
-      <p className="mt-8 text-center text-[11px] text-faint">仅你可见 · 口令保护 · 数据存于你自己的 Upstash</p>
+      <p className="mt-8 text-center text-[11px] text-faint">{t("仅你可见 · 口令保护 · 数据存于你自己的 Upstash", "Visible only to you · token-protected · data stored in your own Upstash")}</p>
     </main>
   );
 }
@@ -251,12 +255,13 @@ function Kpi({ label, value, sub, delta }: { label: string; value: string; sub?:
 }
 
 function TopList({ title, items }: { title: string; items: Top[] }) {
+  const { t } = useLang();
   const max = Math.max(1, ...items.map((i) => i.n));
   return (
     <section className="rounded-2xl border border-line bg-surface p-4 sm:p-5">
       <h2 className="mb-3 text-sm font-semibold text-ink">{title}</h2>
       {items.length === 0 ? (
-        <p className="text-[12px] text-faint">还没有数据。</p>
+        <p className="text-[12px] text-faint">{t("还没有数据。", "No data yet.")}</p>
       ) : (
         <ul className="space-y-1.5">
           {items.map((it, i) => (

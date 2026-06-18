@@ -1,6 +1,6 @@
 name: premarket-report-card
 
-# 盘前报告(gpt-5.5)+ 分享卡片 —— 全程线上,脱离本地 Mac。
+# 盘前报告(Claude Opus 4.8)+ 分享卡片 —— 全程线上,脱离本地 Mac。
 # 北京 20:35 = 12:35 UTC = 美东 08:35 ET(EDT,开盘前约 1h;冬令时变 07:35 ET 可接受)。
 # 报告发布到 /reports(git push → Vercel Git 集成自动部署);卡片落 data/cards/ 一并提交。
 on:
@@ -40,7 +40,7 @@ jobs:
           sudo apt-get update -q
           sudo apt-get install -y /tmp/chrome.deb
 
-      - name: 盘前报告(gpt-5.5)→ 发布 → 卡片
+      - name: 盘前报告(Claude Opus 4.8)→ 发布 → 卡片
         env:
           NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
           NDT_CLAUDE_KEY: ${{ secrets.NDT_CLAUDE_KEY }}
@@ -52,7 +52,7 @@ jobs:
           set -e
           ET_DATE=$(TZ=America/New_York date +%Y-%m-%d)
           ET_YMD=$(TZ=America/New_York date +%Y%m%d)
-          # 1) 报告(gpt-5.5;云端无邮件 secret → --no-email)
+          # 1) 报告(Claude Opus 4.8;云端无邮件 secret → --no-email)
           uv run python scripts/premarket_report.py --no-email
           MD="data/reports/premarket_${ET_YMD}.md"
           TITLE=$(head -1 "$MD" | sed 's/^# *//')
@@ -68,7 +68,7 @@ jobs:
           git config user.email "premarket-bot@users.noreply.github.com"
           git add web/public/data/reports.json data/reports/ data/cards/ 2>/dev/null || true
           if git diff --cached --quiet; then echo "无变化,跳过"; exit 0; fi
-          git commit -m "report: 盘前报告 + 卡片 $(TZ=America/New_York date +%F)(线上 gpt-5.5)"
+          git commit -m "report: 盘前报告 + 卡片 $(TZ=America/New_York date +%F)(线上 Claude Opus 4.8)"
           for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done
 
       - name: Deploy to Vercel(报告发布到 /reports 要靠它,别只 commit)

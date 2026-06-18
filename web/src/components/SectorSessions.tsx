@@ -1,23 +1,27 @@
 "use client";
 
-// 板块热力 · 双面板对比:左=美股(盘前/盘中/盘后),右=A股(今日涨跌)。
-// 两边用同一套 12 大板块(A股由申万 34 行业静态映射而来,见 /api/sector-sessions),按美股市值排、
-// 共用同一行高 → 科技对科技对齐排,方便左右比。移动端 flex-col 上下叠。颜色=涨跌、市值加权。
+// 板块热力 · 双面板:左=美股(盘前/盘中/盘后),右=A股(今日涨跌)。
+// 每个面板各按"自己市场"的真实市值排序与定高(不强行左右对齐 —— A 股工业/材料该大就大,不再镜像美股);
+// 大板块可展开看子板块:美股=AI算力/存储/光模块…(数据层 sub),A股=申万子行业(api 聚合)。颜色=涨跌、市值加权。
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
 
-type SKey = "pre" | "mid" | "post";
-type Row = { sector: string; capB: number; pre: number | null; mid: number | null; post: number | null };
-type ARow = { sector: string; capB: number; pct: number };
-type Resp = { sectors: Row[]; aSectors: ARow[]; session: string; day: string; isToday: boolean };
+type Cellv = number | null;
+type GRow = { sector: string; capB: number; vals: Cellv[]; subs?: GRow[] };
 
-const SKEYS: { k: SKey; label: string }[] = [{ k: "pre", label: "盘前" }, { k: "mid", label: "盘中" }, { k: "post", label: "盘后" }];
-// session 中文值是 /api/sector-sessions 口径(也用于 session===label 匹配),只在显示时翻译
-const SESS_EN: Record<string, string> = { 盘前: "Pre", 盘中: "Open", 盘后: "After", 休市: "Closed", 实时: "Live", 午间休市: "Lunch" };
+// ---- API 原始结构 ----
+type USub = { sector: string; capB: number; pre?: Cellv; mid?: Cellv; post?: Cellv };
+type URow = { sector: string; capB: number; pre: Cellv; mid: Cellv; post: Cellv; subs?: USub[] };
+type ASub = { sector: string; capB: number; pct: number };
+type ARow = { sector: string; capB: number; pct: number; subs?: ASub[] };
+type Resp = { sectors: URow[]; aSectors: ARow[]; session: string; day: string; isToday: boolean };
+
 const SEG_EN: Record<string, string> = {
   科技: "Tech", 金融: "Financials", 工业: "Industrials", 可选消费: "Cons. Disc.", 必需消费: "Cons. Staples",
   医疗: "Health", 材料: "Materials", 能源: "Energy", 通信媒体: "Comm.", 公用事业: "Utilities", 地产: "Real Estate", 其他: "Other",
 };
+const SESS_EN: Record<string, string> = { 盘前: "Pre", 盘中: "Open", 盘后: "After", 休市: "Closed", 午间休市: "Lunch" };
+const SESS_IDX: Record<string, number> = { 盘前: 0, 盘中: 1, 盘后: 2 };
 
 function heat(p: number): { bg: string; fg: string } {
   if (p >= -0.05 && p <= 0.05) return { bg: "hsl(220 6% 27%)", fg: "rgba(255,255,255,.82)" };
@@ -30,7 +34,7 @@ const fp = (p: number) => `${p >= 0 ? "+" : ""}${p.toFixed(1)}%`;
 const fcapUS = (b: number) => (b >= 1000 ? `$${(b / 1000).toFixed(1)}T` : `$${Math.round(b)}B`);
 const fcapA = (b: number) => (b >= 10000 ? `¥${(b / 10000).toFixed(1)}万亿` : `¥${Math.round(b)}亿`);
 
-function Cell({ p, live }: { p: number | null; live?: boolean }) {
+function Cell({ p, live }: { p: Cellv; live?: boolean }) {
   if (p == null) return <div className="flex items-center justify-center rounded-md border border-dashed border-line/40 text-[12px] text-faint/45">—</div>;
   const c = heat(p);
   return (
@@ -40,10 +44,77 @@ function Cell({ p, live }: { p: number | null; live?: boolean }) {
   );
 }
 
+// 单个面板:自有排序(传入前已排好)、自有定高、可展开子板块。各面板独立 open 状态。
+function HeatPanel({
+  title, titleCls, sub, headLabel, cols, liveCol, rows, capFmt, segLabel,
+}: {
+  title: string; titleCls: string; sub: string; headLabel: string;
+  cols: string[]; liveCol: number; rows: GRow[];
+  capFmt: (b: number) => string; segLabel: (s: string) => string;
+}) {
+  const [open, setOpen] = useState<Set<string>>(new Set());
+  const grid = `minmax(62px,88px) repeat(${cols.length}, minmax(0,1fr))`;
+  const sqrtSum = rows.reduce((s, r) => s + Math.sqrt(Math.max(1, r.capB)), 0) || 1;
+  const rowH = (capB: number) => Math.min(74, Math.max(34, Math.round((Math.sqrt(Math.max(1, capB)) / sqrtSum) * 520)));
+  const toggle = (s: string) => setOpen((o) => { const n = new Set(o); if (n.has(s)) n.delete(s); else n.add(s); return n; });
+
+  return (
+    <div className="min-w-0 flex-1 overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
+      <div className="mb-1.5 flex items-baseline gap-2 px-1">
+        <span className={`text-[13px] font-semibold ${titleCls}`}>{title}</span>
+        <span className="truncate text-[10px] text-faint">{sub}</span>
+      </div>
+      <div className="mb-1 grid gap-1 px-1 text-[11px] text-faint" style={{ gridTemplateColumns: grid }}>
+        <span className="pl-1">{headLabel}</span>
+        {cols.map((c, i) => (
+          <span key={c} className={`flex items-center justify-center gap-1 ${i === liveCol ? "font-medium text-up" : ""}`}>
+            {i === liveCol && <i className="h-1.5 w-1.5 animate-pulse rounded-full bg-up" />}{c}
+          </span>
+        ))}
+      </div>
+      <div className="flex flex-col gap-1">
+        {rows.map((r) => {
+          const hasSubs = !!(r.subs && r.subs.length > 1);
+          const isOpen = open.has(r.sector);
+          return (
+            <div key={r.sector} className="flex flex-col gap-1">
+              <div className="grid gap-1" style={{ gridTemplateColumns: grid, height: rowH(r.capB) }}>
+                <button
+                  type="button"
+                  onClick={() => hasSubs && toggle(r.sector)}
+                  className={`flex flex-col justify-center overflow-hidden rounded-md bg-surface px-2 text-left ${hasSubs ? "cursor-pointer hover:bg-surface-2" : "cursor-default"}`}
+                  title={hasSubs ? (isOpen ? "收起子板块" : "展开子板块") : r.sector}
+                >
+                  <span className="flex items-center gap-1 truncate text-[12px] text-ink">
+                    {hasSubs && <span className={`shrink-0 text-[8px] text-faint transition-transform ${isOpen ? "rotate-90" : ""}`}>▶</span>}
+                    <span className="truncate">{segLabel(r.sector)}</span>
+                  </span>
+                  <span className="text-[10px] text-faint tnum">{capFmt(r.capB)}</span>
+                </button>
+                {r.vals.map((v, i) => <Cell key={i} p={v} live={i === liveCol} />)}
+              </div>
+              {isOpen && r.subs!.map((s) => (
+                <div key={s.sector} className="grid gap-1 pl-3" style={{ gridTemplateColumns: grid, height: 30 }}>
+                  <div className="flex flex-col justify-center overflow-hidden rounded bg-surface/50 px-2">
+                    <span className="truncate text-[11px] leading-tight text-muted">{segLabel(s.sector)}</span>
+                    <span className="text-[9px] leading-tight text-faint tnum">{capFmt(s.capB)}</span>
+                  </div>
+                  {s.vals.map((v, i) => <Cell key={i} p={v} live={i === liveCol} />)}
+                </div>
+              ))}
+            </div>
+          );
+        })}
+        {rows.length === 0 && <div className="py-8 text-center text-xs text-faint">—</div>}
+      </div>
+    </div>
+  );
+}
+
 export default function SectorSessions() {
   const { t, lang } = useLang();
-  const sLabel = (s: string) => (lang === "en" ? (SESS_EN[s] ?? s) : s);
   const segLabel = (s: string) => (lang === "en" ? (SEG_EN[s] ?? s) : s);
+  const sLabel = (s: string) => (lang === "en" ? (SESS_EN[s] ?? s) : s);
   const [data, setData] = useState<Resp | null>(null);
 
   useEffect(() => {
@@ -58,32 +129,29 @@ export default function SectorSessions() {
   }, []);
 
   const us = data?.sectors || null;
-  const aArr = data?.aSectors || [];
   const session = data?.session || "";
+  const isToday = !!data?.isToday;
 
-  // 统一大板块顺序(美股市值序,A 股独有的接尾)+ 共用行高(按该板块美股市值,无则用 A 股)→ 两面板对齐
-  const usMap = new Map((us || []).map((x) => [x.sector, x]));
-  const aMap = new Map(aArr.map((x) => [x.sector, x]));
-  const order = us ? [...us.map((x) => x.sector), ...aArr.filter((x) => !usMap.has(x.sector)).map((x) => x.sector)] : [];
-  const capForH = (seg: string) => usMap.get(seg)?.capB ?? aMap.get(seg)?.capB ?? 1;
-  const sqrtSum = order.reduce((s, seg) => s + Math.sqrt(Math.max(1, capForH(seg))), 0) || 1;
-  const rowH = (seg: string) => Math.min(76, Math.max(34, Math.round((Math.sqrt(Math.max(1, capForH(seg))) / sqrtSum) * 540)));
+  // 美股 → GRow(vals=盘前/盘中/盘后);A股 → GRow(vals=今日)。各自市值序已由 API 排好。
+  const usRows: GRow[] = (us || []).map((r) => ({
+    sector: r.sector, capB: r.capB, vals: [r.pre, r.mid, r.post],
+    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: [s.pre ?? null, s.mid ?? null, s.post ?? null] })),
+  }));
+  const aRows: GRow[] = (data?.aSectors || []).map((r) => ({
+    sector: r.sector, capB: r.capB, vals: [r.pct],
+    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: [s.pct] })),
+  }));
 
-  const usGrid = "minmax(60px,82px) repeat(3, minmax(0,1fr))";
-  const aGrid = "minmax(60px,82px) minmax(0,1fr)";
-
-  const SectorCell = ({ name, cap }: { name: string; cap: string }) => (
-    <div className="flex flex-col justify-center overflow-hidden rounded-md bg-surface px-2">
-      <span className="truncate text-[12px] leading-tight text-ink">{segLabel(name)}</span>
-      <span className="text-[10px] leading-tight text-faint tnum">{cap}</span>
-    </div>
-  );
+  const usLiveCol = isToday && session in SESS_IDX ? SESS_IDX[session] : -1;
+  const usSub = us && us.length
+    ? (isToday ? `${t("当前", "Now")} · ${sLabel(session || "休市")}` : `${t("上一交易日", "Prev")} ${data?.day || ""}`)
+    : "";
 
   return (
     <section className="mt-8">
       <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
         <h2 className="text-lg font-semibold text-ink">{t("板块热力 · 美股 vs A股", "Sector Heat · US vs A-share")}</h2>
-        <span className="text-xs text-faint">{t("同12大板块对齐 · 行高=市值 · 颜色=涨跌", "same 12 sectors · height = cap · color = change")}</span>
+        <span className="text-xs text-faint">{t("各按本市场市值排 · 行高=市值 · 颜色=涨跌 · 点板块展开子板块", "each by own-market cap · height = cap · color = change · click to expand")}</span>
         <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-faint">
           {[-3, -1, 0, 1, 3].map((v) => <i key={v} className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: heat(v).bg }} />)}
           <span className="ml-1">−3% → +3%</span>
@@ -95,66 +163,24 @@ export default function SectorSessions() {
       ) : us.length === 0 ? (
         <div className="flex h-[360px] items-center justify-center text-sm text-faint">{t("暂无数据", "No data")}</div>
       ) : (
-        <div className="flex flex-col gap-3 lg:flex-row">
-          {/* 美股面板 */}
-          <div className="flex-1 overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
-            <div className="mb-1.5 flex items-baseline gap-2 px-1">
-              <span className="text-[13px] font-semibold text-accent">{t("美股", "US")}</span>
-              <span className="text-[10px] text-faint">
-                {session && (data?.isToday ? `${t("当前", "Now")} · ${sLabel(session)}` : `${t("上一交易日", "Prev")} ${data?.day || ""}`)}
-              </span>
-            </div>
-            <div className="mb-1 grid gap-1 px-1 text-[11px] text-faint" style={{ gridTemplateColumns: usGrid }}>
-              <span className="pl-1">{t("板块 · 市值", "Sector · Cap")}</span>
-              {SKEYS.map((c) => (
-                <span key={c.k} className={`flex items-center justify-center gap-1 ${session === c.label ? "font-medium text-up" : ""}`}>
-                  {session === c.label && <i className="h-1.5 w-1.5 animate-pulse rounded-full bg-up" />}
-                  {sLabel(c.label)}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-col gap-1">
-              {order.map((seg) => {
-                const r = usMap.get(seg);
-                return (
-                  <div key={seg} className="grid gap-1" style={{ gridTemplateColumns: usGrid, height: rowH(seg) }} title={r ? `${seg} · ${fcapUS(r.capB)}` : seg}>
-                    <SectorCell name={seg} cap={r ? fcapUS(r.capB) : "—"} />
-                    {SKEYS.map((c) => <Cell key={c.k} p={r?.[c.k] ?? null} live={session === c.label} />)}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* A股面板 */}
-          <div className="flex-1 overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
-            <div className="mb-1.5 flex items-baseline gap-2 px-1">
-              <span className="text-[13px] font-semibold text-down">{t("A股", "A-share")}</span>
-              <span className="text-[10px] text-faint">{t("今日 · 腾讯实时", "Today · live")}</span>
-            </div>
-            <div className="mb-1 grid gap-1 px-1 text-[11px] text-faint" style={{ gridTemplateColumns: aGrid }}>
-              <span className="pl-1">{t("板块 · 市值", "Sector · Cap")}</span>
-              <span className="flex items-center justify-center">{t("今日涨跌", "Change")}</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              {order.map((seg) => {
-                const r = aMap.get(seg);
-                return (
-                  <div key={seg} className="grid gap-1" style={{ gridTemplateColumns: aGrid, height: rowH(seg) }} title={r ? `${seg} · ${fcapA(r.capB)}` : seg}>
-                    <SectorCell name={seg} cap={r ? fcapA(r.capB) : "—"} />
-                    <Cell p={r?.pct ?? null} />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+        <div className="flex flex-col items-start gap-3 lg:flex-row">
+          <HeatPanel
+            title={t("美股", "US")} titleCls="text-accent" sub={usSub} headLabel={t("板块 · 市值", "Sector · Cap")}
+            cols={[sLabel("盘前"), sLabel("盘中"), sLabel("盘后")]} liveCol={usLiveCol}
+            rows={usRows} capFmt={fcapUS} segLabel={segLabel}
+          />
+          <HeatPanel
+            title={t("A股", "A-share")} titleCls="text-down" sub={t("今日 · 腾讯实时", "Today · live")} headLabel={t("板块 · 市值", "Sector · Cap")}
+            cols={[t("今日涨跌", "Change")]} liveCol={-1}
+            rows={aRows} capFmt={fcapA} segLabel={segLabel}
+          />
         </div>
       )}
 
       <p className="mt-1.5 text-[10px] text-faint">
         {t(
-          "左=美股(盘前/盘中/盘后,当前段实时·过去段定格)· 右=A股(今日,腾讯实时)· 同 12 大板块(A股申万行业映射)· 市值加权 · 非投资建议",
-          "Left = US (pre/open/after, current live) · Right = A-share (today, live) · same 12 sectors (A-share mapped from SW industries) · cap-weighted · not financial advice",
+          "左=美股(盘前/盘中/盘后,当前段实时·过去段定格)· 右=A股(今日,腾讯实时)· 两侧各按自己市场的真实市值排序定高(故大小顺序不同)· 点大板块看子板块 · 市值加权 · 非投资建议",
+          "Left = US (pre/open/after) · Right = A-share (today) · each panel sized by its own market's caps (so order differs) · click a sector to expand · cap-weighted · not financial advice",
         )}
       </p>
     </section>

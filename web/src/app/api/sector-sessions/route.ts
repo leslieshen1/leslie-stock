@@ -49,26 +49,39 @@ async function loadAInd(): Promise<Record<string, string>> {
   return A_IND!;
 }
 
-type ASect = { sector: string; capB: number; pct: number };
+type ASub = { sector: string; capB: number; pct: number };
+type ASect = { sector: string; capB: number; pct: number; subs?: ASub[] };
 let A_SECTORS: ASect[] = []; // A 股 12 大板块当前聚合(随 syncOnce 刷新缓存)
 
-// A 股板块聚合:/api/a-market 实时(市值 mcapYi ¥亿 + 涨跌)→ 申万→大板块 → 市值加权涨跌。
+// A 股板块聚合:/api/a-market 实时(市值 mcapYi ¥亿 + 涨跌)→ 申万→大板块,市值加权涨跌;
+// 同时按申万子行业聚出 subs(让大板块可展开,如 科技→计算机软件/半导体/消费电子)。
 async function computeAShare(origin: string): Promise<ASect[]> {
   const ind = await loadAInd();
   const am = await fetchWithTimeout(`${origin}/api/a-market`, {}, 12000).then((x) => x.json()).catch(() => null);
   const quotes: Record<string, { pct: number | null; mcapYi: number | null }> = am?.quotes || {};
   if (!Object.keys(quotes).length) return A_SECTORS; // 抓不到就沿用上次,别清空
-  const agg: Record<string, { cap: number; capPct: number }> = {};
+  const seg: Record<string, { cap: number; capPct: number }> = {};       // 大板块
+  const sub: Record<string, { cap: number; capPct: number }> = {};       // "大板块|申万子行业"(前缀防串台)
   for (const [code, q] of Object.entries(quotes)) {
-    const seg = SW_TO_SEG[ind[code]] || "其他";
+    const sw = ind[code];
+    const s = SW_TO_SEG[sw] || "其他";
     const cap = Number(q.mcapYi);
     if (!(cap > 0) || q.pct == null) continue;
-    const a = (agg[seg] ||= { cap: 0, capPct: 0 });
-    a.cap += cap;
-    a.capPct += cap * Number(q.pct);
+    const pct = Number(q.pct);
+    (seg[s] ||= { cap: 0, capPct: 0 }); seg[s].cap += cap; seg[s].capPct += cap * pct;
+    if (sw) { const k = `${s}|${sw}`; (sub[k] ||= { cap: 0, capPct: 0 }); sub[k].cap += cap; sub[k].capPct += cap * pct; }
   }
-  return Object.entries(agg)
-    .map(([sector, a]) => ({ sector, capB: Math.round(a.cap), pct: Math.round((a.capPct / a.cap) * 100) / 100 }))
+  const wPct = (a: { cap: number; capPct: number }) => Math.round((a.capPct / a.cap) * 100) / 100;
+  const subsBySeg: Record<string, ASub[]> = {};
+  for (const [k, a] of Object.entries(sub)) {
+    const [s, sw] = k.split("|");
+    (subsBySeg[s] ||= []).push({ sector: sw, capB: Math.round(a.cap), pct: wPct(a) });
+  }
+  return Object.entries(seg)
+    .map(([sector, a]) => {
+      const subs = (subsBySeg[sector] || []).sort((x, y) => y.capB - x.capB);
+      return { sector, capB: Math.round(a.cap), pct: wPct(a), ...(subs.length > 1 ? { subs } : {}) };
+    })
     .sort((x, y) => y.capB - x.capB);
 }
 

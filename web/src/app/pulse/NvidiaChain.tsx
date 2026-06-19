@@ -9,7 +9,7 @@ type Item = CompanyWithHeat & { pct?: number | null; livePrice?: number | null }
 const GROUPS_UP: { tie: string; tieEn: string; t: string[] }[] = [
   { tie: "晶圆代工 · 独家造 NVDA 芯片", tieEn: "Foundry · sole maker of NVDA silicon", t: ["TSM"] },
   { tie: "HBM 内存 · NVDA 出货天花板", tieEn: "HBM memory · NVDA shipment ceiling", t: ["000660", "MU", "005930"] },
-  { tie: "CoWoS 封装 + ABF 基板", tieEn: "CoWoS packaging + ABF substrate", t: ["3711", "AMKR", "600584", "002156", "3037"] },
+  { tie: "CoWoS 封装 + ABF 基板", tieEn: "CoWoS packaging + ABF substrate", t: ["ASX", "AMKR", "600584", "002156", "3037"] },
   { tie: "内存接口 · DDR5 RCD", tieEn: "Memory interface · DDR5", t: ["688008"] },
   { tie: "再上游 · 设备 / EDA(供代工厂)", tieEn: "Further upstream · tools / EDA (feed the foundry)", t: ["ASML", "AMAT", "LRCX", "KLAC", "8035", "SNPS", "CDNS", "ARM"] },
 ];
@@ -19,8 +19,13 @@ const GROUPS_DOWN: { tie: string; tieEn: string; t: string[] }[] = [
   { tie: "机柜周边 · 网络 / 光模块", tieEn: "Rack · networking / optics", t: ["ANET", "300308", "300502", "300394", "LITE", "COHR", "688498"] },
   { tie: "机柜周边 · 液冷 / 电源 / PCB", tieEn: "Rack · cooling / power / PCB", t: ["VRT", "002837", "301018", "300602", "2308", "002851", "002463", "300476", "600183"] },
   { tie: "Neocloud · 买卡出租算力", tieEn: "Neocloud · rent out the GPUs", t: ["CRWV", "NBIS", "APLD"] },
-  { tie: "云厂商 · NVDA 最大买家", tieEn: "Hyperscalers · biggest buyers", t: ["MSFT", "GOOGL", "AMZN", "META", "ORCL", "9988", "700"] },
+  { tie: "云厂商 · NVDA 最大买家", tieEn: "Hyperscalers · biggest buyers", t: ["MSFT", "GOOGL", "AMZN", "META", "ORCL", "BABA", "700"] },
 ];
+
+// 海外 · 我们未覆盖行情/详情(韩/日/台/港,无可用美股 ADR)→ 标灰不可点,但保留在链里(HBM 双寡头不能没有)
+const UNCOVERED = new Set(["000660", "005930", "8035", "3037", "2317", "2382", "2308", "700"]);
+// 改挂美股 ADR 后,byTicker 里 ASX/BABA 是英文名 → 用中文显示名覆盖
+const LABEL: Record<string, string> = { ASX: "日月光 ASE", BABA: "阿里巴巴" };
 
 export default function NvidiaChain({
   byTicker,
@@ -36,6 +41,20 @@ export default function NvidiaChain({
   const chip = (tk: string) => {
     const it = byTicker.get(tk);
     if (!it) return null;
+    const label = LABEL[tk] ?? it.name;
+    // 海外 · 未覆盖:不可点、灰色虚线、不显示(可能过期的)涨跌
+    if (UNCOVERED.has(tk)) {
+      return (
+        <span
+          key={tk}
+          title={tt("海外标的,我们暂未覆盖其行情与详情", "Overseas name — outside our coverage")}
+          className="inline-flex items-center gap-1.5 rounded-md border border-dashed border-line px-2 py-1 text-xs text-faint"
+        >
+          {label}
+          <span className="text-[9px] uppercase tracking-wide opacity-70">{tt("海外·未覆盖", "n/a")}</span>
+        </span>
+      );
+    }
     const pct = it.pct;
     return (
       <button
@@ -44,7 +63,7 @@ export default function NvidiaChain({
         title={it.ticker}
         className="inline-flex items-center gap-1.5 rounded-md border border-line bg-surface-2 px-2 py-1 text-xs transition hover:border-accent/50 hover:bg-surface-3"
       >
-        <span className="font-medium text-ink">{it.name}</span>
+        <span className="font-medium text-ink">{label}</span>
         {pct != null && (
           <span className={`font-mono text-[10px] ${pct >= 0 ? "text-up" : "text-down"}`}>
             {pct >= 0 ? "+" : ""}{pct.toFixed(1)}%

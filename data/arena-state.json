@@ -1,10 +1,10 @@
 {
  "cash": {
-  "buffett": 41420.59,
+  "buffett": 43465.01,
   "duan": 40172.16,
   "serenity": 50780.49,
-  "druckenmiller": 125596.61,
-  "sentiment": 90723.46
+  "druckenmiller": 84.46,
+  "sentiment": 82526.68
  },
  "positions": [
   {
@@ -47,13 +47,6 @@
    "sym": "GOOG",
    "shares": 339,
    "entry": 353.32,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "buffett",
-   "sym": "GOOGM",
-   "shares": 2399,
-   "entry": 50.02,
    "entry_date": "2026-06-10"
   },
   {
@@ -170,13 +163,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "GS",
-   "shares": 114,
-   "entry": 1001.29,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "LRCX",
    "shares": 357,
    "entry": 321.8,
@@ -218,13 +204,6 @@
    "entry_date": "2026-06-15"
   },
   {
-   "master": "sentiment",
-   "sym": "SPCX",
-   "shares": 780,
-   "entry": 192.5,
-   "entry_date": "2026-06-15"
-  },
-  {
    "master": "druckenmiller",
    "sym": "ETN",
    "shares": 314,
@@ -233,17 +212,45 @@
   },
   {
    "master": "sentiment",
-   "sym": "RBLX",
-   "shares": 3138,
-   "entry": 48.02,
-   "entry_date": "2026-06-17"
-  },
-  {
-   "master": "sentiment",
    "sym": "HLNE",
    "shares": 1851,
    "entry": 81.4,
    "entry_date": "2026-06-17"
+  },
+  {
+   "master": "buffett",
+   "sym": "META",
+   "shares": 210,
+   "entry": 577.22,
+   "entry_date": "2026-06-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "GEV",
+   "shares": 119,
+   "entry": 1109.73,
+   "entry_date": "2026-06-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "CAMT",
+   "shares": 607,
+   "entry": 195.16,
+   "entry_date": "2026-06-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "USAR",
+   "shares": 6381,
+   "entry": 24.64,
+   "entry_date": "2026-06-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "SIMO",
+   "shares": 488,
+   "entry": 321.66,
+   "entry_date": "2026-06-18"
   }
  ],
  "nav": [
@@ -371,6 +378,31 @@
    "master": "sentiment",
    "date": "2026-06-17",
    "nav": 1004582.8
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-18",
+   "nav": 1010715.55
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-18",
+   "nav": 1009297.75
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-18",
+   "nav": 1112096.16
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-18",
+   "nav": 1156706.51
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-18",
+   "nav": 1048277.65
   }
  ],
  "trades": [
@@ -1013,6 +1045,96 @@
    "price": 81.4,
    "reason": "昨晚资金明确从拥挤科技流向金融链，HLNE盘前不躁但有聪明钱加仓底色，买的是低调轮动而不是追高狂热。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "buffett",
+   "side": "SELL",
+   "sym": "GOOGM",
+   "shares": 2399,
+   "price": 51.38,
+   "reason": "Alphabet这门生意我喜欢，但我不需要用一层复杂外壳把同一头牛买两遍；简单、直接、看得懂更重要。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "META",
+   "shares": 210,
+   "price": 577.22,
+   "reason": "Meta的网络效应和广告拍卖机器仍然很强，昨天的跌幅给了我用合理价格买一门高回报生意的机会。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GS",
+   "shares": 114,
+   "price": 1096.56,
+   "reason": "高盛没错，但今天流动性重新吹向AI算力和电力弹性，金融股不是这轮风里涨最猛的载体，我把机会成本砍掉。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "GEV",
+   "shares": 119,
+   "price": 1109.73,
+   "reason": "AI电力和电网重建这条主线昨天逆势强、今天盘前继续强，GEV是顺流动性风的高弹性纯载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "CAMT",
+   "shares": 607,
+   "price": 195.16,
+   "reason": "半导体资金今天明显回流，CAMT盘前最强之一，是AI资本开支链里表达风险偏好修复的高Beta载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "SPCX",
+   "shares": 780,
+   "price": 185.0,
+   "reason": "风险偏好大幅修复它却盘前逆势跌，说明昨天那口太空叙事热钱在撤，单日过热后的情绪反转我不陪。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "RBLX",
+   "shares": 3138,
+   "price": 51.53,
+   "reason": "纳指盘前大涨它几乎不动，盘口就是死水，机构回补故事没转成当下资金流，先让位给有钱进的线。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "USAR",
+   "shares": 6381,
+   "price": 24.64,
+   "reason": "稀土政策主题仍是热钱主线，散户、期权和题材资金还在往里挤，趋势未破我顺势但不接最后一棒。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "SIMO",
+   "shares": 488,
+   "price": 321.66,
+   "reason": "内存链盘前继续被资金追，SIMO不是最拥挤的明牌但盘口有持续性，趁资金还在流入做一段。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -1473,7 +1595,7 @@
    "action": "SELL",
    "sym": "GOOGM",
    "reason": "Alphabet这门生意我喜欢，但我不需要用一层复杂外壳把同一头牛买两遍；简单、直接、看得懂更重要。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1483,7 +1605,7 @@
    "action": "BUY",
    "sym": "META",
    "reason": "Meta的网络效应和广告拍卖机器仍然很强，昨天的跌幅给了我用合理价格买一门高回报生意的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1493,7 +1615,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，今天盘前涨跌跟十年好生意没有关系，没必要为了市场情绪换来换去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1503,7 +1625,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前是风险偏好修复，但我手里这十个都还在真瓶颈位置：军工矿、HALEU、光互连、AI电力/机柜、稀土钨锑，没有一个因为涨了或拥挤就该被我砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1513,7 +1635,7 @@
    "action": "SELL",
    "sym": "GS",
    "reason": "高盛没错，但今天流动性重新吹向AI算力和电力弹性，金融股不是这轮风里涨最猛的载体，我把机会成本砍掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1523,7 +1645,7 @@
    "action": "BUY",
    "sym": "GEV",
    "reason": "AI电力和电网重建这条主线昨天逆势强、今天盘前继续强，GEV是顺流动性风的高弹性纯载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1533,7 +1655,7 @@
    "action": "BUY",
    "sym": "CAMT",
    "reason": "半导体资金今天明显回流，CAMT盘前最强之一，是AI资本开支链里表达风险偏好修复的高Beta载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1543,7 +1665,7 @@
    "action": "SELL",
    "sym": "SPCX",
    "reason": "风险偏好大幅修复它却盘前逆势跌，说明昨天那口太空叙事热钱在撤，单日过热后的情绪反转我不陪。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1553,7 +1675,7 @@
    "action": "SELL",
    "sym": "RBLX",
    "reason": "纳指盘前大涨它几乎不动，盘口就是死水，机构回补故事没转成当下资金流，先让位给有钱进的线。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1563,7 +1685,7 @@
    "action": "BUY",
    "sym": "USAR",
    "reason": "稀土政策主题仍是热钱主线，散户、期权和题材资金还在往里挤，趋势未破我顺势但不接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1573,7 +1695,7 @@
    "action": "BUY",
    "sym": "SIMO",
    "reason": "内存链盘前继续被资金追，SIMO不是最拥挤的明牌但盘口有持续性，趁资金还在流入做一段。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

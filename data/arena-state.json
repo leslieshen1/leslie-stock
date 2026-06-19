@@ -1697,9 +1697,79 @@
    "reason": "内存链盘前继续被资金追，SIMO不是最拥挤的明牌但盘口有持续性，趁资金还在流入做一段。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 79,
+   "fill_date": "2026-06-19",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些都是我能理解、护城河清楚、长期经济性不错的生意；今天盘前的涨跌不是我买卖一家企业的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 80,
+   "fill_date": "2026-06-19",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂，商业模式和文化没有变化，盘前涨跌不是我换仓的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 81,
+   "fill_date": "2026-06-19",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在真瓶颈位置上，今天盘前只是把AI、电力、核燃料、军工材料这些卡脖子链条重新定价，我不因为涨得快就砍真货，也不因为AXTI这种高波动主题票盘前被砸就把InP瓶颈交出去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 82,
+   "fill_date": "2026-06-19",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "ETN",
+   "reason": "ETN 顺风但弹性不够，今天资金最凶的是半导体和AI ASIC，我把低 beta 电力设备换成更猛的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 83,
+   "fill_date": "2026-06-19",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AVGO",
+   "reason": "AI 资本开支这股流动性大潮没有退，Broadcom 是 ASIC 主线里最干净、最有机构承载力的高弹性表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 84,
+   "fill_date": "2026-06-19",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HLNE",
+   "reason": "这票有聪明钱底色但今天盘口不是主线，资金明显从慢资产挪去AI硬件和半导体链，我不让死水占仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 85,
+   "fill_date": "2026-06-19",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "GLW",
+   "reason": "资金把它从沉闷玻璃股重新定价成AI光连接，机构和卖方预期差都在抬轿，热度升温但还没到微盘妖股那种极端拥挤。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 79,
+ "next_order_id": 86,
  "notes": [
   {
    "date": "2026-06-12",

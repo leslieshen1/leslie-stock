@@ -5,6 +5,7 @@ import AiPersonaNote from "@/components/AiPersonaNote";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import PulseField from "./PulseField";
+import NvidiaChain from "./NvidiaChain";
 import {
   LAYERS,
   SUPPLY_EDGES,
@@ -342,6 +343,9 @@ export default function PulseClient({
       .map((c) => ({ ...c, layer: chainPlacement[c.ticker][industry] as typeof c.layer }));
   }, [itemsScored, aiItems, industry, chainPlacement]);
 
+  // 英伟达关系图按 ticker 跨区域查(TSM=TW / SK Hynix=KR …),用全量 itemsScored,不受区域筛选
+  const itemByTicker = useMemo(() => new Map(itemsScored.map((c) => [c.ticker, c])), [itemsScored]);
+
   // 粒子定位搜索(2026-06-12):5000+ 粒子靠肉眼找不现实,输入代码/名称 → revealAndSelect
   const [locQ, setLocQ] = useState("");
   const locMatches = useMemo(() => {
@@ -477,10 +481,12 @@ export default function PulseClient({
  <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-2">
           <div className="mr-auto flex min-w-0 items-baseline gap-3">
  <h1 className="shrink-0 text-[22px] font-semibold tracking-tight text-ink">
-              {currentIndName} · {t("脉冲热力图", "Pulse Heatmap")}
+              {currentIndName} · {industry === "AI-core" ? t("产业链关系图", "Supply-chain map") : t("脉冲热力图", "Pulse Heatmap")}
             </h1>
  <p className="hidden min-w-0 truncate text-xs text-faint lg:block">
-              {t(`${industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头`, `${industryItems.length} names · size = market cap · color = lens`)}
+              {industry === "AI-core"
+                ? t("英伟达上下游 · 点名公司看关系", "NVIDIA's up/downstream · who supplies, who buys")
+                : t(`${industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头`, `${industryItems.length} names · size = market cap · color = lens`)}
             </p>
           </div>
           {/* 粒子定位搜索 */}
@@ -705,6 +711,10 @@ export default function PulseClient({
 
       {/* ===== 中间：粒子场 + 排行 ===== */}
  <section className="order-first lg:order-none col-span-12 lg:col-span-6 space-y-4">
+        {industry === "AI-core" ? (
+          <NvidiaChain byTicker={itemByTicker} onOpen={handleOpen} lang={lang} />
+        ) : (
+        <>
         {/* 镜头选择 + 色阶条 */}
         <div className="bg-surface border border-line rounded-xl px-3 py-3 space-y-2">
           <div className="flex flex-wrap items-center gap-1 p-1 rounded-lg bg-surface-2">
@@ -745,6 +755,8 @@ export default function PulseClient({
           layers={activeLayers}
         />
         </div>
+        </>
+        )}
 
         {/* 排行榜 */}
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

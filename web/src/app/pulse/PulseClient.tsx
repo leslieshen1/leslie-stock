@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import PulseField from "./PulseField";
 import NvidiaChain from "./NvidiaChain";
+import ChainMap from "./ChainMap";
+import { CHAIN_MAPS } from "@/lib/chain-maps";
 import {
   LAYERS,
   SUPPLY_EDGES,
@@ -192,6 +194,8 @@ export default function PulseClient({
   const router = useRouter();
   // 稳定的"打开个股"回调 —— 内联函数会进粒子场 effect 依赖,每次 render 都重建动画(点一下就跳),useCallback 钉住身份
   const handleOpen = useCallback((c: CompanyWithHeat) => router.push(stockHref(c.ticker, c.region)), [router]);
+  // 关系图节点(可能是脉冲 items 之外的 A 股)按 ticker+region 直接进详情
+  const openTicker = useCallback((tk: string, rg: string) => router.push(stockHref(tk, rg)), [router]);
   const fieldWrapRef = useRef<HTMLDivElement>(null);
   const sp = useSearchParams();   // ?industry=&highlight= 客户端读(服务端读会逼整页强动态)
   const { t, lang } = useLang();
@@ -214,6 +218,8 @@ export default function PulseClient({
     modeRef.current = mode;
     setIndustry(mode === "chains" ? "AI-core" : "AI");
   }, [mode]);
+  // 关系图态:产业链子视图下,英伟达走精策展 NvidiaChain、其余明星链走通用 ChainMap —— 都不是粒子场。
+  const isMap = mode === "chains" && (industry === "AI-core" || !!CHAIN_MAPS[industry]);
  // 默认全市场:之前默认 'US' 把 A 股占主体的链(人形 161/186、国防 361/501、新能源车、光伏储能…)整条藏掉,
  // tab badge 4-5 倍低报(人形机器人显 24 实为 113)。A 股是覆盖主体,不该被默认筛选挡在门外。
  const [region, setRegion] = useState<Region | "ALL">("US");
@@ -491,11 +497,11 @@ export default function PulseClient({
  <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-2">
           <div className="mr-auto flex min-w-0 items-baseline gap-3">
  <h1 className="shrink-0 text-[22px] font-semibold tracking-tight text-ink">
-              {currentIndName} · {industry === "AI-core" ? t("产业链关系图", "Supply-chain map") : t("脉冲热力图", "Pulse Heatmap")}
+              {currentIndName} · {isMap ? t("产业链关系图", "Supply-chain map") : t("脉冲热力图", "Pulse Heatmap")}
             </h1>
  <p className="hidden min-w-0 truncate text-xs text-faint lg:block">
-              {industry === "AI-core"
-                ? t("英伟达上下游 · 点名公司看关系", "NVIDIA's up/downstream · who supplies, who buys")
+              {isMap
+                ? t("上游 → 核心 → 下游 · 点名公司看关系", "Upstream → core → downstream · click any name")
                 : t(`${industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头`, `${industryItems.length} names · size = market cap · color = lens`)}
             </p>
           </div>
@@ -721,8 +727,12 @@ export default function PulseClient({
 
       {/* ===== 中间：粒子场 + 排行 ===== */}
  <section className="order-first lg:order-none col-span-12 lg:col-span-6 space-y-4">
-        {industry === "AI-core" ? (
-          <NvidiaChain byTicker={itemByTicker} onOpen={handleOpen} lang={lang} />
+        {isMap ? (
+          industry === "AI-core" ? (
+            <NvidiaChain byTicker={itemByTicker} onOpen={handleOpen} lang={lang} />
+          ) : (
+            <ChainMap def={CHAIN_MAPS[industry]} byTicker={itemByTicker} onOpenTicker={openTicker} lang={lang} />
+          )
         ) : (
         <>
         {/* 镜头选择 + 色阶条 */}
@@ -842,7 +852,7 @@ export default function PulseClient({
             onSelect={revealAndSelect}
             trend={lazyTrends[selected.ticker] || []}
           />
-        ) : industry === "AI-core" ? (
+        ) : isMap ? (
           <ChainHint />
         ) : (
           <EmptyHint />

@@ -8,6 +8,7 @@ import PulseField from "./PulseField";
 import {
   LAYERS,
   SUPPLY_EDGES,
+  COMPANIES,
   heatBand,
   marketPulse,
   INDUSTRIES,
@@ -112,6 +113,11 @@ export function fmtCapB(b: number | null | undefined): string {
 // ===== 产业链(数据驱动,来自 industry-map.json;AI 用 supply-chain 的 L0-L7)=====
 type ChainLayerDef = { id: string; name: string; summary?: string };
 type ChainDef = { id: string; name: string; desc: string; kind?: "chain" | "sector"; layers: ChainLayerDef[] };
+
+// 英伟达·AI 算力链「聚焦态」(industry="AI-core"):只剩手工策展的 129 只纯链(supply-chain.ts COMPANIES),
+// 区别于广义「AI 产业 tab」(industry="AI",= 129 策展 + 全市场 AI 标签补充 ~310 = 439)。
+// 明星链点选要的是「只出现这条链」,所以走聚焦态。用显式 ticker set,稳过 mergeSupplement 给策展票打标签的边界。
+const CORE_AI_TICKERS = new Set(COMPANIES.map((c) => c.ticker));
 
 // "全部"(ALL)去掉了:全市场一起上点太多太乱;默认美股,按需切单一市场。
 const REGIONS: { id: Region | "ALL"; label: string; labelEn: string }[] = [
@@ -308,13 +314,13 @@ export default function PulseClient({
 
   // 明星产业链 —— 复用现有产业链 id,侧栏醒目入口;点选 → setIndustry 切换中间粒子场。锚=链上龙头。
   const STAR_CHAINS: { id: string; name: string; anchor: string }[] = [
-    { id: "AI", name: t("英伟达 · AI 算力链", "NVIDIA · AI compute"), anchor: "NVDA" },
+    { id: "AI-core", name: t("英伟达 · AI 算力链", "NVIDIA · AI compute"), anchor: "NVDA" },
     { id: "humanoid", name: t("人形机器人链", "Humanoid robots"), anchor: t("特斯拉 · 汇川", "TSLA") },
     { id: "solar-storage", name: t("光伏 · 储能链", "Solar · Storage"), anchor: t("宁德 · 隆基", "CATL") },
     { id: "ev", name: t("新能源车链", "EV chain"), anchor: t("比亚迪 · 特斯拉", "BYD") },
     { id: "rare-metals", name: t("稀有 · 战略金属", "Strategic metals"), anchor: t("稀土 · 锂", "REE") },
     { id: "defense", name: t("国防 · 军工链", "Defense"), anchor: t("航发 · 导弹", "Aero") },
-  ].filter((s) => industryDefs.some((d) => d.id === s.id)); // 只留实际存在的链
+  ].filter((s) => s.id === "AI-core" || industryDefs.some((d) => d.id === s.id)); // 留聚焦态 + 实际存在的链
 
   // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层
   // AI 链成员 = 手工策展(无 industries 字段)+ 带 "AI" 标签的补充项。
@@ -329,6 +335,8 @@ export default function PulseClient({
 
   const industryItems = useMemo(() => {
     if (industry === "AI") return aiItems;
+    // 聚焦态:英伟达·AI 算力链 = 只剩手工策展的 129 纯链(去掉全市场 AI 标签补充);沿用策展票自带的 L0-L7 layer
+    if (industry === "AI-core") return aiItems.filter((c) => CORE_AI_TICKERS.has(c.ticker));
     return itemsScored
       .filter((c) => chainPlacement[c.ticker]?.[industry])
       .map((c) => ({ ...c, layer: chainPlacement[c.ticker][industry] as typeof c.layer }));
@@ -367,7 +375,7 @@ export default function PulseClient({
   }, [itemsScored, aiItems, industryDefs, chainPlacement, region, tier, colorMode]);
 
   // 当前 industry 的 edges（仅 AI 有策展上下游连线;数据驱动链暂无）
-  const activeEdges = useMemo(() => (industry === "AI" ? SUPPLY_EDGES : []), [industry]);
+  const activeEdges = useMemo(() => (industry === "AI" || industry === "AI-core" ? SUPPLY_EDGES : []), [industry]);
 
   // 从面板(上下游/排行榜)点选:不光换面板,还要让画布"跳转并选中"——
   // 自动切到能看见它的产业/区域/档位,再把画布滚进视野(2026-06-12 用户反馈:点 TSM 画布无反应)
@@ -375,6 +383,8 @@ export default function PulseClient({
     setSelected(c);
     const inIndustry = industry === "AI"
       ? aiItems.some((x) => x.ticker === c.ticker)
+      : industry === "AI-core"
+      ? CORE_AI_TICKERS.has(c.ticker)
       : !!chainPlacement[c.ticker]?.[industry];
     if (!inIndustry) {
       const tags = (c as { industries?: string[] }).industries;
@@ -455,6 +465,8 @@ export default function PulseClient({
   const topCold = useMemo(() => ranked.slice(-6).reverse().map((x) => x.c), [ranked]);
 
   const currentInd = industryDefs.find((x) => x.id === industry) ?? industryDefs[0];
+  // 聚焦态回退到 AI 的 L0-L7 层,但标题要显示明星链原名,别露馅成"AI 产业链"
+  const currentIndName = industry === "AI-core" ? t("英伟达 · AI 算力链", "NVIDIA · AI compute") : currentInd.name;
   const curLens = LENS_BY_KEY[colorMode];
   const curLensLabel = curLens ? t(curLens.label, curLens.labelEn) : colorMode;
 
@@ -465,7 +477,7 @@ export default function PulseClient({
  <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-2">
           <div className="mr-auto flex min-w-0 items-baseline gap-3">
  <h1 className="shrink-0 text-[22px] font-semibold tracking-tight text-ink">
-              {currentInd.name} · {t("脉冲热力图", "Pulse Heatmap")}
+              {currentIndName} · {t("脉冲热力图", "Pulse Heatmap")}
             </h1>
  <p className="hidden min-w-0 truncate text-xs text-faint lg:block">
               {t(`${industryItems.length} 个标的 · 尺寸=市值 · 颜色=镜头`, `${industryItems.length} names · size = market cap · color = lens`)}

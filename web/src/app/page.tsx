@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import { Suspense } from "react";
 import path from "path";
-import PulseClient from "./pulse/PulseClient";
+import HeatmapShell from "./HeatmapShell";
 import {
   COMPANIES_WITH_HEAT,
   enrichWithSnapshot,
@@ -13,7 +13,6 @@ import { loadTrends } from "@/lib/pulse-static";
 import MacroBar, { type MacroSeries } from "@/components/MacroBar";
 import PremarketStrip from "@/components/PremarketStrip";
 import OnboardingBanner from "@/components/OnboardingBanner";
-import SectorSessions from "@/components/SectorSessions";
 import { T } from "@/lib/i18n";
 
 // Home = Heatmap（不藏起来）
@@ -188,22 +187,22 @@ export default async function HomePage({
       <OnboardingBanner />
       <MacroBar series={macro} />
       <PremarketStrip />
+      {/* 热力图三子视图:脉冲热力 / 产业链 / 板块(页内切换,顶部导航不加 tab) */}
       <Suspense>
-      <PulseClient
-        items={slimItems}
-        liveCount={liveCount}
-        panelSummary={scopedScores}
-        masterOrder={panelSummary.order}
-        coveredCount={coveredCount}
-        analyzedAtLabel={analyzedAtLabel}
-        priceAgeLabel={heatAge}
-        chainIndustries={industryMap.industries}
-        chainPlacement={scopedPlacement}
+      <HeatmapShell
+        pulse={{
+          items: slimItems,
+          liveCount,
+          panelSummary: scopedScores,
+          masterOrder: panelSummary.order,
+          coveredCount,
+          analyzedAtLabel,
+          priceAgeLabel: heatAge,
+          chainIndustries: industryMap.industries,
+          chainPlacement: scopedPlacement,
+        }}
       />
       </Suspense>
-
-      {/* 板块·一日三段(粒子场下面)—— 行高=市值 / 盘前盘中盘后涨跌 / 看轮动 */}
-      <SectorSessions />
 
  <footer className="mt-12 pt-2 text-center">
  <p className="text-[10px] text-faint">

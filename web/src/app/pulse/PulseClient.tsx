@@ -172,6 +172,7 @@ export default function PulseClient({
   priceAgeLabel = null,
   chainIndustries = [],
   chainPlacement = {},
+  mode = "pulse",
 }: {
   items: CompanyWithHeat[];
   trends?: Record<string, TrendPt[]>;
@@ -186,6 +187,7 @@ export default function PulseClient({
   priceAgeLabel?: string | null;
   chainIndustries?: ChainDef[];
   chainPlacement?: Record<string, Record<string, string>>;
+  mode?: "pulse" | "chains";
 }) {
   const router = useRouter();
   // 稳定的"打开个股"回调 —— 内联函数会进粒子场 effect 依赖,每次 render 都重建动画(点一下就跳),useCallback 钉住身份
@@ -204,6 +206,14 @@ export default function PulseClient({
     fetch("/data/trends.json").then((r) => r.json()).then(setLazyTrends).catch(() => { trendsLoaded.current = false; });
   }, [selected]);
  const [industry, setIndustry] = useState<string>(initialIndustry ?? sp.get("industry") ?? "AI");
+  // 子视图模式(热力图三段:脉冲/产业链/板块):产业链态默认落英伟达关系图(AI-core),脉冲态回全市场(AI)。
+  // 只在 mode 真切换时动,不覆盖用户在某态内的手选(skip 首帧)。
+  const modeRef = useRef(mode);
+  useEffect(() => {
+    if (modeRef.current === mode) return;
+    modeRef.current = mode;
+    setIndustry(mode === "chains" ? "AI-core" : "AI");
+  }, [mode]);
  // 默认全市场:之前默认 'US' 把 A 股占主体的链(人形 161/186、国防 361/501、新能源车、光伏储能…)整条藏掉,
  // tab badge 4-5 倍低报(人形机器人显 24 实为 113)。A 股是覆盖主体,不该被默认筛选挡在门外。
  const [region, setRegion] = useState<Region | "ALL">("US");
@@ -571,8 +581,8 @@ export default function PulseClient({
  <div className="grid grid-cols-12 gap-5">
       {/* ===== 左侧：过滤 + 排行 ===== */}
  <aside className="col-span-12 lg:col-span-3 space-y-4">
-        {/* 明星产业链 —— 醒目入口,点选切换中间粒子场 */}
-        {STAR_CHAINS.length > 0 && (
+        {/* 明星产业链 —— 仅"产业链"子视图显示(脉冲态藏起,避免和顶部产业 tab 重复) */}
+        {mode === "chains" && STAR_CHAINS.length > 0 && (
           <div className="rounded-xl border border-accent/40 bg-accent-soft/20 p-4">
             <div className="mb-2 flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-accent">
               <span aria-hidden>★</span>{t("明星产业链", "Star Supply Chains")}
@@ -832,6 +842,8 @@ export default function PulseClient({
             onSelect={revealAndSelect}
             trend={lazyTrends[selected.ticker] || []}
           />
+        ) : industry === "AI-core" ? (
+          <ChainHint />
         ) : (
           <EmptyHint />
         )}
@@ -1434,6 +1446,21 @@ function EmptyHint() {
         {t("颜色 = 当前镜头的真实评分", "Color = real score under the current lens")}<br/>
         {t("灰 = 该镜头下还没判读", "Gray = not scored under this lens yet")}
       </p>
+    </div>
+  );
+}
+
+// 关系图(英伟达链)专属图例 —— 替代"点击粒子"那张(关系图没有粒子)
+function ChainHint() {
+  const { t } = useLang();
+  return (
+    <div className="rounded-xl border border-dashed border-line-2 bg-surface p-6 sticky top-6 space-y-2.5 text-xs leading-relaxed text-muted">
+      <div className="text-sm font-medium text-ink">{t("产业链关系图", "Supply-chain map")}</div>
+      <div>{t("上游供货 → 英伟达 → 下游买卡;每组标出与 NVDA 的关系。", "Upstream supplies → NVDA → downstream buys; each group labeled by its tie to NVDA.")}</div>
+      <div className="space-y-1 border-t border-line pt-2">
+        <div>{t("实线节点 = 在库,可点进详情 · 带实时涨跌", "Solid node = covered, click for details · live %")}</div>
+        <div>{t("灰虚线 = 海外标的,我们暂未覆盖", "Dashed grey = overseas, outside our coverage")}</div>
+      </div>
     </div>
   );
 }

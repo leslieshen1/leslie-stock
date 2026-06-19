@@ -106,6 +106,9 @@ let SECT_MAP: Record<string, string> | null = null; // sym → 大板块
 let SUB_MAP: Record<string, string> | null = null;   // sym → 子主题(仅科技)
 let SECT_CAP: Record<string, number> | null = null;   // 大板块 → 市值
 let SUB_CAP: Record<string, number> | null = null;    // "大板块|子板块" → 市值(key 带前缀防串台)
+let SYM_CAP: Record<string, number> | null = null;    // sym → 市值($B,用于 7日/30日窗口加权)
+let PRICE_HIST: { dates: string[]; closes: Record<string, Record<string, number>> } | null = null;
+let US_WIN: { d7: Sect; d30: Sect } = { d7: {}, d30: {} }; // 美股板块/子主题 近7日·近1月 市值加权收益
 let LAST_SYNC = 0;
 let HASH: { day: string | null; pre: Sect | null; mid: Sect | null; post: Sect | null } = {
   day: null, pre: null, mid: null, post: null,
@@ -118,7 +121,7 @@ async function loadStatic() {
   const p = path.join(process.cwd(), "public", "data", "us-stocks.json");
   const all: Record<string, unknown>[] = JSON.parse(await fs.readFile(p, "utf-8")).stocks || [];
   const sm: Record<string, string> = {}, sub: Record<string, string> = {};
-  const cap: Record<string, number> = {}, subCap: Record<string, number> = {};
+  const cap: Record<string, number> = {}, subCap: Record<string, number> = {}, symCap: Record<string, number> = {};
   for (const s of all) {
     // 所有美股上市票都进板块(不限注册地 —— 海外注册的希捷/埃森哲等也算)
     if (!s.sector || s.capDup) continue;
@@ -126,14 +129,50 @@ async function loadStatic() {
     const sym = String(s.sym);
     sm[sym] = seg;
     const m = Number(s.mcapB);
-    if (m > 0) cap[seg] = (cap[seg] || 0) + m;
+    if (m > 0) { cap[seg] = (cap[seg] || 0) + m; symCap[sym] = m; }
     if (s.sub) {
       const k = `${seg}|${s.sub}`; // 前缀大板块,防同名子板块跨板块串台
       sub[sym] = k;
       if (m > 0) subCap[k] = (subCap[k] || 0) + m;
     }
   }
-  SECT_MAP = sm; SUB_MAP = sub; SECT_CAP = cap; SUB_CAP = subCap;
+  SECT_MAP = sm; SUB_MAP = sub; SECT_CAP = cap; SUB_CAP = subCap; SYM_CAP = symCap;
+}
+
+// 价格历史(30 交易日收盘)— 用于美股板块/子主题的 7日/30日窗口收益。
+async function loadPriceHist() {
+  if (PRICE_HIST) return PRICE_HIST;
+  try {
+    const p = path.join(process.cwd(), "public", "data", "price-history-30d.json");
+    PRICE_HIST = JSON.parse(await fs.readFile(p, "utf-8"));
+  } catch { PRICE_HIST = { dates: [], closes: {} }; }
+  return PRICE_HIST!;
+}
+
+// 美股板块 + 子主题在过去 N 个交易日的市值加权收益(latest/前N根 - 1)。返回扁平 {key:pct}。
+async function computeUsWindow(daysBack: number): Promise<Sect> {
+  const ph = await loadPriceHist();
+  if (!SECT_MAP || !SYM_CAP || !ph.closes) return {};
+  const agg: Record<string, { cap: number; capRet: number }> = {};
+  const add = (key: string, m: number, ret: number) => {
+    const a = (agg[key] ||= { cap: 0, capRet: 0 }); a.cap += m; a.capRet += m * ret;
+  };
+  for (const [sym, dc] of Object.entries(ph.closes)) {
+    const seg = SECT_MAP[sym]; const m = SYM_CAP[sym];
+    if (!seg || !(m > 0) || !dc) continue;
+    const ds = Object.keys(dc).sort();
+    if (ds.length < 2) continue;
+    const last = dc[ds[ds.length - 1]];
+    const ago = dc[ds[Math.max(0, ds.length - 1 - daysBack)]]; // N 交易日前;不足则用最早一根
+    if (!(last > 0) || !(ago > 0)) continue;
+    const ret = (last / ago - 1) * 100;
+    add(seg, m, ret);
+    const sub = SUB_MAP?.[sym];
+    if (sub) add(sub, m, ret);
+  }
+  const out: Sect = {};
+  for (const [k, a] of Object.entries(agg)) if (a.cap) out[k] = Math.round((a.capRet / a.cap) * 100) / 100;
+  return out;
 }
 
 // 当前段实时:大板块 + 子主题各自市值加权涨跌(同一份 /api/market 行情)。返回扁平 {key:pct}。
@@ -163,6 +202,7 @@ async function syncOnce(origin: string) {
   const live = session !== "休市" ? await computeLive(origin) : null;
   LIVE = { session, sect: live };
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
+  US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日
   const r = redis();
   if (!r) { HASH = { day: null, pre: null, mid: null, post: null }; return; }
   const today = etDate();
@@ -200,9 +240,10 @@ export async function GET(req: Request) {
     const sectors = Object.keys(cap).sort((a, b) => cap[b] - cap[a]).map((seg) => {
       const pfx = `${seg}|`;
       const segSubs = subsSorted.filter((k) => k.startsWith(pfx))
-        .map((k) => ({ sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...triple(k) }));
+        .map((k) => ({ sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...triple(k), d7: US_WIN.d7[k] ?? null, d30: US_WIN.d30[k] ?? null }));
       return {
         sector: seg, capB: Math.round(cap[seg]), ...triple(seg),
+        d7: US_WIN.d7[seg] ?? null, d30: US_WIN.d30[seg] ?? null,
         ...(segSubs.length > 1 ? { subs: segSubs } : {}),
       };
     });

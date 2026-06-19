@@ -10,8 +10,8 @@ type Cellv = number | null;
 type GRow = { sector: string; capB: number; vals: Cellv[]; subs?: GRow[] };
 
 // ---- API 原始结构 ----
-type USub = { sector: string; capB: number; pre?: Cellv; mid?: Cellv; post?: Cellv };
-type URow = { sector: string; capB: number; pre: Cellv; mid: Cellv; post: Cellv; subs?: USub[] };
+type USub = { sector: string; capB: number; pre?: Cellv; mid?: Cellv; post?: Cellv; d7?: Cellv; d30?: Cellv };
+type URow = { sector: string; capB: number; pre: Cellv; mid: Cellv; post: Cellv; d7?: Cellv; d30?: Cellv; subs?: USub[] };
 type ASub = { sector: string; capB: number; pct: number };
 type ARow = { sector: string; capB: number; pct: number; subs?: ASub[] };
 type Resp = { sectors: URow[]; aSectors: ARow[]; session: string; day: string; isToday: boolean };
@@ -128,30 +128,42 @@ export default function SectorSessions() {
     return () => { alive = false; clearInterval(id); };
   }, []);
 
+  const [range, setRange] = useState<"today" | "d7" | "d30">("today");
   const us = data?.sectors || null;
   const session = data?.session || "";
   const isToday = !!data?.isToday;
 
-  // 美股 → GRow(vals=盘前/盘中/盘后);A股 → GRow(vals=今日)。各自市值序已由 API 排好。
+  // 时间窗:今日(美股盘前/盘中/盘后·A股今日)/ 近7天 / 近1月(单列窗口收益;美股有30天历史,A股暂无→—)
+  const usVals = (r: { pre: Cellv; mid: Cellv; post: Cellv; d7?: Cellv; d30?: Cellv }): Cellv[] =>
+    range === "d7" ? [r.d7 ?? null] : range === "d30" ? [r.d30 ?? null] : [r.pre, r.mid, r.post];
   const usRows: GRow[] = (us || []).map((r) => ({
-    sector: r.sector, capB: r.capB, vals: [r.pre, r.mid, r.post],
-    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: [s.pre ?? null, s.mid ?? null, s.post ?? null] })),
+    sector: r.sector, capB: r.capB, vals: usVals(r),
+    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: usVals({ pre: s.pre ?? null, mid: s.mid ?? null, post: s.post ?? null, d7: s.d7, d30: s.d30 }) })),
   }));
   const aRows: GRow[] = (data?.aSectors || []).map((r) => ({
-    sector: r.sector, capB: r.capB, vals: [r.pct],
-    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: [s.pct] })),
+    sector: r.sector, capB: r.capB, vals: range === "today" ? [r.pct] : [null],
+    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: range === "today" ? [s.pct] : [null] })),
   }));
 
-  const usLiveCol = isToday && session in SESS_IDX ? SESS_IDX[session] : -1;
-  const usSub = us && us.length
-    ? (isToday ? `${t("当前", "Now")} · ${sLabel(session || "休市")}` : `${t("上一交易日", "Prev")} ${data?.day || ""}`)
-    : "";
+  const usLiveCol = range === "today" && isToday && session in SESS_IDX ? SESS_IDX[session] : -1;
+  const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")] : [sLabel("盘前"), sLabel("盘中"), sLabel("盘后")];
+  const aCols = range === "today" ? [t("今日涨跌", "Change")] : range === "d7" ? [t("近7天", "7D")] : [t("近1月", "1M")];
+  const usSub = !us || !us.length ? ""
+    : range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted")
+    : range === "d30" ? t("近 1 个月 · 市值加权", "Past month · cap-weighted")
+    : (isToday ? `${t("当前", "Now")} · ${sLabel(session || "休市")}` : `${t("上一交易日", "Prev")} ${data?.day || ""}`);
+  const aSub = range === "today" ? t("今日 · 腾讯实时", "Today · live") : t("趋势待 A 股历史攒够", "trend pending A-share history");
 
   return (
     <section className="mt-8">
-      <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+      <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
         <h2 className="text-lg font-semibold text-ink">{t("板块热力 · 美股 vs A股", "Sector Heat · US vs A-share")}</h2>
-        <span className="text-xs text-faint">{t("各按本市场市值排 · 行高=市值 · 颜色=涨跌 · 点板块展开子板块", "each by own-market cap · height = cap · color = change · click to expand")}</span>
+        <div className="inline-flex rounded-lg border border-line bg-surface p-0.5 text-[11px]">
+          {([["today", t("今日", "Today")], ["d7", t("近7天", "7D")], ["d30", t("近1月", "1M")]] as const).map(([k, lbl]) => (
+            <button key={k} onClick={() => setRange(k)} className={`rounded-md px-2.5 py-1 font-medium transition ${range === k ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>{lbl}</button>
+          ))}
+        </div>
+        <span className="hidden text-xs text-faint sm:inline">{t("各按本市场市值排 · 点板块展开子板块", "each by own-market cap · click to expand")}</span>
         <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-faint">
           {[-3, -1, 0, 1, 3].map((v) => <i key={v} className="inline-block h-2.5 w-2.5 rounded-[3px]" style={{ background: heat(v).bg }} />)}
           <span className="ml-1">−3% → +3%</span>
@@ -166,12 +178,12 @@ export default function SectorSessions() {
         <div className="flex flex-col items-start gap-3 lg:flex-row">
           <HeatPanel
             title={t("美股", "US")} titleCls="text-accent" sub={usSub} headLabel={t("板块 · 市值", "Sector · Cap")}
-            cols={[sLabel("盘前"), sLabel("盘中"), sLabel("盘后")]} liveCol={usLiveCol}
+            cols={usCols} liveCol={usLiveCol}
             rows={usRows} capFmt={fcapUS} segLabel={segLabel}
           />
           <HeatPanel
-            title={t("A股", "A-share")} titleCls="text-down" sub={t("今日 · 腾讯实时", "Today · live")} headLabel={t("板块 · 市值", "Sector · Cap")}
-            cols={[t("今日涨跌", "Change")]} liveCol={-1}
+            title={t("A股", "A-share")} titleCls="text-down" sub={aSub} headLabel={t("板块 · 市值", "Sector · Cap")}
+            cols={aCols} liveCol={-1}
             rows={aRows} capFmt={fcapA} segLabel={segLabel}
           />
         </div>
@@ -179,8 +191,8 @@ export default function SectorSessions() {
 
       <p className="mt-1.5 text-[10px] text-faint">
         {t(
-          "左=美股(盘前/盘中/盘后,当前段实时·过去段定格)· 右=A股(今日,腾讯实时)· 两侧各按自己市场的真实市值排序定高(故大小顺序不同)· 点大板块看子板块 · 市值加权 · 非投资建议",
-          "Left = US (pre/open/after) · Right = A-share (today) · each panel sized by its own market's caps (so order differs) · click a sector to expand · cap-weighted · not financial advice",
+          "今日=美股盘前/盘中/盘后·A股今日;近7天/近1月=区间市值加权收益(美股有30天历史;A股趋势待攒够历史再开)· 两侧各按本市场市值排序定高 · 点大板块看子板块 · 非投资建议",
+          "Today = US pre/open/after · A-share today; 7D/1M = window cap-weighted return (US has 30d history; A-share trend pending) · each by own-market cap · click to expand · not financial advice",
         )}
       </p>
     </section>

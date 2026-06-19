@@ -778,7 +778,8 @@ export default function PulseClient({
         </>
         )}
 
-        {/* 排行榜 */}
+        {/* 排行榜 —— 关系图态隐藏(它吃脏 placement 数据,军工里会混进丰田等无关大盘股) */}
+        {!isMap && (
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div className="rounded-xl border border-line bg-surface p-4">
  <div className="flex items-baseline justify-between mb-3">
@@ -839,6 +840,7 @@ export default function PulseClient({
             </div>
           </div>
         </div>
+        )}
       </section>
 
       {/* ===== 右侧：选中详情 ===== */}
@@ -853,7 +855,7 @@ export default function PulseClient({
             trend={lazyTrends[selected.ticker] || []}
           />
         ) : isMap ? (
-          <ChainHint />
+          <ChainHint nvidia={industry === "AI-core"} />
         ) : (
           <EmptyHint />
         )}
@@ -1460,16 +1462,16 @@ function EmptyHint() {
   );
 }
 
-// 关系图(英伟达链)专属图例 —— 替代"点击粒子"那张(关系图没有粒子)
-function ChainHint() {
+// 关系图专属图例 —— 替代"点击粒子"那张(关系图没有粒子)。nvidia=true 多一行海外未覆盖说明(只有英伟达链有标灰)。
+function ChainHint({ nvidia }: { nvidia?: boolean }) {
   const { t } = useLang();
   return (
     <div className="rounded-xl border border-dashed border-line-2 bg-surface p-6 sticky top-6 space-y-2.5 text-xs leading-relaxed text-muted">
       <div className="text-sm font-medium text-ink">{t("产业链关系图", "Supply-chain map")}</div>
-      <div>{t("上游供货 → 英伟达 → 下游买卡;每组标出与 NVDA 的关系。", "Upstream supplies → NVDA → downstream buys; each group labeled by its tie to NVDA.")}</div>
+      <div>{t("上游 → 链主(★)→ 下游;每组标出该环节的关系与角色。", "Upstream → core (★) → downstream; each group labeled by its role.")}</div>
       <div className="space-y-1 border-t border-line pt-2">
-        <div>{t("实线节点 = 在库,可点进详情 · 带实时涨跌", "Solid node = covered, click for details · live %")}</div>
-        <div>{t("灰虚线 = 海外标的,我们暂未覆盖", "Dashed grey = overseas, outside our coverage")}</div>
+        <div>{t("点任一公司进详情 · A股带实时涨跌", "Click any name for details · live % for A-shares")}</div>
+        {nvidia && <div>{t("灰虚线 = 海外标的,我们暂未覆盖", "Dashed grey = overseas, outside our coverage")}</div>}
       </div>
     </div>
   );

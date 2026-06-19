@@ -306,6 +306,16 @@ export default function PulseClient({
     ...chainIndustries,
   ], [chainIndustries, lang]);
 
+  // 明星产业链 —— 复用现有产业链 id,侧栏醒目入口;点选 → setIndustry 切换中间粒子场。锚=链上龙头。
+  const STAR_CHAINS: { id: string; name: string; anchor: string }[] = [
+    { id: "AI", name: t("英伟达 · AI 算力链", "NVIDIA · AI compute"), anchor: "NVDA" },
+    { id: "humanoid", name: t("人形机器人链", "Humanoid robots"), anchor: t("特斯拉 · 汇川", "TSLA") },
+    { id: "solar-storage", name: t("光伏 · 储能链", "Solar · Storage"), anchor: t("宁德 · 隆基", "CATL") },
+    { id: "ev", name: t("新能源车链", "EV chain"), anchor: t("比亚迪 · 特斯拉", "BYD") },
+    { id: "rare-metals", name: t("稀有 · 战略金属", "Strategic metals"), anchor: t("稀土 · 锂", "REE") },
+    { id: "defense", name: t("国防 · 军工链", "Defense"), anchor: t("航发 · 导弹", "Aero") },
+  ].filter((s) => industryDefs.some((d) => d.id === s.id)); // 只留实际存在的链
+
   // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层
   // AI 链成员 = 手工策展(无 industries 字段)+ 带 "AI" 标签的补充项。
   // 全市场注入后(4098 只判读全进图)不能再把 AI 当"全部",否则银行零售挤进 AI 链。
@@ -543,6 +553,29 @@ export default function PulseClient({
  <div className="grid grid-cols-12 gap-5">
       {/* ===== 左侧：过滤 + 排行 ===== */}
  <aside className="col-span-12 lg:col-span-3 space-y-4">
+        {/* 明星产业链 —— 醒目入口,点选切换中间粒子场 */}
+        {STAR_CHAINS.length > 0 && (
+          <div className="rounded-xl border border-accent/40 bg-accent-soft/20 p-4">
+            <div className="mb-2 flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-accent">
+              <span aria-hidden>★</span>{t("明星产业链", "Star Supply Chains")}
+            </div>
+            <div className="flex flex-col gap-1">
+              {STAR_CHAINS.map((ch) => (
+                <button
+                  key={ch.id}
+                  onClick={() => setIndustry(ch.id)}
+                  title={ch.name}
+                  className={`flex items-center justify-between gap-2 rounded-md px-2.5 py-1.5 text-left text-xs transition ${
+                    industry === ch.id ? "bg-surface-3 text-ink ring-1 ring-accent/40" : "text-muted hover:bg-surface-2"
+                  }`}
+                >
+                  <span className="truncate font-medium">{ch.name}</span>
+                  <span className="shrink-0 font-mono text-[10px] text-faint">{ch.anchor}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         {/* 全市场情绪 */}
  <div className="rounded-xl border border-line bg-surface p-5">
  <div className="flex items-baseline justify-between mb-2">

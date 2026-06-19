@@ -49,9 +49,12 @@ async function loadAInd(): Promise<Record<string, string>> {
   return A_IND!;
 }
 
-type ASub = { sector: string; capB: number; pct: number };
-type ASect = { sector: string; capB: number; pct: number; subs?: ASub[] };
+type ASub = { sector: string; capB: number; pct: number; d7?: number | null; d30?: number | null };
+type ASect = { sector: string; capB: number; pct: number; d7?: number | null; d30?: number | null; subs?: ASub[] };
 let A_SECTORS: ASect[] = []; // A 股 12 大板块当前聚合(随 syncOnce 刷新缓存)
+let A_SYM_CAP: Record<string, number> = {}; // A 股 code → 市值(¥亿,最新;给窗口收益加权)
+let A_HIST: { dates: string[]; closes: Record<string, Record<string, number>> } | null = null;
+let A_WIN: { d7: Record<string, number>; d30: Record<string, number> } = { d7: {}, d30: {} }; // A 股板块/子行业 近7日·近1月
 
 // A 股板块聚合:/api/a-market 实时(市值 mcapYi ¥亿 + 涨跌)→ 申万→大板块,市值加权涨跌;
 // 同时按申万子行业聚出 subs(让大板块可展开,如 科技→计算机软件/半导体/消费电子)。
@@ -62,15 +65,18 @@ async function computeAShare(origin: string): Promise<ASect[]> {
   if (!Object.keys(quotes).length) return A_SECTORS; // 抓不到就沿用上次,别清空
   const seg: Record<string, { cap: number; capPct: number }> = {};       // 大板块
   const sub: Record<string, { cap: number; capPct: number }> = {};       // "大板块|申万子行业"(前缀防串台)
+  const aSymCap: Record<string, number> = {};
   for (const [code, q] of Object.entries(quotes)) {
     const sw = ind[code];
     const s = SW_TO_SEG[sw] || "其他";
     const cap = Number(q.mcapYi);
     if (!(cap > 0) || q.pct == null) continue;
+    aSymCap[code] = cap;
     const pct = Number(q.pct);
     (seg[s] ||= { cap: 0, capPct: 0 }); seg[s].cap += cap; seg[s].capPct += cap * pct;
     if (sw) { const k = `${s}|${sw}`; (sub[k] ||= { cap: 0, capPct: 0 }); sub[k].cap += cap; sub[k].capPct += cap * pct; }
   }
+  A_SYM_CAP = aSymCap;
   const wPct = (a: { cap: number; capPct: number }) => Math.round((a.capPct / a.cap) * 100) / 100;
   const subsBySeg: Record<string, ASub[]> = {};
   for (const [k, a] of Object.entries(sub)) {
@@ -83,6 +89,39 @@ async function computeAShare(origin: string): Promise<ASect[]> {
       return { sector, capB: Math.round(a.cap), pct: wPct(a), ...(subs.length > 1 ? { subs } : {}) };
     })
     .sort((x, y) => y.capB - x.capB);
+}
+
+// A 股价格历史(每日收盘累积,见 scripts/cloud_a_history_refresh.py)
+async function loadAHist() {
+  if (A_HIST) return A_HIST;
+  try {
+    const p = path.join(process.cwd(), "public", "data", "a-price-history-30d.json");
+    A_HIST = JSON.parse(await fs.readFile(p, "utf-8"));
+  } catch { A_HIST = { dates: [], closes: {} }; }
+  return A_HIST!;
+}
+
+// A 股板块 + 申万子行业过去 N 个交易日的市值加权收益(用最新 A_SYM_CAP 加权)。返回扁平 {key:pct}。
+// 历史攒够前 closes 很少 → 多数票 <2 根被跳过 → 返回空,组件显示 —。
+async function computeAWindow(daysBack: number): Promise<Record<string, number>> {
+  const h = await loadAHist();
+  const out: Record<string, number> = {};
+  if (!h.closes) return out;
+  const ind = await loadAInd();
+  const agg: Record<string, { cap: number; capRet: number }> = {};
+  const add = (key: string, m: number, ret: number) => { const a = (agg[key] ||= { cap: 0, capRet: 0 }); a.cap += m; a.capRet += m * ret; };
+  for (const [code, dc] of Object.entries(h.closes)) {
+    const sw = ind[code]; const s = SW_TO_SEG[sw] || "其他"; const m = A_SYM_CAP[code];
+    if (!(m > 0) || !dc) continue;
+    const ds = Object.keys(dc).sort();
+    if (ds.length < 2) continue;
+    const last = dc[ds[ds.length - 1]], ago = dc[ds[Math.max(0, ds.length - 1 - daysBack)]];
+    if (!(last > 0) || !(ago > 0)) continue;
+    const ret = (last / ago - 1) * 100;
+    add(s, m, ret); if (sw) add(`${s}|${sw}`, m, ret);
+  }
+  for (const [k, a] of Object.entries(agg)) if (a.cap) out[k] = Math.round((a.capRet / a.cap) * 100) / 100;
+  return out;
 }
 
 function etNow(): Date {
@@ -203,6 +242,7 @@ async function syncOnce(origin: string) {
   LIVE = { session, sect: live };
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日
+  A_WIN = { d7: await computeAWindow(5), d30: await computeAWindow(21) };    // A 股窗口(攒够历史前多为空 → 组件显示 —)
   const r = redis();
   if (!r) { HASH = { day: null, pre: null, mid: null, post: null }; return; }
   const today = etDate();
@@ -248,8 +288,12 @@ export async function GET(req: Request) {
       };
     });
 
+    const aSectors = A_SECTORS.map((s) => ({
+      ...s, d7: A_WIN.d7[s.sector] ?? null, d30: A_WIN.d30[s.sector] ?? null,
+      ...(s.subs ? { subs: s.subs.map((sub) => ({ ...sub, d7: A_WIN.d7[`${s.sector}|${sub.sector}`] ?? null, d30: A_WIN.d30[`${s.sector}|${sub.sector}`] ?? null })) } : {}),
+    }));
     return Response.json(
-      { sectors, aSectors: A_SECTORS, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
+      { sectors, aSectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
       { headers: { "cache-control": "s-maxage=45, stale-while-revalidate=120" } },
     );
   } catch {

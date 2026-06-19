@@ -12,8 +12,8 @@ type GRow = { sector: string; capB: number; vals: Cellv[]; subs?: GRow[] };
 // ---- API 原始结构 ----
 type USub = { sector: string; capB: number; pre?: Cellv; mid?: Cellv; post?: Cellv; d7?: Cellv; d30?: Cellv };
 type URow = { sector: string; capB: number; pre: Cellv; mid: Cellv; post: Cellv; d7?: Cellv; d30?: Cellv; subs?: USub[] };
-type ASub = { sector: string; capB: number; pct: number };
-type ARow = { sector: string; capB: number; pct: number; subs?: ASub[] };
+type ASub = { sector: string; capB: number; pct: number; d7?: Cellv; d30?: Cellv };
+type ARow = { sector: string; capB: number; pct: number; d7?: Cellv; d30?: Cellv; subs?: ASub[] };
 type Resp = { sectors: URow[]; aSectors: ARow[]; session: string; day: string; isToday: boolean };
 
 const SEG_EN: Record<string, string> = {
@@ -140,9 +140,11 @@ export default function SectorSessions() {
     sector: r.sector, capB: r.capB, vals: usVals(r),
     subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: usVals({ pre: s.pre ?? null, mid: s.mid ?? null, post: s.post ?? null, d7: s.d7, d30: s.d30 }) })),
   }));
+  const aVal = (r: { pct: number; d7?: Cellv; d30?: Cellv }): Cellv[] =>
+    range === "d7" ? [r.d7 ?? null] : range === "d30" ? [r.d30 ?? null] : [r.pct];
   const aRows: GRow[] = (data?.aSectors || []).map((r) => ({
-    sector: r.sector, capB: r.capB, vals: range === "today" ? [r.pct] : [null],
-    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: range === "today" ? [s.pct] : [null] })),
+    sector: r.sector, capB: r.capB, vals: aVal(r),
+    subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: aVal(s) })),
   }));
 
   const usLiveCol = range === "today" && isToday && session in SESS_IDX ? SESS_IDX[session] : -1;
@@ -152,7 +154,10 @@ export default function SectorSessions() {
     : range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted")
     : range === "d30" ? t("近 1 个月 · 市值加权", "Past month · cap-weighted")
     : (isToday ? `${t("当前", "Now")} · ${sLabel(session || "休市")}` : `${t("上一交易日", "Prev")} ${data?.day || ""}`);
-  const aSub = range === "today" ? t("今日 · 腾讯实时", "Today · live") : t("趋势待 A 股历史攒够", "trend pending A-share history");
+  const aHasWin = (data?.aSectors || []).some((r) => (range === "d7" ? r.d7 : r.d30) != null);
+  const aSub = range === "today" ? t("今日 · 腾讯实时", "Today · live")
+    : aHasWin ? (range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted") : t("近 1 个月 · 市值加权", "Past month · cap-weighted"))
+    : t("趋势待 A 股历史攒够", "trend pending A-share history");
 
   return (
     <section className="mt-8">

@@ -47,6 +47,7 @@ jobs:
           uv run python -m fetchers.finnhub      || echo "⚠ finnhub 失败,保留旧"
           uv run python -m fetchers.us_etfs      || echo "⚠ us_etfs 失败,保留旧"
           uv run python -m fetchers.news_google  || echo "⚠ news_google 失败,保留旧"
+          uv run python scripts/cloud_a_history_refresh.py || echo "⚠ A股收盘历史累积失败,保留旧"
           if [ "${{ inputs.skip_fundamentals }}" != "true" ]; then
             uv run python -m fetchers.fundamentals || echo "⚠ fundamentals 失败(慢/限流),保留旧"
           fi
@@ -56,7 +57,8 @@ jobs:
           git config user.email "data-bot@users.noreply.github.com"
           git add web/public/data/macro.json web/public/data/earnings-calendar.json \
                   web/public/data/market-news.json web/public/data/us-etfs.json \
-                  web/public/data/us-news.json web/public/data/us-fundamentals.json 2>/dev/null || true
+                  web/public/data/us-news.json web/public/data/us-fundamentals.json \
+                  web/public/data/a-price-history-30d.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "数据无变化,跳过"; exit 0; fi
           git commit -m "chore: 云端数据刷新(宏观/财报/新闻/ETF/基本面) $(TZ=America/New_York date +%F)"
           for i in 1 2 3; do git push && break || { git pull --rebase --autostash; sleep 3; }; done

@@ -606,6 +606,8 @@ export default function PulseClient({
             </div>
           </div>
         )}
+        {/* gauge / 区域 / 筛选 / 层焦点 —— 都只对粒子场有意义,关系图态藏掉(否则 SpaceX 这种无 placement 的链 gauge 会算出 NaN) */}
+        {!isMap && (<>
         {/* 全市场情绪 */}
  <div className="rounded-xl border border-line bg-surface p-5">
  <div className="flex items-baseline justify-between mb-2">
@@ -719,6 +721,7 @@ export default function PulseClient({
             ))}
           </div>
         </div>
+        </>)}
       </aside>
 
       {/* ===== 中间：粒子场 + 排行 ===== */}

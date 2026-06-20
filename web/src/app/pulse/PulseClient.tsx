@@ -332,12 +332,8 @@ export default function PulseClient({
   // 明星产业链 —— 复用现有产业链 id,侧栏醒目入口;点选 → setIndustry 切换中间粒子场。锚=链上龙头。
   const STAR_CHAINS: { id: string; name: string; anchor: string }[] = [
     { id: "AI-core", name: t("英伟达 · AI 算力链", "NVIDIA · AI compute"), anchor: "NVDA" },
-    { id: "humanoid", name: t("人形机器人链", "Humanoid robots"), anchor: t("特斯拉 · 汇川", "TSLA") },
-    { id: "solar-storage", name: t("光伏 · 储能链", "Solar · Storage"), anchor: t("宁德 · 隆基", "CATL") },
-    { id: "ev", name: t("新能源车链", "EV chain"), anchor: t("比亚迪 · 特斯拉", "BYD") },
-    { id: "rare-metals", name: t("稀有 · 战略金属", "Strategic metals"), anchor: t("稀土 · 锂", "REE") },
-    { id: "defense", name: t("国防 · 军工链", "Defense"), anchor: t("航发 · 导弹", "Aero") },
-  ].filter((s) => s.id === "AI-core" || industryDefs.some((d) => d.id === s.id)); // 留聚焦态 + 实际存在的链
+    { id: "spacex", name: t("SpaceX · 商业航天链", "SpaceX · space chain"), anchor: t("马斯克", "Musk") },
+  ].filter((s) => s.id === "AI-core" || !!CHAIN_MAPS[s.id]); // 明星产业链 = 英伟达(精策展)+ CHAIN_MAPS 里的知名公司链
 
   // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层
   // AI 链成员 = 手工策展(无 industries 字段)+ 带 "AI" 标签的补充项。
@@ -486,7 +482,7 @@ export default function PulseClient({
 
   const currentInd = industryDefs.find((x) => x.id === industry) ?? industryDefs[0];
   // 聚焦态回退到 AI 的 L0-L7 层,但标题要显示明星链原名,别露馅成"AI 产业链"
-  const currentIndName = industry === "AI-core" ? t("英伟达 · AI 算力链", "NVIDIA · AI compute") : currentInd.name;
+  const currentIndName = STAR_CHAINS.find((s) => s.id === industry)?.name ?? currentInd.name;
   const curLens = LENS_BY_KEY[colorMode];
   const curLensLabel = curLens ? t(curLens.label, curLens.labelEn) : colorMode;
 

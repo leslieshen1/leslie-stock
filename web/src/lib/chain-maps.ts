@@ -23,4 +23,31 @@ export const CHAIN_MAPS: Record<string, ChainMapDef> = {
       { tie: "防务发射巨头 · 同场竞技", tieEn: "Defense launch giants · rivals", nodes: [U("BA", "波音"), U("LMT", "洛克希德"), U("NOC", "诺斯罗普"), U("RTX", "RTX"), U("LHX", "L3Harris")] },
     ],
   },
+
+  // ===== 苹果 Apple(供应链:谁造 iPhone)=====
+  apple: {
+    flow: "芯片 / 屏 / 存储 → 中国果链组装 → 苹果",
+    flowEn: "Chips / display / memory → China assembly → Apple",
+    groups: [
+      { tie: "主芯片 · 台积电独家代工 A/M 系列", tieEn: "SoC · TSMC sole foundry", nodes: [U("TSM", "台积电")] },
+      { tie: "射频 · 基带 · 无线", tieEn: "RF · baseband · wireless", nodes: [U("AVGO", "博通"), U("QCOM", "高通"), U("SWKS", "Skyworks"), U("QRVO", "Qorvo")] },
+      { tie: "存储 · 屏幕", tieEn: "Memory · display", nodes: [U("MU", "美光"), A("000725", "京东方")] },
+      { tie: "中国果链 · 组装 / 声学 / 玻璃 / 光学", tieEn: "China assembly / acoustics / glass / optics", nodes: [A("002475", "立讯精密"), A("002241", "歌尔股份"), A("300433", "蓝思科技"), A("002456", "欧菲光")] },
+      { tie: "★ 苹果 · 链主(最大买家)", tieEn: "Apple · the core buyer", core: true, nodes: [U("AAPL", "苹果")] },
+    ],
+  },
+
+  // ===== 特斯拉 Tesla(电动车 + 机器人)=====
+  tesla: {
+    flow: "电池 / 锂 → 中国零部件 → 智驾芯片 → 特斯拉 → 对手 / Optimus",
+    flowEn: "Battery / lithium → China parts → AI chips → Tesla → rivals / Optimus",
+    groups: [
+      { tie: "动力电池 · 锂资源", tieEn: "Battery · lithium", nodes: [A("300750", "宁德时代"), A("002460", "赣锋锂业"), A("002466", "天齐锂业")] },
+      { tie: "中国链 · 热管理 / 结构件", tieEn: "China parts · thermal / structures", nodes: [A("002050", "三花智控"), A("601689", "拓普集团"), A("603305", "旭升集团")] },
+      { tie: "智驾芯片 · FSD / Dojo", tieEn: "AI chips · FSD / Dojo", nodes: [U("NVDA", "英伟达"), U("TSM", "台积电")] },
+      { tie: "★ 特斯拉 · 链主", tieEn: "Tesla · the core", core: true, nodes: [U("TSLA", "特斯拉")] },
+      { tie: "电动车对手 · 同场竞技", tieEn: "EV rivals", nodes: [A("002594", "比亚迪"), U("LI", "理想"), U("NIO", "蔚来"), U("XPEV", "小鹏"), U("RIVN", "Rivian"), U("LCID", "Lucid")] },
+      { tie: "Optimus 机器人 · 补能", tieEn: "Optimus robot · charging", nodes: [A("688017", "绿的谐波"), A("003021", "兆威机电"), A("300001", "特锐德")] },
+    ],
+  },
 };

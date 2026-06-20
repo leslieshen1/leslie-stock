@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-18 22:45 ET Thu",
+ "asof_et": "2026-06-19 22:01 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.78%",
@@ -230,175 +230,98 @@
    "hour": "amc",
    "epsEst": -0.578,
    "date": "2026-06-19"
-  },
-  {
-   "sym": "ACN",
-   "name": "Accenture plc Class A Ordinary Shares (Ireland)",
-   "hour": "bmo",
-   "epsEst": 3.7466,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "AIMAU",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "CRCW",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "CYAN",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "DPG",
-   "name": "Duff & Phelps Utility and Infrastructure Fund Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "DTF",
-   "name": "DTF Tax-Free Income 2028 Term Fund Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "IHT",
-   "name": "InnSuites Hospitality Trust Shares of Beneficial Interest",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "KR",
-   "name": "Kroger Company (The)",
-   "hour": "bmo",
-   "epsEst": 1.6397,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "MODD",
-   "name": "Modular Medical Inc.",
-   "hour": "amc",
-   "epsEst": -0.1122,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "RTON",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-18"
-  },
-  {
-   "sym": "WTER",
-   "name": null,
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-06-18"
   }
  ],
  "news": [
   {
-   "h": "Wall St indexes advance with boost from chips, Iran optimism - Reuters",
+   "h": "With Lebanon ceasefire set, Trump envoy heads to Switzerland for U.S.-Iran talks - Reuters",
    "src": "Reuters",
-   "sum": "Wall St indexes advance with boost from chips, Iran optimism  Reuters"
+   "sum": "With Lebanon ceasefire set, Trump envoy heads to Switzerland for U.S.-Iran talks  Reuters"
   },
   {
-   "h": "Republicans blast Trump's Iran agreement as details emerge - Reuters",
-   "src": "Reuters",
-   "sum": "Republicans blast Trump's Iran agreement as details emerge  Reuters"
-  },
-  {
-   "h": "Trading Day: Stocks rally, oil hits pre-Iran-war lows as Strait of Hormuz reopens for business - Reuters",
-   "src": "Reuters",
-   "sum": "Trading Day: Stocks rally, oil hits pre-Iran-war lows as Strait of Hormuz reopens for business  Reuters"
-  },
-  {
-   "h": "In photos: Star-studded crowd gathers to celebrate the Obama Presidential Center dedication",
+   "h": "DOJ rebuffs judge's request to put in writing it won't move forward with 'anti-weaponization' fund",
    "src": "CNBC",
-   "sum": "Barack Obama opened his presidential center in Chicago with former presidents, celebrities and dignitaries in attendance. President Donald Trump was absent."
+   "sum": "The DOJ in May announced it was creating the fund as part of a settlement of President Donald Trump's $10 billion lawsuit against the Internal Revenue Service."
   },
   {
-   "h": "Vance warns Israeli critics over Iran deal: Trump is your only ally - Reuters",
+   "h": "Israel, Hezbollah agree to ceasefire in Lebanon, U.S. official says - Reuters",
    "src": "Reuters",
-   "sum": "Vance warns Israeli critics over Iran deal: Trump is your only ally  Reuters"
+   "sum": "Israel, Hezbollah agree to ceasefire in Lebanon, U.S. official says  Reuters"
   },
   {
-   "h": "High-wire diplomacy delivered US-Iran deal but hardest stage lies ahead, sources say - Reuters",
+   "h": "Trump heads to Camp David as Iran talks falter - Reuters",
    "src": "Reuters",
-   "sum": "High-wire diplomacy delivered US-Iran deal but hardest stage lies ahead, sources say  Reuters"
+   "sum": "Trump heads to Camp David as Iran talks falter  Reuters"
   },
   {
-   "h": "NBA to name winning bids for Europe teams in the coming months, deputy commissioner says",
+   "h": "Iran to lodge FIFA complaint over World Cup travel restrictions - Reuters",
+   "src": "Reuters",
+   "sum": "Iran to lodge FIFA complaint over World Cup travel restrictions  Reuters"
+  },
+  {
+   "h": "Fedspeak vs. war deal: Here are the things that drove this week's stock market",
    "src": "CNBC",
-   "sum": "The NBA plans to name winning bidders for 12 permanent European teams in the next 60 to 90 days, Deputy Commissioner Mark Tatum told CNBC."
+   "sum": "The S&P 500 surged on Thursday, making up for losses seen after central bankers convened."
   },
   {
-   "h": "Explainer: How Trump's deal with Iran compares to Obama's - Reuters",
+   "h": "For US Vice President JD Vance, Iran talks could shape political rise - Reuters",
    "src": "Reuters",
-   "sum": "Explainer: How Trump's deal with Iran compares to Obama's  Reuters"
+   "sum": "For US Vice President JD Vance, Iran talks could shape political rise  Reuters"
   },
   {
-   "h": "US Treasury imposes sanctions on Lebanese officials, others for aiding Hezbollah - Reuters",
+   "h": "Iraq to export crude, naphtha through Syria after Hormuz shock - Reuters",
    "src": "Reuters",
-   "sum": "US Treasury imposes sanctions on Lebanese officials, others for aiding Hezbollah  Reuters"
+   "sum": "Iraq to export crude, naphtha through Syria after Hormuz shock  Reuters"
   },
   {
-   "h": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights - Reuters",
+   "h": "Oil shipments rise in Hormuz although questions grow over Iran's transit terms - Reuters",
    "src": "Reuters",
-   "sum": "Iran's Khamenei says he approved MoU with US, despite reservations, after assurances on Iran's rights  Reuters"
+   "sum": "Oil shipments rise in Hormuz although questions grow over Iran's transit terms  Reuters"
   },
   {
-   "h": "Markets are set for a much more hawkish Warsh Fed than expected",
+   "h": "Pentagon tells US lawmakers it needs $80 billion for Iran war and other bills, WSJ reports - Reuters",
+   "src": "Reuters",
+   "sum": "Pentagon tells US lawmakers it needs $80 billion for Iran war and other bills, WSJ reports  Reuters"
+  },
+  {
+   "h": "29-year-old making $250k in tech went 'undercover' at a coffee chain before opening her own matcha cafe",
    "src": "CNBC",
-   "sum": "Fed Chairman Kevin Warsh's tough talk on inflation Wednesday reverberated through financial markets."
+   "sum": "Michelle Yeung wasn't happy in tech, despite earning $250,000 a year. Before opening Matcha House, she spent months learning the business."
   },
   {
-   "h": "US-Iran deal redraws the Middle East: Iran gains, rivals alarmed - Reuters",
+   "h": "Israel, Hezbollah agree to ceasefire starting on Friday -U.S. official - Reuters",
    "src": "Reuters",
-   "sum": "US-Iran deal redraws the Middle East: Iran gains, rivals alarmed  Reuters"
+   "sum": "Israel, Hezbollah agree to ceasefire starting on Friday -U.S. official  Reuters"
   },
   {
-   "h": "Accenture forecast takes hit from Iran war, shares tumble over 17% - Reuters",
+   "h": "US equity fund inflows surge on Iran deal, tech draws record weekly investments - Reuters",
    "src": "Reuters",
-   "sum": "Accenture forecast takes hit from Iran war, shares tumble over 17%  Reuters"
+   "sum": "US equity fund inflows surge on Iran deal, tech draws record weekly investments  Reuters"
   },
   {
-   "h": "White House sends text of interim US-Iran agreement to US Congress - Reuters",
+   "h": "Iran says it will waive fees for Hormuz during 60 day negotiation period - Reuters",
    "src": "Reuters",
-   "sum": "White House sends text of interim US-Iran agreement to US Congress  Reuters"
+   "sum": "Iran says it will waive fees for Hormuz during 60 day negotiation period  Reuters"
   },
   {
-   "h": "Western countries warn of atrocities, imminent RSF escalation in Sudan's al-Obeid - Reuters",
-   "src": "Reuters",
-   "sum": "Western countries warn of atrocities, imminent RSF escalation in Sudan's al-Obeid  Reuters"
+   "h": "Bob Iger reflects on 10 years of Shanghai Disneyland as it defies the Chinese pullback",
+   "src": "CNBC",
+   "sum": "Shanghai Disneyland hit 100 million cumulative visitors in 2025, according to the company. It's a relatively new but important foothold in Disney's history."
   },
   {
-   "h": "What sanctions are there on Iran and will they be lifted? - Reuters",
+   "h": "Police order last-minute ban of Iranian opposition rally in Paris - Reuters",
    "src": "Reuters",
-   "sum": "What sanctions are there on Iran and will they be lifted?  Reuters"
+   "sum": "Police order last-minute ban of Iranian opposition rally in Paris  Reuters"
   },
   {
-   "h": "Vance says 60-day period in Iran deal begins Thursday - Reuters",
+   "h": "France's foreign ministry denies asking for ban of Iranian opposition rally - Reuters",
    "src": "Reuters",
-   "sum": "Vance says 60-day period in Iran deal begins Thursday  Reuters"
+   "sum": "France's foreign ministry denies asking for ban of Iranian opposition rally  Reuters"
   },
   {
-   "h": "Israel demarcates expanded Lebanon occupation zone, challenging US-Iran pact - Reuters",
+   "h": "No UN sanctions lifting on Iran without France's approval, foreign minister says - Reuters",
    "src": "Reuters",
-   "sum": "Israel demarcates expanded Lebanon occupation zone, challenging US-Iran pact  Reuters"
+   "sum": "No UN sanctions lifting on Iran without France's approval, foreign minister says  Reuters"
   }
  ]
 }

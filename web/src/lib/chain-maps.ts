@@ -33,7 +33,7 @@ export const CHAIN_MAPS: Record<string, ChainMapDef> = {
       { tie: "射频 · 基带 · 无线", tieEn: "RF · baseband · wireless", nodes: [U("AVGO", "博通"), U("QCOM", "高通"), U("SWKS", "Skyworks"), U("QRVO", "Qorvo")] },
       { tie: "存储 · 屏幕", tieEn: "Memory · display", nodes: [U("MU", "美光"), A("000725", "京东方")] },
       { tie: "中国果链 · 组装 / 声学 / 玻璃 / 光学", tieEn: "China assembly / acoustics / glass / optics", nodes: [A("002475", "立讯精密"), A("002241", "歌尔股份"), A("300433", "蓝思科技"), A("002456", "欧菲光")] },
-      { tie: "★ 苹果 · 链主(最大买家)", tieEn: "Apple · the core buyer", core: true, nodes: [U("AAPL", "苹果")] },
+      { tie: "苹果 · 链主(最大买家)", tieEn: "Apple · the core buyer", core: true, nodes: [U("AAPL", "苹果")] },
     ],
   },
 
@@ -45,7 +45,7 @@ export const CHAIN_MAPS: Record<string, ChainMapDef> = {
       { tie: "动力电池 · 锂资源", tieEn: "Battery · lithium", nodes: [A("300750", "宁德时代"), A("002460", "赣锋锂业"), A("002466", "天齐锂业")] },
       { tie: "中国链 · 热管理 / 结构件", tieEn: "China parts · thermal / structures", nodes: [A("002050", "三花智控"), A("601689", "拓普集团"), A("603305", "旭升集团")] },
       { tie: "智驾芯片 · FSD / Dojo", tieEn: "AI chips · FSD / Dojo", nodes: [U("NVDA", "英伟达"), U("TSM", "台积电")] },
-      { tie: "★ 特斯拉 · 链主", tieEn: "Tesla · the core", core: true, nodes: [U("TSLA", "特斯拉")] },
+      { tie: "特斯拉 · 链主", tieEn: "Tesla · the core", core: true, nodes: [U("TSLA", "特斯拉")] },
       { tie: "电动车对手 · 同场竞技", tieEn: "EV rivals", nodes: [A("002594", "比亚迪"), U("LI", "理想"), U("NIO", "蔚来"), U("XPEV", "小鹏"), U("RIVN", "Rivian"), U("LCID", "Lucid")] },
       { tie: "Optimus 机器人 · 补能", tieEn: "Optimus robot · charging", nodes: [A("688017", "绿的谐波"), A("003021", "兆威机电"), A("300001", "特锐德")] },
     ],

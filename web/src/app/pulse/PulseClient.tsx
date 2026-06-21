@@ -546,7 +546,8 @@ export default function PulseClient({
           </div>
         </div>
 
-        {/* Industry Tabs — 一条横滑条(桌面也不折行,右侧 mask 渐隐提示可滑),比 2 行折叠更整齐 */}
+        {/* Industry Tabs(板块 tab)— 仅"脉冲热力"视图显示;产业链视图用左侧明星产业链导航,不要这排板块 tab(否则点了跳回粒子场、违和) */}
+        {mode !== "chains" && (
  <div className="flex flex-nowrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-center gap-2 [mask-image:linear-gradient(to_right,#000_93%,transparent)] [-webkit-mask-image:linear-gradient(to_right,#000_93%,transparent)]">
           {industryDefs.map((ind) => {
             const active = industry === ind.id;
@@ -579,6 +580,7 @@ export default function PulseClient({
             );
           })}
         </div>
+        )}
       </header>
 
       <AiPersonaNote className="mb-3" />

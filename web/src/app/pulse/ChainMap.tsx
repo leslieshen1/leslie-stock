@@ -39,16 +39,17 @@ export default function ChainMap({
   const pctOf = (n: CNode): number | null | undefined => (n.cn ? aPct[n.t] : byTicker.get(n.t)?.pct);
 
   const chip = (n: CNode) => {
-    // 私有公司(如字节跳动):非可点标签,无涨跌
+    // 非可点灰标签:私有公司(字节/宇树)或我们未覆盖的市场(港股等)
     if (n.label) {
+      const note = n.note ?? tt("私有 · 未上市", "private");
       return (
         <span
           key={n.name}
-          title="私有公司,未上市"
+          title={note}
           className="inline-flex items-center gap-1.5 rounded-md border border-dashed border-line px-2.5 py-1 text-xs font-semibold text-muted"
         >
           {n.name}
-          <span className="text-[9px] font-normal text-faint">私有 · 未上市</span>
+          <span className="text-[9px] font-normal text-faint">{note}</span>
         </span>
       );
     }

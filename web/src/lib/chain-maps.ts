@@ -2,13 +2,14 @@
 // 不是行业板块链;是「某个明星公司 + 它的上游供应商 / 下游客户 / 同场对手」。公司全部已核对在库。
 // cn:true = A股(代码走 a-market 取实时涨跌、region=CN);否则美股(items/market、region=US)。core=链主(高亮)。
 
-export type CNode = { t: string; name: string; cn?: boolean; label?: boolean };
+export type CNode = { t: string; name: string; cn?: boolean; label?: boolean; note?: string };
 export type CGroup = { tie: string; tieEn: string; core?: boolean; nodes: CNode[] };
 export type ChainMapDef = { flow: string; flowEn: string; groups: CGroup[] };
 
 const A = (t: string, name: string): CNode => ({ t, name, cn: true });
 const U = (t: string, name: string): CNode => ({ t, name });
-const L = (name: string): CNode => ({ t: "", name, label: true }); // 私有公司 · 非可点中心标签(如字节跳动)
+// 非可点灰标签:私有公司(默认"未上市")或我们未覆盖的市场(传 note,如"港股·未覆盖")
+const L = (name: string, note?: string): CNode => ({ t: "", name, label: true, note });
 
 export const CHAIN_MAPS: Record<string, ChainMapDef> = {
   // ===== SpaceX · 商业航天 =====
@@ -62,6 +63,33 @@ export const CHAIN_MAPS: Record<string, ChainMapDef> = {
       { tie: "字节跳动 · 抖音 / TikTok / 豆包 · 链主", tieEn: "ByteDance · Douyin / TikTok / Doubao", core: true, nodes: [L("字节跳动")] },
       { tie: "TikTok 美国云 · 合作", tieEn: "TikTok US cloud · partner", nodes: [U("ORCL", "甲骨文")] },
       { tie: "中国互联网巨头 · 对手", tieEn: "China internet giants · rivals", nodes: [U("BABA", "阿里巴巴"), U("BIDU", "百度"), U("PDD", "拼多多"), U("JD", "京东")] },
+    ],
+  },
+
+  // ===== 物理 AI · 具身智能(机器人全产业链)—— 卖铲的吃饭最早,本体多在一级市场 =====
+  "physical-ai": {
+    flow: "底座 → 训练场 → 感知 → 关节 → 本体 → 下游 · 卖铲的吃饭最早",
+    flowEn: "Compute → simulation → perception → joints → robots → apps",
+    groups: [
+      { tie: "① 底座 · 算力 / 芯片 / 系统(英伟达=铲王)", tieEn: "Compute / chips / systems", nodes: [
+        U("NVDA", "英伟达"), A("601138", "工业富联"), A("000977", "浪潮信息"), A("603019", "中科曙光"), A("688256", "寒武纪"), A("688041", "海光信息"), A("300496", "中科创达"), U("BB", "黑莓 QNX"), U("QCOM", "高通"), U("MBLY", "Mobileye"),
+        L("华为昇腾"), L("摩尔线程"), L("地平线", "港股·未覆盖"), L("黑芝麻", "港股·未覆盖")] },
+      { tie: "② 训练场 · 世界模型 / 仿真 / 数据(壁垒最高)", tieEn: "World models / simulation / data", nodes: [
+        U("NVDA", "英伟达 Cosmos/Isaac"), A("688507", "索辰科技"), A("688083", "中望软件"), A("301313", "凡拓数创"), A("300825", "阿尔特"),
+        L("光轮智能 · 合成数据"), L("智元 Genie Sim")] },
+      { tie: "③ 感知 · 视觉 / 激光雷达 / 力觉 / 触觉", tieEn: "Vision / lidar / force / tactile", nodes: [
+        A("688322", "奥比中光"), A("688400", "凌云光"), A("688003", "天准科技"), U("HSAI", "禾赛"), A("603662", "柯力传感"),
+        L("速腾聚创", "港股·未覆盖"), L("图达通"), L("帕西尼 · 电子皮肤")] },
+      { tie: "④ 关节 · 减速器 / 丝杠(落地最快)", tieEn: "Reducers / screws", nodes: [
+        A("688017", "绿的谐波"), A("002472", "双环传动"), A("002896", "中大力德"), A("000837", "秦川机床"), A("603667", "五洲新春"), A("603009", "北特科技"), A("300100", "双林股份"), A("601100", "恒立液压")] },
+      { tie: "⑤ 关节 · 电机 / 总成 / 轴承", tieEn: "Motors / assembly / bearings", nodes: [
+        A("300124", "汇川技术"), A("603728", "鸣志电器"), A("003021", "兆威机电"), A("002050", "三花智控"), A("601689", "拓普集团"), A("300718", "长盛轴承"), A("002046", "国机精工")] },
+      { tie: "⑥ 本体 · 整机(最性感最挤 · 多为一级市场)", tieEn: "Humanoid bodies (mostly private)", nodes: [
+        U("TSLA", "特斯拉 Optimus"), U("XPEV", "小鹏 IRON"),
+        L("宇树 Unitree"), L("智元"), L("优必选", "港股·未覆盖"), L("傅利叶"), L("银河通用"), L("Figure AI"), L("波士顿动力")] },
+      { tie: "⑦ 下游 · 第一战场(车 / 工业 / 软件)", tieEn: "Downstream apps", nodes: [
+        A("688165", "埃夫特"), A("688777", "中控技术"), A("600845", "宝信软件"), A("002415", "海康威视"),
+        L("ABB / 发那科 / 库卡", "海外工业机器人")] },
     ],
   },
 };

@@ -580,8 +580,8 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
           />
           <button
             onClick={() => setFiltersOpen((v) => !v)}
-            className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition sm:hidden ${
-              filtersOpen || activeFilterCount > 0
+            className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
+              filtersOpen
                 ? "bg-accent text-black"
                 : "border border-accent/30 bg-accent-soft text-accent"
             }`}
@@ -600,7 +600,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
 
         {/* 以下三类筛选只对股票有意义,ETF 模式隐藏;移动端默认收起 */}
         {secType !== "etf" && (
-        <div className={filtersOpen ? "block" : "hidden sm:block"}>
+        <div className={filtersOpen ? "block" : "hidden"}>
         {/* 印股票 / 稀释风险 */}
         {flagCount > 0 && (
  <div className="mb-2 flex flex-wrap items-center gap-1.5">
@@ -616,7 +616,6 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                 {label}
               </button>
             ))}
- <span className="text-[11px] sm:text-[10px] text-faint">{t("货架额度 ≫ 市值,可近乎无限增发(SEC EDGAR · 已排除大公司常规融资)", "Shelf capacity ≫ market cap — near-unlimited share issuance (SEC EDGAR · routine large-cap financing excluded)")}</span>
           </div>
         )}
 
@@ -641,7 +640,6 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                 {label}
               </button>
             ))}
-            <span className="text-[11px] sm:text-[10px] text-faint">{t("共识 = 均分 ≥60 且分歧 ≤25(五方评分一致);分歧 = 五方评分极差,数值越大争议越大", "Consensus = avg ≥60 & divergence ≤25 (the five align); divergence = score range, larger means more contested")}</span>
           </div>
         )}
 
@@ -660,7 +658,6 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                 {k === "all" ? t("不限", "Any") : masterLabel(k, lang)}
               </button>
             ))}
-            <span className="text-[11px] sm:text-[10px] text-faint">{t("可叠加:先按某位投资人筛选,再按均分排序,定位单一视角与综合评价的差异", "Stackable: filter by one investor, then sort by average to surface single-view vs. consensus gaps")}</span>
           </div>
         )}
 

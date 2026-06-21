@@ -2,12 +2,13 @@
 // 不是行业板块链;是「某个明星公司 + 它的上游供应商 / 下游客户 / 同场对手」。公司全部已核对在库。
 // cn:true = A股(代码走 a-market 取实时涨跌、region=CN);否则美股(items/market、region=US)。core=链主(高亮)。
 
-export type CNode = { t: string; name: string; cn?: boolean };
+export type CNode = { t: string; name: string; cn?: boolean; label?: boolean };
 export type CGroup = { tie: string; tieEn: string; core?: boolean; nodes: CNode[] };
 export type ChainMapDef = { flow: string; flowEn: string; groups: CGroup[] };
 
 const A = (t: string, name: string): CNode => ({ t, name, cn: true });
 const U = (t: string, name: string): CNode => ({ t, name });
+const L = (name: string): CNode => ({ t: "", name, label: true }); // 私有公司 · 非可点中心标签(如字节跳动)
 
 export const CHAIN_MAPS: Record<string, ChainMapDef> = {
   // ===== SpaceX · 商业航天 =====
@@ -48,6 +49,19 @@ export const CHAIN_MAPS: Record<string, ChainMapDef> = {
       { tie: "特斯拉 · 链主", tieEn: "Tesla · the core", core: true, nodes: [U("TSLA", "特斯拉")] },
       { tie: "电动车对手 · 同场竞技", tieEn: "EV rivals", nodes: [A("002594", "比亚迪"), U("LI", "理想"), U("NIO", "蔚来"), U("XPEV", "小鹏"), U("RIVN", "Rivian"), U("LCID", "Lucid")] },
       { tie: "Optimus 机器人 · 补能", tieEn: "Optimus robot · charging", nodes: [A("688017", "绿的谐波"), A("003021", "兆威机电"), A("300001", "特锐德")] },
+    ],
+  },
+
+  // ===== 字节跳动 ByteDance(私有 · AI 生态)=====
+  bytedance: {
+    flow: "AI 算力 / 服务器 → 字节跳动(私有) → TikTok 云 / 互联网对手",
+    flowEn: "AI compute / servers → ByteDance (private) → cloud / internet rivals",
+    groups: [
+      { tie: "AI 算力 · 进口 + 国产替代(被限购)", tieEn: "AI compute · imports + domestic", nodes: [U("NVDA", "英伟达"), A("688256", "寒武纪"), A("688041", "海光信息")] },
+      { tie: "服务器 · 光模块", tieEn: "Servers · optics", nodes: [A("000977", "浪潮信息"), A("601138", "工业富联"), A("300308", "中际旭创")] },
+      { tie: "字节跳动 · 抖音 / TikTok / 豆包 · 链主", tieEn: "ByteDance · Douyin / TikTok / Doubao", core: true, nodes: [L("字节跳动")] },
+      { tie: "TikTok 美国云 · 合作", tieEn: "TikTok US cloud · partner", nodes: [U("ORCL", "甲骨文")] },
+      { tie: "中国互联网巨头 · 对手", tieEn: "China internet giants · rivals", nodes: [U("BABA", "阿里巴巴"), U("BIDU", "百度"), U("PDD", "拼多多"), U("JD", "京东")] },
     ],
   },
 };

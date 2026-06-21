@@ -39,6 +39,19 @@ export default function ChainMap({
   const pctOf = (n: CNode): number | null | undefined => (n.cn ? aPct[n.t] : byTicker.get(n.t)?.pct);
 
   const chip = (n: CNode) => {
+    // 私有公司(如字节跳动):非可点标签,无涨跌
+    if (n.label) {
+      return (
+        <span
+          key={n.name}
+          title="私有公司,未上市"
+          className="inline-flex items-center gap-1.5 rounded-md border border-dashed border-line px-2.5 py-1 text-xs font-semibold text-muted"
+        >
+          {n.name}
+          <span className="text-[9px] font-normal text-faint">私有 · 未上市</span>
+        </span>
+      );
+    }
     const pct = pctOf(n);
     return (
       <button

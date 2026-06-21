@@ -335,6 +335,7 @@ export default function PulseClient({
     { id: "spacex", name: t("SpaceX · 商业航天链", "SpaceX · space chain"), anchor: t("马斯克", "Musk") },
     { id: "apple", name: t("苹果 · iPhone 供应链", "Apple · iPhone chain"), anchor: t("库克", "Cook") },
     { id: "tesla", name: t("特斯拉 · 车 + 机器人", "Tesla · EV + robot"), anchor: t("马斯克", "Musk") },
+    { id: "bytedance", name: t("字节 · 抖音 AI 生态", "ByteDance · AI ecosystem"), anchor: t("私有", "private") },
   ].filter((s) => s.id === "AI-core" || !!CHAIN_MAPS[s.id]); // 明星产业链 = 英伟达(精策展)+ CHAIN_MAPS 里的知名公司链
 
   // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层

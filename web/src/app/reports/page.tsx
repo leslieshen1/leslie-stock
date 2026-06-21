@@ -47,7 +47,7 @@ export default async function ReportsPage() {
         <p className="text-xs text-faint"><T zh="市场日历 · 今日大事 · 盘前/收盘总结 · 非投资建议" en="Calendar · Today's Events · Pre-market & Close Notes · Not Financial Advice" /></p>
       </header>
       {/* 左右两栏:左=市场日历+今日大事(桌面 sticky 固定),右=盘前/收盘报告;移动端上下叠 */}
-      <div className="grid grid-cols-1 items-start gap-x-6 lg:grid-cols-[340px_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 items-start gap-x-6 lg:grid-cols-[360px_minmax(0,1fr)]">
         <aside className="lg:sticky lg:top-4">
           {/* 1/ 市场日历(未来 10 天盯什么 = 抓取日历 ∪ 手动大事,展示端按今日过滤) */}
           <MarketCalendar events={merged} />

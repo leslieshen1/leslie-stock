@@ -61,17 +61,19 @@ export default function MarketCalendar({ events }: { events: CalEvent[] }) {
                 <div className={`text-sm font-semibold ${rel === "今天" ? "text-accent" : "text-ink"}`}>{md}</div>
                 <div className="text-[10px] text-faint"><T zh={wd} en={wdEn} />{rel && <> · <T zh={rel} en={REL_EN[rel] ?? rel} /></>}</div>
               </div>
-              <div className="min-w-0 flex-1 space-y-1.5">
+              <div className="min-w-0 flex-1 space-y-2">
                 {evs.map((e, i) => (
-                  <div key={i} className="flex items-baseline gap-2 text-xs">
-                    <span className="w-9 sm:w-11 shrink-0 tabular-nums text-faint">{e.timeET || "—"}</span>
-                    <span className={`hidden sm:inline-block shrink-0 rounded px-1 py-0.5 text-[9px] ${e.kind === "macro" ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"}`}>
-                      {e.kind === "macro" ? <T zh="宏观" en="Macro" /> : <T zh="财报" en="Earnings" />}
-                    </span>
-                    <span className={`min-w-0 truncate ${e.hi ? "font-semibold text-ink" : "text-muted"}`}>
-                      {e.hi && "🔴 "}{e.title}
-                    </span>
-                    {e.detail && <span className="hidden truncate text-faint sm:inline">{e.detail}</span>}
+                  <div key={i} className="text-xs leading-snug">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="w-8 shrink-0 tabular-nums text-[11px] text-faint">{e.timeET || "—"}</span>
+                      <span className={`min-w-0 flex-1 truncate ${e.hi ? "font-semibold text-ink" : "text-muted"}`}>
+                        {e.hi && "🔴 "}{e.title}
+                      </span>
+                      <span className={`shrink-0 rounded px-1 py-0.5 text-[9px] ${e.kind === "macro" ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"}`}>
+                        {e.kind === "macro" ? <T zh="宏观" en="Macro" /> : <T zh="财报" en="Earnings" />}
+                      </span>
+                    </div>
+                    {e.detail && <div className="ml-[2.375rem] mt-0.5 text-[10px] text-faint">{e.detail}</div>}
                   </div>
                 ))}
               </div>

@@ -41,17 +41,24 @@ export default async function ReportsPage() {
     })),
   ].sort((a, b) => a.date.localeCompare(b.date) || (a.timeET || "").localeCompare(b.timeET || ""));
   return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-6 pb-10 pt-3">
+    <main className="mx-auto max-w-7xl px-4 sm:px-6 pb-10 pt-3">
       <header className="mb-3 flex flex-wrap items-baseline gap-x-3">
         <h1 className="text-[22px] font-semibold tracking-tight text-ink"><T zh="盘报" en="Reports" /></h1>
         <p className="text-xs text-faint"><T zh="市场日历 · 今日大事 · 盘前/收盘总结 · 非投资建议" en="Calendar · Today's Events · Pre-market & Close Notes · Not Financial Advice" /></p>
       </header>
-      {/* 1/ 市场日历(未来 10 天盯什么 = 抓取日历 ∪ 手动大事,展示端按今日过滤) */}
-      <MarketCalendar events={merged} />
-      {/* 2/ 今日大事(实时,30 分钟缓存) */}
-      <TodayEventsSection ev={today} />
-      {/* 3/ 盘前 / 收盘总结 */}
-      <ReportsClient reports={reports} />
+      {/* 左右两栏:左=市场日历+今日大事(桌面 sticky 固定),右=盘前/收盘报告;移动端上下叠 */}
+      <div className="grid grid-cols-1 items-start gap-x-6 lg:grid-cols-[340px_minmax(0,1fr)]">
+        <aside className="lg:sticky lg:top-4">
+          {/* 1/ 市场日历(未来 10 天盯什么 = 抓取日历 ∪ 手动大事,展示端按今日过滤) */}
+          <MarketCalendar events={merged} />
+          {/* 2/ 今日大事(实时,30 分钟缓存) */}
+          <TodayEventsSection ev={today} />
+        </aside>
+        {/* 3/ 盘前 / 收盘总结 */}
+        <div className="min-w-0">
+          <ReportsClient reports={reports} />
+        </div>
+      </div>
     </main>
   );
 }

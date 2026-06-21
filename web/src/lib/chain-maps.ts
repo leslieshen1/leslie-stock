@@ -76,7 +76,7 @@ export const CHAIN_MAPS: Record<string, ChainMapDef> = {
         L("华为昇腾"), L("摩尔线程"), L("地平线", "港股·未覆盖"), L("黑芝麻", "港股·未覆盖")] },
       { tie: "② 训练场 · 世界模型 / 仿真 / 数据(壁垒最高)", tieEn: "World models / simulation / data", nodes: [
         U("NVDA", "英伟达 Cosmos/Isaac"), A("688507", "索辰科技"), A("688083", "中望软件"), A("301313", "凡拓数创"), A("300825", "阿尔特"),
-        L("光轮智能 · 合成数据"), L("智元 Genie Sim"), L("Skild AI", "海外·未上市")] },
+        L("光轮智能 · 合成数据"), L("智元 Genie Sim"), L("五一视界 51WORLD · 数字孪生"), L("Skild AI", "海外·未上市"), L("Applied Intuition", "海外·未上市")] },
       { tie: "③ 感知 · 视觉 / 激光雷达 / 力觉 / 触觉", tieEn: "Vision / lidar / force / tactile", nodes: [
         A("688322", "奥比中光"), A("688400", "凌云光"), A("688003", "天准科技"), U("HSAI", "禾赛"), A("603662", "柯力传感"),
         L("速腾聚创", "港股·未覆盖"), L("图达通"), L("帕西尼 · 电子皮肤"), L("坤维科技 · 六维力"), L("他山科技 · 触觉")] },

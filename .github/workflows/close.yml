@@ -53,6 +53,11 @@ jobs:
           # 北京 10:00am 时美东是前一日 22:00 → ET 日期就是刚收盘那天
           ET_DATE=$(TZ=America/New_York date +%Y-%m-%d)
           ET_YMD=$(TZ=America/New_York date +%Y%m%d)
+          # 美股休市日(假日/周末)不发盘报 —— 2026-06-19 Juneteenth 曾空跑生成。含观察日;2028+ 补名单。
+          HOLIDAYS="2026-01-01 2026-01-19 2026-02-16 2026-04-03 2026-05-25 2026-06-19 2026-07-03 2026-09-07 2026-11-26 2026-12-25 2027-01-01 2027-01-18 2027-02-15 2027-03-26 2027-05-31 2027-06-18 2027-07-05 2027-09-06 2027-11-25 2027-12-24"
+          if [ "$(TZ=America/New_York date +%u)" -ge 6 ] || echo "$HOLIDAYS" | grep -qw "$ET_DATE"; then
+            echo "⏭ $ET_DATE 美股休市,跳过收盘盘报"; exit 0
+          fi
           uv run python scripts/close_report.py --no-email
           MD="data/reports/close_${ET_YMD}.md"
           TITLE=$(head -1 "$MD" | sed 's/^# *//')

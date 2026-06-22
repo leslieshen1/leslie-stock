@@ -6,7 +6,7 @@ import { fetchWithTimeout } from "@/lib/api-guard";
 // 板块热力 · 盘前/盘中/盘后三段。顶层=清洗后的大板块(~12,按 GICS sector 合并),
 // 「科技」可展开看子主题(AI算力/存储/光模块/半导体/软件/互联网/硬件 —— 数据层 dedup_market_cap.py 打的 sub)。
 // 跟页面实时数据走:当前段实时(随访问刷)、过去段定格、未到段空。顶层与子主题共用一套 Upstash 单 key 定格。
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它让边缘不缓存)。读 req(origin)本就动态;用 Vercel-CDN-Cache-Control 让边缘缓存 45s,函数少打。
 
 const KEY = "sg:sect:cur";
 const FIELD: Record<string, "pre" | "mid" | "post"> = { 盘前: "pre", 盘中: "mid", 盘后: "post" };
@@ -342,7 +342,10 @@ export async function GET(req: Request) {
     }));
     return Response.json(
       { sectors, aSectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
-      { headers: { "cache-control": "s-maxage=45, stale-while-revalidate=120" } },
+      { headers: {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "Vercel-CDN-Cache-Control": "max-age=45, stale-while-revalidate=120",
+      } },
     );
   } catch {
     return Response.json({ sectors: [], aSectors: [], session: "", day: "" });

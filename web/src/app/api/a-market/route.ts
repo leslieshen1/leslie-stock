@@ -4,7 +4,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { clientIp, rateLimit, tooMany, fetchWithTimeout } from "@/lib/api-guard";
 
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它让边缘不缓存)。读 req(限流)本就动态;用 Vercel-CDN-Cache-Control 让边缘缓存 55s,函数少打。
 
 // 上次成功的全盘快照 —— 腾讯整体抽风/被限时,serve 上次好值,避免列表价格全空白。
 type AQuote = { price: number | null; pct: number | null; vol: number | null; mcapYi: number | null };
@@ -80,7 +80,10 @@ export async function GET(req: Request) {
       if (count >= syms.length * 0.5) A_LAST_GOOD = { quotes, ts: Date.now() };
       return Response.json(
         { quotes, ts: Date.now(), count },
-        { headers: { "cache-control": "s-maxage=60" } },
+        { headers: {
+          "cache-control": "public, max-age=0, must-revalidate",
+          "Vercel-CDN-Cache-Control": "max-age=55, stale-while-revalidate=120",
+        } },
       );
     }
     // 全部批次失败 → 降级到上次好值(带 stale 标记)

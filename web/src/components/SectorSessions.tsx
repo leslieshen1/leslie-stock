@@ -152,13 +152,11 @@ export default function SectorSessions() {
   const isToday = !!data?.isToday;
 
   // 时间窗:今日(美股盘前/盘中/盘后·A股今日)/ 近7天 / 近1月(单列窗口收益;美股有30天历史,A股暂无→—)
-  // 美股今日窗=单列显示「当前时段」的真实涨跌。盘前/盘后现已从 Nasdaq /info 取真延伸时段价(见 sector-sessions 路由),
-  // 故盘前/盘中/盘后都是实时;休市则显示最近一个常规时段收盘。
-  const usLiveNow = session === "盘前" || session === "盘中" || session === "盘后";
-  const usCur = (r: { pre: Cellv; mid: Cellv; post: Cellv }): Cellv =>
-    session === "盘前" ? r.pre : session === "盘后" ? r.post : session === "盘中" ? r.mid : (r.post ?? r.mid ?? r.pre);
+  // 美股今日窗=盘前/盘中/盘后三列(数据已都真:盘前/盘后走 Nasdaq /info、盘中走 screener,见 sector-sessions 路由)。
+  // 当前时段列=实时(绿脉动)、过去段定格、未到段空 —;休市则三列为上一交易日定格。
+  const usLiveNow = session in SESS_IDX; // 盘前/盘中/盘后
   const usVals = (r: { pre: Cellv; mid: Cellv; post: Cellv; d7?: Cellv; d30?: Cellv }): Cellv[] =>
-    range === "d7" ? [r.d7 ?? null] : range === "d30" ? [r.d30 ?? null] : [usCur(r)];
+    range === "d7" ? [r.d7 ?? null] : range === "d30" ? [r.d30 ?? null] : [r.pre, r.mid, r.post];
   const usRows: GRow[] = (us || []).map((r) => ({
     sector: r.sector, capB: r.capB, vals: usVals(r),
     subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: usVals({ pre: s.pre ?? null, mid: s.mid ?? null, post: s.post ?? null, d7: s.d7, d30: s.d30 }) })),
@@ -170,14 +168,13 @@ export default function SectorSessions() {
     subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: aVal(s) })),
   }));
 
-  const usLiveCol = range === "today" && usLiveNow ? 0 : -1;
-  const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")]
-    : [usLiveNow ? sLabel(session) : t("上一交易日收盘", "Prev close")];
+  const usLiveCol = range === "today" && usLiveNow ? SESS_IDX[session] : -1;
+  const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")] : [sLabel("盘前"), sLabel("盘中"), sLabel("盘后")];
   const aCols = range === "today" ? [t("今日涨跌", "Change")] : range === "d7" ? [t("近7天", "7D")] : [t("近1月", "1M")];
   const usSub = !us || !us.length ? ""
     : range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted")
     : range === "d30" ? t("近 1 个月 · 市值加权", "Past month · cap-weighted")
-    : (usLiveNow ? `${sLabel(session)} · ${t("实时", "live")}`
+    : (usLiveNow ? `${t("当前", "Now")} · ${sLabel(session)} · ${t("实时", "live")}`
        : t("上一交易日收盘 · 已休市", "Prev close · market closed"));
   const aHasWin = (data?.aSectors || []).some((r) => (range === "d7" ? r.d7 : r.d30) != null);
   const aSub = range === "today" ? t("今日 · 腾讯实时", "Today · live")

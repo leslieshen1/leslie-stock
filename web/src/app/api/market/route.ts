@@ -17,6 +17,38 @@ function num(s: unknown): number | null {
   return Number.isFinite(v) ? v : null;
 }
 
+// 美东盘口时段。screener 只有常规时段;盘前/盘后要从 /info 端点补真价。
+function etSession(): "pre" | "regular" | "post" | "closed" {
+  const p = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
+  const wd = p.find((x) => x.type === "weekday")?.value;
+  if (wd === "Sat" || wd === "Sun") return "closed";
+  const m = (+(p.find((x) => x.type === "hour")?.value ?? "0") % 24) * 60 + +(p.find((x) => x.type === "minute")?.value ?? "0");
+  if (m >= 240 && m < 570) return "pre";
+  if (m >= 570 && m < 960) return "regular";
+  if (m >= 960 && m < 1200) return "post";
+  return "closed";
+}
+
+// 盘前/盘后:screener 的 pct 是上一常规收盘(冻住) → 用 /api/quote(Nasdaq /info,带真延伸时段价)覆盖市值 top-N 龙头的 price/pct。
+// 只覆盖龙头(列表默认按市值排,这些就是可见行 + 大家关心的票),其余保留 screener 值;分批查、CDN 60s 缓存,载荷可控。
+async function overlayExtended(quotes: Quotes, origin: string): Promise<void> {
+  const top = Object.entries(quotes)
+    .filter(([, q]) => (q.mcapB ?? 0) > 0)
+    .sort((a, b) => (b[1].mcapB ?? 0) - (a[1].mcapB ?? 0))
+    .slice(0, 100)
+    .map(([s]) => s);
+  for (let i = 0; i < top.length; i += 25) {
+    const batch = top.slice(i, i + 25).join(",");
+    const j = await fetchWithTimeout(`${origin}/api/quote?syms=${encodeURIComponent(batch)}`, {}, 10000)
+      .then((x) => x.json()).catch(() => null);
+    const qs = (j?.quotes || {}) as Record<string, { price: number | null; pct: number | null }>;
+    for (const [sym, q] of Object.entries(qs)) {
+      const cur = quotes[sym];
+      if (cur && q.price != null) { cur.price = q.price; if (q.pct != null) cur.pct = q.pct; }
+    }
+  }
+}
+
 export async function GET(req: Request) {
   const rl = rateLimit(`mkt:${clientIp(req)}`, 60, 60_000);
   if (!rl.ok) return tooMany(rl.retryAfter);
@@ -51,9 +83,14 @@ export async function GET(req: Request) {
       }
     }
     if (Object.keys(quotes).length === 0) throw new Error("empty");
+    // 盘前/盘后:screener 只有上一常规收盘 → 用 /info 真延伸时段价覆盖 top-N 龙头(列表/自选/任何读本接口的页面随之变真盘前/盘后)
+    const session = etSession();
+    if (session === "pre" || session === "post") {
+      try { await overlayExtended(quotes, new URL(req.url).origin); } catch { /* 覆盖失败保留 screener 值兜底 */ }
+    }
     MKT_LAST_GOOD = { quotes, ts: Date.now() };
     return Response.json(
-      { quotes, ts: MKT_LAST_GOOD.ts, count: Object.keys(quotes).length },
+      { quotes, ts: MKT_LAST_GOOD.ts, count: Object.keys(quotes).length, session },
       { headers: { "cache-control": "s-maxage=60, stale-while-revalidate=120" } },
     );
   } catch {

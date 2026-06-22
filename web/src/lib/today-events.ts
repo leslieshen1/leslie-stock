@@ -147,9 +147,11 @@ export async function loadTodayEvents(): Promise<TodayEvents | null> {
     const grp = (hours: string[], cap: number) => {
       const g = ears.filter((e) => hours.includes(e.hour || ""))
         .map(row)
+        // 丢掉不在美股库的垃圾 ticker(无名无市值,多为退市/外国票,如 $MDRX/$INTE)—— 别让噪音上"今日大事"
+        .filter((r) => r.sym && r.name)
         .sort((a, b) => (b.mcapB ?? 0) - (a.mcapB ?? 0));
       const main = g.filter((r) => (r.mcapB ?? 0) >= 0.5).slice(0, cap);
-      const small = g.filter((r) => !main.includes(r) && r.sym).map((r) => r.sym).slice(0, 10);
+      const small = g.filter((r) => !main.includes(r)).map((r) => r.sym).slice(0, 5); // 小盘同日收紧到 5,不刷屏
       return { main, small };
     };
     const b = grp(["bmo"], 6);

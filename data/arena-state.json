@@ -1767,9 +1767,89 @@
    "reason": "资金把它从沉闷玻璃股重新定价成AI光连接，机构和卖方预期差都在抬轿，热度升温但还没到微盘妖股那种极端拥挤。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 86,
+   "fill_date": "2026-06-22",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我没有看到哪一门生意的护城河被削弱，也没有看到候选名单里有足够便宜到值得我卖掉现有好生意去换的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 87,
+   "fill_date": "2026-06-22",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看懂了，商业模式和文化没有变化，盘前涨跌不是让我换来换去的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 88,
+   "fill_date": "2026-06-22",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我不因为盘口热闹去拆真瓶颈仓位：现在这十个位置都还站在卡脖子窄门上，下游 capex 没有掉头，按兵不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 89,
+   "fill_date": "2026-06-22",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "NBIS",
+   "reason": "这匹马前面跑得够猛，但今天盘前在AI链整体顺风里几乎不动，边际动量弱了我就把资本挪给更强的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 90,
+   "fill_date": "2026-06-22",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "WDC",
+   "reason": "AI基建外溢到存储是今天最诚实的价格信号，盘前直接领涨，这种供给紧、Beta高的马我顺流动性去追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 91,
+   "fill_date": "2026-06-22",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "VRT",
+   "reason": "AI算力最后都落到电力和散热，VRT盘前继续强，是这条宏观主线里最干净的高弹性表达之一。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 92,
+   "fill_date": "2026-06-22",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HLNE",
+   "reason": "HLNE盘前还在死水里晃，私募资管这条线今天没有增量资金，和AI/半导体/电力热钱比就是资金效率太低，先下车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 93,
+   "fill_date": "2026-06-22",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "GLW",
+   "reason": "GLW被重新贴上AI光连接标签，盘前继续有资金承接，机构流入和叙事升温都在，但还没像微盘AI那样挤到一碰就炸。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 86,
+ "next_order_id": 94,
  "notes": [
   {
    "date": "2026-06-12",

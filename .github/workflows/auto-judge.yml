@@ -1,0 +1,67 @@
+name: auto-judge
+
+# 五方自动刷新(每周一次)—— 把已覆盖五方库里、本周【大幅异动】的美股/A股,云端用 Claude Opus 4.8 重判五方。
+# 口径(用户 2026-06-22 定):一周一次 · 美股+A股 · 只刷新已覆盖的票 · 有上限控成本(默认 US≤15 + A≤10)。
+# 脚本 scripts/auto_refresh_panels.py 纯读 JSON(无 leslie.db 依赖),只覆盖 panel+divergence,保留 name/sector/desc/chain。
+#
+# 触发:GitHub schedule 兜底(周六,不可靠)+ workflow_dispatch(手动/可勾 dry 只检测)+ cron-job.org 打 /api/cron/auto-judge 准点。
+
+on:
+  schedule:
+    - cron: "0 3 * * 6"   # 周六 03:00 UTC = 北京周六 11:00(美/A 上周五都已收盘);GitHub schedule 常延迟,仅兜底
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "只检测不调 LLM(看本周会刷哪些票,不花 token)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-judge
+  cancel-in-progress: false
+
+jobs:
+  judge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Sync Python deps
+        run: uv sync
+      - name: 自动刷新五方(本周异动的已覆盖票)
+        env:
+          NDT_CLAUDE_KEY: ${{ secrets.NDT_CLAUDE_KEY }}
+          NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
+          NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
+          AUTOJUDGE_DRY: ${{ inputs.dry && '1' || '' }}
+        run: uv run python scripts/auto_refresh_panels.py
+      - name: 提交并推送(只 add 这两个五方 JSON,绝不碰 leslie.db / 代码)
+        if: ${{ !inputs.dry }}
+        run: |
+          git config user.name "judge-bot"
+          git config user.email "judge-bot@users.noreply.github.com"
+          git add web/public/data/us-analyses.json web/public/data/a-analyses.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "本周无异动需刷新,跳过"; exit 0; fi
+          git commit -m "chore: 五方自动刷新(本周异动) $(TZ=America/New_York date +%F)"
+          for i in 1 2 3; do git push && break || { git pull --rebase --autostash; sleep 3; }; done
+      - name: Deploy to Vercel(显式兜底)
+        if: ${{ success() && !inputs.dry }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then echo "无 VERCEL_TOKEN —— 跳过显式部署(靠 git 集成)"; exit 0; fi
+          cd web
+          npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
+          npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN

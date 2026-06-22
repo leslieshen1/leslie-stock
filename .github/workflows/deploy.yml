@@ -1,0 +1,36 @@
+name: deploy
+
+# 纯部署:把 main 当前代码 build + 部署到 Vercel,不抓数据、不 git commit。
+# 为什么单独搞:data-refresh.yml 把「抓数据+commit数据JSON」和「部署」绑在一起,数据 commit 一撞 git 竞态
+# 就失败,Deploy 步(if: success())被跳 → 纯代码改也部署不上。本工作流只做部署,避开数据竞态。
+# 用法:gh workflow run deploy.yml(代码 push 到 main 后跑这个上线)。
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Deploy to Vercel(build 远端,纯代码、不碰数据)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then echo "缺 VERCEL_TOKEN"; exit 1; fi
+          cd web
+          npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
+          npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN

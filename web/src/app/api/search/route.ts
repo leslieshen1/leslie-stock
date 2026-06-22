@@ -138,6 +138,45 @@ function loadKrStocks(): ManifestItem[] {
   return [];
 }
 
+// 港股五方(hk-analyses.json)— 也进搜索,market=hk(SearchBox 原生支持 HK)。同 kr:英文别名进 thesis,市值留 null(港股市值口径不同)。
+const HK_ALIAS: Record<string, string> = {
+  "2513": "Zhipu GLM Z.ai Knowledge Atlas",
+};
+let HK_CACHE: { items: ManifestItem[]; mtime: number } | null = null;
+
+function loadHkStocks(): ManifestItem[] {
+  const candidates = [
+    path.join(process.cwd(), "public", "data", "hk-analyses.json"),
+    path.resolve(process.cwd(), "..", "web", "public", "data", "hk-analyses.json"),
+  ];
+  for (const p of candidates) {
+    if (!fs.existsSync(p)) continue;
+    const stat = fs.statSync(p);
+    if (HK_CACHE && HK_CACHE.mtime === stat.mtimeMs) return HK_CACHE.items;
+    try {
+      const j = JSON.parse(fs.readFileSync(p, "utf-8")) as { stocks?: Record<string, KrRaw> };
+      const items: ManifestItem[] = Object.entries(j.stocks || {}).map(([code, s]) => ({
+        code,
+        name: s.name || code,
+        market: "hk",
+        market_cap_yi: null,
+        sector: s.sector || "",
+        layer: null,
+        score: 0,
+        verdict: "",
+        verdict_label: "",
+        signals_hit: 0,
+        thesis: `${s.desc || ""}${HK_ALIAS[code] ? " · " + HK_ALIAS[code] : ""}`,
+      }));
+      HK_CACHE = { items, mtime: stat.mtimeMs };
+      return items;
+    } catch {
+      // try next path
+    }
+  }
+  return [];
+}
+
 function loadManifest(): ManifestItem[] {
   const candidates = [
     path.join(process.cwd(), "data", "aleabit_manifest.json"),
@@ -190,7 +229,8 @@ export async function GET(req: Request) {
   const etfExtra = loadUsEtfs().filter((e) => !seen.has(e.code.toUpperCase()));
   // 韩股直接并入(代码即使与 A 股 6 位重合也无妨:market 不同、各自链接正确,顶多多一条结果)
   const krExtra = loadKrStocks();
-  const items = [...manifest, ...usExtra, ...etfExtra, ...krExtra];
+  const hkExtra = loadHkStocks();
+  const items = [...manifest, ...usExtra, ...etfExtra, ...krExtra, ...hkExtra];
 
   // 评分优先级：
   // 1. code 完全匹配

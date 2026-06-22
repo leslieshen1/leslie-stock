@@ -26,9 +26,9 @@ export type UsPanel = {
 // us-analyses.json / a-analyses.json 取(模块级只读一次)。us-panels/ 被 gitignore 未进 git → CI 部署没有
 // per-stock 文件,否则所有美股详情页都"暂无深度分析"(2026-06-22 抓包)。
 const AGG_CACHE: Record<string, Record<string, UsPanel> | null> = {};
-function loadAggregate(kind: "us" | "a" | "kr"): Record<string, UsPanel> {
+function loadAggregate(kind: "us" | "a" | "kr" | "hk"): Record<string, UsPanel> {
   if (AGG_CACHE[kind] !== undefined && AGG_CACHE[kind] !== null) return AGG_CACHE[kind]!;
-  const file = kind === "a" ? "a-analyses.json" : kind === "kr" ? "kr-analyses.json" : "us-analyses.json";
+  const file = kind === "a" ? "a-analyses.json" : kind === "kr" ? "kr-analyses.json" : kind === "hk" ? "hk-analyses.json" : "us-analyses.json";
   for (const p of [
     path.join(process.cwd(), "public", "data", file),
     path.resolve(process.cwd(), "..", "web", "public", "data", file),
@@ -53,8 +53,9 @@ export function loadUsPanel(sym: string, market?: string): UsPanel | null {
   // 韩股(market=kr)代码也是 6 位数字,与 A 股命名空间冲突 → 靠 market 显式区分,走独立 kr-panels/ + kr-analyses.json。
   // 其余:A 股纯数字(如 600519)→ a-panels/;美股字母 → us-panels/。
   const isKr = market === "kr";
-  const isA = !isKr && /^\d+$/.test(c);
-  const dir = isKr ? "kr-panels" : isA ? "a-panels" : "us-panels";
+  const isHk = market === "hk";  // 港股代码也是数字,同样靠 market 区分走独立 hk-panels/hk-analyses(避开 A 股命名空间)
+  const isA = !isKr && !isHk && /^\d+$/.test(c);
+  const dir = isKr ? "kr-panels" : isHk ? "hk-panels" : isA ? "a-panels" : "us-panels";
   const candidates = [
     safeUnder(path.join(process.cwd(), "public", "data", dir), `${s}.json`),
     safeUnder(path.resolve(process.cwd(), "..", "web", "public", "data", dir), `${s}.json`),
@@ -69,7 +70,7 @@ export function loadUsPanel(sym: string, market?: string): UsPanel | null {
     }
   }
   // per-stock 缺失 → 回退聚合(*-analyses.json 已提交,CI 部署也有)
-  const fromAgg = loadAggregate(isKr ? "kr" : isA ? "a" : "us")[s];
+  const fromAgg = loadAggregate(isKr ? "kr" : isHk ? "hk" : isA ? "a" : "us")[s];
   if (fromAgg?.panel) return fromAgg;
   return null;
 }

@@ -493,7 +493,6 @@ export default function PulseField({
 
         const raw = rawScoreOf(p);
         const covered = raw != null;
-        const s = raw ?? 42;
         const dim = highlightRef.current && highlightRef.current !== p.data.layer;
         const isSelected = selectedIdRef.current === p.data.id;
         // 选中时其他粒子大幅淡出（focus 模式）
@@ -502,18 +501,7 @@ export default function PulseField({
         const alphaScale = (dim ? 0.20 : 1) * introAlpha * focusFade * (covered ? 1 : 0.5);
         const r = p.baseR * sizeMul;
 
-        // 单圈脉冲，且仅覆盖 + 高分（≥75）才有
-        if (appearProgress >= 0.7 && covered && s >= 75) {
-          const period = 5000 - s * 35;
-          const phase = ((t + p.phase) % period) / period;
-          const ringR = r + phase * (r * 4 + 6);
-          const ringA = (1 - phase) * 0.3 * alphaScale;
-          ctx.strokeStyle = nodeColor(p, ringA);
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, ringR, 0, Math.PI * 2);
-          ctx.stroke();
-        }
+        // (高分点的"单圈脉冲"波纹已去掉 —— Leslie 嫌乱;保留点本身的 glow 光晕即可)
 
         // glow 光晕 — 预渲染 sprite + globalAlpha,与原 radial 渐变等价但走 GPU 合成
         const glowR = r * 1.6;

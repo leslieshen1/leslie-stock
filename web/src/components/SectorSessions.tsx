@@ -178,7 +178,8 @@ export default function SectorSessions() {
     : range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted")
     : range === "d30" ? t("近 1 个月 · 市值加权", "Past month · cap-weighted")
     : (usLiveNow ? t("盘中 · 实时", "Regular · live")
-       : `${session === "盘后" ? t("今日收盘", "Today's close") : `${t("上一交易日", "Prev")} ${data?.day || ""}`} · ${t("此源无盘前/盘后实时", "no pre/after-hours feed")}`);
+       : session === "盘后" ? `${t("今日收盘", "Today's close")} · ${t("此源无盘后实时", "no after-hours feed")}`
+       : `${t("上一交易日收盘", "Prev close")} · ${t("此源无盘前实时", "no pre-market feed")}`);
   const aHasWin = (data?.aSectors || []).some((r) => (range === "d7" ? r.d7 : r.d30) != null);
   const aSub = range === "today" ? t("今日 · 腾讯实时", "Today · live")
     : aHasWin ? (range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted") : t("近 1 个月 · 市值加权", "Past month · cap-weighted"))

@@ -7,7 +7,7 @@ import { useLang } from "@/lib/i18n";
 type SearchResult = {
   code: string;
   name: string;
- market: "a" | "hk" | "us";
+ market: "a" | "hk" | "us" | "kr";
   market_cap_yi: number | null;
   sector: string;
   layer: number | null;
@@ -197,7 +197,7 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
  : "bg-surface-2 text-accent"
                     }`}
                   >
- {r.market === "a" ? "A" : r.market === "hk" ? "HK" : "US"}
+ {r.market === "a" ? "A" : r.market === "hk" ? "HK" : r.market === "kr" ? "KR" : "US"}
                   </span>
  <div className="min-w-0">
  <div className="flex items-baseline gap-1.5">

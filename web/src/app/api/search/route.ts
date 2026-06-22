@@ -6,7 +6,7 @@ import { clientIp, rateLimit, tooMany } from "@/lib/api-guard";
 type ManifestItem = {
   code: string;
   name: string;
-  market: "a" | "hk" | "us";
+  market: "a" | "hk" | "us" | "kr";
   market_cap_yi: number | null;
   sector: string;
   layer: number | null;
@@ -94,6 +94,50 @@ function loadUsEtfs(): ManifestItem[] {
   return [];
 }
 
+// 韩股(kr-analyses.json)— 也进搜索;market=kr 让 SearchBox 拼出 /stock/{code}?market=kr。
+// market_cap_yi 留 null:韩股 mcapB 是美元口径,塞进"亿(RMB)"会显示错单位,故不参与搜索的市值展示/权重。
+type KrRaw = { name?: string; mcapB?: number | null; sector?: string; desc?: string };
+let KR_CACHE: { items: ManifestItem[]; mtime: number } | null = null;
+
+// 英文别名:并入 thesis 搜索字段,让搜 "Samsung" / "Hynix" 也能命中(中文名已在 name 里)。
+const KR_ALIAS: Record<string, string> = {
+  "000660": "SK Hynix",
+  "005930": "Samsung Electronics",
+};
+
+function loadKrStocks(): ManifestItem[] {
+  const candidates = [
+    path.join(process.cwd(), "public", "data", "kr-analyses.json"),
+    path.resolve(process.cwd(), "..", "web", "public", "data", "kr-analyses.json"),
+  ];
+  for (const p of candidates) {
+    if (!fs.existsSync(p)) continue;
+    const stat = fs.statSync(p);
+    if (KR_CACHE && KR_CACHE.mtime === stat.mtimeMs) return KR_CACHE.items;
+    try {
+      const j = JSON.parse(fs.readFileSync(p, "utf-8")) as { stocks?: Record<string, KrRaw> };
+      const items: ManifestItem[] = Object.entries(j.stocks || {}).map(([code, s]) => ({
+        code,
+        name: s.name || code,
+        market: "kr",
+        market_cap_yi: null,
+        sector: s.sector || "",
+        layer: null,
+        score: 0,
+        verdict: "",
+        verdict_label: "",
+        signals_hit: 0,
+        thesis: `${s.desc || ""}${KR_ALIAS[code] ? " · " + KR_ALIAS[code] : ""}`,
+      }));
+      KR_CACHE = { items, mtime: stat.mtimeMs };
+      return items;
+    } catch {
+      // try next path
+    }
+  }
+  return [];
+}
+
 function loadManifest(): ManifestItem[] {
   const candidates = [
     path.join(process.cwd(), "data", "aleabit_manifest.json"),
@@ -144,7 +188,9 @@ export async function GET(req: Request) {
   // ETF 也可搜(个股代码优先:同代码冲突时 manifest/股票版本胜出)
   const seen = new Set([...manifestUsCodes, ...usExtra.map((u) => u.code.toUpperCase())]);
   const etfExtra = loadUsEtfs().filter((e) => !seen.has(e.code.toUpperCase()));
-  const items = [...manifest, ...usExtra, ...etfExtra];
+  // 韩股直接并入(代码即使与 A 股 6 位重合也无妨:market 不同、各自链接正确,顶多多一条结果)
+  const krExtra = loadKrStocks();
+  const items = [...manifest, ...usExtra, ...etfExtra, ...krExtra];
 
   // 评分优先级：
   // 1. code 完全匹配

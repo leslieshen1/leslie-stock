@@ -85,9 +85,11 @@ export async function GET(req: Request) {
       }
     }
     if (Object.keys(quotes).length === 0) throw new Error("empty");
-    // 盘前/盘后:screener 只有上一常规收盘 → 用 /info 真延伸时段价覆盖 top-N 龙头(列表/自选/任何读本接口的页面随之变真盘前/盘后)
+    // ⚠ Nasdaq bulk screener 慢/滞后,不只盘前盘后 —— 常规时段也常停在上一交易日收盘值(实测开盘13min后 AVGO 仍 +4.7%,
+    // 而 /info 实时是 -2.2%,涨跌方向都反)。所以【所有交易时段(盘前/盘中/盘后)】都用 /info 覆盖 top-N 龙头(实时);
+    // 长尾小盘保留 screener(可接受的滞后)。列表/自选/板块读本接口的龙头随之全程实时。
     const session = etSession();
-    if (session === "pre" || session === "post") {
+    if (session !== "closed") {
       try { await overlayExtended(quotes, new URL(req.url).origin); } catch { /* 覆盖失败保留 screener 值兜底 */ }
     }
     MKT_LAST_GOOD = { quotes, ts: Date.now() };

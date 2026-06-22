@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import AiPersonaNote from "@/components/AiPersonaNote";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useWatchlist } from "@/lib/useWatchlist";
 import PulseField from "./PulseField";
 import NvidiaChain from "./NvidiaChain";
 import ChainMap from "./ChainMap";
@@ -587,6 +588,24 @@ export default function PulseClient({
 
       <AiPersonaNote className="mb-3" />
 
+      {/* 市场地区选择 —— 置顶,先选市场再看(X 用户反馈:之前埋在左栏下面、拖到下面才发现看的是美股) */}
+      {!isMap && (
+        <div className="mb-3 flex flex-wrap items-center gap-1.5 rounded-xl border border-line bg-surface px-4 py-3">
+          <span className="mr-1 font-mono text-xs uppercase tracking-wider text-faint">{t("市场", "Region")}</span>
+          {REGIONS.map((r) => (
+            <button
+              key={r.id}
+              onClick={() => setRegion(r.id)}
+              className={`px-3 py-1.5 rounded-md text-xs font-medium transition ${
+                region === r.id ? "bg-surface-3 text-ink" : "bg-surface-2 text-muted hover:bg-line"
+              }`}
+            >
+              {t(r.label, r.labelEn)}
+            </button>
+          ))}
+        </div>
+      )}
+
  <div className="grid grid-cols-12 gap-5">
       {/* ===== 左侧：过滤 + 排行 ===== */}
  <aside className="col-span-12 lg:col-span-3 space-y-4">
@@ -651,28 +670,6 @@ export default function PulseClient({
  {curLens ? t(curLens.lo, curLens.loEn) : t("低", "Low")}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* 地域筛选 */}
- <div className="rounded-xl border border-line bg-surface p-5">
- <div className="text-xs uppercase tracking-wider text-faint font-mono mb-3">
-            Region
-          </div>
- <div className="flex flex-wrap gap-1.5">
-            {REGIONS.map((r) => (
-              <button
-                key={r.id}
-                onClick={() => setRegion(r.id)}
-                className={`px-2.5 py-1 rounded-md text-xs font-medium transition ${
-                  region === r.id
- ? "bg-surface-3 text-ink"
- : "bg-surface-2 text-muted hover:bg-line"
-                }`}
-              >
-                {t(r.label, r.labelEn)}
-              </button>
-            ))}
           </div>
         </div>
 
@@ -873,6 +870,11 @@ export default function PulseClient({
 
 // ---- 详情面板 ----
 interface ScoredItem extends CompanyWithHeat { triple: number | null; masters?: MastersJoin }
+// 热力图节点 region → watchlist 市场("我的"只支持 a/hk/us;台/韩/欧/日 暂不收藏 → null 不显星)
+function regionToMarket(region: string): "a" | "us" | "hk" | null {
+  return region === "CN" ? "a" : region === "US" ? "us" : region === "HK" ? "hk" : null;
+}
+
 function DetailPanel({
   c,
   allItems,
@@ -889,6 +891,10 @@ function DetailPanel({
   trend: TrendPt[];
 }) {
   const { t } = useLang();
+  // 收藏到「我的」(localStorage watchlist;复用列表页同一套)。台/韩/欧/日暂不支持 → watchMarket=null 不显星
+  const { has, toggle } = useWatchlist();
+  const watchMarket = regionToMarket(c.region);
+  const starred = watchMarket ? has(c.ticker, watchMarket) : false;
   // c.layer 可能是 AI 的 L0-L7 或某个 industry 的（如 RM-D / DF-M）— 用宽容 lookup
   const layer = useMemo(() => {
     const allLayers: { id: string; name: string }[] = [
@@ -947,9 +953,21 @@ function DetailPanel({
               {layer.id} · {layer.name} · {c.segment}
             </span>
           </div>
+ <div className="flex items-center gap-2 flex-wrap">
  <Link href={stockHref(c.ticker, c.region)} title={t("打开完整分析", "Open full analysis")} className="group inline-block">
  <h3 className="text-2xl font-semibold tracking-tight text-ink transition group-hover:text-accent">{c.name} <span className="text-base text-faint transition group-hover:text-accent">↗</span></h3>
           </Link>
+            {watchMarket && (
+              <button
+                onClick={() => toggle({ code: c.ticker, market: watchMarket, name: c.name, sector: c.segment, score: aiAvg ?? undefined, market_cap_yi: c.region === "CN" ? (c.liveMcapYi ?? null) : null })}
+                aria-label={starred ? t("从自选移除", "Remove from watchlist") : t("加入自选", "Add to watchlist")}
+                title={starred ? t("从自选移除", "Remove from watchlist") : t("加入自选", "Add to watchlist")}
+                className={`shrink-0 text-2xl leading-none transition ${starred ? "text-accent" : "text-faint hover:text-accent"}`}
+              >
+                {starred ? "★" : "☆"}
+              </button>
+            )}
+          </div>
  <div className="mt-1 flex items-baseline gap-2 flex-wrap">
  <span className="font-mono text-sm font-semibold text-muted">{c.ticker}</span>
  <span className="text-xs text-muted">{c.region}</span>

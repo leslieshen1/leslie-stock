@@ -97,7 +97,8 @@ export default function TodayEventsSection({ ev }: { ev: TodayEvents | null }) {
         </div>
       )}
 
-      <div className="flex flex-col gap-4 border-t border-line pt-3 sm:flex-row sm:gap-8">
+      {/* 盘前/盘后上下堆叠:本组件常在盘报页 360px 左栏里,旧的 sm:flex-row 会在窄栏强行两栏→内容溢出重叠(实测 326px 栏里 EPS 文字串到隔壁列) */}
+      <div className="flex flex-col gap-3 border-t border-line pt-3">
         <EarnList title={<T zh="盘前财报" en="Pre-market earnings" />} rows={ev.bmo} small={ev.smallBmo} />
         <EarnList title={<T zh="盘后财报" en="After-hours earnings" />} rows={ev.amc} small={ev.smallAmc} />
       </div>

@@ -84,16 +84,37 @@ def _parse_period(q_label: str) -> str:
     return f"{m.group(1)}Q{m.group(2)}" if m else q_label
 
 
+def _yq(label: str) -> tuple[int, int]:
+    """'2025年4季度…' → (2025, 4)。无法解析 → (0,0)。"""
+    m = re.search(r"(\d{4})年(\d)季度", label)
+    return (int(m.group(1)), int(m.group(2))) if m else (0, 0)
+
+
+# 每基金展示的持仓上限（全披露报告可能上百只，尾部都是 <0.3% 的微仓，截断保留前 N 大）
+MAX_HOLD = 40
+
+
 def seed_a_fund(conn, fund: dict):
-    df = ak.fund_portfolio_hold_em(symbol=fund["symbol"], date="2026")
-    if df is None or df.empty:
+    # A 股公募披露规则:一/三季报只披露【前十大重仓】,中报(Q2)/年报(Q4)披露【全部持仓】。
+    # 要展示完整组合 → 优先取最近一期全披露报告(中报/年报),而非最新季报的前十大。
+    frames = []
+    for y in (datetime.now().year, datetime.now().year - 1):
+        try:
+            d = ak.fund_portfolio_hold_em(symbol=fund["symbol"], date=str(y))
+            if d is not None and not d.empty:
+                frames.append(d)
+        except Exception:
+            pass
+    if not frames:
         print(f"  ⚠ {fund['manager']}: 空")
         return
-    # 最新季度（字符串排序，2026年X季度）
-    latest_q = sorted(df["季度"].unique(), reverse=True)[0]
-    cur = df[df["季度"] == latest_q].copy()
-    cur = cur.sort_values("占净值比例", ascending=False).head(10).reset_index(drop=True)
-    period_label = _parse_period(latest_q)
+    df = pd.concat(frames, ignore_index=True).drop_duplicates(subset=["季度", "股票代码"])
+    quarters = sorted(df["季度"].unique(), key=_yq, reverse=True)
+    full = [q for q in quarters if _yq(q)[1] in (2, 4)]   # 中报/年报 = 全披露
+    chosen_q = full[0] if full else quarters[0]            # 无全披露报告才退回最新季报
+    cur = df[df["季度"] == chosen_q].copy()
+    cur = cur.sort_values("占净值比例", ascending=False).head(MAX_HOLD).reset_index(drop=True)
+    period_label = _parse_period(chosen_q)
 
     inv_id = upsert_investor(
         conn, slug=fund["slug"], name=fund["manager"], name_en=None,

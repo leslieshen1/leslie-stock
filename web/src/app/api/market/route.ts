@@ -3,7 +3,9 @@
 // 上游超时/失败回退「上次好值」,避免整张热力图突然空白(还以 HTTP 200 掩盖故障)。
 import { clientIp, rateLimit, tooMany, fetchWithTimeout } from "@/lib/api-guard";
 
-export const dynamic = "force-dynamic";
+// 注:不再 force-dynamic —— 它会让 Vercel 边缘完全不缓存(每个请求都打函数,X 尖峰主炸点)。
+// 本接口读 req(限流/origin)本就是动态渲染,无需 force-dynamic;改用 Vercel-CDN-Cache-Control 让边缘缓存 55s,
+// 多用户共享一份(函数每 ~55s 才真跑一次,盘前/盘后的 /info 覆盖也随之只算一次)。浏览器仍各自轮询取最新。
 
 const URL_NASDAQ = "https://api.nasdaq.com/api/screener/stocks?tableonly=false&limit=10000&download=true";
 
@@ -91,7 +93,10 @@ export async function GET(req: Request) {
     MKT_LAST_GOOD = { quotes, ts: Date.now() };
     return Response.json(
       { quotes, ts: MKT_LAST_GOOD.ts, count: Object.keys(quotes).length, session },
-      { headers: { "cache-control": "s-maxage=60, stale-while-revalidate=120" } },
+      { headers: {
+        "cache-control": "public, max-age=0, must-revalidate",            // 浏览器:每次轮询都问一下(拿最新)
+        "Vercel-CDN-Cache-Control": "max-age=55, stale-while-revalidate=120", // Vercel 边缘:缓存 55s,多用户共享,函数少打
+      } },
     );
   } catch {
     // 降级:上游超时/失败/空 → 返回上次好值(带 stale),别让热力图变空白

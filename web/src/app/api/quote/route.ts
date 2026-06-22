@@ -3,7 +3,8 @@
 // 放量护栏:每 IP 限流 + 每代码 12s 合并缓存 + 上游超时 + 失败回退"上次好值"(见 api-guard)。
 import { clientIp, rateLimit, tooMany, cacheGet, cacheSet, fetchWithTimeout } from "@/lib/api-guard";
 
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它让边缘完全不缓存)。本接口按 ?syms 取价、读 req 本就动态;
+// 改用 Vercel-CDN-Cache-Control 让边缘按 URL(含 syms)缓存 6s —— 同一只票多人同看时共享一份,函数少打。
 
 type Quote = {
   price: number;
@@ -116,7 +117,10 @@ export async function GET(req: Request) {
   );
   return Response.json(
     { quotes: out, ts: Date.now() },
-    // 同一代码 URL 在边缘也短缓存,热门票多人同看时进一步削上游
-    { headers: { "cache-control": "s-maxage=8, stale-while-revalidate=20" } },
+    // 同一代码 URL 在边缘也短缓存,热门票多人同看时进一步削上游(force-dynamic 移除后才真生效)
+    { headers: {
+      "cache-control": "public, max-age=0, must-revalidate",
+      "Vercel-CDN-Cache-Control": "max-age=6, stale-while-revalidate=20",
+    } },
   );
 }

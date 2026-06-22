@@ -46,12 +46,14 @@ function Cell({ p, live }: { p: Cellv; live?: boolean }) {
 
 // 单个面板:自有排序(传入前已排好)、自有定高、可展开子板块。各面板独立 open 状态。
 function HeatPanel({
-  title, titleCls, sub, headLabel, cols, liveCol, rows, capFmt, segLabel,
+  title, titleCls, sub, headLabel, cols, liveCol, rows, capFmt, segLabel, live,
 }: {
   title: string; titleCls: string; sub: string; headLabel: string;
   cols: string[]; liveCol: number; rows: GRow[];
   capFmt: (b: number) => string; segLabel: (s: string) => string;
+  live?: boolean;  // true=该市场此刻交易中(脉动绿「实时」);false=休市(灰);undefined=区间窗口不显示
 }) {
+  const { t } = useLang();
   const [open, setOpen] = useState<Set<string>>(new Set());
   const grid = `minmax(62px,88px) repeat(${cols.length}, minmax(0,1fr))`;
   const sqrtSum = rows.reduce((s, r) => s + Math.sqrt(Math.max(1, r.capB)), 0) || 1;
@@ -62,6 +64,9 @@ function HeatPanel({
     <div className="min-w-0 flex-1 overflow-hidden rounded-2xl border border-line bg-base/40 p-2">
       <div className="mb-1.5 flex items-baseline gap-2 px-1">
         <span className={`text-[13px] font-semibold ${titleCls}`}>{title}</span>
+        {live !== undefined && (live
+          ? <span className="inline-flex items-center gap-1 self-center rounded-full bg-up/10 px-1.5 py-px text-[9px] font-semibold leading-none text-up"><i className="h-1.5 w-1.5 animate-pulse rounded-full bg-up" />{t("实时", "LIVE")}</span>
+          : <span className="self-center rounded-full bg-surface-3 px-1.5 py-px text-[9px] font-medium leading-none text-faint">{t("休市", "Closed")}</span>)}
         <span className="truncate text-[10px] text-faint">{sub}</span>
       </div>
       <div className="mb-1 grid gap-1 px-1 text-[11px] text-faint" style={{ gridTemplateColumns: grid }}>
@@ -109,6 +114,19 @@ function HeatPanel({
       </div>
     </div>
   );
+}
+
+// A 股是否在交易时段(中国时间,周一~周五 9:30–11:30 / 13:00–15:00)。客户端按 Asia/Shanghai 计算,与用户本地时区无关。
+function aShareLive(): boolean {
+  try {
+    const p = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Shanghai", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
+    const wd = p.find((x) => x.type === "weekday")?.value;
+    if (wd === "Sat" || wd === "Sun") return false;
+    const hh = +(p.find((x) => x.type === "hour")?.value ?? "0") % 24; // 部分实现午夜返回 "24"
+    const mm = +(p.find((x) => x.type === "minute")?.value ?? "0");
+    const m = hh * 60 + mm;
+    return (m >= 570 && m <= 690) || (m >= 780 && m <= 900); // 9:30–11:30, 13:00–15:00
+  } catch { return false; }
 }
 
 export default function SectorSessions() {
@@ -159,6 +177,10 @@ export default function SectorSessions() {
     : aHasWin ? (range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted") : t("近 1 个月 · 市值加权", "Past month · cap-weighted"))
     : t("趋势待 A 股历史攒够", "trend pending A-share history");
 
+  // 「实时/休市」徽章只在今日窗口有意义(近7天/近1月显示的是区间收益)。美股按 session(休市时不在 SESS_IDX),A股按中国时间。
+  const usLive = range === "today" ? isToday && (session in SESS_IDX) : undefined;
+  const aLive = range === "today" ? aShareLive() : undefined;
+
   return (
     <section className="mt-8">
       <header className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
@@ -183,12 +205,12 @@ export default function SectorSessions() {
         <div className="flex flex-col items-start gap-3 lg:flex-row">
           <HeatPanel
             title={t("美股", "US")} titleCls="text-accent" sub={usSub} headLabel={t("板块 · 市值", "Sector · Cap")}
-            cols={usCols} liveCol={usLiveCol}
+            cols={usCols} liveCol={usLiveCol} live={usLive}
             rows={usRows} capFmt={fcapUS} segLabel={segLabel}
           />
           <HeatPanel
             title={t("A股", "A-share")} titleCls="text-down" sub={aSub} headLabel={t("板块 · 市值", "Sector · Cap")}
-            cols={aCols} liveCol={-1}
+            cols={aCols} liveCol={-1} live={aLive}
             rows={aRows} capFmt={fcapA} segLabel={segLabel}
           />
         </div>

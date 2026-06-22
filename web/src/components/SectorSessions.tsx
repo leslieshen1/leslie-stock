@@ -152,8 +152,13 @@ export default function SectorSessions() {
   const isToday = !!data?.isToday;
 
   // 时间窗:今日(美股盘前/盘中/盘后·A股今日)/ 近7天 / 近1月(单列窗口收益;美股有30天历史,A股暂无→—)
+  // 美股数据源(Nasdaq screener)只有常规交易时段:盘前/盘后无实时行情 → 今日窗只显示「最近一个真实常规时段」的单列,
+  // 诚实标注是实时还是收盘价(别再用三列假装盘前/盘后会动)。盘前=上一收盘,盘中=实时,盘后=今日收盘,休市=最近收盘。
+  const usLiveNow = session === "盘中";
+  const usCur = (r: { pre: Cellv; mid: Cellv; post: Cellv }): Cellv =>
+    session === "盘前" ? r.pre : session === "盘后" ? r.post : session === "盘中" ? r.mid : (r.post ?? r.mid ?? r.pre);
   const usVals = (r: { pre: Cellv; mid: Cellv; post: Cellv; d7?: Cellv; d30?: Cellv }): Cellv[] =>
-    range === "d7" ? [r.d7 ?? null] : range === "d30" ? [r.d30 ?? null] : [r.pre, r.mid, r.post];
+    range === "d7" ? [r.d7 ?? null] : range === "d30" ? [r.d30 ?? null] : [usCur(r)];
   const usRows: GRow[] = (us || []).map((r) => ({
     sector: r.sector, capB: r.capB, vals: usVals(r),
     subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: usVals({ pre: s.pre ?? null, mid: s.mid ?? null, post: s.post ?? null, d7: s.d7, d30: s.d30 }) })),
@@ -165,20 +170,22 @@ export default function SectorSessions() {
     subs: r.subs?.map((s) => ({ sector: s.sector, capB: s.capB, vals: aVal(s) })),
   }));
 
-  const usLiveCol = range === "today" && isToday && session in SESS_IDX ? SESS_IDX[session] : -1;
-  const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")] : [sLabel("盘前"), sLabel("盘中"), sLabel("盘后")];
+  const usLiveCol = range === "today" && usLiveNow ? 0 : -1;
+  const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")]
+    : [usLiveNow ? sLabel("盘中") : session === "盘后" ? t("今日收盘", "Close") : t("上一交易日收盘", "Prev close")];
   const aCols = range === "today" ? [t("今日涨跌", "Change")] : range === "d7" ? [t("近7天", "7D")] : [t("近1月", "1M")];
   const usSub = !us || !us.length ? ""
     : range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted")
     : range === "d30" ? t("近 1 个月 · 市值加权", "Past month · cap-weighted")
-    : (isToday ? `${t("当前", "Now")} · ${sLabel(session || "休市")}` : `${t("上一交易日", "Prev")} ${data?.day || ""}`);
+    : (usLiveNow ? t("盘中 · 实时", "Regular · live")
+       : `${session === "盘后" ? t("今日收盘", "Today's close") : `${t("上一交易日", "Prev")} ${data?.day || ""}`} · ${t("此源无盘前/盘后实时", "no pre/after-hours feed")}`);
   const aHasWin = (data?.aSectors || []).some((r) => (range === "d7" ? r.d7 : r.d30) != null);
   const aSub = range === "today" ? t("今日 · 腾讯实时", "Today · live")
     : aHasWin ? (range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted") : t("近 1 个月 · 市值加权", "Past month · cap-weighted"))
     : t("趋势待 A 股历史攒够", "trend pending A-share history");
 
-  // 「实时/休市」徽章只在今日窗口有意义(近7天/近1月显示的是区间收益)。美股按 session(休市时不在 SESS_IDX),A股按中国时间。
-  const usLive = range === "today" ? isToday && (session in SESS_IDX) : undefined;
+  // 「实时」徽章只在今日窗口有意义。美股只有盘中是真实时(盘前/盘后此源无数据,不亮绿、不显徽章);A股按中国时间。
+  const usLive = range === "today" ? (usLiveNow || undefined) : undefined;
   const aLive = range === "today" ? aShareLive() : undefined;
 
   return (

@@ -81,6 +81,37 @@ async function yahooQuote(sym: string): Promise<Quote | null> {
   }
 }
 
+// A股/港股:腾讯实时(qt.gtimg.cn) —— 与列表 /api/a-market 同源,详情与列表锁步、无 Yahoo ~15min 滞后。
+// Yahoo 符号 → 腾讯:600519.SS→sh600519、000858.SZ→sz000858、430139.BJ→bj430139、0700.HK→r_hk00700(港股补 5 位)。
+function qqFromYahoo(sym: string): string | null {
+  const a = sym.match(/^(\d{6})\.(SS|SZ|BJ)$/i);
+  if (a) return ({ SS: "sh", SZ: "sz", BJ: "bj" }[a[2].toUpperCase()] ?? "") + a[1];
+  const hk = sym.match(/^(\d+)\.HK$/i);
+  if (hk) return "r_hk" + hk[1].padStart(5, "0");
+  return null;
+}
+async function tencentQuote(qq: string): Promise<Quote | null> {
+  try {
+    const r = await fetchWithTimeout(
+      `https://qt.gtimg.cn/q=${qq}`,
+      { headers: { referer: "https://gu.qq.com/", "user-agent": "Mozilla/5.0" }, cache: "no-store" },
+      7000,
+    );
+    if (!r.ok) return null;
+    // GBK 解码(同 a-market);字段 [3]现价 [4]昨收 [32]涨跌%
+    const txt = new TextDecoder("gbk").decode(await r.arrayBuffer());
+    const m = txt.match(/="([^"]*)"/);
+    if (!m) return null;
+    const p = m[1].split("~");
+    const price = num(p[3]);
+    if (price == null || price === 0) return null;
+    const pct = num(p[32]);
+    return { price: r2(price), pct: pct == null ? null : r2(pct), session: "regular", prevClose: num(p[4]) };
+  } catch {
+    return null;
+  }
+}
+
 export async function GET(req: Request) {
   // 限流:每 IP 200 次/分钟。正常单页轮询 ~3-9 次/分,留足余量,只挡机器人/爬虫。
   const rl = rateLimit(`quote:${clientIp(req)}`, 200, 60_000);
@@ -101,12 +132,20 @@ export async function GET(req: Request) {
         out[up] = hit;
         return;
       }
-      let q = isUS(sym)
-        ? await usQuote(sym, KNOWN_ETFS.has(up) ? "etf" : "stocks")
-        : await yahooQuote(sym);
-      // 美股 Nasdaq /info 间歇性拒绝 Vercel 数据中心 IP(源头正常、Vercel 调就空)→ 详情页价格卡死在旧种子。
-      // 回退 Yahoo(Yahoo 不封 Vercel,同样给实时/昨收),保证详情页与列表的行情对得上、不卡旧值。
-      if (!q && isUS(sym)) q = await yahooQuote(sym);
+      const qq = qqFromYahoo(sym);
+      let q: Quote | null;
+      if (qq) {
+        // A股/港股:腾讯(与列表 /api/a-market 同源 → 详情与列表锁步、无 Yahoo 滞后);挂了回退 Yahoo
+        q = await tencentQuote(qq);
+        if (!q) q = await yahooQuote(sym);
+      } else if (isUS(sym)) {
+        // 美股:Nasdaq /info;Nasdaq 间歇性拒绝 Vercel 数据中心 IP(源头正常、Vercel 调就空)→ 回退 Yahoo,免详情页卡旧种子
+        q = await usQuote(sym, KNOWN_ETFS.has(up) ? "etf" : "stocks");
+        if (!q) q = await yahooQuote(sym);
+      } else {
+        // 台股(.TW)/韩股(.KS):Yahoo
+        q = await yahooQuote(sym);
+      }
       if (q) {
         out[up] = q;
         cacheSet(`q:${up}`, q, 12_000); // 短缓存:合并轮询

@@ -101,9 +101,12 @@ export async function GET(req: Request) {
         out[up] = hit;
         return;
       }
-      const q = isUS(sym)
+      let q = isUS(sym)
         ? await usQuote(sym, KNOWN_ETFS.has(up) ? "etf" : "stocks")
         : await yahooQuote(sym);
+      // 美股 Nasdaq /info 间歇性拒绝 Vercel 数据中心 IP(源头正常、Vercel 调就空)→ 详情页价格卡死在旧种子。
+      // 回退 Yahoo(Yahoo 不封 Vercel,同样给实时/昨收),保证详情页与列表的行情对得上、不卡旧值。
+      if (!q && isUS(sym)) q = await yahooQuote(sym);
       if (q) {
         out[up] = q;
         cacheSet(`q:${up}`, q, 12_000); // 短缓存:合并轮询
@@ -115,12 +118,16 @@ export async function GET(req: Request) {
       }
     })
   );
+  // 全部符号都没拿到价(上游集体失败)→ 不缓存这个"空响应",否则边缘会把空缓存 6s 喂给所有人、价格集体卡死。
+  const allEmpty = Object.keys(out).length === 0;
   return Response.json(
     { quotes: out, ts: Date.now() },
     // 同一代码 URL 在边缘也短缓存,热门票多人同看时进一步削上游(force-dynamic 移除后才真生效)
-    { headers: {
-      "cache-control": "public, max-age=0, must-revalidate",
-      "Vercel-CDN-Cache-Control": "max-age=6, stale-while-revalidate=20",
-    } },
+    { headers: allEmpty
+      ? { "cache-control": "no-store" }
+      : {
+          "cache-control": "public, max-age=0, must-revalidate",
+          "Vercel-CDN-Cache-Control": "max-age=6, stale-while-revalidate=20",
+        } },
   );
 }

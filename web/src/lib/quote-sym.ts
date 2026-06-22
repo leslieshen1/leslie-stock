@@ -7,7 +7,9 @@ export function yahooSym(code: string, market: "a" | "hk" | "us" | string): stri
     if (/^[039]/.test(code)) return `${code}.SZ`;
     return code;
   }
-  if (market === "hk") return `${code.replace(/\D/g, "").padStart(4, "0")}.HK`;
+  // 港股 Yahoo 符号要 4 位、且不留多余前导零(Yahoo 不认 00700.HK,要 0700.HK;09988→9988)。
+  // 先去前导零再补到 4 位 —— 否则存成 5 位代码的港股(00700/09988)拿不到实时价、卡在旧种子。
+  if (market === "hk") return `${code.replace(/\D/g, "").replace(/^0+/, "").padStart(4, "0")}.HK`;
   if (market === "kr") return `${code}.KS`; // 韩股:000660 → 000660.KS(Yahoo,/api/quote 走 Yahoo)
   return code.toUpperCase();
 }

@@ -236,9 +236,57 @@ async function computeLive(origin: string): Promise<Sect | null> {
   return Object.keys(out).length ? out : null;
 }
 
+// 盘前/盘后:Nasdaq screener(/api/market)无延伸时段行情 → 改取各大板块「市值龙头」(top-N)的真盘前/盘后价
+// (走 /api/quote 的 Nasdaq /info 端点,primaryData=盘前价,与盘前报告/个股详情页同源),市值加权近似板块盘前/盘后涨跌。
+// 龙头主导市值加权,top-N 足以代表板块走向;只 ~12 板块×N 只、分批查,Nasdaq /info 不限流。盘中仍用全市场 screener。
+let PREPOST_SYMS: string[] | null = null;
+function topSymsPerSector(n: number): string[] {
+  if (PREPOST_SYMS) return PREPOST_SYMS;
+  if (!SECT_MAP || !SYM_CAP) return [];
+  const bySeg: Record<string, [string, number][]> = {};
+  for (const [sym, seg] of Object.entries(SECT_MAP)) {
+    const m = SYM_CAP[sym] || 0;
+    if (m > 0) (bySeg[seg] ||= []).push([sym, m]);
+  }
+  const out = new Set<string>();
+  for (const arr of Object.values(bySeg)) {
+    arr.sort((a, b) => b[1] - a[1]);
+    for (const [sym] of arr.slice(0, n)) out.add(sym);
+  }
+  PREPOST_SYMS = [...out];
+  return PREPOST_SYMS;
+}
+
+async function computeLivePrePost(origin: string): Promise<Sect | null> {
+  const syms = topSymsPerSector(8);
+  if (!syms.length || !SECT_MAP || !SYM_CAP) return null;
+  const quotes: Record<string, { pct: number | null }> = {};
+  for (let i = 0; i < syms.length; i += 25) {
+    const batch = syms.slice(i, i + 25).join(",");
+    const j = await fetchWithTimeout(`${origin}/api/quote?syms=${encodeURIComponent(batch)}`, {}, 12000)
+      .then((x) => x.json()).catch(() => null);
+    if (j?.quotes) Object.assign(quotes, j.quotes);
+  }
+  const agg: Record<string, { cap: number; capPct: number }> = {};
+  const add = (key: string, m: number, pct: number) => { const a = (agg[key] ||= { cap: 0, capPct: 0 }); a.cap += m; a.capPct += m * pct; };
+  for (const sym of syms) {
+    const q = quotes[sym.toUpperCase()];
+    const seg = SECT_MAP[sym]; const m = SYM_CAP[sym] || 0;
+    if (!seg || !q || q.pct == null || !(m > 0)) continue;
+    add(seg, m, Number(q.pct));
+    const sub = SUB_MAP?.[sym]; if (sub) add(sub, m, Number(q.pct));
+  }
+  const out: Sect = {};
+  for (const [k, a] of Object.entries(agg)) if (a.cap) out[k] = Math.round((a.capPct / a.cap) * 100) / 100;
+  return Object.keys(out).length ? out : null;
+}
+
 async function syncOnce(origin: string) {
   const session = etSession();
-  const live = session !== "休市" ? await computeLive(origin) : null;
+  // 盘中=全市场 screener(全、便宜);盘前/盘后=各板块龙头走 Nasdaq /info 取真延伸时段价(screener 没有);休市=不算(用定格)
+  const live = session === "盘中" ? await computeLive(origin)
+    : (session === "盘前" || session === "盘后") ? await computeLivePrePost(origin)
+    : null;
   LIVE = { session, sect: live };
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日

@@ -152,9 +152,9 @@ export default function SectorSessions() {
   const isToday = !!data?.isToday;
 
   // 时间窗:今日(美股盘前/盘中/盘后·A股今日)/ 近7天 / 近1月(单列窗口收益;美股有30天历史,A股暂无→—)
-  // 美股数据源(Nasdaq screener)只有常规交易时段:盘前/盘后无实时行情 → 今日窗只显示「最近一个真实常规时段」的单列,
-  // 诚实标注是实时还是收盘价(别再用三列假装盘前/盘后会动)。盘前=上一收盘,盘中=实时,盘后=今日收盘,休市=最近收盘。
-  const usLiveNow = session === "盘中";
+  // 美股今日窗=单列显示「当前时段」的真实涨跌。盘前/盘后现已从 Nasdaq /info 取真延伸时段价(见 sector-sessions 路由),
+  // 故盘前/盘中/盘后都是实时;休市则显示最近一个常规时段收盘。
+  const usLiveNow = session === "盘前" || session === "盘中" || session === "盘后";
   const usCur = (r: { pre: Cellv; mid: Cellv; post: Cellv }): Cellv =>
     session === "盘前" ? r.pre : session === "盘后" ? r.post : session === "盘中" ? r.mid : (r.post ?? r.mid ?? r.pre);
   const usVals = (r: { pre: Cellv; mid: Cellv; post: Cellv; d7?: Cellv; d30?: Cellv }): Cellv[] =>
@@ -172,14 +172,13 @@ export default function SectorSessions() {
 
   const usLiveCol = range === "today" && usLiveNow ? 0 : -1;
   const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")]
-    : [usLiveNow ? sLabel("盘中") : session === "盘后" ? t("今日收盘", "Close") : t("上一交易日收盘", "Prev close")];
+    : [usLiveNow ? sLabel(session) : t("上一交易日收盘", "Prev close")];
   const aCols = range === "today" ? [t("今日涨跌", "Change")] : range === "d7" ? [t("近7天", "7D")] : [t("近1月", "1M")];
   const usSub = !us || !us.length ? ""
     : range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted")
     : range === "d30" ? t("近 1 个月 · 市值加权", "Past month · cap-weighted")
-    : (usLiveNow ? t("盘中 · 实时", "Regular · live")
-       : session === "盘后" ? `${t("今日收盘", "Today's close")} · ${t("此源无盘后实时", "no after-hours feed")}`
-       : `${t("上一交易日收盘", "Prev close")} · ${t("此源无盘前实时", "no pre-market feed")}`);
+    : (usLiveNow ? `${sLabel(session)} · ${t("实时", "live")}`
+       : t("上一交易日收盘 · 已休市", "Prev close · market closed"));
   const aHasWin = (data?.aSectors || []).some((r) => (range === "d7" ? r.d7 : r.d30) != null);
   const aSub = range === "today" ? t("今日 · 腾讯实时", "Today · live")
     : aHasWin ? (range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted") : t("近 1 个月 · 市值加权", "Past month · cap-weighted"))

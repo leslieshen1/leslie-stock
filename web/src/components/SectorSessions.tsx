@@ -210,7 +210,7 @@ export default function SectorSessions() {
       ) : us.length === 0 ? (
         <div className="flex h-[360px] items-center justify-center text-sm text-faint">{t("暂无数据", "No data")}</div>
       ) : (
-        {/* ≥768px 双面板并排用满宽度(收成单列后更怕右侧留白);窄屏堆叠并撑满(items-stretch),不再 items-start 留白 */}
+        // ≥768px 双面板并排用满宽度(收成单列后更怕右侧留白);窄屏堆叠并 items-stretch 撑满,不再 items-start 留白
         <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-start">
           <HeatPanel
             title={t("美股", "US")} titleCls="text-accent" sub={usSub} headLabel={t("板块 · 市值", "Sector · Cap")}

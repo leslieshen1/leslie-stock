@@ -78,7 +78,9 @@ export default async function WhaleDetail({ params }: { params: Promise<{ slug: 
         </div>
         <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
           {inv.entity && <span>{inv.entity}</span>}
-          <span className="font-mono text-xs text-faint">13F · {inv.latest_period}</span>
+          <span className="font-mono text-xs text-faint">
+            {inv.type === "superinvestor" ? "13F" : inv.type === "fund" ? "基金季报" : inv.type === "private_fund" ? "十大流通股东" : inv.type === "hot_money" ? "龙虎榜" : "持仓"} · {inv.latest_period}
+          </span>
         </div>
         <div className="mt-3 flex flex-wrap gap-2 text-xs">
           <span className="rounded-lg border border-line bg-surface px-2.5 py-1.5">

@@ -18,7 +18,7 @@ export type Holding = {
   source: string;
 };
 
-export type InvestorType = "superinvestor" | "fund" | "politician" | "hot_money" | "northbound";
+export type InvestorType = "superinvestor" | "fund" | "private_fund" | "politician" | "hot_money" | "northbound";
 
 export type Investor = {
   slug: string;
@@ -65,6 +65,7 @@ export const CHANGE_META: Record<ChangeType, { label: string; tone: string }> = 
 export const TYPE_META: Record<InvestorType, { label: string }> = {
   superinvestor: { label: "美股大佬" },
   fund:          { label: "A股顶流" },
+  private_fund:  { label: "私募大佬" },
   politician:    { label: "政客 / 议员" },
   hot_money:     { label: "游资席位" },
   northbound:    { label: "北向资金" },

@@ -125,7 +125,7 @@ export default function WhalesClient({ investors, congress, avg }: {
 
   const types = useMemo(() => {
     const s = new Set(insts.map((i) => i.type));
- return (["superinvestor", "fund", "hot_money", "northbound"] as InvestorType[]).filter((t) => s.has(t));
+ return (["superinvestor", "fund", "private_fund", "hot_money", "northbound"] as InvestorType[]).filter((t) => s.has(t));
   }, [insts]);
 
   // 顶部 featured 横滑卡(学国会"热门议员"):知名价投,持仓多的在前。不按收益排(13F 无收益)
@@ -271,7 +271,7 @@ function InvestorCard({ inv }: { inv: Investor }) {
  <div className="space-y-1">
         {inv.holdings.slice(0, 6).map((h, i) => {
  const clickable = h.market === "a";
- const inner = inv.type === "politician"
+ const inner = inv.type === "politician" || inv.type === "hot_money"
             ? <TradeRow h={h} />
             : <HoldingBar h={h} maxPct={maxPct} clickable={clickable} />;
           return clickable ? (

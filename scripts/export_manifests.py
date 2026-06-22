@@ -426,7 +426,7 @@ def export_whales():
                     "period": h.get("period"),
                 })
         # superinvestor 排最前，再基金，再政客
-        _ord = {"superinvestor": 0, "fund": 1, "politician": 2}
+        _ord = {"superinvestor": 0, "fund": 1, "private_fund": 2, "hot_money": 3, "politician": 4}
         out_investors.sort(key=lambda i: _ord.get(i.get("type"), 3))
 
         # 个股 holders 排序：先按仓位占比（基金/13F），议员（pct=null）排后按日期

@@ -19,7 +19,7 @@ export default function LiveValuation({
   tgt, px, wkHi, wkLo, reco, code, market,
 }: {
   tgt?: number; px?: number; wkHi?: number; wkLo?: number; reco?: string;
-  code: string; market: "a" | "hk" | "us";
+  code: string; market: "a" | "hk" | "us" | "kr";
 }) {
   const { t } = useLang();
   const ysym = yahooSym(code, market);

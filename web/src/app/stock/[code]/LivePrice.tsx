@@ -17,7 +17,7 @@ type Q = {
 export default function LivePrice({
   code, market, initialPrice,
 }: {
-  code: string; market: "a" | "hk" | "us"; initialPrice?: number | null;
+  code: string; market: "a" | "hk" | "us" | "kr"; initialPrice?: number | null;
 }) {
   const { t, lang } = useLang();
   const ysym = yahooSym(code, market);
@@ -60,7 +60,7 @@ export default function LivePrice({
 
   if (q.price == null) return null;
   const up = (q.pct ?? 0) >= 0;
-  const cur = market === "us" ? "$" : "";
+  const cur = market === "us" ? "$" : market === "kr" ? "₩" : "";
   // 美股优先用 API 的 session(权威);A/港股按交易所所在时区算盘口状态(北京/香港时间)
   const sess: "pre" | "regular" | "post" | "closed" | MktState =
     market === "us" && q.session ? q.session : (mkt?.state ?? "closed");

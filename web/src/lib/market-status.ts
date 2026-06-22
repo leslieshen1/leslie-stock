@@ -1,7 +1,7 @@
 // 盘口状态 —— 按交易所所在时区算(美股美东 / A股深沪北京 / 港股香港),自动处理周末 +
 // 全天休市假日,不依赖任何接口。A股节假日依官方公告维护(每年更新一次)。
 export type MktState = "pre" | "open" | "post" | "closed";
-export type Market = "us" | "a" | "hk";
+export type Market = "us" | "a" | "hk" | "kr";
 
 // NYSE/Nasdaq 全天休市日(每年维护一次;半日如感恩节次日按正常日处理,可接受)
 const US_HOLIDAYS = new Set([
@@ -79,9 +79,19 @@ function hkStatus(now: Date): { state: MktState; label: string } {
   return { state: "closed", label: "已收盘" };
 }
 
+// 韩股(KRX):首尔时间,连续竞价 9:00-15:30,无午间休市(集合竞价 8:30-9:00 记盘前)。假日表暂按时段近似。
+function krStatus(now: Date): { state: MktState; label: string } {
+  const { wd, mins } = partsIn(now, "Asia/Seoul");
+  if (wd === "Sat" || wd === "Sun") return { state: "closed", label: "周末休市" };
+  if (mins >= 8 * 60 + 30 && mins < 9 * 60) return { state: "pre", label: "盘前" };
+  if (mins >= 9 * 60 && mins < 15 * 60 + 30) return { state: "open", label: "交易中" };
+  return { state: "closed", label: "已收盘" };
+}
+
 export function marketStatus(now: Date, market: Market = "us"): { state: MktState; label: string } {
   if (market === "a") return cnStatus(now);
   if (market === "hk") return hkStatus(now);
+  if (market === "kr") return krStatus(now);
   return usStatus(now);
 }
 

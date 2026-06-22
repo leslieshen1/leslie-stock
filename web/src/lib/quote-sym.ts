@@ -8,5 +8,6 @@ export function yahooSym(code: string, market: "a" | "hk" | "us" | string): stri
     return code;
   }
   if (market === "hk") return `${code.replace(/\D/g, "").padStart(4, "0")}.HK`;
+  if (market === "kr") return `${code}.KS`; // 韩股:000660 → 000660.KS(Yahoo,/api/quote 走 Yahoo)
   return code.toUpperCase();
 }

@@ -132,7 +132,7 @@ export async function generateMetadata({
   const { code: rawCode } = await params;
   const code = safeCode(rawCode);
   const sp = await searchParams;
-  const m = (["a", "hk", "us"].includes((sp.market || "a").toLowerCase()) ? (sp.market || "a").toLowerCase() : "a") as "a" | "hk" | "us";
+  const m = (["a", "hk", "us", "kr"].includes((sp.market || "a").toLowerCase()) ? (sp.market || "a").toLowerCase() : "a") as "a" | "hk" | "us" | "kr";
 
   // 净化失败(非法代码:含路径分隔符 / 超长 / 含 ".."): 返回最小 metadata,实际 404 交给页面组件
   if (!code) return { title: "我不是股神" };
@@ -147,11 +147,11 @@ export async function generateMetadata({
     }
   }
 
-  const panel = loadUsPanel(code);
-  const initial = panel ? null : loadAnalysis(code, m);
+  const panel = loadUsPanel(code, m);
+  const initial = panel ? null : loadAnalysis(code, m === "kr" ? "us" : m);
   const name = panel?.name || initial?.name || code;
   const sector = panel?.sector || panel?.chain?.industry || "";
-  const mkt = m === "a" ? "A 股" : m === "hk" ? "港股" : "美股";
+  const mkt = m === "a" ? "A 股" : m === "hk" ? "港股" : m === "kr" ? "韩股" : "美股";
   const title = `${name}(${code})五方判读 · 我不是股神`;
   const lead = `${mkt}${sector ? " · " + sector : ""}`;
   const tail = panel?.divergence || "巴菲特 / 段永平 / 德鲁肯米勒 / Serenity / 情绪 五方独立评分(AI 模拟,非投资建议)";
@@ -174,17 +174,18 @@ export default async function StockDetailPage({
   if (!code) notFound();
   const sp = await searchParams;
  const marketRaw = (sp.market || "a").toLowerCase();
- const market = (["a", "hk", "us"].includes(marketRaw) ? marketRaw : "a") as
+ const market = (["a", "hk", "us", "kr"].includes(marketRaw) ? marketRaw : "a") as
  | "a"
  | "hk"
- | "us";
+ | "us"
+ | "kr";
   // ETF → 专属精简页(在加载任何个股数据之前分流)
   if (market === "us") {
     const etf = await loadEtf(code);
     if (etf) return <EtfDetail etf={etf} />;
   }
   // 五方面板:有就显示(美股全量 + 已录入五方的 A 股,如 688017 绿的谐波)
-  const usPanel = loadUsPanel(code);
+  const usPanel = loadUsPanel(code, market);
   const stockTypes = loadStockTypes(code); // 类型轴:先定该用什么尺子量
   const fundamentals = loadFundamentals(code); // 真实基本面(Yahoo,美股)
   const aFund = market === "a" || market === "hk" ? await fetchAFundamentals(code, market) : null; // A 股/港股盘面(腾讯,实时;港股只有 PE+市值)
@@ -209,7 +210,7 @@ export default async function StockDetailPage({
     ? `${cnCur}${mcapYiLive >= 10000 ? `${(mcapYiLive / 10000).toFixed(2)} 万亿` : `${Math.round(mcapYiLive)} 亿`}`
     : fmtCap(fundamentals?.mcapB ?? usPanel?.mcapB);
 
- const marketLabel = market === "a" ? <T zh="A 股" en="A-share" /> : market === "hk" ? <T zh="港股" en="HK" /> : <T zh="美股" en="US" />;
+ const marketLabel = market === "a" ? <T zh="A 股" en="A-share" /> : market === "hk" ? <T zh="港股" en="HK" /> : market === "kr" ? <T zh="韩股" en="KR" /> : <T zh="美股" en="US" />;
   const marketTone =
  market === "a"
  ? "bg-down-soft text-down border-down/30"

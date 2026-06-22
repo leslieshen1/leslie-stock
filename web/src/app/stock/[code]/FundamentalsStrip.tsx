@@ -26,7 +26,7 @@ export default function FundamentalsStrip({
   f: Fundamentals;
   types: StockTypeKey[];
   code: string;
-  market: "a" | "hk" | "us";
+  market: "a" | "hk" | "us" | "kr";
 }) {
   const hi = new Set(HILITE[types[0]] || []);
 

@@ -40,7 +40,7 @@ function lookupIndustry(code: string, sector?: string): { id: IndustryId; emoji:
 
 type Props = {
   code: string;
- market: "a" | "hk" | "us";
+ market: "a" | "hk" | "us" | "kr";
   initial: Analysis | null;
   holders?: TickerHolder[];
   hasPanel?: boolean;
@@ -51,7 +51,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
   const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
 
   if (!initial) {
-    const marketLabel = market === "a" ? t("A 股", "A-shares") : market === "hk" ? t("港股", "HK stocks") : t("美股", "US stocks");
+    const marketLabel = market === "a" ? t("A 股", "A-shares") : market === "hk" ? t("港股", "HK stocks") : market === "kr" ? t("韩股", "KR stocks") : t("美股", "US stocks");
     const isSH = market === "a" && code.startsWith("6");
     const xqSym = market === "a" ? `${isSH ? "SH" : "SZ"}${code}` : code;
     const links: { label: string; href: string }[] =
@@ -65,6 +65,11 @@ export default function StockDetailClient({ code, market, initial, holders = [],
         ? [
             { label: t("雪球", "Xueqiu"), href: `https://xueqiu.com/S/${code}` },
             { label: t("富途", "Futu"), href: `https://www.futunn.com/stock/${code}-HK` },
+          ]
+        : market === "kr"
+        ? [
+            { label: "Yahoo Finance", href: `https://finance.yahoo.com/quote/${code}.KS` },
+            { label: "TradingView", href: `https://www.tradingview.com/symbols/KRX-${code}/` },
           ]
         : [
             { label: t("雪球", "Xueqiu"), href: `https://xueqiu.com/S/${xqSym}` },

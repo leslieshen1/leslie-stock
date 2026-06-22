@@ -37,7 +37,8 @@ function stockHref(ticker: string, region?: string): string {
     region === "CN" ? "a" :
     region === "HK" ? "hk" :
     region === "US" ? "us" :
-    /^\d{6}$/.test(ticker) ? "a" : "us"; // 无 region 时退回旧启发式(台/韩/日详情页暂不支持,落 us)
+    region === "KR" ? "kr" : // 韩股(.KS)→ kr 详情页(五方 + Yahoo 实时价)
+    /^\d{6}$/.test(ticker) ? "a" : "us"; // 无 region 时退回旧启发式(台/日详情页暂不支持,落 us)
   return `/stock/${ticker}?market=${market}`;
 }
 

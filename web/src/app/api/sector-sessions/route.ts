@@ -282,60 +282,14 @@ async function computeLivePrePost(origin: string): Promise<Sect | null> {
   return Object.keys(out).length ? out : null;
 }
 
-// 12 大板块 → SPDR 行业 ETF。行业 ETF 就是板块基准,远比「全市场 screener 市值加权 + 有流量时随机时刻定格」
-// 准且不滞后(实测旧法把工业算成 -3%,真实 XLI +0.5%、航空国防 -9% 真实 ITA -1.5%)。
-const SECTOR_ETF: Record<string, string> = {
-  "科技": "XLK", "金融": "XLF", "工业": "XLI", "可选消费": "XLY", "医疗": "XLV", "必需消费": "XLP",
-  "能源": "XLE", "材料": "XLB", "通信媒体": "XLC", "公用事业": "XLU", "地产": "XLRE",
-};
-type Tri = { pre: number | null; mid: number | null; post: number | null };
-// 大板块的 盘前/盘中/盘后 —— 用行业 ETF 的 Yahoo 分时(含盘前盘后)直接算,serve 时每 ~50s 刷一次。
-// 盘前=ET<9:30 最后档/昨收、盘中=收盘价/昨收、盘后=ET≥16:00 最后档/收盘价。休市也能算出最近交易日三段(不靠冻结快照)。
-let BIG_ETF: Record<string, Tri> = {};
-async function bigSectorsETF(): Promise<Record<string, Tri>> {
-  const out: Record<string, Tri> = {};
-  await Promise.all(Object.entries(SECTOR_ETF).map(async ([seg, etf]) => {
-    try {
-      const r = await fetchWithTimeout(
-        `https://query1.finance.yahoo.com/v8/finance/chart/${etf}?interval=5m&range=1d&includePrePost=true`,
-        { headers: { "user-agent": "Mozilla/5.0" }, cache: "no-store" }, 8000);
-      const res = (await r.json())?.chart?.result?.[0];
-      const m = res?.meta;
-      const prev = m?.chartPreviousClose ?? m?.previousClose;
-      const reg = m?.regularMarketPrice;
-      if (!(prev > 0) || !(reg > 0)) return;
-      const ts: number[] = res.timestamp || [];
-      const cl: (number | null)[] = res.indicators?.quote?.[0]?.close || [];
-      const off = m.gmtoffset ?? -14400;
-      let preLast: number | null = null, postLast: number | null = null;
-      for (let i = 0; i < ts.length; i++) {
-        const c = cl[i];
-        if (c == null) continue;
-        const et = new Date((ts[i] + off) * 1000);
-        const mins = et.getUTCHours() * 60 + et.getUTCMinutes();
-        if (mins < 570) preLast = c;          // ET <9:30 → 盘前
-        else if (mins >= 960) postLast = c;   // ET ≥16:00 → 盘后
-      }
-      const pct = (a: number, b: number) => Math.round((a / b - 1) * 1000) / 10;
-      out[seg] = {
-        pre: preLast != null ? pct(preLast, prev) : null,
-        mid: pct(reg, prev),
-        post: postLast != null ? pct(postLast, reg) : null,
-      };
-    } catch { /* 单只失败跳过 */ }
-  }));
-  return out;
-}
-
 async function syncOnce(origin: string) {
   const session = etSession();
-  // 盘中=全市场 screener(全、便宜);盘前/盘后=各板块龙头走 Nasdaq /info 取真延伸时段价(screener 没有);休市=不算(用定格)
-  let live = session === "盘中" ? await computeLive(origin)
+  // 板块/子板块一律【全市场逐只 + 我们自己的分类】聚合:盘中/休市=computeLive(全市场 screener,休市时=收盘价、准);
+  // 盘前/盘后=各板块龙头走 /info。休市也算 → 不靠会冻脏的快照、休市照样准(用最近交易日收盘聚合)。
+  // 不按市值封顶:SPCX($2万亿)这种超大票照实主导板块(Leslie 定的口径),航空国防 -9% 就是 SpaceX 真跌 16% 拖的。
+  const live = (session === "盘中" || session === "休市") ? await computeLive(origin)
     : (session === "盘前" || session === "盘后") ? await computeLivePrePost(origin)
     : null;
-  // 大板块的 盘前/盘中/盘后 一律用行业 ETF 的 Yahoo 分时实算(serve 时刷、休市也准),GET 里覆盖个股聚合;
-  // 子主题(航空国防等无 ETF)仍走个股聚合(下面 computeLive 已加离群过滤,挡 SNDK 那种脏价拖偏)。
-  BIG_ETF = await bigSectorsETF();
   LIVE = { session, sect: live };
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日
@@ -345,7 +299,7 @@ async function syncOnce(origin: string) {
   const today = etDate();
   let raw = ((await r.hgetall(KEY)) || {}) as Record<string, unknown>;
   if (session !== "休市" && raw.day !== today) { await r.del(KEY); raw = {}; }
-  if (live && Object.keys(live).length) {
+  if (live && Object.keys(live).length && FIELD[session]) {   // 休市(无 FIELD)不写定格,live 直接 serve 当盘中
     await r.hset(KEY, { day: today, [FIELD[session]]: live });
     await r.expire(KEY, 60 * 60 * 24 * 3);
     raw.day = today; raw[FIELD[session]] = live;
@@ -365,31 +319,23 @@ export async function GET(req: Request) {
     const realSession = session !== "休市";
     const frozenOK = realSession ? HASH.day === today : true;
     const live = LIVE.sect;
-    // 某个 key(板块或子主题)的三段值:当前段用实时,过去段用定格,未到段 null
+    // 某 key 的三段:当前段用实时;**休市时盘中列用实时聚合**(computeLive 收盘价,不再吃冻结脏值);过去段用定格,未到段 null
     const cell = (key: string, sess: "pre" | "mid" | "post", label: string) =>
-      session === label ? live?.[key] ?? null : (frozenOK ? HASH[sess]?.[key] ?? null : null);
-    // 大板块(big=true):优先用行业 ETF 分时实算的三段(准、休市也有);子主题走个股聚合定格。
-    const triple = (key: string, big = false) =>
-      big && BIG_ETF[key]
-        ? BIG_ETF[key]
-        : { pre: cell(key, "pre", "盘前"), mid: cell(key, "mid", "盘中"), post: cell(key, "post", "盘后") };
+      (session === label || (session === "休市" && sess === "mid"))
+        ? live?.[key] ?? null
+        : (frozenOK ? HASH[sess]?.[key] ?? null : null);
+    const triple = (key: string) => ({
+      pre: cell(key, "pre", "盘前"), mid: cell(key, "mid", "盘中"), post: cell(key, "post", "盘后"),
+    });
 
     const cap = SECT_CAP || {}, subCap = SUB_CAP || {};
     const subsSorted = Object.keys(subCap).sort((a, b) => subCap[b] - subCap[a]);
     const sectors = Object.keys(cap).sort((a, b) => cap[b] - cap[a]).map((seg) => {
       const pfx = `${seg}|`;
-      const big = BIG_ETF[seg];   // 父板块的 ETF 三段(权威);子主题与之严重背离判脏
       const segSubs = subsSorted.filter((k) => k.startsWith(pfx))
-        .map((k) => {
-          const t = triple(k);
-          // 子主题是父板块的子集:某列与父 ETF 背离 >6pp 不可能(除非个股聚合被脏价污染)→ 抹成 null 显「—」
-          if (big) for (const c of ["pre", "mid", "post"] as const) {
-            if (t[c] != null && big[c] != null && Math.abs((t[c] as number) - (big[c] as number)) > 6) t[c] = null;
-          }
-          return { sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...t, d7: US_WIN.d7[k] ?? null, d30: US_WIN.d30[k] ?? null };
-        });
+        .map((k) => ({ sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...triple(k), d7: US_WIN.d7[k] ?? null, d30: US_WIN.d30[k] ?? null }));
       return {
-        sector: seg, capB: Math.round(cap[seg]), ...triple(seg, true),
+        sector: seg, capB: Math.round(cap[seg]), ...triple(seg),
         d7: US_WIN.d7[seg] ?? null, d30: US_WIN.d30[seg] ?? null,
         ...(segSubs.length > 1 ? { subs: segSubs } : {}),
       };

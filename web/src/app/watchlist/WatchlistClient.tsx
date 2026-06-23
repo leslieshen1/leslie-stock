@@ -13,10 +13,11 @@ type SortKey = "added" | "score" | "mcap";
 type PanelSummary = { order: string[]; stocks: Record<string, { sc: (number | null)[]; div: number }> };
 type Quote = { price: number; pct: number | null; session?: string };
 
-// /api/quote 的代码口径:美股纯代码;A股 6 开头 .SS 其余 .SZ;港股 .HK
+// /api/quote 的代码口径:美股纯代码;A股 6 开头 .SS 其余 .SZ;港股 .HK;韩股 .KS
 function quoteSym(w: LocalWatchEntry): string {
   if (w.market === "a") return `${w.code}.${w.code.startsWith("6") ? "SS" : "SZ"}`;
   if (w.market === "hk") return `${w.code}.HK`;
+  if (w.market === "kr") return `${w.code}.KS`;
   return w.code;
 }
 

@@ -870,9 +870,9 @@ export default function PulseClient({
 
 // ---- 详情面板 ----
 interface ScoredItem extends CompanyWithHeat { triple: number | null; masters?: MastersJoin }
-// 热力图节点 region → watchlist 市场("我的"只支持 a/hk/us;台/韩/欧/日 暂不收藏 → null 不显星)
-function regionToMarket(region: string): "a" | "us" | "hk" | null {
-  return region === "CN" ? "a" : region === "US" ? "us" : region === "HK" ? "hk" : null;
+// 热力图节点 region → watchlist 市场(a/hk/us/kr;台/欧/日暂不收藏 → null 不显星)
+function regionToMarket(region: string): "a" | "us" | "hk" | "kr" | null {
+  return region === "CN" ? "a" : region === "US" ? "us" : region === "HK" ? "hk" : region === "KR" ? "kr" : null;
 }
 
 function DetailPanel({

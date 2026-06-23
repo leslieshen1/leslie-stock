@@ -6,7 +6,7 @@ import { Star, X, ChevronRight } from "lucide-react";
 import { useWatchlist } from "@/lib/useWatchlist";
 import { useLang } from "@/lib/i18n";
 
-const MARKET_LABEL: Record<string, string> = { a: "SH/SZ", hk: "HK", us: "US" };
+const MARKET_LABEL: Record<string, string> = { a: "SH/SZ", hk: "HK", us: "US", kr: "KR" };
 
 export default function WatchlistSidebar() {
   const { t } = useLang();

@@ -26,6 +26,7 @@ import NewsStrip from "./NewsStrip";
 import EarningsChip from "./EarningsChip";
 import OptionsGammaLine from "./OptionsGammaLine";
 import LivePrice from "./LivePrice";
+import WatchStar from "./WatchStar";
 
 // ETF 详情:etf-analyses.json(板块/业绩/费率/判决/介绍)。ETF 没有五方/产业链/持仓,
 // 但有自己的一套:1年/3年/5年回报、最大回撤、波动、AUM、费率 + 段巴判决 + 一句话介绍。
@@ -231,6 +232,7 @@ export default async function StockDetailPage({
  <span className="text-faint">/</span>
  <span className="text-muted">{initial?.name || code}</span>
         </div>
+ <div className="flex items-start justify-between gap-3">
  <div>
  <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink">
             {usPanel?.name || initial?.name || code}
@@ -241,6 +243,8 @@ export default async function StockDetailPage({
             {marketLabel}
           </span>
           </div>
+        </div>
+          <WatchStar code={code} market={market} name={usPanel?.name || initial?.name || code} sector={cls?.seg ?? usPanel?.sector ?? undefined} />
         </div>
         {/* 市值 · 行业 · 链定位 —— 之前页头只有代码+价格,连公司是干嘛的都不知道(2026-06-12 反馈) */}
         {(mcap || cls?.seg || usPanel?.sector || usPanel?.chain?.industry) && (

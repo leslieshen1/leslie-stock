@@ -6,7 +6,7 @@ const STORAGE_KEY = "leslie-stock-watchlist-v1";
 
 export type LocalWatchEntry = {
   code: string;
-  market: "a" | "hk" | "us";
+  market: "a" | "hk" | "us" | "kr";
   name: string;
   added_at: string;
   // 可选快照字段（避免每次访问需 fetch）

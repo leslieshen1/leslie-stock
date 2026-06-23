@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-22 22:15 ET Mon",
+ "asof_et": "2026-06-22 22:31 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "-0.31%",
@@ -45,6 +45,12 @@
    "close_pct": "+15.66%"
   },
   {
+   "sym": "SMCIP",
+   "name": "Super Micro Computer Inc. Depositary Shares representing a 1/20th Interest in a Share of 7% Series A Mandatory Convertible Preferred Stock",
+   "close_price": "$61.23",
+   "close_pct": "+14.43%"
+  },
+  {
    "sym": "UMC",
    "name": "United Microelectronics Corporation (NEW)",
    "close_price": "$27.50",
@@ -55,12 +61,6 @@
    "name": "Spyre Therapeutics Inc.",
    "close_price": "$100.32",
    "close_pct": "+13.56%"
-  },
-  {
-   "sym": "SMCIP",
-   "name": "Super Micro Computer Inc. Depositary Shares representing a 1/20th Interest in a Share of 7% Series A Mandatory Convertible Preferred Stock",
-   "close_price": "$60.32",
-   "close_pct": "+12.73%"
   },
   {
    "sym": "VIAV",

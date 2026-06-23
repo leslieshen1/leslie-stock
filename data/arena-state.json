@@ -1935,9 +1935,129 @@
    "reason": "GLW被重新贴上AI光连接标签，盘前继续有资金承接，机构流入和叙事升温都在，但还没像微盘AI那样挤到一碰就炸。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 94,
+   "fill_date": "2026-06-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天价格波动不改变这些生意的长期护城河和owner earnings，我不会因为盘前报价先生发脾气就把好生意卖掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 95,
+   "fill_date": "2026-06-23",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几门生意我都看懂了，今天盘前价格波动没有改变商业模式和文化，没必要因为市场先生情绪不好就乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 96,
+   "fill_date": "2026-06-23",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前是指数砸高 beta，不是我的瓶颈逻辑失效；这批仓位仍然卡在军工材料、AI光互联、电力/算力、核燃料这些每单位量产都要吃的窄门上，我不因为红盘绿盘去拆真瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 97,
+   "fill_date": "2026-06-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "NVTS",
+   "reason": "纳指盘前砸近3%，这种小盘AI电力半导体高Beta一旦逆流动性，我不跟它谈故事，先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 98,
+   "fill_date": "2026-06-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CAMT",
+   "reason": "AI设备链今天被流动性反手抽打，CAMT没有利润垫还盘前跌7%，错了就快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 99,
+   "fill_date": "2026-06-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "WDC",
+   "reason": "存储弹性票昨天追进去今天盘前直接跌7%，说明资金不再奖励这条高Beta表达，砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 100,
+   "fill_date": "2026-06-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VRT",
+   "reason": "VRT是好趋势但今天盘前被当成拥挤AI资本开支仓位一起卖，趋势失速时我先降杠杆。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 101,
+   "fill_date": "2026-06-23",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "LLY",
+   "reason": "全市场科技高Beta被砸时LLY盘前还能红，肥胖药主升浪有独立流动性，我要换到顺风的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 102,
+   "fill_date": "2026-06-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "USAR",
+   "reason": "稀土政策题材本来就拥挤，盘前还逆风破位，钱一撤这种票情绪反转最快，我不陪散户接刀。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 103,
+   "fill_date": "2026-06-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SIMO",
+   "reason": "存储链昨天是顺风，今天纳指大跌下盘前直接被砸，说明动量资金在撤，不等它变成死水。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 104,
+   "fill_date": "2026-06-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "GLW",
+   "reason": "AI光连接标签遇到系统性去风险先被拆估值，盘前跌幅说明故事盘承接不够，我先退。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 105,
+   "fill_date": "2026-06-23",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "BWIN",
+   "reason": "全市场风险资产被砸时它盘前还能红，机构慢钱和防御成长属性有相对强度，拥挤度也不高。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 94,
+ "next_order_id": 106,
  "notes": [
   {
    "date": "2026-06-12",

@@ -9,7 +9,6 @@ import { fetchWithTimeout } from "@/lib/api-guard";
 // 不 force-dynamic(它让边缘不缓存)。读 req(origin)本就动态;用 Vercel-CDN-Cache-Control 让边缘缓存 45s,函数少打。
 
 const KEY = "sg:sect:cur";
-const FIELD: Record<string, "pre" | "mid" | "post"> = { 盘前: "pre", 盘中: "mid", 盘后: "post" };
 
 // GICS sector → 大板块中文(合并 通信+媒体、杂项+空白)
 const SECT_ZH: Record<string, string> = {
@@ -152,7 +151,7 @@ let LAST_SYNC = 0;
 let HASH: { day: string | null; pre: Sect | null; mid: Sect | null; post: Sect | null } = {
   day: null, pre: null, mid: null, post: null,
 };
-let LIVE: { session: string; sect: Sect | null } = { session: "", sect: null };
+let LIVE: { session: string; sect: Sect | null; post: Sect | null } = { session: "", sect: null, post: null };
 type Sect = Record<string, number>;
 
 async function loadStatic() {
@@ -237,45 +236,18 @@ async function computeLive(origin: string): Promise<Sect | null> {
   return Object.keys(out).length ? out : null;
 }
 
-// 盘前/盘后:Nasdaq screener(/api/market)无延伸时段行情 → 改取各大板块「市值龙头」(top-N)的真盘前/盘后价
-// (走 /api/quote 的 Nasdaq /info 端点,primaryData=盘前价,与盘前报告/个股详情页同源),市值加权近似板块盘前/盘后涨跌。
-// 龙头主导市值加权,top-N 足以代表板块走向;只 ~12 板块×N 只、分批查,Nasdaq /info 不限流。盘中仍用全市场 screener。
-let PREPOST_SYMS: string[] | null = null;
-function topSymsPerSector(n: number): string[] {
-  if (PREPOST_SYMS) return PREPOST_SYMS;
-  if (!SECT_MAP || !SYM_CAP) return [];
-  const bySeg: Record<string, [string, number][]> = {};
-  for (const [sym, seg] of Object.entries(SECT_MAP)) {
-    const m = SYM_CAP[sym] || 0;
-    if (m > 0) (bySeg[seg] ||= []).push([sym, m]);
-  }
-  const out = new Set<string>();
-  for (const arr of Object.values(bySeg)) {
-    arr.sort((a, b) => b[1] - a[1]);
-    for (const [sym] of arr.slice(0, n)) out.add(sym);
-  }
-  PREPOST_SYMS = [...out];
-  return PREPOST_SYMS;
-}
-
-async function computeLivePrePost(origin: string): Promise<Sect | null> {
-  const syms = topSymsPerSector(8);
-  if (!syms.length || !SECT_MAP || !SYM_CAP) return null;
-  const quotes: Record<string, { pct: number | null }> = {};
-  for (let i = 0; i < syms.length; i += 25) {
-    const batch = syms.slice(i, i + 25).join(",");
-    const j = await fetchWithTimeout(`${origin}/api/quote?syms=${encodeURIComponent(batch)}`, {}, 12000)
-      .then((x) => x.json()).catch(() => null);
-    if (j?.quotes) Object.assign(quotes, j.quotes);
-  }
+// 盘后列:全市场逐只用 /api/market 的 postPct(来自新浪 gb_ [22],盘后% 相对收盘)市值加权聚合 —— 口径同盘中、子板块全覆盖。
+async function computePost(origin: string): Promise<Sect | null> {
+  const mkt = await fetchWithTimeout(`${origin}/api/market`, {}, 12000).then((x) => x.json()).catch(() => null);
+  const quotes: Record<string, { postPct?: number | null; mcapB?: number | null }> = mkt?.quotes || {};
+  if (!Object.keys(quotes).length || !SECT_MAP) return null;
   const agg: Record<string, { cap: number; capPct: number }> = {};
   const add = (key: string, m: number, pct: number) => { const a = (agg[key] ||= { cap: 0, capPct: 0 }); a.cap += m; a.capPct += m * pct; };
-  for (const sym of syms) {
-    const q = quotes[sym.toUpperCase()];
-    const seg = SECT_MAP[sym]; const m = SYM_CAP[sym] || 0;
-    if (!seg || !q || q.pct == null || !(m > 0) || Math.abs(Number(q.pct)) > 35) continue;  // 离群脏价跳过
-    add(seg, m, Number(q.pct));
-    const sub = SUB_MAP?.[sym]; if (sub) add(sub, m, Number(q.pct));
+  for (const [sym, q] of Object.entries(quotes)) {
+    const seg = SECT_MAP[sym]; const pp = q.postPct;
+    if (!seg || pp == null || !(Number(q.mcapB) > 0) || Math.abs(Number(pp)) > 35) continue;
+    add(seg, Number(q.mcapB), Number(pp));
+    const sub = SUB_MAP?.[sym]; if (sub) add(sub, Number(q.mcapB), Number(pp));
   }
   const out: Sect = {};
   for (const [k, a] of Object.entries(agg)) if (a.cap) out[k] = Math.round((a.capPct / a.cap) * 100) / 100;
@@ -287,10 +259,11 @@ async function syncOnce(origin: string) {
   // 板块/子板块一律【全市场逐只 + 我们自己的分类】聚合:盘中/休市=computeLive(全市场 screener,休市时=收盘价、准);
   // 盘前/盘后=各板块龙头走 /info。休市也算 → 不靠会冻脏的快照、休市照样准(用最近交易日收盘聚合)。
   // 不按市值封顶:SPCX($2万亿)这种超大票照实主导板块(Leslie 定的口径),航空国防 -9% 就是 SpaceX 真跌 16% 拖的。
-  const live = (session === "盘中" || session === "休市") ? await computeLive(origin)
-    : (session === "盘前" || session === "盘后") ? await computeLivePrePost(origin)
-    : null;
-  LIVE = { session, sect: live };
+  // computeLive 读 /api/market 的 pct(新浪覆盖全市场):盘前=盘前价、盘中/盘后/休市=常规收盘 → 自动落到 pre 或 mid 列。
+  const live = await computeLive(origin);
+  // 盘后列:盘后/休市 用全量 postPct(新浪[22])聚合,口径同盘中(子板块全覆盖、不再 top-8 龙头近似);盘前/盘中盘后未发生 → null。
+  const livePost = (session === "盘后" || session === "休市") ? await computePost(origin) : null;
+  LIVE = { session, sect: live, post: livePost };
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日
   A_WIN = { d7: await computeAWindow(5), d30: await computeAWindow(21) };    // A 股窗口(攒够历史前多为空 → 组件显示 —)
@@ -299,10 +272,10 @@ async function syncOnce(origin: string) {
   const today = etDate();
   let raw = ((await r.hgetall(KEY)) || {}) as Record<string, unknown>;
   if (session !== "休市" && raw.day !== today) { await r.del(KEY); raw = {}; }
-  if (live && Object.keys(live).length && FIELD[session]) {   // 休市(无 FIELD)不写定格,live 直接 serve 当盘中
-    await r.hset(KEY, { day: today, [FIELD[session]]: live });
+  if (live && Object.keys(live).length && session === "盘前") {   // 只定格盘前(供盘中/盘后/休市显示);mid 实时 computeLive、post 实时 computePost,都不靠定格
+    await r.hset(KEY, { day: today, pre: live });
     await r.expire(KEY, 60 * 60 * 24 * 3);
-    raw.day = today; raw[FIELD[session]] = live;
+    raw.day = today; raw.pre = live;
   }
   const obj = (v: unknown): Sect | null => (v && typeof v === "object" ? (v as Sect) : null);
   HASH = { day: (raw.day as string) || null, pre: obj(raw.pre), mid: obj(raw.mid), post: obj(raw.post) };
@@ -319,14 +292,17 @@ export async function GET(req: Request) {
     const realSession = session !== "休市";
     const frozenOK = realSession ? HASH.day === today : true;
     const live = LIVE.sect;
-    // 某 key 的三段:当前段用实时;**休市时盘中列用实时聚合**(computeLive 收盘价,不再吃冻结脏值);过去段用定格,未到段 null
-    const cell = (key: string, sess: "pre" | "mid" | "post", label: string) =>
-      (session === label || (session === "休市" && sess === "mid"))
-        ? live?.[key] ?? null
-        : (frozenOK ? HASH[sess]?.[key] ?? null : null);
-    const triple = (key: string) => ({
-      pre: cell(key, "pre", "盘前"), mid: cell(key, "mid", "盘中"), post: cell(key, "post", "盘后"),
-    });
+    const livePost = LIVE.post;
+    // 三列同一套口径(全市场逐只 · 我们的分类):
+    //  盘后 = computePost(新浪[22] 全量聚合,盘后/休市才有,否则未发生=null);
+    //  盘前 = computeLive(盘前价;盘前时实时,其余时段用盘前抓的定格);
+    //  盘中 = computeLive(常规收盘;盘中/盘后/休市实时,盘前时未发生=null)。
+    const cell = (key: string, sess: "pre" | "mid" | "post"): number | null => {
+      if (sess === "post") return (session === "盘后" || session === "休市") ? livePost?.[key] ?? null : null;
+      if (sess === "pre") return session === "盘前" ? live?.[key] ?? null : (frozenOK ? HASH.pre?.[key] ?? null : null);
+      return (session === "盘中" || session === "盘后" || session === "休市") ? live?.[key] ?? null : null;
+    };
+    const triple = (key: string) => ({ pre: cell(key, "pre"), mid: cell(key, "mid"), post: cell(key, "post") });
 
     const cap = SECT_CAP || {}, subCap = SUB_CAP || {};
     const subsSorted = Object.keys(subCap).sort((a, b) => subCap[b] - subCap[a]);

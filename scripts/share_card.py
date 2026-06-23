@@ -48,6 +48,10 @@ NH = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit
       "accept": "application/json", "origin": "https://www.nasdaq.com", "referer": "https://www.nasdaq.com/"}
 
 IDX = [("QQQ", "Nasdaq 100"), ("IWM", "Russell 2000"), ("SPY", "S&P 500"), ("DIA", "Dow")]
+# 板块 = 11 个 SPDR 行业 ETF(标准「板块涨跌」口径);卡片直接抓它们的当日 % 当板块强弱
+SECTORS = [("XLK", "Tech"), ("XLC", "Comm Svcs"), ("XLY", "Cons Disc"), ("XLF", "Financials"),
+           ("XLV", "Health Care"), ("XLI", "Industrials"), ("XLP", "Staples"), ("XLE", "Energy"),
+           ("XLU", "Utilities"), ("XLB", "Materials"), ("XLRE", "Real Estate")]
 MEGA = ["AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA", "V", "JPM"]
 SEMI = ["AAOI", "AXTI", "MRVL", "SMCI", "NVTS", "ARM", "MU", "ACMR", "TSM", "AMD"]
 SPACE = ["ASTS", "LUNR"]
@@ -141,11 +145,12 @@ def macro_actuals() -> list[dict]:
 
 
 def gather(card_type: str) -> dict:
-    with ThreadPoolExecutor(max_workers=10) as ex:
+    with ThreadPoolExecutor(max_workers=14) as ex:
         idx = list(ex.map(lambda s: q(s, "etf"), [s for s, _ in IDX]))
         sparks = dict(zip([s for s, _ in IDX], ex.map(chart_points, [s for s, _ in IDX])))
         mega = [r for r in ex.map(q, MEGA) if r["pct"] is not None]
         semi = [r for r in ex.map(q, SEMI) if r["pct"] is not None]
+        sect = list(ex.map(lambda s: q(s, "etf"), [s for s, _ in SECTORS]))
     idx_map = {r["sym"]: r for r in idx}
     ts = idx_map.get("SPY", {}).get("ts", "")
     m = re.search(r"([A-Z][a-z]{2}) (\d{1,2})", ts)
@@ -183,27 +188,20 @@ def gather(card_type: str) -> dict:
         for r in idx_map.values():
             if r.get("prevPct") is not None:
                 r["pct"] = r["prevPct"]
-        for rows in (mega, semi):
+        for rows in (mega, semi, sect):
             for r in rows:
                 if r.get("prevPct") is not None:
                     r["pct"] = r["prevPct"]
-    # 三主题面板(标杆样式:每板一行 3 只,|pct| 最大优先)
-    with ThreadPoolExecutor(max_workers=6) as ex:
-        space = [r for r in ex.map(q, SPACE) if r["pct"] is not None]
-        crypto = [r for r in ex.map(q, CRYPTO) if r["pct"] is not None]
-    def top3(rows):
-        return sorted(rows, key=lambda r: -abs(r["pct"] or 0))[:3]
-    panels = [
-        {"icon": "bolt", "title": "Megacaps", "items": top3(mega)},
-        {"icon": "chip", "title": "Semis & optical", "items": top3(semi)},
-    ]
-    third = max([("rocket", "Space", space), ("bitcoin", "Crypto names", crypto)],
-                key=lambda t: max((abs(r["pct"] or 0) for r in t[2]), default=0))
-    panels.append({"icon": third[0], "title": third[1], "items": top3(third[2])})
+    # 板块强弱:11 个行业 ETF 的当日涨跌,排序
+    sect_map = {r["sym"]: r for r in sect}
+    sectors = [{"sym": s, "name": n, "pct": sect_map.get(s, {}).get("pct")} for s, n in SECTORS]
+    sectors = [x for x in sectors if x["pct"] is not None]
+    sectors.sort(key=lambda x: -(x["pct"] or 0))
+    # 热门标的 fallback(报告没给 spec.tickers 时):mega+semi 里 |涨跌| 最大的几只
+    fallback_hot = sorted(mega + semi, key=lambda r: -abs(r["pct"] or 0))[:10]
     return {"type": card_type, "date": date_label, "idx": idx_map, "sparks": sparks,
-            "released": macro_actuals(), "panels": panels,
-            "megaDown": mega[:3], "megaUp": mega[-3:][::-1],
-            "semiDown": semi[:4], "semiUp": semi[-3:][::-1], "next": nxt}
+            "released": macro_actuals(), "sectors": sectors, "fallback_hot": fallback_hot,
+            "panels": build_panels(sectors, fallback_hot), "next": nxt}
 
 
 # ---------- ② 文案(relay 探活,降级规则) ----------
@@ -352,7 +350,35 @@ def panel_items_html(items) -> str:
     return "".join(bits)
 
 
+def sector_items_html(items) -> str:
+    bits = []
+    for r in items:
+        c = GREEN if (r["pct"] or 0) >= 0 else RED
+        bits.append(f'<span class="pi"><b>{r["name"]}</b>'
+                    f'<span style="color:{c}">{fp(r["pct"])}</span></span>')
+    return "".join(bits)
+
+
+def build_panels(sectors: list, hot: list) -> list:
+    """3 板(避开右侧 Aime 机器人):① 板块强弱(3 强 + 3 弱)② 热门标的涨 ③ 热门标的跌。
+       sectors=[{sym,name,pct}] 已按 pct 降序;hot=[{sym,pct,...}](报告主角 spec 或 fallback)。"""
+    panels = []
+    if sectors:
+        up = sectors[:3]
+        down = [s for s in reversed(sectors) if (s["pct"] or 0) < 0][:2]
+        panels.append({"icon": "grid", "title": "Sectors", "sitems": up + down})
+    if hot:
+        hu = sorted([h for h in hot if (h["pct"] or 0) >= 0], key=lambda r: -(r["pct"] or 0))[:5]
+        hd = sorted([h for h in hot if (h["pct"] or 0) < 0], key=lambda r: (r["pct"] or 0))[:5]
+        if hu:
+            panels.append({"icon": "bolt", "title": "In focus ↑", "items": hu})
+        if hd:
+            panels.append({"icon": "bolt", "title": "In focus ↓", "items": hd})
+    return panels[:3]
+
+
 PANEL_ICON = {
+    "grid": '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
     "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/>',
     "bolt": '<path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>',
     "chip": '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2"/>',
@@ -387,15 +413,16 @@ def build_html(ctx: dict) -> str:
         {spark_svg(ctx["sparks"].get(sym, []), up)}
       </div>"""
 
-    # 三主题面板(一行三只,带 logo)
+    # 面板:板块(行业名 + pct)/ 热门标的(logo + pct);一行三板,避开右侧 Aime
     panels_html = ""
     for pn in ctx["panels"]:
         icon = PANEL_ICON.get(pn["icon"], PANEL_ICON["bolt"])
+        inner = sector_items_html(pn["sitems"]) if pn.get("sitems") else panel_items_html(pn.get("items", []))
         panels_html += f"""
       <div class="panel">
         <div class="p-head"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="{BLUE}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">{icon}</svg></span>
           <span class="p-title">{pn["title"]}</span></div>
-        <div class="p-items">{panel_items_html(pn["items"])}</div>
+        <div class="p-items">{inner}</div>
       </div>"""
 
     # 页脚事件条
@@ -462,7 +489,7 @@ def build_html(ctx: dict) -> str:
   .chip svg {{ width:19px; height:19px; }}
   .tile-pct {{ margin-top:7px; font-size:46px; font-weight:800; letter-spacing:-0.02em; }}
   .spark {{ width:100%; height:42px; display:block; margin-top:4px; }}
-  .panels {{ position:absolute; top:548px; left:64px; display:flex; gap:18px; }}
+  .panels {{ position:absolute; top:540px; left:64px; display:flex; gap:18px; align-items:flex-start; }}
   .panel {{ width:330px; padding:18px 22px; background:linear-gradient(180deg,#FFFFFF,#FBFCFE);
             border-radius:22px; border:1px solid rgba(15,23,42,0.05);
             box-shadow:0 1px 0 rgba(255,255,255,.95) inset, 0 2px 3px rgba(15,23,42,.04), 0 18px 38px rgba(15,23,42,.08); }}
@@ -540,8 +567,22 @@ def main():
         hl = relay_headline(ctx)
         ctx["headline"] = hl or rule_headline(ctx)
         print(f"   headline[{'gpt-5.5' if hl else '规则'}]: {ctx['headline']}")
-    if spec.get("panels"):
-        ctx["panels"] = spec["panels"]      # [{icon,title,items:[[sym,"+7.52%"],...]}]
+    # 热门标的「跟报告同源」:报告把它讲到的主角 ticker 写进 spec.tickers → 这里抓实时 % → 重建面板。
+    # 没给 tickers 就用 gather 的 fallback(mega+semi 当日 |涨跌| 最大的)。
+    hot = ctx.get("fallback_hot") or []
+    syms = [str(s).upper() for s in (spec.get("tickers") or []) if re.match(r"^[A-Z]{1,5}$", str(s))][:12]
+    if syms:
+        with ThreadPoolExecutor(max_workers=10) as ex:
+            fetched = [r for r in ex.map(q, syms) if r["pct"] is not None]
+        status = (ctx["idx"].get("SPY", {}).get("status") or "").lower()
+        if ctx["type"] == "close" and ("after" in status or "post" in status):
+            for r in fetched:
+                if r.get("prevPct") is not None:
+                    r["pct"] = r["prevPct"]
+        if fetched:
+            hot = fetched
+            print(f"   热门标的[报告同源]: {' '.join(r['sym'] for r in fetched)}")
+    ctx["panels"] = build_panels(ctx.get("sectors", []), hot)
     if spec.get("footer"):
         ctx["footer_override"] = spec["footer"]  # [{"when","name","dim"}]
 

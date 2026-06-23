@@ -19,7 +19,8 @@ except Exception:
     pass
 
 # 复用盘前报告的工具:Nasdaq 报价 / Claude Opus 4.8 综述 / 大票池 / 路径 / Finnhub key
-from premarket_report import npm, llm_write, card_headline, _pctnum, LIQUID, HOT_WATCH, PUB, OUT, FINN
+from premarket_report import (npm, llm_write, card_headline, _pctnum, LIQUID, HOT_WATCH,
+                              PUB, OUT, FINN, enrich_news, write_card_spec)
 
 
 def gather():
@@ -96,6 +97,9 @@ def gather():
             ctx["news"] = [{"h": x.get("title"), "src": x.get("source"), "sum": (x.get("summary") or "")[:160]} for x in mn[:18]]
         except Exception:
             pass
+    # 联网核实:Google News 实时新闻(大盘 + 重点个股),前置到 ctx['news']
+    movers = HOT_WATCH + [r.get("sym") for r in (ctx.get("gainers", []) + ctx.get("losers", [])) if r.get("sym")]
+    enrich_news(ctx, list(dict.fromkeys(movers)))
     return ctx
 
 
@@ -111,6 +115,7 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的收盘分析师。
 - **基准是"今天这根 K 线"**:今天收涨还是收跌、谁领、什么驱动。不要预测明天涨跌(只点出明天的催化剂/财报)。
 - **不是投资建议**——是「今天发生了什么、为什么」的复盘与信号。不喊单、不给目标价、不保证。
 - 结合新闻找因果,不流水账。
+- **新闻只用所给 news**:news = Google News + Finnhub **实时抓取的真新闻**(含按重点个股查的)。引用消息、讲因果都基于它;**绝不用训练记忆编造具体数字、金额、评级、并购、协议、事件**。所给 news/数据佐证不了的具体细节,写成"市场关注/有传闻"或干脆不写,别当事实写死。数据(指数/涨跌/价格)一律以 JSON 为准。
 - **有深度,不是摘要**:每条主线讲透"今天谁在买谁在卖、为什么、资金轮动到哪",给出可观察的信号或关键价位;至少点出一个市场可能误读或还没消化的点。宁可少讲两只票,也要把主线讲到位。
 
 结构(markdown,1400-2000 字。**不要输出大标题/日期**——外层已加,直接从第 1 节开始,每节用 ## 二级标题):
@@ -150,11 +155,8 @@ def main():
     path.write_text(md, encoding="utf-8")
     print(f"✓ 报告 → {path}  ({len(report)} 字)")
 
-    # 派生卡片 spec:英文标题随报告 → share_card.py --spec,保证图文同一个故事
-    hl = card_headline(report)
-    if hl:
-        (OUT / "close_spec.json").write_text(json.dumps({"headline": hl}, ensure_ascii=False), encoding="utf-8")
-        print(f"   🃏 卡片标题(随报告): {hl}")
+    # 派生卡片 spec:英文标题 + 报告主角 tickers → share_card.py --spec,保证图文同一个故事
+    write_card_spec(OUT / "close_spec.json", report)
 
     if "--no-email" not in sys.argv:
         try:

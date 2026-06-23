@@ -128,6 +128,9 @@ def gather():
             ctx["news"] = [{"h": x.get("title"), "src": x.get("source"), "sum": (x.get("summary") or "")[:160]} for x in mn[:18]]
         except Exception:
             pass
+    # 联网核实:Google News 实时新闻(大盘 + 重点个股),前置到 ctx['news']
+    movers = HOT_WATCH + [r.get("sym") for r in (ctx.get("premarket_gainers", []) + ctx.get("premarket_losers", [])) if r.get("sym")]
+    enrich_news(ctx, list(dict.fromkeys(movers)))
     return ctx
 
 
@@ -144,6 +147,7 @@ PROMPT = """你是「我不是股神 · Not a Stock Guru」的盘前分析师。
 - **时间轴铁律:今天是盘前,基准是"上一交易日收盘"。yesterday_pct 是上一交易日那天的涨跌,pm_pct 是盘前相对上一交易日收盘。先判断"上一交易日是涨是跌",再判断"盘前是延续还是反转/降速"。绝不要把更早之前的行情当成上一交易日。⚠ 正文措辞一律用「上一交易日」,绝不要写「昨天」——本报告常在周一或假日次日跑,那时"昨天"是休市日、不是上一交易日,写"昨天"就错了。**
 - **不是投资建议**——是「该看什么」的框架与信号。不喊单、不给目标价、不保证。
 - 结合新闻找因果,不流水账。
+- **新闻只用所给 news**:news = Google News + Finnhub **实时抓取的真新闻**(含按重点个股查的)。引用消息、讲因果都基于它;**绝不用训练记忆编造具体数字、金额、评级、并购、协议、事件**。所给 news/数据佐证不了的具体细节,写成"市场关注/有传闻"或干脆不写,别当事实写死。数据(指数/盘前涨跌/价格)一律以 JSON 为准。
 - **有深度,不是摘要**:每条主线讲透"机构在怎么想、资金往哪走、谁站在对面",给出可跟踪的关键价位或触发条件;至少点出一个市场可能还没在定价的风险或反共识点。宁可少讲两只票,也要把主线讲到位。
 - **排版加粗(必须做)**:正文是 markdown,把每条主线的**核心判断**、点名的**关键个股+关键价位**用 `**加粗**` 标出(只加粗关键词,别整段加粗),让读者一眼抓到重点。
 
@@ -186,6 +190,78 @@ def card_headline(report_md: str) -> str | None:
         return None
 
 
+# ============================================================
+# 联网核实:Google News RSS(免 key、实时真新闻)+ 报告主角 ticker 提取
+# ============================================================
+def google_news(query: str, n: int = 6) -> list[dict]:
+    """Google News RSS 拉实时真新闻。返回 [{h, src, sum}]。免 key,标题形如 'Headline - Source'。"""
+    import xml.etree.ElementTree as ET
+    from urllib.parse import quote
+    try:
+        url = f"https://news.google.com/rss/search?q={quote(query)}&hl=en-US&gl=US&ceid=US:en"
+        r = requests.get(url, headers={"user-agent": "Mozilla/5.0"}, timeout=12)
+        items = list(ET.fromstring(r.content).iter("item"))[:n]
+        out = []
+        for it in items:
+            title = (it.findtext("title") or "").strip()
+            src = (it.findtext("source") or "").strip()
+            if not src and " - " in title:
+                title, src = title.rsplit(" - ", 1)
+            elif src and title.endswith(" - " + src):
+                title = title[: -(len(src) + 3)]
+            if title:
+                out.append({"h": title, "src": src, "sum": ""})
+        return out
+    except Exception:
+        return []
+
+
+def enrich_news(ctx: dict, tickers: list[str]) -> None:
+    """联网核实:Google News RSS 抓实时真新闻(大盘 + 按重点个股),前置到 ctx['news']
+    (Finnhub 留作补充)。让报告的消息面/因果有真来源,而非模型记忆。"""
+    fresh = google_news("US stock market today", 8)
+    seen = {x["h"] for x in fresh}
+    for sym in [t for t in tickers if t][:6]:
+        for it in google_news(f"{sym} stock", 2):
+            if it["h"] not in seen:
+                it["h"] = f"[{sym}] {it['h']}"
+                fresh.append(it)
+                seen.add(it["h"])
+    if fresh:
+        ctx["news"] = (fresh + (ctx.get("news") or []))[:30]
+        print(f"   📡 Google News 联网核实: {len(fresh)} 条实时新闻(大盘 + 个股)")
+
+
+def report_tickers(md: str) -> list[str]:
+    """从写好的报告抽它讲到的主角 ticker(给卡片「热门标的」用,图文同源)。
+    优先「热门追踪」段的 **TICKER** / $TICKER,不够再全文补,去重保序、剔除常见非代码大写词。"""
+    import re
+    STOP = {"AI", "US", "ET", "CPI", "PPI", "PCE", "GDP", "FOMC", "CEO", "CFO", "IPO", "ETF",
+            "EPS", "YOY", "QOQ", "GPU", "CPU", "EV", "UI", "IP", "ID", "OK", "TV", "PC", "USD"}
+    pat = re.compile(r"\*\*([A-Z]{2,5})\*\*|\$([A-Z]{2,5})\b")
+    sec = re.search(r"热门追踪(.*?)(?=\n##|\Z)", md, re.S)
+    order: list[str] = []
+    for src in ([sec.group(1)] if sec else []) + [md]:
+        for a, b in pat.findall(src):
+            t = a or b
+            if t and t not in STOP and t not in order:
+                order.append(t)
+        # 「热门追踪」段就是报告精选的热门票;够 5 个就不再全文扫(避免把明日财报/顺带提到的票也算进热门标的)
+        if sec and len(order) >= 5:
+            break
+    return order[:12]
+
+
+def write_card_spec(spec_path, report_md: str) -> None:
+    """派生卡片 spec:英文标题 + 报告主角 tickers → share_card.py --spec(图文同一个故事)。"""
+    spec = {"tickers": report_tickers(report_md)}
+    hl = card_headline(report_md)
+    if hl:
+        spec["headline"] = hl
+    spec_path.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+    print(f"   🃏 卡片 spec(随报告): 标题={hl or '—'} · 主角={' '.join(spec['tickers']) or '—'}")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     print("📰 抓真盘前数据(Nasdaq)...")
@@ -217,11 +293,8 @@ def main():
     path.write_text(md, encoding="utf-8")
     print(f"✓ 报告 → {path}  ({len(report)} 字)")
 
-    # 派生卡片 spec:英文标题随报告 → share_card.py --spec,保证图文同一个故事
-    hl = card_headline(report)
-    if hl:
-        (OUT / "premarket_spec.json").write_text(json.dumps({"headline": hl}, ensure_ascii=False), encoding="utf-8")
-        print(f"   🃏 卡片标题(随报告): {hl}")
+    # 派生卡片 spec:英文标题 + 报告主角 tickers → share_card.py --spec,保证图文同一个故事
+    write_card_spec(OUT / "premarket_spec.json", report)
 
     if "--no-email" not in sys.argv:
         try:

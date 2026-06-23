@@ -10,6 +10,15 @@ import { fetchWithTimeout } from "@/lib/api-guard";
 
 const KEY = "sg:sect:cur";
 
+// A 股是否在交易时段(北京 UTC+8;周一~五 9:15–11:30 / 13:00–15:00)。供缓存时段判断:美股休市 + A 股也收盘 = 全静态可拉长缓存。
+function aMarketLive(): boolean {
+  const bj = new Date(Date.now() + 8 * 3600_000);
+  const day = bj.getUTCDay();
+  if (day === 0 || day === 6) return false;
+  const hm = bj.getUTCHours() * 100 + bj.getUTCMinutes();
+  return (hm >= 915 && hm <= 1130) || (hm >= 1300 && hm <= 1500);
+}
+
 // GICS sector → 大板块中文(合并 通信+媒体、杂项+空白)
 const SECT_ZH: Record<string, string> = {
   Technology: "科技", Industrials: "工业", "Consumer Discretionary": "可选消费",
@@ -371,7 +380,8 @@ export async function GET(req: Request) {
       { sectors, aSectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
       { headers: {
         "cache-control": "public, max-age=0, must-revalidate",
-        "Vercel-CDN-Cache-Control": "max-age=45, stale-while-revalidate=120",
+        // 任一市场开盘 45s 保新鲜;**美股休市 且 A 股也收盘 = 全静态 → 10min**,省掉 computeAShare(~69 批腾讯)+ 窗口的反复空算。
+        "Vercel-CDN-Cache-Control": `max-age=${session === "休市" && !aMarketLive() ? 600 : 45}, stale-while-revalidate=120`,
       } },
     );
   } catch {

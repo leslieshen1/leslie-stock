@@ -145,7 +145,8 @@ export async function GET(req: Request) {
       { quotes, ts: MKT_LAST_GOOD.ts, count: Object.keys(quotes).length, session },
       { headers: {
         "cache-control": "public, max-age=0, must-revalidate",            // 浏览器:每次轮询都问一下(拿最新)
-        "Vercel-CDN-Cache-Control": "max-age=55, stale-while-revalidate=120", // Vercel 边缘:缓存 55s,多用户共享,函数少打
+        // Vercel 边缘缓存:盘前/盘中/盘后 55s 保新鲜;**休市价格不变 → 拉到 10min**,函数执行 + 腾讯外部请求(每次 ~28 批)随之砍 ~11x(降 Observability/CPU/Origin 成本,零精度损失)。
+        "Vercel-CDN-Cache-Control": `max-age=${session === "closed" ? 600 : 55}, stale-while-revalidate=120`,
       } },
     );
   } catch {

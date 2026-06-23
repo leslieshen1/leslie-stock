@@ -22,6 +22,15 @@ function num(s: string | undefined): number | null {
   return Number.isFinite(v) ? v : null;
 }
 
+// A 股是否在交易时段(北京时间 = UTC+8;周一~五 9:15–11:30 / 13:00–15:00)。收盘/午休/周末价格不变 → 缓存可拉长。
+function aMarketLive(): boolean {
+  const bj = new Date(Date.now() + 8 * 3600_000); // UTC→北京
+  const day = bj.getUTCDay();
+  if (day === 0 || day === 6) return false;
+  const hm = bj.getUTCHours() * 100 + bj.getUTCMinutes();
+  return (hm >= 915 && hm <= 1130) || (hm >= 1300 && hm <= 1500);
+}
+
 let CODES: string[] | null = null;
 async function allCodes(): Promise<string[]> {
   if (CODES) return CODES;
@@ -82,7 +91,8 @@ export async function GET(req: Request) {
         { quotes, ts: Date.now(), count },
         { headers: {
           "cache-control": "public, max-age=0, must-revalidate",
-          "Vercel-CDN-Cache-Control": "max-age=55, stale-while-revalidate=120",
+          // A 股交易时段 55s 保新鲜;**收盘/午休/周末(占一天 ~20h)价格不变 → 10min**,每次 ~69 批腾讯外部请求随之大砍。
+          "Vercel-CDN-Cache-Control": `max-age=${aMarketLive() ? 55 : 600}, stale-while-revalidate=120`,
         } },
       );
     }

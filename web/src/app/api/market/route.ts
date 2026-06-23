@@ -134,8 +134,10 @@ export async function GET(req: Request) {
     const session = etSession();
     let tencentOK = false;
     try { tencentOK = await overlayTencentUS(quotes); } catch { /* 保留 screener 兜底 */ }
-    if (!tencentOK && session !== "closed") {
-      try { await overlayExtended(quotes, new URL(req.url).origin); } catch { /* 失败保留 screener 兜底 */ }
+    // 盘前/盘后:腾讯 [3] 停在收盘、不跟延伸时段(实测 4:03ET 仍昨收) → 龙头仍用 /info 覆盖真盘前/盘后价(列表可见行)。
+    // 盘中:腾讯 [3] 实时常规价、覆盖全宇宙,/info 仅在腾讯探针不通时兜底。盘后 postPct 走腾讯 [9](板块盘后列已用)。
+    if (session === "pre" || session === "post" || (!tencentOK && session !== "closed")) {
+      try { await overlayExtended(quotes, new URL(req.url).origin); } catch { /* 失败保留 screener/腾讯 兜底 */ }
     }
     MKT_LAST_GOOD = { quotes, ts: Date.now() };
     return Response.json(

@@ -962,9 +962,14 @@ function DetailPanel({
                 onClick={() => toggle({ code: c.ticker, market: watchMarket, name: c.name, sector: c.segment, score: aiAvg ?? undefined, market_cap_yi: c.region === "CN" ? (c.liveMcapYi ?? null) : null })}
                 aria-label={starred ? t("从自选移除", "Remove from watchlist") : t("加入自选", "Add to watchlist")}
                 title={starred ? t("从自选移除", "Remove from watchlist") : t("加入自选", "Add to watchlist")}
-                className={`shrink-0 text-2xl leading-none transition ${starred ? "text-accent" : "text-faint hover:text-accent"}`}
+                className={`shrink-0 inline-flex items-center gap-1 rounded-md border px-2 py-1 text-xs font-medium leading-none transition ${
+                  starred
+                    ? "border-accent/50 bg-accent-soft text-accent"
+                    : "border-line bg-surface-2 text-muted hover:text-accent hover:border-accent/40"
+                }`}
               >
-                {starred ? "★" : "☆"}
+                <span className="text-sm leading-none">{starred ? "★" : "☆"}</span>
+                {t(starred ? "已收藏" : "收藏", starred ? "Saved" : "Save")}
               </button>
             )}
           </div>

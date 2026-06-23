@@ -226,7 +226,8 @@ async function computeLive(origin: string): Promise<Sect | null> {
   };
   for (const [sym, q] of Object.entries(quotes)) {
     const seg = SECT_MAP[sym];
-    if (!seg || q.pct == null || !(Number(q.mcapB) > 0)) continue;
+    // 离群过滤:单只 |涨跌|>35% 几乎都是脏数据(拆股/when-issued/错价,如 SNDK),会把板块市值加权拖偏 → 跳过
+    if (!seg || q.pct == null || !(Number(q.mcapB) > 0) || Math.abs(Number(q.pct)) > 35) continue;
     add(seg, Number(q.mcapB), Number(q.pct));
     const sub = SUB_MAP?.[sym];
     if (sub) add(sub, Number(q.mcapB), Number(q.pct));
@@ -272,7 +273,7 @@ async function computeLivePrePost(origin: string): Promise<Sect | null> {
   for (const sym of syms) {
     const q = quotes[sym.toUpperCase()];
     const seg = SECT_MAP[sym]; const m = SYM_CAP[sym] || 0;
-    if (!seg || !q || q.pct == null || !(m > 0)) continue;
+    if (!seg || !q || q.pct == null || !(m > 0) || Math.abs(Number(q.pct)) > 35) continue;  // 离群脏价跳过
     add(seg, m, Number(q.pct));
     const sub = SUB_MAP?.[sym]; if (sub) add(sub, m, Number(q.pct));
   }
@@ -281,22 +282,48 @@ async function computeLivePrePost(origin: string): Promise<Sect | null> {
   return Object.keys(out).length ? out : null;
 }
 
-// 12 大板块 → SPDR 行业 ETF。行业 ETF 就是板块基准、Nasdaq /info 实时,远比「全市场 screener
-// 市值加权 + 有流量时随机时刻定格」准且不滞后(实测 screener 聚合把工业算成 -3%,真实 XLI +0.5%)。
+// 12 大板块 → SPDR 行业 ETF。行业 ETF 就是板块基准,远比「全市场 screener 市值加权 + 有流量时随机时刻定格」
+// 准且不滞后(实测旧法把工业算成 -3%,真实 XLI +0.5%、航空国防 -9% 真实 ITA -1.5%)。
 const SECTOR_ETF: Record<string, string> = {
   "科技": "XLK", "金融": "XLF", "工业": "XLI", "可选消费": "XLY", "医疗": "XLV", "必需消费": "XLP",
   "能源": "XLE", "材料": "XLB", "通信媒体": "XLC", "公用事业": "XLU", "地产": "XLRE",
 };
-async function sectorsViaETF(origin: string): Promise<Sect> {
-  const etfs = [...new Set(Object.values(SECTOR_ETF))];
-  const j = await fetchWithTimeout(`${origin}/api/quote?syms=${etfs.join(",")}`, {}, 12000)
-    .then((x) => x.json()).catch(() => null);
-  const q: Record<string, { pct: number | null }> = j?.quotes || {};
-  const out: Sect = {};
-  for (const [seg, etf] of Object.entries(SECTOR_ETF)) {
-    const p = q[etf.toUpperCase()]?.pct;
-    if (p != null) out[seg] = Math.round(Number(p) * 100) / 100;
-  }
+type Tri = { pre: number | null; mid: number | null; post: number | null };
+// 大板块的 盘前/盘中/盘后 —— 用行业 ETF 的 Yahoo 分时(含盘前盘后)直接算,serve 时每 ~50s 刷一次。
+// 盘前=ET<9:30 最后档/昨收、盘中=收盘价/昨收、盘后=ET≥16:00 最后档/收盘价。休市也能算出最近交易日三段(不靠冻结快照)。
+let BIG_ETF: Record<string, Tri> = {};
+async function bigSectorsETF(): Promise<Record<string, Tri>> {
+  const out: Record<string, Tri> = {};
+  await Promise.all(Object.entries(SECTOR_ETF).map(async ([seg, etf]) => {
+    try {
+      const r = await fetchWithTimeout(
+        `https://query1.finance.yahoo.com/v8/finance/chart/${etf}?interval=5m&range=1d&includePrePost=true`,
+        { headers: { "user-agent": "Mozilla/5.0" }, cache: "no-store" }, 8000);
+      const res = (await r.json())?.chart?.result?.[0];
+      const m = res?.meta;
+      const prev = m?.chartPreviousClose ?? m?.previousClose;
+      const reg = m?.regularMarketPrice;
+      if (!(prev > 0) || !(reg > 0)) return;
+      const ts: number[] = res.timestamp || [];
+      const cl: (number | null)[] = res.indicators?.quote?.[0]?.close || [];
+      const off = m.gmtoffset ?? -14400;
+      let preLast: number | null = null, postLast: number | null = null;
+      for (let i = 0; i < ts.length; i++) {
+        const c = cl[i];
+        if (c == null) continue;
+        const et = new Date((ts[i] + off) * 1000);
+        const mins = et.getUTCHours() * 60 + et.getUTCMinutes();
+        if (mins < 570) preLast = c;          // ET <9:30 → 盘前
+        else if (mins >= 960) postLast = c;   // ET ≥16:00 → 盘后
+      }
+      const pct = (a: number, b: number) => Math.round((a / b - 1) * 1000) / 10;
+      out[seg] = {
+        pre: preLast != null ? pct(preLast, prev) : null,
+        mid: pct(reg, prev),
+        post: postLast != null ? pct(postLast, reg) : null,
+      };
+    } catch { /* 单只失败跳过 */ }
+  }));
   return out;
 }
 
@@ -306,12 +333,9 @@ async function syncOnce(origin: string) {
   let live = session === "盘中" ? await computeLive(origin)
     : (session === "盘前" || session === "盘后") ? await computeLivePrePost(origin)
     : null;
-  // 12 大板块改用行业 ETF 的真实涨跌覆盖(子主题保留个股聚合)。盘前/盘中 ETF 流动性足、/info 实时;
-  // 盘后 ETF 延伸时段太薄 → 保留龙头个股近似(它们盘后才真有量),避免 ETF 无盘后成交时退回当日累计、污染盘后列。
-  if (session === "盘中" || session === "盘前") {
-    const etf = await sectorsViaETF(origin);
-    if (Object.keys(etf).length) live = { ...(live || {}), ...etf };
-  }
+  // 大板块的 盘前/盘中/盘后 一律用行业 ETF 的 Yahoo 分时实算(serve 时刷、休市也准),GET 里覆盖个股聚合;
+  // 子主题(航空国防等无 ETF)仍走个股聚合(下面 computeLive 已加离群过滤,挡 SNDK 那种脏价拖偏)。
+  BIG_ETF = await bigSectorsETF();
   LIVE = { session, sect: live };
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日
@@ -344,9 +368,11 @@ export async function GET(req: Request) {
     // 某个 key(板块或子主题)的三段值:当前段用实时,过去段用定格,未到段 null
     const cell = (key: string, sess: "pre" | "mid" | "post", label: string) =>
       session === label ? live?.[key] ?? null : (frozenOK ? HASH[sess]?.[key] ?? null : null);
-    const triple = (key: string) => ({
-      pre: cell(key, "pre", "盘前"), mid: cell(key, "mid", "盘中"), post: cell(key, "post", "盘后"),
-    });
+    // 大板块(big=true):优先用行业 ETF 分时实算的三段(准、休市也有);子主题走个股聚合定格。
+    const triple = (key: string, big = false) =>
+      big && BIG_ETF[key]
+        ? BIG_ETF[key]
+        : { pre: cell(key, "pre", "盘前"), mid: cell(key, "mid", "盘中"), post: cell(key, "post", "盘后") };
 
     const cap = SECT_CAP || {}, subCap = SUB_CAP || {};
     const subsSorted = Object.keys(subCap).sort((a, b) => subCap[b] - subCap[a]);
@@ -355,7 +381,7 @@ export async function GET(req: Request) {
       const segSubs = subsSorted.filter((k) => k.startsWith(pfx))
         .map((k) => ({ sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...triple(k), d7: US_WIN.d7[k] ?? null, d30: US_WIN.d30[k] ?? null }));
       return {
-        sector: seg, capB: Math.round(cap[seg]), ...triple(seg),
+        sector: seg, capB: Math.round(cap[seg]), ...triple(seg, true),
         d7: US_WIN.d7[seg] ?? null, d30: US_WIN.d30[seg] ?? null,
         ...(segSubs.length > 1 ? { subs: segSubs } : {}),
       };

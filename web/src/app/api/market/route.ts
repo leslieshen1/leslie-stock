@@ -72,8 +72,9 @@ async function overlayTencentUS(quotes: Quotes): Promise<boolean> {
       if (price == null || !(price > 0)) continue;
       cur.price = price;
       const pct = num(f[32]); if (pct != null) cur.pct = pct;
-      const post = num(f[9]); // [9]=盘后价 → 盘后% 相对收盘;盘后未发生时常为 0/失真,板块盘后列只在盘后/休市才用它
-      if (post != null && post > 0) cur.postPct = Math.round((post / price - 1) * 1000) / 10;
+      const post = num(f[9]), prevC = num(f[4]); // [9]=盘后价, [4]=昨收
+      // 盘后% 对【昨收】算(和盘前/盘中同一基准!):SPCX 盘后 = -15%(对昨收、还在跌),不是 +1.4%(对今收的小反弹、会误导成绿)。
+      if (post != null && post > 0 && prevC != null && prevC > 0) cur.postPct = Math.round((post / prevC - 1) * 1000) / 10;
     }
   };
   const fetchBatch = async (b: string[]): Promise<string | null> => {

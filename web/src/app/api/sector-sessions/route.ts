@@ -236,7 +236,7 @@ async function computeLive(origin: string): Promise<Sect | null> {
   return Object.keys(out).length ? out : null;
 }
 
-// 盘后列:全市场逐只用 /api/market 的 postPct(来自腾讯 [9]盘后价/收盘-1)市值加权聚合 —— 口径同盘中、子板块全覆盖,撤掉龙头近似。
+// 盘后列:全市场逐只用 /api/market 的 postPct(腾讯 [9]盘后价 vs 昨收,和盘前/盘中同基准)市值加权聚合 —— 子板块全覆盖,撤掉龙头近似。
 async function computePost(origin: string): Promise<Sect | null> {
   const mkt = await fetchWithTimeout(`${origin}/api/market`, {}, 12000).then((x) => x.json()).catch(() => null);
   const quotes: Record<string, { postPct?: number | null; mcapB?: number | null }> = mkt?.quotes || {};

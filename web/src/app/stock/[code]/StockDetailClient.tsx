@@ -44,9 +44,10 @@ type Props = {
   initial: Analysis | null;
   holders?: TickerHolder[];
   hasPanel?: boolean;
+  hideHolders?: boolean; // 聪明钱已在右栏渲染时,主列里隐藏避免重复
 };
 
-export default function StockDetailClient({ code, market, initial, holders = [], hasPanel = false }: Props) {
+export default function StockDetailClient({ code, market, initial, holders = [], hasPanel = false, hideHolders = false }: Props) {
   const { t } = useLang();
   const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
 
@@ -107,7 +108,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
         </section>
 
         {/* 即使没有深度分析，也展示已收录的聪明钱持仓（美股大票常有 13F / 议员数据） */}
-        {holders.length > 0 && <HoldersSection holders={holders} market={market} />}
+        {!hideHolders && holders.length > 0 && <HoldersSection holders={holders} market={market} />}
       </div>
     );
   }
@@ -301,7 +302,7 @@ export default function StockDetailClient({ code, market, initial, holders = [],
       )}
 
       {/* ============ 谁在持仓 ============ */}
-      <HoldersSection holders={holders} market={market} />
+      {!hideHolders && <HoldersSection holders={holders} market={market} />}
 
       {/* ============ 财务面 ============ */}
       {initial.financials?.quarters && initial.financials.quarters.length > 0 && (
@@ -428,7 +429,7 @@ function SignalCard({ s }: { s: AleabitSignal }) {
 // 谁在持仓（聪明钱）
 // ============================================================
 
-function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: string }) {
+export function HoldersSection({ holders, market }: { holders: TickerHolder[]; market: string }) {
   const { t } = useLang();
   if (holders.length === 0) {
     // 空 = 信号:机构白马不碰,纯题材/游资盘（A 股 meme 视角）

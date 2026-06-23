@@ -16,7 +16,7 @@ import { fetchAFundamentals } from "@/lib/a-fundamentals";
 import { loadNews } from "@/lib/news";
 import { loadEarnings } from "@/lib/earnings";
 import { loadOptions } from "@/lib/options";
-import StockDetailClient from "./StockDetailClient";
+import StockDetailClient, { HoldersSection } from "./StockDetailClient";
 import DilutionWarning from "./DilutionWarning";
 import MasterPanel from "./MasterPanel";
 import StockTypeCard from "./StockTypeCard";
@@ -284,47 +284,58 @@ export default async function StockDetailPage({
         )}
       </header>
 
-      {dilution && <DilutionWarning flag={dilution} />}
+      {/* 左右结构:主列(五方判读 + 基本面 + 分析)| 右栏(聪明钱);lg 起两栏,手机塌单列。复用原有样式令牌,不换设计。 */}
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-6 lg:items-start">
+        <div className="min-w-0">
+          {dilution && <DilutionWarning flag={dilution} />}
 
-      {earnings && (
-        <div className="mb-4">
-          <EarningsChip e={earnings} />
+          {earnings && (
+            <div className="mb-4">
+              <EarningsChip e={earnings} />
+            </div>
+          )}
+
+          {stockTypes.length > 0 && (
+            <div className="mb-4">
+              <StockTypeCard types={stockTypes} />
+            </div>
+          )}
+
+          {fundamentals && (
+            <div className="mb-4">
+              <FundamentalsStrip f={fundamentals} types={stockTypes} code={code} market={market} />
+            </div>
+          )}
+
+          {aFund && (
+            <div className="mb-4">
+              <AStatsStrip f={aFund} />
+            </div>
+          )}
+
+          {options && (
+            <div className="mb-4">
+              <OptionsGammaLine o={options} />
+            </div>
+          )}
+
+          {usPanel && <MasterPanel data={usPanel} />}
+
+          {news.length > 0 && (
+            <div className="mt-4">
+              <NewsStrip items={news} />
+            </div>
+          )}
+
+          <div className="mt-4">
+            <StockDetailClient code={code} market={market} initial={initial} holders={holders} hasPanel={!!usPanel} hideHolders />
+          </div>
         </div>
-      )}
 
-      {stockTypes.length > 0 && (
-        <div className="mb-4">
-          <StockTypeCard types={stockTypes} />
-        </div>
-      )}
-
-      {fundamentals && (
-        <div className="mb-4">
-          <FundamentalsStrip f={fundamentals} types={stockTypes} code={code} market={market} />
-        </div>
-      )}
-
-      {aFund && (
-        <div className="mb-4">
-          <AStatsStrip f={aFund} />
-        </div>
-      )}
-
-      {options && (
-        <div className="mb-4">
-          <OptionsGammaLine o={options} />
-        </div>
-      )}
-
-      {usPanel && <MasterPanel data={usPanel} />}
-
-      {news.length > 0 && (
-        <div className="mt-4">
-          <NewsStrip items={news} />
-        </div>
-      )}
-
-      <StockDetailClient code={code} market={market} initial={initial} holders={holders} hasPanel={!!usPanel} />
+        <aside className="mt-4 lg:mt-0 lg:sticky lg:top-6 space-y-4">
+          <HoldersSection holders={holders} market={market} />
+        </aside>
+      </div>
     </main>
   );
 }

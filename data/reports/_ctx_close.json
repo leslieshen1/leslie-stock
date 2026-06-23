@@ -1,327 +1,509 @@
 {
- "asof_et": "2026-06-19 22:46 ET Fri",
+ "asof_et": "2026-06-22 22:01 ET Mon",
  "indices": {
   "标普500": {
-   "close_pct": "+0.78%",
-   "close_price": "$746.74"
+   "close_pct": "-0.31%",
+   "close_price": "$744.39"
   },
   "纳指100": {
-   "close_pct": "+2.51%",
-   "close_price": "$740.62"
+   "close_pct": "-0.25%",
+   "close_price": "$737.95"
   },
   "道指": {
-   "close_pct": "-0.15%",
-   "close_price": "$515.52"
+   "close_pct": "+0.30%",
+   "close_price": "$517.08"
   },
   "罗素2000": {
-   "close_pct": "+1.97%",
-   "close_price": "$295.59"
+   "close_pct": "+0.88%",
+   "close_price": "$298.18"
   }
  },
  "market_status": "Closed",
  "gainers": [
   {
-   "sym": "QS",
-   "name": "QuantumScape Corporation Class A",
-   "close_price": "$8.04",
-   "close_pct": "+16.52%"
+   "sym": "DFTX",
+   "name": "Definium Therapeutics Inc.",
+   "close_price": "$36.67",
+   "close_pct": "+49.80%"
   },
   {
-   "sym": "BE",
-   "name": "Bloom Energy Corporation Class A",
-   "close_price": "$328.91",
-   "close_pct": "+15.41%"
+   "sym": "APGE",
+   "name": "Apogee Therapeutics Inc.",
+   "close_price": "$132.55",
+   "close_pct": "+46.66%"
   },
   {
-   "sym": "ACMR",
-   "name": "ACM Research Inc. Class A",
-   "close_price": "$109.87",
-   "close_pct": "+14.22%"
+   "sym": "ORKA",
+   "name": "Oruka Therapeutics Inc.",
+   "close_price": "$85.38",
+   "close_pct": "+18.03%"
   },
   {
-   "sym": "ENTG",
-   "name": "Entegris Inc.",
-   "close_price": "$178.77",
-   "close_pct": "+13.62%"
+   "sym": "SMCI",
+   "name": "Super Micro Computer Inc.",
+   "close_price": "$35.46",
+   "close_pct": "+15.66%"
   },
   {
-   "sym": "SMR",
-   "name": "NuScale Power Corporation Class A",
-   "close_price": "$11.74",
-   "close_pct": "+13.54%"
+   "sym": "UMC",
+   "name": "United Microelectronics Corporation (NEW)",
+   "close_price": "$27.50",
+   "close_pct": "+14.20%"
   },
   {
-   "sym": "KMX",
-   "name": "CarMax Inc",
-   "close_price": "$53.66",
-   "close_pct": "+13.14%"
+   "sym": "SYRE",
+   "name": "Spyre Therapeutics Inc.",
+   "close_price": "$100.32",
+   "close_pct": "+13.56%"
   },
   {
-   "sym": "EQPT",
-   "name": "EquipmentShare.com Inc Class A",
-   "close_price": "$26.32",
-   "close_pct": "+12.67%"
+   "sym": "SMCIP",
+   "name": "Super Micro Computer Inc. Depositary Shares representing a 1/20th Interest in a Share of 7% Series A Mandatory Convertible Preferred Stock",
+   "close_price": "$60.32",
+   "close_pct": "+12.73%"
   },
   {
-   "sym": "SNDK",
-   "name": "Sandisk Corporation",
-   "close_price": "$2,184.75",
-   "close_pct": "+11.54%"
+   "sym": "VIAV",
+   "name": "Viavi Solutions Inc.",
+   "close_price": "$52.94",
+   "close_pct": "+12.23%"
   }
  ],
  "losers": [
   {
+   "sym": "SPCX",
+   "name": "Space Exploration Technologies Corp. Class A",
+   "close_price": "$154.60",
+   "close_pct": "-16.43%"
+  },
+  {
    "sym": "RGC",
    "name": "Regencell Bioscience Holdings Limited",
-   "close_price": "$12.01",
-   "close_pct": "-18.96%"
+   "close_price": "$10.51",
+   "close_pct": "-12.49%"
   },
   {
-   "sym": "ACN",
-   "name": "Accenture plc Class A Ordinary Shares (Ireland)",
-   "close_price": "$127.98",
-   "close_pct": "-17.97%"
+   "sym": "AGI",
+   "name": "Alamos Gold Inc. Class A",
+   "close_price": "$32.04",
+   "close_pct": "-11.83%"
   },
   {
-   "sym": "LEGN",
-   "name": "Legend Biotech Corporation",
-   "close_price": "$27.93",
-   "close_pct": "-16.68%"
+   "sym": "AVAV",
+   "name": "AeroVironment Inc.",
+   "close_price": "$151.33",
+   "close_pct": "-10.78%"
   },
   {
-   "sym": "TNGX",
-   "name": "Tango Therapeutics Inc.",
-   "close_price": "$27.97",
-   "close_pct": "-13.38%"
+   "sym": "GFI",
+   "name": "Gold Fields Limited",
+   "close_price": "$34.63",
+   "close_pct": "-10.28%"
   },
   {
-   "sym": "EPAM",
-   "name": "EPAM Systems Inc.",
-   "close_price": "$76.64",
-   "close_pct": "-12.61%"
+   "sym": "CAVA",
+   "name": "CAVA Group Inc.",
+   "close_price": "$80.88",
+   "close_pct": "-9.31%"
   },
   {
-   "sym": "CTSH",
-   "name": "Cognizant Technology Solutions Corporation Class A",
-   "close_price": "$43.70",
-   "close_pct": "-10.49%"
+   "sym": "ASTS",
+   "name": "AST SpaceMobile Inc. Class A",
+   "close_price": "$73.19",
+   "close_pct": "-9.26%"
   },
   {
-   "sym": "INFY",
-   "name": "Infosys Limited",
-   "close_price": "$10.57",
-   "close_pct": "-9.66%"
-  },
-  {
-   "sym": "KR",
-   "name": "Kroger Company (The)",
-   "close_price": "$56.61",
-   "close_pct": "-8.43%"
+   "sym": "TV",
+   "name": "Grupo Televisa S.A.B.",
+   "close_price": "$2.73",
+   "close_pct": "-8.70%"
   }
  ],
  "watchlist": [
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "close_price": "$185.00",
-   "close_pct": "-3.56%"
+   "close_price": "$154.60",
+   "close_pct": "-16.43%"
   },
   {
    "sym": "MU",
    "name": "Micron Technology Inc.",
-   "close_price": "$1,133.99",
-   "close_pct": "+8.70%"
+   "close_price": "$1,211.38",
+   "close_pct": "+6.82%"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "close_price": "$210.69",
-   "close_pct": "+2.95%"
+   "close_price": "$208.65",
+   "close_pct": "-0.97%"
   },
   {
    "sym": "AVGO",
    "name": "Broadcom Inc.",
-   "close_price": "$411.35",
-   "close_pct": "+4.70%"
+   "close_price": "$392.13",
+   "close_pct": "-4.52%"
   },
   {
    "sym": "AMD",
    "name": "Advanced Micro Devices Inc.",
-   "close_price": "$537.37",
-   "close_pct": "+4.86%"
+   "close_price": "$551.63",
+   "close_pct": "+2.65%"
   },
   {
    "sym": "ARM",
    "name": "Arm Holdings plc",
-   "close_price": "$439.46",
-   "close_pct": "+4.91%"
+   "close_price": "$407.72",
+   "close_pct": "-7.22%"
   },
   {
    "sym": "SMCI",
    "name": "Super Micro Computer Inc.",
-   "close_price": "$30.66",
-   "close_pct": "+10.37%"
+   "close_price": "$35.46",
+   "close_pct": "+15.66%"
   },
   {
    "sym": "PLTR",
    "name": "Palantir Technologies Inc. Class A",
-   "close_price": "$128.47",
-   "close_pct": "-1.65%"
+   "close_price": "$119.50",
+   "close_pct": "-6.98%"
   },
   {
    "sym": "TSLA",
    "name": "Tesla Inc.",
-   "close_price": "$400.49",
-   "close_pct": "+1.04%"
+   "close_price": "$405.05",
+   "close_pct": "+1.14%"
   },
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "close_price": "$389.57",
-   "close_pct": "+2.83%"
+   "close_price": "$425.48",
+   "close_pct": "+9.22%"
   }
  ],
  "earnings": [
   {
-   "sym": "ADN",
+   "sym": "ATXG",
+   "name": "Addentax Group Corp.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "CBRS",
+   "name": "Cerebras Systems Inc. Class A",
+   "hour": "amc",
+   "epsEst": -0.1644,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "CLRC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "FDX",
+   "name": "FedEx Corporation",
+   "hour": "amc",
+   "epsEst": 6.0169,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "GIS",
+   "name": "General Mills Inc.",
+   "hour": "amc",
+   "epsEst": 0.8084,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "GRCE",
+   "name": "Grace Therapeutics Inc.",
+   "hour": "",
+   "epsEst": -0.2346,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "JFIN",
+   "name": "Jiayin Group Inc.",
+   "hour": "bmo",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "KBH",
+   "name": "KB Home",
+   "hour": "amc",
+   "epsEst": 0.4504,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "KEQU",
+   "name": "Kewaunee Scientific Corporation",
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "KFY",
+   "name": "Korn Ferry",
+   "hour": "bmo",
+   "epsEst": 1.3938,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "LOT",
+   "name": "Lotus Technology Inc.",
+   "hour": "",
+   "epsEst": -0.1818,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "MFM",
+   "name": "Aberdeen Municipal Income Fund Common Shares of Beneficial Interest",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "MMT",
+   "name": "MFS Multimarket Income Trust",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "SCS",
+   "name": null,
+   "hour": "",
+   "epsEst": 0.1717,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "SUNB",
+   "name": "Sunbelt Rentals Holdings Inc.",
+   "hour": "bmo",
+   "epsEst": 0.771,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "UCLE",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "WOR",
+   "name": "Worthington Enterprises Inc.",
+   "hour": "amc",
+   "epsEst": 1.0706,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "ZNB",
+   "name": "Zeta Network Group Class A",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-23"
+  },
+  {
+   "sym": "BSFC",
    "name": null,
    "hour": "amc",
    "epsEst": null,
-   "date": "2026-06-19"
+   "date": "2026-06-22"
   },
   {
-   "sym": "AUSI",
+   "sym": "CARV",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-06-19"
+   "date": "2026-06-22"
   },
   {
-   "sym": "BANX",
-   "name": "ArrowMark Financial Corp.",
+   "sym": "CCL",
+   "name": "Carnival Corporation Ltd.",
+   "hour": "bmo",
+   "epsEst": 0.3488,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "CHI",
+   "name": "Calamos Convertible Opportunities and Income Fund",
    "hour": "",
    "epsEst": null,
-   "date": "2026-06-19"
+   "date": "2026-06-22"
   },
   {
-   "sym": "BTOG",
-   "name": "Bit Origin Limited Class A",
+   "sym": "EBF",
+   "name": "Ennis Inc.",
+   "hour": "bmo",
+   "epsEst": 0.3939,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "FRVO",
+   "name": "Fervo Energy Company Class A common stock",
+   "hour": "bmo",
+   "epsEst": -0.0706,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "GELS",
+   "name": "Gelteq Limited",
    "hour": "",
    "epsEst": null,
-   "date": "2026-06-19"
+   "date": "2026-06-22"
   },
   {
-   "sym": "KOAN",
+   "sym": "GURE",
+   "name": "Gulf Resources Inc. (NV)",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "INTE",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-06-19"
+   "date": "2026-06-22"
   },
   {
-   "sym": "SKKY",
+   "sym": "MDRX",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-06-19"
+   "date": "2026-06-22"
   },
   {
-   "sym": "XAIR",
-   "name": "Beyond Air Inc.",
-   "hour": "amc",
-   "epsEst": -0.578,
-   "date": "2026-06-19"
+   "sym": "MGIH",
+   "name": "Millennium Group International Holdings Limited",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "MPU",
+   "name": "Mega Matrix Inc. Class A",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "POWW",
+   "name": "Outdoor Holding Company",
+   "hour": "bmo",
+   "epsEst": -0.0102,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "SEGG",
+   "name": "Sports Entertainment Gaming Global Corporation",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-22"
+  },
+  {
+   "sym": "WINT",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-06-22"
   }
  ],
  "news": [
   {
-   "h": "With Lebanon ceasefire set, Trump envoy heads to Switzerland for U.S.-Iran talks - Reuters",
+   "h": "S&P 500, Nasdaq close lower, dragged by Alphabet and megacap tech; focus on Iran - Reuters",
    "src": "Reuters",
-   "sum": "With Lebanon ceasefire set, Trump envoy heads to Switzerland for U.S.-Iran talks  Reuters"
+   "sum": "S&P 500, Nasdaq close lower, dragged by Alphabet and megacap tech; focus on Iran  Reuters"
   },
   {
-   "h": "DOJ rebuffs judge's request to put in writing it won't move forward with 'anti-weaponization' fund",
+   "h": "Ro Khanna challenges Elon Musk to televised debate after online DOGE battle",
    "src": "CNBC",
-   "sum": "The DOJ in May announced it was creating the fund as part of a settlement of President Donald Trump's $10 billion lawsuit against the Internal Revenue Service."
+   "sum": "Rep. Ro Khanna, D-Calif., has been a critic of the Elon-Musk-led Department of Government Efficiency cuts."
   },
   {
-   "h": "Israel, Hezbollah agree to ceasefire in Lebanon, U.S. official says - Reuters",
+   "h": "Trump: 'I will do what I have to do' if Iran does not stick to deal - Reuters",
    "src": "Reuters",
-   "sum": "Israel, Hezbollah agree to ceasefire in Lebanon, U.S. official says  Reuters"
+   "sum": "Trump: 'I will do what I have to do' if Iran does not stick to deal  Reuters"
   },
   {
-   "h": "Trump heads to Camp David as Iran talks falter - Reuters",
-   "src": "Reuters",
-   "sum": "Trump heads to Camp David as Iran talks falter  Reuters"
-  },
-  {
-   "h": "Iran to lodge FIFA complaint over World Cup travel restrictions - Reuters",
-   "src": "Reuters",
-   "sum": "Iran to lodge FIFA complaint over World Cup travel restrictions  Reuters"
-  },
-  {
-   "h": "Fedspeak vs. war deal: Here are the things that drove this week's stock market",
+   "h": "'We'll see' — Trump hedges on guarantee Iran won't use oil profits to rebuild military",
    "src": "CNBC",
-   "sum": "The S&P 500 surged on Thursday, making up for losses seen after central bankers convened."
+   "sum": "Treasury Secretary Scott Bessent authorized the import of Iranian oil and refined products into the U.S. through at least August."
   },
   {
-   "h": "For US Vice President JD Vance, Iran talks could shape political rise - Reuters",
+   "h": "Trump allies defend him to Israelis anxious over Iran deal - Reuters",
    "src": "Reuters",
-   "sum": "For US Vice President JD Vance, Iran talks could shape political rise  Reuters"
+   "sum": "Trump allies defend him to Israelis anxious over Iran deal  Reuters"
   },
   {
-   "h": "Iraq to export crude, naphtha through Syria after Hormuz shock - Reuters",
+   "h": "Iran energy crisis will drive global electrification, IEA chief says - Reuters",
    "src": "Reuters",
-   "sum": "Iraq to export crude, naphtha through Syria after Hormuz shock  Reuters"
+   "sum": "Iran energy crisis will drive global electrification, IEA chief says  Reuters"
   },
   {
-   "h": "Oil shipments rise in Hormuz although questions grow over Iran's transit terms - Reuters",
-   "src": "Reuters",
-   "sum": "Oil shipments rise in Hormuz although questions grow over Iran's transit terms  Reuters"
-  },
-  {
-   "h": "Pentagon tells US lawmakers it needs $80 billion for Iran war and other bills, WSJ reports - Reuters",
-   "src": "Reuters",
-   "sum": "Pentagon tells US lawmakers it needs $80 billion for Iran war and other bills, WSJ reports  Reuters"
-  },
-  {
-   "h": "29-year-old making $250k in tech went 'undercover' at a coffee chain before opening her own matcha cafe",
+   "h": "Apple is a notable outlier in Monday's drubbing of mega-cap tech stocks",
    "src": "CNBC",
-   "sum": "Michelle Yeung wasn't happy in tech, despite earning $250,000 a year. Before opening Matcha House, she spent months learning the business."
+   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
   },
   {
-   "h": "Israel, Hezbollah agree to ceasefire starting on Friday -U.S. official - Reuters",
+   "h": "European shares close higher on US-Iran talks; UK's Starmer resigns - Reuters",
    "src": "Reuters",
-   "sum": "Israel, Hezbollah agree to ceasefire starting on Friday -U.S. official  Reuters"
+   "sum": "European shares close higher on US-Iran talks; UK's Starmer resigns  Reuters"
   },
   {
-   "h": "US equity fund inflows surge on Iran deal, tech draws record weekly investments - Reuters",
+   "h": "Rubio heads to UAE, Kuwait, Bahrain to discuss Iran deal with Gulf allies - Reuters",
    "src": "Reuters",
-   "sum": "US equity fund inflows surge on Iran deal, tech draws record weekly investments  Reuters"
+   "sum": "Rubio heads to UAE, Kuwait, Bahrain to discuss Iran deal with Gulf allies  Reuters"
   },
   {
-   "h": "Iran says it will waive fees for Hormuz during 60 day negotiation period - Reuters",
+   "h": "US authorizes Iranian oil sales amid talks on final peace deal - Reuters",
    "src": "Reuters",
-   "sum": "Iran says it will waive fees for Hormuz during 60 day negotiation period  Reuters"
+   "sum": "US authorizes Iranian oil sales amid talks on final peace deal  Reuters"
   },
   {
-   "h": "Bob Iger reflects on 10 years of Shanghai Disneyland as it defies the Chinese pullback",
+   "h": "Gulf markets mixed as Iran reports progress in peace talks - Reuters",
+   "src": "Reuters",
+   "sum": "Gulf markets mixed as Iran reports progress in peace talks  Reuters"
+  },
+  {
+   "h": "SpaceX makes bond sale days after record IPO, discloses over $100 billion cash pile",
    "src": "CNBC",
-   "sum": "Shanghai Disneyland hit 100 million cumulative visitors in 2025, according to the company. It's a relatively new but important foothold in Disney's history."
+   "sum": "SpaceX on Monday unveiled a senior unsecured notes offering and said it held about $100.8 billion in cash."
   },
   {
-   "h": "Police order last-minute ban of Iranian opposition rally in Paris - Reuters",
-   "src": "Reuters",
-   "sum": "Police order last-minute ban of Iranian opposition rally in Paris  Reuters"
+   "h": "The Club's top 10 things to watch in the stock market Monday",
+   "src": "CNBC",
+   "sum": "Abbvie makes a move in M&A, and SpaceX is started with a hold rating at KeyBanc."
   },
   {
-   "h": "France's foreign ministry denies asking for ban of Iranian opposition rally - Reuters",
+   "h": "Oil tanker traffic picks up through Hormuz - Reuters",
    "src": "Reuters",
-   "sum": "France's foreign ministry denies asking for ban of Iranian opposition rally  Reuters"
+   "sum": "Oil tanker traffic picks up through Hormuz  Reuters"
   },
   {
-   "h": "No UN sanctions lifting on Iran without France's approval, foreign minister says - Reuters",
+   "h": "Airline ticket prices may stay high as carriers bank fuel relief from Iran deal - Reuters",
    "src": "Reuters",
-   "sum": "No UN sanctions lifting on Iran without France's approval, foreign minister says  Reuters"
+   "sum": "Airline ticket prices may stay high as carriers bank fuel relief from Iran deal  Reuters"
+  },
+  {
+   "h": "Talks between Iran and US concluded successfully, Pakistan PM says - Reuters",
+   "src": "Reuters",
+   "sum": "Talks between Iran and US concluded successfully, Pakistan PM says  Reuters"
+  },
+  {
+   "h": "Iran war triggers global race to build oil reserves - Reuters",
+   "src": "Reuters",
+   "sum": "Iran war triggers global race to build oil reserves  Reuters"
+  },
+  {
+   "h": "Iran leave note of thanks in LA locker room after draw with Belgium - Reuters",
+   "src": "Reuters",
+   "sum": "Iran leave note of thanks in LA locker room after draw with Belgium  Reuters"
   }
  ]
 }

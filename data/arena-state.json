@@ -3,8 +3,8 @@
   "buffett": 43465.01,
   "duan": 40172.16,
   "serenity": 50780.49,
-  "druckenmiller": 84.46,
-  "sentiment": 82526.68
+  "druckenmiller": 53744.2,
+  "sentiment": 415883.43
  },
  "positions": [
   {
@@ -170,30 +170,9 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "NBIS",
-   "shares": 1132,
-   "entry": 232.36,
-   "entry_date": "2026-06-12"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "NVTS",
    "shares": 7510,
    "entry": 23.39,
-   "entry_date": "2026-06-12"
-  },
-  {
-   "master": "sentiment",
-   "sym": "UCTT",
-   "shares": 1389,
-   "entry": 108.9,
-   "entry_date": "2026-06-12"
-  },
-  {
-   "master": "sentiment",
-   "sym": "ICHR",
-   "shares": 1743,
-   "entry": 86.8,
    "entry_date": "2026-06-12"
   },
   {
@@ -208,13 +187,6 @@
    "sym": "ETN",
    "shares": 314,
    "entry": 409.64,
-   "entry_date": "2026-06-17"
-  },
-  {
-   "master": "sentiment",
-   "sym": "HLNE",
-   "shares": 1851,
-   "entry": 81.4,
    "entry_date": "2026-06-17"
   },
   {
@@ -251,6 +223,27 @@
    "shares": 488,
    "entry": 321.66,
    "entry_date": "2026-06-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "WDC",
+   "shares": 182,
+   "entry": 733.57,
+   "entry_date": "2026-06-22"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "VRT",
+   "shares": 374,
+   "entry": 357.96,
+   "entry_date": "2026-06-22"
+  },
+  {
+   "master": "sentiment",
+   "sym": "GLW",
+   "shares": 757,
+   "entry": 209.35,
+   "entry_date": "2026-06-22"
   }
  ],
  "nav": [
@@ -403,6 +396,31 @@
    "master": "sentiment",
    "date": "2026-06-18",
    "nav": 1048277.65
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-22",
+   "nav": 992059.03
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-22",
+   "nav": 996169.64
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-22",
+   "nav": 1122333.47
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-22",
+   "nav": 1165812.48
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-22",
+   "nav": 1057139.2
   }
  ],
  "trades": [
@@ -1135,6 +1153,76 @@
    "price": 321.66,
    "reason": "内存链盘前继续被资金追，SIMO不是最拥挤的明牌但盘口有持续性，趁资金还在流入做一段。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-22",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "NBIS",
+   "shares": 1132,
+   "price": 283.61,
+   "reason": "这匹马前面跑得够猛，但今天盘前在AI链整体顺风里几乎不动，边际动量弱了我就把资本挪给更强的载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-22",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "WDC",
+   "shares": 182,
+   "price": 733.57,
+   "reason": "AI基建外溢到存储是今天最诚实的价格信号，盘前直接领涨，这种供给紧、Beta高的马我顺流动性去追。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-22",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "VRT",
+   "shares": 374,
+   "price": 357.96,
+   "reason": "AI算力最后都落到电力和散热，VRT盘前继续强，是这条宏观主线里最干净的高弹性表达之一。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "UCTT",
+   "shares": 1389,
+   "price": 123.14,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+13.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "ICHR",
+   "shares": 1743,
+   "price": 99.61,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+14.8%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "HLNE",
+   "shares": 1851,
+   "price": 79.51,
+   "reason": "HLNE盘前还在死水里晃，私募资管这条线今天没有增量资金，和AI/半导体/电力热钱比就是资金效率太低，先下车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-22",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "GLW",
+   "shares": 757,
+   "price": 209.35,
+   "reason": "GLW被重新贴上AI光连接标签，盘前继续有资金承接，机构流入和叙事升温都在，但还没像微盘AI那样挤到一碰就炸。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -1705,8 +1793,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些都是我能理解、护城河清楚、长期经济性不错的生意；今天盘前的涨跌不是我买卖一家企业的理由。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-22 ≠ 下单日 2026-06-19"
   },
   {
    "id": 80,
@@ -1715,8 +1803,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂，商业模式和文化没有变化，盘前涨跌不是我换仓的理由。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-22 ≠ 下单日 2026-06-19"
   },
   {
    "id": 81,
@@ -1725,8 +1813,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还在真瓶颈位置上，今天盘前只是把AI、电力、核燃料、军工材料这些卡脖子链条重新定价，我不因为涨得快就砍真货，也不因为AXTI这种高波动主题票盘前被砸就把InP瓶颈交出去。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-22 ≠ 下单日 2026-06-19"
   },
   {
    "id": 82,
@@ -1735,8 +1823,8 @@
    "action": "SELL",
    "sym": "ETN",
    "reason": "ETN 顺风但弹性不够，今天资金最凶的是半导体和AI ASIC，我把低 beta 电力设备换成更猛的载体。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-22 ≠ 下单日 2026-06-19"
   },
   {
    "id": 83,
@@ -1745,8 +1833,8 @@
    "action": "BUY",
    "sym": "AVGO",
    "reason": "AI 资本开支这股流动性大潮没有退，Broadcom 是 ASIC 主线里最干净、最有机构承载力的高弹性表达。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-22 ≠ 下单日 2026-06-19"
   },
   {
    "id": 84,
@@ -1755,8 +1843,8 @@
    "action": "SELL",
    "sym": "HLNE",
    "reason": "这票有聪明钱底色但今天盘口不是主线，资金明显从慢资产挪去AI硬件和半导体链，我不让死水占仓位。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-22 ≠ 下单日 2026-06-19"
   },
   {
    "id": 85,
@@ -1765,8 +1853,8 @@
    "action": "BUY",
    "sym": "GLW",
    "reason": "资金把它从沉闷玻璃股重新定价成AI光连接，机构和卖方预期差都在抬轿，热度升温但还没到微盘妖股那种极端拥挤。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-06-22 ≠ 下单日 2026-06-19"
   },
   {
    "id": 86,
@@ -1775,7 +1863,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我没有看到哪一门生意的护城河被削弱，也没有看到候选名单里有足够便宜到值得我卖掉现有好生意去换的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1785,7 +1873,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看懂了，商业模式和文化没有变化，盘前涨跌不是让我换来换去的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1795,7 +1883,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我不因为盘口热闹去拆真瓶颈仓位：现在这十个位置都还站在卡脖子窄门上，下游 capex 没有掉头，按兵不动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1805,7 +1893,7 @@
    "action": "SELL",
    "sym": "NBIS",
    "reason": "这匹马前面跑得够猛，但今天盘前在AI链整体顺风里几乎不动，边际动量弱了我就把资本挪给更强的载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1815,7 +1903,7 @@
    "action": "BUY",
    "sym": "WDC",
    "reason": "AI基建外溢到存储是今天最诚实的价格信号，盘前直接领涨，这种供给紧、Beta高的马我顺流动性去追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1825,7 +1913,7 @@
    "action": "BUY",
    "sym": "VRT",
    "reason": "AI算力最后都落到电力和散热，VRT盘前继续强，是这条宏观主线里最干净的高弹性表达之一。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1835,7 +1923,7 @@
    "action": "SELL",
    "sym": "HLNE",
    "reason": "HLNE盘前还在死水里晃，私募资管这条线今天没有增量资金，和AI/半导体/电力热钱比就是资金效率太低，先下车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1845,7 +1933,7 @@
    "action": "BUY",
    "sym": "GLW",
    "reason": "GLW被重新贴上AI光连接标签，盘前继续有资金承接，机构流入和叙事升温都在，但还没像微盘AI那样挤到一碰就炸。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

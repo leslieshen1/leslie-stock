@@ -281,12 +281,37 @@ async function computeLivePrePost(origin: string): Promise<Sect | null> {
   return Object.keys(out).length ? out : null;
 }
 
+// 12 大板块 → SPDR 行业 ETF。行业 ETF 就是板块基准、Nasdaq /info 实时,远比「全市场 screener
+// 市值加权 + 有流量时随机时刻定格」准且不滞后(实测 screener 聚合把工业算成 -3%,真实 XLI +0.5%)。
+const SECTOR_ETF: Record<string, string> = {
+  "科技": "XLK", "金融": "XLF", "工业": "XLI", "可选消费": "XLY", "医疗": "XLV", "必需消费": "XLP",
+  "能源": "XLE", "材料": "XLB", "通信媒体": "XLC", "公用事业": "XLU", "地产": "XLRE",
+};
+async function sectorsViaETF(origin: string): Promise<Sect> {
+  const etfs = [...new Set(Object.values(SECTOR_ETF))];
+  const j = await fetchWithTimeout(`${origin}/api/quote?syms=${etfs.join(",")}`, {}, 12000)
+    .then((x) => x.json()).catch(() => null);
+  const q: Record<string, { pct: number | null }> = j?.quotes || {};
+  const out: Sect = {};
+  for (const [seg, etf] of Object.entries(SECTOR_ETF)) {
+    const p = q[etf.toUpperCase()]?.pct;
+    if (p != null) out[seg] = Math.round(Number(p) * 100) / 100;
+  }
+  return out;
+}
+
 async function syncOnce(origin: string) {
   const session = etSession();
   // 盘中=全市场 screener(全、便宜);盘前/盘后=各板块龙头走 Nasdaq /info 取真延伸时段价(screener 没有);休市=不算(用定格)
-  const live = session === "盘中" ? await computeLive(origin)
+  let live = session === "盘中" ? await computeLive(origin)
     : (session === "盘前" || session === "盘后") ? await computeLivePrePost(origin)
     : null;
+  // 12 大板块改用行业 ETF 的真实涨跌覆盖(子主题保留个股聚合)。盘前/盘中 ETF 流动性足、/info 实时;
+  // 盘后 ETF 延伸时段太薄 → 保留龙头个股近似(它们盘后才真有量),避免 ETF 无盘后成交时退回当日累计、污染盘后列。
+  if (session === "盘中" || session === "盘前") {
+    const etf = await sectorsViaETF(origin);
+    if (Object.keys(etf).length) live = { ...(live || {}), ...etf };
+  }
   LIVE = { session, sect: live };
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日

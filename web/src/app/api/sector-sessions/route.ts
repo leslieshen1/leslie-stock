@@ -378,8 +378,16 @@ export async function GET(req: Request) {
     const subsSorted = Object.keys(subCap).sort((a, b) => subCap[b] - subCap[a]);
     const sectors = Object.keys(cap).sort((a, b) => cap[b] - cap[a]).map((seg) => {
       const pfx = `${seg}|`;
+      const big = BIG_ETF[seg];   // 父板块的 ETF 三段(权威);子主题与之严重背离判脏
       const segSubs = subsSorted.filter((k) => k.startsWith(pfx))
-        .map((k) => ({ sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...triple(k), d7: US_WIN.d7[k] ?? null, d30: US_WIN.d30[k] ?? null }));
+        .map((k) => {
+          const t = triple(k);
+          // 子主题是父板块的子集:某列与父 ETF 背离 >6pp 不可能(除非个股聚合被脏价污染)→ 抹成 null 显「—」
+          if (big) for (const c of ["pre", "mid", "post"] as const) {
+            if (t[c] != null && big[c] != null && Math.abs((t[c] as number) - (big[c] as number)) > 6) t[c] = null;
+          }
+          return { sector: k.slice(pfx.length), capB: Math.round(subCap[k]), ...t, d7: US_WIN.d7[k] ?? null, d30: US_WIN.d30[k] ?? null };
+        });
       return {
         sector: seg, capB: Math.round(cap[seg]), ...triple(seg, true),
         d7: US_WIN.d7[seg] ?? null, d30: US_WIN.d30[seg] ?? null,

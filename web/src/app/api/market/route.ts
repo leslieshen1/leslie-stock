@@ -51,35 +51,6 @@ async function overlayExtended(quotes: Quotes, origin: string): Promise<void> {
   }
 }
 
-// 全市场覆盖:新浪美股批量(hq.sinajs.cn/list=gb_*)。与 A 股腾讯【同一套机制】——免 key、IP 无关、
-// 从 Vercel 已证明稳,价格/涨跌与 Nasdaq 一字不差。一次拉 ~70 只,~85 批分波并发覆盖全 6000 只 price/pct,
-// 治本 screener 长尾整天滞后(列表/热力图/板块逐只聚合随之全程准)。带点票(BRK.B 等)新浪格式不同 → 保留 screener。
-async function overlaySina(quotes: Quotes): Promise<void> {
-  const syms = Object.keys(quotes).filter((s) => /^[A-Z]{1,5}$/.test(s));
-  const BATCH = 70, WAVE = 8;
-  const batches: string[][] = [];
-  for (let i = 0; i < syms.length; i += BATCH) batches.push(syms.slice(i, i + BATCH));
-  for (let i = 0; i < batches.length; i += WAVE) {
-    await Promise.all(batches.slice(i, i + WAVE).map(async (b) => {
-      try {
-        const list = b.map((s) => "gb_" + s.toLowerCase()).join(",");
-        const res = await fetchWithTimeout(`https://hq.sinajs.cn/list=${list}`,
-          { headers: { referer: "https://finance.sina.com.cn/", "user-agent": "Mozilla/5.0" } }, 8000);
-        const txt = new TextDecoder("gbk").decode(await res.arrayBuffer());
-        for (const line of txt.split(";")) {
-          const m = line.match(/gb_([a-z0-9]+)="([^"]*)"/);
-          if (!m || !m[2]) continue;
-          const cur = quotes[m[1].toUpperCase()];
-          if (!cur) continue;
-          const p = m[2].split(",");
-          const price = num(p[1]);
-          if (price != null && price > 0) { cur.price = price; const pc = num(p[2]); if (pc != null) cur.pct = pc; }
-        }
-      } catch { /* 单批失败保留 screener 兜底 */ }
-    }));
-  }
-}
-
 export async function GET(req: Request) {
   const rl = rateLimit(`mkt:${clientIp(req)}`, 60, 60_000);
   if (!rl.ok) return tooMany(rl.retryAfter);
@@ -115,12 +86,11 @@ export async function GET(req: Request) {
     }
     if (Object.keys(quotes).length === 0) throw new Error("empty");
     // ⚠ Nasdaq bulk screener 整天滞后(常停在上一交易日收盘,实测开盘13min后 AVGO screener +4.7% 而 /info -2.2% 方向都反)。
-    // 治本:交易时段【全市场】用新浪批量(gb_*)覆盖 price/pct(免key、IP无关、与 Nasdaq 一致),长尾不再脏 → 列表/热力图/板块
-    // 逐只聚合全程准;龙头随后再叠 /info(双保险:新浪盘中万一延迟,龙头照样秒级)。screener 仍供宇宙 + 市值 + 兜底。
+    // 治标:交易时段把市值 top-100 龙头用 /info(真延伸时段价)覆盖 price/pct,可见行 + 大家关心的票实时;长尾仍吃 screener。
+    // 注:新浪 gb_* 批量【从 Vercel 数据中心 IP 走不通】——每批 8s 超时、覆盖全空、/api/market 被拖到 69s,已撤(腾讯 A/HK 能用、新浪美股不能)。
     const session = etSession();
     if (session !== "closed") {
-      try { await overlaySina(quotes); } catch { /* 失败保留 screener 兜底 */ }
-      try { await overlayExtended(quotes, new URL(req.url).origin); } catch { /* 失败保留上一步值兜底 */ }
+      try { await overlayExtended(quotes, new URL(req.url).origin); } catch { /* 失败保留 screener 兜底 */ }
     }
     MKT_LAST_GOOD = { quotes, ts: Date.now() };
     return Response.json(

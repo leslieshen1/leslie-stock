@@ -11,7 +11,7 @@ const URL_NASDAQ = "https://api.nasdaq.com/api/screener/stocks?tableonly=false&l
 
 // mcapB/vol 也一并回出:美股市值/成交量全站本来无实时通道(scan/热力图都吃构建期静态快照,
 // NVDA 冻在 $5.14T、排序锚旧值)。Nasdaq screener 同一行本就带 marketCap+volume,顺手带上。
-type Quotes = Record<string, { price: number | null; pct: number | null; mcapB?: number | null; vol?: number | null; postPct?: number | null }>;
+type Quotes = Record<string, { price: number | null; pct: number | null; mcapB?: number | null; vol?: number | null }>;
 let MKT_LAST_GOOD: { quotes: Quotes; ts: number } | null = null;
 
 function num(s: unknown): number | null {
@@ -74,8 +74,6 @@ async function overlaySina(quotes: Quotes): Promise<void> {
           const p = m[2].split(",");
           const price = num(p[1]);
           if (price != null && price > 0) { cur.price = price; const pc = num(p[2]); if (pc != null) cur.pct = pc; }
-          const pp = num(p[22]);          // [22]=盘后涨跌%(相对收盘);板块「盘后」列逐只聚合用
-          if (pp != null && Math.abs(pp) < 60) cur.postPct = pp;
         }
       } catch { /* 单批失败保留 screener 兜底 */ }
     }));
@@ -120,10 +118,8 @@ export async function GET(req: Request) {
     // 治本:交易时段【全市场】用新浪批量(gb_*)覆盖 price/pct(免key、IP无关、与 Nasdaq 一致),长尾不再脏 → 列表/热力图/板块
     // 逐只聚合全程准;龙头随后再叠 /info(双保险:新浪盘中万一延迟,龙头照样秒级)。screener 仍供宇宙 + 市值 + 兜底。
     const session = etSession();
-    // 新浪覆盖【总是】跑:price(治长尾滞后)+ 盘后%(板块盘后列休市也要逐只聚合)。
-    try { await overlaySina(quotes); } catch { /* 失败保留 screener 兜底 */ }
-    // 龙头再叠 /info(实时双保险),只在交易时段(休市时 /info=收盘,和 screener/新浪一致,省掉)。
     if (session !== "closed") {
+      try { await overlaySina(quotes); } catch { /* 失败保留 screener 兜底 */ }
       try { await overlayExtended(quotes, new URL(req.url).origin); } catch { /* 失败保留上一步值兜底 */ }
     }
     MKT_LAST_GOOD = { quotes, ts: Date.now() };

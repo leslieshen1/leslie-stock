@@ -5,7 +5,7 @@ import { fetchAFundamentals } from "@/lib/a-fundamentals";
 import { clientIp, rateLimit, tooMany } from "@/lib/api-guard";
 import { safeCode } from "@/lib/sanitize";
 
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它会废掉缓存):响应按 ?code 的 URL 边缘缓存(下方 s-maxage=60),命中不打函数。
 
 export async function GET(req: Request) {
   const rl = rateLimit(`afund:${clientIp(req)}`, 120, 60_000);

@@ -5,7 +5,7 @@ import path from "path";
 import { clientIp, rateLimit, tooMany } from "@/lib/api-guard";
 import { safeCode } from "@/lib/sanitize";
 
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它会废掉缓存):响应按 ?syms 的 URL 边缘缓存(下方 s-maxage=300),命中不打函数;限流只在未命中跑。
 
 type Compact = {
   pe?: number; fpe?: number; pb?: number; ps?: number; roe?: number; pm?: number;

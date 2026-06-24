@@ -4,7 +4,7 @@ import { fetchWithTimeout } from "@/lib/api-guard";
 
 // 实时宏观/指数(Yahoo v8 chart,免费无 key)。前端 MacroBar 轮询。
 // fetch 带 revalidate=30 → 服务端 30s 缓存,不砸 Yahoo。失败回落静态 macro.json。
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它会废掉缓存):无 per-request 状态,响应边缘缓存(下方 s-maxage=30),命中不打函数。
 
 const SERIES = [
   { sym: "^TNX", name: "美债 10Y", kind: "rate" },

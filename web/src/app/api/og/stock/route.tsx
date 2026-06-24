@@ -7,7 +7,8 @@ import { safeCode } from "@/lib/sanitize";
 // 个股分享卡(OG 图)。一个路由覆盖全部个股:发链接到 X/微信/Telegram,预览自动是这张卡。
 // 成本:只在"被分享"时由平台爬虫抓一次,边缘缓存兜住(下面 CDN 头),不在用户浏览路径上 → 极低。
 // 中文:Satori 默认字体不含 CJK → 运行时按"卡上实际出现的字"去 Google Fonts 抓子集字体(几个字、很小)。
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它会废掉下方 CDN 缓存):按 ?code&market 的 URL 边缘缓存,每只票只渲染一次缓存 1 天,
+// 不让每次分享/爬虫都重跑 Satori + 抓字体(那是 CPU/外部请求/Origin Transfer 大头)。
 
 const C = { bg: "#0B0E11", text: "#E6EDF3", muted: "#8B98A5", coral: "#FF7A45" };
 

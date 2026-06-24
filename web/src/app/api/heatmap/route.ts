@@ -5,7 +5,7 @@ import { fetchWithTimeout } from "@/lib/api-guard";
 // 方块热力图数据:服务端吐精简 top-N(不把全量塞前端)。
 // 美股:us-stocks.json(静态,市值+涨跌+板块,日更)。
 // A股:aleabit_manifest(名字+市值)+ a-industry(行业)+ 腾讯实时(涨跌,只抓 top-N)。
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它会废掉缓存):响应按 ?market&n 的 URL 边缘缓存(下方 s-maxage=120),命中不打函数。
 
 type Slim = { sym: string; name: string; mcapB: number; pct: number; sector: string };
 const r1 = (x: number) => Math.round(x * 10) / 10;

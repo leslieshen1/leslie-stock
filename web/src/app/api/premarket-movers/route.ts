@@ -3,7 +3,7 @@
 // 避免每个冷实例都对 Nasdaq 打 40 个无超时请求。
 import { clientIp, rateLimit, tooMany, fetchWithTimeout } from "@/lib/api-guard";
 
-export const dynamic = "force-dynamic";
+// 不 force-dynamic(它会废掉缓存,违背"边缘合并"初衷):响应边缘缓存(下方 s-maxage=60),命中不打函数 + 不对 Nasdaq 打 40 请求。
 
 const NH = {
   "user-agent":

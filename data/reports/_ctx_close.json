@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-23 22:16 ET Tue",
+ "asof_et": "2026-06-23 22:31 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "-1.45%",
@@ -546,9 +546,19 @@
    "sum": ""
   },
   {
+   "h": "VIX owner Cboe jumps into prediction markets to build on zero-day options growth",
+   "src": "CNBC",
+   "sum": "Global markets operator Cboe has launched its first prediction markets products to meet consumer demand in the fast growing sector."
+  },
+  {
    "h": "US Senate joins House in voting to halt Iran war, rebuking Trump - Reuters",
    "src": "Reuters",
    "sum": "US Senate joins House in voting to halt Iran war, rebuking Trump  Reuters"
+  },
+  {
+   "h": "US, Iran at odds on nuclear inspections, frozen assets in deal to end war - Reuters",
+   "src": "Reuters",
+   "sum": "US, Iran at odds on nuclear inspections, frozen assets in deal to end war  Reuters"
   },
   {
    "h": "Trump tests Rust Belt pitch in Pennsylvania amid Iran, inflation pressures - Reuters",
@@ -589,16 +599,6 @@
    "h": "PGA Tour CEO Brian Rolapp unveils sweeping changes to professional golf",
    "src": "CNBC",
    "sum": "Changes to the PGA Tour are designed to elevate competition and raise payouts for winners."
-  },
-  {
-   "h": "Can Pakistan's peacekeeping role in Iran war give it an economic dividend? - Reuters",
-   "src": "Reuters",
-   "sum": "Can Pakistan's peacekeeping role in Iran war give it an economic dividend?  Reuters"
-  },
-  {
-   "h": "Here's why we decided to put money to work in Tuesday's market pullback",
-   "src": "CNBC",
-   "sum": "The action on Wall Street looks far more constructive than it appeared at the crack of dawn."
   }
  ]
 }

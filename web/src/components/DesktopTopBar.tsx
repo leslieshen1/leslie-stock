@@ -17,6 +17,7 @@ const SECTIONS: { match: (p: string) => boolean; zh: string; en: string }[] = [
   { match: (p) => p.startsWith("/whales"), zh: "聪明钱", en: "Smart Money" },
   { match: (p) => p.startsWith("/arena"), zh: "对决", en: "Arena" },
   { match: (p) => p.startsWith("/reports"), zh: "盘报", en: "Reports" },
+  { match: (p) => p.startsWith("/track-record"), zh: "判读后表现", en: "Track Record" },
   { match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist"), zh: "我的", en: "Portfolio" },
 ];
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Flame, List, Layers, Waves, Swords, FileText, Star } from "lucide-react";
+import { Flame, List, Layers, Waves, Swords, FileText, LineChart, Star } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 // 全站左侧栏(桌面 lg+)= 纯导航。搜索/盘口状态/主题/语言/Buy 都在全局顶栏 DesktopTopBar,这里保持干净。
@@ -21,6 +21,7 @@ const NAV: NavItem[] = [
   { href: "/whales", label: "聪明钱", en: "Whales", Icon: Waves, match: (p) => p.startsWith("/whales") },
   { href: "/arena", label: "对决", en: "Arena", Icon: Swords, match: (p) => p.startsWith("/arena") },
   { href: "/reports", label: "盘报", en: "Reports", Icon: FileText, match: (p) => p.startsWith("/reports") },
+  { href: "/track-record", label: "表现", en: "Track Record", Icon: LineChart, match: (p) => p.startsWith("/track-record") },
   { href: "/portfolio", label: "我的", en: "Portfolio", Icon: Star, match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist") },
 ];
 

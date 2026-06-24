@@ -6,6 +6,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/i18n";
+import { useNewReport } from "@/lib/useNewReport";
 
 const SW = 1.8;
 
@@ -75,6 +76,7 @@ const TABS: { href: string; zh: string; en: string; match: (p: string) => boolea
 export default function MobileTabBar() {
   const pathname = usePathname();
   const { lang } = useLang();
+  const newReport = useNewReport(); // 盘报有新 → 「盘报」图标右上角亮点
   return (
     <nav
       className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-base/92 backdrop-blur-md lg:hidden"
@@ -91,7 +93,12 @@ export default function MobileTabBar() {
                 active ? "text-accent" : "text-muted"
               }`}
             >
-              <span className="h-5 w-5">{tb.icon}</span>
+              <span className="relative h-5 w-5">
+                {tb.icon}
+                {tb.href === "/reports" && newReport && (
+                  <span className="absolute -right-1 -top-0.5 h-2 w-2 rounded-full bg-accent ring-2 ring-base" />
+                )}
+              </span>
               <span className="text-[10px] tracking-tight font-medium leading-none">{lang === "zh" ? tb.zh : tb.en}</span>
             </Link>
           );

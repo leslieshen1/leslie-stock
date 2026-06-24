@@ -79,6 +79,10 @@ def main():
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(reports, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 极小的「最新报告指针」(导航小红点用:客户端读它 vs localStorage,有新就在「盘报」旁亮点)。
+    head = reports[0]
+    latest = {k: head.get(k) for k in ("id", "type", "typeLabel", "date", "timeET", "title", "publishedAt")}
+    (OUT.parent / "reports-latest.json").write_text(json.dumps(latest, ensure_ascii=False), encoding="utf-8")
     print(f"✓ 已发布 [{TYPES[args.type]}] {args.title}")
     print(f"  id={rid} · tone={rec['tone'][:40]}")
     print(f"  → {OUT}  (共 {len(reports)} 篇)")

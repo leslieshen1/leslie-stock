@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Flame, List, Layers, Waves, Swords, FileText, Star } from "lucide-react";
 import { useLang } from "@/lib/i18n";
+import { useNewReport } from "@/lib/useNewReport";
 
 // 全站左侧栏(桌面 lg+)= 纯导航。搜索/盘口状态/主题/语言/Buy 都在全局顶栏 DesktopTopBar,这里保持干净。
 interface NavItem {
@@ -27,6 +28,7 @@ const NAV: NavItem[] = [
 export default function LeftNav() {
   const pathname = usePathname();
   const { lang } = useLang();
+  const newReport = useNewReport(); // 盘报有新 → 「盘报」旁亮点
 
   return (
     <aside className="hidden lg:flex lg:flex-col w-[204px] shrink-0 sticky top-0 h-screen border-r border-line bg-base/70 px-3 py-4 backdrop-blur-md">
@@ -57,6 +59,12 @@ export default function LeftNav() {
             >
               <Icon className="h-[18px] w-[18px] shrink-0" strokeWidth={active ? 2.2 : 1.85} />
               <span>{lang === "zh" ? item.label : item.en}</span>
+              {item.href === "/reports" && newReport && (
+                <span className="relative ml-auto flex h-2 w-2" title={lang === "zh" ? "有新盘报" : "New report"}>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+              )}
             </Link>
           );
         })}

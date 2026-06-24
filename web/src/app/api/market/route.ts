@@ -8,6 +8,9 @@ import { clientIp, rateLimit, tooMany, fetchWithTimeout } from "@/lib/api-guard"
 // 多用户共享一份(函数每 ~55s 才真跑一次,盘前/盘后的 /info 覆盖也随之只算一次)。浏览器仍各自轮询取最新。
 
 const URL_NASDAQ = "https://api.nasdaq.com/api/screener/stocks?tableonly=false&limit=10000&download=true";
+// 省钱:GitHub Actions(公开仓免费)每 5 分钟产出的全市场快照,push 到 data-live 分支,raw CDN 免费serve。
+// /api/market 优先读它 → 省掉每请求现拉 Nasdaq + 28 批腾讯(见 scripts/snapshot/build_snapshot.mjs)。
+const SNAP_US_URL = "https://raw.githubusercontent.com/leslieshen1/leslie-stock/data-live/us-snapshot.json";
 
 // mcapB/vol 也一并回出:美股市值/成交量全站本来无实时通道(scan/热力图都吃构建期静态快照,
 // NVDA 冻在 $5.14T、排序锚旧值)。Nasdaq screener 同一行本就带 marketCap+volume,顺手带上。
@@ -98,6 +101,24 @@ export async function GET(req: Request) {
   const rl = rateLimit(`mkt:${clientIp(req)}`, 60, 60_000);
   if (!rl.ok) return tooMany(rl.retryAfter);
 
+  const session = etSession();
+  // 省钱快路:优先读 GitHub 快照(免费 CDN,盘中每 5 分钟刷)。命中即省掉 Nasdaq + 28 批腾讯。
+  // 盘中要求 20 分钟内新鲜(防 cron 挂了拿旧价);休市价格不变、任意快照都用。读不到/太旧 → 落到下面现拉,绝不空白。
+  try {
+    const snap = await fetchWithTimeout(SNAP_US_URL, {}, 6000).then((x) => x.json()).catch(() => null);
+    const fresh = session === "closed" || (snap?.ts != null && Date.now() - snap.ts < 20 * 60_000);
+    if (snap?.quotes && Object.keys(snap.quotes).length > 1000 && fresh) {
+      MKT_LAST_GOOD = { quotes: snap.quotes, ts: snap.ts };
+      return Response.json(
+        { quotes: snap.quotes, ts: snap.ts, count: snap.count ?? Object.keys(snap.quotes).length, session, src: "snap" },
+        { headers: {
+          "cache-control": "public, max-age=0, must-revalidate",
+          "Vercel-CDN-Cache-Control": `max-age=${session === "closed" ? 900 : 180}, stale-while-revalidate=120`,
+        } },
+      );
+    }
+  } catch { /* 快照不可用 → 退回现拉 */ }
+
   try {
     const r = await fetchWithTimeout(
       URL_NASDAQ,
@@ -132,7 +153,6 @@ export async function GET(req: Request) {
     // 治本:腾讯美股批量(qt.gtimg.cn,与 A/HK 同 host、Vercel 已证明能用)覆盖全宇宙 price/pct + 盘后 postPct【总是跑】
     // (休市也要 postPct 给板块「盘后」列逐只聚合)。腾讯探针不通(理论上不会)才退回 /info 龙头。
     // 新浪 hq.sinajs.cn 是另一个 host、从 Vercel 被挡(实测 69s 全超时),已弃。
-    const session = etSession();
     let tencentOK = false;
     try { tencentOK = await overlayTencentUS(quotes); } catch { /* 保留 screener 兜底 */ }
     // 盘前/盘后:腾讯 [3] 停在收盘、不跟延伸时段(实测 4:03ET 仍昨收) → 龙头仍用 /info 覆盖真盘前/盘后价(列表可见行)。

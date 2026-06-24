@@ -9,6 +9,8 @@ import { clientIp, rateLimit, tooMany, fetchWithTimeout } from "@/lib/api-guard"
 // 上次成功的全盘快照 —— 腾讯整体抽风/被限时,serve 上次好值,避免列表价格全空白。
 type AQuote = { price: number | null; pct: number | null; vol: number | null; mcapYi: number | null };
 let A_LAST_GOOD: { quotes: Record<string, AQuote>; ts: number } | null = null;
+// 省钱:GitHub Actions 每 5 分钟产出的 A 股全盘快照(data-live 分支,raw CDN 免费)。优先读它 → 省掉每请求 ~69 批腾讯。
+const SNAP_A_URL = "https://raw.githubusercontent.com/leslieshen1/leslie-stock/data-live/a-snapshot.json";
 
 function tencentSym(code: string): string | null {
   if (/^6/.test(code)) return "sh" + code;          // 沪市主板/科创板(688)
@@ -48,6 +50,23 @@ export async function GET(req: Request) {
   // 限流:整盘快照较重,每 IP 30 次/分钟足够(正常 60s 轮询一次)。
   const rl = rateLimit(`amkt:${clientIp(req)}`, 30, 60_000);
   if (!rl.ok) return tooMany(rl.retryAfter);
+
+  // 省钱快路:优先读 GitHub 快照(A 股全盘,盘中每 5 分钟刷)。命中即省掉 ~69 批腾讯。
+  // 交易时段要求 20 分钟内新鲜;收盘/午休价格不变、任意快照都用。读不到/太旧 → 落到下面现拉。
+  try {
+    const snap = await fetchWithTimeout(SNAP_A_URL, {}, 6000).then((x) => x.json()).catch(() => null);
+    const fresh = !aMarketLive() || (snap?.ts != null && Date.now() - snap.ts < 20 * 60_000);
+    if (snap?.quotes && Object.keys(snap.quotes).length > 1000 && fresh) {
+      A_LAST_GOOD = { quotes: snap.quotes, ts: snap.ts };
+      return Response.json(
+        { quotes: snap.quotes, ts: snap.ts, count: snap.count ?? Object.keys(snap.quotes).length, src: "snap" },
+        { headers: {
+          "cache-control": "public, max-age=0, must-revalidate",
+          "Vercel-CDN-Cache-Control": `max-age=${aMarketLive() ? 180 : 900}, stale-while-revalidate=120`,
+        } },
+      );
+    }
+  } catch { /* 快照不可用 → 退回现拉 */ }
 
   try {
     const codes = await allCodes();

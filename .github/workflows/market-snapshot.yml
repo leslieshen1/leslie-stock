@@ -4,6 +4,10 @@ name: market-snapshot
 # 先只手动触发验证;验好了再加 schedule(盘中每 5 分钟)。
 on:
   workflow_dispatch:
+  schedule:
+    # 公开仓 = GitHub Actions 免费无限。按两市交易时段每 5 分钟刷(休市不刷,价格本就不变 + 对上游礼貌)。
+    - cron: "*/5 1-7 * * 1-5"    # A 股:UTC 1-7 = 北京 9:00-15:55
+    - cron: "*/5 8-23 * * 1-5"   # 美股:UTC 8-23 = ET 4:00-19:55(盘前到盘后)
 
 permissions:
   contents: write

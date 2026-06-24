@@ -120,34 +120,41 @@ async function buildA() {
   return quotes;
 }
 
-// 判读后表现:读冻结基线(judgment-baseline.json,锚点 06-17 的五方分+价)+ 这次拉到的现价,分五档算
-// "判读后涨幅 vs 大盘超额"。免费在 GitHub 算 → 写 data-live → 产品页前端直读(零 Vercel 成本、每 5 分钟更)。
-async function buildPerf(us, ts) {
-  try {
-    const base = JSON.parse(await fs.readFile(path.join(process.cwd(), "web", "public", "data", "judgment-baseline.json"), "utf-8"));
-    const rows = [];
-    for (const [code, b] of Object.entries(base.stocks)) {
-      const cur = us[code]?.price;
-      if (cur == null || !(cur > 0) || !b.p0 || b.p0 <= 0) continue;
-      const ret = (cur / b.p0 - 1) * 100;
-      if (Math.abs(ret) > 500) continue; // 拆股等脏值剔除
-      rows.push({ score: b.a, ret });
-    }
-    if (rows.length < 50) return null;
-    const market = rows.reduce((s, r) => s + r.ret, 0) / rows.length;
-    rows.sort((x, y) => y.score - x.score);
-    const q = Math.floor(rows.length / 5);
-    const segs = [["Top 20% 高分", rows.slice(0, q)], ["次 20%", rows.slice(q, 2 * q)], ["中间", rows.slice(2 * q, 3 * q)], ["次低", rows.slice(3 * q, 4 * q)], ["Bottom 20% 低分", rows.slice(4 * q)]];
-    const r2 = (x) => Math.round(x * 100) / 100;
-    const buckets = segs.map(([label, seg]) => {
-      const r = seg.reduce((s, x) => s + x.ret, 0) / seg.length;
-      return { label, avgScore: Math.round((seg.reduce((s, x) => s + x.score, 0) / seg.length) * 10) / 10, ret: r2(r), excess: r2(r - market), n: seg.length };
-    });
-    return { anchor: base.anchor, asOf: ts, n: rows.length, market: r2(market), buckets };
-  } catch (e) {
-    console.error("perf fail:", e.message);
-    return null;
+// 判读后表现:读冻结基线(五方分+锚点收盘价 p0)+ 这次拉到的现价,分五档算"判读后涨幅 vs 大盘超额"。
+// 单市场:baseline.stocks{code:{a:均分, p0:锚点价}} × quotes{code:{price}} → {anchor,n,market,buckets}。
+async function perfFor(baselineFile, quotes) {
+  const base = JSON.parse(await fs.readFile(path.join(process.cwd(), "web", "public", "data", baselineFile), "utf-8"));
+  const rows = [];
+  for (const [code, b] of Object.entries(base.stocks)) {
+    const cur = quotes[code]?.price;
+    if (cur == null || !(cur > 0) || !b.p0 || b.p0 <= 0) continue;
+    const ret = (cur / b.p0 - 1) * 100;
+    if (Math.abs(ret) > 500) continue; // 拆股等脏值剔除
+    rows.push({ score: b.a, ret });
   }
+  if (rows.length < 50) return null;
+  const market = rows.reduce((s, r) => s + r.ret, 0) / rows.length;
+  rows.sort((x, y) => y.score - x.score);
+  const q = Math.floor(rows.length / 5);
+  const segs = [["Top 20% 高分", rows.slice(0, q)], ["次 20%", rows.slice(q, 2 * q)], ["中间", rows.slice(2 * q, 3 * q)], ["次低", rows.slice(3 * q, 4 * q)], ["Bottom 20% 低分", rows.slice(4 * q)]];
+  const r2 = (x) => Math.round(x * 100) / 100;
+  const buckets = segs.map(([label, seg]) => {
+    const r = seg.reduce((s, x) => s + x.ret, 0) / seg.length;
+    return { label, avgScore: Math.round((seg.reduce((s, x) => s + x.score, 0) / seg.length) * 10) / 10, ret: r2(r), excess: r2(r - market), n: seg.length };
+  });
+  return { anchor: base.anchor, n: rows.length, market: r2(market), buckets };
+}
+
+// 美股(judgment-baseline.json,锚 06-17)+ A 股(judgment-baseline-a.json,锚 06-19)两套,各自基线各自大盘。
+// 免费在 GitHub 算 → 写 data-live → 产品页前端直读(零 Vercel 成本、每 5 分钟更)。
+async function buildPerf(us, a, ts) {
+  const safe = (p) => p.catch((e) => { console.error("perf:", e.message); return null; });
+  const [usPerf, aPerf] = await Promise.all([
+    us ? safe(perfFor("judgment-baseline.json", us)) : Promise.resolve(null),
+    a ? safe(perfFor("judgment-baseline-a.json", a)) : Promise.resolve(null),
+  ]);
+  if (!usPerf && !aPerf) return null;
+  return { asOf: ts, us: usPerf, a: aPerf };
 }
 
 async function main() {
@@ -160,15 +167,18 @@ async function main() {
   if (us) {
     await fs.writeFile(path.join(OUT_DIR, "us-snapshot.json"), JSON.stringify({ quotes: us, ts, count: Object.keys(us).length }));
     console.log("US snapshot:", Object.keys(us).length, "syms; AAPL =", JSON.stringify(us.AAPL), "SPCX =", JSON.stringify(us.SPCX));
-    const perf = await buildPerf(us, ts);
-    if (perf) {
-      await fs.writeFile(path.join(OUT_DIR, "judgment-perf.json"), JSON.stringify(perf));
-      console.log("perf:", perf.n, "只;", perf.buckets.map((b) => `${b.label} 超额${b.excess}%`).join(" | "));
-    }
   }
   if (a) {
     await fs.writeFile(path.join(OUT_DIR, "a-snapshot.json"), JSON.stringify({ quotes: a, ts, count: Object.keys(a).length }));
     console.log("A snapshot:", Object.keys(a).length, "syms; 600519 =", JSON.stringify(a["600519"]));
+  }
+  // 判读后表现(美股 + A 股各自基线);需同时拿到两市现价,放在两市快照之后算。
+  const perf = await buildPerf(us, a, ts);
+  if (perf) {
+    await fs.writeFile(path.join(OUT_DIR, "judgment-perf.json"), JSON.stringify(perf));
+    for (const [mk, p] of Object.entries({ US: perf.us, A: perf.a })) {
+      if (p) console.log(`perf ${mk}: ${p.n} 只 (锚 ${p.anchor});`, p.buckets.map((b) => `${b.label} 超额${b.excess}%`).join(" | "));
+    }
   }
   if (!us && !a) process.exit(1);
 }

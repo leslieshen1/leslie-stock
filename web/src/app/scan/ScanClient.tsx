@@ -90,6 +90,9 @@ export default function ScanClient() {
   const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [aPanels, setAPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });  // A股五方
+  // 判读冻结基线价 p0(永久不变):判读后涨幅 = 现价/p0-1。美股锚 06-17、A 股锚 06-19,各自 slim 查表。
+  const [usP0, setUsP0] = useState<{ anchor: string; p0: Record<string, number> }>({ anchor: "", p0: {} });
+  const [aP0, setAP0] = useState<{ anchor: string; p0: Record<string, number> }>({ anchor: "", p0: {} });
   const [aQuotes, setAQuotes] = useState<Record<string, { price: number | null; pct: number | null; vol: number | null; mcapYi: number | null }>>({});  // A股实时(腾讯)
   const [usQuotes, setUsQuotes] = useState<Record<string, { price: number | null; pct: number | null; mcapB?: number | null; vol?: number | null }>>({});  // 美股实时(/api/market)→ 渲染时叠加,不直接改 usStocks(避竞态)
   const [aIndustry, setAIndustry] = useState<Record<string, string>>({});  // A股真·产业板块(新浪+概念,非题材)
@@ -110,6 +113,7 @@ export default function ScanClient() {
       setUsPanels(p as UsPanelSummary);
       setLoading(false);
     });
+    fetch("/data/judgment-p0-us.json").then((r) => r.json()).then((j) => { if (alive) setUsP0(j); }).catch(() => {});
     return () => { alive = false; };
   }, []);
   const aLoaded = useRef(false);
@@ -125,6 +129,7 @@ export default function ScanClient() {
       .then((p) => setAPanels(p as UsPanelSummary)).catch(() => {});
     fetch("/data/a-industry.json").then((r) => r.json())
       .then((m) => setAIndustry(m as Record<string, string>)).catch(() => {});
+    fetch("/data/judgment-p0-a.json").then((r) => r.json()).then((j) => setAP0(j)).catch(() => {});
   }, [market]);
   // A股实时行情(腾讯,服务端 60s 缓存)→ 价格/涨跌/成交量/市值,与美股 /api/market 对齐
   useEffect(() => {
@@ -315,6 +320,8 @@ export default function ScanClient() {
         panels={market === "us" ? usPanels : aPanels}
         flash={priceFlash}
         market={market}
+        p0={market === "us" ? usP0.p0 : aP0.p0}
+        p0Anchor={market === "us" ? usP0.anchor : aP0.anchor}
       />
     </>
   );
@@ -324,7 +331,7 @@ export default function ScanClient() {
 // 美股全市场视图（市值 / 动量,不走 Serenity 评分）
 // ============================================================
 
-type UsSortCol = "name" | "price" | "pct" | "mcap" | "vol" | "div" | "avg";
+type UsSortCol = "name" | "price" | "pct" | "mcap" | "vol" | "div" | "avg" | "judged";
 
 // 五方均分:已判读股神的平均分;未覆盖 → null(排序时垫底)
 function avgOf(sum?: { sc: (number | null)[] }): number | null {
@@ -386,11 +393,16 @@ function fmtVol(v: number | null): string {
   return String(v);
 }
 
-function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stocks: UsSec[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary; flash?: Record<string, "up" | "down">; market?: "us" | "a" }) {
+function UsScanView({ stocks, flags, panels, flash = {}, market = "us", p0 = {}, p0Anchor = "" }: { stocks: UsSec[]; flags: Record<string, DilutionFlag>; panels: UsPanelSummary; flash?: Record<string, "up" | "down">; market?: "us" | "a"; p0?: Record<string, number>; p0Anchor?: string }) {
   const isA = market === "a";
   // 价格/市值按市场:美股 $ + $B/$T;A 股 ¥ + 亿/万亿(mcapB 字段对 A 股装的是「亿 RMB」)
   const fmtPrice = (p: number | null) => (p == null ? "—" : isA ? `¥${p.toFixed(2)}` : `$${p.toFixed(2)}`);
   const capOf = (b: number | null) => (isA ? fmtCapRmb(b) : fmtCap(b));
+  // 判读后涨幅:现价 / 判读锁定日收盘价 - 1。只有在基线里的(已判读)才有,否则 null。
+  const judgedRet = (s: UsSec): number | null => {
+    const base = p0[s.sym];
+    return base != null && base > 0 && s.price != null ? (s.price / base - 1) * 100 : null;
+  };
   const router = useRouter();
   const { t, lang } = useLang();
   const { has, toggle } = useWatchlist();
@@ -499,12 +511,16 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
         return ((panels.stocks[a.sym]?.div ?? -1) - (panels.stocks[b.sym]?.div ?? -1)) * dir;
       if (sortCol === "avg")
         return ((avgOf(panels.stocks[a.sym]) ?? -1) - (avgOf(panels.stocks[b.sym]) ?? -1)) * dir;
+      if (sortCol === "judged") {
+        const jr = (x: UsSec) => { const b = p0[x.sym]; return b > 0 && x.price != null ? x.price / b : -Infinity; };
+        return (jr(a) - jr(b)) * dir;
+      }
       // ETF 模式下「市值」列改排「近1年回报」
       const pick = (x: UsSec) =>
         sortCol === "price" ? x.price : sortCol === "pct" ? x.pct : sortCol === "vol" ? x.vol : (etfMode ? (x.ret1y ?? null) : x.mcapB);
       return ((pick(a) ?? -Infinity) - (pick(b) ?? -Infinity)) * dir;
     });
-  }, [stocks, secType, sectorSet, capTier, dilu, panelF, masterF, order, panels, flags, search, sortCol, sortDir]);
+  }, [stocks, secType, sectorSet, capTier, dilu, panelF, masterF, order, panels, flags, search, sortCol, sortDir, p0]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / US_PAGE_SIZE));
   const safePage = Math.min(page, totalPages - 1);
@@ -543,8 +559,8 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
         { key: "small", label: t("小盘 <$2B", "Small <$2B") },
       ];
 
-  const Th = ({ col, label, className = "" }: { col: UsSortCol; label: string; className?: string }) => (
-    <th className={`px-3 py-2 ${className}`}>
+  const Th = ({ col, label, className = "", title }: { col: UsSortCol; label: string; className?: string; title?: string }) => (
+    <th className={`px-3 py-2 ${className}`} title={title}>
       <button
         onClick={() => sortClick(col)}
         className={`inline-flex items-center font-medium transition hover:text-ink ${
@@ -734,6 +750,15 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                 <div className={`font-mono text-[12px] font-semibold tabular-nums ${flCls || (isUp ? "text-up" : "text-down")}`}>
                   {s.pct != null ? `${isUp ? "+" : ""}${s.pct.toFixed(2)}%` : "—"}
                 </div>
+                {(() => {
+                  const jr = judgedRet(s);
+                  if (jr == null) return null;
+                  return (
+                    <div className="mt-0.5 font-mono text-[10px] tabular-nums text-faint">
+                      {t("判后", "since")} <span className={jr >= 0 ? "text-up" : "text-down"}>{jr >= 0 ? "+" : ""}{jr.toFixed(1)}%</span>
+                    </div>
+                  );
+                })()}
               </div>
               <button
                 onClick={(e) => {
@@ -766,6 +791,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
  <Th col="mcap" label={secType === "etf" ? t("1年回报", "1Y Return") : secType === "all" ? t("市值 / 1Y", "Mkt Cap / 1Y") : t("市值", "Mkt Cap")} className="text-right" />
  <Th col="div" label={t("五方", "Panel")} className="text-center" />
  <Th col="avg" label={t("均分", "Avg")} className="text-right" />
+ <Th col="judged" label={t("判读后", "Since")} className="text-right" title={p0Anchor ? t(`自 ${p0Anchor} 判读锁定以来的涨跌(现价/锚点价−1)`, `Return since panel was frozen on ${p0Anchor}`) : t("判读锁定以来的涨跌", "Return since panel was frozen")} />
  <Th col="vol" label={t("成交量", "Volume")} className="hidden text-right sm:table-cell" />
  <th className="hidden px-3 py-2 font-medium text-muted md:table-cell">{t("行业", "Industry")}</th>
  <th className="px-2 py-2"></th>
@@ -812,6 +838,11 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
                     if (a == null) return <span className="text-faint">—</span>;
                     return <span className={`font-semibold ${a >= 65 ? "text-up" : a >= 50 ? "text-accent" : "text-muted"}`}>{Math.round(a)}</span>;
                   })()}</td>
+ <td className="px-3 py-2 text-right font-mono tabular-nums">{(() => {
+                    const jr = judgedRet(s);
+                    if (jr == null) return <span className="text-faint">—</span>;
+                    return <span className={`font-semibold ${jr >= 0 ? "text-up" : "text-down"}`}>{jr >= 0 ? "+" : ""}{jr.toFixed(1)}%</span>;
+                  })()}</td>
  <td className="hidden px-3 py-2 text-right font-mono tabular-nums text-muted sm:table-cell">{fmtVol(s.vol)}</td>
  <td className="hidden max-w-[200px] truncate px-3 py-2 text-xs text-muted md:table-cell">{s.industry || s.sector}</td>
  <td className="px-2 py-2">
@@ -834,7 +865,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us" }: { stoc
               );
             })}
             {pageItems.length === 0 && (
-              <tr><td colSpan={10} className="py-12 text-center text-sm text-faint">{t("没有符合条件的股票", "No stocks match your filters")}</td></tr>
+              <tr><td colSpan={11} className="py-12 text-center text-sm text-faint">{t("没有符合条件的股票", "No stocks match your filters")}</td></tr>
             )}
           </tbody>
         </table>

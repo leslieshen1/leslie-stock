@@ -2138,9 +2138,99 @@
    "reason": "全市场风险资产被砸时它盘前还能红，机构慢钱和防御成长属性有相对强度，拥挤度也不高。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 106,
+   "fill_date": "2026-06-24",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里的八门生意大多有我能理解的护城河，今天盘前的涨跌不能告诉我它们十年后的owner earnings会怎样，所以不为市场噪音付佣金。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 107,
+   "fill_date": "2026-06-24",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我都看懂，也都能睡得着，市场因为拥挤交易拆仓而波动，不是我卖好公司的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 108,
+   "fill_date": "2026-06-24",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "昨晚砸的是拥挤AI beta，不是我这篮子真瓶颈的下游洪流断了；四件套还在，就不因为一根去杠杆K线把不可替代卖掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 109,
+   "fill_date": "2026-06-24",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "TLN",
+   "reason": "AI电力短缺这条宏观风还在吹，昨天被砸后盘前能转绿，我要加的是电力弹性而不是继续追拥挤芯片。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 110,
+   "fill_date": "2026-06-24",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "BWXT",
+   "reason": "核能+AI电力+国防三条流动性主线叠在一起，波动比纯AI硬件干净，适合在科技拆仓后接资金轮动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 111,
+   "fill_date": "2026-06-24",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "CCJ",
+   "reason": "核电复兴和去俄化铀供给是多年大趋势，盘前继续顺风，我要用它表达电力瓶颈而不是半导体拥挤交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 112,
+   "fill_date": "2026-06-24",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "BWIN 这种防御性资金缓进的仓位继续拿着，今天AI链反抽不代表拥挤拆仓结束，没必要把现金全打出去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 113,
+   "fill_date": "2026-06-24",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "AKTS",
+   "reason": "放疗/核药并购预期还在吸聪明钱，盘前继续红，和昨晚AI拥挤拆仓相关性低，适合加一仓情绪顺风票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 114,
+   "fill_date": "2026-06-24",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "LWAY",
+   "reason": "控制权战和并购预期把盘口点燃，盘前高开说明资金还在抢，但这类情绪票反转会很快，只做顺势不恋战。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 106,
+ "next_order_id": 115,
  "notes": [
   {
    "date": "2026-06-12",

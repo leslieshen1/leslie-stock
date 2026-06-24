@@ -3,8 +3,8 @@
   "buffett": 43465.01,
   "duan": 40172.16,
   "serenity": 50780.49,
-  "druckenmiller": 53744.2,
-  "sentiment": 415883.43
+  "druckenmiller": 437633.11,
+  "sentiment": 863997.05
  },
  "positions": [
   {
@@ -170,20 +170,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "NVTS",
-   "shares": 7510,
-   "entry": 23.39,
-   "entry_date": "2026-06-12"
-  },
-  {
-   "master": "sentiment",
-   "sym": "AMKR",
-   "shares": 1758,
-   "entry": 85.44,
-   "entry_date": "2026-06-15"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "ETN",
    "shares": 314,
    "entry": 409.64,
@@ -205,45 +191,17 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "CAMT",
-   "shares": 607,
-   "entry": 195.16,
-   "entry_date": "2026-06-18"
+   "sym": "LLY",
+   "shares": 110,
+   "entry": 1107.45,
+   "entry_date": "2026-06-23"
   },
   {
    "master": "sentiment",
-   "sym": "USAR",
-   "shares": 6381,
-   "entry": 24.64,
-   "entry_date": "2026-06-18"
-  },
-  {
-   "master": "sentiment",
-   "sym": "SIMO",
-   "shares": 488,
-   "entry": 321.66,
-   "entry_date": "2026-06-18"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "WDC",
-   "shares": 182,
-   "entry": 733.57,
-   "entry_date": "2026-06-22"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "VRT",
-   "shares": 374,
-   "entry": 357.96,
-   "entry_date": "2026-06-22"
-  },
-  {
-   "master": "sentiment",
-   "sym": "GLW",
-   "shares": 757,
-   "entry": 209.35,
-   "entry_date": "2026-06-22"
+   "sym": "BWIN",
+   "shares": 6251,
+   "entry": 24.39,
+   "entry_date": "2026-06-23"
   }
  ],
  "nav": [
@@ -421,6 +379,31 @@
    "master": "sentiment",
    "date": "2026-06-22",
    "nav": 1057139.2
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-23",
+   "nav": 984174.71
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-23",
+   "nav": 979985.2
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-23",
+   "nav": 1067087.6
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-23",
+   "nav": 1066365.32
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-23",
+   "nav": 1016458.94
   }
  ],
  "trades": [
@@ -1223,6 +1206,106 @@
    "price": 209.35,
    "reason": "GLW被重新贴上AI光连接标签，盘前继续有资金承接，机构流入和叙事升温都在，但还没像微盘AI那样挤到一碰就炸。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "NVTS",
+   "shares": 7510,
+   "price": 21.4,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "CAMT",
+   "shares": 607,
+   "price": 169.39,
+   "reason": "错了就是错了,-13.2% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "VRT",
+   "shares": 374,
+   "price": 318.32,
+   "reason": "错了就是错了,-11.1% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "WDC",
+   "shares": 182,
+   "price": 676.5,
+   "reason": "存储弹性票昨天追进去今天盘前直接跌7%，说明资金不再奖励这条高Beta表达，砍掉。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "LLY",
+   "shares": 110,
+   "price": 1107.45,
+   "reason": "全市场科技高Beta被砸时LLY盘前还能红，肥胖药主升浪有独立流动性，我要换到顺风的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "AMKR",
+   "shares": 1758,
+   "price": 86.72,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+1.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "USAR",
+   "shares": 6381,
+   "price": 22.89,
+   "reason": "-7.1% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "GLW",
+   "shares": 757,
+   "price": 193.38,
+   "reason": "-7.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "SIMO",
+   "shares": 488,
+   "price": 319.0,
+   "reason": "存储链昨天是顺风，今天纳指大跌下盘前直接被砸，说明动量资金在撤，不等它变成死水。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "BWIN",
+   "shares": 6251,
+   "price": 24.39,
+   "reason": "全市场风险资产被砸时它盘前还能红，机构慢钱和防御成长属性有相对强度，拥挤度也不高。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -1943,7 +2026,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天价格波动不改变这些生意的长期护城河和owner earnings，我不会因为盘前报价先生发脾气就把好生意卖掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1953,7 +2036,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几门生意我都看懂了，今天盘前价格波动没有改变商业模式和文化，没必要因为市场先生情绪不好就乱动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1963,7 +2046,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前是指数砸高 beta，不是我的瓶颈逻辑失效；这批仓位仍然卡在军工材料、AI光互联、电力/算力、核燃料这些每单位量产都要吃的窄门上，我不因为红盘绿盘去拆真瓶颈。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1973,8 +2056,8 @@
    "action": "SELL",
    "sym": "NVTS",
    "reason": "纳指盘前砸近3%，这种小盘AI电力半导体高Beta一旦逆流动性，我不跟它谈故事，先砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 98,
@@ -1983,8 +2066,8 @@
    "action": "SELL",
    "sym": "CAMT",
    "reason": "AI设备链今天被流动性反手抽打，CAMT没有利润垫还盘前跌7%，错了就快砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 99,
@@ -1993,7 +2076,7 @@
    "action": "SELL",
    "sym": "WDC",
    "reason": "存储弹性票昨天追进去今天盘前直接跌7%，说明资金不再奖励这条高Beta表达，砍掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2003,8 +2086,8 @@
    "action": "SELL",
    "sym": "VRT",
    "reason": "VRT是好趋势但今天盘前被当成拥挤AI资本开支仓位一起卖，趋势失速时我先降杠杆。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 101,
@@ -2013,7 +2096,7 @@
    "action": "BUY",
    "sym": "LLY",
    "reason": "全市场科技高Beta被砸时LLY盘前还能红，肥胖药主升浪有独立流动性，我要换到顺风的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2023,8 +2106,8 @@
    "action": "SELL",
    "sym": "USAR",
    "reason": "稀土政策题材本来就拥挤，盘前还逆风破位，钱一撤这种票情绪反转最快，我不陪散户接刀。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 103,
@@ -2033,7 +2116,7 @@
    "action": "SELL",
    "sym": "SIMO",
    "reason": "存储链昨天是顺风，今天纳指大跌下盘前直接被砸，说明动量资金在撤，不等它变成死水。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2043,8 +2126,8 @@
    "action": "SELL",
    "sym": "GLW",
    "reason": "AI光连接标签遇到系统性去风险先被拆估值，盘前跌幅说明故事盘承接不够，我先退。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 105,
@@ -2053,7 +2136,7 @@
    "action": "BUY",
    "sym": "BWIN",
    "reason": "全市场风险资产被砸时它盘前还能红，机构慢钱和防御成长属性有相对强度，拥挤度也不高。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

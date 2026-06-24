@@ -1,0 +1,38 @@
+name: market-snapshot
+# Phase 1:在 GitHub 上拉行情、产出快照,force-push 到独立分支 data-live(不碰 main、不触发 Vercel 部署)。
+# Vercel 端点读 raw.githubusercontent.com/<repo>/data-live/*.json。用 GITHUB_TOKEN,无需任何用户 secret。
+# 先只手动触发验证;验好了再加 schedule(盘中每 5 分钟)。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-snapshot
+  cancel-in-progress: true
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build snapshot
+        run: OUT_DIR=/tmp/snap node scripts/snapshot/build_snapshot.mjs
+      - name: Publish to data-live branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd /tmp/snap
+          ls -la
+          git init -q
+          git config user.email "snapshot-bot@users.noreply.github.com"
+          git config user.name "snapshot-bot"
+          git checkout -q -b data-live
+          git add -A
+          git commit -q -m "snapshot $(date -u +%FT%TZ)"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data-live
+          echo "pushed to data-live"

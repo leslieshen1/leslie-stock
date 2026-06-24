@@ -17,7 +17,7 @@ async function readData(file: string): Promise<unknown> {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const staticPaths = [
-    "", "/scan", "/etf", "/whales", "/arena", "/reports", "/track-record",
+    "", "/scan", "/etf", "/whales", "/arena", "/reports",
     "/portfolio", "/watchlist", "/how-to-buy",
     "/about", "/terms", "/privacy",
     // 注:/pulse 已 307 跳转到首页,不收进 sitemap(避免喂搜索引擎自跳转 URL)

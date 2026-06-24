@@ -5,6 +5,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import TopNav from "@/components/TopNav";
 import LeftNav from "@/components/LeftNav";
+import DesktopTopBar from "@/components/DesktopTopBar";
 import MobileTabBar from "@/components/MobileTabBar";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
@@ -55,6 +56,7 @@ export default function RootLayout({
         <div className="lg:flex">
           <LeftNav />
           <div className="min-w-0 flex-1">
+        <DesktopTopBar />
         <TopNav />
         <WatchlistSidebar />
         {children}

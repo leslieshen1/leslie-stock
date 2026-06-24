@@ -54,6 +54,30 @@ def _pctnum(x):
         return 0.0
 
 
+def tencent_us(syms):
+    """腾讯美股批量,取『上一交易日收盘价 + 当日涨跌%』。盘前时段 [3]=上一交易日收盘(不跟延伸时段)、
+    [4]=再上一日收盘、[32]=上一交易日涨跌%。与线上 /api/market、列表同源 → 报告口径和站点锁步,
+    绕开 Nasdaq /info 盘前 secondaryData 偶发把『延伸时段价』当昨收返回的脏值
+    (实测 06-24 08:30 MU 上一交易日被给成 +3.97%/$1,093.50,真值 -13.18%/$1,051.77)。返回 {SYM:{close,pct}}。"""
+    import re
+    out, uniq = {}, list(dict.fromkeys(s.upper() for s in syms if s))
+    for i in range(0, len(uniq), 60):
+        chunk = uniq[i:i + 60]
+        try:
+            r = requests.get("https://qt.gtimg.cn/q=" + ",".join("us" + s for s in chunk),
+                             headers={"referer": "https://gu.qq.com/", "user-agent": "Mozilla/5.0"}, timeout=10)
+            for line in r.content.decode("gbk", "ignore").split(";"):
+                m = re.search(r'v_us([A-Za-z.]+)="([^"]*)"', line)
+                if not m or not m.group(2):
+                    continue
+                f = m.group(2).split("~")
+                if len(f) > 32 and f[3]:
+                    out[m.group(1).upper()] = {"close": f[3], "pct": f[32]}
+        except Exception:
+            pass
+    return out
+
+
 def gather():
     et = datetime.now(timezone(timedelta(hours=-4)))
     ctx = {"asof_et": et.strftime("%Y-%m-%d %H:%M ET %a")}
@@ -63,7 +87,7 @@ def gather():
     for s, n in [("SPY", "标普500"), ("QQQ", "纳指100"), ("DIA", "道指"), ("IWM", "罗素2000")]:
         q = npm(s, "etf")
         if q:
-            ctx["direction"][n] = {"pm_pct": q["pm_pct"], "yesterday_pct": q["prev_pct"]}
+            ctx["direction"][n] = {"pm_pct": q["pm_pct"], "yesterday_pct": q["prev_pct"], "_sym": s}
             ctx["market_status"] = q["status"]
         time.sleep(0.15)
 
@@ -91,6 +115,27 @@ def gather():
     ctx["premarket_losers"] = rows[-8:][::-1]
     wl = {r["sym"]: r for r in rows}
     ctx["watchlist"] = [wl[s] for s in HOT_WATCH if s in wl]  # 固定热门票,每期必列
+
+    # ── 上一交易日(yesterday)口径校正:用腾讯美股覆盖 Nasdaq /info 的 secondaryData(盘前偶发脏值,见 tencent_us)。
+    #    pm_*(真盘前价)仍用 Nasdaq /info;只改 yesterday_pct / yesterday_close。direction + 异动行一起覆盖。
+    tx = tencent_us([d.get("_sym") for d in ctx["direction"].values()] + [r["sym"] for r in rows])
+    def _fpct(v):
+        try: return f"{float(str(v).replace('%', '').replace('+', '').replace(',', '')):+.2f}%"
+        except Exception: return None
+    def _fclose(v):
+        try: return f"${float(str(v).replace(',', '')):,.2f}"
+        except Exception: return None
+    for d in ctx["direction"].values():
+        t = tx.get(str(d.pop("_sym", "")).upper())  # 顺手摘掉内部 _sym,不进最终 JSON
+        if t and _fpct(t["pct"]):
+            d["yesterday_pct"] = _fpct(t["pct"])
+    for r in rows:  # premarket_gainers/losers/watchlist 共享这批 dict 引用,改 rows 即全改
+        t = tx.get(r["sym"].upper())
+        if t:
+            if _fpct(t["pct"]):
+                r["yesterday_pct"] = _fpct(t["pct"])
+            if _fclose(t["close"]):
+                r["yesterday_close"] = _fclose(t["close"])
     ynames = {k: (v, None) for k, v in names.items()}  # 财报取名用
 
     # 3) 今日/明日财报 + 隔夜市场新闻(Finnhub)

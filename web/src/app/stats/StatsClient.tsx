@@ -16,6 +16,7 @@ type Data = {
   retention: Ret[];
   topPages: Top[];
   topClicks: Top[];
+  topReferrers?: Top[];
   generatedAt: number;
 };
 
@@ -233,6 +234,13 @@ export default function StatsClient() {
         <TopList title={t("热门页面（近 7 日 PV）", "Top pages (PV last 7d)")} items={data.topPages} />
         <TopList title={t("热门点击 / 互动（近 7 日）", "Top clicks / interactions (last 7d)")} items={data.topClicks} />
       </div>
+
+      {/* 流量来源(外部 referrer;会话首访记一次,站内/直接不计)。刚开始采集时为空 → 自动隐藏。 */}
+      {data.topReferrers && data.topReferrers.length > 0 && (
+        <div className="mt-6">
+          <TopList title={t("流量来源（近 7 日 · 外部 referrer）", "Traffic sources (last 7d · external referrers)")} items={data.topReferrers} />
+        </div>
+      )}
 
       <p className="mt-8 text-center text-[11px] text-faint">{t("仅你可见 · 口令保护 · 数据存于你自己的 Upstash", "Visible only to you · token-protected · data stored in your own Upstash")}</p>
     </main>

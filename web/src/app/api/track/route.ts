@@ -6,6 +6,25 @@ export const dynamic = "force-dynamic";
 
 const OK_EVENTS = new Set(["pageview", "click"]);
 
+// 外部来源归一化:取 host;站内/空 → 不计(算"直接"),常见渠道合并成可读标签。
+function refHost(ref: string): string {
+  try {
+    const h = new URL(ref).hostname.replace(/^www\./, "").toLowerCase();
+    if (!h || h.endsWith("stockgod.xyz")) return "";
+    if (h === "t.co" || h.endsWith("twitter.com") || h.endsWith("x.com")) return "X / Twitter";
+    if (h.includes("google.")) return "Google";
+    if (h.includes("bing.")) return "Bing";
+    if (h.includes("baidu.")) return "百度";
+    if (h.endsWith("facebook.com") || h === "fb.com") return "Facebook";
+    if (h.endsWith("reddit.com")) return "Reddit";
+    if (h.endsWith("youtube.com") || h === "youtu.be") return "YouTube";
+    if (h === "t.me" || h.includes("telegram")) return "Telegram";
+    return h.slice(0, 40);
+  } catch {
+    return "";
+  }
+}
+
 // 服务端兜底过滤 bot(客户端已挡一层;双保险让 DAU ≈ 真人)
 const BOT_RE =
   /bot|crawl|spider|slurp|mediapartners|bingpreview|facebookexternal|whatsapp|telegram|embedly|applebot|googlebot|bingbot|yandex|baidu|sogou|duckduck|headless|phantom|puppeteer|playwright|selenium|lighthouse|pagespeed|gtmetrix|pingdom|uptime|statuscake|datadog|newrelic|scrapy|python-requests|axios|node-fetch|okhttp|curl|wget|semrush|ahrefs|mj12|petalbot|bytespider|gptbot|claudebot|ccbot|amazonbot|chatgpt|perplexity/i;
@@ -15,7 +34,7 @@ export async function POST(req: Request) {
   if (!r) return new Response(null, { status: 204 });
   if (BOT_RE.test(req.headers.get("user-agent") || "")) return new Response(null, { status: 204 });
 
-  let body: { aid?: unknown; event?: unknown; path?: unknown; label?: unknown };
+  let body: { aid?: unknown; event?: unknown; path?: unknown; label?: unknown; ref?: unknown };
   try {
     body = await req.json();
   } catch {
@@ -28,6 +47,7 @@ export async function POST(req: Request) {
 
   const path = typeof body.path === "string" ? body.path.slice(0, 120) : "";
   const label = typeof body.label === "string" ? body.label.replace(/\s+/g, " ").trim().slice(0, 48) : "";
+  const ref = typeof body.ref === "string" ? refHost(body.ref) : "";
   const d = dayKey();
 
   try {
@@ -37,6 +57,7 @@ export async function POST(req: Request) {
     if (isPv) {
       p.incr(K.pv(d));
       if (path) p.zincrby(K.pvPages(d), 1, path);
+      if (ref) p.zincrby(K.referrers(d), 1, ref);
     } else if (label) {
       p.zincrby(K.clicks(d), 1, label);
     }

@@ -55,7 +55,15 @@ export default function AnalyticsTracker() {
   // PV:每次路由变化
   useEffect(() => {
     if (!pathname) return;
-    send("pageview", { path: pathname });
+    const data: Record<string, string> = { path: pathname };
+    // 会话首个 PV 带上外部来源(document.referrer),只记一次 → 避免站内跳转污染来源统计
+    try {
+      if (!sessionStorage.getItem("sg_ref_sent")) {
+        sessionStorage.setItem("sg_ref_sent", "1");
+        if (document.referrer) data.ref = document.referrer.slice(0, 300);
+      }
+    } catch { /* ignore */ }
+    send("pageview", data);
   }, [pathname]);
 
   // 点击:委托捕获 a / button / [data-track](其余忽略,避免噪声)

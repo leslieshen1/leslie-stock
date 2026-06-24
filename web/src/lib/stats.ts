@@ -46,6 +46,7 @@ export const K = {
   clicks: (d: string) => `sg:clicks:${d}`,    // ZSET label→次数
   pv: (d: string) => `sg:pv:${d}`,            // string 当日 PV 计数
   ev: (d: string) => `sg:ev:${d}`,            // string 当日事件总数
+  referrers: (d: string) => `sg:ref:${d}`,    // ZSET 来源 host→次数(外部 referrer,会话首访记一次;站内/直接不计)
 };
 
 export const TTL = 60 * 60 * 24 * 200; // 200 天后自动过期

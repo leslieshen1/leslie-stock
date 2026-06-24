@@ -92,11 +92,12 @@ export async function GET(req: Request) {
     })
   );
 
-  // 近 7 天 Top 页面 / Top 点击
+  // 近 7 天 Top 页面 / Top 点击 / Top 来源
   const wk = asc.slice(-7);
-  const [topPages, topClicks] = await Promise.all([
+  const [topPages, topClicks, topReferrers] = await Promise.all([
     aggTop(r, wk.map(K.pvPages), 12),
     aggTop(r, wk.map(K.clicks), 14),
+    aggTop(r, wk.map(K.referrers), 12),
   ]);
 
   return Response.json({
@@ -106,6 +107,7 @@ export async function GET(req: Request) {
     retention,
     topPages,
     topClicks,
+    topReferrers,
     generatedAt: Date.now(),
   });
   } catch {

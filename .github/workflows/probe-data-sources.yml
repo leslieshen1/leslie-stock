@@ -1,0 +1,35 @@
+name: probe-data-sources
+# Phase 0:验证 GitHub Actions 的 IP 能不能直接拉腾讯/Nasdaq/Yahoo
+# (决定"静态快照生成器"能否完全放 GitHub 跑 = 完全免费)。只手动触发,平时不跑。
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe data sources from GitHub runner IP
+        run: |
+          echo "===== runner 出口 IP ====="
+          curl -s --max-time 8 https://api.ipify.org || echo "(ip fail)"; echo; echo
+
+          echo "===== 1. 腾讯 US single (usAAPL) —— 应见 v_usAAPL=\"200~苹果~...\" ====="
+          curl -s --max-time 12 "https://qt.gtimg.cn/q=usAAPL" | head -c 220; echo; echo
+
+          echo "===== 2. 腾讯 US batch (usAAPL,usNVDA,usTSLA) —— 命中数应为 3 ====="
+          n=$(curl -s --max-time 12 "https://qt.gtimg.cn/q=usAAPL,usNVDA,usTSLA" | grep -o 'v_us' | wc -l); echo "命中 v_us 条数 = $n"; echo
+
+          echo "===== 3. 腾讯 A (sh600519, GBK→utf8) —— 应见中文名 贵州茅台 ====="
+          curl -s --max-time 12 "https://qt.gtimg.cn/q=sh600519" | iconv -f gbk -t utf-8 2>/dev/null | head -c 180; echo; echo
+
+          echo "===== 4. Nasdaq screener —— 应见 JSON {\"data\":... ====="
+          code=$(curl -s -o /tmp/nas.txt -w "%{http_code}" --max-time 15 \
+            -H "user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36" \
+            -H "accept: application/json, text/plain, */*" \
+            -H "origin: https://www.nasdaq.com" \
+            -H "referer: https://www.nasdaq.com/" \
+            "https://api.nasdaq.com/api/screener/stocks?tableonly=false&limit=10&download=true")
+          echo "HTTP $code"; head -c 280 /tmp/nas.txt; echo; echo
+
+          echo "===== 5. Yahoo chart (AAPL) —— 应见 {\"chart\":{\"result\" ====="
+          curl -s --max-time 12 "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=5m&range=1d" | head -c 150; echo

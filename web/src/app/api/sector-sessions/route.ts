@@ -380,8 +380,8 @@ export async function GET(req: Request) {
       { sectors, aSectors, session, day: realSession ? today : HASH.day || today, isToday: realSession || HASH.day === today },
       { headers: {
         "cache-control": "public, max-age=0, must-revalidate",
-        // 任一市场开盘 45s 保新鲜;**美股休市 且 A 股也收盘 = 全静态 → 10min**,省掉 computeAShare(~69 批腾讯)+ 窗口的反复空算。
-        "Vercel-CDN-Cache-Control": `max-age=${session === "休市" && !aMarketLive() ? 600 : 45}, stale-while-revalidate=120`,
+        // 止血:任一市场开盘边缘缓存 3min;**美股休市 且 A 股也收盘 = 全静态 → 15min**,省掉 computeAShare(~69 批腾讯)+ computeLive + 窗口的反复空算。
+        "Vercel-CDN-Cache-Control": `max-age=${session === "休市" && !aMarketLive() ? 900 : 180}, stale-while-revalidate=120`,
       } },
     );
   } catch {

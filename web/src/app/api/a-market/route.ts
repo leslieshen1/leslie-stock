@@ -91,8 +91,8 @@ export async function GET(req: Request) {
         { quotes, ts: Date.now(), count },
         { headers: {
           "cache-control": "public, max-age=0, must-revalidate",
-          // A 股交易时段 55s 保新鲜;**收盘/午休/周末(占一天 ~20h)价格不变 → 10min**,每次 ~69 批腾讯外部请求随之大砍。
-          "Vercel-CDN-Cache-Control": `max-age=${aMarketLive() ? 55 : 600}, stale-while-revalidate=120`,
+          // 止血:A 股交易时段边缘缓存 3min;**收盘/午休/周末(占一天 ~20h)价格不变 → 15min**;每次 ~69 批腾讯外部请求随之大砍。
+          "Vercel-CDN-Cache-Control": `max-age=${aMarketLive() ? 180 : 900}, stale-while-revalidate=120`,
         } },
       );
     }

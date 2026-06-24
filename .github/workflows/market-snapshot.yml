@@ -19,24 +19,33 @@ concurrency:
 jobs:
   snapshot:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Build snapshot
-        run: OUT_DIR=/tmp/snap node scripts/snapshot/build_snapshot.mjs
-      - name: Publish to data-live branch
+      # 自循环 ~50min·每 5 分钟刷一次 → 抹平 GitHub */5 schedule 不准(实测它只稀疏~每小时触发一次)。
+      # 盘中被触发一次就把后续近一小时的快照都刷新鲜了,前端直读快照(/scan)+ /api/market 才真省到。
+      # concurrency cancel-in-progress=true:schedule 真频繁触发时彼此取消重启(每次=一刷);稀疏时本循环兜住空档。
+      - name: 循环刷快照到 data-live
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd /tmp/snap
-          ls -la
-          git init -q
-          git config user.email "snapshot-bot@users.noreply.github.com"
-          git config user.name "snapshot-bot"
-          git checkout -q -b data-live
-          git add -A
-          git commit -q -m "snapshot $(date -u +%FT%TZ)"
-          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data-live
-          echo "pushed to data-live"
+          REPO="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          for i in $(seq 1 11); do
+            if OUT_DIR=/tmp/snap node scripts/snapshot/build_snapshot.mjs; then
+              ( cd /tmp/snap
+                rm -rf .git
+                git init -q
+                git config user.email "snapshot-bot@users.noreply.github.com"
+                git config user.name "snapshot-bot"
+                git checkout -q -b data-live
+                git add -A
+                git commit -q -m "snapshot $(date -u +%FT%TZ)"
+                git push -f "$REPO" data-live && echo "pushed #$i $(date -u +%T)" )
+            else
+              echo "build #$i failed, skip push"
+            fi
+            [ "$i" -lt 11 ] && sleep 300
+          done

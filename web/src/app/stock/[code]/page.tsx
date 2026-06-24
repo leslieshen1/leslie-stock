@@ -153,10 +153,10 @@ export async function generateMetadata({
   const name = panel?.name || initial?.name || code;
   const sector = panel?.sector || panel?.chain?.industry || "";
   const mkt = m === "a" ? "A 股" : m === "hk" ? "港股" : m === "kr" ? "韩股" : "美股";
-  const title = `${name}(${code})五方判读 · 我不是股神`;
-  const lead = `${mkt}${sector ? " · " + sector : ""}`;
-  const tail = panel?.divergence || "巴菲特 / 段永平 / 德鲁肯米勒 / Serenity / 情绪 五方独立评分(AI 模拟,非投资建议)";
-  const description = `${lead} —— ${tail}`.slice(0, 160);
+  // SEO:标题黄金位放真搜索词(股价/估值/机构持仓 = 有人搜),「五方判读」搜索量≈0、是招牌不是关键词 → 降到描述。
+  const title = `${name}(${code})股价、估值与机构持仓分析 | 我不是股神`;
+  const tail = panel?.divergence || "巴菲特 / 段永平 / 德鲁肯米勒 / Serenity / 情绪 五方独立判读";
+  const description = `${name}(${code})· ${mkt}${sector ? " · " + sector : ""} · 股价 / 估值 / 机构持仓 —— ${tail}(AI 模拟,非投资建议)`.slice(0, 160);
   const canonical = m === "a" ? `/stock/${code}` : `/stock/${code}?market=${m}`;
   return { title, description, openGraph: { title, description }, alternates: { canonical } };
 }

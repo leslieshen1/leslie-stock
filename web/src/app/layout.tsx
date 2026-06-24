@@ -4,6 +4,7 @@ import { Fraunces, Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import TopNav from "@/components/TopNav";
+import LeftNav from "@/components/LeftNav";
 import MobileTabBar from "@/components/MobileTabBar";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
@@ -51,6 +52,9 @@ export default function RootLayout({
  </head>
  <body className="min-h-full">
       <LangProvider>
+        <div className="lg:flex">
+          <LeftNav />
+          <div className="min-w-0 flex-1">
         <TopNav />
         <WatchlistSidebar />
         {children}
@@ -80,6 +84,8 @@ export default function RootLayout({
         </footer>
         {/* 底部 Tab 栏占位(移动/平板 <lg,防止内容被固定栏遮住) */}
         <div className="h-[58px] lg:hidden" />
+          </div>
+        </div>
         <MobileTabBar />
       </LangProvider>
       <Analytics />

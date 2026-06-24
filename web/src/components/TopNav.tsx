@@ -32,7 +32,7 @@ export default function TopNav() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
- <header className="sticky top-0 z-40 border-b border-line bg-base/85 backdrop-blur-md">
+ <header className="sticky top-0 z-40 border-b border-line bg-base/85 backdrop-blur-md lg:hidden">
  <div className="mx-auto flex h-[60px] max-w-[1480px] items-center gap-2 px-3 sm:gap-4 sm:px-6">
 
         {/* Brand lockup — 双行编辑部款 */}

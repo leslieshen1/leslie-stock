@@ -158,7 +158,16 @@ export async function generateMetadata({
   const tail = panel?.divergence || "巴菲特 / 段永平 / 德鲁肯米勒 / Serenity / 情绪 五方独立判读";
   const description = `${name}(${code})· ${mkt}${sector ? " · " + sector : ""} · 股价 / 估值 / 机构持仓 —— ${tail}(AI 模拟,非投资建议)`.slice(0, 160);
   const canonical = m === "a" ? `/stock/${code}` : `/stock/${code}?market=${m}`;
-  return { title, description, openGraph: { title, description }, alternates: { canonical } };
+  // 每只票自己的分享卡(OG 图):发链接到 X/微信/Telegram 预览自动出这张。一个路由覆盖全站,边缘缓存兜成本。
+  const ogImg = `/api/og/stock?code=${encodeURIComponent(code)}&market=${m}`;
+  const images = [{ url: ogImg, width: 1200, height: 630, alt: `${name}(${code})· 我不是股神` }];
+  return {
+    title,
+    description,
+    openGraph: { title, description, images },
+    twitter: { card: "summary_large_image", title, description, images: [ogImg] },
+    alternates: { canonical },
+  };
 }
 
 export default async function StockDetailPage({

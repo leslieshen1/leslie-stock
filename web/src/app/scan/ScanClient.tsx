@@ -9,6 +9,7 @@ import { type DilutionFlag, dilutionMagnitude } from "@/lib/dilution-types";
 import { useWatchlist } from "@/lib/useWatchlist";
 import { MASTERS } from "@/lib/masters";
 import { useLang } from "@/lib/i18n";
+import { fetchSnapshotQuotes } from "@/lib/snapshot-quotes";
 
 const VERDICTS = [
  { key: "high_conviction", label: " High Conviction", short: "H. Conv." },
@@ -135,23 +136,23 @@ export default function ScanClient() {
   useEffect(() => {
     if (market !== "a") return;
     let alive = true;
-    const poll = () => fetch("/api/a-market", { cache: "no-store" }).then((r) => r.json())
-      .then((j) => { if (alive && j.quotes) setAQuotes(j.quotes); }).catch(() => {});
+    // 先读 data-live 快照(GitHub raw,不经 Vercel);过旧/挂了回退 /api/a-market
+    const poll = () => fetchSnapshotQuotes("a", "/api/a-market")
+      .then(({ quotes }) => { if (alive && Object.keys(quotes).length) setAQuotes(quotes as typeof aQuotes); }).catch(() => {});
     poll();
     const id = setInterval(poll, 60000);
     return () => { alive = false; clearInterval(id); };
   }, [market]);
 
-  // 全盘实时:轮询 /api/market(Nasdaq 快照,服务端 60s 缓存),合并最新 price/pct
+  // 全盘实时:优先直读 data-live 快照(不经 Vercel),过旧回退 /api/market;合并最新 price/pct + 算闪烁
   useEffect(() => {
     if (market !== "us") return;
     let alive = true;
     let flashTimer: ReturnType<typeof setTimeout>;
     const poll = async () => {
       try {
-        const r = await fetch("/api/market", { cache: "no-store" });
-        const j = await r.json();
-        const q = (j.quotes || {}) as Record<string, { price: number | null; pct: number | null; mcapB?: number | null; vol?: number | null }>;
+        // 先读 data-live 快照(GitHub raw,不经 Vercel);过旧/挂了回退 /api/market
+        const { quotes: q } = await fetchSnapshotQuotes("us", "/api/market");
         if (!alive || !Object.keys(q).length) return;
         // 算涨跌闪烁:对比上次价(首轮无 ref → 不闪,作为基线)
         const f: Record<string, "up" | "down"> = {};

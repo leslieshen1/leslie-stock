@@ -118,7 +118,7 @@ async function loadPanelSummary(): Promise<PanelSummary> {
 
 // 5 分钟增量缓存:粒子数据本来就是日更(实时价/分数走客户端轮询),没必要每请求现组装 5MB —— 
 // 之前 TTFB 2.3s 全花在这(2026-06-12 实测)。searchParams 已移到客户端读,本页可静态化。
-export const revalidate = 300;
+export const revalidate = 600; // 10min ISR:粒子是慢变量(实时价/分数走客户端轮询),拉长省 ISR Writes
 
 export default async function HomePage({
 }: {

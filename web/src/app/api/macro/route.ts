@@ -4,7 +4,8 @@ import { fetchWithTimeout } from "@/lib/api-guard";
 
 // 实时宏观/指数(Yahoo v8 chart,免费无 key)。前端 MacroBar 轮询。
 // fetch 带 revalidate=30 → 服务端 30s 缓存,不砸 Yahoo。失败回落静态 macro.json。
-// 不 force-dynamic(它会废掉缓存):无 per-request 状态,响应边缘缓存(下方 s-maxage=30),命中不打函数。
+// 不 force-dynamic(它会废掉缓存):无 per-request 状态,响应边缘缓存(下方 s-maxage=60),命中不打函数。
+// macro 是首页 MacroBar 一直在轮的高频接口:s-maxage + 内层 fetch revalidate 都 60s,砍 ISR Writes/函数/外部请求各一半(指数 60s 够新鲜)。
 
 const SERIES = [
   { sym: "^TNX", name: "美债 10Y", kind: "rate" },
@@ -26,7 +27,7 @@ const SERIES = [
 async function liveOne(sym: string): Promise<{ price: number; pct: number | null } | null> {
   try {
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=5m&range=1d`;
-    const r = await fetchWithTimeout(url, { headers: { "user-agent": "Mozilla/5.0" }, next: { revalidate: 30 } }, 6000);
+    const r = await fetchWithTimeout(url, { headers: { "user-agent": "Mozilla/5.0" }, next: { revalidate: 60 } }, 6000);
     if (!r.ok) return null;
     const m = (await r.json())?.chart?.result?.[0]?.meta;
     const price = m?.regularMarketPrice;
@@ -54,5 +55,5 @@ export async function GET() {
     const st = sm.get(s.sym);
     return { ...s, price: l?.price ?? st?.price ?? null, pct: l?.pct ?? st?.pct ?? null };
   });
-  return Response.json({ series, ts: Date.now() }, { headers: { "cache-control": "s-maxage=30" } });
+  return Response.json({ series, ts: Date.now() }, { headers: { "cache-control": "s-maxage=60" } });
 }

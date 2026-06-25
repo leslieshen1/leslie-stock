@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 43465.01,
   "duan": 40172.16,
-  "serenity": 50780.49,
-  "druckenmiller": 437633.11,
-  "sentiment": 863997.05
+  "serenity": 128846.31,
+  "druckenmiller": 68500.54,
+  "sentiment": 558168.45
  },
  "positions": [
   {
@@ -107,13 +107,6 @@
   },
   {
    "master": "serenity",
-   "sym": "AXTI",
-   "shares": 1113,
-   "entry": 85.29,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "serenity",
    "sym": "CORZ",
    "shares": 3697,
    "entry": 25.69,
@@ -202,6 +195,41 @@
    "shares": 6251,
    "entry": 24.39,
    "entry_date": "2026-06-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "TLN",
+   "shares": 303,
+   "entry": 405.89,
+   "entry_date": "2026-06-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "BWXT",
+   "shares": 598,
+   "entry": 205.65,
+   "entry_date": "2026-06-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "CCJ",
+   "shares": 1155,
+   "entry": 106.64,
+   "entry_date": "2026-06-24"
+  },
+  {
+   "master": "sentiment",
+   "sym": "AKTS",
+   "shares": 5328,
+   "entry": 28.7,
+   "entry_date": "2026-06-24"
+  },
+  {
+   "master": "sentiment",
+   "sym": "LWAY",
+   "shares": 5140,
+   "entry": 29.75,
+   "entry_date": "2026-06-24"
   }
  ],
  "nav": [
@@ -404,6 +432,31 @@
    "master": "sentiment",
    "date": "2026-06-23",
    "nav": 1016458.94
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-24",
+   "nav": 984876.32
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-24",
+   "nav": 984632.81
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-24",
+   "nav": 1030527.66
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-24",
+   "nav": 1071110.15
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-24",
+   "nav": 1019459.42
   }
  ],
  "trades": [
@@ -1306,6 +1359,66 @@
    "price": 24.39,
    "reason": "全市场风险资产被砸时它盘前还能红，机构慢钱和防御成长属性有相对强度，拥挤度也不高。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-24",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "AXTI",
+   "shares": 1113,
+   "price": 70.14,
+   "reason": "破位 -17.8%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "TLN",
+   "shares": 303,
+   "price": 405.89,
+   "reason": "AI电力短缺这条宏观风还在吹，昨天被砸后盘前能转绿，我要加的是电力弹性而不是继续追拥挤芯片。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "BWXT",
+   "shares": 598,
+   "price": 205.65,
+   "reason": "核能+AI电力+国防三条流动性主线叠在一起，波动比纯AI硬件干净，适合在科技拆仓后接资金轮动。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "CCJ",
+   "shares": 1155,
+   "price": 106.64,
+   "reason": "核电复兴和去俄化铀供给是多年大趋势，盘前继续顺风，我要用它表达电力瓶颈而不是半导体拥挤交易。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-24",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "AKTS",
+   "shares": 5328,
+   "price": 28.7,
+   "reason": "放疗/核药并购预期还在吸聪明钱，盘前继续红，和昨晚AI拥挤拆仓相关性低，适合加一仓情绪顺风票。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-24",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "LWAY",
+   "shares": 5140,
+   "price": 29.75,
+   "reason": "控制权战和并购预期把盘口点燃，盘前高开说明资金还在抢，但这类情绪票反转会很快，只做顺势不恋战。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -2146,7 +2259,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里的八门生意大多有我能理解的护城河，今天盘前的涨跌不能告诉我它们十年后的owner earnings会怎样，所以不为市场噪音付佣金。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2156,7 +2269,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都看懂，也都能睡得着，市场因为拥挤交易拆仓而波动，不是我卖好公司的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2166,7 +2279,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "昨晚砸的是拥挤AI beta，不是我这篮子真瓶颈的下游洪流断了；四件套还在，就不因为一根去杠杆K线把不可替代卖掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2176,7 +2289,7 @@
    "action": "BUY",
    "sym": "TLN",
    "reason": "AI电力短缺这条宏观风还在吹，昨天被砸后盘前能转绿，我要加的是电力弹性而不是继续追拥挤芯片。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2186,7 +2299,7 @@
    "action": "BUY",
    "sym": "BWXT",
    "reason": "核能+AI电力+国防三条流动性主线叠在一起，波动比纯AI硬件干净，适合在科技拆仓后接资金轮动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2196,7 +2309,7 @@
    "action": "BUY",
    "sym": "CCJ",
    "reason": "核电复兴和去俄化铀供给是多年大趋势，盘前继续顺风，我要用它表达电力瓶颈而不是半导体拥挤交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2206,7 +2319,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "BWIN 这种防御性资金缓进的仓位继续拿着，今天AI链反抽不代表拥挤拆仓结束，没必要把现金全打出去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2216,7 +2329,7 @@
    "action": "BUY",
    "sym": "AKTS",
    "reason": "放疗/核药并购预期还在吸聪明钱，盘前继续红，和昨晚AI拥挤拆仓相关性低，适合加一仓情绪顺风票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2226,7 +2339,7 @@
    "action": "BUY",
    "sym": "LWAY",
    "reason": "控制权战和并购预期把盘口点燃，盘前高开说明资金还在抢，但这类情绪票反转会很快，只做顺势不恋战。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

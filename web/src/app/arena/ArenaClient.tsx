@@ -30,7 +30,6 @@ export type Arena = { as_of: string; start_cash: number; masters: Master[] };
 type Quote = { price: number; pct: number | null; session?: string };
 
 const SESSION_ZH: Record<string, string> = { pre: "盘前", regular: "盘中", post: "盘后", closed: "已收盘" };
-const fmtUsd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 
 // 选手头像 —— 不用真人照片(与"AI 模拟·非本人"法务标注一致 + 避免肖像权);
 // 风格化:每位一套渐变 + 字形,颜色对应流派(价值绿/蓝、alpha 琥珀/紫、资金流玫红)。
@@ -133,14 +132,20 @@ function NavSpark({ hist, start, emptyLabel, live }: { hist: { nav: number }[]; 
   );
 }
 
-export default function ArenaClient({ arena }: { arena: Arena }) {
+export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | null }) {
   const { t, lang } = useLang();
+  const [market, setMarket] = useState<"us" | "a">(us ? "us" : "a");
+  const arena = ((market === "us" ? us : a) ?? us ?? a)!; // 页面保证至少一个非空
+  const ccy = market === "a" ? "¥" : "$";
+  const fmtMoney = (n: number) => ccy + Math.round(n).toLocaleString("en-US");
   const mName = (m: Master) => (lang === "en" ? MASTER_EN[m.key]?.name ?? m.name : m.name);
   const mSchool = (m: Master) => (lang === "en" ? MASTER_EN[m.key]?.school ?? m.school : m.school);
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
   const [openTrades, setOpenTrades] = useState<Record<string, boolean>>({});
   const [flash, setFlash] = useState<Record<string, "up" | "down">>({});
   const prev = useRef<Record<string, number>>({});
+  // 切市场时清掉上一市场的实时报价(A 股代码 6 位、与美股 ticker 不撞,但避免"实时"徽章误亮)
+  useEffect(() => { setQuotes({}); prev.current = {}; }, [market]);
 
   const allSyms = useMemo(
     () => [...new Set(arena.masters.flatMap((m) => m.positions.map((p) => p.sym)))],
@@ -150,7 +155,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
   useEffect(() => {
     let stop = false;
     async function poll() {
-      if (document.hidden || allSyms.length === 0) return;
+      if (market === "a" || document.hidden || allSyms.length === 0) return; // A 股 v1 用引擎结算价,实时 tick 后补
       const chunks: string[][] = [];
       for (let i = 0; i < allSyms.length; i += 25) chunks.push(allSyms.slice(i, i + 25));
       const merged: Record<string, Quote> = {};
@@ -177,7 +182,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
     poll();
     const t = setInterval(poll, 30_000);
     return () => { stop = true; clearInterval(t); };
-  }, [allSyms]);
+  }, [allSyms, market]);
 
   // 实时 NAV/收益/排名(拿不到活价的票回退结算价)
   const live = useMemo(() => {
@@ -191,15 +196,25 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
   }, [arena, quotes]);
 
   const session = Object.values(quotes)[0]?.session;
-  const liveOn = Object.keys(quotes).length > 0;
+  const liveOn = market === "us" && Object.keys(quotes).length > 0;
 
   return (
     <main className="mx-auto max-w-6xl px-6 pb-12 pt-3">
       <header className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("五神对决", "Five-Master Arena")}</h1>
+        {us && a && (
+          <div className="inline-flex rounded-lg border border-line bg-surface p-0.5 text-xs">
+            {(["us", "a"] as const).map((mk) => (
+              <button key={mk} onClick={() => setMarket(mk)}
+                className={`rounded-md px-3 py-1 font-medium transition ${market === mk ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
+                {mk === "us" ? t("美股", "US") : t("A 股", "A-Shares")}
+              </button>
+            ))}
+          </div>
+        )}
         <p className="text-xs text-faint">
-          {t(`每人 $1,000,000 虚拟资金 · 只买已判读股票池 · 收盘结账 ${arena.as_of} · 非投资建议`,
-             `$1,000,000 paper money each · covered-stocks universe only · settled at close ${arena.as_of} · not financial advice`)}
+          {t(`每人 ${ccy}1,000,000 虚拟资金 · 只买已判读股票池 · 收盘结账 ${arena.as_of} · 非投资建议`,
+             `${ccy}1,000,000 paper money each · covered-stocks universe only · settled at close ${arena.as_of} · not financial advice`)}
         </p>
         {liveOn && (
           <span className="inline-flex items-center gap-1.5 rounded-full border border-up/30 bg-up-soft px-2 py-0.5 text-[10px] font-semibold text-up">
@@ -228,7 +243,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
               <div className="truncate text-[10px] text-muted">{mSchool(m)} · {m.positions.length} {t("仓", "pos")}</div>
             </div>
             <div className="shrink-0 text-right">
-              <div className="font-mono text-[13px] font-semibold tabular-nums text-ink">{fmtUsd(m.liveNav)}</div>
+              <div className="font-mono text-[13px] font-semibold tabular-nums text-ink">{fmtMoney(m.liveNav)}</div>
               <div className={`font-mono text-[11px] font-semibold tabular-nums ${m.liveRet >= 0 ? "text-up" : "text-down"}`}>
                 {m.liveRet >= 0 ? "+" : ""}{m.liveRet.toFixed(2)}%
               </div>
@@ -257,7 +272,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
             {/* NAV + 收益 + 仓位 */}
             <div className="mt-3 flex items-end justify-between">
               <div className="min-w-0">
-                <div className="font-mono text-lg font-semibold tabular-nums text-ink">{fmtUsd(m.liveNav)}</div>
+                <div className="font-mono text-lg font-semibold tabular-nums text-ink">{fmtMoney(m.liveNav)}</div>
                 <div className={`font-mono text-sm font-semibold tabular-nums ${m.liveRet >= 0 ? "text-up" : "text-down"}`}>
                   {m.liveRet >= 0 ? "+" : ""}{m.liveRet.toFixed(2)}%
                 </div>
@@ -279,7 +294,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
               <h2 className="text-base font-semibold text-ink">{mName(m)}</h2>
               <span className="text-xs text-muted">{mSchool(m)}</span>
               <span className="font-mono text-xs tabular-nums text-muted">
-                {t("持仓", "Positions")} {m.positions.length} · {t("现金", "Cash")} {fmtUsd(m.cash)}
+                {t("持仓", "Positions")} {m.positions.length} · {t("现金", "Cash")} {fmtMoney(m.cash)}
               </span>
             </div>
 
@@ -293,7 +308,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                 const fl = flash[p.sym];
                 const flCls = fl === "up" ? "bg-up-soft" : fl === "down" ? "bg-down-soft" : "";
                 return (
-                  <Link key={p.sym} href={`/stock/${p.sym}?market=us`}
+                  <Link key={p.sym} href={`/stock/${p.sym}?market=${market}`}
                     className="flex items-center justify-between gap-3 px-3 py-2.5">
                     <div className="min-w-0">
                       <div className="flex items-baseline gap-1.5">
@@ -346,7 +361,7 @@ export default function ArenaClient({ arena }: { arena: Arena }) {
                     return (
                       <tr key={p.sym} className="border-b border-line/60 hover:bg-surface-2">
                         <td className="px-3 py-2">
-                          <Link href={`/stock/${p.sym}?market=us`} className="hover:text-accent">
+                          <Link href={`/stock/${p.sym}?market=${market}`} className="hover:text-accent">
                             <span className="font-mono font-semibold text-ink">{p.sym}</span>
                             <span className="ml-2 hidden text-xs text-muted sm:inline">{p.name.slice(0, 22)}</span>
                           </Link>

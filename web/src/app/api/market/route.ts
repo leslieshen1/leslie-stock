@@ -58,7 +58,7 @@ async function overlayExtended(quotes: Quotes, origin: string): Promise<void> {
 // 免 key、从 Vercel 已证明能用(A/HK 实时就靠它)。字段:[3]现价(交易时段实时/否则收盘)、[32]涨跌%、[9]盘后价。
 // 一次拉 240 只(实测 2.7s),分波并发覆盖全宇宙 → 治本 screener 长尾整天滞后 + 给板块「盘后」列供逐只 postPct。
 // 探针先打 1 批,不通即整体放弃(返回 false 让上层退回 /info 龙头;新浪那条就是 host hq.sinajs.cn 被 Vercel 挡)。点票(BRK.B)跳过。
-async function overlayTencentUS(quotes: Quotes): Promise<boolean> {
+async function overlayTencentUS(quotes: Quotes, isPost: boolean): Promise<boolean> {
   const syms = Object.keys(quotes).filter((s) => /^[A-Z]{1,5}$/.test(s));
   if (!syms.length) return false;
   const BATCH = 240;
@@ -75,9 +75,11 @@ async function overlayTencentUS(quotes: Quotes): Promise<boolean> {
       if (price == null || !(price > 0)) continue;
       cur.price = price;
       const pct = num(f[32]); if (pct != null) cur.pct = pct;
-      const post = num(f[9]), prevC = num(f[4]); // [9]=盘后价, [4]=昨收
-      // 盘后% 对【昨收】算(和盘前/盘中同一基准!):SPCX 盘后 = -15%(对昨收、还在跌),不是 +1.4%(对今收的小反弹、会误导成绿)。
-      if (post != null && post > 0 && prevC != null && prevC > 0) cur.postPct = Math.round((post / prevC - 1) * 1000) / 10;
+      if (isPost) { // 仅盘后时段算 postPct:完全休市后腾讯 [9] 留陈旧盘后价(MU 财报后卡 1213=+15%)→ 污染「盘后」列
+        const post = num(f[9]), prevC = num(f[4]); // [9]=盘后价, [4]=昨收
+        // 盘后% 对【昨收】算(和盘前/盘中同一基准):SPCX 盘后 = -15%(对昨收、还在跌),不是 +1.4%(对今收的小反弹、会误导成绿)。
+        if (post != null && post > 0 && prevC != null && prevC > 0) cur.postPct = Math.round((post / prevC - 1) * 1000) / 10;
+      }
     }
   };
   const fetchBatch = async (b: string[]): Promise<string | null> => {
@@ -154,7 +156,7 @@ export async function GET(req: Request) {
     // (休市也要 postPct 给板块「盘后」列逐只聚合)。腾讯探针不通(理论上不会)才退回 /info 龙头。
     // 新浪 hq.sinajs.cn 是另一个 host、从 Vercel 被挡(实测 69s 全超时),已弃。
     let tencentOK = false;
-    try { tencentOK = await overlayTencentUS(quotes); } catch { /* 保留 screener 兜底 */ }
+    try { tencentOK = await overlayTencentUS(quotes, session === "post"); } catch { /* 保留 screener 兜底 */ }
     // 盘前/盘后:腾讯 [3] 停在收盘、不跟延伸时段(实测 4:03ET 仍昨收) → 龙头仍用 /info 覆盖真盘前/盘后价(列表可见行)。
     // 盘中:腾讯 [3] 实时常规价、覆盖全宇宙,/info 仅在腾讯探针不通时兜底。盘后 postPct 走腾讯 [9](板块盘后列已用)。
     if (session === "pre" || session === "post" || (!tencentOK && session !== "closed")) {

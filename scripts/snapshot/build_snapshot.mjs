@@ -13,6 +13,18 @@ function num(s) {
   return Number.isFinite(v) ? v : null;
 }
 
+// 美股是否在盘后时段(ET 周一~五 16:00–20:00)。腾讯字段 [9](盘后价)只在盘后实时,
+// 完全休市后会留着上次盘后的陈旧值(实测 MU 财报后卡在 1213=+15%)→ 仅盘后才算 postPct,别污染「盘后」列。
+function isUsPostMarket() {
+  const p = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
+  const get = (t) => p.find((x) => x.type === t)?.value || "";
+  const wd = get("weekday");
+  if (wd === "Sat" || wd === "Sun") return false;
+  let hh = parseInt(get("hour"), 10); if (hh === 24) hh = 0;
+  const mins = hh * 60 + parseInt(get("minute"), 10);
+  return mins >= 16 * 60 && mins < 20 * 60;
+}
+
 async function fetchText(url, headers, ms = 12000, decode = "utf8") {
   const ctl = new AbortController();
   const t = setTimeout(() => ctl.abort(), ms);
@@ -55,6 +67,7 @@ async function buildUs() {
 
   // 腾讯 US 批量覆盖 price/pct + 盘后 postPct(对昨收);字段同 market/route.ts:[3]现价 [4]昨收 [9]盘后 [32]涨跌%
   const syms = Object.keys(quotes).filter((s) => /^[A-Z]{1,5}$/.test(s));
+  const usPost = isUsPostMarket(); // 仅盘后时段算 postPct,见 isUsPostMarket 注释
   const BATCH = 240, WAVE = 10;
   const batches = [];
   for (let i = 0; i < syms.length; i += BATCH) batches.push(syms.slice(i, i + BATCH));
@@ -69,8 +82,10 @@ async function buildUs() {
       if (price == null || !(price > 0)) continue;
       cur.price = price;
       const pct = num(f[32]); if (pct != null) cur.pct = pct;
-      const post = num(f[9]), prevC = num(f[4]);
-      if (post != null && post > 0 && prevC != null && prevC > 0) cur.postPct = Math.round((post / prevC - 1) * 1000) / 10;
+      if (usPost) { // 完全休市后 [9] 是陈旧盘后价(MU 卡 1213=+15%)→ 只盘后时段才写 postPct
+        const post = num(f[9]), prevC = num(f[4]);
+        if (post != null && post > 0 && prevC != null && prevC > 0) cur.postPct = Math.round((post / prevC - 1) * 1000) / 10;
+      }
     }
   };
   for (let i = 0; i < batches.length; i += WAVE) {

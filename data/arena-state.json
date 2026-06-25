@@ -2341,9 +2341,49 @@
    "reason": "控制权战和并购预期把盘口点燃，盘前高开说明资金还在抢，但这类情绪票反转会很快，只做顺势不恋战。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 115,
+   "fill_date": "2026-06-25",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "BLFS",
+   "reason": "不去追盘前爆拉的AI光电，BLFS今天反而给我红盘/弱盘入口：细胞和基因疗法量产每一支都要过保存液与冷链验证，换供应商等于重做监管，是真瓶颈但也是高波动主题票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 116,
+   "fill_date": "2026-06-25",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CRL",
+   "reason": "冰点弃船票里有Politan/Elliott这类聪明钱逼宫，盘前没被情绪爆拉，资金像是在低位回补而不是散户追热。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 117,
+   "fill_date": "2026-06-25",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "IQV",
+   "reason": "昨涨后盘前回吐反而给了不追高的入口，情绪仍偏冷、长线机构回补概率大，属于死水开始有钱进的反向仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 118,
+   "fill_date": "2026-06-25",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "BWIN、AKTS、LWAY暂不动：一个防御资金缓进，两个事件/并购情绪还在，但都要盯情绪突然反转。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 115,
+ "next_order_id": 119,
  "notes": [
   {
    "date": "2026-06-12",

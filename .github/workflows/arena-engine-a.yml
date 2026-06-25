@@ -1,0 +1,46 @@
+# 五神对决 · A 股引擎(收盘撮合)—— 先刷 a-price-history(append 今日收盘)再 机械止损→AI单→规则兜底→结账→arena-a.json。
+# 主触发:cron-job.org 准点打 /api/cron/arena-engine-a;下面 GitHub schedule 是服务端兜底。
+# UTC 07:30 = 北京 15:30(A 股 15:00 收盘后;周一~五,中国无 DST)。引擎幂等(已结账→no-op、最新日≠今日→跳过)。
+# 自带 a-history 刷新 = 不依赖别的时序;cloud_a_history_refresh 读 /api/a-market,此刻 A 已收盘 → 取到的是今日收盘价。
+name: arena-engine-a
+on:
+  schedule:
+    - cron: "30 7 * * 1-5"
+  workflow_dispatch: {}
+concurrency: arena-a
+permissions:
+  contents: write
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: 累积今日 A 股收盘到 a-price-history(供引擎按今日收盘结算)
+        run: python scripts/cloud_a_history_refresh.py || echo "⚠ A股收盘历史累积失败,引擎用现有最新日"
+      - name: A 股收盘撮合 + 结账
+        run: python scripts/arena_cloud.py engine a
+      - name: 提交账本
+        run: |
+          git config user.name "arena-bot"
+          git config user.email "arena-bot@users.noreply.github.com"
+          git add data/arena-state-a.json web/public/data/arena-a.json web/public/data/a-price-history-30d.json
+          if git diff --cached --quiet; then echo "无变化"; exit 0; fi
+          git commit -m "arena-a: 收盘结账 $(date -u +%F)"
+          for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done
+
+      - name: Deploy to Vercel(arena-a.json 要部署才上 /arena?m=a)
+        if: success()
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then echo "无 VERCEL_TOKEN,跳过部署(结账已进仓库,但 /arena 不会更新)"; exit 0; fi
+          cd web
+          npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
+          npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN

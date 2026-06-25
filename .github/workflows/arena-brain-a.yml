@@ -1,0 +1,35 @@
+# 五神对决 · A 股大脑(开盘前决策)—— 北京 9:00 看候选 + 价位下单(带入场纪律),收盘由 arena-engine-a 撮合。
+# 主触发:cron-job.org 准点打 /api/cron/arena-brain-a;下面 GitHub schedule 是服务端兜底(常延迟/丢,但有比没有强)。
+# UTC 01:00 = 北京 09:00(周一~五;中国无 DST)。引擎/大脑都幂等,两路都触发也安全;concurrency:arena-a 与美股赛场互不阻塞。
+name: arena-brain-a
+on:
+  schedule:
+    - cron: "0 1 * * 1-5"
+  workflow_dispatch: {}
+concurrency: arena-a
+permissions:
+  contents: write
+jobs:
+  brain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: 五位股神 A 股开盘前决策(NDT Claude Opus 4.8,过载降 gpt-5.5)
+        env:
+          NDT_CLAUDE_KEY: ${{ secrets.NDT_CLAUDE_KEY }}
+          NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
+          NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
+        run: python scripts/arena_cloud.py brain a
+      - name: 提交决策单
+        run: |
+          git config user.name "arena-bot"
+          git config user.email "arena-bot@users.noreply.github.com"
+          git add data/arena-state-a.json
+          if git diff --cached --quiet; then echo "无变化"; exit 0; fi
+          git commit -m "arena-a: 大脑决策 $(date -u +%F)"
+          for i in 1 2 3; do git push && break || { git pull --rebase; sleep 3; }; done

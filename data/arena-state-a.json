@@ -1,0 +1,519 @@
+{
+ "cash": {
+  "buffett": 40175.39,
+  "duan": 40919.1,
+  "serenity": 50916.51,
+  "druckenmiller": 1000000.0,
+  "sentiment": 100204.59
+ },
+ "positions": [
+  {
+   "master": "buffett",
+   "sym": "600660",
+   "shares": 2493,
+   "entry": 48.13,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "buffett",
+   "sym": "000858",
+   "shares": 1637,
+   "entry": 73.3,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "buffett",
+   "sym": "600900",
+   "shares": 4511,
+   "entry": 26.6,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "buffett",
+   "sym": "000333",
+   "shares": 1565,
+   "entry": 76.63,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "buffett",
+   "sym": "000403",
+   "shares": 12889,
+   "entry": 9.31,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "buffett",
+   "sym": "000895",
+   "shares": 5316,
+   "entry": 22.57,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "buffett",
+   "sym": "002595",
+   "shares": 2494,
+   "entry": 48.1,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "buffett",
+   "sym": "002597",
+   "shares": 5444,
+   "entry": 22.04,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "duan",
+   "sym": "600519",
+   "shares": 198,
+   "entry": 1207.68,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "duan",
+   "sym": "000858",
+   "shares": 3274,
+   "entry": 73.3,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "duan",
+   "sym": "600660",
+   "shares": 4986,
+   "entry": 48.13,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "duan",
+   "sym": "300226",
+   "shares": 14484,
+   "entry": 16.57,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "600259",
+   "shares": 906,
+   "entry": 104.77,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "000831",
+   "shares": 1630,
+   "entry": 58.28,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "002428",
+   "shares": 771,
+   "entry": 123.09,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "300408",
+   "shares": 653,
+   "entry": 145.26,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "301269",
+   "shares": 880,
+   "entry": 107.85,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "605376",
+   "shares": 423,
+   "entry": 224.5,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "688012",
+   "shares": 248,
+   "entry": 383.0,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "688702",
+   "shares": 305,
+   "entry": 310.63,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "688785",
+   "shares": 209,
+   "entry": 453.85,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "688582",
+   "shares": 1640,
+   "entry": 57.9,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "920438",
+   "shares": 1065,
+   "entry": 140.8,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688123",
+   "shares": 904,
+   "entry": 165.88,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301366",
+   "shares": 2387,
+   "entry": 62.84,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301132",
+   "shares": 2740,
+   "entry": 54.74,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688403",
+   "shares": 4143,
+   "entry": 36.2,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300567",
+   "shares": 597,
+   "entry": 251.13,
+   "entry_date": "2026-06-25"
+  }
+ ],
+ "nav": [
+  {
+   "master": "buffett",
+   "date": "2026-06-25",
+   "nav": 1000000.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-25",
+   "nav": 1000000.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-25",
+   "nav": 1000000.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-25",
+   "nav": 1000000.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-25",
+   "nav": 1000000.0
+  }
+ ],
+ "trades": [
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "600660",
+   "shares": 2493,
+   "price": 48.13,
+   "reason": "全球汽车玻璃霸主,专注一件事做到极致,这就是我要的生意。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "000858",
+   "shares": 1637,
+   "price": 73.3,
+   "reason": "高端白酒是教科书级宽护城河,估值已回到合理区。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "600900",
+   "shares": 4511,
+   "price": 26.6,
+   "reason": "近乎永续的水电资产、特许垄断、像债券一样的现金流。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "000333",
+   "shares": 1565,
+   "price": 76.63,
+   "reason": "白电龙头护城河宽,现金流强分红稳,当前估值不贵。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "000403",
+   "shares": 12889,
+   "price": 9.31,
+   "reason": "血浆牌照是政府发的牌照护城河，PB 不到 1.5 是给我的安全边际。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "000895",
+   "shares": 5316,
+   "price": 22.57,
+   "reason": "屠宰加工微利不算护城河，但双汇的品牌、渠道和高分红是消费里少见的稳健现金牛。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "002595",
+   "shares": 2494,
+   "price": 48.1,
+   "reason": "全球轮胎模具隐形冠军、份额30%+、客户黏性强，是真护城河。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "002597",
+   "shares": 5444,
+   "price": 22.04,
+   "reason": "全球甜味剂寡头，一体化成本+定价权构成宽护城河，周期底部价更具安全边际。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "600519",
+   "shares": 198,
+   "price": 1207.68,
+   "reason": "看得懂、商业模式极好、文化也算本分,贵一点我也敢拿。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "000858",
+   "shares": 3274,
+   "price": 73.3,
+   "reason": "白酒是最好的商业模式之一,五粮液是行业老二的确定性。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "600660",
+   "shares": 4986,
+   "price": 48.13,
+   "reason": "专注、本分、全球第一,曹德旺是我尊敬的企业家典范。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "300226",
+   "shares": 14484,
+   "price": 16.57,
+   "reason": "国产版Platts/Argus,数据垄断+网络效应,看懂了贵也敢拿。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "600259",
+   "shares": 906,
+   "price": 104.77,
+   "reason": "中重稀土的镝铽就是全村唯一那口井,而且这口井是国家拿在手里当武器的——这才是我梦里的卡脖子。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "000831",
+   "shares": 1630,
+   "price": 58.28,
+   "reason": "这就是教科书级的卡脖子:中重稀土镝铽全球~90%出自中国,这家是南方稀土整合主平台,出口管制是政策亲手按下的产能阀门。全村唯一,我要的就是这个。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "002428",
+   "shares": 771,
+   "price": 123.09,
+   "reason": "InP 磷化铟衬底 A 股唯一纯标,AI 光通信最硬的料级卡脖子——这就是我要猎的'全村唯一一家'。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "300408",
+   "shares": 653,
+   "price": 145.26,
+   "reason": "Layer 4 材料层的硬核命中——MLCC 陶瓷粉大陆唯一规模化自供,光纤插芯全球份额第一,这是真隐形冠军。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "301269",
+   "shares": 880,
+   "price": 107.85,
+   "reason": "EDA 是芯片设计的编译器级 chokepoint,华大九天就是国产那根独苗,新思楷登被禁就是核武级催化。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "605376",
+   "shares": 423,
+   "price": 224.5,
+   "reason": "教科书级卡脖子——纳米镍粉MLCC内电极,国内独家级,对标日本JFE/昭荣,客户是三星电机/村田/国巨/风华。这就是我要的全村唯一一家。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688012",
+   "shares": 248,
+   "price": 383.0,
+   "reason": "这才是我要的——MOCVD + 电介质刻蚀,化合物半导体那条链上亚洲唯一能打的国产单点,Aixtron 的镜像。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688702",
+   "shares": 305,
+   "price": 310.63,
+   "reason": "国内唯一商用以太网交换芯片提供商,Broadcom/Marvell/Nvidia 三家垄断下的独苗国产替代——这正是我要的全村唯一一家。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688785",
+   "shares": 209,
+   "price": 453.85,
+   "reason": "这就是我要的那种——射频电源,被MKS/AE垄断三十年的真卡脖子件,刻蚀和PECVD没它机台开不了机,全村就这么几家能上量产线。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688582",
+   "shares": 1640,
+   "price": 57.9,
+   "reason": "导航级 MEMS 陀螺仪——对标霍尼韦尔/ADI,军工+无人机+人形机器人 IMU 的单点瓶颈,绝对技术深度。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "920438",
+   "shares": 1065,
+   "price": 140.8,
+   "reason": "AR玻璃基板题材热，北交所小盘是资金最爱的弹性品种。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688123",
+   "shares": 904,
+   "price": 165.88,
+   "reason": "AI 算力 + 存储 + 一堆热门概念，资金高度关注。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301366",
+   "shares": 2387,
+   "price": 62.84,
+   "reason": "AI 算力小盘票，题材热、资金愿意给溢价，顺势做。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301132",
+   "shares": 2740,
+   "price": 54.74,
+   "reason": "AI硬件题材活跃，PCB是市场反复炒作的算力支线。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688403",
+   "shares": 4143,
+   "price": 36.2,
+   "reason": "存储芯片+OLED+半导体多标签,小盘+国产替代题材资金偏好高。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300567",
+   "shares": 597,
+   "price": 251.13,
+   "reason": "基金重仓+多概念叠加(HBM/存储/半导体)，资金愿意讲。",
+   "src": "rule"
+  }
+ ],
+ "orders": [],
+ "next_order_id": 1,
+ "splits": []
+}

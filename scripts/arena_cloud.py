@@ -29,8 +29,17 @@ from arena_engine import RULES, SELL_VOICE, MASTERS, START_CASH          # noqa:
 from arena_brain import (RULES as BRAIN_RULES, ndt, parse_orders,        # noqa: E402
                          build_prompt, market_context)
 
-import os                                                                # noqa: E402
+import os, re                                                            # noqa: E402
 QUOTE_API = os.environ.get("QUOTE_API", "https://stockgod.xyz/api/quote")
+
+# 市场配置:美股(默认,与原版逐字节一致)+ A 股(独立平行赛场,¥ 现金、北京时区、读 a-* JSON)。
+# 逻辑(规则/撮合/AI单/止损/拆股/结账)全市场共用、绝不分叉 —— 只换"读哪些文件 / 时区 / 写哪个输出"。
+A_START_CASH = 1_000_000.0  # ¥,与美股 $100万 对称(数值同,币种仅前端显示区分)
+MARKETS = {
+    "us": dict(mkt="us", state="arena-state.json",   out="arena.json",   hist="price-history-30d.json",   tz=ET,                         ccy="$"),
+    "a":  dict(mkt="a",  state="arena-state-a.json", out="arena-a.json", hist="a-price-history-30d.json", tz=ZoneInfo("Asia/Shanghai"), ccy="¥"),
+}
+MK = MARKETS["us"]  # main() 按命令行第 2 个参数(us|a)覆盖,同时覆盖 STATE
 
 
 # ---------------- 状态 ----------------
@@ -46,8 +55,40 @@ def save_state(st: dict) -> None:
 
 
 # ---------------- 行情输入(仓库 JSON)----------------
+def load_a_uni(hist: dict) -> dict[str, dict]:
+    """A 股宇宙:a-analyses(五方分+判词,同 us-analyses 结构)× a-price-history 最新收盘当价(结算用)。
+    流动性闸:收盘价 ≥¥2 且市值 ≥¥20亿(≈$0.28B,与美股 $0.2B 闸对称)。pct 由最近两日收盘算。"""
+    ana = json.loads((PUB / "a-analyses.json").read_text(encoding="utf-8"))
+    ana = ana.get("stocks", ana)
+    dates = hist["dates"]; last = dates[-1]; prev = dates[-2] if len(dates) > 1 else last
+    uni: dict[str, dict] = {}
+    for code, v in ana.items():
+        if not re.match(r"^\d{6}$", code):
+            continue
+        cl = hist["closes"].get(code) or {}
+        px = cl.get(last)
+        cap = v.get("cap") or 0  # 亿¥
+        if not px or px < 2 or cap < 20:
+            continue
+        pv = cl.get(prev) or px
+        pct = (px / pv - 1) * 100 if pv else 0.0
+        panel = v.get("panel") or {}
+        scores, judgments = {}, {}
+        for mk, _, _ in MASTERS:
+            mm = panel.get(mk) or {}
+            try:
+                scores[mk] = float(mm.get("score"))
+            except (TypeError, ValueError):
+                scores[mk] = None
+            judgments[mk] = str(mm.get("judgment") or "")[:90]
+        uni[code] = {"name": v.get("name", code), "price": float(px), "pct": pct, "scores": scores, "judgments": judgments}
+    return uni
+
+
 def load_inputs():
-    hist = json.loads((PUB / "price-history-30d.json").read_text(encoding="utf-8"))
+    hist = json.loads((PUB / MK["hist"]).read_text(encoding="utf-8"))
+    if MK["mkt"] == "a":
+        return hist, load_a_uni(hist)
     us = {s["sym"]: s for s in json.loads((PUB / "us-stocks.json").read_text(encoding="utf-8"))["stocks"]}
     ana = json.loads((PUB / "us-analyses.json").read_text(encoding="utf-8"))["stocks"]
     uni: dict[str, dict] = {}
@@ -109,7 +150,7 @@ def candidates(mk: str, uni: dict, hist: dict, exclude: set[str]) -> list[str]:
 def run_engine() -> None:
     hist, uni = load_inputs()
     date = hist["dates"][-1]
-    today_et = datetime.now(ET).strftime("%Y-%m-%d")
+    today_et = datetime.now(MK["tz"]).strftime("%Y-%m-%d")  # 美股=ET、A股=北京
     st = load_state()
 
     if any(n["date"] == date for n in st["nav"]):
@@ -306,7 +347,8 @@ def export(st: dict, uni: dict, date: str) -> None:
                                "nav": nav, "retPct": round((nav / START_CASH - 1) * 100, 2),
                                "positions": pos, "navHist": nav_hist, "trades": trades})
     out["masters"].sort(key=lambda m: -m["nav"])
-    (PUB / "arena.json").write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
+    out["market"] = MK["mkt"]; out["ccy"] = MK["ccy"]
+    (PUB / MK["out"]).write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
     print(f"✓ arena.json @{date} · " + " · ".join(f"{m['name']} {m['retPct']:+.2f}%" for m in out["masters"]))
 
 
@@ -423,12 +465,16 @@ def run_brain(force: bool = False) -> None:
 def main():
     sys.path.insert(0, str(ROOT / "scripts"))
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
+    global MK, STATE
+    mkt = next((a for a in sys.argv[2:] if a in ("us", "a")), "us")  # 第2参数 us|a,默认 us(美股行为不变)
+    MK = MARKETS[mkt]
+    STATE = ROOT / "data" / MK["state"]
     if cmd == "engine":
         run_engine()
     elif cmd == "brain":
         run_brain(force="--force" in sys.argv)
     else:
-        sys.exit("用法: arena_cloud.py {brain|engine}")
+        sys.exit("用法: arena_cloud.py {brain|engine} [us|a]")
 
 
 if __name__ == "__main__":

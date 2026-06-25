@@ -146,6 +146,12 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
   const prev = useRef<Record<string, number>>({});
   // 切市场时清掉上一市场的实时报价(A 股代码 6 位、与美股 ticker 不撞,但避免"实时"徽章误亮)
   useEffect(() => { setQuotes({}); prev.current = {}; }, [market]);
+  // ?m=a 深链(post-mount 读,避免 hydration 不匹配)—— 可直接分享 A 股赛场
+  useEffect(() => {
+    const m = new URLSearchParams(window.location.search).get("m");
+    if (m === "a" && a) setMarket("a");
+    else if (m === "us" && us) setMarket("us");
+  }, [us, a]);
 
   const allSyms = useMemo(
     () => [...new Set(arena.masters.flatMap((m) => m.positions.map((p) => p.sym)))],

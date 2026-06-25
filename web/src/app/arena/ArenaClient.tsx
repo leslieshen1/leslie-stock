@@ -209,10 +209,10 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
       <header className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h1 className="text-[22px] font-semibold tracking-tight text-ink">{t("五神对决", "Five-Master Arena")}</h1>
         {us && a && (
-          <div className="inline-flex rounded-lg border border-line bg-surface p-0.5 text-xs">
+          <div className="inline-flex self-center rounded-lg border border-line bg-surface p-0.5 text-[13px] shadow-sm">
             {(["us", "a"] as const).map((mk) => (
               <button key={mk} onClick={() => setMarket(mk)}
-                className={`rounded-md px-3 py-1 font-medium transition ${market === mk ? "bg-surface-3 text-ink" : "text-muted hover:text-ink"}`}>
+                className={`rounded-md px-4 py-1.5 font-semibold transition ${market === mk ? "bg-accent text-black shadow" : "text-muted hover:text-ink"}`}>
                 {mk === "us" ? t("美股", "US") : t("A 股", "A-Shares")}
               </button>
             ))}

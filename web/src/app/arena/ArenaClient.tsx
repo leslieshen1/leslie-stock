@@ -322,14 +322,14 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
                         <span className="truncate text-[10px] text-muted">{p.name.slice(0, 16)}</span>
                       </div>
                       <div className="mt-0.5 truncate font-mono text-[11px] tabular-nums text-faint">
-                        {p.shares.toLocaleString()} {t("股", "sh")} @ ${p.entry.toFixed(2)}
+                        {p.shares.toLocaleString()} {t("股", "sh")} @ {ccy}{p.entry.toFixed(2)}
                         {day != null && (
                           <span className={day >= 0 ? "text-up" : "text-down"}> · {t("今日", "today")} {day >= 0 ? "+" : ""}{day.toFixed(2)}%</span>
                         )}
                       </div>
                     </div>
                     <div className="shrink-0 text-right">
-                      <div className={`font-mono text-[13px] tabular-nums text-ink transition-colors duration-700 ${flCls}`}>${px.toFixed(2)}</div>
+                      <div className={`font-mono text-[13px] tabular-nums text-ink transition-colors duration-700 ${flCls}`}>{ccy}{px.toFixed(2)}</div>
                       <div className={`font-mono text-[12px] font-semibold tabular-nums ${pnl >= 0 ? "text-up" : "text-down"}`}>
                         {pnl >= 0 ? "+" : ""}{pnl.toFixed(2)}%
                       </div>
@@ -373,9 +373,9 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
                           </Link>
                         </td>
                         <td className="px-3 py-2 text-right font-mono tabular-nums text-muted">{p.shares.toLocaleString()}</td>
-                        <td className="px-3 py-2 text-right font-mono tabular-nums text-muted">${p.entry.toFixed(2)}</td>
+                        <td className="px-3 py-2 text-right font-mono tabular-nums text-muted">{ccy}{p.entry.toFixed(2)}</td>
                         <td className={`px-3 py-2 text-right font-mono tabular-nums text-ink transition-colors duration-700 ${flCls}`}>
-                          ${px.toFixed(2)}
+                          {ccy}{px.toFixed(2)}
                         </td>
                         <td className={`px-3 py-2 text-right font-mono tabular-nums ${day == null ? "text-faint" : day >= 0 ? "text-up" : "text-down"}`}>
                           {day == null ? "—" : `${day >= 0 ? "+" : ""}${day.toFixed(2)}%`}
@@ -408,7 +408,7 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
                       <span title={t("开盘前 AI 亲自决策(gpt-5.5),非规则引擎", "Decided pre-open by the AI itself (gpt-5.5), not the rule engine")} className="rounded border border-accent/40 bg-accent-soft px-1 font-mono text-[9px] font-bold text-accent">AI</span>
                     )}
                     <span className="font-mono font-semibold text-ink">{tr.sym}</span>
-                    <span className="font-mono tabular-nums text-muted">{tr.shares.toLocaleString()} {t("股", "sh")} @ ${tr.price.toFixed(2)}</span>
+                    <span className="font-mono tabular-nums text-muted">{tr.shares.toLocaleString()} {t("股", "sh")} @ {ccy}{tr.price.toFixed(2)}</span>
                     <span className="basis-full text-muted sm:basis-auto">— {tr.reason}</span>
                   </div>
                 ))}

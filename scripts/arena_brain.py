@@ -120,13 +120,13 @@ def market_context() -> str:
 
 def build_prompt(mk: str, name: str, persona: str, ctx: str, date: str,
                  cash: float, nav: float, pos_lines: list[str], cand_lines: list[str],
-                 tape: str = "") -> str:
+                 tape: str = "", ccy: str = "$", region: str = "美东") -> str:
     r = RULES[mk]
     stop_line = f"- 机械止损 {r['stop']}% 由引擎自动执行,不归你管,你也无权取消\n" if r["stop"] else ""
-    return f"""你是{name},在进行一场公开的虚拟实盘对决(起步 $1,000,000)。你的投资哲学:
+    return f"""你是{name},在进行一场公开的虚拟实盘对决(起步 {ccy}1,000,000)。你的投资哲学:
 {persona}
 
-今天是 {date}(美东),开盘前。你的账户:NAV ${nav:,.0f},现金 ${cash:,.0f}。
+今天是 {date}({region}),开盘前。你的账户:NAV {ccy}{nav:,.0f},现金 {ccy}{cash:,.0f}。
 
 【此刻盘前实时盘口】
 {tape}
@@ -140,6 +140,12 @@ def build_prompt(mk: str, name: str, persona: str, ctx: str, date: str,
 
 【可买候选】(只能从这里买;均为你此前深度判读过、评分 ≥{r['min_score']} 的票)
 {chr(10).join(cand_lines) if cand_lines else "(无)"}
+
+【入场纪律 · 买之前必判(务必遵守)】
+你的评分是当时对【生意/瓶颈】的判断,不代表【此刻这个价位】还值得买。看着候选的昨收价 + 今日/盘前涨幅判入场:
+- 今天/盘前已经爆拉的(涨幅很大、接近涨停的),别接最后一棒 —— 要么等回落,要么直接放过(不买);
+- 已经被市场充分定价、涨上来的,按你自己的风格判:你若是瓶颈狙击,问还在不在 pre-rerating 阶段(小盘、未被充分定价就上;已 rerate、机构拥挤的让);你若是价投,要安全边际、不为好生意付蠢价;你若是动量派,确认趋势还在、别接下跌的刀;
+- 宁可空着仓位等好价,也不为"买满"去追高。不买是完全合法的。
 
 【授权范围(引擎强制校验,越权单会被拒)】
 - 最多 {r['slots']} 仓,每仓约 {r['weight']}% NAV,整仓买卖

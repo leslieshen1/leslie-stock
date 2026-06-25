@@ -35,6 +35,7 @@ QUOTE_API = os.environ.get("QUOTE_API", "https://stockgod.xyz/api/quote")
 # 市场配置:美股(默认,与原版逐字节一致)+ A 股(独立平行赛场,¥ 现金、北京时区、读 a-* JSON)。
 # 逻辑(规则/撮合/AI单/止损/拆股/结账)全市场共用、绝不分叉 —— 只换"读哪些文件 / 时区 / 写哪个输出"。
 A_START_CASH = 1_000_000.0  # ¥,与美股 $100万 对称(数值同,币种仅前端显示区分)
+CHASE_PCT = 9.0  # 入场纪律:今日涨幅 > 此值(接近 A 股涨停/美股大幅爆拉)的票,规则补仓不追(brain 由 prompt 自行判)
 MARKETS = {
     "us": dict(mkt="us", state="arena-state.json",   out="arena.json",   hist="price-history-30d.json",   tz=ET,                         ccy="$"),
     "a":  dict(mkt="a",  state="arena-state-a.json", out="arena-a.json", hist="a-price-history-30d.json", tz=ZoneInfo("Asia/Shanghai"), ccy="¥"),
@@ -301,6 +302,8 @@ def run_engine() -> None:
             for sym in candidates(mk, uni, hist, exclude=set(pos)):
                 if free == 0:
                     break
+                if (uni[sym].get("pct") or 0) > CHASE_PCT:  # 入场纪律:别追今日爆拉的(接近涨停),没 AI 的日子也守住
+                    continue
                 px = uni[sym]["price"]
                 shares = int(min(nav_now * rule["weight"], cash) // px)
                 if shares < 1:
@@ -366,33 +369,41 @@ def lq_batch(syms: list[str]) -> dict[str, dict]:
 
 
 def run_brain(force: bool = False) -> None:
-    if not os.environ.get("NDT_API_KEY"):
-        sys.exit("缺 NDT_API_KEY")
+    if not (os.environ.get("NDT_CLAUDE_KEY") or os.environ.get("NDT_API_KEY")):
+        sys.exit("缺 NDT_CLAUDE_KEY / NDT_API_KEY")
     hist, uni = load_inputs()
-    fill_date = datetime.now(ET).strftime("%Y-%m-%d")
+    ccy = MK["ccy"]
+    fill_date = datetime.now(MK["tz"]).strftime("%Y-%m-%d")  # 美股=ET、A股=北京
     st = load_state()
     if any(n["date"] == fill_date for n in st["nav"]):
         print(f"· {fill_date} 已结账,今天不再决策")
         return
 
     masters_def = {m["key"]: m for m in json.loads((ROOT / "data" / "masters.json").read_text(encoding="utf-8"))["masters"]}
-    ctx = market_context()
 
-    # 实时盘口(走自家 /api/quote):四指数 + 持仓 + 各家候选前 15
     pos_by: dict[str, dict[str, dict]] = {}
     for p in st["positions"]:
         pos_by.setdefault(p["master"], {})[p["sym"]] = p
-    want = {"QQQ", "SPY", "DIA", "IWM"} | {p["sym"] for p in st["positions"]}
-    cand_by: dict[str, list[str]] = {}
-    for mk in RULES:
-        cs = candidates(mk, uni, hist, exclude=set(pos_by.get(mk, {})))[:15]
-        cand_by[mk] = cs
-        want |= set(cs)
-    quotes = lq_batch(sorted(want))
-    zh = {"QQQ": "纳指", "SPY": "标普", "DIA": "道指", "IWM": "罗素"}
-    now_et = datetime.now(ET).strftime("%H:%M ET")
-    tape_bits = [f"{zh[s]} {quotes[s]['pct']:+.2f}%" for s in ("QQQ", "SPY", "DIA", "IWM") if s in quotes and quotes[s].get("pct") is not None]
-    tape = f"({now_et} 实时)" + " · ".join(tape_bits) if tape_bits else "(盘前行情暂不可得)"
+    cand_by: dict[str, list[str]] = {mk: candidates(mk, uni, hist, exclude=set(pos_by.get(mk, {})))[:15] for mk in RULES}
+
+    if MK["mkt"] == "a":
+        # A 股:无美股盘前 / 自家指数代理;以候选昨收 + 今日涨幅判当前价位(入场纪律在 prompt 强制)
+        ctx = "(A 股盘报暂未接入;按候选的基本面/瓶颈成色 + 当前价位与今日涨幅自行判断入场。)"
+        quotes: dict[str, dict] = {}
+        tape = "(A 股开盘前 = 集合竞价;以候选昨收价 + 今日涨幅判断当前价位)"
+        region = "北京"
+    else:
+        # 实时盘口(走自家 /api/quote):四指数 + 持仓 + 各家候选前 15
+        ctx = market_context()
+        want = {"QQQ", "SPY", "DIA", "IWM"} | {p["sym"] for p in st["positions"]}
+        for cs in cand_by.values():
+            want |= set(cs)
+        quotes = lq_batch(sorted(want))
+        zh = {"QQQ": "纳指", "SPY": "标普", "DIA": "道指", "IWM": "罗素"}
+        now_et = datetime.now(ET).strftime("%H:%M ET")
+        tape_bits = [f"{zh[s]} {quotes[s]['pct']:+.2f}%" for s in ("QQQ", "SPY", "DIA", "IWM") if s in quotes and quotes[s].get("pct") is not None]
+        tape = f"({now_et} 实时)" + " · ".join(tape_bits) if tape_bits else "(盘前行情暂不可得)"
+        region = "美东"
     print(f"盘口 {tape}")
 
     def lq(sym: str) -> str:
@@ -415,14 +426,14 @@ def run_brain(force: bool = False) -> None:
             u = uni.get(sym)
             px = u["price"] if u else p["entry"]
             jd = (u or {}).get("judgments", {}).get(mk, "")[:55]
-            pos_lines.append(f"- {sym} {(u or {}).get('name', sym)[:18]} {p['shares']}股 成本${p['entry']:.2f} 昨收${px:.2f} "
+            pos_lines.append(f"- {sym} {(u or {}).get('name', sym)[:18]} {p['shares']}股 成本{ccy}{p['entry']:.2f} 昨收{ccy}{px:.2f} "
                              f"盈亏{(px / p['entry'] - 1) * 100:+.1f}%{lq(sym)}(你当时的判词:{jd})")
         nav = cash + sum(p["shares"] * uni.get(s, {"price": p["entry"]})["price"] for s, p in pos.items())
-        cand_lines = [f"- {sym} {uni[sym]['name'][:18]} 昨收${uni[sym]['price']:.2f} 昨日{uni[sym]['pct']:+.1f}%{lq(sym)} "
+        cand_lines = [f"- {sym} {uni[sym]['name'][:18]} 昨收{ccy}{uni[sym]['price']:.2f} 今日{uni[sym]['pct']:+.1f}%{lq(sym)} "
                       f"你的评分{uni[sym]['scores'][mk]:.0f}(判词:{uni[sym]['judgments'][mk]})"
                       for sym in cand_by[mk]]
 
-        prompt = build_prompt(mk, name, masters_def[mk]["prompt"], ctx, fill_date, cash, nav, pos_lines, cand_lines, tape=tape)
+        prompt = build_prompt(mk, name, masters_def[mk]["prompt"], ctx, fill_date, cash, nav, pos_lines, cand_lines, tape=tape, ccy=ccy, region=region)
         print(f"▶ {name}(prompt {len(prompt)} 字)…")
         try:
             text = ndt(prompt)

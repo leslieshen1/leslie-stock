@@ -106,9 +106,10 @@ export async function GET(req: Request) {
   const session = etSession();
   // 省钱快路:优先读 GitHub 快照(免费 CDN,盘中每 5 分钟刷)。命中即省掉 Nasdaq + 28 批腾讯。
   // 盘中要求 20 分钟内新鲜(防 cron 挂了拿旧价);休市价格不变、任意快照都用。读不到/太旧 → 落到下面现拉,绝不空白。
+  // ⚠ 盘前/盘后【不用快照】:腾讯 [3] 那两段冻在收盘、不跟延伸时段 → 落到下面现拉,龙头走 Nasdaq /info 覆盖真盘前/盘后价。
   try {
     const snap = await fetchWithTimeout(SNAP_US_URL, {}, 6000).then((x) => x.json()).catch(() => null);
-    const fresh = session === "closed" || (snap?.ts != null && Date.now() - snap.ts < 20 * 60_000);
+    const fresh = session === "closed" || (session === "regular" && snap?.ts != null && Date.now() - snap.ts < 20 * 60_000);
     if (snap?.quotes && Object.keys(snap.quotes).length > 1000 && fresh) {
       MKT_LAST_GOOD = { quotes: snap.quotes, ts: snap.ts };
       return Response.json(

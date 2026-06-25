@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-24 22:01 ET Wed",
+ "asof_et": "2026-06-24 22:15 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.05%",
@@ -531,7 +531,7 @@
    "sum": ""
   },
   {
-   "h": "Stock market today: S&P 500, Nasdaq eye rebound from tech rout with Micron in focus",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq rebound after tech rout as oil prices tumble",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -621,6 +621,11 @@
    "sum": ""
   },
   {
+   "h": "Trump says it may never be known who was at fault for strike on girls' school in Iran - Reuters",
+   "src": "Reuters",
+   "sum": "Trump says it may never be known who was at fault for strike on girls' school in Iran  Reuters"
+  },
+  {
    "h": "US military requires flu vaccine for some after outbreak in Texas training center - Reuters",
    "src": "Reuters",
    "sum": "US military requires flu vaccine for some after outbreak in Texas training center  Reuters"
@@ -664,11 +669,6 @@
    "h": "Rubio says U.S. won't do anything that would undermine Gulf security - Reuters",
    "src": "Reuters",
    "sum": "Rubio says U.S. won't do anything that would undermine Gulf security  Reuters"
-  },
-  {
-   "h": "Bessent sees GDP growth booming again this year. Kalshi traders see little chance of that",
-   "src": "CNBC",
-   "sum": "Kalshi traders are not agreeing with Treasury Secretary Scott Bessent's prediction that the U.S. economy will have 3% growth this year."
   }
  ]
 }

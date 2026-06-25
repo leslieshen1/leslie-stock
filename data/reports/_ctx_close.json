@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-24 22:15 ET Wed",
+ "asof_et": "2026-06-24 22:46 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.05%",
@@ -521,7 +521,7 @@
  ],
  "news": [
   {
-   "h": "Stock market today: Dow rises, S&P 500 and Nasdaq slip as AI jitters return ahead of Micron earnings",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq rebound after tech rout as oil prices tumble",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -531,13 +531,13 @@
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq rebound after tech rout as oil prices tumble",
-   "src": "Yahoo Finance",
+   "h": "Stock Market Today: Nasdaq, S&P 500 Inch Up After Two-Day Tech Slide, Dow Flat — Live Updates",
+   "src": "WSJ",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Nasdaq, S&P 500 Inch Up After Two-Day Tech Slide, Dow Flat — Live Updates",
-   "src": "WSJ",
+   "h": "Asian Stocks to Gain as US Futures Jump on Micron: Markets Wrap",
+   "src": "Bloomberg",
    "sum": ""
   },
   {
@@ -546,28 +546,28 @@
    "sum": ""
   },
   {
-   "h": "Stock Market Today (June 24, 2026): Nasdaq, S&P 500 fall before Micron's after hours earnings",
-   "src": "thestreet.com",
+   "h": "Trading Day: Tech jitters smother inflation relief",
+   "src": "Reuters",
    "sum": ""
   },
   {
-   "h": "SK Hynix surges 11% after filing for blockbuster Nasdaq listing",
-   "src": "CNBC",
+   "h": "Meta Makes a Prediction: 8 Key Items Shaping the Stock Market Wednesday",
+   "src": "TheStreet Pro",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq futures rise as Micron, Qualcomm ease AI jitters",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[SPCX] SpaceX stock wavers as it announces $25 billion bond offering",
-   "src": "Yahoo Finance",
+   "h": "Stock Market Today: All You Need To Know Going Into Trade On June 25",
+   "src": "NDTV Profit",
    "sum": ""
   },
   {
    "h": "[SPCX] SpaceX Completes $25 Bil Bond Sale. Rocket Lab Touts Space Force Mission.",
    "src": "Investor's Business Daily",
+   "sum": ""
+  },
+  {
+   "h": "[SPCX] Love Musk Or Not On July 6, You Will Own SpaceX Stock",
+   "src": "Trefis",
    "sum": ""
   },
   {
@@ -596,8 +596,8 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] The Real Price of Broadcom Stock Is Hidden Two Years Out",
-   "src": "Trefis",
+   "h": "[AVGO] Broadcom (AVGO) Stock Trades Down, Here Is Why",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {

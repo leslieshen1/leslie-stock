@@ -25,7 +25,7 @@ async function usHeatmap(n: number): Promise<Slim[]> {
 function tencentSym(code: string): string | null {
   if (/^6/.test(code)) return "sh" + code;
   if (/^[03]/.test(code)) return "sz" + code;
-  if (/^[48]/.test(code)) return "bj" + code;
+  if (/^(?:4|8|92)/.test(code)) return "bj" + code; // 北交所(含 920xxx 新码)
   return null;
 }
 

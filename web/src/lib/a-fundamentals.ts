@@ -21,7 +21,7 @@ function tencentSym(code: string, market?: string): string | null {
   if (market === "hk") return "hk" + code.replace(/\D/g, "").padStart(5, "0"); // 港股 700 → hk00700
   if (/^6/.test(code)) return "sh" + code; // 沪市主板 / 科创板(688)
   if (/^[03]/.test(code)) return "sz" + code; // 深市主板 / 创业板(300)
-  if (/^[48]/.test(code)) return "bj" + code; // 北交所
+  if (/^(?:4|8|92)/.test(code)) return "bj" + code; // 北交所(4xxxxx/8xxxxx/920xxx)—— 必须含 92,新码全是 920xxx(民士达 920394)
   return null;
 }
 

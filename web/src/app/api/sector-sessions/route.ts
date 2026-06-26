@@ -322,18 +322,23 @@ async function syncOnce(origin: string) {
   A_SECTORS = await computeAShare(origin); // A 股按自己交易时段实时(与美股 session 无关)
   US_WIN = { d7: await computeUsWindow(5), d30: await computeUsWindow(21) }; // 近7日≈5交易日 · 近1月≈21交易日
   A_WIN = { d7: await computeAWindow(5), d30: await computeAWindow(21) };    // A 股窗口(攒够历史前多为空 → 组件显示 —)
-  const r = redis();
-  if (!r) { HASH = { day: null, pre: null, mid: null, post: null }; return; }
-  const today = etDate();
-  let raw = ((await r.hgetall(KEY)) || {}) as Record<string, unknown>;
-  if (session !== "休市" && raw.day !== today) { await r.del(KEY); raw = {}; }
-  if (live && Object.keys(live).length && session === "盘前") {   // 只定格盘前(供盘中/盘后/休市的 pre 列);mid=computeLive、post=computePost 全程实时,不靠定格
-    await r.hset(KEY, { day: today, pre: live });
-    await r.expire(KEY, 60 * 60 * 24 * 3);
-    raw.day = today; raw.pre = live;
-  }
-  const obj = (v: unknown): Sect | null => (v && typeof v === "object" ? (v as Sect) : null);
-  HASH = { day: (raw.day as string) || null, pre: obj(raw.pre), mid: obj(raw.mid), post: obj(raw.post) };
+  // Upstash 只用于「定格盘前快照」(pre 列),是锦上添花;它的读写失败(如 Upstash max_requests 写满)
+  // 绝不能拖垮整个板块面板 —— 板块数据(LIVE/A_SECTORS/窗口)上面已算好,这里的 Upstash 错单独吞掉、
+  // 降级即可,绝不冒泡到 GET 的 catch 把算好的数据也清空(否则首页板块直接"暂无数据")。
+  try {
+    const r = redis();
+    if (!r) { HASH = { day: null, pre: null, mid: null, post: null }; return; }
+    const today = etDate();
+    let raw = ((await r.hgetall(KEY)) || {}) as Record<string, unknown>;
+    if (session !== "休市" && raw.day !== today) { await r.del(KEY); raw = {}; }
+    if (live && Object.keys(live).length && session === "盘前") {   // 只定格盘前(供盘中/盘后/休市的 pre 列);mid=computeLive、post=computePost 全程实时,不靠定格
+      await r.hset(KEY, { day: today, pre: live });
+      await r.expire(KEY, 60 * 60 * 24 * 3);
+      raw.day = today; raw.pre = live;
+    }
+    const obj = (v: unknown): Sect | null => (v && typeof v === "object" ? (v as Sect) : null);
+    HASH = { day: (raw.day as string) || null, pre: obj(raw.pre), mid: obj(raw.mid), post: obj(raw.post) };
+  } catch { /* Upstash 写满/不可用 → 盘前定格降级(HASH 维持上次),板块数据照常算、照常返回 */ }
 }
 
 export async function GET(req: Request) {

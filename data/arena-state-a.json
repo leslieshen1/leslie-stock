@@ -1,14 +1,416 @@
 {
  "cash": {
-  "buffett": 1000000.0,
-  "duan": 1000000.0,
-  "serenity": 1000000.0,
+  "buffett": 55765.0,
+  "duan": 62445.0,
+  "serenity": 144290.0,
   "druckenmiller": 1000000.0,
   "sentiment": 1000000.0
  },
- "positions": [],
- "nav": [],
- "trades": [],
+ "positions": [
+  {
+   "master": "buffett",
+   "sym": "600660",
+   "shares": 2300,
+   "entry": 50.56,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "buffett",
+   "sym": "000858",
+   "shares": 1600,
+   "entry": 73.44,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "buffett",
+   "sym": "600900",
+   "shares": 4400,
+   "entry": 26.68,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "buffett",
+   "sym": "000333",
+   "shares": 1500,
+   "entry": 78.79,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "buffett",
+   "sym": "600036",
+   "shares": 3300,
+   "entry": 35.93,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "buffett",
+   "sym": "601928",
+   "shares": 13600,
+   "entry": 8.78,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "buffett",
+   "sym": "000895",
+   "shares": 5200,
+   "entry": 22.82,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "buffett",
+   "sym": "002595",
+   "shares": 2500,
+   "entry": 47.29,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "duan",
+   "sym": "600519",
+   "shares": 200,
+   "entry": 1178.01,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "duan",
+   "sym": "000858",
+   "shares": 3200,
+   "entry": 73.44,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "duan",
+   "sym": "600660",
+   "shares": 4700,
+   "entry": 50.56,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "duan",
+   "sym": "300760",
+   "shares": 1700,
+   "entry": 134.89,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "600259",
+   "shares": 900,
+   "entry": 100.7,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "000831",
+   "shares": 1700,
+   "entry": 55.5,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "002428",
+   "shares": 700,
+   "entry": 122.83,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "300408",
+   "shares": 500,
+   "entry": 159.23,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "301269",
+   "shares": 800,
+   "entry": 115.09,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "605376",
+   "shares": 300,
+   "entry": 266.36,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "688012",
+   "shares": 200,
+   "entry": 417.6,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "688702",
+   "shares": 200,
+   "entry": 335.21,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "688785",
+   "shares": 200,
+   "entry": 457.96,
+   "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "688582",
+   "shares": 1400,
+   "entry": 65.0,
+   "entry_date": "2026-06-26"
+  }
+ ],
+ "nav": [
+  {
+   "master": "buffett",
+   "date": "2026-06-26",
+   "nav": 1000000.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-26",
+   "nav": 1000000.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-26",
+   "nav": 1000000.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-26",
+   "nav": 1000000.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-26",
+   "nav": 1000000.0
+  }
+ ],
+ "trades": [
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "600660",
+   "shares": 2300,
+   "price": 50.56,
+   "reason": "福耀是在一个可理解的窄领域里做到全球第一的生意，当前价格没有被情绪推高，值得用合理价买入。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "000858",
+   "shares": 1600,
+   "price": 73.44,
+   "reason": "高端白酒的品牌护城河和长期定价权仍然清楚，75元附近给了我足够的耐心空间。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "600900",
+   "shares": 4400,
+   "price": 26.68,
+   "reason": "长江电力的水电资产接近永续特许权，现金流可预测，我愿意把它当作长期权益债券持有。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "000333",
+   "shares": 1500,
+   "price": 78.79,
+   "reason": "美的的规模、渠道和经营理性构成宽护城河，现金流与分红足以支撑当前估值。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "600036",
+   "shares": 3300,
+   "price": 35.93,
+   "reason": "招商银行的低成本负债和零售客户黏性仍是银行业少见的优势，价格没有到需要回避的地步。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "601928",
+   "shares": 13600,
+   "price": 8.78,
+   "reason": "凤凰传媒有教材牌照、区域垄断和净现金，高分红下的安全边际让我舒服。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "000895",
+   "shares": 5200,
+   "price": 22.82,
+   "reason": "双汇不是最性感的生意，但品牌、渠道和稳定现金回报让我愿意以便宜价格拥有它。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "002595",
+   "shares": 2500,
+   "price": 47.29,
+   "reason": "豪迈科技在轮胎模具这个小池塘里有全球级份额和客户黏性，是我喜欢的隐形冠军。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "600519",
+   "shares": 200,
+   "price": 1178.01,
+   "reason": "茅台这门生意定价权、复购和十年确定性都很强，今天没被爆拉，贵一点我也愿意拿。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "000858",
+   "shares": 3200,
+   "price": 73.44,
+   "reason": "五粮液是白酒里我比较信得过的老二，模式好、存续久，当前价位没有追高的感觉。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "600660",
+   "shares": 4700,
+   "price": 50.56,
+   "reason": "福耀专注、本分、全球竞争力清楚，这种企业拿久一点比猜短期涨跌重要。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "duan",
+   "side": "BUY",
+   "sym": "300760",
+   "shares": 1700,
+   "price": 134.89,
+   "reason": "迈瑞是平台型器械龙头，长期需求和企业文化都过关，今天平开可以先建一仓。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "600259",
+   "shares": 900,
+   "price": 100.7,
+   "reason": "中重稀土镝铽是全村唯一那口井，盘前没被抢高，国家产能阀门级真瓶颈我直接要一仓。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "000831",
+   "shares": 1700,
+   "price": 55.5,
+   "reason": "南方稀土整合主平台吃的是同一条中重稀土出口管制主线，每台高端磁材都绕不开，平开给我上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "002428",
+   "shares": 700,
+   "price": 122.83,
+   "reason": "InP衬底是AI光通信材料层硬瓶颈，A股纯标稀缺，今天没有爆拉就不等所谓便宜模型。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "300408",
+   "shares": 500,
+   "price": 159.23,
+   "reason": "MLCC陶瓷粉自供和光纤插芯全球份额第一是隐形材料卡位，下游电子量产每颗都吃它。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "301269",
+   "shares": 800,
+   "price": 115.09,
+   "reason": "EDA是芯片设计编译器级卡脖子，外部禁令越硬国产独苗越有方向性弹性。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "605376",
+   "shares": 300,
+   "price": 266.36,
+   "reason": "纳米镍粉内电极是MLCC核心耗材，国内独家级供给位置配得上一仓高波动多头。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688012",
+   "shares": 200,
+   "price": 417.6,
+   "reason": "MOCVD和刻蚀设备是化合物半导体扩产绕不开的机台瓶颈，平开不算接最后一棒。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688702",
+   "shares": 200,
+   "price": 335.21,
+   "reason": "国产商用以太网交换芯片独苗对着Broadcom系垄断开刀，AI网络每台服务器洪流都在推它。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688785",
+   "shares": 200,
+   "price": 457.96,
+   "reason": "射频电源是刻蚀和PECVD开机件，MKS垄断三十年的位置能国产上量就是我要的单点。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688582",
+   "shares": 1400,
+   "price": 65.0,
+   "reason": "导航级MEMS陀螺仪卡军工无人机和机器人IMU，验证周期长、替代成本高，平开可打。",
+   "src": "ai"
+  }
+ ],
  "orders": [
   {
    "id": 1,
@@ -17,7 +419,7 @@
    "action": "BUY",
    "sym": "600660",
    "reason": "福耀是在一个可理解的窄领域里做到全球第一的生意，当前价格没有被情绪推高，值得用合理价买入。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -27,7 +429,7 @@
    "action": "BUY",
    "sym": "000858",
    "reason": "高端白酒的品牌护城河和长期定价权仍然清楚，75元附近给了我足够的耐心空间。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -37,7 +439,7 @@
    "action": "BUY",
    "sym": "600900",
    "reason": "长江电力的水电资产接近永续特许权，现金流可预测，我愿意把它当作长期权益债券持有。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -47,7 +449,7 @@
    "action": "BUY",
    "sym": "000333",
    "reason": "美的的规模、渠道和经营理性构成宽护城河，现金流与分红足以支撑当前估值。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -57,7 +459,7 @@
    "action": "BUY",
    "sym": "600036",
    "reason": "招商银行的低成本负债和零售客户黏性仍是银行业少见的优势，价格没有到需要回避的地步。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -67,7 +469,7 @@
    "action": "BUY",
    "sym": "601928",
    "reason": "凤凰传媒有教材牌照、区域垄断和净现金，高分红下的安全边际让我舒服。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -77,7 +479,7 @@
    "action": "BUY",
    "sym": "000895",
    "reason": "双汇不是最性感的生意，但品牌、渠道和稳定现金回报让我愿意以便宜价格拥有它。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -87,7 +489,7 @@
    "action": "BUY",
    "sym": "002595",
    "reason": "豪迈科技在轮胎模具这个小池塘里有全球级份额和客户黏性，是我喜欢的隐形冠军。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -97,7 +499,7 @@
    "action": "BUY",
    "sym": "600519",
    "reason": "茅台这门生意定价权、复购和十年确定性都很强，今天没被爆拉，贵一点我也愿意拿。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -107,7 +509,7 @@
    "action": "BUY",
    "sym": "000858",
    "reason": "五粮液是白酒里我比较信得过的老二，模式好、存续久，当前价位没有追高的感觉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -117,7 +519,7 @@
    "action": "BUY",
    "sym": "600660",
    "reason": "福耀专注、本分、全球竞争力清楚，这种企业拿久一点比猜短期涨跌重要。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -127,7 +529,7 @@
    "action": "BUY",
    "sym": "300760",
    "reason": "迈瑞是平台型器械龙头，长期需求和企业文化都过关，今天平开可以先建一仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -137,7 +539,7 @@
    "action": "BUY",
    "sym": "600259",
    "reason": "中重稀土镝铽是全村唯一那口井，盘前没被抢高，国家产能阀门级真瓶颈我直接要一仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -147,7 +549,7 @@
    "action": "BUY",
    "sym": "000831",
    "reason": "南方稀土整合主平台吃的是同一条中重稀土出口管制主线，每台高端磁材都绕不开，平开给我上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -157,7 +559,7 @@
    "action": "BUY",
    "sym": "002428",
    "reason": "InP衬底是AI光通信材料层硬瓶颈，A股纯标稀缺，今天没有爆拉就不等所谓便宜模型。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -167,7 +569,7 @@
    "action": "BUY",
    "sym": "300408",
    "reason": "MLCC陶瓷粉自供和光纤插芯全球份额第一是隐形材料卡位，下游电子量产每颗都吃它。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -177,7 +579,7 @@
    "action": "BUY",
    "sym": "301269",
    "reason": "EDA是芯片设计编译器级卡脖子，外部禁令越硬国产独苗越有方向性弹性。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -187,7 +589,7 @@
    "action": "BUY",
    "sym": "605376",
    "reason": "纳米镍粉内电极是MLCC核心耗材，国内独家级供给位置配得上一仓高波动多头。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -197,7 +599,7 @@
    "action": "BUY",
    "sym": "688012",
    "reason": "MOCVD和刻蚀设备是化合物半导体扩产绕不开的机台瓶颈，平开不算接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -207,7 +609,7 @@
    "action": "BUY",
    "sym": "688702",
    "reason": "国产商用以太网交换芯片独苗对着Broadcom系垄断开刀，AI网络每台服务器洪流都在推它。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -217,7 +619,7 @@
    "action": "BUY",
    "sym": "688785",
    "reason": "射频电源是刻蚀和PECVD开机件，MKS垄断三十年的位置能国产上量就是我要的单点。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -227,7 +629,7 @@
    "action": "BUY",
    "sym": "688582",
    "reason": "导航级MEMS陀螺仪卡军工无人机和机器人IMU，验证周期长、替代成本高，平开可打。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -237,7 +639,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "没有可买高弹性载体，也没有持仓可砍；在看不见流动性顺风和价格确认前，现金就是仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -247,9 +649,10 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价候选全是0溢价，盘口没有抢筹和资金流入信号，死水无资金我不硬买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],
- "next_order_id": 25
+ "next_order_id": 25,
+ "splits": []
 }

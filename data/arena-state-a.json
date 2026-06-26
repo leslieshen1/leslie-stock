@@ -579,8 +579,58 @@
    "reason": "迈瑞是平台型好生意，长坡厚雪，今天给了点回落，先建核心仓。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 11,
+   "fill_date": "2026-06-26",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "601928",
+   "reason": "教材专营牌照、区域垄断和净现金让我看得懂，今天没有被抢高，合理价买一门会吐现金的生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 12,
+   "fill_date": "2026-06-26",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "002595",
+   "reason": "豪迈是轮胎模具里的隐形冠军，客户黏性和规模优势是真护城河，当前价位未见狂热，值得拿一仓长期陪伴。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 13,
+   "fill_date": "2026-06-26",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这批仓位已经全是我认的真瓶颈，盘前候选没给错杀价，也没必要为了买满去把手里的井换成另一口井。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 14,
+   "fill_date": "2026-06-26",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "没有可买载体也没有持仓可处理，流动性和趋势没有给我高弹性、低风险的表达，空仓就是纪律。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 15,
+   "fill_date": "2026-06-26",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全场几乎无溢价，候选没有资金抢筹信号，现有六仓仍在AI硬件/半导体主线情绪里，先不为买满或换仓去瞎动。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 11,
+ "next_order_id": 16,
  "splits": []
 }

@@ -37,8 +37,8 @@ QUOTE_API = os.environ.get("QUOTE_API", "https://stockgod.xyz/api/quote")
 A_START_CASH = 1_000_000.0  # ¥,与美股 $100万 对称(数值同,币种仅前端显示区分)
 CHASE_PCT = 9.0  # 入场纪律:今日涨幅 > 此值(接近 A 股涨停/美股大幅爆拉)的票,规则补仓不追(brain 由 prompt 自行判)
 MARKETS = {
-    "us": dict(mkt="us", state="arena-state.json",   out="arena.json",   hist="price-history-30d.json",   tz=ET,                         ccy="$"),
-    "a":  dict(mkt="a",  state="arena-state-a.json", out="arena-a.json", hist="a-price-history-30d.json", tz=ZoneInfo("Asia/Shanghai"), ccy="¥"),
+    "us": dict(mkt="us", state="arena-state.json",   out="arena.json",   hist="price-history-30d.json",   tz=ET,                         ccy="$", lot=1),
+    "a":  dict(mkt="a",  state="arena-state-a.json", out="arena-a.json", hist="a-price-history-30d.json", tz=ZoneInfo("Asia/Shanghai"), ccy="¥", lot=100),
 }
 MK = MARKETS["us"]  # main() 按命令行第 2 个参数(us|a)覆盖,同时覆盖 STATE
 
@@ -284,9 +284,10 @@ def run_engine() -> None:
                     o["status"], o["note"] = "rejected", "仓位已满"
                 else:
                     px = u["price"]
-                    shares = int(min(nav_now * rule["weight"], cash) // px)
-                    if shares < 1:
-                        o["status"], o["note"] = "rejected", "现金不足一股"
+                    lot = MK.get("lot", 1)  # A 股按手(100 股/手)取整,美股整股(lot=1)
+                    shares = int(min(nav_now * rule["weight"], cash) // px) // lot * lot
+                    if shares < lot:
+                        o["status"], o["note"] = "rejected", "现金不足一手" if lot > 1 else "现金不足一股"
                     else:
                         cash -= shares * px
                         np = {"master": mk, "sym": sym, "shares": shares, "entry": round(px, 4), "entry_date": date}
@@ -305,8 +306,9 @@ def run_engine() -> None:
                 if (uni[sym].get("pct") or 0) > CHASE_PCT:  # 入场纪律:别追今日爆拉的(接近涨停),没 AI 的日子也守住
                     continue
                 px = uni[sym]["price"]
-                shares = int(min(nav_now * rule["weight"], cash) // px)
-                if shares < 1:
+                lot = MK.get("lot", 1)  # A 股按手取整(高价股如茅台一手 12 万,配额不够一手就配不进 —— 真实约束)
+                shares = int(min(nav_now * rule["weight"], cash) // px) // lot * lot
+                if shares < lot:
                     continue
                 cash -= shares * px
                 np = {"master": mk, "sym": sym, "shares": shares, "entry": round(px, 4), "entry_date": date}

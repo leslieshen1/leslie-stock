@@ -6,6 +6,8 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
+import { yahooSym } from "@/lib/quote-sym";
+import { marketStatus, MKT_LABEL_EN } from "@/lib/market-status";
 
 // 展示层 EN 映射(数据仍是中文 SoT)
 const MASTER_EN: Record<string, { name: string; school: string }> = {
@@ -28,8 +30,6 @@ export type Master = {
 export type Arena = { as_of: string; start_cash: number; masters: Master[] };
 
 type Quote = { price: number; pct: number | null; session?: string };
-
-const SESSION_ZH: Record<string, string> = { pre: "盘前", regular: "盘中", post: "盘后", closed: "已收盘" };
 
 // 选手头像 —— 不用真人照片(与"AI 模拟·非本人"法务标注一致 + 避免肖像权);
 // 风格化:每位一套渐变 + 字形,颜色对应流派(价值绿/蓝、alpha 琥珀/紫、资金流玫红)。
@@ -161,15 +161,22 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
   useEffect(() => {
     let stop = false;
     async function poll() {
-      if (market === "a" || document.hidden || allSyms.length === 0) return; // A 股 v1 用引擎结算价,实时 tick 后补
+      if (document.hidden || allSyms.length === 0) return;
+      // A 股持仓是裸 6 位码,要带 .SS/.SZ/.BJ 后缀喂 /api/quote(裸码会被当美股走 Nasdaq → 取不到价);
+      // 上游按大写符号回 key,这里映射回持仓裸码,quotes[p.sym] 两个市场都一致。
+      const toQ = (s: string) => (market === "a" ? yahooSym(s, "a") : s);
+      const back: Record<string, string> = {};
+      for (const s of allSyms) back[toQ(s).toUpperCase()] = s;
+      const qsyms = allSyms.map(toQ);
       const chunks: string[][] = [];
-      for (let i = 0; i < allSyms.length; i += 25) chunks.push(allSyms.slice(i, i + 25));
+      for (let i = 0; i < qsyms.length; i += 25) chunks.push(qsyms.slice(i, i + 25));
       const merged: Record<string, Quote> = {};
       await Promise.all(chunks.map(async (c) => {
         try {
           const r = await fetch(`/api/quote?syms=${c.join(",")}`, { cache: "no-store" });
           const j = await r.json();
-          Object.assign(merged, j.quotes || {});
+          for (const [k, q] of Object.entries((j.quotes || {}) as Record<string, Quote>))
+            merged[back[k.toUpperCase()] ?? k] = q;
         } catch { /* 单批失败不阻塞 */ }
       }));
       if (stop || Object.keys(merged).length === 0) return;
@@ -201,8 +208,8 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
     return rows;
   }, [arena, quotes]);
 
-  const session = Object.values(quotes)[0]?.session;
-  const liveOn = market === "us" && Object.keys(quotes).length > 0;
+  const mkt = marketStatus(new Date(), market);
+  const liveOn = Object.keys(quotes).length > 0;
 
   return (
     <main className="mx-auto max-w-6xl px-6 pb-12 pt-3">
@@ -225,7 +232,7 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
         {liveOn && (
           <span className="inline-flex items-center gap-1.5 rounded-full border border-up/30 bg-up-soft px-2 py-0.5 text-[10px] font-semibold text-up">
             <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-current" />
-            {t("实时估值", "Live marks")}{session ? ` · ${lang === "zh" ? SESSION_ZH[session] ?? session : session}` : ""} · 30s
+            {t("实时估值", "Live marks")} · {lang === "zh" ? mkt.label : MKT_LABEL_EN[mkt.label] ?? mkt.label} · 30s
           </span>
         )}
       </header>

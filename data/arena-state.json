@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 43465.01,
   "duan": 40172.16,
-  "serenity": 128846.31,
+  "serenity": 110595.05,
   "druckenmiller": 68500.54,
-  "sentiment": 558168.45
+  "sentiment": 249376.95
  },
  "positions": [
   {
@@ -121,13 +121,6 @@
   },
   {
    "master": "serenity",
-   "sym": "KTOS",
-   "shares": 1732,
-   "entry": 54.82,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "serenity",
    "sym": "LEU",
    "shares": 647,
    "entry": 146.61,
@@ -230,6 +223,27 @@
    "shares": 5140,
    "entry": 29.75,
    "entry_date": "2026-06-24"
+  },
+  {
+   "master": "serenity",
+   "sym": "BLFS",
+   "shares": 3581,
+   "entry": 27.5,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CRL",
+   "shares": 726,
+   "entry": 212.71,
+   "entry_date": "2026-06-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "IQV",
+   "shares": 828,
+   "entry": 186.43,
+   "entry_date": "2026-06-25"
   }
  ],
  "nav": [
@@ -457,6 +471,31 @@
    "master": "sentiment",
    "date": "2026-06-24",
    "nav": 1019459.42
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-25",
+   "nav": 975795.18
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-25",
+   "nav": 964183.18
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-25",
+   "nav": 1036780.16
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-25",
+   "nav": 1088827.08
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-25",
+   "nav": 1030118.36
   }
  ],
  "trades": [
@@ -1419,6 +1458,46 @@
    "price": 29.75,
    "reason": "控制权战和并购预期把盘口点燃，盘前高开说明资金还在抢，但这类情绪票反转会很快，只做顺势不恋战。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "KTOS",
+   "shares": 1732,
+   "price": 46.32,
+   "reason": "破位 -15.5%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "BLFS",
+   "shares": 3581,
+   "price": 27.5,
+   "reason": "不去追盘前爆拉的AI光电，BLFS今天反而给我红盘/弱盘入口：细胞和基因疗法量产每一支都要过保存液与冷链验证，换供应商等于重做监管，是真瓶颈但也是高波动主题票。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CRL",
+   "shares": 726,
+   "price": 212.71,
+   "reason": "冰点弃船票里有Politan/Elliott这类聪明钱逼宫，盘前没被情绪爆拉，资金像是在低位回补而不是散户追热。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "IQV",
+   "shares": 828,
+   "price": 186.43,
+   "reason": "昨涨后盘前回吐反而给了不追高的入口，情绪仍偏冷、长线机构回补概率大，属于死水开始有钱进的反向仓。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -2349,7 +2428,7 @@
    "action": "BUY",
    "sym": "BLFS",
    "reason": "不去追盘前爆拉的AI光电，BLFS今天反而给我红盘/弱盘入口：细胞和基因疗法量产每一支都要过保存液与冷链验证，换供应商等于重做监管，是真瓶颈但也是高波动主题票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2359,7 +2438,7 @@
    "action": "BUY",
    "sym": "CRL",
    "reason": "冰点弃船票里有Politan/Elliott这类聪明钱逼宫，盘前没被情绪爆拉，资金像是在低位回补而不是散户追热。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2369,7 +2448,7 @@
    "action": "BUY",
    "sym": "IQV",
    "reason": "昨涨后盘前回吐反而给了不追高的入口，情绪仍偏冷、长线机构回补概率大，属于死水开始有钱进的反向仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2379,7 +2458,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "BWIN、AKTS、LWAY暂不动：一个防御资金缓进，两个事件/并购情绪还在，但都要盯情绪突然反转。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useLang } from "@/lib/i18n";
 
 type SearchResult = {
@@ -54,7 +53,6 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
   const [aLive, setALive] = useState<Record<string, number>>({}); // A股实时市值覆盖
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const router = useRouter();
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -112,7 +110,7 @@ export default function SearchBox({ compact = false, placeholder, autoFocus = fa
   }, [autoFocus]);
 
   function go(r: SearchResult) {
-    router.push(`/stock/${r.code}?market=${r.market}`);
+    window.open(`/stock/${r.code}?market=${r.market}`, "_blank", "noopener");
     setOpen(false);
  setQ("");
     onNavigate?.();

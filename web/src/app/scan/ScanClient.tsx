@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import AiPersonaNote from "@/components/AiPersonaNote";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import type { AleabitManifestEntry } from "@/lib/data";
 import { type DilutionFlag, dilutionMagnitude } from "@/lib/dilution-types";
 import { useWatchlist } from "@/lib/useWatchlist";
@@ -404,7 +403,6 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us", p0 = {},
     const base = p0[s.sym];
     return base != null && base > 0 && s.price != null ? (s.price / base - 1) * 100 : null;
   };
-  const router = useRouter();
   const { t, lang } = useLang();
   const { has, toggle } = useWatchlist();
   // /scan 只看个股;ETF 已独立到 /etf —— secType 恒为 stock(useState 保留联合类型,etf 分支不报错)
@@ -726,7 +724,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us", p0 = {},
           const flCls = fl === "up" ? "bg-up-soft" : fl === "down" ? "bg-down-soft" : "";
           const a = s.type === "etf" ? null : avgOf(panels.stocks[s.sym]);
           return (
-            <div key={s.sym} onClick={() => router.push(`/stock/${s.sym}?market=${market}`)}
+            <div key={s.sym} onClick={() => window.open(`/stock/${s.sym}?market=${market}`, "_blank", "noopener")}
                  className="flex cursor-pointer items-center gap-2 px-3 py-2.5">
               <span className="w-6 shrink-0 text-right font-mono text-[10px] tabular-nums text-faint">{rank}</span>
               <div className="min-w-0 flex-1">
@@ -809,7 +807,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us", p0 = {},
               return (
                 <tr
                   key={s.sym}
-                  onClick={() => router.push(`/stock/${s.sym}?market=${market}`)}
+                  onClick={() => window.open(`/stock/${s.sym}?market=${market}`, "_blank", "noopener")}
  className="cursor-pointer border-b border-line/60 transition hover:bg-surface-2"
                 >
  <td className="px-3 py-2 text-right font-mono text-xs text-faint tabular-nums">{rank}</td>

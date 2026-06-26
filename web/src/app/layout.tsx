@@ -9,6 +9,7 @@ import DesktopTopBar from "@/components/DesktopTopBar";
 import MobileTabBar from "@/components/MobileTabBar";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
+import StockLinksNewTab from "@/components/StockLinksNewTab";
 import { LangProvider, T } from "@/lib/i18n";
 
 // Terminal Luxury 字体系统:Fraunces = 编辑部衬线(拉丁 display 时刻),
@@ -92,6 +93,7 @@ export default function RootLayout({
       </LangProvider>
       <Analytics />
       <AnalyticsTracker />
+      <StockLinksNewTab />
       </body>
     </html>
   );

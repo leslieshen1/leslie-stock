@@ -28,7 +28,7 @@ export default function HeatmapShell({ pulse }: { pulse: PulseProps }) {
             onClick={() => setView(tb.id)}
             title={t(tb.sub, tb.subEn)}
             className={`rounded-md px-4 py-1.5 text-sm font-semibold transition ${
-              view === tb.id ? "bg-surface text-ink shadow-sm" : "text-muted hover:text-ink"
+              view === tb.id ? "bg-accent text-black shadow" : "text-muted hover:text-ink"
             }`}
           >
             {t(tb.label, tb.en)}

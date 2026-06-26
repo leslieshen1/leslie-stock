@@ -33,29 +33,27 @@ async function aggTop(r: Redis, keys: string[], topN: number): Promise<{ label: 
 }
 
 export async function GET(req: Request) {
-  // 无鉴权健康检查:只回连通性 + 读写是否 OK,不暴露任何分析数据(供部署后自检)。
+  // 无鉴权健康检查:分别探读/写并暴露上游错误,便于定位 rw 故障真因(只读 token / auth / url 不匹配 等)。
   if (new URL(req.url).searchParams.get("health") === "1") {
     const rh = redis();
     if (!rh) return Response.json({ connected: false });
+    let read = false, write = false, err: string | null = null;
+    try { await rh.get("sg:health"); read = true; } catch (e) { err = String((e as Error)?.message || e).slice(0, 240); }
     try {
       const tok = `ok-${Date.now()}`;
       await rh.set("sg:health", tok, { ex: 60 });
-      const got = await rh.get<string>("sg:health");
-      return Response.json({ connected: true, rw: got === tok });
-    } catch {
-      return Response.json({ connected: true, rw: false });
-    }
+      write = (await rh.get<string>("sg:health")) === tok;
+    } catch (e) { err = String((e as Error)?.message || e).slice(0, 240); }
+    return Response.json({ connected: true, read, write, rw: read && write, err });
   }
 
   if (!authed(req)) return new Response("unauthorized", { status: 401 });
   const r = redis();
   if (!r) return Response.json({ connected: false });
 
-  // 先探一次读写:免费档命令配额打满时这步就被拒 → 回明确的 rw:false(配额用满),而非 generic 500
+  // 先探一次读:能读就放行显示(即便埋点写不进、数据断档,历史仍可看);彻底读不了才回 rw:false
   try {
-    const probe = `ok-${Date.now()}`;
-    await r.set("sg:health", probe, { ex: 60 });
-    if ((await r.get<string>("sg:health")) !== probe) return Response.json({ connected: true, rw: false });
+    await r.get<string>("sg:health");
   } catch {
     return Response.json({ connected: true, rw: false });
   }

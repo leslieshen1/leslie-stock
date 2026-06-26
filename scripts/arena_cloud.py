@@ -341,8 +341,15 @@ def export(st: dict, uni: dict, date: str) -> None:
                         "since": p["entry_date"], "judgment": u.get("judgments", {}).get(mk, "")})
         pos.sort(key=lambda r: -r["shares"] * r["price"])
         hist = sorted((n for n in st["nav"] if n["master"] == mk), key=lambda n: n["date"])
+        # 当日 NAV 用导出时刻的持仓+现金重算(与上面 positions 的 price 同源)。不能直接读
+        # st["nav"] 的当日点:同一天「只重导出」(line 157)时 position price 会被更新的 uni 刷新,
+        # 但 st["nav"] 不重算 → nav 卡在结账旧值、和持仓市值对不上(实测 A 赛场 nav=100万 而
+        # 持仓结算市值>100万,retPct 假性 +0.00%)。这里跟持仓同源重算,根治两套口径打架。
+        nav_now = round(cash + sum(p["shares"] * p["price"] for p in pos), 2)
         nav_hist = [{"date": n["date"], "nav": round(n["nav"])} for n in hist]
-        nav = nav_hist[-1]["nav"] if nav_hist else START_CASH
+        if nav_hist and nav_hist[-1]["date"] == date:
+            nav_hist[-1]["nav"] = round(nav_now)  # 曲线当日点与显示 NAV 同步,别让重导出后两者打架
+        nav = round(nav_now)
         trades = [t | {} for t in st["trades"] if t["master"] == mk][-14:][::-1]
         trades = [{"date": t["date"], "side": t["side"], "sym": t["sym"], "shares": t["shares"],
                    "price": round(t["price"], 2), "reason": t["reason"], "src": t.get("src", "rule")} for t in trades]

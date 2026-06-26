@@ -629,8 +629,18 @@
    "reason": "集合竞价全场几乎无溢价，候选没有资金抢筹信号，现有六仓仍在AI硬件/半导体主线情绪里，先不为买满或换仓去瞎动。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 16,
+   "fill_date": "2026-06-26",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看得懂，也都还本分，盘前没有便宜到需要换仓的机会，坐着比折腾好。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 16,
+ "next_order_id": 17,
  "splits": []
 }

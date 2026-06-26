@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-25 22:15 ET Thu",
+ "asof_et": "2026-06-25 22:31 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "+0.14%",
@@ -421,18 +421,13 @@
    "sum": ""
   },
   {
-   "h": "Stock market today: S&P 500, Nasdaq eye rebound from tech rout with Micron in focus",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq rebound after tech rout as oil prices tumble",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
    "h": "Stock Market Today: Nasdaq Stumbles Despite Micron Blockbuster Earnings; Wendy's in Focus — Live Updates",
    "src": "WSJ",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market News, June 25, 2026: Dow finishes higher, Nasdaq lower and S&P 500 flat; Apple and Big Tech stocks fall; Micron's stellar earnings boost semiconductors; investors monitor Iran",
-   "src": "MarketWatch",
    "sum": ""
   },
   {
@@ -446,13 +441,18 @@
    "sum": ""
   },
   {
+   "h": "Amateur investors are changing how the stock market works. That’s creating opportunities for those who know where to look.",
+   "src": "MarketWatch",
+   "sum": ""
+  },
+  {
    "h": "Stock Market Today (June 25, 2026): Mag7 falls after Apple, Microsoft announce price increases on iPhone, Xbox",
    "src": "thestreet.com",
    "sum": ""
   },
   {
-   "h": "Dow Jones| Nasdaq | US Stock Market Today | Live: Nasdaq, S&P close lower as tech megacaps overshadow chi...",
-   "src": "The Economic Times",
+   "h": "Stock market today: Dow rises, S&P 500 and Nasdaq slip as Micron soars, Apple drags Big Tech lower",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -467,11 +467,6 @@
   },
   {
    "h": "[MU] Micron's stock soars after blowout earnings expose AI's memory bottleneck",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[MU] Stock market today: Dow rises, S&P 500 and Nasdaq slip as Micron soars, Apple drags Big Tech lower",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -564,6 +559,11 @@
    "h": "We're locking in triple-digit profits on an AI winner at record highs",
    "src": "CNBC",
    "sum": "The stock has soared this week for unclear reasons."
+  },
+  {
+   "h": "The Club's top 10 things to watch in the stock market Thursday",
+   "src": "CNBC",
+   "sum": "Another monster quarter from Micron has ignited a chip stock rally."
   }
  ]
 }

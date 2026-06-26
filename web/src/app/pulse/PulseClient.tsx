@@ -66,15 +66,6 @@ const BAND_EN: Record<string, string> = {
 function bandLabel(label: string, lang: Lang): string {
   return lang === "en" ? BAND_EN[label] ?? label : label;
 }
-// 服务端给的中文相对时间("3 小时前")→ EN("3h ago"),纯显示转换
-function enAge(label: string): string {
-  if (label === "刚刚") return "just now";
-  const m = label.match(/^(\d+) (分钟|小时|天)前$/);
-  if (!m) return label;
-  const unit = m[2] === "分钟" ? "m" : m[2] === "小时" ? "h" : "d";
-  return `${m[1]}${unit} ago`;
-}
-
 // ===== 镜头注册表:热度 + 综合 + 5 位大师(masters.ts) + 分歧 =====
 type LensMeta = { key: string; label: string; labelEn: string; sub: string; subEn: string; ramp: "heat" | "triple"; hi: string; hiEn: string; lo: string; loEn: string };
 const LENSES: LensMeta[] = [
@@ -172,8 +163,6 @@ export default function PulseClient({
   panelSummary = {},
   masterOrder = [],
   coveredCount = 0,
-  analyzedAtLabel = null,
-  priceAgeLabel = null,
   chainIndustries = [],
   chainPlacement = {},
   mode = "pulse",
@@ -187,8 +176,6 @@ export default function PulseClient({
   panelSummary?: Record<string, { sc: (number | null)[]; div: number }>;
   masterOrder?: string[];
   coveredCount?: number;
-  analyzedAtLabel?: string | null;
-  priceAgeLabel?: string | null;
   chainIndustries?: ChainDef[];
   chainPlacement?: Record<string, Record<string, string>>;
   mode?: "pulse" | "chains";
@@ -538,8 +525,6 @@ export default function PulseClient({
  <span className="h-1.5 w-1.5 rounded-full bg-up" />
                   {t("判读", "Scored")} {coveredCount}/{items.length}
                 </span>
- {analyzedAtLabel && <span className="text-faint">· {lang === "en" ? `scored ${enAge(analyzedAtLabel)}` : `${analyzedAtLabel}判读`}</span>}
- {priceAgeLabel && <span className="text-faint/70">· {lang === "en" ? `quotes ${enAge(priceAgeLabel)}` : `行情 ${priceAgeLabel}`}</span>}
               </>
             ) : (
  <span className="inline-flex items-center gap-1.5 rounded bg-accent-soft text-accent px-2.5 py-1 border border-accent/30">

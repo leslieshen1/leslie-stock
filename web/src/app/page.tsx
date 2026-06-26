@@ -165,11 +165,6 @@ export default async function HomePage({
   }
   // 徽章口径:真正驱动上色的是"分析判读覆盖",不是旧价格快照
   const coveredCount = Object.keys(scopedScores).length;
-  const analyzedAtLabel = panelSummary.generated_at ? fmtAge(panelSummary.generated_at) : null;
-  // 短期热度行情的新鲜度(us-stocks 生成时间,格式 "YYYY-MM-DD HH:mm UTC")
-  const heatAge = usHeat.generated_at
-    ? fmtAge(usHeat.generated_at.replace(" UTC", "Z").replace(" ", "T"))
-    : null;
  const liveCount = items.filter((i) => i.dataSource === "live").length;
  const serenityCount = items.filter((i) => i.dataSource === "serenity").length;
 
@@ -196,8 +191,6 @@ export default async function HomePage({
           panelSummary: scopedScores,
           masterOrder: panelSummary.order,
           coveredCount,
-          analyzedAtLabel,
-          priceAgeLabel: heatAge,
           chainIndustries: industryMap.industries,
           chainPlacement: scopedPlacement,
         }}
@@ -216,14 +209,3 @@ export default async function HomePage({
   );
 }
 
-function fmtAge(iso: string): string {
-  const t = new Date(iso).getTime();
-  const diffMs = Date.now() - t;
-  const mins = Math.floor(diffMs / 60_000);
- if (mins < 1) return "刚刚";
-  if (mins < 60) return `${mins} 分钟前`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 48) return `${hrs} 小时前`;
-  const days = Math.floor(hrs / 24);
-  return `${days} 天前`;
-}

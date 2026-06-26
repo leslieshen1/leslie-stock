@@ -51,6 +51,15 @@ export async function GET(req: Request) {
   const r = redis();
   if (!r) return Response.json({ connected: false });
 
+  // 先探一次读写:免费档命令配额打满时这步就被拒 → 回明确的 rw:false(配额用满),而非 generic 500
+  try {
+    const probe = `ok-${Date.now()}`;
+    await r.set("sg:health", probe, { ex: 60 });
+    if ((await r.get<string>("sg:health")) !== probe) return Response.json({ connected: true, rw: false });
+  } catch {
+    return Response.json({ connected: true, rw: false });
+  }
+
   try {
   const url = new URL(req.url);
   const days = Math.min(60, Math.max(7, Number(url.searchParams.get("days")) || 30));

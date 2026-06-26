@@ -11,6 +11,7 @@ type Ret = { cohort: string; size: number; row: RetRow[] };
 type Top = { label: string; n: number };
 type Data = {
   connected: boolean;
+  rw?: boolean;
   days: number;
   series: Series[];
   retention: Ret[];
@@ -20,7 +21,7 @@ type Data = {
   generatedAt: number;
 };
 
-type Status = "need-auth" | "bad-auth" | "loading" | "no-store" | "error" | "ok";
+type Status = "need-auth" | "bad-auth" | "loading" | "no-store" | "quota" | "error" | "ok";
 
 const fmt = (n: number) => n.toLocaleString("en-US");
 const md = (d: string) => d.slice(5); // MM-DD
@@ -45,6 +46,7 @@ export default function StatsClient() {
       if (!res.ok) { setStatus("error"); return; }
       const j = (await res.json()) as Data;
       if (!j.connected) { setData(j); setStatus("no-store"); return; }
+      if (j.rw === false) { setStatus("quota"); return; }
       setData(j);
       setStatus("ok");
     } catch {
@@ -111,6 +113,22 @@ export default function StatsClient() {
           {t(
             "埋点和看板代码都上线了,只差一个免费的 Upstash Redis。在 Vercel 后台 → Storage → 建一个 Upstash Redis(Marketplace,免费档),链接到本项目,env 会自动注入,然后 redeploy 即可开始收集。",
             "Tracking and dashboard code are live — all that's missing is a free Upstash Redis. In the Vercel dashboard → Storage → create an Upstash Redis (Marketplace, free tier), link it to this project; the env vars inject automatically, then redeploy to start collecting.",
+          )}
+        </p>
+        <button onClick={() => load(token, days)} className="mt-5 rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink transition hover:bg-surface-2">{t("重新检查", "Re-check")}</button>
+      </main>
+    );
+  }
+
+  // ---------- 存储配额用满(免费档命令限流)----------
+  if (status === "quota") {
+    return (
+      <main className="mx-auto max-w-xl px-4 py-16 sm:px-6">
+        <h1 className="text-xl font-semibold text-ink">{t("数据存储本月命令配额已用满", "Storage hit its monthly command quota")}</h1>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          {t(
+            "数据没丢 —— 只是 Upstash 免费档的命令额度这个月被打满、暂时拒绝读写。两个办法:① 等月初配额重置后自动恢复;② 在 Vercel → Storage → Upstash 升级到付费档(按量,通常几美元/月)立刻恢复。埋点侧已加客户端去重,下个月命令消耗会明显降低。",
+            "No data is lost — the Upstash free tier just hit its monthly command quota and is temporarily refusing reads/writes. Either (1) wait for the quota to reset at the start of next month, or (2) upgrade the Upstash plan in Vercel → Storage (pay-as-you-go, usually a few dollars/month) to restore it now. Client-side dedup was added, so next month's usage drops a lot.",
           )}
         </p>
         <button onClick={() => load(token, days)} className="mt-5 rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink transition hover:bg-surface-2">{t("重新检查", "Re-check")}</button>

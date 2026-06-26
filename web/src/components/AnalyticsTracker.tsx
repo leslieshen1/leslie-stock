@@ -37,11 +37,23 @@ function send(event: string, data: Record<string, string>) {
   if (isBot()) return;
   const aid = anonId();
   if (!aid) return;
+  const body: Record<string, string> = { aid, event, ...data };
+  // 当天首个事件带 dau=1 → 服务端只在此时 sadd DAU,省掉后续每个事件重复 sadd(砍 Upstash 命令量)。
+  // localStorage 不可用(隐私模式)时 dau 恒为 "1" → 退化成原行为,绝不漏记 DAU。
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    if (localStorage.getItem("sg_dau") !== today) {
+      localStorage.setItem("sg_dau", today);
+      body.dau = "1";
+    }
+  } catch {
+    body.dau = "1";
+  }
   try {
     fetch("/api/track", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ aid, event, ...data }),
+      body: JSON.stringify(body),
       keepalive: true,
     }).catch(() => {});
   } catch {
@@ -61,6 +73,13 @@ export default function AnalyticsTracker() {
       if (!sessionStorage.getItem("sg_ref_sent")) {
         sessionStorage.setItem("sg_ref_sent", "1");
         if (document.referrer) data.ref = document.referrer.slice(0, 300);
+      }
+    } catch { /* ignore */ }
+    // 首访(该设备首次)带 new=1 → 服务端只在此时判 cohort,省掉每个 PV 一条 first NX set
+    try {
+      if (!localStorage.getItem("sg_seen")) {
+        localStorage.setItem("sg_seen", "1");
+        data.new = "1";
       }
     } catch { /* ignore */ }
     send("pageview", data);

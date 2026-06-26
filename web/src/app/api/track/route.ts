@@ -34,7 +34,7 @@ export async function POST(req: Request) {
   if (!r) return new Response(null, { status: 204 });
   if (BOT_RE.test(req.headers.get("user-agent") || "")) return new Response(null, { status: 204 });
 
-  let body: { aid?: unknown; event?: unknown; path?: unknown; label?: unknown; ref?: unknown };
+  let body: { aid?: unknown; event?: unknown; path?: unknown; label?: unknown; ref?: unknown; dau?: unknown; new?: unknown };
   try {
     body = await req.json();
   } catch {
@@ -50,10 +50,14 @@ export async function POST(req: Request) {
   const ref = typeof body.ref === "string" ? refHost(body.ref) : "";
   const d = dayKey();
 
+  // 前端去重标志:dau=当天首个事件(才 sadd DAU)、new=该设备首访(才判 cohort)。降低每事件的 Upstash 命令数。
+  const dauFirst = body.dau === "1";
+  const firstVisit = body.new === "1";
+
   try {
     const isPv = event === "pageview";
     const p = r.pipeline();
-    p.sadd(K.dau(d), aid);
+    if (dauFirst) p.sadd(K.dau(d), aid); // 客户端当天去重 → 仅当天首事件 sadd,省掉后续重复
     if (isPv) {
       p.incr(K.pv(d));
       if (path) p.zincrby(K.pvPages(d), 1, path);
@@ -63,8 +67,8 @@ export async function POST(req: Request) {
     }
     await p.exec();
 
-    // 首访 cohort:只在 pageview 上判定(用户第一条事件几乎总是 PV)。SET NX 仅第一次成功 → 记入当日新用户集合。
-    if (isPv) {
+    // 首访 cohort:前端 localStorage 判定(new=1)→ 省掉每个 PV 一条 NX set。NX 仍兜底:清缓存/多设备重复报 new 也只记一次。
+    if (isPv && firstVisit) {
       const isNew = await r.set(K.first(aid), d, { nx: true });
       if (isNew) await r.sadd(K.cohort(d), aid);
     }

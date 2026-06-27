@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-26 22:15 ET Fri",
+ "asof_et": "2026-06-26 22:31 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "-0.72%",
@@ -264,13 +264,13 @@
    "sum": ""
   },
   {
-   "h": "Stock Market on June 26, 2026: Dow closes lower, S&P 500 and Nasdaq each fall a fifth straight day; S&P 500 books weekly loss following Big Tech slump",
-   "src": "MarketWatch",
+   "h": "Wall St Week Ahead: Jobs data, rate bets in focus as US stocks close solid first half",
+   "src": "Reuters",
    "sum": ""
   },
   {
-   "h": "Wall St Week Ahead: Jobs data, rate bets in focus as US stocks close solid first half",
-   "src": "Reuters",
+   "h": "Oil prices move up in after-hours trading as U.S. makes retaliatory strike against Iran",
+   "src": "MarketWatch",
    "sum": ""
   },
   {
@@ -294,8 +294,8 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Why Is Nvidia Stock So Cheap? This Is the Only Plausible Answer",
-   "src": "The Motley Fool",
+   "h": "[NVDA] How Much Upside Can NVDA Stock’s Growth Deliver?",
+   "src": "Trefis",
    "sum": ""
   },
   {
@@ -334,14 +334,14 @@
    "sum": ""
   },
   {
-   "h": "Iran's Revolutionary Guards say it targeted US positions in the region in response to attack - Reuters",
-   "src": "Reuters",
-   "sum": "Iran's Revolutionary Guards say it targeted US positions in the region in response to attack  Reuters"
-  },
-  {
    "h": "US strikes Iran in response to attack on cargo ship in Strait of Hormuz - Reuters",
    "src": "Reuters",
    "sum": "US strikes Iran in response to attack on cargo ship in Strait of Hormuz  Reuters"
+  },
+  {
+   "h": "Iran's Revolutionary Guards say it targeted US positions in the region in response to attack - Reuters",
+   "src": "Reuters",
+   "sum": "Iran's Revolutionary Guards say it targeted US positions in the region in response to attack  Reuters"
   },
   {
    "h": "Israel, Lebanon sign initial agreement after US-mediated talks - Reuters",

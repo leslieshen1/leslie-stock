@@ -2,7 +2,7 @@
  "cash": {
   "buffett": 43465.01,
   "duan": 40172.16,
-  "serenity": 110595.05,
+  "serenity": 13342.45,
   "druckenmiller": 68500.54,
   "sentiment": 249376.95
  },
@@ -244,6 +244,13 @@
    "shares": 828,
    "entry": 186.43,
    "entry_date": "2026-06-25"
+  },
+  {
+   "master": "serenity",
+   "sym": "KTOS",
+   "shares": 2060,
+   "entry": 47.21,
+   "entry_date": "2026-06-26"
   }
  ],
  "nav": [
@@ -496,6 +503,31 @@
    "master": "sentiment",
    "date": "2026-06-25",
    "nav": 1030118.36
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-26",
+   "nav": 975997.01
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-26",
+   "nav": 970123.26
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-26",
+   "nav": 1024018.75
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-26",
+   "nav": 1069735.29
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-26",
+   "nav": 1036097.51
   }
  ],
  "trades": [
@@ -1498,6 +1530,16 @@
    "price": 186.43,
    "reason": "昨涨后盘前回吐反而给了不追高的入口，情绪仍偏冷、长线机构回补概率大，属于死水开始有钱进的反向仓。",
    "src": "ai"
+  },
+  {
+   "date": "2026-06-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "KTOS",
+   "shares": 2060,
+   "price": 47.21,
+   "reason": "纳指盘前在杀拥挤AI久期，但我今天只加真正不靠估值叙事的小涡喷/无人机军工瓶颈，巡航弹和攻击型无人机量产每台都要吃这块BOM，KTOS没爆拉、位置还可以。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -2468,7 +2510,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河没有因为盘前报价变窄，而我也不会为了市场一早的情绪去把好公司换成另一批价格并不便宜的好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2478,7 +2520,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都看懂了，今天盘前这点波动不改变十年判断，没必要为了市场换座位跟着换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2488,7 +2530,7 @@
    "action": "BUY",
    "sym": "KTOS",
    "reason": "纳指盘前在杀拥挤AI久期，但我今天只加真正不靠估值叙事的小涡喷/无人机军工瓶颈，巡航弹和攻击型无人机量产每台都要吃这块BOM，KTOS没爆拉、位置还可以。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2498,7 +2540,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前纳指砸、AI链普跌，但这更像流动性短线抽风而不是主趋势确认反转；我不在开盘前的红盘里乱砍强趋势，也不去接候选里的下跌刀。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2508,7 +2550,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前纳指明显回撤，候选池多数已经被昨日日内资金爆拉过一轮，我不在情绪从热转冷的早盘去接最后一棒，手里几只还能看到资金托举就先不乱动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

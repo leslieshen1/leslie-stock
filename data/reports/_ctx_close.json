@@ -1,184 +1,184 @@
 {
- "asof_et": "2026-06-25 22:45 ET Thu",
+ "asof_et": "2026-06-26 22:01 ET Fri",
  "indices": {
   "标普500": {
-   "close_pct": "+0.14%",
-   "close_price": "$734.30"
+   "close_pct": "-0.72%",
+   "close_price": "$728.99"
   },
   "纳指100": {
-   "close_pct": "+0.81%",
-   "close_price": "$716.38"
+   "close_pct": "-1.38%",
+   "close_price": "$706.52"
   },
   "道指": {
-   "close_pct": "+0.14%",
-   "close_price": "$519.26"
+   "close_pct": "-0.29%",
+   "close_price": "$517.75"
   },
   "罗素2000": {
-   "close_pct": "+0.75%",
-   "close_price": "$298.91"
+   "close_pct": "+0.31%",
+   "close_price": "$299.83"
   }
  },
  "market_status": "Closed",
  "gainers": [
   {
-   "sym": "TECH",
-   "name": "Bio-Techne Corp",
-   "close_price": "$70.70",
-   "close_pct": "+20.08%"
+   "sym": "BDRX",
+   "name": "Biodexa Pharmaceuticals plc American Depositary Shs",
+   "close_price": "$2.92",
+   "close_pct": "+16.80%"
   },
   {
-   "sym": "BB",
-   "name": "BlackBerry Limited",
-   "close_price": "$10.34",
-   "close_pct": "+19.95%"
+   "sym": "MRNA",
+   "name": "Moderna Inc.",
+   "close_price": "$67.27",
+   "close_pct": "+12.59%"
   },
   {
-   "sym": "AYI",
-   "name": "Acuity Inc.",
-   "close_price": "$359.39",
-   "close_pct": "+17.64%"
+   "sym": "IBRX",
+   "name": "ImmunityBio Inc.",
+   "close_price": "$8.71",
+   "close_pct": "+11.81%"
   },
   {
-   "sym": "KYMR",
-   "name": "Kymera Therapeutics Inc.",
-   "close_price": "$116.46",
-   "close_pct": "+16.61%"
+   "sym": "DKNG",
+   "name": "DraftKings Inc. Class A",
+   "close_price": "$25.70",
+   "close_pct": "+11.26%"
   },
   {
-   "sym": "MU",
-   "name": "Micron Technology Inc.",
-   "close_price": "$1,213.56",
-   "close_pct": "+15.74%"
+   "sym": "CHYM",
+   "name": "Chime Financial Inc. Class A",
+   "close_price": "$20.32",
+   "close_pct": "+11.22%"
   },
   {
-   "sym": "UCTT",
-   "name": "Ultra Clean Holdings Inc.",
-   "close_price": "$120.66",
-   "close_pct": "+11.29%"
+   "sym": "FROG",
+   "name": "JFrog Ltd.",
+   "close_price": "$87.58",
+   "close_pct": "+11.14%"
   },
   {
-   "sym": "MXL",
-   "name": "MaxLinear Inc.",
-   "close_price": "$94.47",
-   "close_pct": "+11.15%"
-  },
-  {
-   "sym": "TER",
-   "name": "Teradyne Inc.",
-   "close_price": "$471.96",
-   "close_pct": "+10.48%"
-  }
- ],
- "losers": [
-  {
-   "sym": "TCOM",
-   "name": "Trip.com Group Limited",
-   "close_price": "$40.49",
-   "close_pct": "-12.55%"
-  },
-  {
-   "sym": "EQPT",
-   "name": "EquipmentShare.com Inc Class A",
-   "close_price": "$19.69",
-   "close_pct": "-11.70%"
-  },
-  {
-   "sym": "STRD",
-   "name": "Strategy Inc 10.00% Series A Perpetual Stride Preferred Stock",
-   "close_price": "$50.00",
-   "close_pct": "-9.84%"
-  },
-  {
-   "sym": "HONAV",
-   "name": "Honeywell Aerospace Inc. Common Stock When Issued",
-   "close_price": "$221.01",
-   "close_pct": "-9.79%"
+   "sym": "FDS",
+   "name": "FactSet Research Systems Inc.",
+   "close_price": "$231.74",
+   "close_pct": "+10.97%"
   },
   {
    "sym": "FIG",
    "name": "Figma Inc. Class A",
-   "close_price": "$16.84",
-   "close_pct": "-9.66%"
+   "close_price": "$18.62",
+   "close_pct": "+10.57%"
+  }
+ ],
+ "losers": [
+  {
+   "sym": "MAAS",
+   "name": "Maase Inc. Class A",
+   "close_price": "$12.77",
+   "close_pct": "-26.82%"
   },
   {
-   "sym": "MSTR",
-   "name": "Strategy Inc Common Stock Class A",
-   "close_price": "$85.33",
-   "close_pct": "-9.35%"
+   "sym": "ON",
+   "name": "ON Semiconductor Corporation",
+   "close_price": "$90.65",
+   "close_pct": "-23.66%"
   },
   {
-   "sym": "DUOL",
-   "name": "Duolingo Inc. Class A",
-   "close_price": "$119.94",
-   "close_pct": "-9.24%"
+   "sym": "BE",
+   "name": "Bloom Energy Corporation Class A",
+   "close_price": "$252.02",
+   "close_pct": "-18.49%"
   },
   {
-   "sym": "JEF",
-   "name": "Jefferies Financial Group Inc.",
-   "close_price": "$52.64",
-   "close_pct": "-9.15%"
+   "sym": "FORM",
+   "name": "FormFactor Inc. FormFactor Inc.",
+   "close_price": "$130.74",
+   "close_pct": "-12.11%"
+  },
+  {
+   "sym": "CRDO",
+   "name": "Credo Technology Group Holding Ltd",
+   "close_price": "$238.00",
+   "close_pct": "-11.20%"
+  },
+  {
+   "sym": "COCO",
+   "name": "The Vita Coco Company Inc.",
+   "close_price": "$73.71",
+   "close_pct": "-10.71%"
+  },
+  {
+   "sym": "MOD",
+   "name": "Modine Manufacturing Company",
+   "close_price": "$255.99",
+   "close_pct": "-9.76%"
+  },
+  {
+   "sym": "POWL",
+   "name": "Powell Industries Inc.",
+   "close_price": "$279.77",
+   "close_pct": "-9.52%"
   }
  ],
  "watchlist": [
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "close_price": "$153.00",
-   "close_pct": "-1.00%"
+   "close_price": "$153.23",
+   "close_pct": "+0.15%"
   },
   {
    "sym": "MU",
    "name": "Micron Technology Inc.",
-   "close_price": "$1,213.56",
-   "close_pct": "+15.74%"
+   "close_price": "$1,132.33",
+   "close_pct": "-6.69%"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "close_price": "$195.74",
+   "close_price": "$192.53",
    "close_pct": "-1.64%"
   },
   {
    "sym": "AVGO",
    "name": "Broadcom Inc.",
-   "close_price": "$378.91",
-   "close_pct": "-0.83%"
+   "close_price": "$365.02",
+   "close_pct": "-3.67%"
   },
   {
    "sym": "AMD",
    "name": "Advanced Micro Devices Inc.",
-   "close_price": "$532.57",
-   "close_pct": "+2.47%"
+   "close_price": "$521.58",
+   "close_pct": "-2.06%"
   },
   {
    "sym": "ARM",
    "name": "Arm Holdings plc",
-   "close_price": "$347.71",
-   "close_pct": "-3.17%"
+   "close_price": "$334.27",
+   "close_pct": "-3.87%"
   },
   {
    "sym": "SMCI",
    "name": "Super Micro Computer Inc.",
-   "close_price": "$31.68",
-   "close_pct": "-2.37%"
+   "close_price": "$30.63",
+   "close_pct": "-3.31%"
   },
   {
    "sym": "PLTR",
    "name": "Palantir Technologies Inc. Class A",
-   "close_price": "$107.27",
-   "close_pct": "-5.49%"
+   "close_price": "$112.93",
+   "close_pct": "+5.28%"
   },
   {
    "sym": "TSLA",
    "name": "Tesla Inc.",
-   "close_price": "$375.12",
-   "close_pct": "-0.11%"
+   "close_price": "$379.71",
+   "close_pct": "+1.22%"
   },
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "close_price": "$407.25",
-   "close_pct": "+3.76%"
+   "close_price": "$380.56",
+   "close_pct": "-6.55%"
   }
  ],
  "earnings": [
@@ -230,229 +230,47 @@
    "hour": "",
    "epsEst": null,
    "date": "2026-06-26"
-  },
-  {
-   "sym": "AFB",
-   "name": "AllianceBernstein National Municipal Income Fund Inc",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "AOUT",
-   "name": "American Outdoor Brands Inc.",
-   "hour": "amc",
-   "epsEst": -0.0051,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "AYI",
-   "name": "Acuity Inc.",
-   "hour": "bmo",
-   "epsEst": 5.2376,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "CCD",
-   "name": "Calamos Dynamic Convertible & Income Fund",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "CHW",
-   "name": "Calamos Global Dynamic Income Fund",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "CMC",
-   "name": "Commercial Metals Company",
-   "hour": "bmo",
-   "epsEst": 1.7728,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "CNVS",
-   "name": "Cineverse Corp. Class A",
-   "hour": "",
-   "epsEst": -0.0153,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "DRI",
-   "name": "Darden Restaurants Inc.",
-   "hour": "bmo",
-   "epsEst": 3.6697,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "ETO",
-   "name": "Eaton Vance Tax-Advantage Global Dividend Opp",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "EVT",
-   "name": "Eaton Vance Tax Advantaged Dividend Income Fund Common Shares of Beneficial Interest",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "EXG",
-   "name": "Eaton Vance Tax-Managed Global Diversified Equity Income Fund Common Shares of Beneficial Interest",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "MSN",
-   "name": "Emerson Radio Corporation",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "MXC",
-   "name": "Mexco Energy Corporation",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "NGTF",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "NNOX",
-   "name": "NANO-X IMAGING LTD",
-   "hour": "bmo",
-   "epsEst": -0.204,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "OMSE",
-   "name": "OMS Energy Technologies Inc.",
-   "hour": "amc",
-   "epsEst": 0.153,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "PEVM",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "PMO",
-   "name": "Putnam Municipal Opportunities Trust",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "SNX",
-   "name": "TD SYNNEX Corporation",
-   "hour": "bmo",
-   "epsEst": 4.182,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "TTRX",
-   "name": "Turn Therapeutics Inc.",
-   "hour": "",
-   "epsEst": -0.0306,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "VTIX",
-   "name": "Virtuix Holdings Inc. Class A",
-   "hour": "bmo",
-   "epsEst": -0.374,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "WGO",
-   "name": "Winnebago Industries Inc.",
-   "hour": "bmo",
-   "epsEst": 0.7663,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "WSE",
-   "name": "Wise Group plc Class A",
-   "hour": "amc",
-   "epsEst": 0.1925,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "XCUR",
-   "name": "Exicure Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "XITO",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-06-25"
-  },
-  {
-   "sym": "YRD",
-   "name": "Yiren Digital Ltd. American Depositary Shares each representing two ordinary shares",
-   "hour": "bmo",
-   "epsEst": null,
-   "date": "2026-06-25"
   }
  ],
  "news": [
   {
-   "h": "Nasdaq falls for a fourth day as a drop in Apple overshadows Micron's booming earnings: Live updates",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq slide as report of OpenAI IPO delay rattles techs",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "Nasdaq Composite posts fifth losing session Friday as chip stocks tumble: Live updates",
    "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq rebound after tech rout as oil prices tumble",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market Today: Nasdaq Stumbles Despite Micron Blockbuster Earnings; Wendy's in Focus — Live Updates",
+   "h": "Stock Market News, June 26, 2026: Nasdaq Edges Lower to Close Tough Week",
    "src": "WSJ",
    "sum": ""
   },
   {
-   "h": "Markets News, June 25, 2026: Nasdaq Slides as Tech Giants' Retreat Outweighs Micron-Led Memory Rally; Oil Rises as Mideast Tensions Flare",
+   "h": "AI stocks melt down again. What’s going on?",
+   "src": "CNN",
+   "sum": ""
+  },
+  {
+   "h": "Markets News, June 26, 2026: S&P 500, Nasdaq Post Weekly Losses as Tech Sell-Off Continues",
    "src": "Investopedia",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Indexes Mixed; S&P 500 Barely Holds This Significant Level (Live Coverage)",
+   "h": "Dow Jones Futures: S&P 500 Set To Break Key Level As Techs Tumble; What To Do Now",
    "src": "Investor's Business Daily",
    "sum": ""
   },
   {
-   "h": "Amateur investors are changing how the stock market works. That’s creating opportunities for those who know where to look.",
+   "h": "Stock Market on June 26, 2026: Dow closes lower, S&P 500 and Nasdaq each fall a fifth straight day; S&P 500 books weekly loss following Big Tech slump",
    "src": "MarketWatch",
    "sum": ""
   },
   {
-   "h": "Stock Market Today (June 25, 2026): Mag7 falls after Apple, Microsoft announce price increases on iPhone, Xbox",
-   "src": "thestreet.com",
-   "sum": ""
-  },
-  {
-   "h": "Stock market today: Dow rises, S&P 500 and Nasdaq slip as Micron soars, Apple drags Big Tech lower",
-   "src": "Yahoo Finance",
+   "h": "Wall St Week Ahead: Jobs data, rate bets in focus as US stocks close solid first half",
+   "src": "Reuters",
    "sum": ""
   },
   {
@@ -461,28 +279,28 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX Stock: Cathie Wood Bought More SPCX As It Dived 16%",
-   "src": "Investor's Business Daily",
-   "sum": ""
-  },
-  {
-   "h": "[MU] Micron stock jumps 15% as soaring prices from memory crunch lead to quadrupling of revenue",
+   "h": "[SPCX] SpaceX IPO takeaways: SPCX closes at $161, jumping 19% after record debut",
    "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "[NVDA] Nvidia Stock Tests Key Support Level. What’s Keeping It From Rising?",
-   "src": "Barron's",
+   "h": "[MU] Micron sinks 6%, wrapping a wild week of trading that saw big swings",
+   "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "[NVDA] NVDA Who? Micron Blows Doors Off Q3 Earnings, Revs",
+   "h": "[MU] Micron’s stock is still dirt cheap. Some analysts say that’s about to change.",
+   "src": "MarketWatch",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Why Is Nvidia Stock So Cheap? This Is the Only Plausible Answer",
+   "src": "The Motley Fool",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Why I Continue to Prioritize AMD Stock Over Nvidia",
    "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] The Market Is Panicking on Broadcom. This Is Why I Keep Buying The Stock",
-   "src": "24/7 Wall St.",
    "sum": ""
   },
   {
@@ -491,79 +309,79 @@
    "sum": ""
   },
   {
-   "h": "[AMD] Why I Continue to Prioritize AMD Stock Over Nvidia",
+   "h": "[AVGO] Broadcom & OpenAI Unveil Jalapeno AI Chip: More Upside for AVGO Stock?",
+   "src": "Zacks Investment Research",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] AMD’s stock split history (& prospects) explained",
+   "src": "thestreet.com",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] This Artificial Intelligence (AI) Chip Stock Is Dominating the Inference Era. It Could Be the Biggest Winner of This Megatrend (Hint: It's Not AMD or Broadcom)",
+   "src": "The Motley Fool",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Micron Just Delivered Great News for Intel, AMD, Arm, and Qualcomm Stock Investors",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[AMD] UBS raises AMD stock price target to $670 on server CPU share gains",
-   "src": "Investing.com",
+   "h": "[ARM] Is Arm Holdings a Buy Near $347? The Case for Double-Digit Upside",
+   "src": "24/7 Wall St.",
    "sum": ""
   },
   {
-   "h": "[ARM] Bernstein Raises its Price Target on Arm Holdings (ARM)",
-   "src": "Yahoo Finance",
-   "sum": ""
+   "h": "Iran's Revolutionary Guards say it targeted US positions in the region in response to attack - Reuters",
+   "src": "Reuters",
+   "sum": "Iran's Revolutionary Guards say it targeted US positions in the region in response to attack  Reuters"
   },
   {
-   "h": "[ARM] SoftBank chipmaker Arm hits 50% share in top AI data centers: exec",
-   "src": "Nikkei Asia",
-   "sum": ""
+   "h": "US strikes Iran in response to attack on cargo ship in Strait of Hormuz - Reuters",
+   "src": "Reuters",
+   "sum": "US strikes Iran in response to attack on cargo ship in Strait of Hormuz  Reuters"
   },
   {
-   "h": "As Social Security faces trust fund depletion, some Washington lawmakers call for taxing high earners",
+   "h": "Israel, Lebanon sign initial agreement after US-mediated talks - Reuters",
+   "src": "Reuters",
+   "sum": "Israel, Lebanon sign initial agreement after US-mediated talks  Reuters"
+  },
+  {
+   "h": "US military conducted strikes against Iran - Reuters",
+   "src": "Reuters",
+   "sum": "US military conducted strikes against Iran  Reuters"
+  },
+  {
+   "h": "Oracle stock has worst week since 2001 dot-com bust as AI financing concerns escalate",
    "src": "CNBC",
-   "sum": "High earners may only contribute Social Security payroll taxes for part of the year. As the program faces funding woes, some lawmakers say that should change."
+   "sum": "Oracle's surging spending, negative free cash flow and $130 billion debt pile are weighing on the stock."
   },
   {
-   "h": "FIFA gives green light for rainbow flags at Egypt v Iran World Cup clash - Reuters",
-   "src": "Reuters",
-   "sum": "FIFA gives green light for rainbow flags at Egypt v Iran World Cup clash  Reuters"
-  },
-  {
-   "h": "Apple stock gets slammed on bigger Mac, iPad price hikes. Why it can weather the storm",
+   "h": "Walmart heir Lukas Walton buys minority stake in the Chicago Bulls and United Center",
    "src": "CNBC",
-   "sum": "The stock had its worst session in more than a year as management made its first official move to pass higher memory costs onto consumers."
+   "sum": "Lukas Walton is the 39-year-old grandson of Walmart founder Sam Walton. He and Samantha Walton are residents of Chicago."
   },
   {
-   "h": "UN pauses Hormuz evacuation plan after ship reports attack - Reuters",
-   "src": "Reuters",
-   "sum": "UN pauses Hormuz evacuation plan after ship reports attack  Reuters"
-  },
-  {
-   "h": "Crude shipments through Hormuz at highest since Iran war began - Reuters",
-   "src": "Reuters",
-   "sum": "Crude shipments through Hormuz at highest since Iran war began  Reuters"
-  },
-  {
-   "h": "Obesity drugs approach a major milestone, and Lilly may have a 'game changer' ahead",
+   "h": "Healthcare stocks have caught fire, sending all 3 of our names to record highs",
    "src": "CNBC",
    "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
   },
   {
-   "h": "Iran fired on cargo ship, US officials tell Reuters - Reuters",
+   "h": "US diesel refining economics remain firm despite Iran war truce - Reuters",
    "src": "Reuters",
-   "sum": "Iran fired on cargo ship, US officials tell Reuters  Reuters"
+   "sum": "US diesel refining economics remain firm despite Iran war truce  Reuters"
   },
   {
-   "h": "Judge blocks Trump's rule limiting federal student loans for certain grad school borrowers",
+   "h": "Honeywell Aerospace lands an analyst endorsement ahead of its debut. This is our plan for the stock",
    "src": "CNBC",
-   "sum": "A federal judge temporarily blocked Trump's limits on how much certain graduate students can borrow. That policy was set to go into effect July 1."
+   "sum": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET."
   },
   {
-   "h": "We're trimming a health-care stock into strength and raising our price target",
+   "h": "We're adding to our position in a newly public stock that's still finding its footing",
    "src": "CNBC",
-   "sum": "It's been a remarkable turnaround for a name we started to buy a little too high and a little too fast when the Iran war broke out."
-  },
-  {
-   "h": "We're locking in triple-digit profits on an AI winner at record highs",
-   "src": "CNBC",
-   "sum": "The stock has soared this week for unclear reasons."
-  },
-  {
-   "h": "The Club's top 10 things to watch in the stock market Thursday",
-   "src": "CNBC",
-   "sum": "Another monster quarter from Micron has ignited a chip stock rally."
+   "sum": "The purchase will help us build up this new position."
   }
  ]
 }

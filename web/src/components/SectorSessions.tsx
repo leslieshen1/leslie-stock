@@ -169,7 +169,9 @@ export default function SectorSessions() {
   }));
 
   const usLiveCol = range === "today" && usLiveNow ? SESS_IDX[session] : -1;
-  const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")] : [sLabel("盘前"), sLabel("盘中"), sLabel("盘后")];
+  // 休市时中间列填的是「上一交易日收盘」(收盘价 vs 昨收=当日最终涨跌),列名就叫「收盘」别叫「盘中」——否则休市却显示数据、看着像在实时交易(Leslie 反馈"盘中怎么会有东西")。
+  const usCols = range === "d7" ? [t("近7天", "7D")] : range === "d30" ? [t("近1月", "1M")]
+    : [sLabel("盘前"), usLiveNow ? sLabel("盘中") : t("收盘", "Close"), sLabel("盘后")];
   const aCols = range === "today" ? [t("今日涨跌", "Change")] : range === "d7" ? [t("近7天", "7D")] : [t("近1月", "1M")];
   const usSub = !us || !us.length ? ""
     : range === "d7" ? t("近 7 个交易日 · 市值加权", "Past 7 sessions · cap-weighted")

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { yahooSym } from "@/lib/quote-sym";
+import { QUOTE_URL } from "@/lib/quote-api";
 import { useLang } from "@/lib/i18n";
 
 // 分析师目标上涨空间 + 52周位置 —— 基准必须用实时价(与页头 LivePrice 同源 /api/quote),
@@ -28,7 +29,7 @@ export default function LiveValuation({
     let alive = true;
     const poll = async () => {
       try {
-        const r = await fetch(`/api/quote?syms=${encodeURIComponent(ysym)}`, { cache: "no-store" });
+        const r = await fetch(`${QUOTE_URL}?syms=${encodeURIComponent(ysym)}`, { cache: "no-store" });
         const j = await r.json();
         const p = j.quotes?.[ysym.toUpperCase()]?.price;
         if (alive && typeof p === "number") setLivePx(p);

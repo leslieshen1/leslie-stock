@@ -8,6 +8,7 @@ import AiPersonaNote from "@/components/AiPersonaNote";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useWatchlist, type LocalWatchEntry } from "@/lib/useWatchlist";
 import { useLang } from "@/lib/i18n";
+import { QUOTE_URL } from "@/lib/quote-api";
 
 type SortKey = "added" | "score" | "mcap";
 type PanelSummary = { order: string[]; stocks: Record<string, { sc: (number | null)[]; div: number }> };
@@ -58,7 +59,7 @@ export default function WatchlistClient() {
       const merged: Record<string, Quote> = {};
       for (let i = 0; i < syms.length; i += 25) {
         try {
-          const r = await fetch(`/api/quote?syms=${syms.slice(i, i + 25).join(",")}`, { cache: "no-store" });
+          const r = await fetch(`${QUOTE_URL}?syms=${syms.slice(i, i + 25).join(",")}`, { cache: "no-store" });
           Object.assign(merged, (await r.json()).quotes || {});
         } catch { /* 单批失败不阻塞 */ }
       }

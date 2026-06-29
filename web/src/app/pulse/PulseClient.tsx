@@ -5,6 +5,7 @@ import AiPersonaNote from "@/components/AiPersonaNote";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useWatchlist } from "@/lib/useWatchlist";
+import { QUOTE_URL } from "@/lib/quote-api";
 import PulseField from "./PulseField";
 import NvidiaChain from "./NvidiaChain";
 import ChainMap from "./ChainMap";
@@ -261,7 +262,7 @@ export default function PulseClient({
         ];
         if (hasA) tasks.push(fetch("/api/a-market", { cache: "no-store" }).then((r) => r.json()).catch(() => null));
         else tasks.push(Promise.resolve(null));
-        if (extKey) tasks.push(fetch(`/api/quote?syms=${encodeURIComponent(extKey)}`, { cache: "no-store" }).then((r) => r.json()).catch(() => null));
+        if (extKey) tasks.push(fetch(`${QUOTE_URL}?syms=${encodeURIComponent(extKey)}`, { cache: "no-store" }).then((r) => r.json()).catch(() => null));
         else tasks.push(Promise.resolve(null));
         const [us, a, ext] = await Promise.all(tasks);
         if (!alive) return;

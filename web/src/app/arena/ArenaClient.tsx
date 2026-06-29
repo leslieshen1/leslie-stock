@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { yahooSym } from "@/lib/quote-sym";
 import { marketStatus, MKT_LABEL_EN } from "@/lib/market-status";
+import { QUOTE_URL } from "@/lib/quote-api";
 
 // 展示层 EN 映射(数据仍是中文 SoT)
 const MASTER_EN: Record<string, { name: string; school: string }> = {
@@ -173,7 +174,7 @@ export default function ArenaClient({ us, a }: { us: Arena | null; a: Arena | nu
       const merged: Record<string, Quote> = {};
       await Promise.all(chunks.map(async (c) => {
         try {
-          const r = await fetch(`/api/quote?syms=${c.join(",")}`, { cache: "no-store" });
+          const r = await fetch(`${QUOTE_URL}?syms=${c.join(",")}`, { cache: "no-store" });
           const j = await r.json();
           for (const [k, q] of Object.entries((j.quotes || {}) as Record<string, Quote>))
             merged[back[k.toUpperCase()] ?? k] = q;

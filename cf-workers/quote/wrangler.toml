@@ -1,0 +1,7 @@
+name = "stockgod-quote"
+main = "src/index.ts"
+compatibility_date = "2025-06-01"
+
+# 部署后默认地址: https://stockgod-quote.<你的账号子域>.workers.dev
+# 想让边缘缓存(Cache API)更稳、并避免某些网络对 *.workers.dev 的拦截,
+# 建议在 Cloudflare 控制台给它挂自定义域(如 quote.stockgod.xyz),见 README.md。

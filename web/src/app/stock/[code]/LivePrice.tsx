@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { marketStatus, MKT_LABEL_EN, type MktState } from "@/lib/market-status";
 import { useLang } from "@/lib/i18n";
 import { yahooSym } from "@/lib/quote-sym";
+import { QUOTE_URL } from "@/lib/quote-api";
 
 type MktInfo = { state: MktState; label: string };
 
@@ -39,7 +40,7 @@ export default function LivePrice({
     let t: ReturnType<typeof setTimeout>;
     const poll = async () => {
       try {
-        const r = await fetch(`/api/quote?syms=${encodeURIComponent(ysym)}`, { cache: "no-store" });
+        const r = await fetch(`${QUOTE_URL}?syms=${encodeURIComponent(ysym)}`, { cache: "no-store" });
         const j = await r.json();
         const nq = j.quotes?.[ysym.toUpperCase()] as Q | undefined;
         if (!alive || !nq || nq.price == null) return;

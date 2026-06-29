@@ -2552,9 +2552,69 @@
    "reason": "盘前纳指明显回撤，候选池多数已经被昨日日内资金爆拉过一轮，我不在情绪从热转冷的早盘去接最后一棒，手里几只还能看到资金托举就先不乱动。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 124,
+   "fill_date": "2026-06-29",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我看不出今天有哪一门生意的长期护城河被破坏，也看不见足够大的安全边际让我卖掉好生意去追别的票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 125,
+   "fill_date": "2026-06-29",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我都看懂了，商业模式和文化没有变化，今天盘前涨跌不构成我换来换去的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 126,
+   "fill_date": "2026-06-29",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还踩在真瓶颈上：军工金属、HALEU、光互联、AI通电机柜、细胞疗法冷链这些下游钱都还在涌，我不因为盘前科技反弹或短线拥挤去乱换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 127,
+   "fill_date": "2026-06-29",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "BWXT",
+   "reason": "BWXT这匹马相对强度最弱，AI电力和核能叙事还在但价格没跟上，德鲁肯米勒式纪律就是把慢马让给快马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 128,
+   "fill_date": "2026-06-29",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "CIFR",
+   "reason": "今天流动性重新吹向高贝塔成长，CIFR同时吃AI电力资产和加密风险偏好，是这波反弹里弹性更猛的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 129,
+   "fill_date": "2026-06-29",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "DKNG",
+   "reason": "昨晚资金刚点火但盘前没继续乱冲，期权和散户热度还在、不是开盘前接爆拉最后一棒，顺势拿一仓但盯监管和情绪急反。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 124,
+ "next_order_id": 130,
  "notes": [
   {
    "date": "2026-06-12",

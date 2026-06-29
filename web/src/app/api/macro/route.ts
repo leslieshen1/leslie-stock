@@ -27,7 +27,7 @@ const SERIES = [
 async function liveOne(sym: string): Promise<{ price: number; pct: number | null } | null> {
   try {
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=5m&range=1d`;
-    const r = await fetchWithTimeout(url, { headers: { "user-agent": "Mozilla/5.0" }, next: { revalidate: 60 } }, 6000);
+    const r = await fetchWithTimeout(url, { headers: { "user-agent": "Mozilla/5.0" }, next: { revalidate: 120 } }, 6000);
     if (!r.ok) return null;
     const m = (await r.json())?.chart?.result?.[0]?.meta;
     const price = m?.regularMarketPrice;
@@ -55,5 +55,5 @@ export async function GET() {
     const st = sm.get(s.sym);
     return { ...s, price: l?.price ?? st?.price ?? null, pct: l?.pct ?? st?.pct ?? null };
   });
-  return Response.json({ series, ts: Date.now() }, { headers: { "cache-control": "s-maxage=60" } });
+  return Response.json({ series, ts: Date.now() }, { headers: { "cache-control": "s-maxage=120, stale-while-revalidate=600" } });
 }

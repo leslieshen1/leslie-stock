@@ -2,6 +2,7 @@
 // /api/quote?syms=NVDA,AAPL,688017.SS —— US 传纯代码;A股带 .SS/.SZ,港股 .HK。
 // 放量护栏:每 IP 限流 + 每代码 12s 合并缓存 + 上游超时 + 失败回退"上次好值"(见 api-guard)。
 import { clientIp, rateLimit, tooMany, cacheGet, cacheSet, fetchWithTimeout } from "@/lib/api-guard";
+import { marketStatus } from "@/lib/market-status";
 
 // 不 force-dynamic(它让边缘完全不缓存)。本接口按 ?syms 取价、读 req 本就动态;
 // 改用 Vercel-CDN-Cache-Control 让边缘按 URL(含 syms)缓存 6s —— 同一只票多人同看时共享一份,函数少打。
@@ -157,16 +158,19 @@ export async function GET(req: Request) {
       }
     })
   );
-  // 全部符号都没拿到价(上游集体失败)→ 不缓存这个"空响应",否则边缘会把空缓存 6s 喂给所有人、价格集体卡死。
+  // 全部符号都没拿到价(上游集体失败)→ 不缓存这个"空响应",否则边缘会把空缓存喂给所有人、价格集体卡死。
   const allEmpty = Object.keys(out).length === 0;
+  // 边缘缓存按时段:任一市场(美/A/港/韩)开盘=行情在动→短缓存 20s;全休市=行情不变→长缓存 600s。
+  // 关键是拉长 stale-while-revalidate —— 轮询在 SWR 窗口内大量命中边缘、只偶尔后台回源,大削 Vercel 函数调用 + Origin Transfer。
+  const anyOpen = (["us", "a", "hk", "kr"] as const).some((m) => marketStatus(new Date(), m).state !== "closed");
+  const cdn = anyOpen ? "max-age=20, stale-while-revalidate=600" : "max-age=600, stale-while-revalidate=1800";
   return Response.json(
     { quotes: out, ts: Date.now() },
-    // 同一代码 URL 在边缘也短缓存,热门票多人同看时进一步削上游(force-dynamic 移除后才真生效)
     { headers: allEmpty
       ? { "cache-control": "no-store" }
       : {
           "cache-control": "public, max-age=0, must-revalidate",
-          "Vercel-CDN-Cache-Control": "max-age=6, stale-while-revalidate=20",
+          "Vercel-CDN-Cache-Control": cdn,
         } },
   );
 }

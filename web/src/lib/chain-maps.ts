@@ -92,4 +92,30 @@ export const CHAIN_MAPS: Record<string, ChainMapDef> = {
         L("ABB / 发那科 / 库卡 / 安川", "海外工业机器人")] },
     ],
   },
+
+  // ===== AI + 医疗(题材链 · 政策推、故事大,但 AI 应用股业绩普遍还没跟上)=====
+  "ai-health": {
+    flow: "AI制药 → AI诊断/基因 → AI影像/器械 → 医疗大模型/IT → 在线诊疗 → 科技巨头 · 题材热、兑现远",
+    flowEn: "AI drug discovery → diagnostics → imaging/devices → medical LLM → telehealth → big-tech",
+    groups: [
+      { tie: "① AI 制药 · 药物发现(故事最大 · 兑现最远)", tieEn: "AI drug discovery", nodes: [
+        U("SDGR", "薛定谔 物理+AI"), U("RXRX", "Recursion"), U("ABSI", "Absci"), U("GENB", "Generate Bio"),
+        A("688222", "成都先导"), A("301230", "泓博医药"),
+        L("晶泰科技 · 首家盈利", "港股·未覆盖"), L("英矽智能 · AI制药第一股", "港股·未覆盖")] },
+      { tie: "② AI 诊断 · 精准医疗 / 基因(最接近商业化)", tieEn: "AI diagnostics / genomics", nodes: [
+        U("TEM", "Tempus AI · 龙头"), U("GH", "Guardant"), U("ILMN", "Illumina 测序"), U("DOCS", "Doximity"),
+        A("300244", "迪安诊断")] },
+      { tie: "③ AI 影像 / 智能器械(有业绩 · 最实)", tieEn: "AI imaging / devices", nodes: [
+        A("688271", "联影医疗"), A("300760", "迈瑞医疗"),
+        U("IRTC", "iRhythm 心律"), U("BFLY", "Butterfly 超声"), U("PODD", "Insulet 胰岛素泵")] },
+      { tie: "④ 医疗大模型 / 医疗 IT(中国主战场)", tieEn: "Medical LLM / health IT", nodes: [
+        A("002230", "科大讯飞"), A("300253", "卫宁健康"), A("688246", "嘉和美康"), A("600718", "东软集团"),
+        L("讯飞医疗 · 大模型第一股", "港股·未覆盖")] },
+      { tie: "⑤ AI 在线诊疗 / 数字健康(美股)", tieEn: "AI telehealth", nodes: [
+        U("HIMS", "Hims & Hers"), U("TDOC", "Teladoc")] },
+      { tie: "⑥ 医疗大模型 · 科技巨头入局", tieEn: "Big-tech medical AI", nodes: [
+        U("GOOGL", "谷歌"), U("AMZN", "亚马逊"),
+        L("Anthropic · Claude Medical"), L("OpenAI 健康助手"), L("Hippocratic AI")] },
+    ],
+  },
 };

@@ -327,6 +327,7 @@ export default function PulseClient({
     { id: "tesla", name: t("特斯拉 · 车 + 机器人", "Tesla · EV + robot"), anchor: t("马斯克", "Musk") },
     { id: "bytedance", name: t("字节 · 抖音 AI 生态", "ByteDance · AI ecosystem"), anchor: t("私有", "private") },
     { id: "physical-ai", name: t("物理 AI · 机器人链", "Physical AI · robotics"), anchor: t("具身智能", "embodied") },
+    { id: "ai-health", name: t("AI + 医疗链", "AI + healthcare"), anchor: t("AI制药/诊断", "pharma/dx") },
   ].filter((s) => s.id === "AI-core" || !!CHAIN_MAPS[s.id]); // 明星产业链 = 英伟达(精策展)+ CHAIN_MAPS 里的知名公司链
 
   // 按 industry 取节点:AI = 全部;其余链 = placement 里的票 + 摆到该链的层

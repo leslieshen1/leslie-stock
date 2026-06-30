@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-29 22:15 ET Mon",
+ "asof_et": "2026-06-29 22:31 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "+1.65%",
@@ -14,8 +14,8 @@
    "close_price": "$521.68"
   },
   "罗素2000": {
-   "close_pct": "-0.28%",
-   "close_price": "$299.00"
+   "close_pct": "-0.29%",
+   "close_price": "$298.97"
   }
  },
  "market_status": "Closed",
@@ -520,13 +520,13 @@
    "sum": ""
   },
   {
-   "h": "[ARM] Arm Stock Isn’t Immune to the Tech Selloff. Wall Street Still Sees Big Upside.",
-   "src": "Barron's",
+   "h": "[ARM] Why are Intel, AMD, ARM stocks selling off today?",
+   "src": "TradingView",
    "sum": ""
   },
   {
-   "h": "[ARM] Arm Holdings (ARM) Unveils Its AGI CPU, Is The Upside Already Priced In?",
-   "src": "simplywall.st",
+   "h": "[ARM] Arm says it tops 50% share in hyperscale cloud as x86 grip slips",
+   "src": "digitimes",
    "sum": ""
   },
   {

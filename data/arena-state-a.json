@@ -212,6 +212,31 @@
    "master": "sentiment",
    "date": "2026-06-29",
    "nav": 1000000.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-30",
+   "nav": 987484.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-30",
+   "nav": 1001301.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-30",
+   "nav": 1026322.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-30",
+   "nav": 1000000.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-30",
+   "nav": 1000000.0
   }
  ],
  "trades": [
@@ -734,7 +759,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我大体看得懂，价格也没有给我足够理由换马；好公司不需要每天动手。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -744,7 +769,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看得懂，也都是可以十年看的好生意，今天没有必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -754,7 +779,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还在真瓶颈位置，今天候选没给我明确错杀价，我不为了把现金打光去追一堆已经被市场看见的铲子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -764,7 +789,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "没有可买载体，也没有流动性顺风下的高弹性表达，空仓就是纪律。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -774,7 +799,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价全线0波动，盘口没有资金抢筹痕迹，死水无资金我不硬上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

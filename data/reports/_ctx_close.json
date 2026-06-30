@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-29 22:01 ET Mon",
+ "asof_et": "2026-06-29 22:15 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "+1.65%",
@@ -14,8 +14,8 @@
    "close_price": "$521.68"
   },
   "罗素2000": {
-   "close_pct": "-0.29%",
-   "close_price": "$298.97"
+   "close_pct": "-0.28%",
+   "close_price": "$299.00"
   }
  },
  "market_status": "Closed",
@@ -430,7 +430,7 @@
  ],
  "news": [
   {
-   "h": "Stock futures are little changed after the Dow posts new record close: Live updates",
+   "h": "Dow jumps 300 points for first close above 52,000, powered by new member Alphabet",
    "src": "CNBC",
    "sum": ""
   },
@@ -475,8 +475,8 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX (SPCX) Stock Heads To The Nasdaq 100 As It Buys Cursor",
-   "src": "simplywall.st",
+   "h": "[SPCX] SpaceX Stock Forecast — Nasdaq-100 Inclusion Could Change Everything for SPCX",
+   "src": "TipRanks",
    "sum": ""
   },
   {
@@ -490,13 +490,13 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Nvidia Stock Continues Slide Amid Tech Sell-Off",
-   "src": "Investor's Business Daily",
+   "h": "[NVDA] How Much Upside Can NVDA Stock's Growth Deliver?",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[NVDA] How Much Upside Can NVDA Stock's Growth Deliver?",
-   "src": "Yahoo Finance",
+   "h": "[NVDA] Analysts Are Bullish on Top Technology Stocks: Penguin Solutions (PENG), Nvidia (NVDA)",
+   "src": "The Globe and Mail",
    "sum": ""
   },
   {
@@ -520,13 +520,13 @@
    "sum": ""
   },
   {
-   "h": "[ARM] Why are Intel, AMD, ARM stocks selling off today?",
-   "src": "TradingView",
+   "h": "[ARM] Arm Stock Isn’t Immune to the Tech Selloff. Wall Street Still Sees Big Upside.",
+   "src": "Barron's",
    "sum": ""
   },
   {
-   "h": "[ARM] Micron Just Delivered Great News for Intel, AMD, Arm, and Qualcomm Stock Investors",
-   "src": "The Motley Fool",
+   "h": "[ARM] Arm Holdings (ARM) Unveils Its AGI CPU, Is The Upside Already Priced In?",
+   "src": "simplywall.st",
    "sum": ""
   },
   {

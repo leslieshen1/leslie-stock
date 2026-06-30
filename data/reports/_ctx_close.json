@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-29 22:31 ET Mon",
+ "asof_et": "2026-06-29 22:46 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "+1.65%",
@@ -515,8 +515,8 @@
    "sum": ""
   },
   {
-   "h": "[AMD] Why are Intel, AMD, ARM stocks selling off today?",
-   "src": "TradingView",
+   "h": "[AMD] AMD Stock Is Crushing Nvidia's in 2026. Will That Continue?",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -528,6 +528,11 @@
    "h": "[ARM] Arm says it tops 50% share in hyperscale cloud as x86 grip slips",
    "src": "digitimes",
    "sum": ""
+  },
+  {
+   "h": "Oil falls as investors focus on potential Iran-US talks in Doha - Reuters",
+   "src": "Reuters",
+   "sum": "Oil falls as investors focus on potential Iran-US talks in Doha  Reuters"
   },
   {
    "h": "Trump urges gasoline retailers to lower prices, warns of 'big problems' if they don't - Reuters",
@@ -550,6 +555,11 @@
    "sum": "Trading Day: Wall Street gains, Dow hits record closing high as fragile U.S.-Iran truce holds  Reuters"
   },
   {
+   "h": "Stocks and oil prices rise with eyes on Iran; yen touches 40-year low vs dollar - Reuters",
+   "src": "Reuters",
+   "sum": "Stocks and oil prices rise with eyes on Iran; yen touches 40-year low vs dollar  Reuters"
+  },
+  {
    "h": "Salesforce is on an AI buying spree, but Wall Street still has its doubts",
    "src": "CNBC",
    "sum": "The company has announced three deals in the month of June alone."
@@ -568,16 +578,6 @@
    "h": "Eli Lilly, Regeneron among first companies selected for FDA initiative to speed review of new manufacturing facilities",
    "src": "CNBC",
    "sum": "Eli Lilly and Regeneron are among the first seven companies the FDA has selected for its PreCheck Pilot Program, CNBC has learned."
-  },
-  {
-   "h": "Chip stocks rebound, and Goldman racks up a series of M&A wins",
-   "src": "CNBC",
-   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
-  },
-  {
-   "h": "Here's how Trump Accounts could affect women's retirement savings gap",
-   "src": "CNBC",
-   "sum": "While Trump Accounts are unlikely to directly improve retirement savings among women, there may be an indirect benefit, says one expert."
   }
  ]
 }

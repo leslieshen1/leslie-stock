@@ -2677,9 +2677,69 @@
    "reason": "昨晚资金刚点火但盘前没继续乱冲，期权和散户热度还在、不是开盘前接爆拉最后一棒，顺势拿一仓但盯监管和情绪急反。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 130,
+   "fill_date": "2026-06-30",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意的护城河没有因为一夜盘口改变，而候选里也没有便宜到让我卖掉好公司去换仓的价格。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 131,
+   "fill_date": "2026-06-30",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看得懂，商业模式和文化没有变，盘前这一点点波动不值得我为了动作而动作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 132,
+   "fill_date": "2026-06-30",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在真瓶颈位置，今天候选里 AMPX/LPTH/LASR 这种盘前已经被点火，我不为买满去接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 133,
+   "fill_date": "2026-06-30",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "VST",
+   "reason": "AI电力短缺这条宏观大潮还没变，VST今天没被爆拉、流动性顺风时它是比一般工业票更干净的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 134,
+   "fill_date": "2026-06-30",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "AKTS",
+   "reason": "放疗并购热已经被盘口充分交易，盘前直接-4.5%像事件资金抢跑撤退，高拥挤催化票情绪反转会非常快，先落袋。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 135,
+   "fill_date": "2026-06-30",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "BWIN",
+   "reason": "无硬催化的一周情绪加速票现在盘前转弱，资金面不像继续进攻，更像涨后兑现，先把这笔情绪利润收回来。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 130,
+ "next_order_id": 136,
  "notes": [
   {
    "date": "2026-06-12",

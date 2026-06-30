@@ -3,8 +3,8 @@
   "buffett": 43465.01,
   "duan": 40172.16,
   "serenity": 13342.45,
-  "druckenmiller": 68500.54,
-  "sentiment": 249376.95
+  "druckenmiller": 175738.73,
+  "sentiment": 91661.55
  },
  "positions": [
   {
@@ -197,20 +197,6 @@
    "entry_date": "2026-06-24"
   },
   {
-   "master": "druckenmiller",
-   "sym": "BWXT",
-   "shares": 598,
-   "entry": 205.65,
-   "entry_date": "2026-06-24"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "CCJ",
-   "shares": 1155,
-   "entry": 106.64,
-   "entry_date": "2026-06-24"
-  },
-  {
    "master": "sentiment",
    "sym": "AKTS",
    "shares": 5328,
@@ -251,6 +237,20 @@
    "shares": 2060,
    "entry": 47.21,
    "entry_date": "2026-06-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "CIFR",
+   "shares": 5052,
+   "entry": 24.83,
+   "entry_date": "2026-06-29"
+  },
+  {
+   "master": "sentiment",
+   "sym": "DKNG",
+   "shares": 6113,
+   "entry": 25.8,
+   "entry_date": "2026-06-29"
   }
  ],
  "nav": [
@@ -528,6 +528,31 @@
    "master": "sentiment",
    "date": "2026-06-26",
    "nav": 1036097.51
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-29",
+   "nav": 983029.02
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-29",
+   "nav": 979249.2
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-29",
+   "nav": 1040653.67
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-29",
+   "nav": 1090812.27
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-29",
+   "nav": 1051480.24
   }
  ],
  "trades": [
@@ -1539,6 +1564,46 @@
    "shares": 2060,
    "price": 47.21,
    "reason": "纳指盘前在杀拥挤AI久期，但我今天只加真正不靠估值叙事的小涡喷/无人机军工瓶颈，巡航弹和攻击型无人机量产每台都要吃这块BOM，KTOS没爆拉、位置还可以。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-29",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "BWXT",
+   "shares": 598,
+   "price": 189.25,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-29",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "CCJ",
+   "shares": 1155,
+   "price": 103.47,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-29",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "CIFR",
+   "shares": 5052,
+   "price": 24.83,
+   "reason": "今天流动性重新吹向高贝塔成长，CIFR同时吃AI电力资产和加密风险偏好，是这波反弹里弹性更猛的载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-29",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "DKNG",
+   "shares": 6113,
+   "price": 25.8,
+   "reason": "昨晚资金刚点火但盘前没继续乱冲，期权和散户热度还在、不是开盘前接爆拉最后一棒，顺势拿一仓但盯监管和情绪急反。",
    "src": "ai"
   }
  ],
@@ -2560,7 +2625,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我看不出今天有哪一门生意的长期护城河被破坏，也看不见足够大的安全边际让我卖掉好生意去追别的票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2570,7 +2635,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都看懂了，商业模式和文化没有变化，今天盘前涨跌不构成我换来换去的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2580,7 +2645,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还踩在真瓶颈上：军工金属、HALEU、光互联、AI通电机柜、细胞疗法冷链这些下游钱都还在涌，我不因为盘前科技反弹或短线拥挤去乱换马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2590,8 +2655,8 @@
    "action": "SELL",
    "sym": "BWXT",
    "reason": "BWXT这匹马相对强度最弱，AI电力和核能叙事还在但价格没跟上，德鲁肯米勒式纪律就是把慢马让给快马。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 128,
@@ -2600,7 +2665,7 @@
    "action": "BUY",
    "sym": "CIFR",
    "reason": "今天流动性重新吹向高贝塔成长，CIFR同时吃AI电力资产和加密风险偏好，是这波反弹里弹性更猛的载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2610,7 +2675,7 @@
    "action": "BUY",
    "sym": "DKNG",
    "reason": "昨晚资金刚点火但盘前没继续乱冲，期权和散户热度还在、不是开盘前接爆拉最后一棒，顺势拿一仓但盯监管和情绪急反。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

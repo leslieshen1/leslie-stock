@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-30 22:01 ET Tue",
+ "asof_et": "2026-06-30 22:15 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "+0.78%",
@@ -403,13 +403,13 @@
    "sum": ""
   },
   {
-   "h": "Tech Giants Power Stock Gains After AI-Fueled Rout: Markets Wrap",
-   "src": "Bloomberg.com",
+   "h": "US job openings were much higher than expected in May, shrugging off uncertainty from Iran war",
+   "src": "CNN",
    "sum": ""
   },
   {
-   "h": "US job openings were much higher than expected in May, shrugging off uncertainty from Iran war",
-   "src": "CNN",
+   "h": "Tech Giants Power Stock Gains After AI-Fueled Rout: Markets Wrap",
+   "src": "Bloomberg.com",
    "sum": ""
   },
   {
@@ -418,13 +418,13 @@
    "sum": ""
   },
   {
-   "h": "Yen slides to new 40-year low while Dow futures ease after strongest first half in five years: Live updates",
-   "src": "CNBC",
+   "h": "Dow Jones| Nasdaq | US Stock Market Today | Live: Nasdaq surges 1%, US stocks eye strongest quarter in ye...",
+   "src": "The Economic Times",
    "sum": ""
   },
   {
-   "h": "Dow Jones| Nasdaq | US Stock Market Today | Live: Nasdaq surges 1%, US stocks eye strongest quarter in ye...",
-   "src": "The Economic Times",
+   "h": "Yen slides to new 40-year low while Dow futures ease after strongest first half in five years: Live updates",
+   "src": "CNBC",
    "sum": ""
   },
   {
@@ -463,8 +463,8 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] Jefferies Keeps Their Buy Rating on Broadcom (AVGO)",
-   "src": "The Globe and Mail",
+   "h": "[AVGO] Broadcom: This Is Not A Golden Opportunity (NASDAQ:AVGO)",
+   "src": "Seeking Alpha",
    "sum": ""
   },
   {
@@ -486,6 +486,11 @@
    "h": "[ARM] Arm Holdings (ARM) Is A Part Of A Second “1776,” Says Newsletter",
    "src": "Yahoo Finance",
    "sum": ""
+  },
+  {
+   "h": "Oil ticks higher as Iran's refusal to meet US envoys dims ceasefire hopes - Reuters",
+   "src": "Reuters",
+   "sum": "Oil ticks higher as Iran's refusal to meet US envoys dims ceasefire hopes  Reuters"
   },
   {
    "h": "S&P 500, Nasdaq register best quarter since 2020 despite Iran war - Reuters",
@@ -531,11 +536,6 @@
    "h": "Hundreds of thousands of Lebanese head home as fighting eases, many still stranded - Reuters",
    "src": "Reuters",
    "sum": "Hundreds of thousands of Lebanese head home as fighting eases, many still stranded  Reuters"
-  },
-  {
-   "h": "Major egg producers settle price inflation probe for $3.3 million",
-   "src": "CNBC",
-   "sum": "Cal-Maine Foods, Versova and Hickman's Egg Ranch agreed to settle allegations of price manipulation by the Justice Department and 17 states."
   }
  ]
 }

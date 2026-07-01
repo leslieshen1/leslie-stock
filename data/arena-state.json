@@ -3,8 +3,8 @@
   "buffett": 43465.01,
   "duan": 40172.16,
   "serenity": 13342.45,
-  "druckenmiller": 175738.73,
-  "sentiment": 91661.55
+  "druckenmiller": 48200.21,
+  "sentiment": 429534.57
  },
  "positions": [
   {
@@ -183,24 +183,10 @@
    "entry_date": "2026-06-23"
   },
   {
-   "master": "sentiment",
-   "sym": "BWIN",
-   "shares": 6251,
-   "entry": 24.39,
-   "entry_date": "2026-06-23"
-  },
-  {
    "master": "druckenmiller",
    "sym": "TLN",
    "shares": 303,
    "entry": 405.89,
-   "entry_date": "2026-06-24"
-  },
-  {
-   "master": "sentiment",
-   "sym": "AKTS",
-   "shares": 5328,
-   "entry": 28.7,
    "entry_date": "2026-06-24"
   },
   {
@@ -251,6 +237,13 @@
    "shares": 6113,
    "entry": 25.8,
    "entry_date": "2026-06-29"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "VST",
+   "shares": 804,
+   "entry": 158.63,
+   "entry_date": "2026-06-30"
   }
  ],
  "nav": [
@@ -553,6 +546,31 @@
    "master": "sentiment",
    "date": "2026-06-29",
    "nav": 1051480.24
+  },
+  {
+   "master": "buffett",
+   "date": "2026-06-30",
+   "nav": 986745.29
+  },
+  {
+   "master": "duan",
+   "date": "2026-06-30",
+   "nav": 995640.92
+  },
+  {
+   "master": "serenity",
+   "date": "2026-06-30",
+   "nav": 1059678.28
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-06-30",
+   "nav": 1109717.02
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-06-30",
+   "nav": 1061962.25
   }
  ],
  "trades": [
@@ -1604,6 +1622,36 @@
    "shares": 6113,
    "price": 25.8,
    "reason": "昨晚资金刚点火但盘前没继续乱冲，期权和散户热度还在、不是开盘前接爆拉最后一棒，顺势拿一仓但盯监管和情绪急反。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-30",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "VST",
+   "shares": 804,
+   "price": 158.63,
+   "reason": "AI电力短缺这条宏观大潮还没变，VST今天没被爆拉、流动性顺风时它是比一般工业票更干净的高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-06-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "BWIN",
+   "shares": 6251,
+   "price": 26.58,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+9.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-06-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "AKTS",
+   "shares": 5328,
+   "price": 32.23,
+   "reason": "放疗并购热已经被盘口充分交易，盘前直接-4.5%像事件资金抢跑撤退，高拥挤催化票情绪反转会非常快，先落袋。",
    "src": "ai"
   }
  ],
@@ -2685,7 +2733,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河没有因为一夜盘口改变，而候选里也没有便宜到让我卖掉好公司去换仓的价格。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2695,7 +2743,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看得懂，商业模式和文化没有变，盘前这一点点波动不值得我为了动作而动作。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2705,7 +2753,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还在真瓶颈位置，今天候选里 AMPX/LPTH/LASR 这种盘前已经被点火，我不为买满去接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2715,7 +2763,7 @@
    "action": "BUY",
    "sym": "VST",
    "reason": "AI电力短缺这条宏观大潮还没变，VST今天没被爆拉、流动性顺风时它是比一般工业票更干净的高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2725,7 +2773,7 @@
    "action": "SELL",
    "sym": "AKTS",
    "reason": "放疗并购热已经被盘口充分交易，盘前直接-4.5%像事件资金抢跑撤退，高拥挤催化票情绪反转会非常快，先落袋。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2735,8 +2783,8 @@
    "action": "SELL",
    "sym": "BWIN",
    "reason": "无硬催化的一周情绪加速票现在盘前转弱，资金面不像继续进攻，更像涨后兑现，先把这笔情绪利润收回来。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   }
  ],
  "next_order_id": 136,

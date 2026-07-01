@@ -237,6 +237,31 @@
    "master": "sentiment",
    "date": "2026-06-30",
    "nav": 1000000.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-01",
+   "nav": 997621.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-01",
+   "nav": 1012288.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-01",
+   "nav": 1007532.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-01",
+   "nav": 1000000.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-01",
+   "nav": 1000000.0
   }
  ],
  "trades": [
@@ -809,7 +834,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓都是我愿意按年拥有的生意，今天没有出现足够便宜到值得换马的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -819,7 +844,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看得懂，也都是能拿十年的好生意，今天没有必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -829,7 +854,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位已经全是我认的真瓶颈，今天候选没有盘前错杀给我换仓的理由，我不为了动作而动作。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -839,7 +864,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "没有可买载体、也没有持仓可砍；流动性和趋势再好，不能凭空下注，现金就是今天最好的仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -849,7 +874,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价没有抢筹、没有资金流指纹，题材再多也只是死水，先不为买而买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-06-30 22:15 ET Tue",
+ "asof_et": "2026-06-30 22:31 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "+0.78%",
@@ -498,11 +498,6 @@
    "sum": "S&P 500, Nasdaq register best quarter since 2020 despite Iran war  Reuters"
   },
   {
-   "h": "Iran says it won't meet with U.S. envoys, clouding prospects for peace deal - Reuters",
-   "src": "Reuters",
-   "sum": "Iran says it won't meet with U.S. envoys, clouding prospects for peace deal  Reuters"
-  },
-  {
    "h": "Faces of elimination: World Cup fans in their moment of loss - Reuters",
    "src": "Reuters",
    "sum": "Faces of elimination: World Cup fans in their moment of loss  Reuters"
@@ -536,6 +531,11 @@
    "h": "Hundreds of thousands of Lebanese head home as fighting eases, many still stranded - Reuters",
    "src": "Reuters",
    "sum": "Hundreds of thousands of Lebanese head home as fighting eases, many still stranded  Reuters"
+  },
+  {
+   "h": "US oil production rises to record high in April, EIA says - Reuters",
+   "src": "Reuters",
+   "sum": "US oil production rises to record high in April, EIA says  Reuters"
   }
  ]
 }

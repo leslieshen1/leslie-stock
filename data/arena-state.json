@@ -2785,9 +2785,79 @@
    "reason": "无硬催化的一周情绪加速票现在盘前转弱，资金面不像继续进攻，更像涨后兑现，先把这笔情绪利润收回来。",
    "status": "rejected",
    "note": "未持有或无行情(可能已被机械止损)"
+  },
+  {
+   "id": 136,
+   "fill_date": "2026-07-01",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意的护城河没有因为一夜盘前报价改变，而候选名单里也没有便宜到值得我卖掉现有好生意去换的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 137,
+   "fill_date": "2026-07-01",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我都看懂了，模式和文化没变，盘前这点波动不值得让我因为市场情绪去动手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 138,
+   "fill_date": "2026-07-01",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "CORZ",
+   "reason": "CORZ 是算力抢电的有效瓶颈，但相比真正每台光互连都要吃的上游材料，它更像高波动数据中心主题票，我把这格仓位让给更窄的卡脖子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 139,
+   "fill_date": "2026-07-01",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "AXTI",
+   "reason": "InP 衬底卡在 800G/1.6T 光互连的最上游，供应商少、验证长、每个 AI 机柜都间接吃它 BOM，今天盘前回落给了我加仓真瓶颈的窗口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 140,
+   "fill_date": "2026-07-01",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CIFR",
+   "reason": "加密贝塔已经是风险偏好的第一道裂缝，CIFR既没赚钱也不是最干净的AI电力载体，错了我先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 141,
+   "fill_date": "2026-07-01",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "MTSI",
+   "reason": "AI资本开支仍是主流动性方向，光互连是高弹性瓶颈，MTSI盘前没被爆拉，我把风险从脏贝塔换到更干净的强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 142,
+   "fill_date": "2026-07-01",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "DKNG",
+   "reason": "这票现在没有资金主线加持，散户拥挤+对冲基金扎堆在盘前风险降温时反而是负担，死水无资金我先撤。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 136,
+ "next_order_id": 143,
  "notes": [
   {
    "date": "2026-06-12",

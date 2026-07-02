@@ -99,7 +99,7 @@ async function oneQuote(sym: string): Promise<Quote | null> {
   const qq = qqFromYahoo(sym);
   if (qq) return (await tencentQuote(qq)) || (await yahooQuote(sym)); // A/港股:腾讯优先,挂了回退 Yahoo
   if (!isUS(sym)) return await yahooQuote(sym); // .TW/.KS 等
-  return await usQuote(sym); // 美股
+  return (await usQuote(sym)) || (await yahooQuote(sym)); // 美股:Nasdaq 优先;CF 机房 IP 被 Nasdaq 拦时回退 Yahoo(regular 价;盘前/盘后无延伸时段价)
 }
 
 // 缓存 TTL 粗判:任一市场(美/A·港/韩)在交易时段→开盘短缓存,全休市→长缓存。

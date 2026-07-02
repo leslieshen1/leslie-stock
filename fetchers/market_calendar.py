@@ -24,7 +24,8 @@ ROOT = Path(__file__).parent.parent
 PUB = ROOT / "web" / "public" / "data"
 OUT = PUB / "market-calendar.json"
 FINN = os.environ.get("FINNHUB_KEY") or os.environ.get("FINNHUB_TOKEN") or ""
-HORIZON = 10          # 未来天数
+MACRO_HORIZON = 32    # 宏观 + anchor 看整月(远期 CPI/FOMC 也进,支撑"月度全览")
+EARN_HORIZON = 10     # 财报只近 10 天全列;远期靠 cal-anchors 点名精选,免财报季一列几百家刷屏
 MCAP_MIN = 20.0       # 财报只留 ≥200 亿美元的大票
 
 # 高影响宏观类别:(中文名, 高亮, 命中正则, 取哪个子项做 detail)。同类别同日合并成一行。
@@ -69,34 +70,51 @@ def _pct(x):
 
 
 def fetch_macro(d0, d1):
-    groups: dict = {}  # (date,label) -> 记录(取 pri 最高的子项做 detail)
+    """宏观 = ForexFactory(无 key,带 impact/forecast/previous)+ cal-anchors(远期确定性大事)。
+    换掉挂掉的 Finnhub economic(免费档 2026-06 起 403)。同(日,类别)去重,CATS 归一化中文名。"""
+    out, seen = [], set()
+    # ① ForexFactory 本周 + 下周(覆盖未来 ~10 天),筛美国 High/Medium
+    for ep in ("thisweek", "nextweek"):
+        try:
+            j = requests.get(f"https://nfs.faireconomy.media/ff_calendar_{ep}.json",
+                             headers={"user-agent": "Mozilla/5.0"}, timeout=20).json()
+        except Exception as ex:
+            print(f"  ⚠ ForexFactory {ep} 失败:", str(ex)[:70]); continue
+        for x in j if isinstance(j, list) else []:
+            if str(x.get("country")) not in ("USD", "US") or x.get("impact") not in ("High", "Medium"):
+                continue
+            date = str(x.get("date", ""))[:10]
+            if not (d0 <= date <= d1):
+                continue
+            title = str(x.get("title") or "")
+            cat = next((c for c in CATS if c[2].search(title)), None)
+            label = cat[0] if cat else title[:32]
+            hi = bool(cat and cat[1]) or x.get("impact") == "High"
+            k = (date, label)
+            if k in seen:
+                continue
+            seen.add(k)
+            fc, pv = x.get("forecast") or "", x.get("previous") or ""
+            detail = " · ".join(s for s in [f"预期 {fc}" if fc else "", f"前值 {pv}" if pv else ""] if s)
+            out.append({"date": date, "timeET": str(x.get("date", ""))[11:16], "kind": "macro",
+                        "title": label, "detail": detail, "hi": hi})
+    # ② cal-anchors.json:远期确定性大事(FOMC/央行/关键财报点名),ForexFactory 够不到的
     try:
-        j = requests.get("https://finnhub.io/api/v1/calendar/economic", params={"token": FINN}, timeout=25).json()
-        ev = j.get("economicCalendar") or j.get("result") or []
-        for e in ev:
-            if not isinstance(e, dict) or (e.get("country") or "") not in ("US", "United States"):
+        for a in json.loads((PUB / "cal-anchors.json").read_text(encoding="utf-8")):
+            date = str(a.get("date", ""))
+            if not (d0 <= date <= d1):
                 continue
-            name = str(e.get("event") or "")
-            cat = next((c for c in CATS if c[2].search(name)), None)
-            if not cat:
+            is_e = "财报" in (a.get("title") or "")
+            k = (date, a.get("title"))
+            if k in seen:
                 continue
-            label, hi, _rx, prefer = cat
-            date, t = _et(str(e.get("time") or ""))
-            if not date or not (d0 <= date <= d1):
-                continue
-            est, prev = _pct(e.get("estimate")), _pct(e.get("prev"))
-            detail = " · ".join(x for x in [f"预期 {est}" if est else "", f"前值 {prev}" if prev else ""] if x)
-            pri = 2 if (prefer and prefer.search(name)) else (1 if detail else 0)
-            key = (date, label)
-            g = groups.get(key)
-            if g is None or pri > g["pri"]:
-                groups[key] = {"date": date, "timeET": t, "kind": "macro", "title": label,
-                               "detail": detail, "hi": hi, "pri": pri}
-            elif g and t and t < (g["timeET"] or "99:99"):
-                g["timeET"] = t
-    except Exception as ex:
-        print("  ⚠ macro 抓取失败:", str(ex)[:80])
-    return [{k: v for k, v in g.items() if k != "pri"} for g in groups.values()]
+            seen.add(k)
+            out.append({"date": date, "timeET": "", "kind": "earnings" if is_e else "macro",
+                        "title": (a.get("title") or "").replace("财报:", ""),
+                        "detail": a.get("detail", ""), "hi": bool(a.get("hi"))})
+    except Exception:
+        pass
+    return out
 
 
 def fetch_earnings(d0, d1):
@@ -128,9 +146,11 @@ def fetch_earnings(d0, d1):
 
 def main():
     et = datetime.now(timezone(timedelta(hours=-4)))
-    d0, d1 = et.strftime("%Y-%m-%d"), (et + timedelta(days=HORIZON)).strftime("%Y-%m-%d")
-    print(f"📅 市场日历 {d0} → {d1}")
-    events = fetch_macro(d0, d1) + fetch_earnings(d0, d1)
+    d0 = et.strftime("%Y-%m-%d")
+    d_macro = (et + timedelta(days=MACRO_HORIZON)).strftime("%Y-%m-%d")  # 宏观+anchor 看整月
+    d_earn = (et + timedelta(days=EARN_HORIZON)).strftime("%Y-%m-%d")    # 财报只近 10 天
+    print(f"📅 市场日历 · 宏观→{d_macro} · 财报→{d_earn}")
+    events = fetch_macro(d0, d_macro) + fetch_earnings(d0, d_earn)
     events.sort(key=lambda e: (e["date"], e.get("timeET") or "99:99", 0 if e["kind"] == "macro" else 1))
     gen = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     # 空结果保护:两源都抓空(Finnhub 限流/挂/key 失效)时绝不用空覆盖好数据 ——

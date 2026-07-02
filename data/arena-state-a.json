@@ -876,8 +876,58 @@
    "reason": "集合竞价没有抢筹、没有资金流指纹，题材再多也只是死水，先不为买而买。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 40,
+   "fill_date": "2026-07-02",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓都是我愿意以合理价格长期拥有的生意，今天没有看到足够大的错误定价让我用一门好生意去换另一门。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 41,
+   "fill_date": "2026-07-02",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这几门生意我都看得懂，模式和文化都过关，今天候选也没有便宜到值得我换掉现有仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 42,
+   "fill_date": "2026-07-02",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还是我认的真卡脖子，今天候选没有给我必须砍掉现有独苗去追的新价差，现金先留着不为买满而买。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 43,
+   "fill_date": "2026-07-02",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "没有可交易载体就不硬做，流动性和趋势再好也必须等到高弹性标的出现。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 44,
+   "fill_date": "2026-07-02",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全线0%，盘口还没给出资金进攻方向，死水无资金不硬买，等聪明钱先表态。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 40,
+ "next_order_id": 45,
  "splits": []
 }

@@ -2929,9 +2929,89 @@
    "reason": "这票现在没有资金主线加持，散户拥挤+对冲基金扎堆在盘前风险降温时反而是负担，死水无资金我先撤。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 143,
+   "fill_date": "2026-07-02",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里已经有八门我能看懂、护城河足够宽的生意，今天没有哪一个价格便宜到值得我卖掉好公司去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 144,
+   "fill_date": "2026-07-02",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂了，商业模式和文化没有变，盘前涨跌不是我卖出或换仓的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 145,
+   "fill_date": "2026-07-02",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我已经满仓十个真瓶颈，今天盘前只是AI/芯片兑现后的技术反弹，不为换票去砍掉仍在卡脖子位置上的仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 146,
+   "fill_date": "2026-07-02",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "WDC",
+   "reason": "AI基建外溢到存储供给紧张这条线还在被资金追，盘前强于纳指且不是昨晚被砍最狠的拥挤芯片，我用剩余一仓去骑相对强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 147,
+   "fill_date": "2026-07-02",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ELV",
+   "reason": "医保蓝筹情绪还在冰点、盘前没被追热，AI/芯片退潮时防守逆向资金更容易继续回补。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 148,
+   "fill_date": "2026-07-02",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "KVYO",
+   "reason": "破发冷门票刚从没人要的位置抬头，盘前没冲，像是底部资金试探而不是散户高潮。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 149,
+   "fill_date": "2026-07-02",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "PDD",
+   "reason": "中概仍是全市场最嫌弃的角落之一，昨日报复性反弹后盘前回吐，反而给逆向资金一个不追尖的入口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 150,
+   "fill_date": "2026-07-02",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "CRL和IQV仍是弃船后聪明钱回补的低拥挤仓，不因盘前小红小绿乱动。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 143,
+ "next_order_id": 151,
  "notes": [
   {
    "date": "2026-06-12",

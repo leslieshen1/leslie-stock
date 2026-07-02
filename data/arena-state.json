@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 43465.01,
   "duan": 40172.16,
-  "serenity": 13342.45,
-  "druckenmiller": 48200.21,
-  "sentiment": 429534.57
+  "serenity": 3843.5,
+  "druckenmiller": 151238.65,
+  "sentiment": 738439.58
  },
  "positions": [
   {
@@ -107,13 +107,6 @@
   },
   {
    "master": "serenity",
-   "sym": "CORZ",
-   "shares": 3697,
-   "entry": 25.69,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "serenity",
    "sym": "GLW",
    "shares": 564,
    "entry": 168.17,
@@ -183,20 +176,6 @@
    "entry_date": "2026-06-23"
   },
   {
-   "master": "druckenmiller",
-   "sym": "TLN",
-   "shares": 303,
-   "entry": 405.89,
-   "entry_date": "2026-06-24"
-  },
-  {
-   "master": "sentiment",
-   "sym": "LWAY",
-   "shares": 5140,
-   "entry": 29.75,
-   "entry_date": "2026-06-24"
-  },
-  {
    "master": "serenity",
    "sym": "BLFS",
    "shares": 3581,
@@ -226,24 +205,24 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "CIFR",
-   "shares": 5052,
-   "entry": 24.83,
-   "entry_date": "2026-06-29"
-  },
-  {
-   "master": "sentiment",
-   "sym": "DKNG",
-   "shares": 6113,
-   "entry": 25.8,
-   "entry_date": "2026-06-29"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "VST",
    "shares": 804,
    "entry": 158.63,
    "entry_date": "2026-06-30"
+  },
+  {
+   "master": "serenity",
+   "sym": "AXTI",
+   "shares": 1494,
+   "entry": 65.03,
+   "entry_date": "2026-07-01"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "MTSI",
+   "shares": 347,
+   "entry": 350.63,
+   "entry_date": "2026-07-01"
   }
  ],
  "nav": [
@@ -571,6 +550,31 @@
    "master": "sentiment",
    "date": "2026-06-30",
    "nav": 1061962.25
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-01",
+   "nav": 996109.14
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-01",
+   "nav": 984648.81
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-01",
+   "nav": 1023167.59
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-01",
+   "nav": 1058662.44
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-01",
+   "nav": 1073008.52
   }
  ],
  "trades": [
@@ -1652,6 +1656,76 @@
    "shares": 5328,
    "price": 32.23,
    "reason": "放疗并购热已经被盘口充分交易，盘前直接-4.5%像事件资金抢跑撤退，高拥挤催化票情绪反转会非常快，先落袋。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-01",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "CORZ",
+   "shares": 3697,
+   "price": 23.71,
+   "reason": "CORZ 是算力抢电的有效瓶颈，但相比真正每台光互连都要吃的上游材料，它更像高波动数据中心主题票，我把这格仓位让给更窄的卡脖子。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-01",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "AXTI",
+   "shares": 1494,
+   "price": 65.03,
+   "reason": "InP 衬底卡在 800G/1.6T 光互连的最上游，供应商少、验证长、每个 AI 机柜都间接吃它 BOM，今天盘前回落给了我加仓真瓶颈的窗口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-01",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "TLN",
+   "shares": 303,
+   "price": 360.79,
+   "reason": "错了就是错了,-11.1% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-01",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "CIFR",
+   "shares": 5052,
+   "price": 22.84,
+   "reason": "加密贝塔已经是风险偏好的第一道裂缝，CIFR既没赚钱也不是最干净的AI电力载体，错了我先砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-01",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "MTSI",
+   "shares": 347,
+   "price": 350.63,
+   "reason": "AI资本开支仍是主流动性方向，光互连是高弹性瓶颈，MTSI盘前没被爆拉，我把风险从脏贝塔换到更干净的强马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-01",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "LWAY",
+   "shares": 5140,
+   "price": 29.45,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-1.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-01",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "DKNG",
+   "shares": 6113,
+   "price": 25.77,
+   "reason": "这票现在没有资金主线加持，散户拥挤+对冲基金扎堆在盘前风险降温时反而是负担，死水无资金我先撤。",
    "src": "ai"
   }
  ],
@@ -2793,7 +2867,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河没有因为一夜盘前报价改变，而候选名单里也没有便宜到值得我卖掉现有好生意去换的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2803,7 +2877,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都看懂了，模式和文化没变，盘前这点波动不值得让我因为市场情绪去动手。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2813,7 +2887,7 @@
    "action": "SELL",
    "sym": "CORZ",
    "reason": "CORZ 是算力抢电的有效瓶颈，但相比真正每台光互连都要吃的上游材料，它更像高波动数据中心主题票，我把这格仓位让给更窄的卡脖子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2823,7 +2897,7 @@
    "action": "BUY",
    "sym": "AXTI",
    "reason": "InP 衬底卡在 800G/1.6T 光互连的最上游，供应商少、验证长、每个 AI 机柜都间接吃它 BOM，今天盘前回落给了我加仓真瓶颈的窗口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2833,7 +2907,7 @@
    "action": "SELL",
    "sym": "CIFR",
    "reason": "加密贝塔已经是风险偏好的第一道裂缝，CIFR既没赚钱也不是最干净的AI电力载体，错了我先砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2843,7 +2917,7 @@
    "action": "BUY",
    "sym": "MTSI",
    "reason": "AI资本开支仍是主流动性方向，光互连是高弹性瓶颈，MTSI盘前没被爆拉，我把风险从脏贝塔换到更干净的强马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2853,7 +2927,7 @@
    "action": "SELL",
    "sym": "DKNG",
    "reason": "这票现在没有资金主线加持，散户拥挤+对冲基金扎堆在盘前风险降温时反而是负担，死水无资金我先撤。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

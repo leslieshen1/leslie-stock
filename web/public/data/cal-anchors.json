@@ -1,0 +1,16 @@
+[
+  {"date":"2026-07-03","title":"美股休市 · 独立日","detail":"","hi":false},
+  {"date":"2026-07-06","title":"ISM 服务业 PMI","detail":"","hi":false},
+  {"date":"2026-07-09","title":"FOMC 会议纪要 · 中国 CPI/PPI","detail":"政策脉络","hi":true},
+  {"date":"2026-07-10","title":"财报:PEP · DAL","detail":"消费·航空开局","hi":false},
+  {"date":"2026-07-14","title":"美国 CPI(6月)","detail":"通胀关键","hi":true},
+  {"date":"2026-07-14","title":"财报:JPM · GS · BAC · WFC · C","detail":"银行财报季启动","hi":true},
+  {"date":"2026-07-15","title":"中国 Q2 GDP · 美国 PPI","detail":"","hi":true},
+  {"date":"2026-07-15","title":"财报:ASML · JNJ · MS","detail":"","hi":false},
+  {"date":"2026-07-16","title":"美国零售销售","detail":"消费成色","hi":true},
+  {"date":"2026-07-16","title":"财报:NFLX · UNH · ISRG · GE","detail":"","hi":false},
+  {"date":"2026-07-17","title":"财报:AXP","detail":"","hi":false},
+  {"date":"2026-07-20","title":"中国 LPR · 日本海之日休市","detail":"","hi":false},
+  {"date":"2026-07-28","title":"Case-Shiller · FHFA 房价","detail":"","hi":false},
+  {"date":"2026-07-29","title":"FOMC 利率决议","detail":"7 月议息 · Mag7 财报周","hi":true}
+]

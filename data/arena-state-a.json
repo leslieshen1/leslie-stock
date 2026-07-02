@@ -2,7 +2,7 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 144290.0,
+  "serenity": 222100.0,
   "druckenmiller": 1000000.0,
   "sentiment": 1000000.0
  },
@@ -149,13 +149,6 @@
   },
   {
    "master": "serenity",
-   "sym": "688785",
-   "shares": 200,
-   "entry": 457.96,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
    "sym": "688582",
    "shares": 1400,
    "entry": 65.0,
@@ -261,6 +254,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-01",
+   "nav": 1000000.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-02",
+   "nav": 1003241.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-02",
+   "nav": 1011484.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-02",
+   "nav": 953576.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-02",
+   "nav": 1000000.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-02",
    "nav": 1000000.0
   }
  ],
@@ -484,6 +502,16 @@
    "price": 65.0,
    "reason": "导航级MEMS陀螺仪卡军工无人机和机器人IMU，验证周期长、替代成本高，平开可打。",
    "src": "ai"
+  },
+  {
+   "date": "2026-07-02",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688785",
+   "shares": 200,
+   "price": 389.05,
+   "reason": "破位 -15.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -884,7 +912,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓都是我愿意以合理价格长期拥有的生意，今天没有看到足够大的错误定价让我用一门好生意去换另一门。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -894,7 +922,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这几门生意我都看得懂，模式和文化都过关，今天候选也没有便宜到值得我换掉现有仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -904,7 +932,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还是我认的真卡脖子，今天候选没有给我必须砍掉现有独苗去追的新价差，现金先留着不为买满而买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -914,7 +942,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "没有可交易载体就不硬做，流动性和趋势再好也必须等到高弹性标的出现。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -924,7 +952,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价全线0%，盘口还没给出资金进攻方向，死水无资金不硬买，等聪明钱先表态。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-01 22:01 ET Wed",
+ "asof_et": "2026-07-01 22:15 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.14%",
@@ -311,12 +311,22 @@
  ],
  "news": [
   {
+   "h": "Stock futures are little changed after weak start to July trading; jobs report ahead: Live updates",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "Stock Market Today: Dow narrowly misses record close, S&P 500 and Nasdaq end lower as chip stocks fall; Fed Chair Warsh reiterates 2% inflation target; June jobs report on deck",
+   "src": "MarketWatch",
+   "sum": ""
+  },
+  {
    "h": "Dow closes little changed after touching record; Nasdaq slides to start July",
    "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Nasdaq Slips, Warsh Dodges Questions on July Rate Decision — Live Updates",
+   "h": "Stock Market News, July 1, 2026: Nasdaq Slips, Warsh Dodges Questions on July Rate Decision",
    "src": "WSJ",
    "sum": ""
   },
@@ -336,18 +346,8 @@
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Dow narrowly misses record close, S&P 500 and Nasdaq end lower as chip stocks fall; Fed Chair Warsh reiterates 2% inflation target; June jobs report on deck",
-   "src": "MarketWatch",
-   "sum": ""
-  },
-  {
    "h": "Tech Giants Power Stock Gains After AI-Fueled Rout: Markets Wrap",
-   "src": "Bloomberg.com",
-   "sum": ""
-  },
-  {
-   "h": "These 3 forces fueled the best quarter for the US stock market in years",
-   "src": "Business Insider",
+   "src": "Bloomberg",
    "sum": ""
   },
   {
@@ -376,8 +376,8 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Nvidia Is Still a Bargain. Analysts See 57% Upside in NVDA Stock.",
-   "src": "Barchart.com",
+   "h": "[NVDA] Nvidia Stock, Gold, and Oil: Where to Invest $100,000 Right Now",
+   "src": "Bloomberg",
    "sum": ""
   },
   {
@@ -386,8 +386,8 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] Broadcom (AVGO) Stock Could Be A Bargain On Cash Flow Yet Rich On Earnings",
-   "src": "Yahoo! Finance Canada",
+   "h": "[AVGO] Broadcom: This Dip Is A Real Gift (NASDAQ:AVGO)",
+   "src": "Seeking Alpha",
    "sum": ""
   },
   {
@@ -416,9 +416,9 @@
    "sum": "Wall Street ends choppy session lower as tech shares drop  Reuters"
   },
   {
-   "h": "US, Iran talks conclude in Doha, focused on Strait of Hormuz - Reuters",
+   "h": "Uber-backed Lime rides IPO wave to $1.7 billion valuation in Nasdaq debut - Reuters",
    "src": "Reuters",
-   "sum": "US, Iran talks conclude in Doha, focused on Strait of Hormuz  Reuters"
+   "sum": "Uber-backed Lime rides IPO wave to $1.7 billion valuation in Nasdaq debut  Reuters"
   },
   {
    "h": "Defense startups raid auto and fracking sectors for parts to speed weapons output - Reuters",

@@ -134,10 +134,34 @@ def preview(cal: dict) -> None:
                 print(f"  {tag} ★[大事] {e.get('title') or e.get('name')} · {e.get('detail','')}")
 
 
+def to_calevents(cal: dict) -> list[dict]:
+    """转成盘报 MarketCalendar 组件要的 CalEvent 格式(date/timeET/kind/title/detail/hi/sym)。"""
+    out = []
+    for w in cal["weeks"]:
+        for e in w["events"]:
+            if e["kind"] == "macro":
+                det = " · ".join(x for x in [f"预期 {e['forecast']}" if e.get("forecast") else "",
+                                             f"前值 {e['previous']}" if e.get("previous") else ""] if x)
+                out.append({"date": e["date"], "timeET": e.get("time", ""), "kind": "macro",
+                            "title": e["title"], "detail": det, "hi": e.get("impact") == "High"})
+            elif e["kind"] == "earnings":
+                hr = {"bmo": "盘前", "amc": "盘后", "dmh": "盘中"}.get(e.get("hour", ""), "")
+                out.append({"date": e["date"], "timeET": hr, "kind": "earnings", "title": e["sym"],
+                            "detail": f"{e['name'][:24]} ${e['mc']:.0f}B", "hi": (e["mc"] or 0) >= 100, "sym": e["sym"]})
+            else:  # anchor:标题带"财报"归 earnings,否则 macro
+                is_e = "财报" in (e.get("title") or "")
+                out.append({"date": e["date"], "timeET": "", "kind": "earnings" if is_e else "macro",
+                            "title": (e.get("title") or e.get("name", "")).replace("财报:", ""),
+                            "detail": e.get("detail", ""), "hi": bool(e.get("hi")), "sym": ""})
+    out.sort(key=lambda x: (x["date"], x["timeET"] or "zz"))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--month", default=datetime.now().strftime("%Y-%m"))
     ap.add_argument("--preview", action="store_true")
+    ap.add_argument("--write-calendar", action="store_true", help="写 market-calendar.json(供盘报页 MarketCalendar 直接读)")
     ap.add_argument("--out", default="")
     args = ap.parse_args()
     cal = build(args.month)
@@ -145,6 +169,11 @@ def main():
     print(f"✓ {args.month}: {len(cal['weeks'])} 周 · {n} 个事件")
     if args.preview:
         preview(cal)
+    if getattr(args, "write_calendar", False):
+        evs = to_calevents(cal)
+        (PUB / "market-calendar.json").write_text(
+            json.dumps({"events": evs, "month": args.month}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        print(f"  ✓ 写 market-calendar.json · {len(evs)} 事件(盘报 MarketCalendar 直接读)")
     if args.out:
         Path(args.out).write_text(json.dumps(cal, ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"  写 {args.out}")

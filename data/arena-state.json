@@ -3111,9 +3111,109 @@
    "reason": "CRL和IQV仍是弃船后聪明钱回补的低拥挤仓，不因盘前小红小绿乱动。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 151,
+   "fill_date": "2026-07-03",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我不会因为一早上的报价机发脾气就卖掉一组有护城河、能产生现金流、管理层大体理性的生意；今天没有足够安全边际的新机会值得我腾挪。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 152,
+   "fill_date": "2026-07-03",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂了，今天盘口的热闹不改变它们十年后的样子，没必要为了轮动去折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 153,
+   "fill_date": "2026-07-03",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天是AI/半导体拥挤仓位被砍，不是我这套“每台量产都吃它BOM”的瓶颈链条被证伪；真瓶颈我不因为盘前恐慌折价卖，-15%机械止损交给引擎。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 154,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "LRCX",
+   "reason": "芯片设备现在不是回调，是拥挤AI仓位被流动性反杀，我不和 tape 争，先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 155,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "WDC",
+   "reason": "存储这匹马盘前直接被打穿，说明AI外溢交易边际变坏，错了就快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 156,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TSM",
+   "reason": "TSM长期逻辑再硬也挡不住当前半导体资金撤退，流动性逆风时我不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 157,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GD",
+   "reason": "资金今天明显从拥挤科技转向国防和传统蓝筹，GD是这股地缘与防务开支顺风里最干净的高流动性载体之一。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 158,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "BWXT",
+   "reason": "核能复兴叠加国防预算扩张，盘前没被追爆，赔率比去接科技飞刀好。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 159,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "MFG",
+   "reason": "日本利率正常化是独立宏观大趋势，和美股AI拥挤出清相关性低，适合把风险从单一科技因子挪开。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 160,
+   "fill_date": "2026-07-03",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选清一色盘前爆拉7%-13%，这是资金轮动后的明牌价，不是我想要的预期差；宁可拿现金等回落，也不去接最后一棒。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 151,
+ "next_order_id": 161,
  "notes": [
   {
    "date": "2026-06-12",

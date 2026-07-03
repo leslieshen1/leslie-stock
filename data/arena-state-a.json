@@ -954,8 +954,128 @@
    "reason": "集合竞价全线0%，盘口还没给出资金进攻方向，死水无资金不硬买，等聪明钱先表态。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 45,
+   "fill_date": "2026-07-03",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我大体看得懂，价格也没有给我必须换马的理由；现金不多但也不必为交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 46,
+   "fill_date": "2026-07-03",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四家公司我都看得懂，生意和文化都过关，今天候选也没有便宜到值得我换掉手里的好生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 47,
+   "fill_date": "2026-07-03",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688785",
+   "reason": "射频电源是刻蚀/PECVD机台开不了机的真咽喉，MKS/AE卡了三十年的单点今天没爆拉，我要把第十仓给这种下游扩产每台都吃它BOM的硬瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 48,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688521",
+   "reason": "AI ASIC、Chiplet、国产替代三股风同时吹，若流动性继续追半导体弹性，它是最直接的高贝塔载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 49,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "301629",
+   "reason": "半导体设备国产替代是政策最硬的风，小盘高弹性，顺风时它会比龙头跑得猛。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 50,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "301269",
+   "reason": "EDA被卡脖子的边际催化还在，自主可控主线没坏，资金要表达国产替代就绕不开它。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 51,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "603773",
+   "reason": "AI算力扩散到先进封装、玻璃基板和CPO，沃格是这条链上弹性足的趋势载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 52,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688313",
+   "reason": "CPO光芯片仍是AI算力里最锋利的分支之一，趋势没转前先骑最强的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 53,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688012",
+   "reason": "中微是半导体设备国产替代的核心旗帜，虽然不是最便宜，但我只要顺政策与资金的大风。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 54,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688146",
+   "reason": "电子特气是半导体材料卡脖子环节，国产替代和景气修复共振时弹性会被资金放大。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 55,
+   "fill_date": "2026-07-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "600259",
+   "reason": "稀土是中美博弈的硬筹码，出口管制预期给它不对称赔率，组合里需要这条宏观对冲线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 56,
+   "fill_date": "2026-07-03",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全线0%，看不到主动资金进场和情绪点火，死水盘不硬买。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 45,
+ "next_order_id": 57,
  "splits": []
 }

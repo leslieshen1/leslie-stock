@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 222100.0,
-  "druckenmiller": 1000000.0,
+  "serenity": 146278.0,
+  "druckenmiller": 159289.0,
   "sentiment": 1000000.0
  },
  "positions": [
@@ -153,6 +153,69 @@
    "shares": 1400,
    "entry": 65.0,
    "entry_date": "2026-06-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "688785",
+   "shares": 200,
+   "entry": 379.11,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688521",
+   "shares": 300,
+   "entry": 307.42,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301629",
+   "shares": 300,
+   "entry": 376.99,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301269",
+   "shares": 1000,
+   "entry": 105.56,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "603773",
+   "shares": 800,
+   "entry": 140.41,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688313",
+   "shares": 700,
+   "entry": 163.59,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688012",
+   "shares": 200,
+   "entry": 416.99,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688146",
+   "shares": 300,
+   "entry": 352.61,
+   "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "600259",
+   "shares": 1100,
+   "entry": 103.46,
+   "entry_date": "2026-07-03"
   }
  ],
  "nav": [
@@ -279,6 +342,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-02",
+   "nav": 1000000.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-03",
+   "nav": 1008582.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-03",
+   "nav": 1007185.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-03",
+   "nav": 953732.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-03",
+   "nav": 1000000.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-03",
    "nav": 1000000.0
   }
  ],
@@ -512,6 +600,96 @@
    "price": 389.05,
    "reason": "破位 -15.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
    "src": "rule"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688785",
+   "shares": 200,
+   "price": 379.11,
+   "reason": "射频电源是刻蚀/PECVD机台开不了机的真咽喉，MKS/AE卡了三十年的单点今天没爆拉，我要把第十仓给这种下游扩产每台都吃它BOM的硬瓶颈。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688521",
+   "shares": 300,
+   "price": 307.42,
+   "reason": "AI ASIC、Chiplet、国产替代三股风同时吹，若流动性继续追半导体弹性，它是最直接的高贝塔载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301629",
+   "shares": 300,
+   "price": 376.99,
+   "reason": "半导体设备国产替代是政策最硬的风，小盘高弹性，顺风时它会比龙头跑得猛。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301269",
+   "shares": 1000,
+   "price": 105.56,
+   "reason": "EDA被卡脖子的边际催化还在，自主可控主线没坏，资金要表达国产替代就绕不开它。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "603773",
+   "shares": 800,
+   "price": 140.41,
+   "reason": "AI算力扩散到先进封装、玻璃基板和CPO，沃格是这条链上弹性足的趋势载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688313",
+   "shares": 700,
+   "price": 163.59,
+   "reason": "CPO光芯片仍是AI算力里最锋利的分支之一，趋势没转前先骑最强的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688012",
+   "shares": 200,
+   "price": 416.99,
+   "reason": "中微是半导体设备国产替代的核心旗帜，虽然不是最便宜，但我只要顺政策与资金的大风。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688146",
+   "shares": 300,
+   "price": 352.61,
+   "reason": "电子特气是半导体材料卡脖子环节，国产替代和景气修复共振时弹性会被资金放大。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "600259",
+   "shares": 1100,
+   "price": 103.46,
+   "reason": "稀土是中美博弈的硬筹码，出口管制预期给它不对称赔率，组合里需要这条宏观对冲线。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -962,7 +1140,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我大体看得懂，价格也没有给我必须换马的理由；现金不多但也不必为交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -972,7 +1150,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四家公司我都看得懂，生意和文化都过关，今天候选也没有便宜到值得我换掉手里的好生意。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -982,7 +1160,7 @@
    "action": "BUY",
    "sym": "688785",
    "reason": "射频电源是刻蚀/PECVD机台开不了机的真咽喉，MKS/AE卡了三十年的单点今天没爆拉，我要把第十仓给这种下游扩产每台都吃它BOM的硬瓶颈。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -992,7 +1170,7 @@
    "action": "BUY",
    "sym": "688521",
    "reason": "AI ASIC、Chiplet、国产替代三股风同时吹，若流动性继续追半导体弹性，它是最直接的高贝塔载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1002,7 +1180,7 @@
    "action": "BUY",
    "sym": "301629",
    "reason": "半导体设备国产替代是政策最硬的风，小盘高弹性，顺风时它会比龙头跑得猛。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1012,7 +1190,7 @@
    "action": "BUY",
    "sym": "301269",
    "reason": "EDA被卡脖子的边际催化还在，自主可控主线没坏，资金要表达国产替代就绕不开它。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1022,7 +1200,7 @@
    "action": "BUY",
    "sym": "603773",
    "reason": "AI算力扩散到先进封装、玻璃基板和CPO，沃格是这条链上弹性足的趋势载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1032,7 +1210,7 @@
    "action": "BUY",
    "sym": "688313",
    "reason": "CPO光芯片仍是AI算力里最锋利的分支之一，趋势没转前先骑最强的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1042,7 +1220,7 @@
    "action": "BUY",
    "sym": "688012",
    "reason": "中微是半导体设备国产替代的核心旗帜，虽然不是最便宜，但我只要顺政策与资金的大风。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1052,7 +1230,7 @@
    "action": "BUY",
    "sym": "688146",
    "reason": "电子特气是半导体材料卡脖子环节，国产替代和景气修复共振时弹性会被资金放大。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1062,7 +1240,7 @@
    "action": "BUY",
    "sym": "600259",
    "reason": "稀土是中美博弈的硬筹码，出口管制预期给它不对称赔率，组合里需要这条宏观对冲线。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1072,7 +1250,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价全线0%，看不到主动资金进场和情绪点火，死水盘不硬买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

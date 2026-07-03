@@ -107,10 +107,28 @@ export async function GET(req: Request) {
     aggTop(r, wk.map(K.referrers), 12),
   ]);
 
+  // 总用户 = 全史每日新增(cohort)之和,与 days 窗口无关。
+  // 「到昨天」的累计按日缓存(键带今日日期,UTC 翻天自动失效),今天的实时加 —— 不动 track、不加日常写命令。
+  const USERS_EPOCH = "2026-06-01"; // 埋点上线月;更早的键不存在,SCARD=0 无害
+  const cumKey = `sg:users:cum:${today}`;
+  let cum: number;
+  const cached = await r.get<number | string>(cumKey);
+  if (cached !== null && cached !== undefined) {
+    cum = Number(cached) || 0;
+  } else {
+    const past: string[] = [];
+    for (let d = USERS_EPOCH; d < today; d = addDays(d, 1)) past.push(d);
+    const counts = await Promise.all(past.map((d) => r.scard(K.cohort(d))));
+    cum = counts.reduce((a, b) => a + (Number(b) || 0), 0);
+    await r.set(cumKey, cum, { ex: 60 * 60 * 48 });
+  }
+  const totalUsers = cum + (Number(newCounts[newCounts.length - 1]) || 0);
+
   return Response.json({
     connected: true,
     days,
     series,
+    totalUsers,
     retention,
     topPages,
     topClicks,

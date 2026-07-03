@@ -14,6 +14,7 @@ type Data = {
   rw?: boolean;
   days: number;
   series: Series[];
+  totalUsers?: number;
   retention: Ret[];
   topPages: Top[];
   topClicks: Top[];
@@ -169,7 +170,8 @@ export default function StatsClient() {
       </div>
 
       {/* KPI */}
-      <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5">
+        <Kpi label={t("总用户", "Total users")} value={fmt(data.totalUsers ?? 0)} sub={t("累计独立访客", "all-time uniques")} />
         <Kpi label={t("今日 DAU", "DAU today")} value={fmt(last?.dau ?? 0)} sub={prev ? `${t("昨日", "yesterday")} ${fmt(prev.dau)}` : ""} delta={prev ? (last?.dau ?? 0) - prev.dau : null} />
         <Kpi label={t("今日新用户", "New users today")} value={fmt(last?.nw ?? 0)} sub={t("首次到访", "first visit")} />
         <Kpi label={t("今日 PV", "PV today")} value={fmt(last?.pv ?? 0)} sub={prev ? `${t("昨日", "yesterday")} ${fmt(prev.pv)}` : ""} delta={prev ? (last?.pv ?? 0) - prev.pv : null} />
@@ -186,21 +188,25 @@ export default function StatsClient() {
             <span>{t("峰值", "Peak")} {fmt(maxV)}</span>
           </div>
         </div>
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-40 w-full text-accent">
+        {/* div 柱状(弃 svg:preserveAspectRatio=none 会把文字拉变形,标不了数)。柱顶留 ~14% 放每日 DAU 数字;60 天太挤 → 隔根标,hover 有全量 */}
+        <div className="flex h-40 w-full items-end gap-[2px]">
           {s.map((x, i) => {
-            const step = 100 / s.length;
-            const bw = step * 0.66;
-            const xx = i * step + (step - bw) / 2;
-            const h = (x.dau / maxV) * 94;
-            const nwH = (x.nw / maxV) * 94;
+            const h = (x.dau / maxV) * 86;
+            const nwPct = x.dau > 0 ? (x.nw / x.dau) * 100 : 0;
+            const showNum = x.dau > 0 && (s.length <= 45 || i % 2 === s.length % 2 || i === s.length - 1);
             return (
-              <g key={x.date}>
-                <rect x={xx} y={100 - h} width={bw} height={h} fill="currentColor" opacity={0.85} />
-                {nwH > 0 && <rect x={xx} y={100 - nwH} width={bw} height={nwH} className="text-up" fill="currentColor" />}
-              </g>
+              <div key={x.date} className="flex h-full min-w-0 flex-1 flex-col items-center justify-end"
+                title={`${md(x.date)} · DAU ${x.dau} · ${t("新用户", "new")} ${x.nw}`}>
+                {showNum && <span className="mb-0.5 text-[9px] leading-none text-muted tnum">{fmt(x.dau)}</span>}
+                <div className="relative w-full max-w-[26px] rounded-t-[2px] bg-accent/85" style={{ height: `${h}%` }}>
+                  {x.nw > 0 && (
+                    <div className="absolute inset-x-0 bottom-0 rounded-t-[2px] bg-up" style={{ height: `${nwPct}%` }} />
+                  )}
+                </div>
+              </div>
             );
           })}
-        </svg>
+        </div>
         <div className="mt-1.5 flex justify-between text-[10px] text-faint">
           <span>{md(s[0]?.date ?? "")}</span>
           {s.length > 8 && <span>{md(s[Math.floor(s.length / 2)]?.date ?? "")}</span>}

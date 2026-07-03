@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-02 22:16 ET Thu",
+ "asof_et": "2026-07-02 22:31 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "-0.13%",
@@ -223,13 +223,8 @@
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Nasdaq Falls After June Hiring Misses Expectations — Live Updates",
+   "h": "Stock Market News, July 2, 2026: Dow Rises, Nasdaq Falls After June Jobs Report",
    "src": "WSJ",
-   "sum": ""
-  },
-  {
-   "h": "Markets News, July 2, 2026: Dow Jumps 600 Points to Record, While Tech Stock Sell-Off Sends Nasdaq Lower; Major Indexes Post Gains for the Week",
-   "src": "Investopedia",
    "sum": ""
   },
   {
@@ -245,6 +240,11 @@
   {
    "h": "Stock Market Today: Dow climbs almost 600 points to a record finish, S&P 500 ends flat and Nasdaq lower as the rotation trade grips markets after June jobs data",
    "src": "MarketWatch",
+   "sum": ""
+  },
+  {
+   "h": "Markets News, July 1, 2026: Major Indexes Start Second Half Lower as Chip Stocks Drop; Dow Hits Intraday Record Before Retreat",
+   "src": "Investopedia",
    "sum": ""
   },
   {
@@ -288,8 +288,8 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] Broadcom Inc. (AVGO) Shares Slide Despite Jump in Revenue",
-   "src": "Yahoo Finance",
+   "h": "[AVGO] Broadcom’s Stock Has Slumped Over 20% From Its Highs. These Experts Say They Would Buy the Dip",
+   "src": "Investopedia",
    "sum": ""
   },
   {
@@ -298,8 +298,8 @@
    "sum": ""
   },
   {
-   "h": "[AMD] Why AMD Stock Could Hit $615: Inside Wells Fargo’s Latest AI Price Target Upgrade",
-   "src": "Barron's",
+   "h": "[AMD] AMD Stock Is Crushing Nvidia's in 2026. Will That Continue?",
+   "src": "The Motley Fool",
    "sum": ""
   },
   {

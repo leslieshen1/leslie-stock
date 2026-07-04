@@ -47,6 +47,7 @@ export default function HoldingsClient() {
   const [status, setStatus] = useState<"gate" | "bad" | "loading" | "ok" | "error" | "no-store">("gate");
   const [data, setData] = useState<Data | null>(null);
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
+  const [fx, setFx] = useState<{ USD?: number; HKD?: number }>({}); // →¥ 实时汇率(跨市场总计折算)
   const [genState, setGenState] = useState<string>("");   // "" | "daily" | lotId
   const [genErr, setGenErr] = useState<string>("");
   const [showForm, setShowForm] = useState(false);
@@ -79,18 +80,27 @@ export default function HoldingsClient() {
     if (!pos.length) return;
     let stop = false;
     const back = new Map(pos.map((p) => [toQuoteSym(p.market, p.sym).toUpperCase(), qKey(p.market, p.sym)]));
-    const syms = [...back.keys()];
+    // 捎带汇率(Yahoo 兜底能识别 USDCNY=X):有美股/港股仓才拉,供总计折算 ¥
+    const wantFx: string[] = [];
+    if (pos.some((p) => p.market === "us")) wantFx.push("USDCNY=X");
+    if (pos.some((p) => p.market === "hk")) wantFx.push("HKDCNY=X");
+    const syms = [...back.keys(), ...wantFx];
     const tick = async () => {
       try {
-        const r = await fetch(`${QUOTE_URL}?syms=${syms.join(",")}`, { cache: "no-store" });
+        const r = await fetch(`${QUOTE_URL}?syms=${encodeURIComponent(syms.join(","))}`, { cache: "no-store" });
         const j = (await r.json()) as { quotes?: Record<string, Quote> };
         if (stop || !j.quotes) return;
         const next: Record<string, Quote> = {};
+        const nf: { USD?: number; HKD?: number } = {};
         for (const [k, v] of Object.entries(j.quotes)) {
-          const bk = back.get(k.toUpperCase());
+          const K = k.toUpperCase();
+          if (K === "USDCNY=X" && v && typeof v.price === "number") { nf.USD = v.price; continue; }
+          if (K === "HKDCNY=X" && v && typeof v.price === "number") { nf.HKD = v.price; continue; }
+          const bk = back.get(K);
           if (bk && v && typeof v.price === "number") next[bk] = v;
         }
         setQuotes((old) => ({ ...old, ...next }));
+        if (nf.USD || nf.HKD) setFx((old) => ({ ...old, ...nf }));
       } catch { /* 行情失败静默,下轮再试 */ }
     };
     tick();
@@ -197,6 +207,32 @@ export default function HoldingsClient() {
   const groups: Market[] = ["us", "a", "hk"];
   const openLotsPending = data.lots.filter((l) => !data.reviews.some((v) => v.lotId === l.lotId));
 
+  // 分组统计(渲染与总计共用)。已实现 = 未清仓票累计 + 已完全清仓票的平仓段
+  const groupStats = groups.map((m) => {
+    const rows = data.positions.filter((p) => p.market === m);
+    let mv = 0, cost = 0;
+    for (const p of rows) {
+      const q = quotes[qKey(p.market, p.sym)];
+      mv += q ? q.price * p.qty : p.invested;
+      cost += p.invested;
+    }
+    const held = new Set(rows.map((p) => p.sym));
+    const realized = rows.reduce((a, p) => a + p.realized, 0) +
+      data.lots.filter((l) => l.market === m && !held.has(l.sym)).reduce((a, l) => a + l.realized, 0);
+    return { m, rows, mv, cost, realized };
+  }).filter((g) => g.rows.length > 0 || Math.abs(g.realized) > 1e-9);
+
+  // 跨市场总计:全部折算 ¥(A股=1,美/港按实时汇率)。多币种才有意义,单币种不显示。
+  const toCny = (m: Market) => (m === "a" ? 1 : m === "us" ? fx.USD ?? null : fx.HKD ?? null);
+  const fxReady = groupStats.every((g) => toCny(g.m) != null);
+  const tot = fxReady && groupStats.length > 0
+    ? groupStats.reduce((acc, g) => {
+        const r = toCny(g.m)!;
+        acc.mv += g.mv * r; acc.cost += g.cost * r; acc.realized += g.realized * r;
+        return acc;
+      }, { mv: 0, cost: 0, realized: 0 })
+    : null;
+
   return (
     <div className="space-y-8">
       {/* 持仓 + 录入按钮 */}
@@ -242,18 +278,38 @@ export default function HoldingsClient() {
           </form>
         )}
 
+        {/* 跨市场总计(多币种时显示;A股原值,美/港按实时汇率折 ¥) */}
+        {groupStats.length > 1 && (
+          <div className="mb-4 rounded-xl border border-accent/30 bg-accent-soft px-4 py-3">
+            {tot ? (
+              <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm">
+                <span className="font-semibold text-ink">{t("总计(折算¥)", "Total (¥)")}</span>
+                <span className="text-muted">{t("市值", "MV")} ¥{fmt(tot.mv, 0)}</span>
+                <span className="text-muted">{t("成本", "Cost")} ¥{fmt(tot.cost, 0)}</span>
+                <span className={`tnum ${tot.mv - tot.cost >= 0 ? "text-up" : "text-down"}`}>
+                  {t("浮盈", "P&L")} {tot.cost > 0 ? `${tot.mv - tot.cost >= 0 ? "+" : ""}${fmt(((tot.mv - tot.cost) / tot.cost) * 100)}%` : "—"}(¥{tot.mv - tot.cost >= 0 ? "+" : ""}{fmt(tot.mv - tot.cost, 0)})
+                </span>
+                {Math.abs(tot.realized) > 0.5 && (
+                  <span className={`tnum ${tot.realized >= 0 ? "text-up" : "text-down"}`}>{t("已实现", "Realized")} ¥{tot.realized >= 0 ? "+" : ""}{fmt(tot.realized, 0)}</span>
+                )}
+                <span className="text-[11px] text-faint">
+                  {fx.USD ? `1$≈¥${fmt(fx.USD)}` : ""}{fx.USD && fx.HKD ? " · " : ""}{fx.HKD ? `1HK$≈¥${fmt(fx.HKD)}` : ""}{t(" 实时", " live")}
+                </span>
+              </div>
+            ) : (
+              <p className="text-xs text-faint">{t("总计:汇率加载中…", "Total: loading FX…")}</p>
+            )}
+          </div>
+        )}
+
         {data.positions.length === 0 ? (
           <div className="rounded-xl border border-dashed border-line-2 bg-surface p-10 text-center text-sm text-muted">{t("还没有持仓,点「+ 记一笔」录入第一笔买入。", "No positions yet — add your first buy.")}</div>
-        ) : groups.map((m) => {
-          const rows = data.positions.filter((p) => p.market === m);
-          if (!rows.length) return null;
+        ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost }) => {
           const ccy = CCY[m];
-          let mv = 0, cost = 0;
           const body = rows.map((p) => {
             const q = quotes[qKey(p.market, p.sym)];
             const px = q?.price ?? null;
             const v = px ? px * p.qty : p.invested;
-            mv += v; cost += p.invested;
             const pnlPct = px ? (px / p.avgCost - 1) * 100 : null;
             return (
               <tr key={p.sym} className="hover:bg-surface-2">

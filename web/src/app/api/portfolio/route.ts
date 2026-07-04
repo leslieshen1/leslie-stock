@@ -69,6 +69,8 @@ export async function POST(req: Request) {
         side: t.side!, price: t.price!, qty: t.qty!,
         date: t.date!, reason: (t.reason || "").slice(0, 400) || undefined,
         ts: Date.now(),
+        dir: t.market === "perp" ? t.dir : undefined,
+        lev: t.market === "perp" && typeof t.lev === "number" ? t.lev : undefined,
       };
       trades.push(rec);
       await r.set(PF.trades, JSON.stringify(trades));

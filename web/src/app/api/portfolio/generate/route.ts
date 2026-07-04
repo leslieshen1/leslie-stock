@@ -46,10 +46,12 @@ function posLines(trades: Trade[], quotes: Record<string, Quote>): { lines: stri
     const s = (bySlice[p.market] ||= { mv: 0, cost: 0 });
     s.mv += mv; s.cost += p.invested;
     const ccy = CCY[p.market];
-    const pnl = px ? ((px / p.avgCost - 1) * 100).toFixed(2) : "?";
+    const short = p.market === "perp" && p.dir === "SHORT";
+    const tag = p.market === "perp" ? `perp·${short ? "空" : "多"}${p.lev ? p.lev + "x" : ""}` : p.market;
+    const pnl = px ? (((short ? p.avgCost - px : px - p.avgCost) / p.avgCost) * 100).toFixed(2) : "?";
     const day = typeof q.pct === "number" ? q.pct.toFixed(2) : "?";
-    return `- ${p.sym} ${p.name}(${p.market})${p.qty}股 · 成本${ccy}${p.avgCost} · 现价${px ? ccy + px : "无行情"} · 浮盈${pnl}% · 今日${day}% · 市值${ccy}${r2(mv)}` +
-      (p.lastReason ? ` · 买入理由:${p.lastReason.slice(0, 60)}` : "");
+    return `- ${p.sym} ${p.name}(${tag})${p.qty}${p.market === "perp" ? "张" : "股"} · ${short ? "开仓均价" : "成本"}${ccy}${p.avgCost} · 现价${px ? ccy + px : "无行情"} · 浮盈${pnl}%(价差口径${short ? ",空单已反向" : ""}) · 今日${day}% · 名义市值${ccy}${r2(mv)}` +
+      (p.lastReason ? ` · 开仓理由:${p.lastReason.slice(0, 60)}` : "");
   });
   const totals = Object.entries(bySlice).map(([m, s]) =>
     `${m.toUpperCase()} 市值 ${CCY[m as keyof typeof CCY]}${r2(s.mv)} / 成本 ${CCY[m as keyof typeof CCY]}${r2(s.cost)} / 浮盈 ${s.cost > 0 ? (((s.mv - s.cost) / s.cost) * 100).toFixed(2) : "0"}%`);
@@ -101,17 +103,19 @@ export async function POST(req: Request) {
       const { lots } = aggregate(trades);
       const lot = lots.find((l) => l.lotId === body.lotId);
       if (!lot) return Response.json({ error: "lot 未找到(该笔可能还没平仓)" }, { status: 404 });
-      const seq = lot.trades.map((t) => `- ${t.date} ${t.side} ${t.qty}股 @${t.price}${t.reason ? " · 当时理由:" + t.reason : ""}`);
+      const isPerp = lot.market === "perp";
+      const dirTag = isPerp ? `永续合约 ${lot.dir === "SHORT" ? "做空" : "做多"}${lot.lev ? ` ${lot.lev}x` : ""}` : lot.market.toUpperCase();
+      const seq = lot.trades.map((t) => `- ${t.date} ${t.side === "BUY" ? (isPerp ? "开仓" : "买入") : (isPerp ? "平仓" : "卖出")} ${t.qty}${isPerp ? "张" : "股"} @${t.price}${t.reason ? " · 当时理由:" + t.reason : ""}`);
       const user =
-        `复盘我这笔已经结束的操作(${lot.sym} ${lot.name},${lot.market.toUpperCase()})。\n\n` +
+        `复盘我这笔已经结束的操作(${lot.sym} ${lot.name},${dirTag})。\n\n` +
         `【完整流水】\n${seq.join("\n")}\n\n` +
-        `【结果】持有 ${lot.holdDays} 天 · 投入 ${CCY[lot.market]}${lot.buyAmt} · 卖回 ${CCY[lot.market]}${lot.sellAmt} · 盈亏 ${CCY[lot.market]}${lot.realized}(${lot.retPct >= 0 ? "+" : ""}${lot.retPct}%)\n\n` +
+        `【结果】持有 ${lot.holdDays} 天 · 名义开仓 ${CCY[lot.market]}${lot.buyAmt} · 平仓 ${CCY[lot.market]}${lot.sellAmt} · 盈亏 ${CCY[lot.market]}${lot.realized}(价差 ${lot.retPct >= 0 ? "+" : ""}${lot.retPct}%${isPerp && lot.lev ? `,保证金口径约 ${lot.retPct >= 0 ? "+" : ""}${r2(lot.retPct * lot.lev)}%` : ""})\n\n` +
         `要求:### 这笔做了什么(一句话) ### 当初的理由成立吗(对照买入理由和实际结果,诚实,别安慰我) ### 做对与做错(各 1-2 条,具体到买卖点) ### 一条带走的教训(一句话,可执行)。`;
       const md = await ndt(SYSTEM, user);
       const rawV = await r.get<string | unknown[]>(PF.reviews);
       const reviews: (Partial<ClosedLot> & { md: string; genAt: number })[] =
         rawV == null ? [] : typeof rawV === "string" ? JSON.parse(rawV) : (rawV as (Partial<ClosedLot> & { md: string; genAt: number })[]);
-      const rec = { lotId: lot.lotId, market: lot.market, sym: lot.sym, name: lot.name, openDate: lot.openDate, closeDate: lot.closeDate, holdDays: lot.holdDays, realized: lot.realized, retPct: lot.retPct, buyAmt: lot.buyAmt, md, genAt: Date.now() };
+      const rec = { lotId: lot.lotId, market: lot.market, sym: lot.sym, name: lot.name, openDate: lot.openDate, closeDate: lot.closeDate, holdDays: lot.holdDays, realized: lot.realized, retPct: lot.retPct, buyAmt: lot.buyAmt, dir: lot.dir, lev: lot.lev, md, genAt: Date.now() };
       const i = reviews.findIndex((v) => v.lotId === lot.lotId);
       if (i >= 0) reviews[i] = rec; else reviews.unshift(rec);
       await r.set(PF.reviews, JSON.stringify(reviews.slice(0, 100)));

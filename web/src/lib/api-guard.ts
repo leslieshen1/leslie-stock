@@ -82,3 +82,12 @@ export function safeEqual(a: string, b: string): boolean {
   for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
   return diff === 0;
 }
+
+// —— 私密接口口令门(/stats、/portfolio 共用 STATS_TOKEN;Bearer 头)。
+export function statsAuthed(req: Request): boolean {
+  const want = process.env.STATS_TOKEN;
+  if (!want) return false;
+  const h = req.headers.get("authorization") || "";
+  const tok = h.startsWith("Bearer ") ? h.slice(7) : "";
+  return tok.length > 0 && safeEqual(tok, want);
+}

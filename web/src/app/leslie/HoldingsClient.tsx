@@ -6,11 +6,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { QUOTE_URL } from "@/lib/quote-api";
 import { yahooSym } from "@/lib/quote-sym";
-import { CCY, type ClosedLot, type Dir, type Market, type Position, type Side, type Trade } from "@/lib/portfolio";
+import { CCY, type ClosedLot, type Market, type Position, type Side, type Trade } from "@/lib/portfolio";
 
 type Quote = { price: number; pct: number | null };
 type Daily = { date: string; md: string; genAt: number };
-type Review = { lotId: string; market: Market; sym: string; name: string; openDate: string; closeDate: string; holdDays: number; realized: number; retPct: number; buyAmt: number; dir?: Dir; lev?: number; md: string };
+type Review = { lotId: string; market: Market; sym: string; name: string; openDate: string; closeDate: string; holdDays: number; realized: number; retPct: number; buyAmt: number; md: string };
 type Data = {
   connected: boolean;
   trades: Trade[]; positions: Position[]; lots: ClosedLot[];
@@ -22,15 +22,8 @@ const fmt = (n: number, d = 2) => n.toLocaleString("en-US", { minimumFractionDig
 const sign = (n: number, d = 2) => `${n >= 0 ? "+" : ""}${fmt(n, d)}`;
 const bjToday = () => new Date(Date.now() + 8 * 3600_000).toISOString().slice(0, 10);
 const qKey = (m: Market, s: string) => `${m}|${s}`;
-const toQuoteSym = (m: Market, s: string) => (m === "us" || m === "perp" ? s : yahooSym(s, m)); // 合约标的锚美股价
-const MKT_NAME: Record<Market, string> = { us: "美股", a: "A股", hk: "港股", perp: "合约" };
-const isShort = (p: { market: Market; dir?: Dir }) => p.market === "perp" && p.dir === "SHORT";
-const DirBadge = ({ dir, lev }: { dir?: Dir; lev?: number }) =>
-  dir ? (
-    <span className={`ml-1.5 rounded-sm px-1 py-px text-[9px] font-semibold ${dir === "SHORT" ? "bg-[#f4525f22] text-[#f4525f]" : "bg-[#22c55e22] text-[#22c55e]"}`}>
-      {dir === "SHORT" ? "空" : "多"}{lev ? `${lev}x` : ""}
-    </span>
-  ) : null;
+const toQuoteSym = (m: Market, s: string) => (m === "us" ? s : yahooSym(s, m));
+const MKT_NAME: Record<Market, string> = { us: "美股", a: "A股", hk: "港股" };
 
 // —— 终端调色板(独立于站点主题;深邃灰阶 + 克制红绿 + 少量橙) ——
 const INK = "text-[#d6dbe4]", MUT = "text-[#8a93a3]", FAINT = "text-[#5a6372]";
@@ -246,7 +239,7 @@ export default function HoldingsClient() {
   }, [authHdr, token, quotesPayload, load]);
 
   // —— 录入 ——
-  const [f, setF] = useState({ market: "us" as Market, sym: "", name: "", side: "BUY" as Side, dir: "LONG" as Dir, lev: "", price: "", qty: "", date: bjToday(), reason: "" });
+  const [f, setF] = useState({ market: "us" as Market, sym: "", name: "", side: "BUY" as Side, price: "", qty: "", date: bjToday(), reason: "" });
   const [submitting, setSubmitting] = useState(false);
   const [formErr, setFormErr] = useState("");
   const submitTrade = async (e: React.FormEvent) => {
@@ -255,7 +248,7 @@ export default function HoldingsClient() {
     try {
       const r = await fetch("/api/portfolio", {
         method: "POST", headers: { ...authHdr(token), "content-type": "application/json" },
-        body: JSON.stringify({ action: "trade", trade: { market: f.market, sym: f.sym.trim(), name: f.name.trim(), side: f.side, price: Number(f.price), qty: Number(f.qty), date: f.date, reason: f.reason.trim(), dir: f.market === "perp" ? f.dir : undefined, lev: f.market === "perp" && f.lev ? Number(f.lev) : undefined } }),
+        body: JSON.stringify({ action: "trade", trade: { market: f.market, sym: f.sym.trim(), name: f.name.trim(), side: f.side, price: Number(f.price), qty: Number(f.qty), date: f.date, reason: f.reason.trim() } }),
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) { setFormErr(String(j.error || `失败 ${r.status}`)); setSubmitting(false); return; }
@@ -285,7 +278,7 @@ export default function HoldingsClient() {
       if (!Array.isArray(arr) || !arr.length) { setImportMsg("要一个 JSON 数组"); setImporting(false); return; }
       let ok = 0; const fails: string[] = [];
       for (const x of arr) {
-        const trade = { market: (x.market || "us") as Market, sym: x.sym, name: x.name || "", side: (x.side || "BUY") as Side, price: x.price, qty: x.qty, date: x.date || bjToday(), reason: x.reason || "", dir: x.dir, lev: x.lev };
+        const trade = { market: (x.market || "us") as Market, sym: x.sym, name: x.name || "", side: (x.side || "BUY") as Side, price: x.price, qty: x.qty, date: x.date || bjToday(), reason: x.reason || "" };
         try {
           const r = await fetch("/api/portfolio", { method: "POST", headers: { ...authHdr(token), "content-type": "application/json" }, body: JSON.stringify({ action: "trade", trade }) });
           if (r.ok) ok++; else { const j = await r.json().catch(() => ({})); fails.push(`${x.sym}: ${j.error || r.status}`); }
@@ -316,54 +309,47 @@ export default function HoldingsClient() {
 
   const today = bjToday();
   const todayDaily = data.daily.find((d) => d.date === today) || data.daily[data.daily.length - 1] || null;
-  const groups: Market[] = ["us", "a", "hk", "perp"];
+  const groups: Market[] = ["us", "a", "hk"];
   const openLotsPending = data.lots.filter((l) => !data.reviews.some((v) => v.lotId === l.lotId));
 
-  // 分组统计:名义市值/成本/未实现/已实现/当日(空单方向化:价涨=亏)
+  // 分组统计:市值/成本/已实现/当日盈亏(day = Σ mv·pct/(100+pct))
   const groupStats = groups.map((m) => {
     const rows = data.positions.filter((p) => p.market === m);
-    let mv = 0, cost = 0, day = 0, unreal = 0;
+    let mv = 0, cost = 0, day = 0;
     for (const p of rows) {
       const q = quotes[qKey(p.market, p.sym)];
-      const px = q?.price ?? null;
-      const v = px ? px * p.qty : p.invested;
-      const eff = isShort(p) ? -1 : 1;
+      const v = q ? q.price * p.qty : p.invested;
       mv += v; cost += p.invested;
-      unreal += px ? eff * (px - p.avgCost) * p.qty : 0;
-      if (q && q.pct != null) day += (eff * (v * q.pct)) / (100 + q.pct);
+      if (q && q.pct != null) day += (v * q.pct) / (100 + q.pct);
     }
     const held = new Set(rows.map((p) => p.sym));
     const realized = rows.reduce((a, p) => a + p.realized, 0) +
       data.lots.filter((l) => l.market === m && !held.has(l.sym)).reduce((a, l) => a + l.realized, 0);
-    return { m, rows, mv, cost, day, unreal, realized };
+    return { m, rows, mv, cost, day, realized };
   }).filter((g) => g.rows.length > 0 || Math.abs(g.realized) > 1e-9);
 
-  // 总计(折 ¥):A股=1,美/港/合约(USDT≈$)按 USD 汇率。
-  // 总资产 = 现货市值 + 合约未实现(合约保证金在交易所,系统不知,名义市值不计入资产)。
-  const toCny = (m: Market) => (m === "a" ? 1 : m === "hk" ? fx.HKD ?? null : fx.USD ?? null);
+  // 总计(折 ¥):A股=1,美/港按实时汇率
+  const toCny = (m: Market) => (m === "a" ? 1 : m === "us" ? fx.USD ?? null : fx.HKD ?? null);
   const fxReady = groupStats.every((g) => toCny(g.m) != null);
   const tot = fxReady && groupStats.length > 0
     ? groupStats.reduce((acc, g) => {
         const r = toCny(g.m)!;
-        acc.asset += (g.m === "perp" ? g.unreal : g.mv) * r;
-        acc.cost += (g.m === "perp" ? 0 : g.cost) * r;
-        acc.unreal += g.unreal * r; acc.day += g.day * r; acc.realized += g.realized * r;
+        acc.mv += g.mv * r; acc.cost += g.cost * r; acc.day += g.day * r; acc.realized += g.realized * r;
         return acc;
-      }, { asset: 0, cost: 0, unreal: 0, day: 0, realized: 0 })
+      }, { mv: 0, cost: 0, day: 0, realized: 0 })
     : null;
-  const kpi = tot ? { ccy: "¥", ...tot } : null; // KPI 一律折算人民币
+  const kpi = tot ? { ccy: "¥", ...tot } : null; // KPI 一律折算人民币(单一美股也折 ¥,他要的口径)
 
-  // 热力图数据:面积=名义市值(折¥),颜色=当日对我的盈亏方向(空单反色:价跌=绿)
+  // 热力图数据:面积=市值(折¥统一度量),颜色=当日涨跌
   const heatCells: Cell[] = fxReady
     ? data.positions.map((p) => {
         const q = quotes[qKey(p.market, p.sym)];
         const r = toCny(p.market) ?? 0;
-        const eff = isShort(p) ? -1 : 1;
         return {
           sym: p.sym, name: p.name, market: p.market,
           v: (q ? q.price * p.qty : p.invested) * r,
-          pct: q?.pct == null ? null : eff * q.pct,
-          pnl: q?.price ? (eff * (q.price - p.avgCost) * 100) / p.avgCost : null,
+          pct: q?.pct ?? null,
+          pnl: q?.price ? (q.price / p.avgCost - 1) * 100 : null,
         };
       })
     : [];
@@ -381,9 +367,9 @@ export default function HoldingsClient() {
       <div className={`${PANEL} flex flex-wrap items-end justify-between gap-x-6 gap-y-3 rounded-md px-4 py-3`}>
         {kpi ? (
           <div className="flex flex-wrap items-end gap-x-8 gap-y-3">
-            <Kpi label="总资产 · 折算¥"><span className={INK}>{kpi.ccy}{fmt(kpi.asset, 0)}</span></Kpi>
-            <Kpi label="今日"><span className={pn(kpi.day)}>{kpi.ccy}{sign(kpi.day, 0)}{kpi.asset - kpi.day > 0 ? ` (${sign((kpi.day / (kpi.asset - kpi.day)) * 100)}%)` : ""}</span></Kpi>
-            <Kpi label="浮动盈亏"><span className={pn(kpi.unreal)}>{kpi.ccy}{sign(kpi.unreal, 0)}{kpi.cost > 0 ? ` (${sign((kpi.unreal / kpi.cost) * 100)}%)` : ""}</span></Kpi>
+            <Kpi label={`总资产 ${kpi.ccy !== "¥" ? kpi.ccy : "· 折算¥"}`}><span className={INK}>{kpi.ccy}{fmt(kpi.mv, 0)}</span></Kpi>
+            <Kpi label="今日"><span className={pn(kpi.day)}>{kpi.ccy}{sign(kpi.day, 0)}{kpi.mv - kpi.day > 0 ? ` (${sign((kpi.day / (kpi.mv - kpi.day)) * 100)}%)` : ""}</span></Kpi>
+            <Kpi label="浮动盈亏"><span className={pn(kpi.mv - kpi.cost)}>{kpi.ccy}{sign(kpi.mv - kpi.cost, 0)}{kpi.cost > 0 ? ` (${sign(((kpi.mv - kpi.cost) / kpi.cost) * 100)}%)` : ""}</span></Kpi>
             {Math.abs(kpi.realized) > 0.5 && <Kpi label="已实现"><span className={pn(kpi.realized)}>{kpi.ccy}{sign(kpi.realized, 0)}</span></Kpi>}
             {(fx.USD || fx.HKD) && (
               <Kpi label="FX">
@@ -411,7 +397,7 @@ export default function HoldingsClient() {
       {/* ===== 导入 / 录入面板 ===== */}
       {showImport && (
         <div className={`${PANEL} rounded-md p-3`}>
-          <p className={`mb-2 text-[11px] ${FAINT}`}>粘 JSON 数组批量录入。sym/price/qty 必填;market 默认 us、side 默认 BUY、date 默认今天。合约:market:"perp" + dir:"LONG"/"SHORT"(+可选 lev 杠杆),BUY=开仓价、SELL=平仓价,空单盈亏自动反向。逐笔写入,别关页面。</p>
+          <p className={`mb-2 text-[11px] ${FAINT}`}>粘 JSON 数组批量录入。sym/price/qty 必填;market 默认 us、side 默认 BUY、date 默认今天。逐笔写入,别关页面。</p>
           <textarea value={importText} onChange={(e) => setImportText(e.target.value)} rows={5}
             placeholder='[{"sym":"BOTZ","qty":131.94,"price":37.13}]'
             className={`w-full ${INPUT} font-mono text-[11px]`} />
@@ -424,18 +410,12 @@ export default function HoldingsClient() {
       {showForm && (
         <form onSubmit={submitTrade} className={`${PANEL} grid grid-cols-2 gap-2.5 rounded-md p-3 sm:grid-cols-4`}>
           {([
-            ["市场", <select key="m" value={f.market} onChange={(e) => setF({ ...f, market: e.target.value as Market })} className={`w-full ${INPUT}`}><option value="us">美股</option><option value="a">A股</option><option value="hk">港股</option><option value="perp">合约(永续)</option></select>],
+            ["市场", <select key="m" value={f.market} onChange={(e) => setF({ ...f, market: e.target.value as Market })} className={`w-full ${INPUT}`}><option value="us">美股</option><option value="a">A股</option><option value="hk">港股</option></select>],
             ["代码", <input key="s" value={f.sym} onChange={(e) => setF({ ...f, sym: e.target.value })} placeholder="NVDA / 600519" required className={`w-full ${INPUT} font-mono`} />],
             ["名称(可选)", <input key="n" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} className={`w-full ${INPUT}`} />],
-            [f.market === "perp" ? "开/平" : "方向", <select key="d" value={f.side} onChange={(e) => setF({ ...f, side: e.target.value as Side })} className={`w-full ${INPUT}`}><option value="BUY">{f.market === "perp" ? "开仓" : "买入"}</option><option value="SELL">{f.market === "perp" ? "平仓" : "卖出"}</option></select>],
-            ...(f.market === "perp"
-              ? ([
-                  ["多/空", <select key="dir" value={f.dir} onChange={(e) => setF({ ...f, dir: e.target.value as Dir })} className={`w-full ${INPUT}`}><option value="LONG">做多</option><option value="SHORT">做空</option></select>],
-                  ["杠杆(可选)", <input key="lev" type="number" step="1" min="1" max="200" value={f.lev} onChange={(e) => setF({ ...f, lev: e.target.value })} placeholder="如 5" className={`w-full ${INPUT} font-mono`} />],
-                ] as [string, React.ReactNode][])
-              : []),
+            ["方向", <select key="d" value={f.side} onChange={(e) => setF({ ...f, side: e.target.value as Side })} className={`w-full ${INPUT}`}><option value="BUY">买入</option><option value="SELL">卖出</option></select>],
             ["价格", <input key="p" type="number" step="any" min="0" value={f.price} onChange={(e) => setF({ ...f, price: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
-            [f.market === "perp" ? "数量(张)" : "数量(股)", <input key="q" type="number" step="any" min="0" value={f.qty} onChange={(e) => setF({ ...f, qty: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
+            ["数量(股)", <input key="q" type="number" step="any" min="0" value={f.qty} onChange={(e) => setF({ ...f, qty: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
             ["成交日", <input key="t" type="date" value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
           ] as [string, React.ReactNode][]).map(([lab, el]) => (
             <label key={lab} className={`text-[10px] uppercase tracking-wider ${FAINT}`}>{lab}<div className="mt-1">{el}</div></label>
@@ -451,18 +431,18 @@ export default function HoldingsClient() {
       {/* ===== 分市场持仓表 ===== */}
       {data.positions.length === 0 ? (
         <p className={`${PANEL} rounded-md px-4 py-6 text-center text-[12px] ${FAINT}`}>还没有持仓。</p>
-      ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost, day, unreal }) => {
+      ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost, day }) => {
         const ccy = CCY[m];
-        const pnl = cost > 0 ? (unreal / cost) * 100 : 0;
+        const pnl = cost > 0 ? ((mv - cost) / cost) * 100 : 0;
         const rate = toCny(m) ?? 1; // 市值列折 ¥(他的价值,第一列)
         return (
           <div key={m} className={`${PANEL} overflow-hidden rounded-md`}>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[#262b35] bg-[#1a1e26] px-3 py-2">
               <span className={`text-[12px] font-semibold tracking-wide ${INK}`}>{MKT_NAME[m]}</span>
-              <span className={`font-mono text-[11px] tabular-nums ${MUT}`}>{m === "perp" ? "名义 " : ""}{ccy}{fmt(mv, 0)}</span>
+              <span className={`font-mono text-[11px] tabular-nums ${MUT}`}>{ccy}{fmt(mv, 0)}</span>
               <span className={`font-mono text-[11px] tabular-nums ${pn(day)}`}>今日 {sign(day, 0)}</span>
-              <span className={`font-mono text-[11px] tabular-nums ${pn(unreal)}`}>未实现 {sign(unreal, 0)}({sign(pnl)}%)</span>
-              <span className={`ml-auto font-mono text-[10px] ${FAINT}`}>{m === "perp" ? "开仓额" : "成本"} {ccy}{fmt(cost, 0)}</span>
+              <span className={`font-mono text-[11px] tabular-nums ${pn(pnl)}`}>{sign(pnl)}%</span>
+              <span className={`ml-auto font-mono text-[10px] ${FAINT}`}>成本 {ccy}{fmt(cost, 0)}</span>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[660px] text-[12px]">
@@ -478,13 +458,12 @@ export default function HoldingsClient() {
                     const q = quotes[qKey(p.market, p.sym)];
                     const px = q?.price ?? null;
                     const v = px ? px * p.qty : p.invested;
-                    const eff = isShort(p) ? -1 : 1;
-                    const pnlPct = px ? (eff * (px - p.avgCost) * 100) / p.avgCost : null;
-                    const pnlAmt = px ? eff * (px - p.avgCost) * p.qty : null;
+                    const pnlPct = px ? (px / p.avgCost - 1) * 100 : null;
+                    const pnlAmt = px ? (px - p.avgCost) * p.qty : null;
                     return (
                       <tr key={p.sym} className="border-b border-[#1e222b] transition hover:bg-[#1a1e26]">
                         <td className={`px-3 py-[7px] font-mono font-bold tabular-nums ${INK}`}>¥{fmt(v * rate, 0)}</td>
-                        <td className="whitespace-nowrap px-3 py-[7px]"><a href={`/stock/${p.sym}?market=${m === "perp" ? "us" : m}`} className="font-mono font-semibold text-[#7eb3ff] hover:underline">{p.sym}</a><DirBadge dir={p.dir} lev={p.lev} /></td>
+                        <td className="px-3 py-[7px]"><a href={`/stock/${p.sym}?market=${m}`} className="font-mono font-semibold text-[#7eb3ff] hover:underline">{p.sym}</a></td>
                         <td className={`max-w-[180px] truncate px-3 py-[7px] ${MUT}`} title={p.lastReason || p.name}>{p.name}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${MUT}`}>{fmt(p.qty, p.qty % 1 ? 2 : 0)}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${MUT}`}>{fmt(p.avgCost)}</td>
@@ -522,7 +501,7 @@ export default function HoldingsClient() {
         <div className="px-3 py-2">
           {openLotsPending.map((l) => (
             <div key={l.lotId} className="flex items-center justify-between border-b border-[#1e222b] py-1.5 text-[12px]">
-              <span className={MUT}><span className="font-mono text-[#7eb3ff]">{l.sym}</span><DirBadge dir={l.dir} lev={l.lev} /> {l.name} · {l.openDate}→{l.closeDate} · <span className={`font-mono ${pn(l.realized)}`}>{CCY[l.market]}{sign(l.realized, 0)}({sign(l.retPct)}%)</span> · 未复盘</span>
+              <span className={MUT}><span className="font-mono text-[#7eb3ff]">{l.sym}</span> {l.name} · {l.openDate}→{l.closeDate} · <span className={`font-mono ${pn(l.realized)}`}>{sign(l.retPct)}%</span> · 未复盘</span>
               <button onClick={() => generate("review", l.lotId)} disabled={genState === l.lotId} className={BTN}>{genState === l.lotId ? "生成中…" : "生成复盘"}</button>
             </div>
           ))}
@@ -532,7 +511,7 @@ export default function HoldingsClient() {
             data.reviews.map((v) => (
               <details key={v.lotId} className="border-b border-[#1e222b] last:border-0">
                 <summary className="cursor-pointer select-none py-2 text-[12px]">
-                  <span className="font-mono font-semibold text-[#7eb3ff]">{v.sym}</span><DirBadge dir={v.dir} lev={v.lev} />
+                  <span className="font-mono font-semibold text-[#7eb3ff]">{v.sym}</span>
                   <span className={`ml-2 ${MUT}`}>{v.name} · {v.openDate}→{v.closeDate} · {v.holdDays}天</span>
                   <span className={`ml-2 font-mono tabular-nums ${pn(v.realized)}`}>{CCY[v.market]}{sign(v.realized, 0)} ({sign(v.retPct)}%)</span>
                 </summary>

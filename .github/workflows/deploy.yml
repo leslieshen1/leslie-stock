@@ -31,6 +31,8 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           if [ -z "$VERCEL_TOKEN" ]; then echo "缺 VERCEL_TOKEN"; exit 1; fi
+          # 版本戳:线上 /build.txt 直接可查这次部署的 commit+时间(排查"端上是旧版?"一秒定位)
+          echo "$(git rev-parse --short HEAD) $(date -u +%FT%TZ)" > web/public/build.txt
           cd web
           npx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
           npx vercel@latest deploy --prod --yes --archive=tgz --token=$VERCEL_TOKEN

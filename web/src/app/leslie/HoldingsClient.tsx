@@ -338,12 +338,7 @@ export default function HoldingsClient() {
         return acc;
       }, { mv: 0, cost: 0, day: 0, realized: 0 })
     : null;
-  const single = groupStats.length === 1 ? groupStats[0] : null;
-  const kpi = tot && !single
-    ? { ccy: "¥", ...tot }
-    : single
-      ? { ccy: CCY[single.m], mv: single.mv, cost: single.cost, day: single.day, realized: single.realized }
-      : null;
+  const kpi = tot ? { ccy: "¥", ...tot } : null; // KPI 一律折算人民币(单一美股也折 ¥,他要的口径)
 
   // 热力图数据:面积=市值(折¥统一度量),颜色=当日涨跌
   const heatCells: Cell[] = fxReady
@@ -439,6 +434,7 @@ export default function HoldingsClient() {
       ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost, day }) => {
         const ccy = CCY[m];
         const pnl = cost > 0 ? ((mv - cost) / cost) * 100 : 0;
+        const rate = toCny(m) ?? 1; // 市值列折 ¥(他的价值,第一列)
         return (
           <div key={m} className={`${PANEL} overflow-hidden rounded-md`}>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[#262b35] bg-[#1a1e26] px-3 py-2">
@@ -452,8 +448,8 @@ export default function HoldingsClient() {
               <table className="w-full min-w-[660px] text-[12px]">
                 <thead>
                   <tr className={`border-b border-[#262b35] text-left text-[10px] uppercase tracking-[0.12em] ${FAINT}`}>
-                    {["代码", "名称", "数量", "成本", "现价", "今日", "盈亏%", "盈亏额", "市值", "占比"].map((h, i) => (
-                      <th key={h} className={`px-3 py-1.5 font-medium ${i >= 2 ? "text-right" : ""}`}>{h}</th>
+                    {["市值 ¥", "代码", "名称", "数量", "成本", "现价", "今日", "盈亏%", "盈亏额", "占比"].map((h, i) => (
+                      <th key={h} className={`px-3 py-1.5 font-medium ${i >= 3 ? "text-right" : ""}`}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -466,6 +462,7 @@ export default function HoldingsClient() {
                     const pnlAmt = px ? (px - p.avgCost) * p.qty : null;
                     return (
                       <tr key={p.sym} className="border-b border-[#1e222b] transition hover:bg-[#1a1e26]">
+                        <td className={`px-3 py-[7px] font-mono font-bold tabular-nums ${INK}`}>¥{fmt(v * rate, 0)}</td>
                         <td className="px-3 py-[7px]"><a href={`/stock/${p.sym}?market=${m}`} className="font-mono font-semibold text-[#7eb3ff] hover:underline">{p.sym}</a></td>
                         <td className={`max-w-[180px] truncate px-3 py-[7px] ${MUT}`} title={p.lastReason || p.name}>{p.name}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${MUT}`}>{fmt(p.qty, p.qty % 1 ? 2 : 0)}</td>
@@ -474,7 +471,6 @@ export default function HoldingsClient() {
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${q?.pct == null ? FAINT : pn(q.pct)}`}>{q?.pct == null ? "—" : `${sign(q.pct)}%`}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${pnlPct == null ? FAINT : pn(pnlPct)}`}>{pnlPct == null ? "—" : `${sign(pnlPct)}%`}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${pnlAmt == null ? FAINT : pn(pnlAmt)}`}>{pnlAmt == null ? "—" : sign(pnlAmt, 0)}</td>
-                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${INK}`}>{fmt(v, 0)}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${FAINT}`}>{mv > 0 ? fmt((v / mv) * 100, 1) : "0"}%</td>
                       </tr>
                     );

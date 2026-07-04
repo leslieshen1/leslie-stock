@@ -1,8 +1,7 @@
 import HoldingsClient from "./HoldingsClient";
 
-// Leslie 的私人持仓页(不进导航、不收录):口令同 /stats,进来就是持仓。
-// force-dynamic:私密页只有一个访客,别让 CDN/浏览器缓存旧页面壳(踩过:部署后手机拿旧 HTML 看不到新按钮);
-// 顺带保证右上「今日」日期不被静态化冻结在构建日。
+// Leslie 的私人持仓终端(不进导航、不收录):口令同 /stats,Finviz 式深色高密度,配色独立于站点主题。
+// force-dynamic:私密页别被 CDN/浏览器缓存旧页面壳;「今日」日期也不被静态化冻结。
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: "持仓",
@@ -10,14 +9,16 @@ export const metadata = {
 };
 
 export default function LesliePage() {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = new Date(Date.now() + 8 * 3600_000).toISOString().slice(0, 10); // 北京日
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-10 pt-4 sm:px-6">
-      <header className="mb-6 flex items-baseline justify-between">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">持仓</h1>
-        <p className="text-sm text-muted">{today}</p>
-      </header>
-      <HoldingsClient />
+    <main className="mx-auto max-w-[1240px] px-2 pb-8 pt-2 sm:px-4">
+      <div className="rounded-lg border border-[#262b35] bg-[#101216] p-3 shadow-2xl sm:p-4">
+        <header className="mb-3 flex items-baseline justify-between border-b border-[#262b35] pb-2.5">
+          <h1 className="text-[13px] font-semibold uppercase tracking-[0.3em] text-[#d6dbe4]">持仓 · Terminal</h1>
+          <p className="font-mono text-[11px] tabular-nums text-[#5a6372]">{today}</p>
+        </header>
+        <HoldingsClient />
+      </div>
     </main>
   );
 }

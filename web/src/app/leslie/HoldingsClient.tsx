@@ -1,10 +1,9 @@
 "use client";
 
-// 私人持仓面板:录买卖 → 实时收益 → AI 日报(打开自动补当天)→ 平仓自动复盘。
-// 口令与 /stats 共用(localStorage sg_stats_token / STATS_TOKEN);数据在 Upstash,只有带口令的请求可读写。
-// 现价走 QUOTE_URL(美/A/港现成,30s 轮询);NAV 快照由本组件拿到行情后回传打点。
+// 私人持仓终端(Finviz 式深色高密度,固定配色不随站点主题):
+// 录买卖 → 实时收益 → AI 日报(打开自动补当天)→ 平仓自动复盘。
+// 口令与 /stats 共用(localStorage sg_stats_token / STATS_TOKEN);数据在 Upstash;现价 QUOTE_URL 30s 轮询。
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useLang } from "@/lib/i18n";
 import { QUOTE_URL } from "@/lib/quote-api";
 import { yahooSym } from "@/lib/quote-sym";
 import { CCY, type ClosedLot, type Market, type Position, type Side, type Trade } from "@/lib/portfolio";
@@ -20,19 +19,30 @@ type Data = {
 };
 
 const fmt = (n: number, d = 2) => n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+const sign = (n: number, d = 2) => `${n >= 0 ? "+" : ""}${fmt(n, d)}`;
 const bjToday = () => new Date(Date.now() + 8 * 3600_000).toISOString().slice(0, 10);
 const qKey = (m: Market, s: string) => `${m}|${s}`;
 const toQuoteSym = (m: Market, s: string) => (m === "us" ? s : yahooSym(s, m));
+const MKT_NAME: Record<Market, string> = { us: "美股", a: "A股", hk: "港股" };
+
+// —— 终端调色板(独立于站点主题;深邃灰阶 + 克制红绿 + 少量橙) ——
+const INK = "text-[#d6dbe4]", MUT = "text-[#8a93a3]", FAINT = "text-[#5a6372]";
+const UP = "text-[#22c55e]", DN = "text-[#f4525f]";
+const PANEL = "border border-[#262b35] bg-[#15181e]";
+const INPUT = "rounded border border-[#2c323e] bg-[#0e1014] px-2 py-1.5 text-[12px] text-[#d6dbe4] outline-none focus:border-[#fb923c66]";
+const BTN = "rounded border border-[#2c323e] bg-[#1a1e26] px-2.5 py-1 text-[11px] text-[#8a93a3] transition hover:text-[#d6dbe4] hover:border-[#3a4150] disabled:opacity-40";
+const BTN_ACC = "rounded bg-[#fb923c] px-2.5 py-1 text-[11px] font-semibold text-[#1a0f08] transition hover:brightness-110 disabled:opacity-40";
+const pn = (n: number) => (n >= 0 ? UP : DN);
 
 function Md({ md }: { md: string }) {
   const bold = (s: string) =>
     s.split(/(\*\*[^*]+\*\*)/g).map((seg, i) =>
-      seg.startsWith("**") ? <strong key={i} className="font-semibold text-ink">{seg.slice(2, -2)}</strong> : seg);
+      seg.startsWith("**") ? <strong key={i} className={`font-semibold ${INK}`}>{seg.slice(2, -2)}</strong> : seg);
   return (
-    <div className="space-y-2 text-sm leading-relaxed text-muted">
+    <div className={`space-y-1.5 text-[12px] leading-relaxed ${MUT}`}>
       {md.split(/\n+/).map((ln, i) =>
         ln.startsWith("###") ? (
-          <h4 key={i} className="pt-1.5 text-[13px] font-semibold tracking-wide text-ink">{ln.replace(/^#+\s*/, "")}</h4>
+          <h4 key={i} className={`pt-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#fb923c]`}>{ln.replace(/^#+\s*/, "")}</h4>
         ) : (
           <p key={i} className="whitespace-pre-wrap">{bold(ln)}</p>
         ))}
@@ -41,14 +51,13 @@ function Md({ md }: { md: string }) {
 }
 
 export default function HoldingsClient() {
-  const { t } = useLang();
   const [token, setToken] = useState("");
   const [input, setInput] = useState("");
   const [status, setStatus] = useState<"gate" | "bad" | "loading" | "ok" | "error" | "no-store">("gate");
   const [data, setData] = useState<Data | null>(null);
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
-  const [fx, setFx] = useState<{ USD?: number; HKD?: number }>({}); // →¥ 实时汇率(跨市场总计折算)
-  const [genState, setGenState] = useState<string>("");   // "" | "daily" | lotId
+  const [fx, setFx] = useState<{ USD?: number; HKD?: number }>({});
+  const [genState, setGenState] = useState<string>("");
   const [genErr, setGenErr] = useState<string>("");
   const [showForm, setShowForm] = useState(false);
   const navDone = useRef(false);
@@ -74,13 +83,12 @@ export default function HoldingsClient() {
     if (saved) { setToken(saved); load(saved); } else setStatus("gate");
   }, [load]);
 
-  // —— 行情轮询(持仓集合变化时重启;30s)——
+  // —— 行情轮询(30s)+ 捎带汇率(USDCNY=X / HKDCNY=X,总计折 ¥ 用) ——
   useEffect(() => {
     const pos = data?.positions || [];
     if (!pos.length) return;
     let stop = false;
     const back = new Map(pos.map((p) => [toQuoteSym(p.market, p.sym).toUpperCase(), qKey(p.market, p.sym)]));
-    // 捎带汇率(Yahoo 兜底能识别 USDCNY=X):有美股/港股仓才拉,供总计折算 ¥
     const wantFx: string[] = [];
     if (pos.some((p) => p.market === "us")) wantFx.push("USDCNY=X");
     if (pos.some((p) => p.market === "hk")) wantFx.push("HKDCNY=X");
@@ -114,7 +122,7 @@ export default function HoldingsClient() {
     const pos = data.positions;
     if (!pos.length) return;
     const covered = pos.filter((p) => quotes[qKey(p.market, p.sym)]).length;
-    if (covered < Math.min(pos.length, Math.ceil(pos.length * 0.7))) return; // 行情到位 ≥70% 再动
+    if (covered < Math.min(pos.length, Math.ceil(pos.length * 0.7))) return;
     const today = bjToday();
     if (!navDone.current && !data.nav.some((n) => n.date === today)) {
       navDone.current = true;
@@ -150,14 +158,14 @@ export default function HoldingsClient() {
         body: JSON.stringify({ kind, lotId, quotes: quotesPayload() }),
       });
       const j = await r.json().catch(() => ({}));
-      if (!r.ok) setGenErr(String(j.error || (j.aiDisabled ? "AI 未接入:在 Vercel env 加 NDT_CLAUDE_KEY(或 NDT_API_KEY)后重试" : `失败 ${r.status}`)));
+      if (!r.ok) setGenErr(String(j.error || (j.aiDisabled ? "AI 未接入:Vercel env 加 NDT_CLAUDE_KEY(或 NDT_API_KEY)后 redeploy" : `失败 ${r.status}`)));
       await load(token || localStorage.getItem("sg_stats_token") || "");
     } catch { setGenErr("网络错误,稍后重试"); }
     setGenState("");
   }, [authHdr, token, quotesPayload, load]);
 
   // —— 录入 ——
-  const [f, setF] = useState({ market: "us" as Market, sym: "", name: "", side: "BUY" as "BUY" | "SELL", price: "", qty: "", date: bjToday(), reason: "" });
+  const [f, setF] = useState({ market: "us" as Market, sym: "", name: "", side: "BUY" as Side, price: "", qty: "", date: bjToday(), reason: "" });
   const [submitting, setSubmitting] = useState(false);
   const [formErr, setFormErr] = useState("");
   const submitTrade = async (e: React.FormEvent) => {
@@ -173,18 +181,18 @@ export default function HoldingsClient() {
       setF({ ...f, sym: "", name: "", price: "", qty: "", reason: "" });
       setShowForm(false);
       await load(token);
-      if (j.closedLot?.lotId) generate("review", j.closedLot.lotId); // 平仓 → 自动复盘
+      if (j.closedLot?.lotId) generate("review", j.closedLot.lotId);
     } catch { setFormErr("网络错误"); }
     setSubmitting(false);
   };
 
   const delTrade = async (id: string) => {
-    if (!confirm(t("删除这笔记录?(仅用于录错撤销,会重算持仓)", "Delete this record? Positions will be recalculated."))) return;
+    if (!confirm("删除这笔记录?(仅用于录错撤销,会重算持仓)")) return;
     await fetch("/api/portfolio", { method: "POST", headers: { ...authHdr(token), "content-type": "application/json" }, body: JSON.stringify({ action: "deleteTrade", id }) });
     load(token);
   };
 
-  // —— 批量导入(粘 JSON 数组,券商持仓迁移用)。必须串行:后端读改写非原子,并发会互相覆盖丢笔 ——
+  // —— 批量导入(串行:后端读改写非原子,并发会丢笔) ——
   const [showImport, setShowImport] = useState(false);
   const [importText, setImportText] = useState("");
   const [importMsg, setImportMsg] = useState("");
@@ -193,7 +201,7 @@ export default function HoldingsClient() {
     setImportMsg(""); setImporting(true);
     try {
       const arr = JSON.parse(importText) as Partial<Trade>[];
-      if (!Array.isArray(arr) || !arr.length) { setImportMsg(t("要一个 JSON 数组", "Expect a JSON array")); setImporting(false); return; }
+      if (!Array.isArray(arr) || !arr.length) { setImportMsg("要一个 JSON 数组"); setImporting(false); return; }
       let ok = 0; const fails: string[] = [];
       for (const x of arr) {
         const trade = { market: (x.market || "us") as Market, sym: x.sym, name: x.name || "", side: (x.side || "BUY") as Side, price: x.price, qty: x.qty, date: x.date || bjToday(), reason: x.reason || "" };
@@ -202,267 +210,255 @@ export default function HoldingsClient() {
           if (r.ok) ok++; else { const j = await r.json().catch(() => ({})); fails.push(`${x.sym}: ${j.error || r.status}`); }
         } catch { fails.push(`${x.sym}: 网络错误`); }
       }
-      setImportMsg(`${t("成功", "OK")} ${ok}/${arr.length}` + (fails.length ? ` · ${fails.join(" / ")}` : ""));
+      setImportMsg(`成功 ${ok}/${arr.length}` + (fails.length ? ` · ${fails.join(" / ")}` : ""));
       if (ok > 0) { setImportText(""); await load(token); }
-    } catch { setImportMsg(t("JSON 解析失败,检查格式", "Bad JSON")); }
+    } catch { setImportMsg("JSON 解析失败,检查格式"); }
     setImporting(false);
   };
 
-  // ---------- 口令门 ----------
+  // ---------- 门与状态 ----------
   if (status === "gate" || status === "bad") {
     return (
-      <div className="mx-auto max-w-sm py-10">
-        <p className="mb-3 text-sm text-muted">{t("持仓是私密数据,输入访问口令(与 /stats 同一个)。", "Holdings are private. Enter the access token (same as /stats).")}</p>
-        <form onSubmit={(e) => { e.preventDefault(); const tok = input.trim(); if (!tok) return; try { localStorage.setItem("sg_stats_token", tok); } catch {} setToken(tok); load(tok); }} className="space-y-3">
-          <input type="password" value={input} onChange={(e) => setInput(e.target.value)} placeholder={t("口令", "Token")} autoFocus
-            className="w-full rounded-lg border border-line bg-surface px-3 py-2.5 text-sm text-ink outline-none focus:border-accent/60" />
-          {status === "bad" && <p className="text-xs text-down">{t("口令不对。", "Wrong token.")}</p>}
-          <button type="submit" className="w-full rounded-lg bg-accent px-3 py-2.5 text-sm font-semibold text-[#1a0f08] hover:brightness-110">{t("进入", "Enter")}</button>
+      <div className="mx-auto max-w-xs py-14">
+        <p className={`mb-3 text-[12px] ${MUT}`}>私密数据 · 输入访问口令(与 /stats 同一个)</p>
+        <form onSubmit={(e) => { e.preventDefault(); const tok = input.trim(); if (!tok) return; try { localStorage.setItem("sg_stats_token", tok); } catch {} setToken(tok); load(tok); }} className="space-y-2.5">
+          <input type="password" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Token" autoFocus className={`w-full ${INPUT} py-2`} />
+          {status === "bad" && <p className={`text-[11px] ${DN}`}>口令不对。</p>}
+          <button type="submit" className={`w-full ${BTN_ACC} py-2 text-[12px]`}>进入</button>
         </form>
       </div>
     );
   }
-  if (status === "loading") return <p className="py-16 text-center text-sm text-muted">{t("加载中…", "Loading…")}</p>;
-  if (status === "no-store") return <p className="py-16 text-center text-sm text-muted">{t("还没接 Upstash 存储(Vercel → Storage)。", "Storage not connected (Vercel → Storage).")}</p>;
-  if (status === "error" || !data) return <p className="py-16 text-center text-sm text-down">{t("读取失败。", "Failed to load.")} <button onClick={() => load(token)} className="underline">{t("重试", "Retry")}</button></p>;
+  if (status === "loading") return <p className={`py-16 text-center text-[12px] ${FAINT}`}>加载中…</p>;
+  if (status === "no-store") return <p className={`py-16 text-center text-[12px] ${MUT}`}>还没接 Upstash 存储(Vercel → Storage)。</p>;
+  if (status === "error" || !data) return <p className={`py-16 text-center text-[12px] ${DN}`}>读取失败。<button onClick={() => load(token)} className="ml-1 underline">重试</button></p>;
 
   const today = bjToday();
   const todayDaily = data.daily.find((d) => d.date === today) || data.daily[data.daily.length - 1] || null;
   const groups: Market[] = ["us", "a", "hk"];
   const openLotsPending = data.lots.filter((l) => !data.reviews.some((v) => v.lotId === l.lotId));
 
-  // 分组统计(渲染与总计共用)。已实现 = 未清仓票累计 + 已完全清仓票的平仓段
+  // 分组统计:市值/成本/已实现/当日盈亏(day = Σ mv·pct/(100+pct))
   const groupStats = groups.map((m) => {
     const rows = data.positions.filter((p) => p.market === m);
-    let mv = 0, cost = 0;
+    let mv = 0, cost = 0, day = 0;
     for (const p of rows) {
       const q = quotes[qKey(p.market, p.sym)];
-      mv += q ? q.price * p.qty : p.invested;
-      cost += p.invested;
+      const v = q ? q.price * p.qty : p.invested;
+      mv += v; cost += p.invested;
+      if (q && q.pct != null) day += (v * q.pct) / (100 + q.pct);
     }
     const held = new Set(rows.map((p) => p.sym));
     const realized = rows.reduce((a, p) => a + p.realized, 0) +
       data.lots.filter((l) => l.market === m && !held.has(l.sym)).reduce((a, l) => a + l.realized, 0);
-    return { m, rows, mv, cost, realized };
+    return { m, rows, mv, cost, day, realized };
   }).filter((g) => g.rows.length > 0 || Math.abs(g.realized) > 1e-9);
 
-  // 跨市场总计:全部折算 ¥(A股=1,美/港按实时汇率)。多币种才有意义,单币种不显示。
+  // 总计(折 ¥):A股=1,美/港按实时汇率
   const toCny = (m: Market) => (m === "a" ? 1 : m === "us" ? fx.USD ?? null : fx.HKD ?? null);
   const fxReady = groupStats.every((g) => toCny(g.m) != null);
   const tot = fxReady && groupStats.length > 0
     ? groupStats.reduce((acc, g) => {
         const r = toCny(g.m)!;
-        acc.mv += g.mv * r; acc.cost += g.cost * r; acc.realized += g.realized * r;
+        acc.mv += g.mv * r; acc.cost += g.cost * r; acc.day += g.day * r; acc.realized += g.realized * r;
         return acc;
-      }, { mv: 0, cost: 0, realized: 0 })
+      }, { mv: 0, cost: 0, day: 0, realized: 0 })
     : null;
+  const single = groupStats.length === 1 ? groupStats[0] : null;
+  const kpi = tot && !single
+    ? { ccy: "¥", ...tot }
+    : single
+      ? { ccy: CCY[single.m], mv: single.mv, cost: single.cost, day: single.day, realized: single.realized }
+      : null;
+
+  const Kpi = ({ label, children }: { label: string; children: React.ReactNode }) => (
+    <div className="flex min-w-0 flex-col gap-0.5">
+      <span className={`text-[10px] uppercase tracking-[0.14em] ${FAINT}`}>{label}</span>
+      <span className="font-mono text-[15px] leading-none tabular-nums">{children}</span>
+    </div>
+  );
 
   return (
-    <div className="space-y-8">
-      {/* 持仓 + 录入按钮 */}
-      <section>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-medium text-muted">{t("当前持仓", "Positions")}</h2>
-          <div className="flex items-center gap-2">
-            <button onClick={() => setShowForm((v) => !v)} className="rounded-lg bg-accent px-3 py-1.5 text-sm font-semibold text-[#1a0f08] hover:brightness-110">
-              {showForm ? t("收起", "Close") : t("+ 记一笔", "+ Add trade")}
-            </button>
-            <button onClick={() => setShowImport((v) => !v)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-muted hover:text-ink">{t("导入", "Import")}</button>
-            <button onClick={() => load(token)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-muted hover:text-ink">{t("刷新", "Refresh")}</button>
-          </div>
-        </div>
-
-        {showImport && (
-          <div className="mb-4 rounded-xl border border-line bg-surface p-4">
-            <p className="mb-2 text-xs text-muted">
-              {t("粘 JSON 数组批量录入(券商迁移用)。字段:sym 必填,price/qty 必填;market 默认 us、side 默认 BUY、date 默认今天。逐笔写入,别关页面。", "Paste a JSON array. sym/price/qty required; market defaults us, side BUY, date today.")}
-            </p>
-            <textarea value={importText} onChange={(e) => setImportText(e.target.value)} rows={6}
-              placeholder='[{"sym":"BOTZ","qty":131.94,"price":37.13,"name":"Global X Robotics ETF"}]'
-              className="w-full rounded-lg border border-line bg-base px-2 py-2 font-mono text-xs text-ink" />
-            <div className="mt-2 flex items-center gap-3">
-              <button onClick={runImport} disabled={importing || !importText.trim()} className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-[#1a0f08] hover:brightness-110 disabled:opacity-50">
-                {importing ? t("导入中…(逐笔写入)", "Importing…") : t("开始导入", "Import")}
-              </button>
-              {importMsg && <span className="text-xs text-muted">{importMsg}</span>}
-            </div>
-          </div>
-        )}
-
-        {showForm && (
-          <form onSubmit={submitTrade} className="mb-4 grid grid-cols-2 gap-3 rounded-xl border border-line bg-surface p-4 sm:grid-cols-4">
-            <label className="text-xs text-muted">{t("市场", "Market")}
-              <select value={f.market} onChange={(e) => setF({ ...f, market: e.target.value as Market })} className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink">
-                <option value="us">{t("美股", "US")}</option><option value="a">{t("A股", "A-share")}</option><option value="hk">{t("港股", "HK")}</option>
-              </select></label>
-            <label className="text-xs text-muted">{t("代码", "Symbol")}
-              <input value={f.sym} onChange={(e) => setF({ ...f, sym: e.target.value })} placeholder="NVDA / 600519 / 0700" required className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink" /></label>
-            <label className="text-xs text-muted">{t("名称(可选)", "Name (optional)")}
-              <input value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink" /></label>
-            <label className="text-xs text-muted">{t("方向", "Side")}
-              <select value={f.side} onChange={(e) => setF({ ...f, side: e.target.value as "BUY" | "SELL" })} className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink">
-                <option value="BUY">{t("买入", "Buy")}</option><option value="SELL">{t("卖出", "Sell")}</option>
-              </select></label>
-            <label className="text-xs text-muted">{t("价格", "Price")}
-              <input type="number" step="any" min="0" value={f.price} onChange={(e) => setF({ ...f, price: e.target.value })} required className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink tnum" /></label>
-            <label className="text-xs text-muted">{t("数量(股)", "Qty")}
-              <input type="number" step="any" min="0" value={f.qty} onChange={(e) => setF({ ...f, qty: e.target.value })} required className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink tnum" /></label>
-            <label className="text-xs text-muted">{t("成交日", "Date")}
-              <input type="date" value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} required className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink" /></label>
-            <label className="col-span-2 text-xs text-muted sm:col-span-4">{t("理由(复盘的原料,强烈建议写)", "Reason (fuel for the review — write it)")}
-              <textarea value={f.reason} onChange={(e) => setF({ ...f, reason: e.target.value })} rows={2} placeholder={t("为什么买 / 为什么卖…", "Why buy / why sell…")} className="mt-1 w-full rounded-lg border border-line bg-base px-2 py-2 text-sm text-ink" /></label>
-            {formErr && <p className="col-span-2 text-xs text-down sm:col-span-4">{formErr}</p>}
-            <div className="col-span-2 sm:col-span-4">
-              <button type="submit" disabled={submitting} className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-[#1a0f08] hover:brightness-110 disabled:opacity-50">
-                {submitting ? t("提交中…", "Submitting…") : t("确认记录", "Save")}
-              </button>
-            </div>
-          </form>
-        )}
-
-        {/* 跨市场总计(多币种时显示;A股原值,美/港按实时汇率折 ¥) */}
-        {groupStats.length > 1 && (
-          <div className="mb-4 rounded-xl border border-accent/30 bg-accent-soft px-4 py-3">
-            {tot ? (
-              <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm">
-                <span className="font-semibold text-ink">{t("总计(折算¥)", "Total (¥)")}</span>
-                <span className="text-muted">{t("市值", "MV")} ¥{fmt(tot.mv, 0)}</span>
-                <span className="text-muted">{t("成本", "Cost")} ¥{fmt(tot.cost, 0)}</span>
-                <span className={`tnum ${tot.mv - tot.cost >= 0 ? "text-up" : "text-down"}`}>
-                  {t("浮盈", "P&L")} {tot.cost > 0 ? `${tot.mv - tot.cost >= 0 ? "+" : ""}${fmt(((tot.mv - tot.cost) / tot.cost) * 100)}%` : "—"}(¥{tot.mv - tot.cost >= 0 ? "+" : ""}{fmt(tot.mv - tot.cost, 0)})
-                </span>
-                {Math.abs(tot.realized) > 0.5 && (
-                  <span className={`tnum ${tot.realized >= 0 ? "text-up" : "text-down"}`}>{t("已实现", "Realized")} ¥{tot.realized >= 0 ? "+" : ""}{fmt(tot.realized, 0)}</span>
-                )}
-                <span className="text-[11px] text-faint">
-                  {fx.USD ? `1$≈¥${fmt(fx.USD)}` : ""}{fx.USD && fx.HKD ? " · " : ""}{fx.HKD ? `1HK$≈¥${fmt(fx.HKD)}` : ""}{t(" 实时", " live")}
-                </span>
-              </div>
-            ) : (
-              <p className="text-xs text-faint">{t("总计:汇率加载中…", "Total: loading FX…")}</p>
+    <div className="space-y-4 font-[system-ui]">
+      {/* ===== KPI 汇总条 ===== */}
+      <div className={`${PANEL} flex flex-wrap items-end justify-between gap-x-6 gap-y-3 rounded-md px-4 py-3`}>
+        {kpi ? (
+          <div className="flex flex-wrap items-end gap-x-8 gap-y-3">
+            <Kpi label={`总资产 ${kpi.ccy !== "¥" ? kpi.ccy : "· 折算¥"}`}><span className={INK}>{kpi.ccy}{fmt(kpi.mv, 0)}</span></Kpi>
+            <Kpi label="今日"><span className={pn(kpi.day)}>{kpi.ccy}{sign(kpi.day, 0)}{kpi.mv - kpi.day > 0 ? ` (${sign((kpi.day / (kpi.mv - kpi.day)) * 100)}%)` : ""}</span></Kpi>
+            <Kpi label="浮动盈亏"><span className={pn(kpi.mv - kpi.cost)}>{kpi.ccy}{sign(kpi.mv - kpi.cost, 0)}{kpi.cost > 0 ? ` (${sign(((kpi.mv - kpi.cost) / kpi.cost) * 100)}%)` : ""}</span></Kpi>
+            {Math.abs(kpi.realized) > 0.5 && <Kpi label="已实现"><span className={pn(kpi.realized)}>{kpi.ccy}{sign(kpi.realized, 0)}</span></Kpi>}
+            {(fx.USD || fx.HKD) && (
+              <Kpi label="FX">
+                <span className={`text-[12px] ${MUT}`}>{fx.USD ? `$${fmt(fx.USD)}` : ""}{fx.USD && fx.HKD ? " / " : ""}{fx.HKD ? `HK$${fmt(fx.HKD)}` : ""}</span>
+              </Kpi>
             )}
           </div>
+        ) : (
+          <span className={`text-[12px] ${FAINT}`}>{data.positions.length ? "汇率加载中…" : "空仓 · 点「记一笔」或「导入」开始"}</span>
         )}
-
-        {data.positions.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-line-2 bg-surface p-10 text-center text-sm text-muted">{t("还没有持仓,点「+ 记一笔」录入第一笔买入。", "No positions yet — add your first buy.")}</div>
-        ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost }) => {
-          const ccy = CCY[m];
-          const body = rows.map((p) => {
-            const q = quotes[qKey(p.market, p.sym)];
-            const px = q?.price ?? null;
-            const v = px ? px * p.qty : p.invested;
-            const pnlPct = px ? (px / p.avgCost - 1) * 100 : null;
-            return (
-              <tr key={p.sym} className="hover:bg-surface-2">
-                <td className="px-3 py-2.5"><a href={`/stock/${p.sym}?market=${m === "us" ? "us" : m}`} className="font-medium text-ink hover:text-accent">{p.name}</a><span className="ml-1.5 font-mono text-[11px] text-faint">{p.sym}</span></td>
-                <td className="px-3 py-2.5 text-right tnum">{fmt(p.qty, 0)}</td>
-                <td className="px-3 py-2.5 text-right tnum text-muted">{fmt(p.avgCost)}</td>
-                <td className="px-3 py-2.5 text-right tnum">{px ? fmt(px) : "—"}</td>
-                <td className={`px-3 py-2.5 text-right tnum ${q?.pct == null ? "text-faint" : q.pct >= 0 ? "text-up" : "text-down"}`}>{q?.pct == null ? "—" : `${q.pct >= 0 ? "+" : ""}${fmt(q.pct)}%`}</td>
-                <td className={`px-3 py-2.5 text-right tnum ${pnlPct == null ? "text-faint" : pnlPct >= 0 ? "text-up" : "text-down"}`}>{pnlPct == null ? "—" : `${pnlPct >= 0 ? "+" : ""}${fmt(pnlPct)}%`}</td>
-                <td className="px-3 py-2.5 text-right tnum text-muted">{ccy}{fmt(v, 0)}</td>
-              </tr>
-            );
-          });
-          const pnl = cost > 0 ? ((mv - cost) / cost) * 100 : 0;
-          return (
-            <div key={m} className="mb-4 overflow-hidden rounded-xl border border-line bg-surface">
-              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line px-4 py-2.5 text-sm">
-                <span className="font-semibold text-ink">{m === "us" ? t("美股", "US") : m === "a" ? t("A股", "A-shares") : t("港股", "HK")}</span>
-                <span className="text-muted">{t("市值", "MV")} {ccy}{fmt(mv, 0)}</span>
-                <span className="text-muted">{t("成本", "Cost")} {ccy}{fmt(cost, 0)}</span>
-                <span className={pnl >= 0 ? "text-up" : "text-down"}>{t("浮盈", "P&L")} {pnl >= 0 ? "+" : ""}{fmt(pnl)}%</span>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[620px] text-sm">
-                  <thead className="text-[11px] uppercase tracking-wider text-faint">
-                    <tr>{[t("股票", "Stock"), t("股数", "Qty"), t("成本", "Cost"), t("现价", "Price"), t("今日", "Day"), t("浮盈", "P&L"), t("市值", "MV")].map((h, i) => <th key={i} className={`px-3 py-2 font-medium ${i === 0 ? "text-left" : "text-right"}`}>{h}</th>)}</tr>
-                  </thead>
-                  <tbody className="divide-y divide-line">{body}</tbody>
-                </table>
-              </div>
-            </div>
-          );
-        })}
-      </section>
-
-      {/* AI 日报 */}
-      <section>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-medium text-muted">{t("AI 持仓日报", "AI Daily Note")}{todayDaily && <span className="ml-2 text-xs text-faint">· {todayDaily.date}</span>}</h2>
-          <button onClick={() => generate("daily")} disabled={genState === "daily"} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-muted hover:text-ink disabled:opacity-50">
-            {genState === "daily" ? t("生成中…(约半分钟)", "Generating… (~30s)") : t("重新生成", "Regenerate")}
-          </button>
+        <div className="flex items-center gap-1.5">
+          <button onClick={() => setShowForm((v) => !v)} className={BTN_ACC}>{showForm ? "收起" : "+ 记一笔"}</button>
+          <button onClick={() => setShowImport((v) => !v)} className={BTN}>导入</button>
+          <button onClick={() => load(token)} className={BTN}>刷新</button>
         </div>
-        {genErr && <p className="mb-2 text-xs text-down">{genErr}</p>}
-        {!data.aiReady && <p className="mb-2 rounded-lg border border-line bg-surface p-3 text-xs text-muted">{t("AI 未接入:在 Vercel 环境变量加 NDT_CLAUDE_KEY(或 NDT_API_KEY,可选 NDT_BASE_URL)并 redeploy,日报和复盘就会自动工作。持仓/收益不受影响。", "AI not connected: add NDT_CLAUDE_KEY (or NDT_API_KEY) in Vercel env and redeploy.")}</p>}
-        {todayDaily ? (
-          <article className="rounded-xl border border-line bg-surface p-5"><Md md={todayDaily.md} /></article>
-        ) : (
-          <div className="rounded-xl border border-dashed border-line-2 bg-surface p-8 text-center text-sm text-muted">
-            {genState === "daily" ? t("AI 正在整理今天的持仓…", "AI is writing today's note…") : t("今天还没有日报。", "No note for today yet.")}
-          </div>
-        )}
-      </section>
+      </div>
 
-      {/* 平仓复盘 */}
-      <section>
-        <h2 className="mb-3 text-lg font-medium text-muted">{t("平仓复盘", "Closed-trade Reviews")}</h2>
-        {openLotsPending.map((l) => (
-          <div key={l.lotId} className="mb-2 flex items-center justify-between rounded-lg border border-line bg-surface px-4 py-2.5 text-sm">
-            <span className="text-muted">{l.sym} {l.name} · {l.openDate} → {l.closeDate} · <span className={l.realized >= 0 ? "text-up" : "text-down"}>{l.realized >= 0 ? "+" : ""}{fmt(l.retPct)}%</span> {t("· 还没复盘", "· not reviewed")}</span>
-            <button onClick={() => generate("review", l.lotId)} disabled={genState === l.lotId} className="rounded-lg border border-line px-2.5 py-1 text-xs text-muted hover:text-ink disabled:opacity-50">
-              {genState === l.lotId ? t("生成中…", "Generating…") : t("生成复盘", "Review")}
-            </button>
+      {/* ===== 导入 / 录入面板 ===== */}
+      {showImport && (
+        <div className={`${PANEL} rounded-md p-3`}>
+          <p className={`mb-2 text-[11px] ${FAINT}`}>粘 JSON 数组批量录入。sym/price/qty 必填;market 默认 us、side 默认 BUY、date 默认今天。逐笔写入,别关页面。</p>
+          <textarea value={importText} onChange={(e) => setImportText(e.target.value)} rows={5}
+            placeholder='[{"sym":"BOTZ","qty":131.94,"price":37.13}]'
+            className={`w-full ${INPUT} font-mono text-[11px]`} />
+          <div className="mt-2 flex items-center gap-3">
+            <button onClick={runImport} disabled={importing || !importText.trim()} className={BTN_ACC}>{importing ? "导入中…(逐笔)" : "开始导入"}</button>
+            {importMsg && <span className={`text-[11px] ${MUT}`}>{importMsg}</span>}
           </div>
-        ))}
-        {data.reviews.length === 0 && openLotsPending.length === 0 ? (
-          <p className="rounded-xl border border-dashed border-line-2 bg-surface p-8 text-center text-sm text-muted">{t("还没有已平仓的操作。卖出清零某只票后,这里会自动出现该笔的 AI 复盘。", "No closed trades yet — reviews appear automatically after you fully exit a position.")}</p>
-        ) : (
-          <div className="space-y-3">
-            {data.reviews.map((v) => (
-              <details key={v.lotId} className="rounded-xl border border-line bg-surface">
-                <summary className="cursor-pointer select-none px-4 py-3 text-sm">
-                  <span className="font-medium text-ink">{v.sym} {v.name}</span>
-                  <span className="ml-2 text-muted">{v.openDate} → {v.closeDate} · {v.holdDays}{t("天", "d")}</span>
-                  <span className={`ml-2 tnum ${v.realized >= 0 ? "text-up" : "text-down"}`}>{v.realized >= 0 ? "+" : ""}{CCY[v.market]}{fmt(v.realized, 0)}({v.retPct >= 0 ? "+" : ""}{fmt(v.retPct)}%)</span>
-                </summary>
-                <div className="border-t border-line p-4"><Md md={v.md} /></div>
-              </details>
-            ))}
-          </div>
-        )}
-      </section>
+        </div>
+      )}
+      {showForm && (
+        <form onSubmit={submitTrade} className={`${PANEL} grid grid-cols-2 gap-2.5 rounded-md p-3 sm:grid-cols-4`}>
+          {([
+            ["市场", <select key="m" value={f.market} onChange={(e) => setF({ ...f, market: e.target.value as Market })} className={`w-full ${INPUT}`}><option value="us">美股</option><option value="a">A股</option><option value="hk">港股</option></select>],
+            ["代码", <input key="s" value={f.sym} onChange={(e) => setF({ ...f, sym: e.target.value })} placeholder="NVDA / 600519" required className={`w-full ${INPUT} font-mono`} />],
+            ["名称(可选)", <input key="n" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} className={`w-full ${INPUT}`} />],
+            ["方向", <select key="d" value={f.side} onChange={(e) => setF({ ...f, side: e.target.value as Side })} className={`w-full ${INPUT}`}><option value="BUY">买入</option><option value="SELL">卖出</option></select>],
+            ["价格", <input key="p" type="number" step="any" min="0" value={f.price} onChange={(e) => setF({ ...f, price: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
+            ["数量(股)", <input key="q" type="number" step="any" min="0" value={f.qty} onChange={(e) => setF({ ...f, qty: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
+            ["成交日", <input key="t" type="date" value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
+          ] as [string, React.ReactNode][]).map(([lab, el]) => (
+            <label key={lab} className={`text-[10px] uppercase tracking-wider ${FAINT}`}>{lab}<div className="mt-1">{el}</div></label>
+          ))}
+          <label className={`col-span-2 text-[10px] uppercase tracking-wider ${FAINT} sm:col-span-4`}>理由(复盘的原料,建议写)
+            <textarea value={f.reason} onChange={(e) => setF({ ...f, reason: e.target.value })} rows={2} placeholder="为什么买 / 为什么卖…" className={`mt-1 w-full ${INPUT}`} />
+          </label>
+          {formErr && <p className={`col-span-2 text-[11px] ${DN} sm:col-span-4`}>{formErr}</p>}
+          <div className="col-span-2 sm:col-span-4"><button type="submit" disabled={submitting} className={BTN_ACC}>{submitting ? "提交中…" : "确认记录"}</button></div>
+        </form>
+      )}
 
-      {/* 交易流水 */}
-      <section>
-        <h2 className="mb-3 text-lg font-medium text-muted">{t("交易流水", "Trade Log")}<span className="ml-2 text-xs text-faint">{data.trades.length} {t("笔", "records")}</span></h2>
-        {data.trades.length > 0 && (
-          <div className="overflow-hidden rounded-xl border border-line bg-surface">
-            <div className="max-h-[420px] overflow-y-auto overflow-x-auto">
-              <table className="w-full min-w-[640px] text-sm">
-                <thead className="sticky top-0 bg-surface text-[11px] uppercase tracking-wider text-faint">
-                  <tr>{[t("日期", "Date"), t("方向", "Side"), t("股票", "Stock"), t("价格", "Price"), t("数量", "Qty"), t("理由", "Reason"), ""].map((h, i) => <th key={i} className={`px-3 py-2 font-medium ${i >= 3 && i <= 4 ? "text-right" : "text-left"}`}>{h}</th>)}</tr>
+      {/* ===== 分市场持仓表 ===== */}
+      {data.positions.length === 0 ? (
+        <p className={`${PANEL} rounded-md px-4 py-6 text-center text-[12px] ${FAINT}`}>还没有持仓。</p>
+      ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost, day }) => {
+        const ccy = CCY[m];
+        const pnl = cost > 0 ? ((mv - cost) / cost) * 100 : 0;
+        return (
+          <div key={m} className={`${PANEL} overflow-hidden rounded-md`}>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[#262b35] bg-[#1a1e26] px-3 py-2">
+              <span className={`text-[12px] font-semibold tracking-wide ${INK}`}>{MKT_NAME[m]}</span>
+              <span className={`font-mono text-[11px] tabular-nums ${MUT}`}>{ccy}{fmt(mv, 0)}</span>
+              <span className={`font-mono text-[11px] tabular-nums ${pn(day)}`}>今日 {sign(day, 0)}</span>
+              <span className={`font-mono text-[11px] tabular-nums ${pn(pnl)}`}>{sign(pnl)}%</span>
+              <span className={`ml-auto font-mono text-[10px] ${FAINT}`}>成本 {ccy}{fmt(cost, 0)}</span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[660px] text-[12px]">
+                <thead>
+                  <tr className={`border-b border-[#262b35] text-left text-[10px] uppercase tracking-[0.12em] ${FAINT}`}>
+                    {["代码", "名称", "数量", "成本", "现价", "今日", "盈亏%", "盈亏额", "市值", "占比"].map((h, i) => (
+                      <th key={h} className={`px-3 py-1.5 font-medium ${i >= 2 ? "text-right" : ""}`}>{h}</th>
+                    ))}
+                  </tr>
                 </thead>
-                <tbody className="divide-y divide-line">
-                  {data.trades.map((tr) => (
-                    <tr key={tr.id} className="hover:bg-surface-2">
-                      <td className="px-3 py-2 tnum text-muted">{tr.date}</td>
-                      <td className={`px-3 py-2 font-medium ${tr.side === "BUY" ? "text-up" : "text-down"}`}>{tr.side === "BUY" ? t("买", "B") : t("卖", "S")}</td>
-                      <td className="px-3 py-2 text-ink">{tr.sym}<span className="ml-1 text-[11px] text-faint">{tr.market}</span></td>
-                      <td className="px-3 py-2 text-right tnum">{fmt(tr.price)}</td>
-                      <td className="px-3 py-2 text-right tnum">{fmt(tr.qty, 0)}</td>
-                      <td className="max-w-[280px] truncate px-3 py-2 text-muted" title={tr.reason}>{tr.reason || "—"}</td>
-                      <td className="px-3 py-2 text-right"><button onClick={() => delTrade(tr.id)} className="text-xs text-faint hover:text-down">{t("删", "del")}</button></td>
-                    </tr>
-                  ))}
+                <tbody>
+                  {rows.map((p) => {
+                    const q = quotes[qKey(p.market, p.sym)];
+                    const px = q?.price ?? null;
+                    const v = px ? px * p.qty : p.invested;
+                    const pnlPct = px ? (px / p.avgCost - 1) * 100 : null;
+                    const pnlAmt = px ? (px - p.avgCost) * p.qty : null;
+                    return (
+                      <tr key={p.sym} className="border-b border-[#1e222b] transition hover:bg-[#1a1e26]">
+                        <td className="px-3 py-[7px]"><a href={`/stock/${p.sym}?market=${m}`} className="font-mono font-semibold text-[#7eb3ff] hover:underline">{p.sym}</a></td>
+                        <td className={`max-w-[180px] truncate px-3 py-[7px] ${MUT}`} title={p.lastReason || p.name}>{p.name}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${MUT}`}>{fmt(p.qty, p.qty % 1 ? 2 : 0)}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${MUT}`}>{fmt(p.avgCost)}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${INK}`}>{px ? fmt(px) : "—"}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${q?.pct == null ? FAINT : pn(q.pct)}`}>{q?.pct == null ? "—" : `${sign(q.pct)}%`}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${pnlPct == null ? FAINT : pn(pnlPct)}`}>{pnlPct == null ? "—" : `${sign(pnlPct)}%`}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${pnlAmt == null ? FAINT : pn(pnlAmt)}`}>{pnlAmt == null ? "—" : sign(pnlAmt, 0)}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${INK}`}>{fmt(v, 0)}</td>
+                        <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${FAINT}`}>{mv > 0 ? fmt((v / mv) * 100, 1) : "0"}%</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
           </div>
+        );
+      })}
+
+      {/* ===== AI 日报 ===== */}
+      <div className={`${PANEL} rounded-md`}>
+        <div className="flex items-center justify-between border-b border-[#262b35] bg-[#1a1e26] px-3 py-2">
+          <span className={`text-[11px] font-semibold uppercase tracking-[0.15em] ${MUT}`}>AI 持仓日报{todayDaily && <span className={`ml-2 font-mono normal-case ${FAINT}`}>{todayDaily.date}</span>}</span>
+          <button onClick={() => generate("daily")} disabled={genState === "daily"} className={BTN}>{genState === "daily" ? "生成中…(~30s)" : "重新生成"}</button>
+        </div>
+        <div className="px-3 py-3">
+          {genErr && <p className={`mb-2 text-[11px] ${DN}`}>{genErr}</p>}
+          {!data.aiReady && <p className={`mb-2 text-[11px] ${FAINT}`}>AI 未接入:Vercel env 加 NDT_CLAUDE_KEY(或 NDT_API_KEY)并 redeploy。持仓/收益不受影响。</p>}
+          {todayDaily ? <Md md={todayDaily.md} /> : <p className={`text-[12px] ${FAINT}`}>{genState === "daily" ? "AI 正在整理今天的持仓…" : "今天还没有日报。"}</p>}
+        </div>
+      </div>
+
+      {/* ===== 平仓复盘 ===== */}
+      <div className={`${PANEL} rounded-md`}>
+        <div className={`border-b border-[#262b35] bg-[#1a1e26] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] ${MUT}`}>平仓复盘</div>
+        <div className="px-3 py-2">
+          {openLotsPending.map((l) => (
+            <div key={l.lotId} className="flex items-center justify-between border-b border-[#1e222b] py-1.5 text-[12px]">
+              <span className={MUT}><span className="font-mono text-[#7eb3ff]">{l.sym}</span> {l.name} · {l.openDate}→{l.closeDate} · <span className={`font-mono ${pn(l.realized)}`}>{sign(l.retPct)}%</span> · 未复盘</span>
+              <button onClick={() => generate("review", l.lotId)} disabled={genState === l.lotId} className={BTN}>{genState === l.lotId ? "生成中…" : "生成复盘"}</button>
+            </div>
+          ))}
+          {data.reviews.length === 0 && openLotsPending.length === 0 ? (
+            <p className={`py-3 text-[12px] ${FAINT}`}>还没有已平仓的操作。卖清某只票后自动出现该笔 AI 复盘。</p>
+          ) : (
+            data.reviews.map((v) => (
+              <details key={v.lotId} className="border-b border-[#1e222b] last:border-0">
+                <summary className="cursor-pointer select-none py-2 text-[12px]">
+                  <span className="font-mono font-semibold text-[#7eb3ff]">{v.sym}</span>
+                  <span className={`ml-2 ${MUT}`}>{v.name} · {v.openDate}→{v.closeDate} · {v.holdDays}天</span>
+                  <span className={`ml-2 font-mono tabular-nums ${pn(v.realized)}`}>{CCY[v.market]}{sign(v.realized, 0)} ({sign(v.retPct)}%)</span>
+                </summary>
+                <div className="border-t border-[#1e222b] py-2.5"><Md md={v.md} /></div>
+              </details>
+            ))
+          )}
+        </div>
+      </div>
+
+      {/* ===== 交易流水 ===== */}
+      <div className={`${PANEL} overflow-hidden rounded-md`}>
+        <div className={`border-b border-[#262b35] bg-[#1a1e26] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] ${MUT}`}>交易流水 <span className="font-mono normal-case">{data.trades.length}</span></div>
+        {data.trades.length > 0 && (
+          <div className="max-h-[380px] overflow-y-auto overflow-x-auto">
+            <table className="w-full min-w-[640px] text-[12px]">
+              <thead className="sticky top-0 bg-[#15181e]">
+                <tr className={`border-b border-[#262b35] text-left text-[10px] uppercase tracking-[0.12em] ${FAINT}`}>
+                  {["日期", "向", "代码", "价格", "数量", "理由", ""].map((h, i) => <th key={i} className={`px-3 py-1.5 font-medium ${i === 3 || i === 4 ? "text-right" : ""}`}>{h}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {data.trades.map((tr) => (
+                  <tr key={tr.id} className="border-b border-[#1e222b] hover:bg-[#1a1e26]">
+                    <td className={`px-3 py-[6px] font-mono tabular-nums ${FAINT}`}>{tr.date}</td>
+                    <td className={`px-3 py-[6px] font-semibold ${tr.side === "BUY" ? UP : DN}`}>{tr.side === "BUY" ? "买" : "卖"}</td>
+                    <td className="px-3 py-[6px]"><span className="font-mono text-[#7eb3ff]">{tr.sym}</span><span className={`ml-1 text-[10px] ${FAINT}`}>{tr.market}</span></td>
+                    <td className={`px-3 py-[6px] text-right font-mono tabular-nums ${MUT}`}>{fmt(tr.price)}</td>
+                    <td className={`px-3 py-[6px] text-right font-mono tabular-nums ${MUT}`}>{fmt(tr.qty, tr.qty % 1 ? 2 : 0)}</td>
+                    <td className={`max-w-[260px] truncate px-3 py-[6px] ${FAINT}`} title={tr.reason}>{tr.reason || "—"}</td>
+                    <td className="px-3 py-[6px] text-right"><button onClick={() => delTrade(tr.id)} className="text-[10px] text-[#5a6372] transition hover:text-[#f4525f]">删</button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
-      </section>
+      </div>
     </div>
   );
 }

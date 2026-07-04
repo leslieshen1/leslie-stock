@@ -7,7 +7,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { QUOTE_URL } from "@/lib/quote-api";
 import { yahooSym } from "@/lib/quote-sym";
-import { CCY, type ClosedLot, type Market, type Position, type Trade } from "@/lib/portfolio";
+import { CCY, type ClosedLot, type Market, type Position, type Side, type Trade } from "@/lib/portfolio";
 
 type Quote = { price: number; pct: number | null };
 type Daily = { date: string; md: string; genAt: number };
@@ -184,6 +184,30 @@ export default function HoldingsClient() {
     load(token);
   };
 
+  // —— 批量导入(粘 JSON 数组,券商持仓迁移用)。必须串行:后端读改写非原子,并发会互相覆盖丢笔 ——
+  const [showImport, setShowImport] = useState(false);
+  const [importText, setImportText] = useState("");
+  const [importMsg, setImportMsg] = useState("");
+  const [importing, setImporting] = useState(false);
+  const runImport = async () => {
+    setImportMsg(""); setImporting(true);
+    try {
+      const arr = JSON.parse(importText) as Partial<Trade>[];
+      if (!Array.isArray(arr) || !arr.length) { setImportMsg(t("要一个 JSON 数组", "Expect a JSON array")); setImporting(false); return; }
+      let ok = 0; const fails: string[] = [];
+      for (const x of arr) {
+        const trade = { market: (x.market || "us") as Market, sym: x.sym, name: x.name || "", side: (x.side || "BUY") as Side, price: x.price, qty: x.qty, date: x.date || bjToday(), reason: x.reason || "" };
+        try {
+          const r = await fetch("/api/portfolio", { method: "POST", headers: { ...authHdr(token), "content-type": "application/json" }, body: JSON.stringify({ action: "trade", trade }) });
+          if (r.ok) ok++; else { const j = await r.json().catch(() => ({})); fails.push(`${x.sym}: ${j.error || r.status}`); }
+        } catch { fails.push(`${x.sym}: 网络错误`); }
+      }
+      setImportMsg(`${t("成功", "OK")} ${ok}/${arr.length}` + (fails.length ? ` · ${fails.join(" / ")}` : ""));
+      if (ok > 0) { setImportText(""); await load(token); }
+    } catch { setImportMsg(t("JSON 解析失败,检查格式", "Bad JSON")); }
+    setImporting(false);
+  };
+
   // ---------- 口令门 ----------
   if (status === "gate" || status === "bad") {
     return (
@@ -243,9 +267,27 @@ export default function HoldingsClient() {
             <button onClick={() => setShowForm((v) => !v)} className="rounded-lg bg-accent px-3 py-1.5 text-sm font-semibold text-[#1a0f08] hover:brightness-110">
               {showForm ? t("收起", "Close") : t("+ 记一笔", "+ Add trade")}
             </button>
+            <button onClick={() => setShowImport((v) => !v)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-muted hover:text-ink">{t("导入", "Import")}</button>
             <button onClick={() => load(token)} className="rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-muted hover:text-ink">{t("刷新", "Refresh")}</button>
           </div>
         </div>
+
+        {showImport && (
+          <div className="mb-4 rounded-xl border border-line bg-surface p-4">
+            <p className="mb-2 text-xs text-muted">
+              {t("粘 JSON 数组批量录入(券商迁移用)。字段:sym 必填,price/qty 必填;market 默认 us、side 默认 BUY、date 默认今天。逐笔写入,别关页面。", "Paste a JSON array. sym/price/qty required; market defaults us, side BUY, date today.")}
+            </p>
+            <textarea value={importText} onChange={(e) => setImportText(e.target.value)} rows={6}
+              placeholder='[{"sym":"BOTZ","qty":131.94,"price":37.13,"name":"Global X Robotics ETF"}]'
+              className="w-full rounded-lg border border-line bg-base px-2 py-2 font-mono text-xs text-ink" />
+            <div className="mt-2 flex items-center gap-3">
+              <button onClick={runImport} disabled={importing || !importText.trim()} className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-[#1a0f08] hover:brightness-110 disabled:opacity-50">
+                {importing ? t("导入中…(逐笔写入)", "Importing…") : t("开始导入", "Import")}
+              </button>
+              {importMsg && <span className="text-xs text-muted">{importMsg}</span>}
+            </div>
+          </div>
+        )}
 
         {showForm && (
           <form onSubmit={submitTrade} className="mb-4 grid grid-cols-2 gap-3 rounded-xl border border-line bg-surface p-4 sm:grid-cols-4">

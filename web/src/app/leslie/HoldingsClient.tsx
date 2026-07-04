@@ -34,6 +34,80 @@ const BTN = "rounded border border-[#2c323e] bg-[#1a1e26] px-2.5 py-1 text-[11px
 const BTN_ACC = "rounded bg-[#fb923c] px-2.5 py-1 text-[11px] font-semibold text-[#1a0f08] transition hover:brightness-110 disabled:opacity-40";
 const pn = (n: number) => (n >= 0 ? UP : DN);
 
+// —— 持仓热力图(Finviz 式 squarified treemap,零依赖):面积=市值(折¥),颜色=当日涨跌 ——
+type Cell = { sym: string; name: string; market: Market; v: number; pct: number | null; pnl: number | null };
+type Rect = { x: number; y: number; w: number; h: number; c: Cell };
+
+function squarify(cells: Cell[], x: number, y: number, w: number, h: number): Rect[] {
+  // 经典 squarify:值降序,逐行铺,行内保持最优长宽比。坐标系 0-100,渲染用百分比 → 天然响应式。
+  const items = cells.filter((c) => c.v > 0).sort((a, b) => b.v - a.v);
+  const total = items.reduce((a, c) => a + c.v, 0);
+  if (!total) return [];
+  const scale = (w * h) / total;
+  const out: Rect[] = [];
+  let row: Cell[] = [], rx = x, ry = y, rw = w, rh = h;
+  const worst = (r: Cell[], side: number) => {
+    const s = r.reduce((a, c) => a + c.v * scale, 0);
+    let m = 0;
+    for (const c of r) {
+      const a = c.v * scale;
+      const ratio = Math.max((side * side * a) / (s * s), (s * s) / (side * side * a));
+      m = Math.max(m, ratio);
+    }
+    return m;
+  };
+  const layoutRow = (r: Cell[]) => {
+    const s = r.reduce((a, c) => a + c.v * scale, 0);
+    const horiz = rw >= rh; // 行贴短边
+    const side = horiz ? rh : rw;
+    const thick = s / side;
+    let off = 0;
+    for (const c of r) {
+      const len = (c.v * scale) / thick;
+      out.push(horiz ? { x: rx, y: ry + off, w: thick, h: len, c } : { x: rx + off, y: ry, w: len, h: thick, c });
+      off += len;
+    }
+    if (horiz) { rx += thick; rw -= thick; } else { ry += thick; rh -= thick; }
+  };
+  for (const c of items) {
+    const side = Math.min(rw, rh);
+    if (row.length && worst([...row, c], side) > worst(row, side)) { layoutRow(row); row = [c]; }
+    else row.push(c);
+  }
+  if (row.length) layoutRow(row);
+  return out;
+}
+
+function heatColor(pct: number | null): string {
+  if (pct == null) return "#3a3f4a";
+  const t = Math.max(-3, Math.min(3, pct)) / 3; // ±3% 封顶,Finviz 同款
+  const mix = (a: number[], b: number[], k: number) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
+  const base = [65, 69, 84]; // #414554 中性
+  const rgb = t >= 0 ? mix(base, [38, 166, 91], t) : mix(base, [216, 58, 70], -t);
+  return `rgb(${rgb.join(",")})`;
+}
+
+function Treemap({ cells }: { cells: Cell[] }) {
+  const rects = squarify(cells, 0, 0, 100, 100);
+  return (
+    <div className="relative h-[300px] w-full overflow-hidden rounded-[3px]">
+      {rects.map(({ x, y, w, h, c }) => {
+        const area = (w * h) / 100; // 面积占比 %
+        const big = area > 5, mid = area > 1.8;
+        return (
+          <a key={c.sym} href={`/stock/${c.sym}?market=${c.market}`}
+            title={`${c.sym} ${c.name} · 市值占比 ${fmt(area, 1)}%${c.pct != null ? ` · 今日 ${sign(c.pct)}%` : ""}${c.pnl != null ? ` · 浮盈 ${sign(c.pnl)}%` : ""}`}
+            className="absolute flex flex-col items-center justify-center overflow-hidden outline outline-1 outline-[#101216] transition hover:brightness-125"
+            style={{ left: `${x}%`, top: `${y}%`, width: `${w}%`, height: `${h}%`, background: heatColor(c.pct) }}>
+            {mid && <span className={`font-mono font-bold leading-tight text-white/90 ${big ? "text-[15px]" : "text-[10px]"}`}>{c.sym}</span>}
+            {big && c.pct != null && <span className="font-mono text-[11px] leading-tight text-white/75">{sign(c.pct)}%</span>}
+          </a>
+        );
+      })}
+    </div>
+  );
+}
+
 function Md({ md }: { md: string }) {
   const bold = (s: string) =>
     s.split(/(\*\*[^*]+\*\*)/g).map((seg, i) =>
@@ -271,6 +345,20 @@ export default function HoldingsClient() {
       ? { ccy: CCY[single.m], mv: single.mv, cost: single.cost, day: single.day, realized: single.realized }
       : null;
 
+  // 热力图数据:面积=市值(折¥统一度量),颜色=当日涨跌
+  const heatCells: Cell[] = fxReady
+    ? data.positions.map((p) => {
+        const q = quotes[qKey(p.market, p.sym)];
+        const r = toCny(p.market) ?? 0;
+        return {
+          sym: p.sym, name: p.name, market: p.market,
+          v: (q ? q.price * p.qty : p.invested) * r,
+          pct: q?.pct ?? null,
+          pnl: q?.price ? (q.price / p.avgCost - 1) * 100 : null,
+        };
+      })
+    : [];
+
   const Kpi = ({ label, children }: { label: string; children: React.ReactNode }) => (
     <div className="flex min-w-0 flex-col gap-0.5">
       <span className={`text-[10px] uppercase tracking-[0.14em] ${FAINT}`}>{label}</span>
@@ -303,6 +391,13 @@ export default function HoldingsClient() {
           <button onClick={() => load(token)} className={BTN}>刷新</button>
         </div>
       </div>
+
+      {/* ===== 持仓热力图(Finviz treemap:面积=市值,颜色=当日) ===== */}
+      {heatCells.length > 0 && (
+        <div className={`${PANEL} rounded-md p-1`}>
+          <Treemap cells={heatCells} />
+        </div>
+      )}
 
       {/* ===== 导入 / 录入面板 ===== */}
       {showImport && (

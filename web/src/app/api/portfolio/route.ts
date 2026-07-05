@@ -48,7 +48,7 @@ export async function POST(req: Request) {
   const r = redis();
   if (!r) return Response.json({ connected: false }, { status: 503 });
 
-  let body: { action?: string; trade?: Partial<Trade>; id?: string; date?: string; slices?: unknown };
+  let body: { action?: string; trade?: Partial<Trade>; id?: string; date?: string; slices?: unknown; md?: string };
   try {
     body = await req.json();
   } catch {
@@ -85,6 +85,18 @@ export async function POST(req: Request) {
       if (next.length === trades.length) return Response.json({ error: "not found" }, { status: 404 });
       await r.set(PF.trades, JSON.stringify(next));
       return Response.json({ ok: true });
+    }
+
+    // 手动写入一篇日报(Claude 会话里跑的深度分析直接沉淀到页面;与 generate 的 NDT 自动生成并存)
+    if (body.action === "putDaily" && body.date && typeof body.md === "string" && body.md.trim()) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(body.date)) return Response.json({ error: "bad date" }, { status: 400 });
+      const daily = await readJson<{ date: string; md: string; genAt: number }[]>(r, PF.daily, []);
+      const rec = { date: body.date, md: body.md.slice(0, 40_000), genAt: Date.now() };
+      const i = daily.findIndex((d) => d.date === body.date);
+      if (i >= 0) daily[i] = rec; else daily.push(rec);
+      daily.sort((a, b) => a.date.localeCompare(b.date));
+      await r.set(PF.daily, JSON.stringify(daily.slice(-40)));
+      return Response.json({ ok: true, daily: rec });
     }
 
     if (body.action === "nav" && body.date && body.slices) {

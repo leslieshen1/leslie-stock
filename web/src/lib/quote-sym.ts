@@ -9,6 +9,10 @@ export function yahooSym(code: string, market: "a" | "hk" | "us" | string): stri
     //（民士达 920394 实测:.SZ 无价、.BJ 才有 ¥78）。深市只剩 0/3 开头(9 不是深市)。
     if (/^(?:4|8|92)/.test(code)) return `${code}.BJ`;
     if (/^[03]/.test(code)) return `${code}.SZ`;
+    // 场内基金:深市 1 开头(15x ETF/16x LOF/18x 封基)→ .SZ;沪市 5 开头(50x/51x/56x/58x)→ .SS
+    //(160644 港美互联网LOF 实测:裸代码无价、.SZ 才有 → 持仓页 A 股基金行情曾因此空白)
+    if (/^1/.test(code)) return `${code}.SZ`;
+    if (/^5/.test(code)) return `${code}.SS`;
     return code;
   }
   // 港股 Yahoo 符号要 4 位、且不留多余前导零(Yahoo 不认 00700.HK,要 0700.HK;09988→9988)。

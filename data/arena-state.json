@@ -3211,9 +3211,69 @@
    "reason": "候选清一色盘前爆拉7%-13%，这是资金轮动后的明牌价，不是我想要的预期差；宁可拿现金等回落，也不去接最后一棒。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 161,
+   "fill_date": "2026-07-06",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意大多仍有我看得懂的护城河，今天没有哪一个坏到该卖，也没有现金和仓位让我以足够安全边际买入新的好公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 162,
+   "fill_date": "2026-07-06",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的四门生意我都看得懂，文化和模式没有变，盘前这点波动不值得我为了交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 163,
+   "fill_date": "2026-07-06",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天不为买满去砍真瓶颈仓位：我手里的十个位置仍然都是供应链窄门，盘前只是高波动主题票的修复，不是让我追新候选最后一棒的信号。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 164,
+   "fill_date": "2026-07-06",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "BWXT",
+   "reason": "AI电力荒、核能复兴和国防开支三股宏观顺风叠在一起，盘前不到爆拉程度，我要用最后一个仓位买这条趋势里更干净的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 165,
+   "fill_date": "2026-07-06",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "AUGO",
+   "reason": "贵金属资金还在进、转板带来增量买盘，盘前没被抢到失控，我愿意顺着这段情绪上行吃一仓但不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 166,
+   "fill_date": "2026-07-06",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CACI",
+   "reason": "AI拥挤盘在松、资金往防务和政府预算链挪，CACI盘前温和不癫狂，属于机构顺风但还没散户化的盘口。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 161,
+ "next_order_id": 167,
  "notes": [
   {
    "date": "2026-06-12",

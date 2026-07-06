@@ -24,6 +24,8 @@ const bjToday = () => new Date(Date.now() + 8 * 3600_000).toISOString().slice(0,
 const qKey = (m: Market, s: string) => `${m}|${s}`;
 const toQuoteSym = (m: Market, s: string) => (m === "us" || m === "perp" ? s : yahooSym(s, m)); // 合约标的锚美股价
 const MKT_NAME: Record<Market, string> = { us: "美股", a: "A股", hk: "港股", perp: "合约" };
+// 各市场本金口径(Leslie 口述:A股账户本金 10 万)。盈利点 =(已实现+持仓浮动)/ 本金,组头常驻实时显示
+const CAPITAL: Partial<Record<Market, number>> = { a: 100_000 };
 const isShort = (p: { market: Market; dir?: Dir }) => p.market === "perp" && p.dir === "SHORT";
 const DirBadge = ({ dir, lev }: { dir?: Dir; lev?: number }) =>
   dir ? (
@@ -451,14 +453,22 @@ export default function HoldingsClient() {
       {/* ===== 分市场持仓表 ===== */}
       {data.positions.length === 0 ? (
         <p className={`${PANEL} rounded-md px-4 py-6 text-center text-[12px] ${FAINT}`}>还没有持仓。</p>
-      ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost, day, unreal }) => {
+      ) : groupStats.filter((g) => g.rows.length > 0).map(({ m, rows, mv, cost, day, unreal, realized }) => {
         const ccy = CCY[m];
         const pnl = cost > 0 ? (unreal / cost) * 100 : 0;
         const rate = toCny(m) ?? 1; // 市值列折 ¥(他的价值,第一列)
+        const cap = CAPITAL[m];
+        const totProfit = realized + unreal; // 该市场总盈利 = 已实现(含已平仓段)+ 持仓浮动
         return (
           <div key={m} className={`${PANEL} overflow-hidden rounded-md`}>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[#262b35] bg-[#1a1e26] px-3 py-2">
               <span className={`text-[12px] font-semibold tracking-wide ${INK}`}>{MKT_NAME[m]}</span>
+              {cap != null && (
+                <span className={`font-mono text-[11.5px] font-semibold tabular-nums ${pn(totProfit)}`}>
+                  盈利点 {sign((totProfit / cap) * 100)}%
+                  <span className={`ml-1 font-normal ${MUT}`}>({sign(totProfit, 0)} / 本金{ccy}{fmt(cap, 0)})</span>
+                </span>
+              )}
               <span className={`font-mono text-[11px] tabular-nums ${MUT}`}>{m === "perp" ? "名义 " : ""}{ccy}{fmt(mv, 0)}</span>
               <span className={`font-mono text-[11px] tabular-nums ${pn(day)}`}>今日 {sign(day, 0)}</span>
               <span className={`font-mono text-[11px] tabular-nums ${pn(unreal)}`}>未实现 {sign(unreal, 0)}({sign(pnl)}%)</span>

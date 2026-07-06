@@ -47,5 +47,6 @@ jobs:
             else
               echo "build #$i failed, skip push"
             fi
-            [ "$i" -lt 11 ] && sleep 300
+            [ "$i" -lt 11 ] && sleep 300 || true  # 末轮条件为假时 && 短路返回 1,曾把干完活的 job 标成 failure
           done
+          echo "all 11 rounds done"

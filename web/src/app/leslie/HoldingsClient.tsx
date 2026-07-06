@@ -249,6 +249,21 @@ export default function HoldingsClient() {
 
   // —— 录入 ——
   const [f, setF] = useState({ market: "us" as Market, sym: "", name: "", side: "BUY" as Side, dir: "LONG" as Dir, lev: "", price: "", qty: "", date: bjToday(), reason: "" });
+  // 代码 → 自动带出名称/市场(站内 /api/search,精确码命中才填;不覆盖手填名称;perp 不切市场;基金等检索不到就手填)
+  const lookupSym = useCallback(async (raw: string) => {
+    const s = raw.trim();
+    if (s.length < 2) return;
+    try {
+      const r = await fetch(`/api/search?q=${encodeURIComponent(s)}&limit=1`);
+      const hit = (await r.json())?.results?.[0] as { code?: string; name?: string; market?: string } | undefined;
+      if (!hit || String(hit.code).toUpperCase() !== s.toUpperCase()) return;
+      setF((prev) => {
+        if (prev.sym.trim().toUpperCase() !== s.toUpperCase()) return prev; // 输入已变,不回填旧结果
+        const mkt = prev.market !== "perp" && (hit.market === "a" || hit.market === "hk" || hit.market === "us") ? (hit.market as Market) : prev.market;
+        return { ...prev, name: prev.name.trim() ? prev.name : (hit.name || ""), market: mkt };
+      });
+    } catch { /* 检索挂了不打扰录入 */ }
+  }, []);
   const [submitting, setSubmitting] = useState(false);
   const [formErr, setFormErr] = useState("");
   const submitTrade = async (e: React.FormEvent) => {
@@ -427,8 +442,8 @@ export default function HoldingsClient() {
         <form onSubmit={submitTrade} className={`${PANEL} grid grid-cols-2 gap-2.5 rounded-md p-3 sm:grid-cols-4`}>
           {([
             ["市场", <select key="m" value={f.market} onChange={(e) => setF({ ...f, market: e.target.value as Market })} className={`w-full ${INPUT}`}><option value="us">美股</option><option value="a">A股</option><option value="hk">港股</option><option value="perp">合约(永续)</option></select>],
-            ["代码", <input key="s" value={f.sym} onChange={(e) => setF({ ...f, sym: e.target.value })} placeholder="NVDA / 600519" required className={`w-full ${INPUT} font-mono`} />],
-            ["名称(可选)", <input key="n" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} className={`w-full ${INPUT}`} />],
+            ["代码", <input key="s" value={f.sym} onChange={(e) => setF({ ...f, sym: e.target.value })} onBlur={() => lookupSym(f.sym)} placeholder="NVDA / 600519" required className={`w-full ${INPUT} font-mono`} />],
+            ["名称(自动带出,可改)", <input key="n" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} placeholder="输完代码自动填充" className={`w-full ${INPUT}`} />],
             [f.market === "perp" ? "开/平" : "方向", <select key="d" value={f.side} onChange={(e) => setF({ ...f, side: e.target.value as Side })} className={`w-full ${INPUT}`}><option value="BUY">{f.market === "perp" ? "开仓" : "买入"}</option><option value="SELL">{f.market === "perp" ? "平仓" : "卖出"}</option></select>],
             ...(f.market === "perp"
               ? ([

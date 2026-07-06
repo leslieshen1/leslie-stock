@@ -48,7 +48,7 @@ export async function POST(req: Request) {
   const r = redis();
   if (!r) return Response.json({ connected: false }, { status: 503 });
 
-  let body: { action?: string; trade?: Partial<Trade>; id?: string; date?: string; slices?: unknown; md?: string };
+  let body: { action?: string; trade?: Partial<Trade>; id?: string; date?: string; slices?: unknown; md?: string; patches?: { id: string; name?: string; sym?: string }[] };
   try {
     body = await req.json();
   } catch {
@@ -78,6 +78,20 @@ export async function POST(req: Request) {
       const { lots } = aggregate(trades);
       const closed = rec.side === "SELL" ? lots.find((l) => l.lotId === rec.id) || null : null;
       return Response.json({ ok: true, trade: rec, closedLot: closed });
+    }
+
+    // 批量修补流水字段(按 id 改 name/sym):手机快速录入常省名称;同代码分账(如多券商)改 sym 区分
+    if (body.action === "patchTrades" && Array.isArray(body.patches)) {
+      let n = 0;
+      for (const p of body.patches) {
+        const t = trades.find((x) => x.id === p.id);
+        if (!t) continue;
+        if (p.name != null) t.name = String(p.name).slice(0, 40) || undefined;
+        if (p.sym != null && /^[A-Za-z0-9.\-]{1,12}$/.test(String(p.sym))) t.sym = String(p.sym).toUpperCase().trim();
+        n++;
+      }
+      await r.set(PF.trades, JSON.stringify(trades));
+      return Response.json({ ok: true, patched: n });
     }
 
     if (body.action === "deleteTrade" && body.id) {

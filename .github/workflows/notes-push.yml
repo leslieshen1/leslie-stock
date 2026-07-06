@@ -1,0 +1,53 @@
+name: notes-push
+# 一次性内容转运:笔记 md(gzip+base64 分片)经 dispatch input 送达 runner,
+# runner 用 VERCEL_TOKEN 从 Vercel env 解出 STATS_TOKEN(add-mask,不落日志),循环推 admin API。
+# 商品内容不进 repo、token 不出 runner。推完即可删除本 workflow。
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: "base64(gzip(json [{id,md,free}...]))"
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 推送内容到 Upstash(经 admin API)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          set -euo pipefail
+          STATS_TOKEN=$(curl -sf "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/env?decrypt=true&teamId=${VERCEL_ORG_ID}" \
+            -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+            | python3 -c "import json,sys; envs=json.load(sys.stdin)['envs']; print(next(e['value'] for e in envs if e['key']=='STATS_TOKEN'))")
+          echo "::add-mask::${STATS_TOKEN}"
+          export STATS_TOKEN
+          echo "$PAYLOAD" | base64 -d | gunzip > /tmp/arts.json
+          python3 - <<'PY'
+          import json, os, time, urllib.request
+
+          arts = json.load(open("/tmp/arts.json"))
+          tok = os.environ["STATS_TOKEN"]
+          ok, fail = 0, []
+          for a in arts:
+              body = json.dumps({"action": "putArt", "id": a["id"], "md": a["md"], "free": bool(a.get("free"))}).encode()
+              req = urllib.request.Request(
+                  "https://stockgod.xyz/api/notes/admin", data=body, method="POST",
+                  headers={"authorization": f"Bearer {tok}", "content-type": "application/json"})
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      ok += 1 if json.load(r).get("ok") else 0
+              except Exception as e:
+                  fail.append(f"{a['id']}: {type(e).__name__}")
+              time.sleep(0.15)
+          print(f"pushed {ok}/{len(arts)}; fail: {fail}")
+          assert not fail, "some pushes failed"
+          PY

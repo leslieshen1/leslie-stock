@@ -465,7 +465,7 @@ export default function HoldingsClient() {
               <span className={`text-[12px] font-semibold tracking-wide ${INK}`}>{MKT_NAME[m]}</span>
               {cap != null && (
                 <span className={`font-mono text-[11.5px] font-semibold tabular-nums ${pn(totProfit)}`}>
-                  盈利点 {sign((totProfit / cap) * 100)}%
+                  收益率 {sign((totProfit / cap) * 100)}%
                   <span className={`ml-1 font-normal ${MUT}`}>({sign(totProfit, 0)} / 本金{ccy}{fmt(cap, 0)})</span>
                 </span>
               )}

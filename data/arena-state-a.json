@@ -1252,8 +1252,68 @@
    "reason": "集合竞价全线0%，看不到主动资金进场和情绪点火，死水盘不硬买。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 57,
+   "fill_date": "2026-07-06",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现有八家公司都还在我的能力圈与合理价格内，候选虽有好生意但没有明显到足以替换持仓的安全边际。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 58,
+   "fill_date": "2026-07-06",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看得懂，也都够本分，今天候选没有便宜到值得我换掉手里的好公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 59,
+   "fill_date": "2026-07-06",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位里全是我认的真瓶颈，今天候选没给出错杀价，也没有盘前砸出非对称入口，我不为了把现金打满去追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 60,
+   "fill_date": "2026-07-06",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688146",
+   "reason": "电子特气这条线没错，但价格已经成了组合里最弱的马，顺风不涨就先砍，资金要去更有弹性的地方。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 61,
+   "fill_date": "2026-07-06",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688757",
+   "reason": "胜科纳米本周已经被资金选出来，半导体国产替代里小盘高弹性、趋势最顺，今天没爆拉就上车骑强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 62,
+   "fill_date": "2026-07-06",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全员0.0%，盘口没有给出资金进攻方向，死水无资金我不硬买。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 57,
+ "next_order_id": 63,
  "splits": []
 }

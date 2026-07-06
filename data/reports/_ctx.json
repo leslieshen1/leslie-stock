@@ -1,418 +1,775 @@
 {
- "asof_et": "2026-07-02 08:35 ET Thu",
+ "asof_et": "2026-07-06 08:35 ET Mon",
  "direction": {
   "标普500": {
    "pm_pct": "+0.44%",
-   "yesterday_pct": "-0.14%"
+   "yesterday_pct": "-0.13%"
   },
   "纳指100": {
-   "pm_pct": "+0.72%",
-   "yesterday_pct": "-1.52%"
+   "pm_pct": "+1.26%",
+   "yesterday_pct": "-1.73%"
   },
   "道指": {
-   "pm_pct": "+0.43%",
-   "yesterday_pct": "+0.00%"
+   "pm_pct": "-0.08%",
+   "yesterday_pct": "+1.05%"
   },
   "罗素2000": {
-   "pm_pct": "+0.89%",
-   "yesterday_pct": "-0.38%"
+   "pm_pct": "+0.15%",
+   "yesterday_pct": "-0.58%"
   }
  },
  "market_status": "Pre-Market",
  "premarket_gainers": [
   {
-   "sym": "NP",
-   "name": "Neptune Insurance Holdings Inc. Class A",
-   "pm_price": "$34.06",
-   "pm_pct": "+8.13%",
-   "yesterday_pct": "+8.13%",
-   "yesterday_close": "$34.06"
+   "sym": "WULF",
+   "name": "TeraWulf Inc.",
+   "pm_price": "$24.99",
+   "pm_pct": "+17.99%",
+   "yesterday_pct": "-10.18%",
+   "yesterday_close": "$21.18"
   },
   {
-   "sym": "MSTR",
-   "name": "Strategy Inc Common Stock Class A",
-   "pm_price": "$99.30",
-   "pm_pct": "+6.33%",
-   "yesterday_pct": "+7.43%",
-   "yesterday_close": "$93.39"
+   "sym": "IREN",
+   "name": "IREN Limited",
+   "pm_price": "$41.89",
+   "pm_pct": "+7.91%",
+   "yesterday_pct": "-10.39%",
+   "yesterday_close": "$38.82"
   },
   {
-   "sym": "MXL",
-   "name": "MaxLinear Inc.",
-   "pm_price": "$117.98",
-   "pm_pct": "+4.97%",
-   "yesterday_pct": "-12.22%",
-   "yesterday_close": "$112.39"
+   "sym": "CIFR",
+   "name": "Cipher Digital Inc.",
+   "pm_price": "$21.40",
+   "pm_pct": "+6.79%",
+   "yesterday_pct": "-12.26%",
+   "yesterday_close": "$20.04"
   },
   {
-   "sym": "WIT",
-   "name": "Wipro Limited",
-   "pm_price": "$1.9501",
-   "pm_pct": "+4.28%",
-   "yesterday_pct": "-16.89%",
-   "yesterday_close": "$1.87"
+   "sym": "RMBS",
+   "name": "Rambus Inc.",
+   "pm_price": "$120.00",
+   "pm_pct": "+6.27%",
+   "yesterday_pct": "-8.81%",
+   "yesterday_close": "$112.92"
   },
   {
-   "sym": "NBIS",
-   "name": "Nebius Group N.V. Class A",
-   "pm_price": "$238.93",
-   "pm_pct": "+4.25%",
-   "yesterday_pct": "-17.01%",
-   "yesterday_close": "$229.18"
+   "sym": "ONTO",
+   "name": "Onto Innovation Inc.",
+   "pm_price": "$324.875",
+   "pm_pct": "+5.62%",
+   "yesterday_pct": "-12.46%",
+   "yesterday_close": "$307.58"
   },
   {
-   "sym": "COIN",
-   "name": "Coinbase Global Inc. Class A",
-   "pm_price": "$165.52",
-   "pm_pct": "+3.94%",
-   "yesterday_pct": "+8.93%",
-   "yesterday_close": "$159.24"
+   "sym": "ACLS",
+   "name": "Axcelis Technologies Inc.",
+   "pm_price": "$152.00",
+   "pm_pct": "+5.19%",
+   "yesterday_pct": "-18.97%",
+   "yesterday_close": "$144.50"
   },
   {
-   "sym": "MU",
-   "name": "Micron Technology Inc.",
-   "pm_price": "$1,072.01",
-   "pm_pct": "+3.85%",
-   "yesterday_pct": "-10.57%",
-   "yesterday_close": "$1,032.28"
+   "sym": "FORM",
+   "name": "FormFactor Inc. FormFactor Inc.",
+   "pm_price": "$129.76",
+   "pm_pct": "+4.99%",
+   "yesterday_pct": "-16.00%",
+   "yesterday_close": "$123.59"
   },
   {
-   "sym": "ALAB",
-   "name": "Astera Labs Inc.",
-   "pm_price": "$447.00",
-   "pm_pct": "+3.75%",
-   "yesterday_pct": "-10.80%",
-   "yesterday_close": "$430.86"
+   "sym": "TER",
+   "name": "Teradyne Inc.",
+   "pm_price": "$387.271",
+   "pm_pct": "+4.93%",
+   "yesterday_pct": "-13.63%",
+   "yesterday_close": "$369.09"
   }
  ],
  "premarket_losers": [
   {
-   "sym": "FRHC",
-   "name": "Freedom Holding Corp.",
-   "pm_price": "$153.76",
-   "pm_pct": "-2.13%",
-   "yesterday_pct": "+20.42%",
-   "yesterday_close": "$157.11"
+   "sym": "MRNA",
+   "name": "Moderna Inc.",
+   "pm_price": "$77.96",
+   "pm_pct": "-2.26%",
+   "yesterday_pct": "+10.01%",
+   "yesterday_close": "$79.76"
   },
   {
-   "sym": "FPS",
-   "name": "Forgent Power Solutions Inc. Class A",
-   "pm_price": "$48.97",
+   "sym": "BB",
+   "name": "BlackBerry Limited",
+   "pm_price": "$11.25",
+   "pm_pct": "-2.26%",
+   "yesterday_pct": "-10.15%",
+   "yesterday_close": "$11.51"
+  },
+  {
+   "sym": "GPC",
+   "name": "Genuine Parts Company",
+   "pm_price": "$129.86",
+   "pm_pct": "-2.04%",
+   "yesterday_pct": "+12.92%",
+   "yesterday_close": "$132.57"
+  },
+  {
+   "sym": "MSTR",
+   "name": "Strategy Inc Common Stock Class A",
+   "pm_price": "$98.90",
    "pm_pct": "-1.86%",
-   "yesterday_pct": "-10.67%",
-   "yesterday_close": "$49.90"
+   "yesterday_pct": "+7.90%",
+   "yesterday_close": "$100.77"
   },
   {
-   "sym": "ROAD",
-   "name": "Construction Partners Inc. Class A",
-   "pm_price": "$107.129",
-   "pm_pct": "-1.81%",
-   "yesterday_pct": "-8.14%",
-   "yesterday_close": "$109.10"
+   "sym": "FIG",
+   "name": "Figma Inc. Class A",
+   "pm_price": "$20.99",
+   "pm_pct": "-1.64%",
+   "yesterday_pct": "+9.49%",
+   "yesterday_close": "$21.34"
   },
   {
-   "sym": "PDD",
-   "name": "PDD Holdings Inc.",
-   "pm_price": "$81.20",
-   "pm_pct": "-1.60%",
-   "yesterday_pct": "+8.18%",
-   "yesterday_close": "$82.52"
+   "sym": "NFLX",
+   "name": "Netflix Inc.",
+   "pm_price": "$76.90",
+   "pm_pct": "-0.97%",
+   "yesterday_pct": "+4.66%",
+   "yesterday_close": "$77.65"
   },
   {
-   "sym": "ALGN",
-   "name": "Align Technology Inc.",
-   "pm_price": "$179.005",
-   "pm_pct": "-1.37%",
-   "yesterday_pct": "+7.61%",
-   "yesterday_close": "$181.49"
+   "sym": "CAR",
+   "name": "Avis Budget Group Inc.",
+   "pm_price": "$162.00",
+   "pm_pct": "-0.88%",
+   "yesterday_pct": "+11.23%",
+   "yesterday_close": "$163.44"
   },
   {
-   "sym": "META",
-   "name": "Meta Platforms Inc. Class A",
-   "pm_price": "$605.58",
-   "pm_pct": "-1.20%",
-   "yesterday_pct": "+8.81%",
-   "yesterday_close": "$612.91"
-  },
-  {
-   "sym": "RDDT",
-   "name": "Reddit Inc. Class A",
-   "pm_price": "$195.50",
-   "pm_pct": "-1.14%",
-   "yesterday_pct": "+13.93%",
-   "yesterday_close": "$197.76"
-  },
-  {
-   "sym": "AAON",
-   "name": "AAON Inc.",
-   "pm_price": "$115.10",
-   "pm_pct": "-1.13%",
-   "yesterday_pct": "-8.23%",
-   "yesterday_close": "$116.42"
+   "sym": "MSFT",
+   "name": "Microsoft Corporation",
+   "pm_price": "$387.15",
+   "pm_pct": "-0.86%",
+   "yesterday_pct": "+1.62%",
+   "yesterday_close": "$390.49"
   }
  ],
  "watchlist": [
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "pm_price": "$160.10",
-   "pm_pct": "+1.62%",
-   "yesterday_pct": "-7.80%",
-   "yesterday_close": "$157.54"
+   "pm_price": "$163.65",
+   "pm_pct": "+1.02%",
+   "yesterday_pct": "+2.83%",
+   "yesterday_close": "$162.00"
   },
   {
    "sym": "MU",
    "name": "Micron Technology Inc.",
-   "pm_price": "$1,072.01",
-   "pm_pct": "+3.85%",
-   "yesterday_pct": "-10.57%",
-   "yesterday_close": "$1,032.28"
+   "pm_price": "$1,008.019",
+   "pm_pct": "+3.34%",
+   "yesterday_pct": "-5.49%",
+   "yesterday_close": "$975.56"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "pm_price": "$198.50",
-   "pm_pct": "+0.47%",
-   "yesterday_pct": "-1.25%",
-   "yesterday_close": "$197.58"
+   "pm_price": "$195.3569",
+   "pm_pct": "+0.27%",
+   "yesterday_pct": "-1.39%",
+   "yesterday_close": "$194.83"
   },
   {
    "sym": "AVGO",
    "name": "Broadcom Inc.",
-   "pm_price": "$372.20",
-   "pm_pct": "+0.77%",
-   "yesterday_pct": "-2.23%",
-   "yesterday_close": "$369.34"
+   "pm_price": "$375.25",
+   "pm_pct": "+4.11%",
+   "yesterday_pct": "-2.41%",
+   "yesterday_close": "$360.45"
   },
   {
    "sym": "AMD",
    "name": "Advanced Micro Devices Inc.",
-   "pm_price": "$552.40",
-   "pm_pct": "+2.13%",
-   "yesterday_pct": "-6.89%",
-   "yesterday_close": "$540.88"
+   "pm_price": "$537.61",
+   "pm_pct": "+3.82%",
+   "yesterday_pct": "-4.26%",
+   "yesterday_close": "$517.82"
   },
   {
    "sym": "ARM",
    "name": "Arm Holdings plc",
-   "pm_price": "$342.28",
-   "pm_pct": "+1.43%",
-   "yesterday_pct": "-4.82%",
-   "yesterday_close": "$337.47"
+   "pm_price": "$325.0488",
+   "pm_pct": "+3.10%",
+   "yesterday_pct": "-6.58%",
+   "yesterday_close": "$315.28"
   },
   {
    "sym": "SMCI",
    "name": "Super Micro Computer Inc.",
-   "pm_price": "$28.49",
-   "pm_pct": "+3.04%",
-   "yesterday_pct": "-5.73%",
-   "yesterday_close": "$27.65"
+   "pm_price": "$27.46",
+   "pm_pct": "+0.88%",
+   "yesterday_pct": "-1.56%",
+   "yesterday_close": "$27.22"
   },
   {
    "sym": "PLTR",
    "name": "Palantir Technologies Inc. Class A",
-   "pm_price": "$128.1501",
-   "pm_pct": "+1.92%",
-   "yesterday_pct": "+7.77%",
-   "yesterday_close": "$125.73"
+   "pm_price": "$128.7283",
+   "pm_pct": "-0.44%",
+   "yesterday_pct": "+2.84%",
+   "yesterday_close": "$129.30"
   },
   {
    "sym": "TSLA",
    "name": "Tesla Inc.",
-   "pm_price": "$431.4229",
-   "pm_pct": "+1.44%",
-   "yesterday_pct": "+1.12%",
-   "yesterday_close": "$425.30"
+   "pm_price": "$398.375",
+   "pm_pct": "+1.25%",
+   "yesterday_pct": "-7.49%",
+   "yesterday_close": "$393.45"
   },
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "pm_price": "$374.16",
-   "pm_pct": "+1.49%",
-   "yesterday_pct": "-6.55%",
-   "yesterday_close": "$368.65"
+   "pm_price": "$339.8531",
+   "pm_pct": "+1.95%",
+   "yesterday_pct": "-9.57%",
+   "yesterday_close": "$333.36"
   }
  ],
  "earnings": [
   {
-   "sym": "SBSAA",
+   "sym": "AIDG",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-03"
+   "date": "2026-07-07"
   },
   {
-   "sym": "BABB",
+   "sym": "CEV",
+   "name": "Eaton Vance California Municipal Income Trust Shares of Beneficial Interest",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "CHBH",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-02"
+   "date": "2026-07-07"
   },
   {
-   "sym": "LNN",
-   "name": "Lindsay Corporation",
+   "sym": "CHSCP",
+   "name": "CHS Inc. 8%  Cumulative Redeemable Preferred Stock",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "EPAC",
+   "name": "Enerpac Tool Group Corp.",
+   "hour": "amc",
+   "epsEst": 0.5032,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "FPF",
+   "name": "First Trust Intermediate Duration Preferred & Income Fund Common Shares of Beneficial Interest",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "KRUS",
+   "name": "Kura Sushi USA Inc. Class A",
+   "hour": "amc",
+   "epsEst": -0.0119,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "MHI",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "NRIX",
+   "name": "Nurix Therapeutics Inc. Common stock",
+   "hour": "",
+   "epsEst": -0.7312,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "PENG",
+   "name": "Penguin Solutions Inc.",
+   "hour": "amc",
+   "epsEst": 0.5505,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "SAR",
+   "name": "Saratoga Investment Corp New",
+   "hour": "amc",
+   "epsEst": 0.5565,
+   "date": "2026-07-07"
+  },
+  {
+   "sym": "ACP",
+   "name": "abrdn Income Credit Strategies Fund",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "ADN",
+   "name": null,
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "AOD",
+   "name": "abrdn Total Dynamic Dividend Fund Common Shares of Beneficial Interest",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "AREC",
+   "name": "American Resources Corporation Class A",
+   "hour": "",
+   "epsEst": -0.085,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "ASII",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "AUSI",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "AXG",
+   "name": "Solowin Holdings Class A Ordinary Share",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "BANX",
+   "name": "ArrowMark Financial Corp.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "BTM",
+   "name": null,
+   "hour": "",
+   "epsEst": -0.5555,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "CDT",
+   "name": "CDT Equity Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "CET",
+   "name": "Central Securities Corporation",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "CRCW",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "CRMT",
+   "name": "America's Car-Mart Inc",
    "hour": "bmo",
-   "epsEst": 1.2196,
-   "date": "2026-07-02"
+   "epsEst": -0.6018,
+   "date": "2026-07-06"
   },
   {
-   "sym": "PKE",
-   "name": "Park Aerospace Corp.",
+   "sym": "CYBL",
+   "name": null,
    "hour": "",
-   "epsEst": 0.1404,
-   "date": "2026-07-02"
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "DMNIF",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "ENLV",
+   "name": "Enlivex Ltd.",
+   "hour": "",
+   "epsEst": -0.0204,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "FAX",
+   "name": "abrdn Asia-Pacific Income Fund Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "FCO",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "FLYE",
+   "name": "Fly-E Group Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "FTII",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "FTRS",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "HBSI",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "HIRU",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "HIX",
+   "name": "Western Asset High Income Fund II Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "HUBC",
+   "name": "Hub Cyber Security Ltd.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "IAF",
+   "name": "abrdn Australia Equity Fund Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "IXAQF",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "KOAN",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "NAD",
+   "name": "Nuveen Quality Municipal Income Fund",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "NEA",
+   "name": "Nuveen AMT-Free Quality Municipal Income Fund Common Shares of Beneficial Interest Par Value $.01",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "NIMU",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "NMZ",
+   "name": "Nuveen Municipal High Income Opportunity Fund Common Stock $0.01 par value per share",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "NUV",
+   "name": "Nuveen Municipal Value Fund Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "NVG",
+   "name": "Nuveen AMT-Free Municipal Credit Income Fund",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "NVVE",
+   "name": "Nuvve Holding Corp.",
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "OLOX",
+   "name": "Olenox Industries Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "OWPC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "SANW",
+   "name": null,
+   "hour": "",
+   "epsEst": -1.632,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "SNRG",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "SRKE",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "SRKE",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "TTRX",
+   "name": "Turn Therapeutics Inc.",
+   "hour": "",
+   "epsEst": -0.0306,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "WTER",
+   "name": null,
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-07-06"
+  },
+  {
+   "sym": "XITO",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-06"
   }
  ],
  "news": [
   {
-   "h": "Stock futures choppy after weak start to July trading; jobs report ahead: Live updates",
+   "h": "S&P 500 and Nasdaq futures extend gains after a strong week on Wall Street: Live updates",
    "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq slip as semiconductor stocks sink to start 3rd quarter",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "What to expect from today’s jobs report",
-   "src": "CNN",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market News, July 1, 2026: Nasdaq Slips, Warsh Dodges Questions on July Rate Decision",
+   "h": "Stock Market Today: Nasdaq Futures Rise Ahead of Busy Week for Tech Stocks — Live Updates",
    "src": "WSJ",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Dow, S&P 500 and Nasdaq set to fall as investors await jobs report amid chip selloff",
+   "h": "Stock market today: S&P 500, Nasdaq, Dow futures climb after record-setting week",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "Tech Stocks’ Rebound Stalls, Dollar Edges Higher: Markets Wrap",
+   "src": "Bloomberg.com",
+   "sum": ""
+  },
+  {
+   "h": "U.S. stock futures rise as Wall Street looks to extend its rally coming off the holiday weekend",
    "src": "MarketWatch",
    "sum": ""
   },
   {
-   "h": "Wall Street ends choppy session lower as tech shares drop",
-   "src": "Reuters",
+   "h": "Why the stock market’s red-hot momentum trade might be headed for a violent unwind this month",
+   "src": "MarketWatch",
    "sum": ""
   },
   {
-   "h": "Stocks Fall Amid Warsh Comments; Meta Jumps On AI Plans (Live)",
+   "h": "Nasdaq Set To Retake 50-Day; Watch Sandisk, Apple, SpaceX",
    "src": "Investor's Business Daily",
    "sum": ""
   },
   {
-   "h": "Markets News, July 1, 2026: Major Indexes Start Second Half Lower as Chip Stocks Drop; Dow Hits Intraday Record Before Retreat",
-   "src": "Investopedia",
+   "h": "US Stock Market Today: S&P 500 Futures Slip On Cooling Jobs And Rate Jitters",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX Stock Falls After Firm Calls Valuation ‘Catastrophic’",
+   "h": "[SPCX] Retail Investors’ Verdict: Micron Technology (MU) is Better Than Space (SPCX)",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[SPCX] SpaceX’s Shotwell to gift SpaceX stock to Trump Account program (SPCX:NASDAQ)",
+   "src": "Seeking Alpha",
+   "sum": ""
+  },
+  {
+   "h": "[MU] Trump drops love-bomb on Micron while holding the stock — up 209% this year. Experts say it ‘undermines’ the system",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[MU] Is Micron Technology Stock Going to $1,500? The Bull Case Is Stronger Than You Think.",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Nasdaq, S&P 500, Dow Futures Kick Off Fresh Week On Strong Note: Why META, NVDA, MU, IREN, PEP, HOOD Are In Focus",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Nvidia Stock Looks Cheap, Goldman Says Buy",
    "src": "Barron's",
    "sum": ""
   },
   {
-   "h": "[SPCX] SPCX: SpaceX Stock Back in Orbit After Phone Launch Rumors Ignite a 4% Rally",
-   "src": "TradingView",
+   "h": "[AVGO] Broadcom Inc. (AVGO) Barely Made The Cut As One Of Jim Cramer’s Best Performing Stocks",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[MU] Micron Stock Notches Best Ever Quarter. Why 1 Analyst Sees Even More Gains.",
-   "src": "Barron's",
+   "h": "[AVGO] Broadcom: Wall Street's ~$115 Billion FCF Consensus Crumbles Under Stresstesting (AVGO)",
+   "src": "Seeking Alpha",
    "sum": ""
   },
   {
-   "h": "[MU] Buy or Sell Micron Stock? (My Final Verdict)",
+   "h": "[AMD] Top Analyst strongly resets AMD stock price target",
+   "src": "thestreet.com",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] AMD Stock and Intel Crushed Nvidia in the First Half. Here's My Prediction for the Second Half.",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Why Arm Is a Strong Buy Despite the 35% Pullback From Peak Levels",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Arm Holdings Surged on Nvidia's New Chip Announcement. Is It Too Late to Buy ARM Stock?",
    "src": "The Motley Fool",
    "sum": ""
   },
   {
-   "h": "[NVDA] Nvidia stock is sagging. Here's what's behind the negative short-term trend.",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] Nvidia Reveals New Revenue Sharing Plan for AI Startups. The Stock Is Falling",
-   "src": "Barron's",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] Broadcom’s Stock Has Slumped Over 20% From Its Highs. These Experts Say They Would Buy the Dip",
-   "src": "Investopedia",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] Broadcom Just Cratered 16% in a Month. Is It Time to Sell, or Buy More?",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[AMD] AMD Stock Falls From Record High. It Won’t Join the $1 Trillion Club Just Yet.",
-   "src": "Barron's",
-   "sum": ""
-  },
-  {
-   "h": "[AMD] AMD Stock Is Crushing Nvidia's in 2026. Will That Continue?",
-   "src": "The Motley Fool",
-   "sum": ""
-  },
-  {
-   "h": "[ARM] Why are Intel, AMD, ARM stocks selling off today?",
-   "src": "TradingView",
-   "sum": ""
-  },
-  {
-   "h": "[ARM] Arm Holdings (ARM) Expands Its Agentic-AI CPU Ecosystem With Oracle Cloud Infrastructure",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "Syrian foreign minister says Syria open to meeting Hezbollah, Lebanese state media reports - Reuters",
+   "h": "Iranian mourners call for vengeance on Trump during Khamenei funeral procession - Reuters",
    "src": "Reuters",
-   "sum": "Syrian foreign minister says Syria open to meeting Hezbollah, Lebanese state media reports  Reuters"
+   "sum": "Iranian mourners call for vengeance on Trump during Khamenei funeral procession  Reuters"
   },
   {
-   "h": "Americans are paying record prices for steak. Here's why demand isn't cracking",
+   "h": "Record heat, crowds drive offseason boom in international travel",
    "src": "CNBC",
-   "sum": "Despite record beef prices, Americans aren't giving up steak. Consumers are treating beef as an affordable luxury and prioritizing it for special occasions."
+   "sum": "Airlines are extending flight schedules to maximize on lucrative international travel."
   },
   {
-   "h": "Iran warns US, Israel against attacks ahead of funeral processions for Khamenei - Reuters",
+   "h": "World absorbs historic Iran war oil supply loss, but depleted stocks bring risks - Reuters",
    "src": "Reuters",
-   "sum": "Iran warns US, Israel against attacks ahead of funeral processions for Khamenei  Reuters"
+   "sum": "World absorbs historic Iran war oil supply loss, but depleted stocks bring risks  Reuters"
   },
   {
-   "h": "Senior Chinese lawmaker to attend Khamenei's funeral - Reuters",
+   "h": "Fleet of 10 Japan-related ships exit Hormuz, data shows - Reuters",
    "src": "Reuters",
-   "sum": "Senior Chinese lawmaker to attend Khamenei's funeral  Reuters"
+   "sum": "Fleet of 10 Japan-related ships exit Hormuz, data shows  Reuters"
   },
   {
-   "h": "UK business morale slumps as Iran war pushes up costs, survey shows - Reuters",
+   "h": "NATO Ankara summit: who's going and what to expect - Reuters",
    "src": "Reuters",
-   "sum": "UK business morale slumps as Iran war pushes up costs, survey shows  Reuters"
+   "sum": "NATO Ankara summit: who's going and what to expect  Reuters"
   },
   {
-   "h": "US resumes dollar transfers to Iraq, NYT reports - Reuters",
+   "h": "Morning Bid: Samsung to serve chip taster for earnings feast - Reuters",
    "src": "Reuters",
-   "sum": "US resumes dollar transfers to Iraq, NYT reports  Reuters"
+   "sum": "Morning Bid: Samsung to serve chip taster for earnings feast  Reuters"
   },
   {
-   "h": "Polish military ends air operation, reports no airspace violations, armed forces say - Reuters",
+   "h": "Alternative-fuel vehicles hit record market share in June after Iran war - Reuters",
    "src": "Reuters",
-   "sum": "Polish military ends air operation, reports no airspace violations, armed forces say  Reuters"
+   "sum": "Alternative-fuel vehicles hit record market share in June after Iran war  Reuters"
   },
   {
-   "h": "Indian shares rise as crude prices drop, IT stocks rebound - Reuters",
+   "h": "Stocks inch up as oil weighed by supply while earnings loom - Reuters",
    "src": "Reuters",
-   "sum": "Indian shares rise as crude prices drop, IT stocks rebound  Reuters"
+   "sum": "Stocks inch up as oil weighed by supply while earnings loom  Reuters"
   },
   {
-   "h": "Oil falls for a third straight day after US, Iran conclude talks in Doha - Reuters",
+   "h": "Oil falls after OPEC+ agrees to raise output targets - Reuters",
    "src": "Reuters",
-   "sum": "Oil falls for a third straight day after US, Iran conclude talks in Doha  Reuters"
+   "sum": "Oil falls after OPEC+ agrees to raise output targets  Reuters"
   },
   {
-   "h": "Wall Street ends choppy session lower as tech shares drop - Reuters",
+   "h": "OPEC+ to boost crude output, but can it deliver and who will buy? - Reuters",
    "src": "Reuters",
-   "sum": "Wall Street ends choppy session lower as tech shares drop  Reuters"
+   "sum": "OPEC+ to boost crude output, but can it deliver and who will buy?  Reuters"
   }
  ]
 }

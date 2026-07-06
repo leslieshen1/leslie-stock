@@ -25,6 +25,8 @@ export default function DesktopTopBar() {
   const { t } = useLang();
   const sec = SECTIONS.find((s) => s.match(pathname));
 
+  if (pathname?.startsWith("/notes")) return null; // 投资笔记:纸感独立壳
+
   return (
     <header className="sticky top-0 z-30 hidden h-[56px] items-center gap-4 border-b border-line bg-base/85 px-6 backdrop-blur-md lg:flex">
       <span className="shrink-0 text-[14px] font-semibold tracking-tight text-ink">{sec ? t(sec.zh, sec.en) : ""}</span>

@@ -30,6 +30,8 @@ export default function LeftNav() {
   const { lang } = useLang();
   const newReport = useNewReport(); // 盘报有新 → 「盘报」旁亮点
 
+  if (pathname?.startsWith("/notes")) return null; // 投资笔记:纸感独立壳
+
   return (
     <aside className="hidden lg:flex lg:flex-col w-[204px] shrink-0 sticky top-0 h-screen border-r border-line bg-base/70 px-3 py-4 backdrop-blur-md">
       {/* 品牌 */}

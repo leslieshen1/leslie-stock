@@ -56,3 +56,6 @@ web/public/data/_us_out/
 web/public/data/_us_out_sonnet/
 web/public/data/_us_out_opus/
 data/congress-cache/
+
+# 投资笔记商品内容(绝不进公开 repo,经 admin API 同步到 Upstash)
+notes-content/

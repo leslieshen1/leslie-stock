@@ -10,6 +10,7 @@ import MobileTabBar from "@/components/MobileTabBar";
 import WatchlistSidebar from "@/components/WatchlistSidebar";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import StockLinksNewTab from "@/components/StockLinksNewTab";
+import HideOnNotes from "@/components/HideOnNotes";
 import { LangProvider, T } from "@/lib/i18n";
 
 // Terminal Luxury 字体系统:Fraunces = 编辑部衬线(拉丁 display 时刻),
@@ -61,7 +62,8 @@ export default function RootLayout({
         <TopNav />
         <WatchlistSidebar />
         {children}
-        {/* 全站合规声明 — 编辑部版式 */}
+        {/* 全站合规声明 — 编辑部版式(/notes 纸感独立壳内自带页脚,这里退场) */}
+ <HideOnNotes>
  <footer className="mt-16 border-t border-line">
  <div className="mx-auto max-w-[1480px] px-3 sm:px-6 py-9 text-center text-[11px] leading-relaxed text-faint">
             <p className="font-display text-[15px] italic tracking-wide text-muted">Not a Stock God</p>
@@ -87,6 +89,7 @@ export default function RootLayout({
         </footer>
         {/* 底部 Tab 栏占位(移动/平板 <lg,防止内容被固定栏遮住) */}
         <div className="h-[58px] lg:hidden" />
+ </HideOnNotes>
           </div>
         </div>
         <MobileTabBar />

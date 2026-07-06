@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Star, X, ChevronRight } from "lucide-react";
 import { useWatchlist } from "@/lib/useWatchlist";
@@ -9,6 +10,7 @@ import { useLang } from "@/lib/i18n";
 const MARKET_LABEL: Record<string, string> = { a: "SH/SZ", hk: "HK", us: "US", kr: "KR" };
 
 export default function WatchlistSidebar() {
+  const pathname = usePathname();
   const { t } = useLang();
   const { items, ready, remove } = useWatchlist();
   const [open, setOpen] = useState(false);
@@ -20,6 +22,7 @@ export default function WatchlistSidebar() {
  return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  if (pathname?.startsWith("/notes")) return null; // 投资笔记:纸感独立壳
   if (!ready) return null;
 
   return (

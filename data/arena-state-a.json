@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 146278.0,
-  "druckenmiller": 159289.0,
+  "serenity": 212923.0,
+  "druckenmiller": 247578.0,
   "sentiment": 1000000.0
  },
  "positions": [
@@ -128,13 +128,6 @@
   },
   {
    "master": "serenity",
-   "sym": "605376",
-   "shares": 300,
-   "entry": 266.36,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
    "sym": "688012",
    "shares": 200,
    "entry": 417.6,
@@ -184,13 +177,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "603773",
-   "shares": 800,
-   "entry": 140.41,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688313",
    "shares": 700,
    "entry": 163.59,
@@ -205,17 +191,17 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "688146",
-   "shares": 300,
-   "entry": 352.61,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "600259",
    "shares": 1100,
    "entry": 103.46,
    "entry_date": "2026-07-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688757",
+   "shares": 1900,
+   "entry": 56.85,
+   "entry_date": "2026-07-06"
   }
  ],
  "nav": [
@@ -367,6 +353,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-03",
+   "nav": 1000000.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-06",
+   "nav": 1025784.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-06",
+   "nav": 1029252.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-06",
+   "nav": 939816.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-06",
+   "nav": 968781.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-06",
    "nav": 1000000.0
   }
  ],
@@ -689,6 +700,46 @@
    "shares": 1100,
    "price": 103.46,
    "reason": "稀土是中美博弈的硬筹码，出口管制预期给它不对称赔率，组合里需要这条宏观对冲线。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-06",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "605376",
+   "shares": 300,
+   "price": 222.15,
+   "reason": "破位 -16.6%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-06",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "603773",
+   "shares": 800,
+   "price": 123.4,
+   "reason": "错了就是错了,-12.1% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-06",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688146",
+   "shares": 300,
+   "price": 325.28,
+   "reason": "电子特气这条线没错，但价格已经成了组合里最弱的马，顺风不涨就先砍，资金要去更有弹性的地方。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-06",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688757",
+   "shares": 1900,
+   "price": 56.85,
+   "reason": "胜科纳米本周已经被资金选出来，半导体国产替代里小盘高弹性、趋势最顺，今天没爆拉就上车骑强马。",
    "src": "ai"
   }
  ],
@@ -1260,7 +1311,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "现有八家公司都还在我的能力圈与合理价格内，候选虽有好生意但没有明显到足以替换持仓的安全边际。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1270,7 +1321,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看得懂，也都够本分，今天候选没有便宜到值得我换掉手里的好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1280,7 +1331,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位里全是我认的真瓶颈，今天候选没给出错杀价，也没有盘前砸出非对称入口，我不为了把现金打满去追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1290,7 +1341,7 @@
    "action": "SELL",
    "sym": "688146",
    "reason": "电子特气这条线没错，但价格已经成了组合里最弱的马，顺风不涨就先砍，资金要去更有弹性的地方。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1300,7 +1351,7 @@
    "action": "BUY",
    "sym": "688757",
    "reason": "胜科纳米本周已经被资金选出来，半导体国产替代里小盘高弹性、趋势最顺，今天没爆拉就上车骑强马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1310,7 +1361,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价全员0.0%，盘口没有给出资金进攻方向，死水无资金我不硬买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

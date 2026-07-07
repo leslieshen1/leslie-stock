@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-06 22:15 ET Mon",
+ "asof_et": "2026-07-06 22:31 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "+0.87%",
@@ -600,13 +600,13 @@
    "sum": ""
   },
   {
-   "h": "Dow Jones Futures: Nasdaq Set To Reclaim Key Level; Apple, SpaceX, Sandisk, Robinhood In Focus",
-   "src": "Investor's Business Daily",
+   "h": "Jim Cramer's top 10 things to watch in the stock market Monday",
+   "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "Historic Warning Signal Suggests the Stock Market Is Headed Somewhere Investors Do Not Want to Go",
-   "src": "Yahoo Finance",
+   "h": "Dow Jones Futures: Nasdaq Set To Reclaim Key Level; Apple, SpaceX, Sandisk, Robinhood In Focus",
+   "src": "Investor's Business Daily",
    "sum": ""
   },
   {
@@ -640,23 +640,23 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] AVGO Stock Is Rising Today – What's The Apple Connection?",
+   "h": "[AVGO] Broadcom Stock (AVGO) Jumps on Expanded Custom Chip Deal with Apple",
+   "src": "TipRanks",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] Broadcom (AVGO) is One of BlackRock’s 30 Most Important AI Stocks, Here is Why",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[AVGO] Why Broadcom (AVGO) Stock Is Trading Up Today",
-   "src": "Yahoo Finance",
+   "h": "[AMD] Top Analyst strongly resets AMD stock price target",
+   "src": "Yahoo Finance Australia",
    "sum": ""
   },
   {
-   "h": "[AMD] AMD Stock Rises as Goldman Sees Big Earnings Coming",
-   "src": "Barron's",
-   "sum": ""
-  },
-  {
-   "h": "[AMD] Will AMD Be a $1 Trillion Company Before 2026 Is Over?",
-   "src": "Yahoo Finance",
+   "h": "[AMD] Micron Risks Falling Out of the Trillion-Dollar Club. AMD Stock Has a Clear Path to Joining.",
+   "src": "Barchart.com",
    "sum": ""
   },
   {
@@ -668,6 +668,11 @@
    "h": "[ARM] What's Going on With Arm Holdings Stock Monday? - ARM Holdings (NASDAQ:ARM)",
    "src": "Benzinga",
    "sum": ""
+  },
+  {
+   "h": "China breaks step with global markets, and investors buy in - Reuters",
+   "src": "Reuters",
+   "sum": "China breaks step with global markets, and investors buy in  Reuters"
   },
   {
    "h": "Trump says Sikorsky to fund White House helicopter landing pad - Reuters",
@@ -683,6 +688,11 @@
    "h": "Trump says there will either be a deal with Iran or US will 'finish the job' - Reuters",
    "src": "Reuters",
    "sum": "Trump says there will either be a deal with Iran or US will 'finish the job'  Reuters"
+  },
+  {
+   "h": "Oil prices settle at pre-Iran war levels as crude output grows - Reuters",
+   "src": "Reuters",
+   "sum": "Oil prices settle at pre-Iran war levels as crude output grows  Reuters"
   },
   {
    "h": "Here's our plan for both Honeywell stocks after a divergent first week of trading",
@@ -708,16 +718,6 @@
    "h": "Iranian mourners call for vengeance on Trump during Khamenei funeral procession - Reuters",
    "src": "Reuters",
    "sum": "Iranian mourners call for vengeance on Trump during Khamenei funeral procession  Reuters"
-  },
-  {
-   "h": "ECB's Schnabel says Iran shock is not over - Reuters",
-   "src": "Reuters",
-   "sum": "ECB's Schnabel says Iran shock is not over  Reuters"
-  },
-  {
-   "h": "Hamas dissolves Gaza government, Israel dismisses move as 'stunt' - Reuters",
-   "src": "Reuters",
-   "sum": "Hamas dissolves Gaza government, Israel dismisses move as 'stunt'  Reuters"
   }
  ]
 }

@@ -3,8 +3,8 @@
   "buffett": 43465.01,
   "duan": 40172.16,
   "serenity": 3843.5,
-  "druckenmiller": 145342.54,
-  "sentiment": 592879.51
+  "druckenmiller": 25042.75,
+  "sentiment": 270171.9
  },
  "positions": [
   {
@@ -230,6 +230,27 @@
    "shares": 1961,
    "entry": 82.39,
    "entry_date": "2026-07-02"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "BWXT",
+   "shares": 611,
+   "entry": 196.89,
+   "entry_date": "2026-07-06"
+  },
+  {
+   "master": "sentiment",
+   "sym": "AUGO",
+   "shares": 2385,
+   "entry": 67.73,
+   "entry_date": "2026-07-06"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CACI",
+   "shares": 319,
+   "entry": 505.24,
+   "entry_date": "2026-07-06"
   }
  ],
  "nav": [
@@ -607,6 +628,31 @@
    "master": "sentiment",
    "date": "2026-07-02",
    "nav": 1077349.64
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-06",
+   "nav": 1013689.72
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-06",
+   "nav": 1010336.22
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-06",
+   "nav": 988943.67
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-06",
+   "nav": 1047183.12
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-06",
+   "nav": 1077201.27
   }
  ],
  "trades": [
@@ -1828,6 +1874,36 @@
    "shares": 1961,
    "price": 82.39,
    "reason": "中概仍是全市场最嫌弃的角落之一，昨日报复性反弹后盘前回吐，反而给逆向资金一个不追尖的入口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-06",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "BWXT",
+   "shares": 611,
+   "price": 196.89,
+   "reason": "AI电力荒、核能复兴和国防开支三股宏观顺风叠在一起，盘前不到爆拉程度，我要用最后一个仓位买这条趋势里更干净的高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-06",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "AUGO",
+   "shares": 2385,
+   "price": 67.73,
+   "reason": "贵金属资金还在进、转板带来增量买盘，盘前没被抢到失控，我愿意顺着这段情绪上行吃一仓但不恋战。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-06",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CACI",
+   "shares": 319,
+   "price": 505.24,
+   "reason": "AI拥挤盘在松、资金往防务和政府预算链挪，CACI盘前温和不癫狂，属于机构顺风但还没散户化的盘口。",
    "src": "ai"
   }
  ],
@@ -3119,8 +3195,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我不会因为一早上的报价机发脾气就卖掉一组有护城河、能产生现金流、管理层大体理性的生意；今天没有足够安全边际的新机会值得我腾挪。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 152,
@@ -3129,8 +3205,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，今天盘口的热闹不改变它们十年后的样子，没必要为了轮动去折腾。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 153,
@@ -3139,8 +3215,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天是AI/半导体拥挤仓位被砍，不是我这套“每台量产都吃它BOM”的瓶颈链条被证伪；真瓶颈我不因为盘前恐慌折价卖，-15%机械止损交给引擎。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 154,
@@ -3149,8 +3225,8 @@
    "action": "SELL",
    "sym": "LRCX",
    "reason": "芯片设备现在不是回调，是拥挤AI仓位被流动性反杀，我不和 tape 争，先砍。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 155,
@@ -3159,8 +3235,8 @@
    "action": "SELL",
    "sym": "WDC",
    "reason": "存储这匹马盘前直接被打穿，说明AI外溢交易边际变坏，错了就快砍。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 156,
@@ -3169,8 +3245,8 @@
    "action": "SELL",
    "sym": "TSM",
    "reason": "TSM长期逻辑再硬也挡不住当前半导体资金撤退，流动性逆风时我不恋战。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 157,
@@ -3179,8 +3255,8 @@
    "action": "BUY",
    "sym": "GD",
    "reason": "资金今天明显从拥挤科技转向国防和传统蓝筹，GD是这股地缘与防务开支顺风里最干净的高流动性载体之一。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 158,
@@ -3189,8 +3265,8 @@
    "action": "BUY",
    "sym": "BWXT",
    "reason": "核能复兴叠加国防预算扩张，盘前没被追爆，赔率比去接科技飞刀好。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 159,
@@ -3199,8 +3275,8 @@
    "action": "BUY",
    "sym": "MFG",
    "reason": "日本利率正常化是独立宏观大趋势，和美股AI拥挤出清相关性低，适合把风险从单一科技因子挪开。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 160,
@@ -3209,8 +3285,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选清一色盘前爆拉7%-13%，这是资金轮动后的明牌价，不是我想要的预期差；宁可拿现金等回落，也不去接最后一棒。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-07-06 ≠ 下单日 2026-07-03"
   },
   {
    "id": 161,
@@ -3219,7 +3295,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意大多仍有我看得懂的护城河，今天没有哪一个坏到该卖，也没有现金和仓位让我以足够安全边际买入新的好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3229,7 +3305,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的四门生意我都看得懂，文化和模式没有变，盘前这点波动不值得我为了交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3239,7 +3315,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天不为买满去砍真瓶颈仓位：我手里的十个位置仍然都是供应链窄门，盘前只是高波动主题票的修复，不是让我追新候选最后一棒的信号。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3249,7 +3325,7 @@
    "action": "BUY",
    "sym": "BWXT",
    "reason": "AI电力荒、核能复兴和国防开支三股宏观顺风叠在一起，盘前不到爆拉程度，我要用最后一个仓位买这条趋势里更干净的高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3259,7 +3335,7 @@
    "action": "BUY",
    "sym": "AUGO",
    "reason": "贵金属资金还在进、转板带来增量买盘，盘前没被抢到失控，我愿意顺着这段情绪上行吃一仓但不恋战。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3269,7 +3345,7 @@
    "action": "BUY",
    "sym": "CACI",
    "reason": "AI拥挤盘在松、资金往防务和政府预算链挪，CACI盘前温和不癫狂，属于机构顺风但还没散户化的盘口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

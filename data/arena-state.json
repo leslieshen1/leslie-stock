@@ -3347,9 +3347,99 @@
    "reason": "AI拥挤盘在松、资金往防务和政府预算链挪，CACI盘前温和不癫狂，属于机构顺风但还没散户化的盘口。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 167,
+   "fill_date": "2026-07-07",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我今天看不到足够大的安全边际来替换手里的好生意，价格先生有点吵，但还没给我递上真正便宜的票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 168,
+   "fill_date": "2026-07-07",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几家公司我都看懂了，生意和文化没有变，盘前这点波动不值得我为了动作而动作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 169,
+   "fill_date": "2026-07-07",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位里没有一个瓶颈被证伪，盘前科技回吐只是高波动主题票的噪音，我不为了腾现金去砍真卡脖子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 170,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "LRCX",
+   "reason": "盘前跌近6%说明AI设备这条高弹性腿今天不顺流动性的风，趋势票一旦开始反咬我先砍再说。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 171,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "WDC",
+   "reason": "存储本来就是AI外溢里最弹也最脆的载体，盘前跌6%多就是边际转坏的价格证据，错了快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 172,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GS",
+   "reason": "今天指数结构从纳指转向道指和罗素，资本市场复苏这条线顺风，GS是表达金融β最干净的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 173,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AUGO",
+   "reason": "科技高β降温时我要一条不相关的货币贬值和黄金顺风腿，AUGO回落给了我上车而不是追高的位置。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 174,
+   "fill_date": "2026-07-07",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "CACI",
+   "reason": "防务这条线昨天已经被资金砸、今早盘前继续弱，盘口告诉我钱在撤，先认错让位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 175,
+   "fill_date": "2026-07-07",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里多数昨日起爆、今早盘前转弱，像高贝塔情绪回落而不是新钱强攻，我不去接最后一棒。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 167,
+ "next_order_id": 176,
  "notes": [
   {
    "date": "2026-06-12",

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-06 22:31 ET Mon",
+ "asof_et": "2026-07-06 22:45 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "+0.87%",
@@ -570,7 +570,7 @@
  ],
  "news": [
   {
-   "h": "Stock market today: Dow posts record, S&P 500 and Nasdaq rally on revived AI optimism",
+   "h": "Stock market today: Nasdaq leads S&P 500, Dow higher as tech jitters ease",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -625,8 +625,8 @@
    "sum": ""
   },
   {
-   "h": "[MU] Micron Stock Rises. Analyst Calls Latest Selloff a Buying Opportunity.",
-   "src": "Barron's",
+   "h": "[MU] Micron Stock Is Down 22% From Its High. Is the Trillion-Dollar Chipmaker's Dip a Buy?",
+   "src": "The Motley Fool",
    "sum": ""
   },
   {
@@ -651,12 +651,12 @@
   },
   {
    "h": "[AMD] Top Analyst strongly resets AMD stock price target",
-   "src": "Yahoo Finance Australia",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[AMD] Micron Risks Falling Out of the Trillion-Dollar Club. AMD Stock Has a Clear Path to Joining.",
-   "src": "Barchart.com",
+   "h": "[AMD] Will AMD Be a $1 Trillion Company Before 2026 Is Over?",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {

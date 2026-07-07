@@ -452,7 +452,19 @@ export default function HoldingsClient() {
                 ] as [string, React.ReactNode][])
               : []),
             ["价格", <input key="p" type="number" step="any" min="0" value={f.price} onChange={(e) => setF({ ...f, price: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
-            [f.market === "perp" ? "数量(张)" : "数量(股)", <input key="q" type="number" step="any" min="0" value={f.qty} onChange={(e) => setF({ ...f, qty: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
+            [f.market === "perp" ? "数量(张)" : "数量(股)", (
+              <div key="q" className="flex gap-1">
+                <input type="number" step="any" min="0" value={f.qty} onChange={(e) => setF({ ...f, qty: e.target.value })} required className={`w-full ${INPUT} font-mono`} />
+                {f.side === "SELL" && (() => {
+                  const S = f.sym.trim().toUpperCase();
+                  if (!S) return null;
+                  let q = 0, realSym = ""; // 从流水算精确持有量(positions.qty 已四舍五入,会留尾)
+                  for (const t of (data?.trades || [])) if (t.market === f.market && t.sym.toUpperCase() === S) { q += t.side === "BUY" ? t.qty : -t.qty; realSym = t.sym; }
+                  if (q <= 1e-9) return null;
+                  return <button type="button" onClick={() => setF((prev) => ({ ...prev, qty: String(q), sym: realSym }))} title={`当前持有 ${q}`} className={`${BTN} shrink-0 whitespace-nowrap px-2`}>全部</button>;
+                })()}
+              </div>
+            )],
             ["成交日", <input key="t" type="date" value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
           ] as [string, React.ReactNode][]).map(([lab, el]) => (
             <label key={lab} className={`text-[10px] uppercase tracking-wider ${FAINT}`}>{lab}<div className="mt-1">{el}</div></label>

@@ -87,12 +87,16 @@ export function aggregate(trades: Trade[]): { positions: Position[]; lots: Close
       if (t.reason) s.lastReason = t.reason;
       s.seg.push(t);
     } else {
+      const preSell = s.qty; // 卖出前持仓,判碎股尾巴用
       const sellQty = Math.min(t.qty, s.qty); // 超卖在 API 层已拒,这里兜底
       const short = t.market === "perp" && s.dir === "SHORT";
       s.realized += (short ? s.avgCost - t.price : t.price - s.avgCost) * sellQty; // 空单反向
       s.qty -= sellQty;
       s.seg.push(t);
-      if (s.qty <= 1e-9) {
+      // 碎股尾巴:美股/合约支持小数股,手填卖出量几乎不可能与买入精确对齐,常留极小残留(如买 4.2718 卖 4.27)。
+      // 剩余不足 1 股且占卖前持仓不到 0.5% → 视同卖清,并入本平仓段(A股整数股天然不触发)。
+      const dust = s.qty > 1e-9 && s.qty < 1 && s.qty < preSell * 0.005;
+      if (s.qty <= 1e-9 || dust) {
         // 段清零 → 生成平仓段
         const buys = s.seg.filter((x) => x.side === "BUY");
         const sells = s.seg.filter((x) => x.side === "SELL");

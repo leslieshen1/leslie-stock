@@ -1363,8 +1363,148 @@
    "reason": "集合竞价全员0.0%，盘口没有给出资金进攻方向，死水无资金我不硬买。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 63,
+   "fill_date": "2026-07-07",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我都愿意继续拥有，候选虽有好公司但没有明显到必须换仓的安全边际。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 64,
+   "fill_date": "2026-07-07",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意都看得懂，也都还本分；没有明显更好的机会，不为换而换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 65,
+   "fill_date": "2026-07-07",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "605376",
+   "reason": "博迁的纳米镍粉是 MLCC 内电极那口最窄的井，供应商极少、客户验证长、每颗高端 MLCC 都吃它，今天没被竞价爆拉我愿意补上这一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 66,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688313",
+   "reason": "AI光芯片叙事没错但价格已经告诉我这匹马不跑，接近止损线我先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 67,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "600259",
+   "reason": "稀土逻辑再硬也不能跟账户对着干，趋势不确认就撤。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 68,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "301629",
+   "reason": "半导体设备顺风还在，但它相对走弱，德鲁肯米勒式交易就是把弱马换成强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 69,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688361",
+   "reason": "中科飞测是出口管制下设备国产替代的高弹性载体，没高开爆拉，顺流动性风上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 70,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688727",
+   "reason": "光刻胶卡脖子是半导体自主可控里最硬的边际催化之一，当前价位没被盘前抢到失衡。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 71,
+   "fill_date": "2026-07-07",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688785",
+   "reason": "恒运昌小盘高弹性，半导体国产替代风口里更像能涨最猛的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 72,
+   "fill_date": "2026-07-07",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000099",
+   "reason": "低空经济仍是游资最容易抱团的稀缺牌照口，盘前没被顶高，先拿情绪先手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 73,
+   "fill_date": "2026-07-07",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000034",
+   "reason": "AI算力叠华为认知度高，资金一旦回流科技线容易先扫这种高辨识度票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 74,
+   "fill_date": "2026-07-07",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000400",
+   "reason": "特高压是机构与趋势资金都认的老主线，盘前零溢价不算拥挤，适合埋伏催化预期差。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 75,
+   "fill_date": "2026-07-07",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000506",
+   "reason": "黄金避险线在情绪切换时容易承接资金，当前未爆拉，拿一仓做防守型资金流入口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 76,
+   "fill_date": "2026-07-07",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000534",
+   "reason": "军工航发题材弹性足且事件驱动敏感，盘前没被抢筹，适合低拥挤度试仓。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 63,
+ "next_order_id": 77,
  "splits": []
 }

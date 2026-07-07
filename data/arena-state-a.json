@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 212923.0,
-  "druckenmiller": 247578.0,
-  "sentiment": 1000000.0
+  "serenity": 126931.0,
+  "druckenmiller": 266016.0,
+  "sentiment": 255598.0
  },
  "positions": [
   {
@@ -163,23 +163,9 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "301629",
-   "shares": 300,
-   "entry": 376.99,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "301269",
    "shares": 1000,
    "entry": 105.56,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688313",
-   "shares": 700,
-   "entry": 163.59,
    "entry_date": "2026-07-03"
   },
   {
@@ -191,17 +177,73 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "600259",
-   "shares": 1100,
-   "entry": 103.46,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688757",
    "shares": 1900,
    "entry": 56.85,
    "entry_date": "2026-07-06"
+  },
+  {
+   "master": "serenity",
+   "sym": "605376",
+   "shares": 400,
+   "entry": 214.98,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 300,
+   "entry": 351.62,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688727",
+   "shares": 1700,
+   "entry": 63.54,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688785",
+   "shares": 200,
+   "entry": 387.66,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000099",
+   "shares": 10600,
+   "entry": 14.1,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000034",
+   "shares": 5500,
+   "entry": 27.2,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000400",
+   "shares": 7200,
+   "entry": 20.68,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000506",
+   "shares": 12300,
+   "entry": 12.16,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000534",
+   "shares": 4600,
+   "entry": 31.93,
+   "entry_date": "2026-07-07"
   }
  ],
  "nav": [
@@ -378,6 +420,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-06",
+   "nav": 1000000.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-07",
+   "nav": 1016997.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-07",
+   "nav": 1016197.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-07",
+   "nav": 947139.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-07",
+   "nav": 952763.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-07",
    "nav": 1000000.0
   }
  ],
@@ -740,6 +807,126 @@
    "shares": 1900,
    "price": 56.85,
    "reason": "胜科纳米本周已经被资金选出来，半导体国产替代里小盘高弹性、趋势最顺，今天没爆拉就上车骑强马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "605376",
+   "shares": 400,
+   "price": 214.98,
+   "reason": "博迁的纳米镍粉是 MLCC 内电极那口最窄的井，供应商极少、客户验证长、每颗高端 MLCC 都吃它，今天没被竞价爆拉我愿意补上这一仓。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688313",
+   "shares": 700,
+   "price": 146.1,
+   "reason": "错了就是错了,-10.7% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "600259",
+   "shares": 1100,
+   "price": 92.64,
+   "reason": "错了就是错了,-10.5% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301629",
+   "shares": 300,
+   "price": 351.0,
+   "reason": "半导体设备顺风还在，但它相对走弱，德鲁肯米勒式交易就是把弱马换成强马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 300,
+   "price": 351.62,
+   "reason": "中科飞测是出口管制下设备国产替代的高弹性载体，没高开爆拉，顺流动性风上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688727",
+   "shares": 1700,
+   "price": 63.54,
+   "reason": "光刻胶卡脖子是半导体自主可控里最硬的边际催化之一，当前价位没被盘前抢到失衡。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688785",
+   "shares": 200,
+   "price": 387.66,
+   "reason": "恒运昌小盘高弹性，半导体国产替代风口里更像能涨最猛的载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000099",
+   "shares": 10600,
+   "price": 14.1,
+   "reason": "低空经济仍是游资最容易抱团的稀缺牌照口，盘前没被顶高，先拿情绪先手。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000034",
+   "shares": 5500,
+   "price": 27.2,
+   "reason": "AI算力叠华为认知度高，资金一旦回流科技线容易先扫这种高辨识度票。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000400",
+   "shares": 7200,
+   "price": 20.68,
+   "reason": "特高压是机构与趋势资金都认的老主线，盘前零溢价不算拥挤，适合埋伏催化预期差。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000506",
+   "shares": 12300,
+   "price": 12.16,
+   "reason": "黄金避险线在情绪切换时容易承接资金，当前未爆拉，拿一仓做防守型资金流入口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000534",
+   "shares": 4600,
+   "price": 31.93,
+   "reason": "军工航发题材弹性足且事件驱动敏感，盘前没被抢筹，适合低拥挤度试仓。",
    "src": "ai"
   }
  ],
@@ -1371,7 +1558,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都愿意继续拥有，候选虽有好公司但没有明显到必须换仓的安全边际。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1381,7 +1568,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意都看得懂，也都还本分；没有明显更好的机会，不为换而换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1391,7 +1578,7 @@
    "action": "BUY",
    "sym": "605376",
    "reason": "博迁的纳米镍粉是 MLCC 内电极那口最窄的井，供应商极少、客户验证长、每颗高端 MLCC 都吃它，今天没被竞价爆拉我愿意补上这一仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1401,8 +1588,8 @@
    "action": "SELL",
    "sym": "688313",
    "reason": "AI光芯片叙事没错但价格已经告诉我这匹马不跑，接近止损线我先砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 67,
@@ -1411,8 +1598,8 @@
    "action": "SELL",
    "sym": "600259",
    "reason": "稀土逻辑再硬也不能跟账户对着干，趋势不确认就撤。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 68,
@@ -1421,7 +1608,7 @@
    "action": "SELL",
    "sym": "301629",
    "reason": "半导体设备顺风还在，但它相对走弱，德鲁肯米勒式交易就是把弱马换成强马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1431,7 +1618,7 @@
    "action": "BUY",
    "sym": "688361",
    "reason": "中科飞测是出口管制下设备国产替代的高弹性载体，没高开爆拉，顺流动性风上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1441,7 +1628,7 @@
    "action": "BUY",
    "sym": "688727",
    "reason": "光刻胶卡脖子是半导体自主可控里最硬的边际催化之一，当前价位没被盘前抢到失衡。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1451,7 +1638,7 @@
    "action": "BUY",
    "sym": "688785",
    "reason": "恒运昌小盘高弹性，半导体国产替代风口里更像能涨最猛的载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1461,7 +1648,7 @@
    "action": "BUY",
    "sym": "000099",
    "reason": "低空经济仍是游资最容易抱团的稀缺牌照口，盘前没被顶高，先拿情绪先手。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1471,7 +1658,7 @@
    "action": "BUY",
    "sym": "000034",
    "reason": "AI算力叠华为认知度高，资金一旦回流科技线容易先扫这种高辨识度票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1481,7 +1668,7 @@
    "action": "BUY",
    "sym": "000400",
    "reason": "特高压是机构与趋势资金都认的老主线，盘前零溢价不算拥挤，适合埋伏催化预期差。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1491,7 +1678,7 @@
    "action": "BUY",
    "sym": "000506",
    "reason": "黄金避险线在情绪切换时容易承接资金，当前未爆拉，拿一仓做防守型资金流入口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1501,7 +1688,7 @@
    "action": "BUY",
    "sym": "000534",
    "reason": "军工航发题材弹性足且事件驱动敏感，盘前没被抢筹，适合低拥挤度试仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

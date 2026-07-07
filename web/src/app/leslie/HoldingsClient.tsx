@@ -145,6 +145,8 @@ export default function HoldingsClient() {
   const [showForm, setShowForm] = useState(false);
   const navDone = useRef(false);
   const autoDaily = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const priceRef = useRef<HTMLInputElement>(null);
 
   const authHdr = useCallback((tok: string) => ({ authorization: `Bearer ${tok}` }), []);
 
@@ -224,6 +226,13 @@ export default function HoldingsClient() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quotes, data, status]);
+
+  // 点「加仓/清仓」或「+ 记一笔」展开表单时:滚到表单并聚焦价格框(价格一律手填)
+  useEffect(() => {
+    if (!showForm) return;
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    priceRef.current?.focus({ preventScroll: true });
+  }, [showForm]);
 
   const quotesPayload = useCallback(() => {
     const out: Record<string, { price: number; pct: number | null }> = {};
@@ -333,6 +342,18 @@ export default function HoldingsClient() {
 
   const today = bjToday();
   const todayDaily = data.daily.find((d) => d.date === today) || data.daily[data.daily.length - 1] || null;
+
+  // 加仓/清仓:预填录入表单(市场/代码/名称/方向自动带出),价格留空手动输入。
+  const addTo = (p: Position) => {
+    setF((prev) => ({ ...prev, market: p.market, sym: p.sym, name: p.name, side: "BUY", dir: p.dir || "LONG", lev: p.lev ? String(p.lev) : "", price: "", qty: "", date: bjToday(), reason: "" }));
+    setShowForm(true);
+  };
+  const closeOut = (p: Position) => {
+    let q = 0; // 从流水算精确持有量,一键清仓(price 手填)
+    for (const t of data.trades) if (t.market === p.market && t.sym === p.sym) q += t.side === "BUY" ? t.qty : -t.qty;
+    setF((prev) => ({ ...prev, market: p.market, sym: p.sym, name: p.name, side: "SELL", dir: p.dir || "LONG", lev: p.lev ? String(p.lev) : "", price: "", qty: q > 1e-9 ? String(q) : "", date: bjToday(), reason: "" }));
+    setShowForm(true);
+  };
   const groups: Market[] = ["us", "a", "hk", "perp"];
   const openLotsPending = data.lots.filter((l) => !data.reviews.some((v) => v.lotId === l.lotId));
 
@@ -439,7 +460,7 @@ export default function HoldingsClient() {
         </div>
       )}
       {showForm && (
-        <form onSubmit={submitTrade} className={`${PANEL} grid grid-cols-2 gap-2.5 rounded-md p-3 sm:grid-cols-4`}>
+        <form ref={formRef} onSubmit={submitTrade} className={`${PANEL} grid grid-cols-2 gap-2.5 rounded-md p-3 sm:grid-cols-4`}>
           {([
             ["市场", <select key="m" value={f.market} onChange={(e) => setF({ ...f, market: e.target.value as Market })} className={`w-full ${INPUT}`}><option value="us">美股</option><option value="a">A股</option><option value="hk">港股</option><option value="perp">合约(永续)</option></select>],
             ["代码", <input key="s" value={f.sym} onChange={(e) => setF({ ...f, sym: e.target.value })} onBlur={() => lookupSym(f.sym)} placeholder="NVDA / 600519" required className={`w-full ${INPUT} font-mono`} />],
@@ -451,7 +472,7 @@ export default function HoldingsClient() {
                   ["杠杆(可选)", <input key="lev" type="number" step="1" min="1" max="200" value={f.lev} onChange={(e) => setF({ ...f, lev: e.target.value })} placeholder="如 5" className={`w-full ${INPUT} font-mono`} />],
                 ] as [string, React.ReactNode][])
               : []),
-            ["价格", <input key="p" type="number" step="any" min="0" value={f.price} onChange={(e) => setF({ ...f, price: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
+            ["价格", <input key="p" ref={priceRef} type="number" step="any" min="0" value={f.price} onChange={(e) => setF({ ...f, price: e.target.value })} required className={`w-full ${INPUT} font-mono`} />],
             [f.market === "perp" ? "数量(张)" : "数量(股)", (
               <div key="q" className="flex gap-1">
                 <input type="number" step="any" min="0" value={f.qty} onChange={(e) => setF({ ...f, qty: e.target.value })} required className={`w-full ${INPUT} font-mono`} />
@@ -502,10 +523,10 @@ export default function HoldingsClient() {
               <span className={`ml-auto font-mono text-[10px] ${FAINT}`}>{m === "perp" ? "开仓额" : "成本"} {ccy}{fmt(cost, 0)}</span>
             </div>
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[660px] text-[12px]">
+              <table className="w-full min-w-[720px] text-[12px]">
                 <thead>
                   <tr className={`border-b border-[#262b35] text-left text-[10px] uppercase tracking-[0.12em] ${FAINT}`}>
-                    {["市值 ¥", "代码", "名称", "数量", "成本", "现价", "今日", "盈亏%", "盈亏额", "占比"].map((h, i) => (
+                    {["市值 ¥", "代码", "名称", "数量", "成本", "现价", "今日", "盈亏%", "盈亏额", "占比", "操作"].map((h, i) => (
                       <th key={h} className={`px-3 py-1.5 font-medium ${i >= 3 ? "text-right" : ""}`}>{h}</th>
                     ))}
                   </tr>
@@ -530,6 +551,10 @@ export default function HoldingsClient() {
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${pnlPct == null ? FAINT : pn(pnlPct)}`}>{pnlPct == null ? "—" : `${sign(pnlPct)}%`}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${pnlAmt == null ? FAINT : pn(pnlAmt)}`}>{pnlAmt == null ? "—" : sign(pnlAmt, 0)}</td>
                         <td className={`px-3 py-[7px] text-right font-mono tabular-nums ${FAINT}`}>{mv > 0 ? fmt((v / mv) * 100, 1) : "0"}%</td>
+                        <td className="whitespace-nowrap px-3 py-[7px] text-right">
+                          <button type="button" onClick={() => addTo(p)} className="mr-2 text-[11px] text-[#7eb3ff] transition hover:underline">加仓</button>
+                          <button type="button" onClick={() => closeOut(p)} className="text-[11px] text-[#f4525f] transition hover:underline">清仓</button>
+                        </td>
                       </tr>
                     );
                   })}

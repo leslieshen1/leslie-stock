@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 43465.01,
   "duan": 40172.16,
-  "serenity": 3843.5,
-  "druckenmiller": 25042.75,
-  "sentiment": 270171.9
+  "serenity": 81422.51,
+  "druckenmiller": 150678.09,
+  "sentiment": 428829.74
  },
  "positions": [
   {
@@ -121,13 +121,6 @@
   },
   {
    "master": "serenity",
-   "sym": "LITE",
-   "shares": 111,
-   "entry": 853.26,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "serenity",
    "sym": "MP",
    "shares": 1777,
    "entry": 53.45,
@@ -139,20 +132,6 @@
    "shares": 281,
    "entry": 408.75,
    "entry_date": "2026-06-10"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "LRCX",
-   "shares": 357,
-   "entry": 321.8,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "ETN",
-   "shares": 314,
-   "entry": 409.64,
-   "entry_date": "2026-06-17"
   },
   {
    "master": "buffett",
@@ -204,13 +183,6 @@
    "entry_date": "2026-07-01"
   },
   {
-   "master": "druckenmiller",
-   "sym": "WDC",
-   "shares": 217,
-   "entry": 542.49,
-   "entry_date": "2026-07-02"
-  },
-  {
    "master": "sentiment",
    "sym": "ELV",
    "shares": 386,
@@ -246,11 +218,18 @@
    "entry_date": "2026-07-06"
   },
   {
-   "master": "sentiment",
-   "sym": "CACI",
-   "shares": 319,
-   "entry": 505.24,
-   "entry_date": "2026-07-06"
+   "master": "druckenmiller",
+   "sym": "GS",
+   "shares": 110,
+   "entry": 1042.73,
+   "entry_date": "2026-07-07"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "AUGO",
+   "shares": 1824,
+   "entry": 63.37,
+   "entry_date": "2026-07-07"
   }
  ],
  "nav": [
@@ -653,6 +632,31 @@
    "master": "sentiment",
    "date": "2026-07-06",
    "nav": 1077201.27
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-07",
+   "nav": 1016601.95
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-07",
+   "nav": 1004486.44
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-07",
+   "nav": 940598.17
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-07",
+   "nav": 1005558.87
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-07",
+   "nav": 1068142.26
   }
  ],
  "trades": [
@@ -1904,6 +1908,76 @@
    "shares": 319,
    "price": 505.24,
    "reason": "AI拥挤盘在松、资金往防务和政府预算链挪，CACI盘前温和不癫狂，属于机构顺风但还没散户化的盘口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "LITE",
+   "shares": 111,
+   "price": 698.91,
+   "reason": "破位 -18.1%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "ETN",
+   "shares": 314,
+   "price": 395.68,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "WDC",
+   "shares": 217,
+   "price": 530.5,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "LRCX",
+   "shares": 357,
+   "price": 326.5,
+   "reason": "盘前跌近6%说明AI设备这条高弹性腿今天不顺流动性的风，趋势票一旦开始反咬我先砍再说。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "GS",
+   "shares": 110,
+   "price": 1042.73,
+   "reason": "今天指数结构从纳指转向道指和罗素，资本市场复苏这条线顺风，GS是表达金融β最干净的高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AUGO",
+   "shares": 1824,
+   "price": 63.37,
+   "reason": "科技高β降温时我要一条不相关的货币贬值和黄金顺风腿，AUGO回落给了我上车而不是追高的位置。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-07",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CACI",
+   "shares": 319,
+   "price": 497.36,
+   "reason": "防务这条线昨天已经被资金砸、今早盘前继续弱，盘口告诉我钱在撤，先认错让位。",
    "src": "ai"
   }
  ],
@@ -3355,7 +3429,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我今天看不到足够大的安全边际来替换手里的好生意，价格先生有点吵，但还没给我递上真正便宜的票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3365,7 +3439,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几家公司我都看懂了，生意和文化没有变，盘前这点波动不值得我为了动作而动作。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3375,7 +3449,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位里没有一个瓶颈被证伪，盘前科技回吐只是高波动主题票的噪音，我不为了腾现金去砍真卡脖子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3385,7 +3459,7 @@
    "action": "SELL",
    "sym": "LRCX",
    "reason": "盘前跌近6%说明AI设备这条高弹性腿今天不顺流动性的风，趋势票一旦开始反咬我先砍再说。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3395,8 +3469,8 @@
    "action": "SELL",
    "sym": "WDC",
    "reason": "存储本来就是AI外溢里最弹也最脆的载体，盘前跌6%多就是边际转坏的价格证据，错了快砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 172,
@@ -3405,7 +3479,7 @@
    "action": "BUY",
    "sym": "GS",
    "reason": "今天指数结构从纳指转向道指和罗素，资本市场复苏这条线顺风，GS是表达金融β最干净的高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3415,7 +3489,7 @@
    "action": "BUY",
    "sym": "AUGO",
    "reason": "科技高β降温时我要一条不相关的货币贬值和黄金顺风腿，AUGO回落给了我上车而不是追高的位置。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3425,7 +3499,7 @@
    "action": "SELL",
    "sym": "CACI",
    "reason": "防务这条线昨天已经被资金砸、今早盘前继续弱，盘口告诉我钱在撤，先认错让位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3435,7 +3509,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选里多数昨日起爆、今早盘前转弱，像高贝塔情绪回落而不是新钱强攻，我不去接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

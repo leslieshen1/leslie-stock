@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-07 22:31 ET Tue",
+ "asof_et": "2026-07-07 22:46 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "-0.48%",
@@ -391,8 +391,8 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX joins the Nasdaq-100 on Tuesday. Here's what it means for the stock",
-   "src": "CNBC",
+   "h": "[SPCX] Nasdaq Slides Nearly 2% As Higher Treasury Yields, Soaring Oil Prices Pressure Tech And Chip Stocks — META, AMZN, SPCX, MSFT In Focus",
+   "src": "TradingView",
    "sum": ""
   },
   {
@@ -401,8 +401,8 @@
    "sum": ""
   },
   {
-   "h": "[MU] Micron’s stock falls as investors wonder if the memory market is near the top",
-   "src": "MarketWatch",
+   "h": "[MU] Why Micron Stock Just Crashed",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -456,11 +456,6 @@
    "sum": "Oil prices climb as US strikes on Iran fuel fears truce is unravelling  Reuters"
   },
   {
-   "h": "Pakistan-registered cargo plane missing off Karachi coast after navigation problem - Reuters",
-   "src": "Reuters",
-   "sum": "Pakistan-registered cargo plane missing off Karachi coast after navigation problem  Reuters"
-  },
-  {
    "h": "Coffin of slain Iranian supreme leader arrives in Iraq's Najaf, Iraqi state TV says - Reuters",
    "src": "Reuters",
    "sum": "Coffin of slain Iranian supreme leader arrives in Iraq's Najaf, Iraqi state TV says  Reuters"
@@ -494,6 +489,11 @@
    "h": "Trump calls Italy's Meloni a 'nice person' but blames her for not helping with Iran - Reuters",
    "src": "Reuters",
    "sum": "Trump calls Italy's Meloni a 'nice person' but blames her for not helping with Iran  Reuters"
+  },
+  {
+   "h": "EXCLUSIVE BOJ dissenter Asada needs demand-driven inflation before backing rate hike - Reuters",
+   "src": "Reuters",
+   "sum": "EXCLUSIVE BOJ dissenter Asada needs demand-driven inflation before backing rate hike  Reuters"
   }
  ]
 }

@@ -1690,8 +1690,78 @@
    "reason": "军工航发题材弹性足且事件驱动敏感，盘前没被抢筹，适合低拥挤度试仓。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 77,
+   "fill_date": "2026-07-08",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我已经持有八门能看懂、价格不算愚蠢的生意，今天没有足够大的安全边际让我为了交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 78,
+   "fill_date": "2026-07-08",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看得懂，商业模式和文化都过关，今天没有便宜到让我换仓的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 79,
+   "fill_date": "2026-07-08",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些仓位买的都是我框架里的真瓶颈，今天盘前没有给我新的错杀价，也没有哪个持仓的瓶颈逻辑被打断，我不为了把现金打满去乱追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 80,
+   "fill_date": "2026-07-08",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688757",
+   "reason": "我买它是因为动量最强，现在账面-6.7%说明资金没继续选择它，错了就快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 81,
+   "fill_date": "2026-07-08",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "600259",
+   "reason": "稀土是中美博弈里最硬的流动性与政策顺风之一，今天没高开爆拉，可以上这匹高弹性的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 82,
+   "fill_date": "2026-07-08",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300442",
+   "reason": "AI算力和液冷仍是大趋势载体，润泽科技没在盘前被抢到失真，适合用来表达算力主线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 83,
+   "fill_date": "2026-07-08",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是0轴死水，没看到资金抢筹信号，宁可握现金也不为买满去硬上。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 77,
+ "next_order_id": 84,
  "splits": []
 }

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-07 22:01 ET Tue",
+ "asof_et": "2026-07-07 22:15 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "-0.48%",
@@ -356,7 +356,7 @@
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Nasdaq Slides After Samsung Sparks Tech Selloff — Live Updates",
+   "h": "Stock Market News, July 7, 2026: SpaceX Slips Below Opening Price in Glum Day for Tech Stocks",
    "src": "WSJ",
    "sum": ""
   },
@@ -371,7 +371,7 @@
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq futures rise with AI trade in focus",
+   "h": "Stock market today: Nasdaq leads S&P 500, Dow higher as tech jitters ease",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -431,8 +431,8 @@
    "sum": ""
   },
   {
-   "h": "[AMD] Goldman Sachs resets AMD stock price target for the rest of 2026",
-   "src": "Yahoo Finance Singapore",
+   "h": "[AMD] Cathie Wood’s ARK sells AMD stock, buys SpaceX and X-Energy",
+   "src": "Investing.com",
    "sum": ""
   },
   {
@@ -451,9 +451,9 @@
    "sum": "Dollar at week-high after US resumes attacks on Iran  Reuters"
   },
   {
-   "h": "US oil prices jump after US military launches strikes against Iran - Reuters",
+   "h": "Oil prices climb as US strikes on Iran fuel fears truce is unravelling - Reuters",
    "src": "Reuters",
-   "sum": "US oil prices jump after US military launches strikes against Iran  Reuters"
+   "sum": "Oil prices climb as US strikes on Iran fuel fears truce is unravelling  Reuters"
   },
   {
    "h": "Pakistan-registered cargo plane missing off Karachi coast after navigation problem - Reuters",
@@ -486,14 +486,14 @@
    "sum": "US military launches strikes against Iran, Central Command says  Reuters"
   },
   {
+   "h": "Lawsuit alleges US shared information with Iran about asylum seekers, US denies allegation - Reuters",
+   "src": "Reuters",
+   "sum": "Lawsuit alleges US shared information with Iran about asylum seekers, US denies allegation  Reuters"
+  },
+  {
    "h": "Trump calls Italy's Meloni a 'nice person' but blames her for not helping with Iran - Reuters",
    "src": "Reuters",
    "sum": "Trump calls Italy's Meloni a 'nice person' but blames her for not helping with Iran  Reuters"
-  },
-  {
-   "h": "EXCLUSIVE BOJ dissenter Asada needs demand-driven inflation before backing rate hike - Reuters",
-   "src": "Reuters",
-   "sum": "EXCLUSIVE BOJ dissenter Asada needs demand-driven inflation before backing rate hike  Reuters"
   }
  ]
 }

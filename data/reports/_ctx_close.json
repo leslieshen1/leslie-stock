@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-07 22:15 ET Tue",
+ "asof_et": "2026-07-07 22:31 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "-0.48%",
@@ -371,6 +371,11 @@
    "sum": ""
   },
   {
+   "h": "Think the U.S. stock market is too heavily exposed to AI? It’s even worse abroad.",
+   "src": "MarketWatch",
+   "sum": ""
+  },
+  {
    "h": "Stock market today: Nasdaq leads S&P 500, Dow higher as tech jitters ease",
    "src": "Yahoo Finance",
    "sum": ""
@@ -378,11 +383,6 @@
   {
    "h": "Dow Jones| Nasdaq | US Stock Market Today | Highlights: S&P 500, Nasdaq end lower as AI worries hit chipmakers",
    "src": "The Economic Times",
-   "sum": ""
-  },
-  {
-   "h": "Stock futures are little changed as investors weigh Middle East tensions and await Fed minutes: Live updates",
-   "src": "CNBC",
    "sum": ""
   },
   {
@@ -426,8 +426,8 @@
    "sum": ""
   },
   {
-   "h": "[AMD] AMD Stock Rises as Goldman Sees Big Earnings Coming",
-   "src": "Barron's",
+   "h": "[AMD] Why Advanced Micro Devices Stock Just Bounced Back",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-08 22:31 ET Wed",
+ "asof_et": "2026-07-08 22:45 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.31%",
@@ -494,13 +494,13 @@
    "sum": ""
   },
   {
-   "h": "[MU] Micron stock has now plunged to a surprising level",
+   "h": "[MU] Can Investing in Micron Stock Make You a Millionaire?",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[MU] Memory Stock Sell-Off: Is This the Time to Buy Micron Technology and Sandisk Like There's No Tomorrow?",
-   "src": "The Motley Fool",
+   "h": "[MU] Citi Just Placed Micron on an Upside Catalyst Watch. What This Means for MU Stock.",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -515,7 +515,7 @@
   },
   {
    "h": "[AVGO] Broadcom’s Largest AI Customer Is Fleeing to MediaTek. AVGO Stock Is Still a Buy.",
-   "src": "Barchart",
+   "src": "Barchart.com",
    "sum": ""
   },
   {
@@ -542,6 +542,11 @@
    "h": "[ARM] What's Going on With Arm Holdings Stock Tuesday?",
    "src": "Benzinga",
    "sum": ""
+  },
+  {
+   "h": "Oil rises after US launches fresh strikes against Iran - Reuters",
+   "src": "Reuters",
+   "sum": "Oil rises after US launches fresh strikes against Iran  Reuters"
   },
   {
    "h": "Trump flies old Air Force One out of Turkey, switches to new jet in Britain for trip home - Reuters",
@@ -584,14 +589,9 @@
    "sum": "Honeywell Technologies raises profit guidance after one-for-two reverse stock split  Reuters"
   },
   {
-   "h": "US military is conducting fresh strikes on Iran - Reuters",
+   "h": "Gold drifts lower after Trump says deal with Iran is 'over' - Reuters",
    "src": "Reuters",
-   "sum": "US military is conducting fresh strikes on Iran  Reuters"
-  },
-  {
-   "h": "Levi Strauss beats quarterly expectations, raises guidance and dividend",
-   "src": "CNBC",
-   "sum": "Levi Strauss beat quarterly expectations on the top and bottom lines during its fiscal 2026 second quarter."
+   "sum": "Gold drifts lower after Trump says deal with Iran is 'over'  Reuters"
   }
  ]
 }

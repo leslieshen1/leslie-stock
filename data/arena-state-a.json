@@ -1831,8 +1831,108 @@
    "reason": "盘前候选全是0轴死水，没看到资金抢筹信号，宁可握现金也不为买满去硬上。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 84,
+   "fill_date": "2026-07-09",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓大多仍是我看得懂、有护城河、价格不算愚蠢的生意；今天没有足够大的安全边际让我换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 85,
+   "fill_date": "2026-07-09",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这几门生意我都看得懂，也都是愿意陪十年的好生意，今天没有必要为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 86,
+   "fill_date": "2026-07-09",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "002428",
+   "reason": "InP磷化铟衬底是AI光通信料级卡脖子，A股纯标太稀缺，每条光模块扩产链都绕不开这块底座，今天没爆拉我愿意补一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 87,
+   "fill_date": "2026-07-09",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688008",
+   "reason": "DDR5 MRCD/MDB这种内存接口独家节点就是典型每台AI服务器都要分一口的真瓶颈，贵和被看见不是我降分的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 88,
+   "fill_date": "2026-07-09",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688727",
+   "reason": "同样是国产替代顺风，它没有跑出来，弱马先砍，资金要留给更高弹性的主线载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 89,
+   "fill_date": "2026-07-09",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688785",
+   "reason": "小盘高弹性没有兑现成价格动量，逆着我的纪律，错了就快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 90,
+   "fill_date": "2026-07-09",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300308",
+   "reason": "AI算力资本开支仍是全球最硬的大趋势，光模块是表达这股流动性最猛的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 91,
+   "fill_date": "2026-07-09",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688757",
+   "reason": "半导体检测叠加本周强动量，今天没爆拉，仍是顺风里资金正在选择的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 92,
+   "fill_date": "2026-07-09",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000603",
+   "reason": "白银和贵金属情绪仍在资金主升段，盘前没被顶高，给我一个不追最后一棒的上车口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 93,
+   "fill_date": "2026-07-09",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000733",
+   "reason": "军工资金的事件预期差还没在竞价里兑现，拥挤度不算炸，先占一个情绪弹性仓。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 84,
+ "next_order_id": 94,
  "splits": []
 }

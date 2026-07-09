@@ -3665,9 +3665,79 @@
    "reason": "指数盘前走弱、AI拥挤盘继续卸货时，波动率和期权成交这条资金管道反而有承接，CBOE不狂热但钱稳稳在。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 184,
+   "fill_date": "2026-07-09",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "PEP",
+   "reason": "Frito-Lay 的货架护城河和百事的品牌定价权我看得懂，今天回落给了我用合理价买一门可预测好生意的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 185,
+   "fill_date": "2026-07-09",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的四门生意我都看懂，也都够本分，今天盘前涨跌不改变十年判断，没必要为了热闹换来换去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 186,
+   "fill_date": "2026-07-09",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天不为买满去追盘：手里这十个都是我认的真瓶颈，候选里强的盘前已经被抢，弱的也没有比现仓更值得我砍仓换过去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 187,
+   "fill_date": "2026-07-09",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "GS",
+   "reason": "这不是今天流动性的主战场，金融/信用敏感资产仍被油价和地缘风险压着，我不拿二流载体耗资本。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 188,
+   "fill_date": "2026-07-09",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "TLN",
+   "reason": "AI电力短缺这条宏观线还在加速，盘前强但没失控，TLN是比金融更顺风、更高弹性的表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 189,
+   "fill_date": "2026-07-09",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AVGO",
+   "reason": "纳指盘前由AI硬科技重新领涨，AVGO是ASIC主线的核心高弹性载体，趋势确认我就骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 190,
+   "fill_date": "2026-07-09",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "AI硬科技盘前又被资金猛怼，但候选多数已经昨收大阳加盘前继续冲，情绪在加速段我不去接最后一棒，现金先等回落。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 184,
+ "next_order_id": 191,
  "notes": [
   {
    "date": "2026-06-12",

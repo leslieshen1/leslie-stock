@@ -1,19 +1,12 @@
 {
  "cash": {
-  "buffett": 43465.01,
+  "buffett": 158389.01,
   "duan": 40172.16,
-  "serenity": 81422.51,
-  "druckenmiller": 150678.09,
-  "sentiment": 428829.74
+  "serenity": 18.51,
+  "druckenmiller": 500159.57,
+  "sentiment": 413042.4
  },
  "positions": [
-  {
-   "master": "buffett",
-   "sym": "COST",
-   "shares": 122,
-   "entry": 983.37,
-   "entry_date": "2026-06-10"
-  },
   {
    "master": "buffett",
    "sym": "TSM",
@@ -142,13 +135,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "GEV",
-   "shares": 119,
-   "entry": 1109.73,
-   "entry_date": "2026-06-18"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "LLY",
    "shares": 110,
    "entry": 1107.45,
@@ -205,31 +191,24 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "BWXT",
-   "shares": 611,
-   "entry": 196.89,
-   "entry_date": "2026-07-06"
-  },
-  {
-   "master": "sentiment",
-   "sym": "AUGO",
-   "shares": 2385,
-   "entry": 67.73,
-   "entry_date": "2026-07-06"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "GS",
    "shares": 110,
    "entry": 1042.73,
    "entry_date": "2026-07-07"
   },
   {
-   "master": "druckenmiller",
-   "sym": "AUGO",
-   "shares": 1824,
-   "entry": 63.37,
-   "entry_date": "2026-07-07"
+   "master": "serenity",
+   "sym": "CORZ",
+   "shares": 3464,
+   "entry": 23.5,
+   "entry_date": "2026-07-08"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CBOE",
+   "shares": 598,
+   "entry": 264.98,
+   "entry_date": "2026-07-08"
   }
  ],
  "nav": [
@@ -657,6 +636,31 @@
    "master": "sentiment",
    "date": "2026-07-07",
    "nav": 1068142.26
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-08",
+   "nav": 1007642.13
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-08",
+   "nav": 1007091.42
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-08",
+   "nav": 944411.58
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-08",
+   "nav": 994536.26
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-08",
+   "nav": 1057011.66
   }
  ],
  "trades": [
@@ -1978,6 +1982,76 @@
    "shares": 319,
    "price": 497.36,
    "reason": "防务这条线昨天已经被资金砸、今早盘前继续弱，盘口告诉我钱在撤，先认错让位。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-08",
+   "master": "buffett",
+   "side": "SELL",
+   "sym": "COST",
+   "shares": 122,
+   "price": 942.0,
+   "reason": "Costco 是我最喜欢的生意之一，但接近950美元的价格给不了我足够的owner earnings安全边际，好公司也不能用蠢价买。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-08",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "CORZ",
+   "shares": 3464,
+   "price": 23.5,
+   "reason": "AI链今天被砍的是叙事溢价，但真正的窄门在可通电兆瓦和已并网机柜，CORZ 还在矿工壳估值里被错杀，我要补第十个瓶颈位。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "BWXT",
+   "shares": 611,
+   "price": 184.11,
+   "reason": "AI电力/核能这条线今天继续被卖，亏损票还在逆风里走弱，我不跟价格争，先砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GEV",
+   "shares": 119,
+   "price": 1074.61,
+   "reason": "它本该是AI电力主线里最硬的载体，但盘前继续明显弱于大盘，趋势不顺就撤。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "AUGO",
+   "shares": 1824,
+   "price": 59.82,
+   "reason": "黄金矿股如果在风险降温时还被打到盘前-3%以上，说明流动性没有站在我这边，先离场。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-08",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "AUGO",
+   "shares": 2385,
+   "price": 59.82,
+   "reason": "-11.7% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-08",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CBOE",
+   "shares": 598,
+   "price": 264.98,
+   "reason": "指数盘前走弱、AI拥挤盘继续卸货时，波动率和期权成交这条资金管道反而有承接，CBOE不狂热但钱稳稳在。",
    "src": "ai"
   }
  ],
@@ -3519,7 +3593,7 @@
    "action": "SELL",
    "sym": "COST",
    "reason": "Costco 是我最喜欢的生意之一，但接近950美元的价格给不了我足够的owner earnings安全边际，好公司也不能用蠢价买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3529,7 +3603,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些都是我看懂的十年好生意，盘前这点波动不改变商业模式和文化，没必要为了市场情绪动来动去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3539,7 +3613,7 @@
    "action": "BUY",
    "sym": "CORZ",
    "reason": "AI链今天被砍的是叙事溢价，但真正的窄门在可通电兆瓦和已并网机柜，CORZ 还在矿工壳估值里被错杀，我要补第十个瓶颈位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3549,7 +3623,7 @@
    "action": "SELL",
    "sym": "BWXT",
    "reason": "AI电力/核能这条线今天继续被卖，亏损票还在逆风里走弱，我不跟价格争，先砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3559,7 +3633,7 @@
    "action": "SELL",
    "sym": "GEV",
    "reason": "它本该是AI电力主线里最硬的载体，但盘前继续明显弱于大盘，趋势不顺就撤。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3569,7 +3643,7 @@
    "action": "SELL",
    "sym": "AUGO",
    "reason": "黄金矿股如果在风险降温时还被打到盘前-3%以上，说明流动性没有站在我这边，先离场。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3579,8 +3653,8 @@
    "action": "SELL",
    "sym": "AUGO",
    "reason": "贵金属转板增量这条线盘前已经从热钱顺风变成兑现卖压，-3%不是洗盘味道而是资金退潮，先撤不跟它硬扛。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 183,
@@ -3589,7 +3663,7 @@
    "action": "BUY",
    "sym": "CBOE",
    "reason": "指数盘前走弱、AI拥挤盘继续卸货时，波动率和期权成交这条资金管道反而有承接，CBOE不狂热但钱稳稳在。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

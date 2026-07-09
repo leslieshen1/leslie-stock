@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 261446.0,
-  "druckenmiller": 148579.0,
-  "sentiment": 391482.0
+  "serenity": 170182.0,
+  "druckenmiller": 338165.0,
+  "sentiment": 92578.0
  },
  "positions": [
   {
@@ -93,13 +93,6 @@
   },
   {
    "master": "serenity",
-   "sym": "600259",
-   "shares": 900,
-   "entry": 100.7,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
    "sym": "000831",
    "shares": 1700,
    "entry": 55.5,
@@ -176,20 +169,6 @@
    "entry_date": "2026-07-07"
   },
   {
-   "master": "druckenmiller",
-   "sym": "688727",
-   "shares": 1700,
-   "entry": 63.54,
-   "entry_date": "2026-07-07"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688785",
-   "shares": 200,
-   "entry": 387.66,
-   "entry_date": "2026-07-07"
-  },
-  {
    "master": "sentiment",
    "sym": "000099",
    "shares": 10600,
@@ -219,17 +198,45 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "600259",
-   "shares": 1200,
-   "entry": 89.0,
-   "entry_date": "2026-07-08"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300442",
    "shares": 1400,
    "entry": 79.16,
    "entry_date": "2026-07-08"
+  },
+  {
+   "master": "serenity",
+   "sym": "002428",
+   "shares": 800,
+   "entry": 102.98,
+   "entry_date": "2026-07-09"
+  },
+  {
+   "master": "serenity",
+   "sym": "688008",
+   "shares": 300,
+   "entry": 285.8,
+   "entry_date": "2026-07-09"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688757",
+   "shares": 2100,
+   "entry": 54.5,
+   "entry_date": "2026-07-09"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000603",
+   "shares": 6800,
+   "entry": 21.91,
+   "entry_date": "2026-07-09"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000733",
+   "shares": 3100,
+   "entry": 48.36,
+   "entry_date": "2026-07-09"
   }
  ],
  "nav": [
@@ -457,6 +464,31 @@
    "master": "sentiment",
    "date": "2026-07-08",
    "nav": 1005454.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-09",
+   "nav": 1008653.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-09",
+   "nav": 1001109.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-09",
+   "nav": 946079.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-09",
+   "nav": 1014973.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-09",
+   "nav": 1002908.0
   }
  ],
  "trades": [
@@ -999,6 +1031,96 @@
    "price": 29.54,
    "reason": "-7.5% 触止损,情绪票不恋战,反转比谁都快",
    "src": "rule"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "600259",
+   "shares": 900,
+   "price": 85.4,
+   "reason": "破位 -15.2%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "002428",
+   "shares": 800,
+   "price": 102.98,
+   "reason": "InP磷化铟衬底是AI光通信料级卡脖子，A股纯标太稀缺，每条光模块扩产链都绕不开这块底座，今天没爆拉我愿意补一仓。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688008",
+   "shares": 300,
+   "price": 285.8,
+   "reason": "DDR5 MRCD/MDB这种内存接口独家节点就是典型每台AI服务器都要分一口的真瓶颈，贵和被看见不是我降分的理由。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "600259",
+   "shares": 1200,
+   "price": 85.4,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688727",
+   "shares": 1700,
+   "price": 68.68,
+   "reason": "同样是国产替代顺风，它没有跑出来，弱马先砍，资金要留给更高弹性的主线载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688785",
+   "shares": 200,
+   "price": 424.0,
+   "reason": "小盘高弹性没有兑现成价格动量，逆着我的纪律，错了就快砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688757",
+   "shares": 2100,
+   "price": 54.5,
+   "reason": "半导体检测叠加本周强动量，今天没爆拉，仍是顺风里资金正在选择的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000603",
+   "shares": 6800,
+   "price": 21.91,
+   "reason": "白银和贵金属情绪仍在资金主升段，盘前没被顶高，给我一个不追最后一棒的上车口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-09",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000733",
+   "shares": 3100,
+   "price": 48.36,
+   "reason": "军工资金的事件预期差还没在竞价里兑现，拥挤度不算炸，先占一个情绪弹性仓。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -1839,7 +1961,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓大多仍是我看得懂、有护城河、价格不算愚蠢的生意；今天没有足够大的安全边际让我换马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1849,7 +1971,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这几门生意我都看得懂，也都是愿意陪十年的好生意，今天没有必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1859,7 +1981,7 @@
    "action": "BUY",
    "sym": "002428",
    "reason": "InP磷化铟衬底是AI光通信料级卡脖子，A股纯标太稀缺，每条光模块扩产链都绕不开这块底座，今天没爆拉我愿意补一仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1869,7 +1991,7 @@
    "action": "BUY",
    "sym": "688008",
    "reason": "DDR5 MRCD/MDB这种内存接口独家节点就是典型每台AI服务器都要分一口的真瓶颈，贵和被看见不是我降分的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1879,7 +2001,7 @@
    "action": "SELL",
    "sym": "688727",
    "reason": "同样是国产替代顺风，它没有跑出来，弱马先砍，资金要留给更高弹性的主线载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1889,7 +2011,7 @@
    "action": "SELL",
    "sym": "688785",
    "reason": "小盘高弹性没有兑现成价格动量，逆着我的纪律，错了就快砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1899,8 +2021,8 @@
    "action": "BUY",
    "sym": "300308",
    "reason": "AI算力资本开支仍是全球最硬的大趋势，光模块是表达这股流动性最猛的高弹性载体。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "现金不足一手"
   },
   {
    "id": 91,
@@ -1909,7 +2031,7 @@
    "action": "BUY",
    "sym": "688757",
    "reason": "半导体检测叠加本周强动量，今天没爆拉，仍是顺风里资金正在选择的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1919,7 +2041,7 @@
    "action": "BUY",
    "sym": "000603",
    "reason": "白银和贵金属情绪仍在资金主升段，盘前没被顶高，给我一个不追最后一棒的上车口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -1929,7 +2051,7 @@
    "action": "BUY",
    "sym": "000733",
    "reason": "军工资金的事件预期差还没在竞价里兑现，拥挤度不算炸，先占一个情绪弹性仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

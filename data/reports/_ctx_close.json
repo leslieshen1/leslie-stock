@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-08 22:01 ET Wed",
+ "asof_et": "2026-07-08 22:16 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.31%",
@@ -484,7 +484,7 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX stock now enters the post-honeymoon faith phase",
+   "h": "[SPCX] SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -499,8 +499,8 @@
    "sum": ""
   },
   {
-   "h": "[MU] Micron Stock: Buy the Dip?",
-   "src": "The Globe and Mail",
+   "h": "[MU] Memory Stock Sell-Off: Is This the Time to Buy Micron Technology and Sandisk Like There's No Tomorrow?",
+   "src": "The Motley Fool",
    "sum": ""
   },
   {
@@ -554,6 +554,11 @@
    "sum": "Trump orders halt to US trade with Spain over NATO spending, Iran  Reuters"
   },
   {
+   "h": "Giuliani defends White house handling of Iran at World Cup - Reuters",
+   "src": "Reuters",
+   "sum": "Giuliani defends White house handling of Iran at World Cup  Reuters"
+  },
+  {
    "h": "S&P 500 ends down after Trump says Iran deal is 'over' - Reuters",
    "src": "Reuters",
    "sum": "S&P 500 ends down after Trump says Iran deal is 'over'  Reuters"
@@ -587,11 +592,6 @@
    "h": "Levi Strauss beats quarterly expectations, raises guidance and dividend",
    "src": "CNBC",
    "sum": "Levi Strauss beat quarterly expectations on the top and bottom lines during its fiscal 2026 second quarter."
-  },
-  {
-   "h": "Indian benchmarks log biggest one-day loss in three months as oil prices soar - Reuters",
-   "src": "Reuters",
-   "sum": "Indian benchmarks log biggest one-day loss in three months as oil prices soar  Reuters"
   }
  ]
 }

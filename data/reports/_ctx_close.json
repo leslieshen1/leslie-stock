@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-08 22:16 ET Wed",
+ "asof_et": "2026-07-08 22:31 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.31%",
@@ -444,7 +444,7 @@
  ],
  "news": [
   {
-   "h": "Dow slides more than 570 points as oil spikes and Trump threatens another attack on Iran: Live updates",
+   "h": "S&P 500 futures are little changed as traders assess rising tensions between the U.S. and Iran: Live updates",
    "src": "CNBC",
    "sum": ""
   },
@@ -454,13 +454,13 @@
    "sum": ""
   },
   {
-   "h": "S&P 500 ends down after Trump says Iran deal is 'over'",
-   "src": "Reuters",
+   "h": "Dow slides more than 570 points as oil spikes and Trump threatens another attack on Iran: Live updates",
+   "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "Stock Market News, July 7, 2026: SpaceX Slips Below Opening Price in Glum Day for Tech Stocks",
-   "src": "WSJ",
+   "h": "S&P 500 ends down after Trump says Iran deal is 'over'",
+   "src": "Reuters",
    "sum": ""
   },
   {
@@ -489,8 +489,8 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX President Gwynne Shotwell to donate stock to Trump Accounts",
-   "src": "CNBC",
+   "h": "[SPCX] SpaceX Is About To Join the Nasdaq 100. Here’s How Much the Stock Is Expected To Move This Week",
+   "src": "Investopedia",
    "sum": ""
   },
   {
@@ -515,7 +515,7 @@
   },
   {
    "h": "[AVGO] Broadcom’s Largest AI Customer Is Fleeing to MediaTek. AVGO Stock Is Still a Buy.",
-   "src": "Barchart.com",
+   "src": "Barchart",
    "sum": ""
   },
   {

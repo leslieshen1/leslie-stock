@@ -19,14 +19,31 @@ async function ndt(system: string, user: string, modelOverride?: string): Promis
     headers: { authorization: `Bearer ${key}`, "content-type": "application/json", "anthropic-version": "2023-06-01" },
     body: JSON.stringify({ model, system, max_tokens: 2000, messages: [{ role: "user", content: user }] }),
   });
-  const j = (await r.json().catch(() => null)) as { error?: unknown; content?: { type: string; text?: string }[] } | null;
+  const j = (await r.json().catch(() => null)) as { error?: { retryable?: boolean } | unknown; content?: { type: string; text?: string }[] } | null;
   if (!j || j.error) {
     const e = j?.error;
-    throw new Error((typeof e === "object" && e !== null ? JSON.stringify(e) : String(e ?? `http ${r.status}`)).slice(0, 300));
+    const retryable = typeof e === "object" && e !== null && (e as { retryable?: boolean }).retryable === true;
+    const err = new Error((typeof e === "object" && e !== null ? JSON.stringify(e) : String(e ?? `http ${r.status}`)).slice(0, 300));
+    (err as Error & { retryable?: boolean }).retryable = retryable;
+    throw err;
   }
   const text = (j.content || []).filter((p) => p.type === "text").map((p) => p.text || "").join("").trim();
   if (!text) throw new Error("empty");
   return text;
+}
+
+// NDT 服务偶发 MODEL_SERVICE_UNAVAILABLE(retryable),自动退避重试几次
+async function ndtRetry(system: string, user: string, model?: string, tries = 4): Promise<string> {
+  let last: unknown;
+  for (let i = 0; i < tries; i++) {
+    try { return await ndt(system, user, model); }
+    catch (e) {
+      last = e;
+      if (!(e as Error & { retryable?: boolean }).retryable) throw e;
+      await new Promise((r) => setTimeout(r, 1500 * (i + 1))); // 1.5s / 3s / 4.5s
+    }
+  }
+  throw last;
 }
 
 const SYSTEM =
@@ -62,7 +79,7 @@ export async function POST(req: Request) {
 
   try {
     const mdl = body.model && /^[a-z0-9.\-]{3,40}$/i.test(body.model) ? body.model : undefined;
-    const raw = await ndt(SYSTEM, user, mdl);
+    const raw = await ndtRetry(SYSTEM, user, mdl);
     const clean = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
     const parsed = JSON.parse(clean) as AiRead;
     if (!parsed.read || !Array.isArray(parsed.scenarios) || parsed.scenarios.length !== 3) throw new Error("结构不符");

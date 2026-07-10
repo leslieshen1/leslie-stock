@@ -9,11 +9,11 @@ export const maxDuration = 120;
 export type Scenario = { name: string; prob: number; path: number[]; why: string };
 export type AiRead = { read: string; scenarios: Scenario[] };
 
-async function ndt(system: string, user: string): Promise<string> {
+async function ndt(system: string, user: string, modelOverride?: string): Promise<string> {
   const base = (process.env.NDT_BASE_URL || "https://api.nadoutong.org").replace(/\/$/, "");
   const key = process.env.NDT_CLAUDE_KEY || process.env.NDT_API_KEY || "";
   if (!key) throw new Error("no-key");
-  const model = process.env.NDT_REPORT_MODEL || "claude-opus-4-8";
+  const model = modelOverride || process.env.NDT_REPORT_MODEL || "claude-opus-4-8";
   const r = await fetch(`${base}/v1/messages`, {
     method: "POST",
     headers: { authorization: `Bearer ${key}`, "content-type": "application/json", "anthropic-version": "2023-06-01" },
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
   if (!(process.env.NDT_CLAUDE_KEY || process.env.NDT_API_KEY)) {
     return Response.json({ aiDisabled: true, error: "NDT key 未配置" }, { status: 501 });
   }
-  let body: { sym?: string; name?: string; market?: string; tech?: TechSnapshot; backtest?: Backtest; recent?: Candle[] };
+  let body: { sym?: string; name?: string; market?: string; tech?: TechSnapshot; backtest?: Backtest; recent?: Candle[]; model?: string };
   try { body = await req.json(); } catch { return Response.json({ error: "bad json" }, { status: 400 }); }
   const { sym, name, market, tech, backtest, recent } = body;
   if (!sym || !tech || !backtest) return Response.json({ error: "缺参数" }, { status: 400 });
@@ -61,7 +61,8 @@ export async function POST(req: Request) {
     `请输出 JSON。`;
 
   try {
-    const raw = await ndt(SYSTEM, user);
+    const mdl = body.model && /^[a-z0-9.\-]{3,40}$/i.test(body.model) ? body.model : undefined;
+    const raw = await ndt(SYSTEM, user, mdl);
     const clean = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
     const parsed = JSON.parse(clean) as AiRead;
     if (!parsed.read || !Array.isArray(parsed.scenarios) || parsed.scenarios.length !== 3) throw new Error("结构不符");

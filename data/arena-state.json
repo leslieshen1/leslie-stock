@@ -3814,9 +3814,59 @@
    "reason": "AI硬科技盘前又被资金猛怼，但候选多数已经昨收大阳加盘前继续冲，情绪在加速段我不去接最后一棒，现金先等回落。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 191,
+   "fill_date": "2026-07-10",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些公司多数仍是我看得懂、护城河够宽的生意；今天没有哪一个价格便宜到让我挪动组合，也没有哪一个贵到必须卖掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 192,
+   "fill_date": "2026-07-10",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看懂了，文化也过关，今天盘前这点波动不构成让我换来换去的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 193,
+   "fill_date": "2026-07-10",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在真瓶颈位置，下游钱也还在涌；候选里 LITE/LASR 这类刚爆拉的我不去接最后一棒，今天不为买满而乱换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 194,
+   "fill_date": "2026-07-10",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "META",
+   "reason": "纳指盘前发软但META逆势跳涨，边际资金从拥挤芯片切到能自我融资的AI平台，这是顺流动性的强相对表现，我要骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 195,
+   "fill_date": "2026-07-10",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "芯片和题材昨天已经把情绪打到偏热，今早纳指转弱就是提醒我别去接LASR、CBRS、BTDR这类高位最后一棒，手里冷门低拥挤仓位继续等资金发酵。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 191,
+ "next_order_id": 196,
  "notes": [
   {
    "date": "2026-06-12",

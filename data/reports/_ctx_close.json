@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-09 22:01 ET Thu",
+ "asof_et": "2026-07-09 22:16 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "+0.85%",
@@ -455,6 +455,11 @@
    "sum": ""
   },
   {
+   "h": "US stock markets fall amid Iran strikes and potential higher interest rates",
+   "src": "The Guardian",
+   "sum": ""
+  },
+  {
    "h": "Markets News, July 9, 2026: Stocks End Higher, Powered by Chip Shares; Oil Pulls Back as Investors Downplay Fighting Between US, Iran",
    "src": "Investopedia",
    "sum": ""
@@ -462,11 +467,6 @@
   {
    "h": "Workers keep leaving the US labor force. Experts can't agree why",
    "src": "USA Today",
-   "sum": ""
-  },
-  {
-   "h": "US markets brace for renewed funding pressure as leverage rises",
-   "src": "Reuters",
    "sum": ""
   },
   {
@@ -505,8 +505,8 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] Broadcom: Elite AI Execution Meets A Potential First-Wave Top (NASDAQ:AVGO)",
-   "src": "Seeking Alpha",
+   "h": "[AVGO] The Line In The Sand For AVGO Stock",
+   "src": "Trefis",
    "sum": ""
   },
   {

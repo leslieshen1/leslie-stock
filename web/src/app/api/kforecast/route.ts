@@ -1,10 +1,10 @@
 // K线情景推演 · 数据端(私密:Bearer STATS_TOKEN):拉全历史日线 → 相似形态回测 + 技术快照。
 // A/港股走腾讯 fqkline(前复权),美股走 Yahoo chart;北交所腾讯历史极短,数据不足时如实报错。
 import { statsAuthed as authed } from "@/lib/api-guard";
-import { analogBacktest, techSnapshot, type Candle } from "@/lib/kforecast";
+import { analogBacktest, techSnapshot, walkForwardValidate, type Candle } from "@/lib/kforecast";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 30;
+export const maxDuration = 60; // 样本外回测滚动几百次,留足时间
 
 const UA = { "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" };
 
@@ -59,10 +59,13 @@ export async function GET(req: Request) {
     }
     const bt = analogBacktest(candles);
     if ("error" in bt) return Response.json({ error: bt.error }, { status: 422 });
+    const val = walkForwardValidate(candles); // 样本外滚动回测:这套方法在本票上准不准
     return Response.json({
       sym, market, name,
       tech: techSnapshot(candles),
       backtest: { ...bt, matches: bt.matches.slice(0, 12) }, // 前端展示只要头部匹配
+      validation: "error" in val ? null : val,
+      validationErr: "error" in val ? val.error : null,
       candles: candles.slice(-70), // 画图只要尾部
       total: candles.length,
     });

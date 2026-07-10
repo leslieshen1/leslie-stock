@@ -1,7 +1,7 @@
 // K线情景推演 · AI 端(私密:Bearer STATS_TOKEN):技术快照 + 回测统计 → NDT Claude 输出三条情景路径(JSON)。
 // 约束写进 prompt:情景须与回测分位锥大体相容、概率合计=1、只做概率推演绝不构成建议。
 import { statsAuthed as authed } from "@/lib/api-guard";
-import type { Backtest, TechSnapshot, Candle } from "@/lib/kforecast";
+import type { Backtest, TechSnapshot, Candle, Validation } from "@/lib/kforecast";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -103,24 +103,29 @@ export async function POST(req: Request) {
   if (!(process.env.NDT_CLAUDE_KEY || process.env.NDT_API_KEY)) {
     return Response.json({ aiDisabled: true, error: "NDT key 未配置" }, { status: 501 });
   }
-  let body: { sym?: string; name?: string; market?: string; tech?: TechSnapshot; backtest?: Backtest; recent?: Candle[]; model?: string };
+  let body: { sym?: string; name?: string; market?: string; tech?: TechSnapshot; backtest?: Backtest; validation?: Validation | null; recent?: Candle[]; model?: string };
   try { body = await req.json(); } catch { return Response.json({ error: "bad json" }, { status: 400 }); }
-  const { sym, name, market, tech, backtest, recent } = body;
+  const { sym, name, market, tech, backtest, validation, recent } = body;
   if (!sym || !tech || !backtest) return Response.json({ error: "缺参数" }, { status: 400 });
 
   const f = backtest.fan;
   const lastIdx = backtest.fwd - 1;
+  const volLine = (recent || []).slice(-10).map((k) => `${k.d.slice(5)} ${k.c >= k.o ? "阳" : "阴"}量${k.v ? Math.round(k.v / 1e4) + "万" : "?"}`).join(" ");
   const user =
     `标的:${name || sym}(${sym},${(market || "us").toUpperCase()}),现价 ${tech.price}。\n\n` +
-    `【技术快照】5日${tech.chg5}% 20日${tech.chg20}% 60日${tech.chg60}% | MA5 ${tech.ma5} / MA20 ${tech.ma20} / MA60 ${tech.ma60} | ` +
-    `BOLL ${tech.bollLow}~${tech.bollMid}~${tech.bollUp} | RSI14 ${tech.rsi14} | MACD dif ${tech.macd.dif} dea ${tech.macd.dea} 柱 ${tech.macd.hist} | ` +
-    `量比(5日/前20日) ${tech.volR5} | 52周 ${tech.lo52}~${tech.hi52},现价位于 ${tech.posIn52}% 分位。\n\n` +
-    `【相似形态回测】用最近 ${backtest.win} 日形态在该股全历史(${backtest.samples} 个可比窗口)找到 ${backtest.topK} 个最相似段,它们之后 ${backtest.fwd} 日的真实走势分布:\n` +
-    `第${backtest.fwd}日累计:p10 ${f.p10[lastIdx]}% / p25 ${f.p25[lastIdx]}% / 中位 ${f.p50[lastIdx]}% / p75 ${f.p75[lastIdx]}% / p90 ${f.p90[lastIdx]}%;` +
-    `上涨占比 ${(backtest.horizon.upProb * 100).toFixed(0)}%,均值 ${backtest.horizon.mean}%,最好 ${backtest.horizon.best}%,最差 ${backtest.horizon.worst}%。\n` +
-    `逐日中位路径:[${f.p50.join(", ")}]。头部相似段(日期/相似度/末日收益):${backtest.matches.slice(0, 6).map((m) => `${m.endDate} ${m.sim} ${m.fwd[lastIdx]}%`).join(" | ")}\n\n` +
-    `【最近10根日K】${(recent || []).slice(-10).map((k) => `${k.d.slice(5)} 开${k.o}收${k.c}高${k.h}低${k.l}`).join(" / ")}\n\n` +
-    `请输出 JSON。`;
+    `【趋势】均线排列${tech.maAlign === "bull" ? "多头(MA5>20>60)" : tech.maAlign === "bear" ? "空头(MA5<20<60)" : "纠缠"} | 5日${tech.chg5}% 20日${tech.chg20}% 60日${tech.chg60}% | MA5 ${tech.ma5}/MA20 ${tech.ma20}/MA60 ${tech.ma60}\n` +
+    `【动量】RSI14 ${tech.rsi14} | MACD dif ${tech.macd.dif} dea ${tech.macd.dea} 柱 ${tech.macd.hist}\n` +
+    `【波动】ATR ${tech.atrPct}%(近14日日均真实波幅) | 历史波动率 ${tech.histVol}%(年化) | BOLL ${tech.bollLow}~${tech.bollMid}~${tech.bollUp} 带宽 ${tech.bollW}%\n` +
+    `【量能】量比(5日/前20日) ${tech.volR5} | OBV ${tech.obvUp ? "近10日走升(量在推价)" : "近10日走平/降"} | 最近一根 ${tech.volPrice}\n` +
+    `【位置】52周 ${tech.lo52}~${tech.hi52},现价 ${tech.posIn52}% 分位\n` +
+    `【近10根量价】${volLine}\n\n` +
+    `【相似形态回测】最近 ${backtest.win} 日形态在全历史 ${backtest.samples} 窗口中取 ${backtest.topK} 个最相似段,之后 ${backtest.fwd} 日走势分布:\n` +
+    `第${backtest.fwd}日:p10 ${f.p10[lastIdx]}% / p25 ${f.p25[lastIdx]}% / 中位 ${f.p50[lastIdx]}% / p75 ${f.p75[lastIdx]}% / p90 ${f.p90[lastIdx]}%;上涨占比 ${(backtest.horizon.upProb * 100).toFixed(0)}%,均值 ${backtest.horizon.mean}%。逐日中位:[${f.p50.join(", ")}]\n\n` +
+    (validation
+      ? `【⚠️ 这套方法的样本外准确度(务必据此收敛你的自信)】在该股全历史滚动 ${validation.points} 次样本外测试:方向命中率 ${(validation.dirAcc * 100).toFixed(0)}%,基准(闭眼押多数方向)${(validation.naiveBest * 100).toFixed(0)}%,超额 ${(validation.edge * 100).toFixed(0)} 个点;80% 概率区间实测覆盖 ${(validation.cover80 * 100).toFixed(0)}%。结论:${validation.verdict}\n` +
+        `→ 如果超额≤1个点,说明形态对方向几乎没有预测力,你的三情景概率不要过度偏向某一边、要贴近回测分布本身;如果覆盖率明显偏离80%,提醒用户概率锥的可信度。\n\n`
+      : "") +
+    `请输出 JSON。read 里必须点出量价配合与这套方法的准确度边界;三条 path 与回测分位锥相容。`;
 
   try {
     const mdl = body.model && /^[a-z0-9.\-]{3,40}$/i.test(body.model) ? body.model : undefined;

@@ -66,22 +66,29 @@ async function ndtGpt(prompt: string): Promise<string> {
   return out.trim();
 }
 
-// 优先 Claude(retryable 退避重试),持续不可用 → 降级 gpt-5.5。两条都挂才抛。
-async function llm(system: string, user: string, model?: string, claudeTries = 3): Promise<string> {
+// 优先 Claude(retryable 退避重试 claudeTries 次),持续不可用 → 降级 gpt-5.5(它偶发 502 也退避重试)。
+// 时间预算:Claude 2×~7s + gpt 3×~25s + 退避 ≈ 96s < maxDuration 120s。两条都挂才抛。
+async function llm(system: string, user: string, model?: string, claudeTries = 2): Promise<string> {
   let last: unknown;
   for (let i = 0; i < claudeTries; i++) {
     try { return await ndt(system, user, model); }
     catch (e) {
       last = e;
       if (!(e as Error & { retryable?: boolean }).retryable || i === claudeTries - 1) break;
-      await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
+      await new Promise((r) => setTimeout(r, 1500));
     }
   }
-  try { return await ndtGpt(system ? system + "\n\n" + user : user); }
-  catch (e2) {
-    if (String((e2 as Error)?.message) === "no-gpt-key") throw last; // gpt 没配,报 Claude 原始错
-    throw new Error(`Claude+gpt 双挂:claude=${String((last as Error)?.message).slice(0, 90)} | gpt=${String((e2 as Error)?.message).slice(0, 90)}`);
+  const prompt = system ? system + "\n\n" + user : user;
+  let gptLast: unknown;
+  for (let i = 0; i < 3; i++) {
+    try { return await ndtGpt(prompt); }
+    catch (e2) {
+      gptLast = e2;
+      if (String((e2 as Error)?.message) === "no-gpt-key") throw last; // gpt 没配,报 Claude 原始错
+      if (i < 2) await new Promise((r) => setTimeout(r, 2000 * (i + 1)));
+    }
   }
+  throw new Error(`Claude+gpt 双挂:claude=${String((last as Error)?.message).slice(0, 80)} | gpt=${String((gptLast as Error)?.message).slice(0, 80)}`);
 }
 
 const SYSTEM =

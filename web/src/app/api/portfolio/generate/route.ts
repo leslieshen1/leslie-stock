@@ -25,7 +25,10 @@ async function ndt(system: string, user: string): Promise<string> {
     body: JSON.stringify({ model, system, max_tokens: 1600, messages: [{ role: "user", content: user }] }),
   });
   const j = (await r.json().catch(() => null)) as { error?: unknown; content?: { type: string; text?: string }[] } | null;
-  if (!j || j.error) throw new Error(String(j?.error ?? `http ${r.status}`).slice(0, 180));
+  if (!j || j.error) {
+    const e = j?.error;
+    throw new Error((typeof e === "object" && e !== null ? JSON.stringify(e) : String(e ?? `http ${r.status}`)).slice(0, 300));
+  }
   const text = (j.content || []).filter((p) => p.type === "text").map((p) => p.text || "").join("").trim();
   if (!text) throw new Error("empty");
   return text;

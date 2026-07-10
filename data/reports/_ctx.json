@@ -1,236 +1,236 @@
 {
- "asof_et": "2026-07-09 08:36 ET Thu",
+ "asof_et": "2026-07-10 08:36 ET Fri",
  "direction": {
   "标普500": {
-   "pm_pct": "+0.35%",
-   "yesterday_pct": "-0.31%"
+   "pm_pct": "-0.06%",
+   "yesterday_pct": "+0.85%"
   },
   "纳指100": {
-   "pm_pct": "+1.03%",
-   "yesterday_pct": "+0.28%"
+   "pm_pct": "-0.37%",
+   "yesterday_pct": "+1.66%"
   },
   "道指": {
-   "pm_pct": "+0.08%",
-   "yesterday_pct": "-1.07%"
+   "pm_pct": "+0.19%",
+   "yesterday_pct": "+0.27%"
   },
   "罗素2000": {
-   "pm_pct": "+0.51%",
-   "yesterday_pct": "-0.91%"
+   "pm_pct": "+0.10%",
+   "yesterday_pct": "+1.28%"
   }
  },
  "market_status": "Pre-Market",
  "premarket_gainers": [
   {
-   "sym": "UCTT",
-   "name": "Ultra Clean Holdings Inc.",
-   "pm_price": "$109.2614",
-   "pm_pct": "+8.28%",
-   "yesterday_pct": "+11.16%",
-   "yesterday_close": "$100.91"
+   "sym": "MSTR",
+   "name": "Strategy Inc Common Stock Class A",
+   "pm_price": "$98.99",
+   "pm_pct": "+5.43%",
+   "yesterday_pct": "+0.02%",
+   "yesterday_close": "$93.89"
   },
   {
-   "sym": "MU",
-   "name": "Micron Technology Inc.",
-   "pm_price": "$1,011.51",
-   "pm_pct": "+6.61%",
-   "yesterday_pct": "+1.11%",
-   "yesterday_close": "$948.80"
-  },
-  {
-   "sym": "CELC",
-   "name": "Celcuity Inc.",
-   "pm_price": "$115.00",
-   "pm_pct": "+5.60%",
-   "yesterday_pct": "-5.89%",
-   "yesterday_close": "$108.90"
-  },
-  {
-   "sym": "NBIS",
-   "name": "Nebius Group N.V. Class A",
-   "pm_price": "$228.25",
-   "pm_pct": "+5.44%",
-   "yesterday_pct": "+10.91%",
-   "yesterday_close": "$216.48"
-  },
-  {
-   "sym": "COHR",
-   "name": "Coherent Corp.",
-   "pm_price": "$334.12",
-   "pm_pct": "+5.38%",
-   "yesterday_pct": "+0.93%",
-   "yesterday_close": "$317.05"
-  },
-  {
-   "sym": "INTC",
-   "name": "Intel Corporation",
-   "pm_price": "$116.035",
-   "pm_pct": "+5.26%",
-   "yesterday_pct": "-0.14%",
-   "yesterday_close": "$110.24"
-  },
-  {
-   "sym": "SIMO",
-   "name": "Silicon Motion Technology Corporation",
-   "pm_price": "$329.6742",
-   "pm_pct": "+5.23%",
-   "yesterday_pct": "+6.24%",
-   "yesterday_close": "$313.30"
-  },
-  {
-   "sym": "WULF",
-   "name": "TeraWulf Inc.",
-   "pm_price": "$24.00",
-   "pm_pct": "+5.12%",
-   "yesterday_pct": "+12.80%",
-   "yesterday_close": "$22.83"
-  }
- ],
- "premarket_losers": [
-  {
-   "sym": "GPGI",
-   "name": "GPGI Inc. Class A",
-   "pm_price": "$14.60",
-   "pm_pct": "-7.77%",
-   "yesterday_pct": "-7.77%",
-   "yesterday_close": "$14.60"
-  },
-  {
-   "sym": "FTDR",
-   "name": "Frontdoor Inc.",
-   "pm_price": "$73.13",
-   "pm_pct": "-6.75%",
-   "yesterday_pct": "-6.75%",
-   "yesterday_close": "$73.13"
-  },
-  {
-   "sym": "W",
-   "name": "Wayfair Inc. Class A",
-   "pm_price": "$83.01",
-   "pm_pct": "-4.30%",
-   "yesterday_pct": "-6.98%",
-   "yesterday_close": "$86.74"
+   "sym": "COIN",
+   "name": "Coinbase Global Inc. Class A",
+   "pm_price": "$166.4727",
+   "pm_pct": "+5.07%",
+   "yesterday_pct": "-0.58%",
+   "yesterday_close": "$158.44"
   },
   {
    "sym": "META",
    "name": "Meta Platforms Inc. Class A",
-   "pm_price": "$584.16",
-   "pm_pct": "-3.14%",
-   "yesterday_pct": "-2.02%",
-   "yesterday_close": "$603.12"
+   "pm_price": "$654.9739",
+   "pm_pct": "+3.72%",
+   "yesterday_pct": "+4.70%",
+   "yesterday_close": "$631.48"
   },
   {
-   "sym": "PLTR",
-   "name": "Palantir Technologies Inc. Class A",
-   "pm_price": "$128.4759",
-   "pm_pct": "-2.83%",
-   "yesterday_pct": "-1.60%",
-   "yesterday_close": "$132.22"
+   "sym": "ANDG",
+   "name": "Andersen Group Inc. Class A",
+   "pm_price": "$44.76",
+   "pm_pct": "+2.99%",
+   "yesterday_pct": "+10.30%",
+   "yesterday_close": "$43.46"
   },
   {
-   "sym": "NAVN",
-   "name": "Navan Inc. Class A",
-   "pm_price": "$25.01",
-   "pm_pct": "-2.00%",
-   "yesterday_pct": "-6.35%",
-   "yesterday_close": "$25.52"
+   "sym": "MARA",
+   "name": "MARA Holdings Inc.",
+   "pm_price": "$13.5274",
+   "pm_pct": "+2.33%",
+   "yesterday_pct": "+9.98%",
+   "yesterday_close": "$13.22"
   },
   {
-   "sym": "MSFT",
-   "name": "Microsoft Corporation",
-   "pm_price": "$376.10",
-   "pm_pct": "-1.89%",
-   "yesterday_pct": "-1.41%",
-   "yesterday_close": "$383.34"
+   "sym": "BBIO",
+   "name": "BridgeBio Pharma Inc.",
+   "pm_price": "$91.95",
+   "pm_pct": "+1.97%",
+   "yesterday_pct": "+15.12%",
+   "yesterday_close": "$90.17"
   },
   {
-   "sym": "COST",
-   "name": "Costco Wholesale Corporation",
-   "pm_price": "$936.65",
-   "pm_pct": "-1.73%",
-   "yesterday_pct": "+0.59%",
-   "yesterday_close": "$953.13"
+   "sym": "INSW",
+   "name": "International Seaways Inc.",
+   "pm_price": "$84.45",
+   "pm_pct": "+1.77%",
+   "yesterday_pct": "-5.92%",
+   "yesterday_close": "$82.98"
+  },
+  {
+   "sym": "GTLB",
+   "name": "GitLab Inc. Class A",
+   "pm_price": "$34.4305",
+   "pm_pct": "+1.68%",
+   "yesterday_pct": "+6.68%",
+   "yesterday_close": "$33.86"
+  }
+ ],
+ "premarket_losers": [
+  {
+   "sym": "FORM",
+   "name": "FormFactor Inc. FormFactor Inc.",
+   "pm_price": "$116.42",
+   "pm_pct": "-2.53%",
+   "yesterday_pct": "+7.03%",
+   "yesterday_close": "$119.44"
+  },
+  {
+   "sym": "INTC",
+   "name": "Intel Corporation",
+   "pm_price": "$109.8561",
+   "pm_pct": "-2.38%",
+   "yesterday_pct": "+2.09%",
+   "yesterday_close": "$112.54"
+  },
+  {
+   "sym": "NOK",
+   "name": "Nokia Corporation Sponsored",
+   "pm_price": "$12.6102",
+   "pm_pct": "-2.25%",
+   "yesterday_pct": "+7.95%",
+   "yesterday_close": "$12.90"
+  },
+  {
+   "sym": "ACMR",
+   "name": "ACM Research Inc. Class A",
+   "pm_price": "$103.82",
+   "pm_pct": "-2.09%",
+   "yesterday_pct": "+8.13%",
+   "yesterday_close": "$106.04"
+  },
+  {
+   "sym": "SMTC",
+   "name": "Semtech Corporation",
+   "pm_price": "$135.25",
+   "pm_pct": "-1.64%",
+   "yesterday_pct": "+6.72%",
+   "yesterday_close": "$137.50"
+  },
+  {
+   "sym": "LITE",
+   "name": "Lumentum Holdings Inc.",
+   "pm_price": "$773.07",
+   "pm_pct": "-1.62%",
+   "yesterday_pct": "+11.13%",
+   "yesterday_close": "$785.77"
+  },
+  {
+   "sym": "MU",
+   "name": "Micron Technology Inc.",
+   "pm_price": "$975.63",
+   "pm_pct": "-1.61%",
+   "yesterday_pct": "+4.52%",
+   "yesterday_close": "$991.64"
+  },
+  {
+   "sym": "AAOI",
+   "name": "Applied Optoelectronics Inc.",
+   "pm_price": "$120.26",
+   "pm_pct": "-1.60%",
+   "yesterday_pct": "+6.79%",
+   "yesterday_close": "$122.21"
   }
  ],
  "watchlist": [
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "pm_price": "$150.9774",
-   "pm_pct": "+1.81%",
-   "yesterday_pct": "-0.78%",
-   "yesterday_close": "$148.30"
+   "pm_price": "$151.08",
+   "pm_pct": "-0.71%",
+   "yesterday_pct": "+2.60%",
+   "yesterday_close": "$152.16"
   },
   {
    "sym": "MU",
    "name": "Micron Technology Inc.",
-   "pm_price": "$1,011.51",
-   "pm_pct": "+6.61%",
-   "yesterday_pct": "+1.11%",
-   "yesterday_close": "$948.80"
+   "pm_price": "$975.63",
+   "pm_pct": "-1.61%",
+   "yesterday_pct": "+4.52%",
+   "yesterday_close": "$991.64"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "pm_price": "$206.33",
-   "pm_pct": "+1.08%",
-   "yesterday_pct": "+3.65%",
-   "yesterday_close": "$204.12"
+   "pm_price": "$201.47",
+   "pm_pct": "-0.65%",
+   "yesterday_pct": "-0.66%",
+   "yesterday_close": "$202.78"
   },
   {
    "sym": "AVGO",
    "name": "Broadcom Inc.",
-   "pm_price": "$405.0611",
-   "pm_pct": "+4.21%",
-   "yesterday_pct": "+4.83%",
-   "yesterday_close": "$388.69"
+   "pm_price": "$397.80",
+   "pm_pct": "-0.83%",
+   "yesterday_pct": "+3.20%",
+   "yesterday_close": "$401.11"
   },
   {
    "sym": "AMD",
    "name": "Advanced Micro Devices Inc.",
-   "pm_price": "$536.783",
-   "pm_pct": "+3.75%",
-   "yesterday_pct": "+0.25%",
-   "yesterday_close": "$517.41"
+   "pm_price": "$544.12",
+   "pm_pct": "-0.48%",
+   "yesterday_pct": "+5.67%",
+   "yesterday_close": "$546.72"
   },
   {
    "sym": "ARM",
    "name": "Arm Holdings plc",
-   "pm_price": "$314.7743",
-   "pm_pct": "+4.84%",
-   "yesterday_pct": "-0.06%",
-   "yesterday_close": "$300.24"
+   "pm_price": "$324.3047",
+   "pm_pct": "-1.09%",
+   "yesterday_pct": "+9.20%",
+   "yesterday_close": "$327.87"
   },
   {
    "sym": "SMCI",
    "name": "Super Micro Computer Inc.",
-   "pm_price": "$28.93",
-   "pm_pct": "+2.70%",
-   "yesterday_pct": "+7.31%",
-   "yesterday_close": "$28.17"
+   "pm_price": "$28.1764",
+   "pm_pct": "-0.23%",
+   "yesterday_pct": "+0.25%",
+   "yesterday_close": "$28.24"
   },
   {
    "sym": "PLTR",
    "name": "Palantir Technologies Inc. Class A",
-   "pm_price": "$128.4759",
-   "pm_pct": "-2.83%",
-   "yesterday_pct": "-1.60%",
-   "yesterday_close": "$132.22"
+   "pm_price": "$130.605",
+   "pm_pct": "+1.21%",
+   "yesterday_pct": "-2.41%",
+   "yesterday_close": "$129.04"
   },
   {
    "sym": "TSLA",
    "name": "Tesla Inc.",
-   "pm_price": "$394.9648",
-   "pm_pct": "+0.23%",
-   "yesterday_pct": "-2.19%",
-   "yesterday_close": "$394.06"
+   "pm_price": "$408.24",
+   "pm_pct": "+0.42%",
+   "yesterday_pct": "+3.17%",
+   "yesterday_close": "$406.55"
   },
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "pm_price": "$334.12",
-   "pm_pct": "+5.38%",
-   "yesterday_pct": "+0.93%",
-   "yesterday_close": "$317.05"
+   "pm_price": "$324.39",
+   "pm_pct": "-0.87%",
+   "yesterday_pct": "+3.21%",
+   "yesterday_close": "$327.24"
   }
  ],
  "earnings": [
@@ -303,222 +303,47 @@
    "hour": "",
    "epsEst": null,
    "date": "2026-07-10"
-  },
-  {
-   "sym": "BYRN",
-   "name": "Byrna Technologies Inc.",
-   "hour": "bmo",
-   "epsEst": -0.1199,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "CBFC",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "CCEL",
-   "name": "Cryo-Cell International Inc.",
-   "hour": "",
-   "epsEst": 0,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "CIBH",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "CNBB",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "EDUC",
-   "name": "Educational Development Corporation",
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "EVOH",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "EVOH",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "FBSI",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "FEIM",
-   "name": "Frequency Electronics Inc.",
-   "hour": "",
-   "epsEst": 0.2499,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "FMBL",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "NTIC",
-   "name": "Northern Technologies International Corporation",
-   "hour": "bmo",
-   "epsEst": 0.0408,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "PEP",
-   "name": "PepsiCo Inc.",
-   "hour": "bmo",
-   "epsEst": 2.229,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "PGTK",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "RMCF",
-   "name": "Rocky Mountain Chocolate Factory Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "SBEV",
-   "name": "Splash Beverage Group Inc. (NV)",
-   "hour": "",
-   "epsEst": -3.264,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "SENR",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "SLP",
-   "name": "Simulations Plus Inc.",
-   "hour": "",
-   "epsEst": 0.1279,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "SMPL",
-   "name": "The Simply Good Foods Company",
-   "hour": "bmo",
-   "epsEst": 0.3603,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "SODI",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "SOTK",
-   "name": "Sono-Tek Corporation",
-   "hour": "",
-   "epsEst": 0.0408,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "VMAR",
-   "name": "Vision Marine Technologies Inc.",
-   "hour": "",
-   "epsEst": -2.4174,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "WDFC",
-   "name": "WD-40 Company",
-   "hour": "amc",
-   "epsEst": 1.5902,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "WHLT",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
-  },
-  {
-   "sym": "WNDW",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-09"
   }
  ],
  "news": [
   {
-   "h": "Stock market today: Nasdaq rises, Dow and S&P 500 retreat as oil prices climb on renewed US-Iran tensions",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "US stock market today: Wall Street sees mixed performance; Dow rises 0.3%, Nasdaq falls 0.8% as AI stocks",
-   "src": "The Times of India",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market Today: S&P 500, Dow, Nasdaq Futures Fall as Trump Says Iran Ceasefire Is 'Over'— Saratoga, E",
-   "src": "Benzinga",
-   "sum": ""
-  },
-  {
-   "h": "AI memory stocks trim losses as investors buy the dip",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "SK Hynix IPO to give US investors bigger bite of the memory pie, as shortages persist",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "Nasdaq drops 1% as chip stocks tumble and oil spikes; Dow slips below 53,000: Live updates",
+   "h": "Stock futures mixed as investors await SK Hynix U.S. debut; chip stocks retreat from rally: Live updates",
    "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq fall as semiconductors sell off, oil prices jump",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq futures rose after US strikes Iran for second day",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq futures slip with AI trade in focus",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq futures diverge ahead of SK Hynix's mega US IPO",
    "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "Why the stock market and economy may seem out of sync",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "Oil Gains, US Stock Futures Drop on New Strikes: Markets Wrap",
+   "src": "Bloomberg.com",
+   "sum": ""
+  },
+  {
+   "h": "Stock Market Today: Nasdaq Leads Rally As Chip, AI Stocks Shine; SpaceX Halts 3-Day Drop",
+   "src": "Investor's Business Daily",
+   "sum": ""
+  },
+  {
+   "h": "Markets News, July 9, 2026: Stocks End Higher, Powered by Chip Shares; Oil Pulls Back as Investors Downplay Fighting Between US, Iran",
+   "src": "Investopedia",
+   "sum": ""
+  },
+  {
+   "h": "SK Hynix raises $26.5 billion in U.S. offering. What to know about the stock.",
+   "src": "MarketWatch",
    "sum": ""
   },
   {
@@ -527,48 +352,48 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] MEXC's June Stock and Index Futures Trading Volume Grows 261% MoM, SPCX Futures Surge Over 145 Times in One Month",
-   "src": "markets.businessinsider.com",
-   "sum": ""
-  },
-  {
-   "h": "[MU] Can Investing in Micron Stock Make You a Millionaire?",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[MU] MU, WDC, INTC: Why Are Chip Stocks Rebounding In Premarket Trading Today?",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] Nvidia's $1 trillion rout: Do you buy or sell the stock here?",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] Nvidia, Chip Stocks Rally Despite U.S.-Iran War Flare-Up",
+   "h": "[SPCX] Analyst Boosts SpaceX Valuation On Blue Origin News; ARK Buys Shares",
    "src": "Investor's Business Daily",
    "sum": ""
   },
   {
-   "h": "[AVGO] Broadcom’s Largest AI Customer Is Fleeing to MediaTek. AVGO Stock Is Still a Buy.",
-   "src": "Barchart.com",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] Why Broadcom (AVGO) Stock Is Trading Up Today",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[AMD] AMD Stock Rises as Goldman Sees Big Earnings Coming",
+   "h": "[MU] Micron Stock: BofA Says Buy Amid New Spending Plan",
    "src": "Barron's",
    "sum": ""
   },
   {
-   "h": "[AMD] AMD Stock Dips as Rival Nvidia (NVDA) Gains Another Customer for Its Vera AI CPUs",
-   "src": "TipRanks",
+   "h": "[MU] Memory Stock Sell-Off: Is This the Time to Buy Micron Technology and Sandisk Like There's No Tomorrow?",
+   "src": "The Motley Fool",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Nvidia's nearly $1 trillion wipeout could prompt this bullish action",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] ‘Tens of Thousands’ of Nvidia Chips Were Used to Train Grok 4.5. The Stock Is Dropping.",
+   "src": "Barron's",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] Apple Announces $30 billion Multi-year Chip Deal With Broadcom (AVGO)",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] Broadcom’s (AVGO) AI Chip Momentum Keeps Wall Street Bullish",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] CPU Competition Gearing Up to Cool AMD’s Massive Run",
+   "src": "Barron's",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] AMD Just Out-Earned Intel in the Data Center. Here's What That Means for Both Stocks.",
+   "src": "The Globe and Mail",
    "sum": ""
   },
   {
@@ -577,59 +402,59 @@
    "sum": ""
   },
   {
-   "h": "[ARM] What's Going on With Arm Holdings Stock Tuesday?",
-   "src": "Benzinga",
+   "h": "[ARM] Arm Holdings Is Expensive, But Not Fully Priced For 2031 (NASDAQ:ARM)",
+   "src": "Seeking Alpha",
    "sum": ""
   },
   {
-   "h": "Iran to bury slain Supreme Leader in culmination of mass funeral - Reuters",
+   "h": "Traffic slows through Strait of Hormuz as Iran tensions flare - Reuters",
    "src": "Reuters",
-   "sum": "Iran to bury slain Supreme Leader in culmination of mass funeral  Reuters"
+   "sum": "Traffic slows through Strait of Hormuz as Iran tensions flare  Reuters"
+  },
+  {
+   "h": "US-Iran escalation could threaten 2027 oil market surplus, IEA says - Reuters",
+   "src": "Reuters",
+   "sum": "US-Iran escalation could threaten 2027 oil market surplus, IEA says  Reuters"
+  },
+  {
+   "h": "Gold set for weekly loss as US-Iran tensions fuel rate-hike fears - Reuters",
+   "src": "Reuters",
+   "sum": "Gold set for weekly loss as US-Iran tensions fuel rate-hike fears  Reuters"
+  },
+  {
+   "h": "Oil heads for weekly gain as Middle East supply risks persist - Reuters",
+   "src": "Reuters",
+   "sum": "Oil heads for weekly gain as Middle East supply risks persist  Reuters"
+  },
+  {
+   "h": "Trading Day: What war? Chip-led rally helps markets ignore on-again, off-again US-Iran truce - Reuters",
+   "src": "Reuters",
+   "sum": "Trading Day: What war? Chip-led rally helps markets ignore on-again, off-again US-Iran truce  Reuters"
+  },
+  {
+   "h": "Nasdaq ends sharply higher; chip surge offsets Iran worries - Reuters",
+   "src": "Reuters",
+   "sum": "Nasdaq ends sharply higher; chip surge offsets Iran worries  Reuters"
+  },
+  {
+   "h": "Skeptical US Democrats in Congress urge debate on Israel plans - Reuters",
+   "src": "Reuters",
+   "sum": "Skeptical US Democrats in Congress urge debate on Israel plans  Reuters"
+  },
+  {
+   "h": "A huge trade just happened on the Nasdaq 100. Bulls are taking notice",
+   "src": "CNBC",
+   "sum": "Tech bulls may not have to wait much longer for fresh highs, if the single-biggest trade in the Invesco QQQ Trust ETF on Thursday is any indication."
+  },
+  {
+   "h": "It's a jam-packed afternoon of developments impacting 7 portfolio stocks",
+   "src": "CNBC",
+   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
   },
   {
    "h": "BP CEO says company must sharpen financial discipline - Reuters",
    "src": "Reuters",
    "sum": "BP CEO says company must sharpen financial discipline  Reuters"
-  },
-  {
-   "h": "Iran says it hits US military targets in Gulf, prepares to bury slain leader - Reuters",
-   "src": "Reuters",
-   "sum": "Iran says it hits US military targets in Gulf, prepares to bury slain leader  Reuters"
-  },
-  {
-   "h": "The Iran War threatened a food crisis. The next Gulf conflict could do the same. - Reuters",
-   "src": "Reuters",
-   "sum": "The Iran War threatened a food crisis. The next Gulf conflict could do the same.  Reuters"
-  },
-  {
-   "h": "Bank of Japan sees growing inflation pressures from Iran war - Reuters",
-   "src": "Reuters",
-   "sum": "Bank of Japan sees growing inflation pressures from Iran war  Reuters"
-  },
-  {
-   "h": "Morning Bid: Chip euphoria vies with war weariness - Reuters",
-   "src": "Reuters",
-   "sum": "Morning Bid: Chip euphoria vies with war weariness  Reuters"
-  },
-  {
-   "h": "Gulf companies are set to reveal the unequal toll of Iran war - Reuters",
-   "src": "Reuters",
-   "sum": "Gulf companies are set to reveal the unequal toll of Iran war  Reuters"
-  },
-  {
-   "h": "Asian shares wobble as oil jumps on renewed Gulf hostilities - Reuters",
-   "src": "Reuters",
-   "sum": "Asian shares wobble as oil jumps on renewed Gulf hostilities  Reuters"
-  },
-  {
-   "h": "Gold ticks higher on easing dollar, focus on Middle East flare-up - Reuters",
-   "src": "Reuters",
-   "sum": "Gold ticks higher on easing dollar, focus on Middle East flare-up  Reuters"
-  },
-  {
-   "h": "Dollar stands tall as new Gulf attacks fuel oil price surge, Fed hike bets - Reuters",
-   "src": "Reuters",
-   "sum": "Dollar stands tall as new Gulf attacks fuel oil price surge, Fed hike bets  Reuters"
   }
  ]
 }

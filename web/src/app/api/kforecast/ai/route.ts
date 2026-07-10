@@ -32,18 +32,56 @@ async function ndt(system: string, user: string, modelOverride?: string): Promis
   return text;
 }
 
-// NDT 服务偶发 MODEL_SERVICE_UNAVAILABLE(retryable),自动退避重试几次
-async function ndtRetry(system: string, user: string, model?: string, tries = 4): Promise<string> {
+// 降级通道:NDT OpenAI 式 /v1/responses,必须 stream:true(非流式一律 MODEL_NOT_AVAILABLE)。key 用 NDT_API_KEY。
+async function ndtGpt(prompt: string): Promise<string> {
+  const base = (process.env.NDT_BASE_URL || "https://api.nadoutong.org").replace(/\/$/, "");
+  const key = process.env.NDT_API_KEY || "";
+  if (!key) throw new Error("no-gpt-key");
+  const r = await fetch(`${base}/v1/responses`, {
+    method: "POST",
+    headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
+    body: JSON.stringify({ model: process.env.NDT_GPT_MODEL || "gpt-5.5", stream: true, input: prompt }),
+  });
+  if (!r.ok || !r.body) throw new Error(`gpt http ${r.status}`);
+  const reader = r.body.getReader();
+  const dec = new TextDecoder();
+  let buf = "", out = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
+    const lines = buf.split("\n");
+    buf = lines.pop() || "";
+    for (const line of lines) {
+      if (!line.startsWith("data:")) continue;
+      const data = line.slice(5).trim();
+      if (!data || data === "[DONE]") continue;
+      let j: { type?: string; delta?: string };
+      try { j = JSON.parse(data); } catch { continue; }
+      if (j.type === "response.output_text.delta") out += j.delta || "";
+      else if (j.type === "response.failed" || j.type === "error") throw new Error(JSON.stringify(j).slice(0, 200));
+    }
+  }
+  if (!out.trim()) throw new Error("gpt 空回复");
+  return out.trim();
+}
+
+// 优先 Claude(retryable 退避重试),持续不可用 → 降级 gpt-5.5。两条都挂才抛。
+async function llm(system: string, user: string, model?: string, claudeTries = 3): Promise<string> {
   let last: unknown;
-  for (let i = 0; i < tries; i++) {
+  for (let i = 0; i < claudeTries; i++) {
     try { return await ndt(system, user, model); }
     catch (e) {
       last = e;
-      if (!(e as Error & { retryable?: boolean }).retryable) throw e;
-      await new Promise((r) => setTimeout(r, 1500 * (i + 1))); // 1.5s / 3s / 4.5s
+      if (!(e as Error & { retryable?: boolean }).retryable || i === claudeTries - 1) break;
+      await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
     }
   }
-  throw last;
+  try { return await ndtGpt(system ? system + "\n\n" + user : user); }
+  catch (e2) {
+    if (String((e2 as Error)?.message) === "no-gpt-key") throw last; // gpt 没配,报 Claude 原始错
+    throw new Error(`Claude+gpt 双挂:claude=${String((last as Error)?.message).slice(0, 90)} | gpt=${String((e2 as Error)?.message).slice(0, 90)}`);
+  }
 }
 
 const SYSTEM =
@@ -79,7 +117,7 @@ export async function POST(req: Request) {
 
   try {
     const mdl = body.model && /^[a-z0-9.\-]{3,40}$/i.test(body.model) ? body.model : undefined;
-    const raw = await ndtRetry(SYSTEM, user, mdl);
+    const raw = await llm(SYSTEM, user, mdl);
     const clean = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
     const parsed = JSON.parse(clean) as AiRead;
     if (!parsed.read || !Array.isArray(parsed.scenarios) || parsed.scenarios.length !== 3) throw new Error("结构不符");

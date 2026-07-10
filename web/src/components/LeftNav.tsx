@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Flame, List, Layers, Waves, Swords, FileText, Star } from "lucide-react";
+import { Flame, List, Layers, Waves, Swords, FileText, BookOpen, Star } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useNewReport } from "@/lib/useNewReport";
 
@@ -22,6 +22,7 @@ const NAV: NavItem[] = [
   { href: "/whales", label: "聪明钱", en: "Whales", Icon: Waves, match: (p) => p.startsWith("/whales") },
   { href: "/arena", label: "对决", en: "Arena", Icon: Swords, match: (p) => p.startsWith("/arena") },
   { href: "/reports", label: "盘报", en: "Reports", Icon: FileText, match: (p) => p.startsWith("/reports") },
+  { href: "/notes", label: "笔记", en: "Notes", Icon: BookOpen, match: (p) => p.startsWith("/notes") },
   { href: "/portfolio", label: "我的", en: "Portfolio", Icon: Star, match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist") },
 ];
 

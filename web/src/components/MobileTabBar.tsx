@@ -64,6 +64,15 @@ const TABS: { href: string; zh: string; en: string; match: (p: string) => boolea
     ),
   },
   {
+    href: "/notes", zh: "笔记", en: "Notes", match: (p) => p.startsWith("/notes"),
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={SW} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15z" />
+        <path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5" />
+      </svg>
+    ),
+  },
+  {
     href: "/portfolio", zh: "我的", en: "Mine", match: (p) => p.startsWith("/portfolio") || p.startsWith("/watchlist"),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={SW} strokeLinecap="round" strokeLinejoin="round">
@@ -83,7 +92,7 @@ export default function MobileTabBar() {
       className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-base/92 backdrop-blur-md lg:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="grid grid-cols-7">
+      <div className="grid grid-cols-8">
         {TABS.map((tb) => {
           const active = tb.match(pathname);
           return (

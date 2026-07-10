@@ -2,10 +2,10 @@
 
 // 雷司令投资笔记 · 纸感手账壳
 // 桌面 lg+:三栏(大栏目 92px / 条目列表 248px / 内容区);移动:两级下钻(栏目卡片流 → 条目 → 阅读)。
-// 免费篇公开试读;付费篇 401 → 兑换码激活(localStorage 长期有效,≤3 台设备)。
+// 全库免费公开(2026-07 起,兑换码体系退役,基建保留在 API 层未删)。
 // 内容 md 支持 :::chart JSON 块 → 程序化 SVG K线图解(全库图风格统一、随时可重生成)。
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Lock, Search, ChevronLeft, ChevronRight, X, BookOpen, KeyRound } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
 import type { Toc, NoteMeta } from "@/lib/notes";
 
 /* ---------------- 纸感调色(独立于站点主题) ---------------- */
@@ -193,24 +193,14 @@ export default function NotesClient() {
   const [secKey, setSecKey] = useState<string>("");
   const [artId, setArtId] = useState<string>("");
   const [cache, setCache] = useState<Record<string, string>>({});
-  const [artState, setArtState] = useState<"idle" | "loading" | "locked" | "error">("idle");
+  const [artState, setArtState] = useState<"idle" | "loading" | "error">("idle");
   const [phase, setPhase] = useState<Phase>("home");
   const [q, setQ] = useState("");
-  const [gate, setGate] = useState(false);
-  const [gateInput, setGateInput] = useState("");
-  const [gateMsg, setGateMsg] = useState("");
-  const [gateBusy, setGateBusy] = useState(false);
-  const [code, setCode] = useState("");
-  const [deviceId, setDeviceId] = useState("");
   const [readSet, setReadSet] = useState<Set<string>>(new Set());
 
-  /* 初始化:身份 + 进度 + 目录 */
+  /* 初始化:进度 + 目录 */
   useEffect(() => {
     try {
-      let dev = localStorage.getItem("sg_nb_dev");
-      if (!dev) { dev = crypto.randomUUID(); localStorage.setItem("sg_nb_dev", dev); }
-      setDeviceId(dev);
-      setCode(localStorage.getItem("sg_nb_code") || "");
       setReadSet(new Set(JSON.parse(localStorage.getItem("sg_nb_read") || "[]")));
     } catch { /* 隐私模式等,静默 */ }
     fetch("/api/notes/toc", { cache: "no-store" })
@@ -239,49 +229,22 @@ export default function NotesClient() {
   }, []);
 
   /* 打开一篇 */
-  const openArt = useCallback(async (meta: NoteMeta & { sec?: string }, opts?: { codeOverride?: string }) => {
+  const openArt = useCallback(async (meta: NoteMeta & { sec?: string }) => {
     setArtId(meta.id);
     if (meta.sec) setSecKey(meta.sec);
     setPhase("read");
     setQ("");
     if (cache[meta.id]) { setArtState("idle"); markRead(meta.id); return; }
-    const useCode = opts?.codeOverride ?? code;
-    if (!meta.free && !useCode) { setArtState("locked"); return; }
     setArtState("loading");
     try {
-      const hdrs: Record<string, string> = {};
-      if (!meta.free && useCode) { hdrs.authorization = `Bearer ${useCode}`; hdrs["x-nb-device"] = deviceId; }
-      const r = await fetch(`/api/notes/art?id=${encodeURIComponent(meta.id)}`, { headers: hdrs, cache: "no-store" });
-      if (r.status === 401 || r.status === 403) { setArtState("locked"); return; }
-      if (r.status === 429) { setArtState("error"); return; }
+      const r = await fetch(`/api/notes/art?id=${encodeURIComponent(meta.id)}`);
       const j = await r.json();
       if (!j.md) { setArtState("error"); return; }
       setCache((c) => ({ ...c, [meta.id]: j.md }));
       setArtState("idle");
       markRead(meta.id);
     } catch { setArtState("error"); }
-  }, [cache, code, deviceId, markRead]);
-
-  /* 激活 */
-  const activate = useCallback(async () => {
-    const input = gateInput.trim();
-    if (!input) return;
-    setGateBusy(true); setGateMsg("");
-    try {
-      const r = await fetch("/api/notes/activate", {
-        method: "POST", headers: { "content-type": "application/json" },
-        body: JSON.stringify({ code: input, deviceId }),
-      });
-      const j = await r.json();
-      if (!j.ok) { setGateMsg(j.error || "激活失败,请重试"); setGateBusy(false); return; }
-      const norm = input.toUpperCase().replace(/\s/g, "");
-      setCode(norm);
-      try { localStorage.setItem("sg_nb_code", norm); } catch { /* noop */ }
-      setGate(false); setGateInput("");
-      if (activeMeta) openArt(activeMeta, { codeOverride: norm });
-    } catch { setGateMsg("网络错误,请重试"); }
-    setGateBusy(false);
-  }, [gateInput, deviceId, activeMeta, openArt]);
+  }, [cache, markRead]);
 
   const idx = flat.findIndex((f) => f.id === artId);
   const prev = idx > 0 ? flat[idx - 1] : null;
@@ -306,9 +269,6 @@ export default function NotesClient() {
               ? <span className="h-[5px] w-[5px] shrink-0 rounded-full" style={{ backgroundColor: ACC }} />
               : <span className="h-[5px] w-[5px] shrink-0 rounded-full border" style={{ borderColor: FAINT }} />}
             <span className="min-w-0 flex-1 truncate">{it.t}</span>
-            {it.free
-              ? <span className="shrink-0 text-[10px]" style={{ color: ACC }}>试读</span>
-              : !code && <Lock size={11} className="shrink-0" style={{ color: FAINT }} />}
           </button>
         );
       })}
@@ -325,27 +285,13 @@ export default function NotesClient() {
     return (
       <div className="mx-auto max-w-[680px]">
         <p className="text-[12px] tracking-wide" style={{ color: FAINT }}>
-          {activeMeta.secT} <span className="px-1">/</span> {activeMeta.free ? "免费试读" : code ? "已解锁" : "完整版"}
+          {activeMeta.secT} <span className="px-1">/</span> 第 {idx + 1} 篇
         </p>
         <h1 className="mt-1.5 text-[26px] font-bold leading-snug" style={{ fontFamily: SERIF, color: INK }}>{activeMeta.t}</h1>
         <div className="my-4 h-px w-14" style={{ backgroundColor: ACC }} />
 
         {artState === "loading" && <p className="py-10 text-center text-[13px]" style={{ color: FAINT }}>翻页中…</p>}
         {artState === "error" && <p className="py-10 text-center text-[13px]" style={{ color: FAINT }}>这一页没翻开,稍后再试</p>}
-        {artState === "locked" && (
-          <div className="rounded-lg border px-6 py-10 text-center" style={{ borderColor: LINE, backgroundColor: CARD }}>
-            <Lock size={22} className="mx-auto" style={{ color: ACC }} strokeWidth={1.5} />
-            <p className="mt-4 text-[15px] font-semibold" style={{ fontFamily: SERIF, color: INK }}>本篇为完整版内容</p>
-            <p className="mx-auto mt-2 max-w-[300px] text-[13px] leading-relaxed" style={{ color: MUT }}>
-              兑换码可解锁全部 {total} 篇,持续更新。小红书店铺「雷司令笔记」获取。
-            </p>
-            <button onClick={() => { setGateMsg(code ? "当前兑换码无法使用,请重新输入" : ""); setGate(true); }}
-              className="mt-5 rounded px-5 py-2 text-[13px] font-medium text-white transition-opacity hover:opacity-90"
-              style={{ backgroundColor: ACC }}>
-              输入兑换码
-            </button>
-          </div>
-        )}
         {artState === "idle" && cache[activeMeta.id] && <MdView md={cache[activeMeta.id]} />}
 
         <div className="mt-10 flex items-center justify-between border-t pt-4 text-[13px]" style={{ borderColor: LINE }}>
@@ -390,12 +336,10 @@ export default function NotesClient() {
                 style={{ borderColor: LINE, backgroundColor: CARD, color: INK }} />
             </div>
             <span className="text-[11.5px] tabular-nums" style={{ color: FAINT }}>已读 {readCount}/{total}</span>
-            {code
-              ? <span className="text-[11.5px]" style={{ color: ACC }}>已解锁</span>
-              : <button onClick={() => setGate(true)} className="flex items-center gap-1 rounded border px-2.5 py-1 text-[11.5px] transition-colors hover:opacity-80"
-                  style={{ borderColor: ACC, color: ACC }}>
-                  <KeyRound size={11} />兑换码
-                </button>}
+            <a href="/" className="rounded border px-2.5 py-1 text-[11.5px] transition-colors hover:opacity-80"
+              style={{ borderColor: LINE, color: MUT }}>
+              我不是股神 ↗
+            </a>
           </div>
         </div>
         {/* 搜索结果浮层 */}
@@ -406,7 +350,6 @@ export default function NotesClient() {
                 <button key={h.id} onClick={() => openArt(h)}
                   className="flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-[13px] hover:bg-[#f0e9da]" style={{ color: MUT }}>
                   <span style={{ color: FAINT }}>{h.secT}</span><span className="font-medium" style={{ color: INK }}>{h.t}</span>
-                  {h.free && <span className="text-[10px]" style={{ color: ACC }}>试读</span>}
                 </button>
               ))}
             </div>
@@ -504,32 +447,6 @@ export default function NotesClient() {
         <p className="mt-1">本笔记为投资知识科普资料,不构成任何投资建议 · 投资有风险,决策请独立</p>
       </footer>
 
-      {/* 兑换码弹层 */}
-      {gate && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 px-6" onClick={() => setGate(false)}>
-          <div className="w-full max-w-[340px] rounded-lg border p-6 shadow-xl" onClick={(e) => e.stopPropagation()}
-            style={{ borderColor: LINE, backgroundColor: CARD }}>
-            <div className="flex items-start justify-between">
-              <h3 className="text-[17px] font-bold" style={{ fontFamily: SERIF }}>输入兑换码</h3>
-              <button onClick={() => setGate(false)}><X size={16} style={{ color: FAINT }} /></button>
-            </div>
-            <p className="mt-2 text-[12px] leading-relaxed" style={{ color: MUT }}>
-              购买后自动发货的卡片上有你的专属码,一码最多 3 台设备。
-            </p>
-            <input value={gateInput} onChange={(e) => setGateInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && !gateBusy && activate()}
-              placeholder="LSN-XXXXX-XXXXX" autoFocus
-              className="mt-4 w-full rounded border px-3 py-2.5 text-center font-mono text-[14px] tracking-widest outline-none placeholder:tracking-normal placeholder:text-[#c5bba9]"
-              style={{ borderColor: gateMsg ? ACC : LINE, backgroundColor: PAPER, color: INK }} />
-            {gateMsg && <p className="mt-2 text-[11.5px]" style={{ color: ACC }}>{gateMsg}</p>}
-            <button onClick={activate} disabled={gateBusy}
-              className="mt-4 w-full rounded py-2.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50"
-              style={{ backgroundColor: ACC }}>
-              {gateBusy ? "验证中…" : "解锁全部笔记"}
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

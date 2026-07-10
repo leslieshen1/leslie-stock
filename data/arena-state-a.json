@@ -2053,8 +2053,68 @@
    "reason": "军工资金的事件预期差还没在竞价里兑现，拥挤度不算炸，先占一个情绪弹性仓。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 94,
+   "fill_date": "2026-07-10",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓大多是我能理解、现金流和护城河尚可的生意；今天没有哪一个候选以明显更大的安全边际值得我卖掉现有好资产去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 95,
+   "fill_date": "2026-07-10",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个持仓都是我看得懂的好生意，今天候选也没有便宜到需要换掉现有仓位，现金留着不丢人。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 96,
+   "fill_date": "2026-07-10",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "605589",
+   "reason": "圣泉是AI服务器PCB里M6/M8电子树脂的真瓶颈，供应商少、验证长、每块高端板都吃它BOM，下游算力capex还在涌，我要补这一铲子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 97,
+   "fill_date": "2026-07-10",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300308",
+   "reason": "AI算力资本开支这股风还没停，800G/1.6T光模块是表达这轮趋势最直接、弹性最足的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 98,
+   "fill_date": "2026-07-10",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688785",
+   "reason": "半导体国产替代仍是最硬的政策流动性方向，小盘卡脖子高弹性标的没爆拉，赔率还够不对称。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 99,
+   "fill_date": "2026-07-10",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是零波动，没看到新增资金抢筹信号；现有仓位虽有分化，但贵金属、AI、军工仍有情绪抓手，先不为买满或换仓去做无效交易。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 94,
+ "next_order_id": 100,
  "splits": []
 }

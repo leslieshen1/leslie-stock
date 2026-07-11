@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-10 22:16 ET Fri",
+ "asof_et": "2026-07-10 22:31 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.43%",
@@ -103,8 +103,8 @@
   {
    "sym": "AGX",
    "name": "Argan Inc.",
-   "close_price": "$630.70",
-   "close_pct": "-8.26%"
+   "close_price": "$630.32",
+   "close_pct": "-8.32%"
   },
   {
    "sym": "SAIL",
@@ -255,53 +255,13 @@
  ],
  "news": [
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq futures diverge ahead of SK Hynix's mega US IPO",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market Today: S&P 500, Nasdaq rally to another weekly gain; Dow ends up 150 points but snaps 4-week win streak",
-   "src": "MarketWatch",
-   "sum": ""
-  },
-  {
-   "h": "US stock markets fall amid Iran strikes and potential higher interest rates",
-   "src": "The Guardian",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market Today (July 8, 2026): U.S. resumes Iran strikes after Trump comments, tepid day in market",
-   "src": "thestreet.com",
-   "sum": ""
-  },
-  {
-   "h": "US stock market today: Wall Street sees mixed performance; Dow rises 0.3%, Nasdaq falls 0.8% as AI stocks",
-   "src": "The Times of India",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market Today: Dow Jones, S&P 500 Futures Fall as Investors Await SK Hynix Debut and US Reportedly M",
-   "src": "Benzinga",
-   "sum": ""
-  },
-  {
-   "h": "SK Hynix rises 13% in Nasdaq debut. Chairman tells CNBC 'demand is enormous'",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
-   "h": "Why the stock market and economy may seem out of sync",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
    "h": "[SPCX] SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[SPCX] Morgan Stanley Turns Bullish on SpaceX Stock with $300 Price Target — That Would Value SPCX at $4 Trillion",
-   "src": "Yahoo Finance",
+   "h": "[SPCX] Analyst Boosts SpaceX Valuation On Blue Origin News; ARK Buys Shares",
+   "src": "Investor's Business Daily",
    "sum": ""
   },
   {
@@ -403,6 +363,46 @@
    "h": "Fed report cites 'stepped-up' inflation due to tariffs, Iran war, AI buildout - Reuters",
    "src": "Reuters",
    "sum": "Fed report cites 'stepped-up' inflation due to tariffs, Iran war, AI buildout  Reuters"
+  },
+  {
+   "h": "We're looking to buy more of this chip stock as the once-hot group cools",
+   "src": "CNBC",
+   "sum": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET."
+  },
+  {
+   "h": "Delta expects fare gains to hold as fuel volatility pressures airlines - Reuters",
+   "src": "Reuters",
+   "sum": "Delta expects fare gains to hold as fuel volatility pressures airlines  Reuters"
+  },
+  {
+   "h": "How the absence of Iran's Mojtaba Khamenei is becoming a liability for the Islamic Republic - Reuters",
+   "src": "Reuters",
+   "sum": "How the absence of Iran's Mojtaba Khamenei is becoming a liability for the Islamic Republic  Reuters"
+  },
+  {
+   "h": "Turkey says it hopes to achieve result on lifting U.S. sanctions soon - Reuters",
+   "src": "Reuters",
+   "sum": "Turkey says it hopes to achieve result on lifting U.S. sanctions soon  Reuters"
+  },
+  {
+   "h": "Iran has asked to continue talks and the US agreed, Trump says - Reuters",
+   "src": "Reuters",
+   "sum": "Iran has asked to continue talks and the US agreed, Trump says  Reuters"
+  },
+  {
+   "h": "48-year-old worked at a garden center for $17/hour to make ends meet: 'It's one of the best jobs I've ever had'",
+   "src": "CNBC",
+   "sum": "\"Without a job, I felt invisible. With a job, I felt seen, useful, and purposeful again,\" says Leslie Friday, who sold plants and flowers while job searching af"
+  },
+  {
+   "h": "Countries must reject Iran efforts to control Hormuz, UN agency document says - Reuters",
+   "src": "Reuters",
+   "sum": "Countries must reject Iran efforts to control Hormuz, UN agency document says  Reuters"
+  },
+  {
+   "h": "China temporarily bans helium exports as US-Iran tensions flare again - Reuters",
+   "src": "Reuters",
+   "sum": "China temporarily bans helium exports as US-Iran tensions flare again  Reuters"
   }
  ]
 }

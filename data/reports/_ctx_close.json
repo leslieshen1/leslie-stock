@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-10 22:31 ET Fri",
+ "asof_et": "2026-07-10 22:46 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.43%",
@@ -254,66 +254,6 @@
   }
  ],
  "news": [
-  {
-   "h": "[SPCX] SpaceX hits all-time low, dips below IPO opening price as rival Blue Origin seeks new funding",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[SPCX] Analyst Boosts SpaceX Valuation On Blue Origin News; ARK Buys Shares",
-   "src": "Investor's Business Daily",
-   "sum": ""
-  },
-  {
-   "h": "[MU] SK Hynix Stock Is the Star of the Show Today. Just Look at Micron Shares.",
-   "src": "Barron's",
-   "sum": ""
-  },
-  {
-   "h": "[MU] SK Hynix Listing Closes Gap With Micron. The Korean Stock Is Still the Better Bet.",
-   "src": "Barron's",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] Nvidia Stock Rises as It Shrugs Off Meta’s New AI Chip",
-   "src": "Barron's",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] Nvidia's nearly $1 trillion wipeout could prompt this bullish action",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] The Line In The Sand For AVGO Stock",
-   "src": "Trefis",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] Broadcom director Gayla Delly sells $728,368 in AVGO stock",
-   "src": "Investing.com",
-   "sum": ""
-  },
-  {
-   "h": "[AMD] CPU Competition Gearing Up to Cool AMD’s Massive Run",
-   "src": "Barron's",
-   "sum": ""
-  },
-  {
-   "h": "[AMD] AMD Stock Rallies on a New AI Campus Partnership",
-   "src": "TipRanks",
-   "sum": ""
-  },
-  {
-   "h": "[ARM] Arm Holdings (ARM) Gains AI Licensing Momentum, Is The Upside Already Priced In?",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[ARM] Why Is Arm Stock Falling on Friday?",
-   "src": "Benzinga",
-   "sum": ""
-  },
   {
    "h": "Trump says US agreed to Iran's request to continue talks, but ceasefire is over - Reuters",
    "src": "Reuters",

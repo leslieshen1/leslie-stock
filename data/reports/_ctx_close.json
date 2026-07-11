@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-10 22:01 ET Fri",
+ "asof_et": "2026-07-10 22:16 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.43%",
@@ -310,8 +310,8 @@
    "sum": ""
   },
   {
-   "h": "[MU] SK hynix Vs. Micron: The Nasdaq's New Memory Stock Is The Better Buy (NASDAQ:MU)",
-   "src": "Seeking Alpha",
+   "h": "[MU] SK Hynix Listing Closes Gap With Micron. The Korean Stock Is Still the Better Bet.",
+   "src": "Barron's",
    "sum": ""
   },
   {
@@ -360,9 +360,19 @@
    "sum": "Trump says US agreed to Iran's request to continue talks, but ceasefire is over  Reuters"
   },
   {
+   "h": "US issues fresh Iran-related sanctions as conflict flares - Reuters",
+   "src": "Reuters",
+   "sum": "US issues fresh Iran-related sanctions as conflict flares  Reuters"
+  },
+  {
    "h": "US insists Iran commit to stopping attacks in Hormuz strait, say US officials - Reuters",
    "src": "Reuters",
    "sum": "US insists Iran commit to stopping attacks in Hormuz strait, say US officials  Reuters"
+  },
+  {
+   "h": "Fire at western Iranian mini-refinery contained, Iran media says - Reuters",
+   "src": "Reuters",
+   "sum": "Fire at western Iranian mini-refinery contained, Iran media says  Reuters"
   },
   {
    "h": "US pain at the pump worsens after more US-Iran fighting lifts oil prices - Reuters",
@@ -393,16 +403,6 @@
    "h": "Fed report cites 'stepped-up' inflation due to tariffs, Iran war, AI buildout - Reuters",
    "src": "Reuters",
    "sum": "Fed report cites 'stepped-up' inflation due to tariffs, Iran war, AI buildout  Reuters"
-  },
-  {
-   "h": "We're looking to buy more of this chip stock as the once-hot group cools",
-   "src": "CNBC",
-   "sum": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET."
-  },
-  {
-   "h": "Delta expects fare gains to hold as fuel volatility pressures airlines - Reuters",
-   "src": "Reuters",
-   "sum": "Delta expects fare gains to hold as fuel volatility pressures airlines  Reuters"
   }
  ]
 }

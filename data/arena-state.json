@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 18.51,
-  "druckenmiller": 387102.91,
-  "sentiment": 413042.4
+  "druckenmiller": 272917.66,
+  "sentiment": 902340.53
  },
  "positions": [
   {
@@ -169,27 +169,6 @@
    "entry_date": "2026-07-01"
   },
   {
-   "master": "sentiment",
-   "sym": "ELV",
-   "shares": 386,
-   "entry": 417.89,
-   "entry_date": "2026-07-02"
-  },
-  {
-   "master": "sentiment",
-   "sym": "KVYO",
-   "shares": 9562,
-   "entry": 16.9,
-   "entry_date": "2026-07-02"
-  },
-  {
-   "master": "sentiment",
-   "sym": "PDD",
-   "shares": 1961,
-   "entry": 82.39,
-   "entry_date": "2026-07-02"
-  },
-  {
    "master": "serenity",
    "sym": "CORZ",
    "shares": 3464,
@@ -223,6 +202,13 @@
    "shares": 286,
    "entry": 401.85,
    "entry_date": "2026-07-09"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "META",
+   "shares": 171,
+   "entry": 667.75,
+   "entry_date": "2026-07-10"
   }
  ],
  "nav": [
@@ -700,6 +686,31 @@
    "master": "sentiment",
    "date": "2026-07-09",
    "nav": 1067981.84
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-10",
+   "nav": 1025112.22
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-10",
+   "nav": 1003725.8
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-10",
+   "nav": 957592.7
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-10",
+   "nav": 997656.35
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-10",
+   "nav": 1062646.39
   }
  ],
  "trades": [
@@ -2132,6 +2143,46 @@
    "price": 401.85,
    "reason": "纳指盘前由AI硬科技重新领涨，AVGO是ASIC主线的核心高弹性载体，趋势确认我就骑。",
    "src": "ai"
+  },
+  {
+   "date": "2026-07-10",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "META",
+   "shares": 171,
+   "price": 667.75,
+   "reason": "纳指盘前发软但META逆势跳涨，边际资金从拥挤芯片切到能自我融资的AI平台，这是顺流动性的强相对表现，我要骑。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "ELV",
+   "shares": 386,
+   "price": 416.23,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "KVYO",
+   "shares": 9562,
+   "price": 16.91,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "PDD",
+   "shares": 1961,
+   "price": 85.13,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.3%)",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -3822,7 +3873,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些公司多数仍是我看得懂、护城河够宽的生意；今天没有哪一个价格便宜到让我挪动组合，也没有哪一个贵到必须卖掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3832,7 +3883,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看懂了，文化也过关，今天盘前这点波动不构成让我换来换去的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3842,7 +3893,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还在真瓶颈位置，下游钱也还在涌；候选里 LITE/LASR 这类刚爆拉的我不去接最后一棒，今天不为买满而乱换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3852,7 +3903,7 @@
    "action": "BUY",
    "sym": "META",
    "reason": "纳指盘前发软但META逆势跳涨，边际资金从拥挤芯片切到能自我融资的AI平台，这是顺流动性的强相对表现，我要骑。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3862,7 +3913,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "芯片和题材昨天已经把情绪打到偏热，今早纳指转弱就是提醒我别去接LASR、CBRS、BTDR这类高位最后一棒，手里冷门低拥挤仓位继续等资金发酵。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -3915,9 +3915,69 @@
    "reason": "芯片和题材昨天已经把情绪打到偏热，今早纳指转弱就是提醒我别去接LASR、CBRS、BTDR这类高位最后一棒，手里冷门低拥挤仓位继续等资金发酵。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 196,
+   "fill_date": "2026-07-13",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意的护城河没有因为一个盘前报价变窄，价格也没有给我足够理由把好公司换成现金或别的好公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 197,
+   "fill_date": "2026-07-13",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂了，商业模式和文化没有变，盘前涨跌不是卖出或换仓的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 198,
+   "fill_date": "2026-07-13",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前砸的是高波动主题票的风险溢价，不是我这些真瓶颈的四件套失效；现金几乎为零、已满十仓，今天不为了换手去砍不可替代的位置。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 199,
+   "fill_date": "2026-07-13",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "AVGO",
+   "reason": "AI半导体里资金在做内部淘汰，AVGO上周五没跟上NVDA、AMD，今早又领跌，载体不够强我先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 200,
+   "fill_date": "2026-07-13",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前跌超1%，流动性风口短线逆着吹，我宁可多拿现金，也不在红盘前去接高弹性刀子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 201,
+   "fill_date": "2026-07-13",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前明显漏风，拥挤AI和高波动题材在退潮，我不为买满仓去接昨晚已经被资金抬过的票。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 196,
+ "next_order_id": 202,
  "notes": [
   {
    "date": "2026-06-12",

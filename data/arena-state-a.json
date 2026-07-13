@@ -2189,8 +2189,68 @@
    "reason": "盘前候选全是零波动，没看到新增资金抢筹信号；现有仓位虽有分化，但贵金属、AI、军工仍有情绪抓手，先不为买满或换仓去做无效交易。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 100,
+   "fill_date": "2026-07-13",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我大体看得懂，价格也没有给出需要我换马的明显信号，最好的动作往往是坐着不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 101,
+   "fill_date": "2026-07-13",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看得懂，也都还本分；候选虽好，但没有明显好到值得我换掉现有仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 102,
+   "fill_date": "2026-07-13",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘口没有给我错杀折扣，手里十个都是每台量产绕不开的真瓶颈，今天不为了换仓而换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 103,
+   "fill_date": "2026-07-13",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688757",
+   "reason": "这笔胜科纳米的买入理由就是动量，但它反手给我-6.5%，说明没骑到最强马，错了先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 104,
+   "fill_date": "2026-07-13",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688347",
+   "reason": "半导体自主可控还是最硬的政策风，华虹是更高流动性、更高弹性的主线载体，盘前没爆拉就换上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 105,
+   "fill_date": "2026-07-13",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全场没给出明显增量资金方向，贵金属和AI算力仍是账户里资金辨识度最高的抱团，不在无信号盘前乱换仓。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 100,
+ "next_order_id": 106,
  "splits": []
 }

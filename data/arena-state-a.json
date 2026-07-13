@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 84262.0,
-  "druckenmiller": 143903.0,
-  "sentiment": 92578.0
+  "serenity": 305317.0,
+  "druckenmiller": 324403.0,
+  "sentiment": 227769.0
  },
  "positions": [
   {
@@ -93,13 +93,6 @@
   },
   {
    "master": "serenity",
-   "sym": "000831",
-   "shares": 1700,
-   "entry": 55.5,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
    "sym": "301269",
    "shares": 800,
    "entry": 115.09,
@@ -121,23 +114,9 @@
   },
   {
    "master": "serenity",
-   "sym": "688582",
-   "shares": 1400,
-   "entry": 65.0,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
    "sym": "688785",
    "shares": 200,
    "entry": 379.11,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688521",
-   "shares": 300,
-   "entry": 307.42,
    "entry_date": "2026-07-03"
   },
   {
@@ -153,13 +132,6 @@
    "shares": 200,
    "entry": 416.99,
    "entry_date": "2026-07-03"
-  },
-  {
-   "master": "serenity",
-   "sym": "605376",
-   "shares": 400,
-   "entry": 214.98,
-   "entry_date": "2026-07-07"
   },
   {
    "master": "druckenmiller",
@@ -218,24 +190,10 @@
    "entry_date": "2026-07-09"
   },
   {
-   "master": "druckenmiller",
-   "sym": "688757",
-   "shares": 2100,
-   "entry": 54.5,
-   "entry_date": "2026-07-09"
-  },
-  {
    "master": "sentiment",
    "sym": "000603",
    "shares": 6800,
    "entry": 21.91,
-   "entry_date": "2026-07-09"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000733",
-   "shares": 3100,
-   "entry": 48.36,
    "entry_date": "2026-07-09"
   },
   {
@@ -247,17 +205,17 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300308",
-   "shares": 100,
-   "entry": 1140.2,
-   "entry_date": "2026-07-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688785",
    "shares": 200,
    "entry": 401.21,
    "entry_date": "2026-07-10"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688347",
+   "shares": 300,
+   "entry": 354.46,
+   "entry_date": "2026-07-13"
   }
  ],
  "nav": [
@@ -535,6 +493,31 @@
    "master": "sentiment",
    "date": "2026-07-10",
    "nav": 1028518.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-13",
+   "nav": 1018644.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-13",
+   "nav": 1007837.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-13",
+   "nav": 866769.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-13",
+   "nav": 935713.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-13",
+   "nav": 970754.0
   }
  ],
  "trades": [
@@ -1197,6 +1180,86 @@
    "price": 401.21,
    "reason": "半导体国产替代仍是最硬的政策流动性方向，小盘卡脖子高弹性标的没爆拉，赔率还够不对称。",
    "src": "ai"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "000831",
+   "shares": 1700,
+   "price": 45.25,
+   "reason": "破位 -18.5%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688582",
+   "shares": 1400,
+   "price": 51.15,
+   "reason": "破位 -21.3%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "605376",
+   "shares": 400,
+   "price": 181.3,
+   "reason": "破位 -15.7%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688521",
+   "shares": 300,
+   "price": 272.23,
+   "reason": "错了就是错了,-11.4% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688757",
+   "shares": 2100,
+   "price": 45.46,
+   "reason": "错了就是错了,-16.6% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300308",
+   "shares": 100,
+   "price": 1097.03,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688347",
+   "shares": 300,
+   "price": 354.46,
+   "reason": "半导体自主可控还是最硬的政策风，华虹是更高流动性、更高弹性的主线载体，盘前没爆拉就换上。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000733",
+   "shares": 3100,
+   "price": 43.61,
+   "reason": "-9.8% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -2197,7 +2260,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我大体看得懂，价格也没有给出需要我换马的明显信号，最好的动作往往是坐着不动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2207,7 +2270,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看得懂，也都还本分；候选虽好，但没有明显好到值得我换掉现有仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2217,7 +2280,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘口没有给我错杀折扣，手里十个都是每台量产绕不开的真瓶颈，今天不为了换仓而换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2227,8 +2290,8 @@
    "action": "SELL",
    "sym": "688757",
    "reason": "这笔胜科纳米的买入理由就是动量，但它反手给我-6.5%，说明没骑到最强马，错了先砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 104,
@@ -2237,7 +2300,7 @@
    "action": "BUY",
    "sym": "688347",
    "reason": "半导体自主可控还是最硬的政策风，华虹是更高流动性、更高弹性的主线载体，盘前没爆拉就换上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2247,7 +2310,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价全场没给出明显增量资金方向，贵金属和AI算力仍是账户里资金辨识度最高的抱团，不在无信号盘前乱换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

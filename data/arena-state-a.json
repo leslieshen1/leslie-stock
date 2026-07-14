@@ -2312,8 +2312,108 @@
    "reason": "集合竞价全场没给出明显增量资金方向，贵金属和AI算力仍是账户里资金辨识度最高的抱团，不在无信号盘前乱换仓。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 106,
+   "fill_date": "2026-07-14",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓仍是我能理解、有护城河且价格不离谱的生意，今天没有必要为了交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 107,
+   "fill_date": "2026-07-14",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看得懂，商业模式和文化都过关，今天没有便宜到让我换仓的机会，老老实实拿着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 108,
+   "fill_date": "2026-07-14",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "600259",
+   "reason": "中重稀土镝铽是国家握着阀门的全村唯一井，盘前没爆拉，下游电机/军工/机器人每台都要吃这口料，我要补这个方向性多头。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 109,
+   "fill_date": "2026-07-14",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "605376",
+   "reason": "纳米镍粉是MLCC内电极的真瓶颈，国内独家级、客户验证长、扩产不容易，今天没被抢到涨停就可以上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 110,
+   "fill_date": "2026-07-14",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688582",
+   "reason": "导航级MEMS陀螺仪卡在军工无人机和人形机器人IMU的咽喉，供应商极少、替代成本高，是我框架里的硬单点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 111,
+   "fill_date": "2026-07-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688785",
+   "reason": "这匹马已经亏到两位数，趋势证明我错了；德鲁肯米勒不会和亏损票谈恋爱，砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 112,
+   "fill_date": "2026-07-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688521",
+   "reason": "AI ASIC+Chiplet+国产替代三股风叠加，盘前没被爆拉，仍是表达半导体自主可控的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 113,
+   "fill_date": "2026-07-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688409",
+   "reason": "设备零部件是国产替代里最硬的瓶颈环节之一，价格未冲高，顺流动性和政策风加仓强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 114,
+   "fill_date": "2026-07-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688727",
+   "reason": "光刻胶国产替代仍是卡脖子主线，盘前不追高，有不对称赔率就上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 115,
+   "fill_date": "2026-07-14",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是0.0%无主动资金表态，持仓也未触发情绪确认或机械止损，死水不加仓、弱势不乱砍，先看开盘资金往哪边打。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 106,
+ "next_order_id": 116,
  "splits": []
 }

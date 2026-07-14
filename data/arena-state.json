@@ -4006,9 +4006,89 @@
    "reason": "纳指盘前明显漏风，拥挤AI和高波动题材在退潮，我不为买满仓去接昨晚已经被资金抬过的票。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 202,
+   "fill_date": "2026-07-14",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里这些生意大多仍有我能看懂的护城河，今天的盘前波动没有给我一个用十年眼光必须行动的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 203,
+   "fill_date": "2026-07-14",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看懂，也都够本分；盘前涨跌不是我卖好公司的理由，今天不为了热闹乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 204,
+   "fill_date": "2026-07-14",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "真瓶颈仓位今天多数在跟随风险偏好修复，候选里最想要的 InP/光互联/存储链盘前已经被抢，我不接盘前最后一棒，现金留着等回落。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 205,
+   "fill_date": "2026-07-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "META",
+   "reason": "纳指盘前大反弹它却还红不起来，强流动性日里相对弱就是趋势在告诉我这匹马不顺风，先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 206,
+   "fill_date": "2026-07-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GEV",
+   "reason": "AI电力和电网资本开支仍是最干净的大趋势，今天风险偏好回流而它继续顺风上攻，我要加到弹性更纯的载体上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 207,
+   "fill_date": "2026-07-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GS",
+   "reason": "罗素和风险资产盘前一起拉，资本市场复苏与交易活跃度这条流动性线重新占优，高盛是这波里高弹性的表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 208,
+   "fill_date": "2026-07-14",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "PSX",
+   "reason": "能源资金还在接科技撤出的避险/通胀对冲筹码，Elliott 催化让盘口顺风但盘前只小幅续涨，不算接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 209,
+   "fill_date": "2026-07-14",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "CBOE 仍是低情绪、低拥挤的机构压舱盘口，没看到资金恐慌流出，不急着卖。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 202,
+ "next_order_id": 210,
  "notes": [
   {
    "date": "2026-06-12",

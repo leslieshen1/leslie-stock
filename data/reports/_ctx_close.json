@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-13 22:31 ET Mon",
+ "asof_et": "2026-07-13 22:46 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "-0.77%",
@@ -59,8 +59,8 @@
   {
    "sym": "FDS",
    "name": "FactSet Research Systems Inc.",
-   "close_price": "$263.15",
-   "close_pct": "+6.49%"
+   "close_price": "$263.11",
+   "close_pct": "+6.47%"
   },
   {
    "sym": "EQNR",
@@ -620,13 +620,13 @@
    "sum": ""
   },
   {
-   "h": "Q3 US Stock Market Outlook: Investors Face Balanced Risks, Selective Opportunities",
-   "src": "Morningstar",
+   "h": "Dow Jones Futures: Techs Fall, Oil Prices Rise Amid New U.S.-Iran Attacks; Taiwan Semi, Nvidia, Micron, Sandisk",
+   "src": "Investor's Business Daily",
    "sum": ""
   },
   {
-   "h": "Dow Jones Futures: Techs Fall, Oil Prices Rise Amid New U.S.-Iran Attacks; Taiwan Semi, Nvidia, Micron, Sandisk",
-   "src": "Investor's Business Daily",
+   "h": "Q3 US Stock Market Outlook: Investors Face Balanced Risks, Selective Opportunities",
+   "src": "Morningstar",
    "sum": ""
   },
   {
@@ -640,8 +640,8 @@
    "sum": ""
   },
   {
-   "h": "US Stock Market Today: S&P 500 Futures Rise As Inflation Cools And Earnings Loom",
-   "src": "Yahoo Finance Singapore",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq rise as chip stocks rebound, oil prices fall",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -705,14 +705,19 @@
    "sum": ""
   },
   {
-   "h": "UAE says Iranian missiles struck oil tankers in Strait of Hormuz, one sailor killed - Reuters",
+   "h": "Oil climbs to one-month high as US, Iran step up attacks in Strait of Hormuz - Reuters",
    "src": "Reuters",
-   "sum": "UAE says Iranian missiles struck oil tankers in Strait of Hormuz, one sailor killed  Reuters"
+   "sum": "Oil climbs to one-month high as US, Iran step up attacks in Strait of Hormuz  Reuters"
   },
   {
    "h": "Trump sends Congress formal notice that Iran conflict has resumed - Reuters",
    "src": "Reuters",
    "sum": "Trump sends Congress formal notice that Iran conflict has resumed  Reuters"
+  },
+  {
+   "h": "UAE says Iranian missiles struck oil tankers in Strait of Hormuz, one sailor killed - Reuters",
+   "src": "Reuters",
+   "sum": "UAE says Iranian missiles struck oil tankers in Strait of Hormuz, one sailor killed  Reuters"
   },
   {
    "h": "Americans expect prolonged US-Iran war as ceasefire falters, Reuters/Ipsos poll finds - Reuters",
@@ -748,11 +753,6 @@
    "h": "Houthis fire missiles at Saudi Arabia, breaking years of calm - Reuters",
    "src": "Reuters",
    "sum": "Houthis fire missiles at Saudi Arabia, breaking years of calm  Reuters"
-  },
-  {
-   "h": "Lawmakers demand Pentagon release findings from probe of Iran school strike - Reuters",
-   "src": "Reuters",
-   "sum": "Lawmakers demand Pentagon release findings from probe of Iran school strike  Reuters"
   }
  ]
 }

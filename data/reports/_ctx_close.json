@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-13 22:15 ET Mon",
+ "asof_et": "2026-07-13 22:31 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "-0.77%",
@@ -615,11 +615,6 @@
    "sum": ""
   },
   {
-   "h": "Stock market today: S&P 500, Nasdaq, Dow futures slip as Iran tensions ratchet up, bank earnings and Fed report on deck",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
    "h": "Are US Stock Market Valuations Outpacing Fundamentals?",
    "src": "Goldman Sachs",
    "sum": ""
@@ -630,6 +625,16 @@
    "sum": ""
   },
   {
+   "h": "Dow Jones Futures: Techs Fall, Oil Prices Rise Amid New U.S.-Iran Attacks; Taiwan Semi, Nvidia, Micron, Sandisk",
+   "src": "Investor's Business Daily",
+   "sum": ""
+  },
+  {
+   "h": "5 Things to Know Before the Stock Market Opens on Monday",
+   "src": "Investopedia",
+   "sum": ""
+  },
+  {
    "h": "Stock market today: Dow, S&P 500, Nasdaq futures diverge ahead of SK Hynix's mega US IPO",
    "src": "Yahoo Finance",
    "sum": ""
@@ -637,11 +642,6 @@
   {
    "h": "US Stock Market Today: S&P 500 Futures Rise As Inflation Cools And Earnings Loom",
    "src": "Yahoo Finance Singapore",
-   "sum": ""
-  },
-  {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq rise as chip stocks rebound, oil prices fall",
-   "src": "Yahoo Finance",
    "sum": ""
   },
   {

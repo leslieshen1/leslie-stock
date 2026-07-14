@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 18.51,
-  "druckenmiller": 272917.66,
+  "serenity": 75405.75,
+  "druckenmiller": 382667.3,
   "sentiment": 902340.53
  },
  "positions": [
@@ -163,13 +163,6 @@
   },
   {
    "master": "serenity",
-   "sym": "AXTI",
-   "shares": 1494,
-   "entry": 65.03,
-   "entry_date": "2026-07-01"
-  },
-  {
-   "master": "serenity",
    "sym": "CORZ",
    "shares": 3464,
    "entry": 23.5,
@@ -194,13 +187,6 @@
    "sym": "TLN",
    "shares": 299,
    "entry": 384.44,
-   "entry_date": "2026-07-09"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "AVGO",
-   "shares": 286,
-   "entry": 401.85,
    "entry_date": "2026-07-09"
   },
   {
@@ -711,6 +697,31 @@
    "master": "sentiment",
    "date": "2026-07-10",
    "nav": 1062646.39
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-13",
+   "nav": 1021047.82
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-13",
+   "nav": 1000527.11
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-13",
+   "nav": 906041.63
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-13",
+   "nav": 989650.86
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-13",
+   "nav": 1068064.27
   }
  ],
  "trades": [
@@ -2183,6 +2194,26 @@
    "price": 85.13,
    "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.3%)",
    "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "AXTI",
+   "shares": 1494,
+   "price": 50.46,
+   "reason": "破位 -22.4%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-13",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "AVGO",
+   "shares": 286,
+   "price": 383.74,
+   "reason": "AI半导体里资金在做内部淘汰，AVGO上周五没跟上NVDA、AMD，今早又领跌，载体不够强我先砍。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -3923,7 +3954,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河没有因为一个盘前报价变窄，价格也没有给我足够理由把好公司换成现金或别的好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3933,7 +3964,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，商业模式和文化没有变，盘前涨跌不是卖出或换仓的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3943,7 +3974,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "纳指盘前砸的是高波动主题票的风险溢价，不是我这些真瓶颈的四件套失效；现金几乎为零、已满十仓，今天不为了换手去砍不可替代的位置。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3953,7 +3984,7 @@
    "action": "SELL",
    "sym": "AVGO",
    "reason": "AI半导体里资金在做内部淘汰，AVGO上周五没跟上NVDA、AMD，今早又领跌，载体不够强我先砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3963,7 +3994,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "纳指盘前跌超1%，流动性风口短线逆着吹，我宁可多拿现金，也不在红盘前去接高弹性刀子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3973,7 +4004,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "纳指盘前明显漏风，拥挤AI和高波动题材在退潮，我不为买满仓去接昨晚已经被资金抬过的票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

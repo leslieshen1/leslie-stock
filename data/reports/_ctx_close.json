@@ -1,348 +1,758 @@
 {
- "asof_et": "2026-07-10 22:46 ET Fri",
+ "asof_et": "2026-07-13 22:01 ET Mon",
  "indices": {
   "标普500": {
-   "close_pct": "+0.43%",
-   "close_price": "$754.95"
+   "close_pct": "-0.77%",
+   "close_price": "$749.17"
   },
   "纳指100": {
-   "close_pct": "+0.31%",
-   "close_price": "$725.51"
+   "close_pct": "-1.90%",
+   "close_price": "$711.74"
   },
   "道指": {
-   "close_pct": "+0.30%",
-   "close_price": "$525.78"
+   "close_pct": "-0.25%",
+   "close_price": "$524.47"
   },
   "罗素2000": {
-   "close_pct": "-0.42%",
-   "close_price": "$295.99"
+   "close_pct": "-0.85%",
+   "close_price": "$293.48"
   }
  },
  "market_status": "Closed",
  "gainers": [
   {
-   "sym": "EQPT",
-   "name": "EquipmentShare.com Inc Class A",
-   "close_price": "$18.65",
-   "close_pct": "+16.56%"
+   "sym": "FIG",
+   "name": "Figma Inc. Class A",
+   "close_price": "$23.65",
+   "close_pct": "+12.03%"
   },
   {
-   "sym": "ALM",
-   "name": "Almonty Industries Inc.",
-   "close_price": "$16.61",
-   "close_pct": "+12.99%"
+   "sym": "LBTYB",
+   "name": "Liberty Global Ltd. Class B",
+   "close_price": "$12.80",
+   "close_pct": "+9.87%"
   },
   {
-   "sym": "VOD",
-   "name": "Vodafone Group Plc",
-   "close_price": "$14.72",
-   "close_pct": "+12.54%"
+   "sym": "VG",
+   "name": "Venture Global Inc. Class A common stock",
+   "close_price": "$13.36",
+   "close_pct": "+9.15%"
   },
   {
-   "sym": "REZI",
-   "name": "Resideo Technologies Inc.",
-   "close_price": "$33.94",
-   "close_pct": "+9.34%"
+   "sym": "TEAM",
+   "name": "Atlassian Corporation Class A",
+   "close_price": "$96.16",
+   "close_pct": "+8.22%"
   },
   {
-   "sym": "BBAR",
-   "name": "Banco BBVA Argentina S.A. ADS",
-   "close_price": "$21.16",
-   "close_pct": "+9.07%"
+   "sym": "PBF",
+   "name": "PBF Energy Inc. Class A",
+   "close_price": "$57.44",
+   "close_pct": "+8.01%"
   },
   {
-   "sym": "GGAL",
-   "name": "Grupo Financiero Galicia S.A.",
-   "close_price": "$53.73",
-   "close_pct": "+8.79%"
+   "sym": "SM",
+   "name": "SM Energy Company",
+   "close_price": "$29.89",
+   "close_pct": "+7.48%"
   },
   {
-   "sym": "CBRS",
-   "name": "Cerebras Systems Inc. Class A",
-   "close_price": "$215.08",
-   "close_pct": "+8.34%"
+   "sym": "FDS",
+   "name": "FactSet Research Systems Inc.",
+   "close_price": "$263.15",
+   "close_pct": "+6.49%"
   },
   {
-   "sym": "KB",
-   "name": "KB Financial Group Inc",
-   "close_price": "$123.19",
-   "close_pct": "+6.78%"
+   "sym": "EQNR",
+   "name": "Equinor ASA",
+   "close_price": "$36.06",
+   "close_pct": "+6.31%"
   }
  ],
  "losers": [
   {
-   "sym": "MRNA",
-   "name": "Moderna Inc.",
-   "close_price": "$68.27",
-   "close_pct": "-10.83%"
+   "sym": "MAAS",
+   "name": "Maase Inc. Class A",
+   "close_price": "$13.24",
+   "close_pct": "-14.36%"
   },
   {
-   "sym": "OPEN",
-   "name": "Opendoor Technologies Inc",
-   "close_price": "$4.765",
-   "close_pct": "-10.09%"
+   "sym": "APP",
+   "name": "Applovin Corporation Class A",
+   "close_price": "$442.85",
+   "close_pct": "-12.65%"
   },
   {
-   "sym": "FRMI",
-   "name": "Fermi Inc.",
-   "close_price": "$6.59",
-   "close_pct": "-9.97%"
+   "sym": "ALAB",
+   "name": "Astera Labs Inc.",
+   "close_price": "$362.05",
+   "close_pct": "-12.33%"
   },
   {
-   "sym": "IONS",
-   "name": "Ionis Pharmaceuticals Inc.",
-   "close_price": "$58.25",
-   "close_pct": "-9.37%"
+   "sym": "AUGO",
+   "name": "Aura Minerals Inc.",
+   "close_price": "$53.51",
+   "close_pct": "-12.00%"
   },
   {
-   "sym": "ARWR",
-   "name": "Arrowhead Pharmaceuticals Inc.",
-   "close_price": "$76.40",
-   "close_pct": "-9.05%"
+   "sym": "SEZL",
+   "name": "Sezzle Inc.",
+   "close_price": "$160.25",
+   "close_pct": "-10.66%"
   },
   {
-   "sym": "AGX",
-   "name": "Argan Inc.",
-   "close_price": "$630.32",
-   "close_pct": "-8.32%"
+   "sym": "NXT",
+   "name": "Nextpower Inc. Class A",
+   "close_price": "$99.67",
+   "close_pct": "-10.61%"
   },
   {
-   "sym": "SAIL",
-   "name": "SailPoint Inc.",
-   "close_price": "$13.71",
-   "close_pct": "-7.68%"
+   "sym": "EQPT",
+   "name": "EquipmentShare.com Inc Class A",
+   "close_price": "$16.825",
+   "close_pct": "-9.79%"
   },
   {
-   "sym": "DOCN",
-   "name": "DigitalOcean Holdings Inc.",
-   "close_price": "$130.49",
-   "close_pct": "-7.35%"
+   "sym": "KRMN",
+   "name": "Karman Holdings Inc.",
+   "close_price": "$45.13",
+   "close_pct": "-9.76%"
   }
  ],
  "watchlist": [
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "close_price": "$145.30",
-   "close_pct": "-4.51%"
+   "close_price": "$139.14",
+   "close_pct": "-4.24%"
   },
   {
    "sym": "MU",
    "name": "Micron Technology Inc.",
-   "close_price": "$979.30",
-   "close_pct": "-1.24%"
+   "close_price": "$937.00",
+   "close_pct": "-4.32%"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "close_price": "$210.96",
-   "close_pct": "+4.03%"
+   "close_price": "$203.53",
+   "close_pct": "-3.52%"
   },
   {
    "sym": "AVGO",
    "name": "Broadcom Inc.",
-   "close_price": "$399.97",
-   "close_pct": "-0.28%"
+   "close_price": "$384.05",
+   "close_pct": "-3.98%"
   },
   {
    "sym": "AMD",
    "name": "Advanced Micro Devices Inc.",
-   "close_price": "$557.89",
-   "close_pct": "+2.04%"
+   "close_price": "$534.39",
+   "close_pct": "-4.21%"
   },
   {
    "sym": "ARM",
    "name": "Arm Holdings plc",
-   "close_price": "$323.39",
-   "close_pct": "-1.37%"
+   "close_price": "$298.99",
+   "close_pct": "-7.55%"
   },
   {
    "sym": "SMCI",
    "name": "Super Micro Computer Inc.",
-   "close_price": "$28.31",
-   "close_pct": "+0.25%"
+   "close_price": "$27.66",
+   "close_pct": "-2.30%"
   },
   {
    "sym": "PLTR",
    "name": "Palantir Technologies Inc. Class A",
-   "close_price": "$126.79",
-   "close_pct": "-1.74%"
+   "close_price": "$130.04",
+   "close_pct": "+2.56%"
   },
   {
    "sym": "TSLA",
    "name": "Tesla Inc.",
-   "close_price": "$407.76",
-   "close_pct": "+0.30%"
+   "close_price": "$394.76",
+   "close_pct": "-3.19%"
   },
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "close_price": "$324.50",
-   "close_pct": "-0.84%"
+   "close_price": "$307.39",
+   "close_pct": "-5.27%"
   }
  ],
  "earnings": [
   {
-   "sym": "AMBK",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-10"
+   "sym": "AEHR",
+   "name": "Aehr Test Systems",
+   "hour": "amc",
+   "epsEst": -0.0077,
+   "date": "2026-07-14"
   },
   {
-   "sym": "BUKS",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-10"
+   "sym": "AIR",
+   "name": "AAR Corp.",
+   "hour": "amc",
+   "epsEst": 1.3938,
+   "date": "2026-07-14"
   },
   {
-   "sym": "DAL",
-   "name": "Delta Air Lines Inc.",
+   "sym": "ANGO",
+   "name": "AngioDynamics Inc.",
    "hour": "bmo",
-   "epsEst": 1.4736,
-   "date": "2026-07-10"
+   "epsEst": -0.0918,
+   "date": "2026-07-14"
   },
   {
-   "sym": "FGFH",
+   "sym": "BAC",
+   "name": "Bank of America Corporation",
+   "hour": "bmo",
+   "epsEst": 1.129,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "BRLL",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-10"
+   "date": "2026-07-14"
   },
   {
-   "sym": "GDHG",
-   "name": "Golden Heaven Group Holdings Ltd. Class A",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-10"
+   "sym": "C",
+   "name": "Citigroup Inc.",
+   "hour": "bmo",
+   "epsEst": 2.7565,
+   "date": "2026-07-14"
   },
   {
-   "sym": "GDST",
+   "sym": "CANB",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-10"
+   "date": "2026-07-14"
   },
   {
-   "sym": "HIFS",
-   "name": "Hingham Institution for Savings",
+   "sym": "CRSB",
+   "name": null,
+   "hour": "",
+   "epsEst": 1.3032,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "CXH",
+   "name": "MFS Investment Grade Municipal Trust",
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-10"
+   "date": "2026-07-14"
   },
   {
-   "sym": "KISB",
+   "sym": "CXH",
+   "name": "MFS Investment Grade Municipal Trust",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "EQBK",
+   "name": "Equity Bancshares Inc. Class A",
+   "hour": "amc",
+   "epsEst": 1.2396,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "GS",
+   "name": "Goldman Sachs Group Inc. (The)",
+   "hour": "bmo",
+   "epsEst": 14.4615,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "HARL",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-10"
+   "date": "2026-07-14"
   },
   {
-   "sym": "MLGF",
+   "sym": "JPM",
+   "name": "JP Morgan Chase & Co.",
+   "hour": "bmo",
+   "epsEst": 5.7433,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "KMTS",
+   "name": "Kestra Medical Technologies Ltd.",
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "KMTS",
+   "name": "Kestra Medical Technologies Ltd.",
+   "hour": "amc",
+   "epsEst": -0.6076,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "LOOP",
+   "name": "Loop Industries Inc.",
+   "hour": "amc",
+   "epsEst": -0.051,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "PBNC",
    "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-10"
+   "date": "2026-07-14"
   },
   {
-   "sym": "UUU",
-   "name": "Universal Safety Products Inc.",
+   "sym": "PXED",
+   "name": "Phoenix Education Partners Inc.",
+   "hour": "amc",
+   "epsEst": 1.3464,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "SNV",
+   "name": null,
+   "hour": "",
+   "epsEst": 1.3908,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "WFC",
+   "name": "Wells Fargo & Company",
+   "hour": "bmo",
+   "epsEst": 1.7279,
+   "date": "2026-07-14"
+  },
+  {
+   "sym": "AMFC",
+   "name": null,
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-10"
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "ANVI",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "ASRE",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "AXXA",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "BSFC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "BTCY",
+   "name": null,
+   "hour": "amc",
+   "epsEst": -0.0816,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "BZYR",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "CAHO",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "CAWW",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "CEFC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "CNAF",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "CTM",
+   "name": "Castellum Inc.",
+   "hour": "",
+   "epsEst": 0,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "ENRT",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "FAST",
+   "name": "Fastenal Company",
+   "hour": "",
+   "epsEst": 0.3329,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "FBK",
+   "name": "FB Financial Corporation",
+   "hour": "amc",
+   "epsEst": 1.1705,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "FNGR",
+   "name": "FingerMotion Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "GTI",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "GTPS",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "KOAN",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "LEXX",
+   "name": "Lexaria Bioscience Corp.",
+   "hour": "amc",
+   "epsEst": -0.0867,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "NFTM",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "NRIS",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "NTRP",
+   "name": "NextTrip Inc.",
+   "hour": "",
+   "epsEst": -0.2142,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "OTGA",
+   "name": "OTG Acquisition Corp. I Class A Ordinary Share",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "PUBC",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "QSEA",
+   "name": "Quartzsea Acquisition Corporation",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "RAY",
+   "name": "Raytech Holding Limited",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "RJDG",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "ROMA",
+   "name": "Roma Green Finance Limited Class A",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "SCGY",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "SIGL",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "SPRS",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "SVIN",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "TETEF",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "TRX",
+   "name": "TRX Gold Corporation",
+   "hour": "",
+   "epsEst": 0.0404,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "UNTN",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "UNTY",
+   "name": "Unity Bancorp Inc.",
+   "hour": "",
+   "epsEst": 1.4688,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "YAAS",
+   "name": "Youxin Technology Ltd Class A Ordinary shares",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
+  },
+  {
+   "sym": "YDES",
+   "name": "YD Bio Limited",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-13"
   }
  ],
  "news": [
   {
-   "h": "Trump says US agreed to Iran's request to continue talks, but ceasefire is over - Reuters",
-   "src": "Reuters",
-   "sum": "Trump says US agreed to Iran's request to continue talks, but ceasefire is over  Reuters"
+   "h": "Stock market today: Dow, S&P 500, Nasdaq futures slip as US and Iran exchange fire, oil jumps",
+   "src": "Yahoo Finance",
+   "sum": ""
   },
   {
-   "h": "US issues fresh Iran-related sanctions as conflict flares - Reuters",
-   "src": "Reuters",
-   "sum": "US issues fresh Iran-related sanctions as conflict flares  Reuters"
+   "h": "Stock Market Today: Dow Jones, Nasdaq 100, S&P 500 Futures Slips as US and Iran Exchange Strikes— Saratog",
+   "src": "Benzinga",
+   "sum": ""
   },
   {
-   "h": "US insists Iran commit to stopping attacks in Hormuz strait, say US officials - Reuters",
-   "src": "Reuters",
-   "sum": "US insists Iran commit to stopping attacks in Hormuz strait, say US officials  Reuters"
+   "h": "Stock market today: S&P 500, Nasdaq, Dow futures slip as Iran tensions ratchet up, bank earnings and Fed report on deck",
+   "src": "Yahoo Finance",
+   "sum": ""
   },
   {
-   "h": "Fire at western Iranian mini-refinery contained, Iran media says - Reuters",
-   "src": "Reuters",
-   "sum": "Fire at western Iranian mini-refinery contained, Iran media says  Reuters"
+   "h": "Are US Stock Market Valuations Outpacing Fundamentals?",
+   "src": "Goldman Sachs",
+   "sum": ""
   },
   {
-   "h": "US pain at the pump worsens after more US-Iran fighting lifts oil prices - Reuters",
-   "src": "Reuters",
-   "sum": "US pain at the pump worsens after more US-Iran fighting lifts oil prices  Reuters"
+   "h": "Q3 US Stock Market Outlook: Investors Face Balanced Risks, Selective Opportunities",
+   "src": "Morningstar",
+   "sum": ""
   },
   {
-   "h": "Wall St Week Ahead Investors to grapple with packed week of earnings, CPI, Iran headlines - Reuters",
-   "src": "Reuters",
-   "sum": "Wall St Week Ahead Investors to grapple with packed week of earnings, CPI, Iran headlines  Reuters"
+   "h": "5 Things to Know Before the Stock Market Opens on Monday",
+   "src": "Investopedia",
+   "sum": ""
   },
   {
-   "h": "US makes it easier to export Nvidia AI chips and military equipment to the UAE - Reuters",
-   "src": "Reuters",
-   "sum": "US makes it easier to export Nvidia AI chips and military equipment to the UAE  Reuters"
+   "h": "Stock market today: Dow, S&P 500, Nasdaq futures diverge ahead of SK Hynix's mega US IPO",
+   "src": "Yahoo Finance",
+   "sum": ""
   },
   {
-   "h": "Iran oil stuck at sea surges as China's teapots turn to rival Middle East supplies, traders say - Reuters",
-   "src": "Reuters",
-   "sum": "Iran oil stuck at sea surges as China's teapots turn to rival Middle East supplies, traders say  Reuters"
+   "h": "US Stock Market Today: S&P 500 Futures Rise As Inflation Cools And Earnings Loom",
+   "src": "Yahoo Finance Singapore",
+   "sum": ""
   },
   {
-   "h": "Stocks rise as investors await the start of earnings season — here's what to expect",
+   "h": "[SPCX] SpaceX: The IPO Hype Is Fading - Why Shares' True Value May Be Less Than Half Its Market Cap",
+   "src": "Seeking Alpha",
+   "sum": ""
+  },
+  {
+   "h": "[SPCX] SpaceX stock sinks for a second-straight day, nearing $135 IPO price",
    "src": "CNBC",
-   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
+   "sum": ""
   },
   {
-   "h": "Fed report cites 'stepped-up' inflation due to tariffs, Iran war, AI buildout - Reuters",
+   "h": "[MU] Has Micron Technology Stock Peaked?",
+   "src": "The Motley Fool",
+   "sum": ""
+  },
+  {
+   "h": "[MU] Micron, SanDisk, Western Digital Fall 6% as SK Hynix's Weak Outlook Rattles Memory Stocks",
+   "src": "24/7 Wall St.",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] What Investors Keep Asking About NVDA",
+   "src": "Trefis",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Jim Cramer Was Left Perplexed By NVIDIA Corp. (NVDA)’s Shares",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] 3 Top Stocks to Double Up on Right Now -- Including Broadcom (AVGO) Stock",
+   "src": "The Motley Fool",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] Nvidia, Broadcom, AMD Lead AI Chip Stock Selloff After SK Hynix Slump",
+   "src": "TradingView",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] AMD Stock: Collect 14% While Setting A 50%-Off Buy Price",
+   "src": "Trefis",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] AMD Stock Falls Despite a Price Target Increase from a Top Analyst",
+   "src": "TipRanks",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Arm And Marvell Tumble As Chip Stocks Sell Off",
+   "src": "Investor's Business Daily",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Why Is Arm Holdings Stock Falling Monday?",
+   "src": "Benzinga",
+   "sum": ""
+  },
+  {
+   "h": "UAE says Iranian missiles struck oil tankers in Strait of Hormuz, one sailor killed - Reuters",
    "src": "Reuters",
-   "sum": "Fed report cites 'stepped-up' inflation due to tariffs, Iran war, AI buildout  Reuters"
+   "sum": "UAE says Iranian missiles struck oil tankers in Strait of Hormuz, one sailor killed  Reuters"
   },
   {
-   "h": "We're looking to buy more of this chip stock as the once-hot group cools",
+   "h": "Trump sends Congress formal notice that Iran conflict has resumed - Reuters",
+   "src": "Reuters",
+   "sum": "Trump sends Congress formal notice that Iran conflict has resumed  Reuters"
+  },
+  {
+   "h": "Americans expect prolonged US-Iran war as ceasefire falters, Reuters/Ipsos poll finds - Reuters",
+   "src": "Reuters",
+   "sum": "Americans expect prolonged US-Iran war as ceasefire falters, Reuters/Ipsos poll finds  Reuters"
+  },
+  {
+   "h": "3 things you need to know about cyclospora",
    "src": "CNBC",
-   "sum": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET."
+   "sum": "Cyclospora, a parasitic infection that can cause weeks of severe diarrhea, is spreading in the U.S. Here's what to know about the disease, and how to stay safe."
   },
   {
-   "h": "Delta expects fare gains to hold as fuel volatility pressures airlines - Reuters",
+   "h": "Trump says the US will take out Pickaxe Mountain in Iran - Reuters",
    "src": "Reuters",
-   "sum": "Delta expects fare gains to hold as fuel volatility pressures airlines  Reuters"
+   "sum": "Trump says the US will take out Pickaxe Mountain in Iran  Reuters"
   },
   {
-   "h": "How the absence of Iran's Mojtaba Khamenei is becoming a liability for the Islamic Republic - Reuters",
+   "h": "Oil traders call Trump's Hormuz bluff at their peril - Reuters",
    "src": "Reuters",
-   "sum": "How the absence of Iran's Mojtaba Khamenei is becoming a liability for the Islamic Republic  Reuters"
+   "sum": "Oil traders call Trump's Hormuz bluff at their peril  Reuters"
   },
   {
-   "h": "Turkey says it hopes to achieve result on lifting U.S. sanctions soon - Reuters",
+   "h": "Wall Street ends lower as Iran tensions dampen risk appetite; chipmakers drop - Reuters",
    "src": "Reuters",
-   "sum": "Turkey says it hopes to achieve result on lifting U.S. sanctions soon  Reuters"
+   "sum": "Wall Street ends lower as Iran tensions dampen risk appetite; chipmakers drop  Reuters"
   },
   {
-   "h": "Iran has asked to continue talks and the US agreed, Trump says - Reuters",
-   "src": "Reuters",
-   "sum": "Iran has asked to continue talks and the US agreed, Trump says  Reuters"
-  },
-  {
-   "h": "48-year-old worked at a garden center for $17/hour to make ends meet: 'It's one of the best jobs I've ever had'",
+   "h": "Chipotle is opening its first restaurant in Mexico",
    "src": "CNBC",
-   "sum": "\"Without a job, I felt invisible. With a job, I felt seen, useful, and purposeful again,\" says Leslie Friday, who sold plants and flowers while job searching af"
+   "sum": "Fast casual chain Chipotle announced Monday that it is opening its first location in Mexico in the Monterrey area."
   },
   {
-   "h": "Countries must reject Iran efforts to control Hormuz, UN agency document says - Reuters",
+   "h": "Houthis fire missiles at Saudi Arabia, breaking years of calm - Reuters",
    "src": "Reuters",
-   "sum": "Countries must reject Iran efforts to control Hormuz, UN agency document says  Reuters"
+   "sum": "Houthis fire missiles at Saudi Arabia, breaking years of calm  Reuters"
   },
   {
-   "h": "China temporarily bans helium exports as US-Iran tensions flare again - Reuters",
+   "h": "Lawmakers demand Pentagon release findings from probe of Iran school strike - Reuters",
    "src": "Reuters",
-   "sum": "China temporarily bans helium exports as US-Iran tensions flare again  Reuters"
+   "sum": "Lawmakers demand Pentagon release findings from probe of Iran school strike  Reuters"
   }
  ]
 }

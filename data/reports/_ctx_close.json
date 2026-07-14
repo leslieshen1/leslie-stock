@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-13 22:01 ET Mon",
+ "asof_et": "2026-07-13 22:15 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "-0.77%",
@@ -630,11 +630,6 @@
    "sum": ""
   },
   {
-   "h": "5 Things to Know Before the Stock Market Opens on Monday",
-   "src": "Investopedia",
-   "sum": ""
-  },
-  {
    "h": "Stock market today: Dow, S&P 500, Nasdaq futures diverge ahead of SK Hynix's mega US IPO",
    "src": "Yahoo Finance",
    "sum": ""
@@ -642,6 +637,11 @@
   {
    "h": "US Stock Market Today: S&P 500 Futures Rise As Inflation Cools And Earnings Loom",
    "src": "Yahoo Finance Singapore",
+   "sum": ""
+  },
+  {
+   "h": "Stock market today: Dow, S&P 500, Nasdaq rise as chip stocks rebound, oil prices fall",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -660,8 +660,8 @@
    "sum": ""
   },
   {
-   "h": "[MU] Micron, SanDisk, Western Digital Fall 6% as SK Hynix's Weak Outlook Rattles Memory Stocks",
-   "src": "24/7 Wall St.",
+   "h": "[MU] SK hynix Vs. Micron: The Nasdaq's New Memory Stock Is The Better Buy (NASDAQ:MU)",
+   "src": "Seeking Alpha",
    "sum": ""
   },
   {
@@ -670,13 +670,8 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Jim Cramer Was Left Perplexed By NVIDIA Corp. (NVDA)’s Shares",
+   "h": "[NVDA] Nvidia Stock Hasn’t Been This Cheap Since Before 2019. How to Play NVDA Stock Here.",
    "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] 3 Top Stocks to Double Up on Right Now -- Including Broadcom (AVGO) Stock",
-   "src": "The Motley Fool",
    "sum": ""
   },
   {
@@ -685,13 +680,18 @@
    "sum": ""
   },
   {
-   "h": "[AMD] AMD Stock: Collect 14% While Setting A 50%-Off Buy Price",
-   "src": "Trefis",
+   "h": "[AVGO] Why Broadcom (AVGO) Stock Is Trading Up Today",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
    "h": "[AMD] AMD Stock Falls Despite a Price Target Increase from a Top Analyst",
    "src": "TipRanks",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] Best Artificial Intelligence (AI) Stock: AMD, Nvidia, or Broadcom",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 305317.0,
-  "druckenmiller": 324403.0,
-  "sentiment": 227769.0
+  "serenity": 71585.0,
+  "druckenmiller": 216420.0,
+  "sentiment": 823170.0
  },
  "positions": [
   {
@@ -141,41 +141,6 @@
    "entry_date": "2026-07-07"
   },
   {
-   "master": "sentiment",
-   "sym": "000099",
-   "shares": 10600,
-   "entry": 14.1,
-   "entry_date": "2026-07-07"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000034",
-   "shares": 5500,
-   "entry": 27.2,
-   "entry_date": "2026-07-07"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000400",
-   "shares": 7200,
-   "entry": 20.68,
-   "entry_date": "2026-07-07"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000506",
-   "shares": 12300,
-   "entry": 12.16,
-   "entry_date": "2026-07-07"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "300442",
-   "shares": 1400,
-   "entry": 79.16,
-   "entry_date": "2026-07-08"
-  },
-  {
    "master": "serenity",
    "sym": "002428",
    "shares": 800,
@@ -205,17 +170,52 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "688785",
-   "shares": 200,
-   "entry": 401.21,
-   "entry_date": "2026-07-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688347",
    "shares": 300,
    "entry": 354.46,
    "entry_date": "2026-07-13"
+  },
+  {
+   "master": "serenity",
+   "sym": "600259",
+   "shares": 900,
+   "entry": 85.88,
+   "entry_date": "2026-07-14"
+  },
+  {
+   "master": "serenity",
+   "sym": "605376",
+   "shares": 400,
+   "entry": 196.3,
+   "entry_date": "2026-07-14"
+  },
+  {
+   "master": "serenity",
+   "sym": "688582",
+   "shares": 1600,
+   "entry": 48.7,
+   "entry_date": "2026-07-14"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688521",
+   "shares": 300,
+   "entry": 270.33,
+   "entry_date": "2026-07-14"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688409",
+   "shares": 400,
+   "entry": 251.01,
+   "entry_date": "2026-07-14"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688727",
+   "shares": 1700,
+   "entry": 58.88,
+   "entry_date": "2026-07-14"
   }
  ],
  "nav": [
@@ -518,6 +518,31 @@
    "master": "sentiment",
    "date": "2026-07-13",
    "nav": 970754.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-14",
+   "nav": 1023361.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-14",
+   "nav": 1016523.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-14",
+   "nav": 868443.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-14",
+   "nav": 919210.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-14",
+   "nav": 970934.0
   }
  ],
  "trades": [
@@ -1259,6 +1284,126 @@
    "shares": 3100,
    "price": 43.61,
    "reason": "-9.8% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "600259",
+   "shares": 900,
+   "price": 85.88,
+   "reason": "中重稀土镝铽是国家握着阀门的全村唯一井，盘前没爆拉，下游电机/军工/机器人每台都要吃这口料，我要补这个方向性多头。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "605376",
+   "shares": 400,
+   "price": 196.3,
+   "reason": "纳米镍粉是MLCC内电极的真瓶颈，国内独家级、客户验证长、扩产不容易，今天没被抢到涨停就可以上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688582",
+   "shares": 1600,
+   "price": 48.7,
+   "reason": "导航级MEMS陀螺仪卡在军工无人机和人形机器人IMU的咽喉，供应商极少、替代成本高，是我框架里的硬单点。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300442",
+   "shares": 1400,
+   "price": 71.6,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688785",
+   "shares": 200,
+   "price": 366.88,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688521",
+   "shares": 300,
+   "price": 270.33,
+   "reason": "AI ASIC+Chiplet+国产替代三股风叠加，盘前没被爆拉，仍是表达半导体自主可控的高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688409",
+   "shares": 400,
+   "price": 251.01,
+   "reason": "设备零部件是国产替代里最硬的瓶颈环节之一，价格未冲高，顺流动性和政策风加仓强马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688727",
+   "shares": 1700,
+   "price": 58.88,
+   "reason": "光刻胶国产替代仍是卡脖子主线，盘前不追高，有不对称赔率就上。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000099",
+   "shares": 10600,
+   "price": 13.37,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000034",
+   "shares": 5500,
+   "price": 26.02,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000400",
+   "shares": 7200,
+   "price": 19.85,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000506",
+   "shares": 12300,
+   "price": 13.63,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+12.1%)",
    "src": "rule"
   }
  ],
@@ -2320,7 +2465,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓仍是我能理解、有护城河且价格不离谱的生意，今天没有必要为了交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2330,7 +2475,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看得懂，商业模式和文化都过关，今天没有便宜到让我换仓的机会，老老实实拿着。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2340,7 +2485,7 @@
    "action": "BUY",
    "sym": "600259",
    "reason": "中重稀土镝铽是国家握着阀门的全村唯一井，盘前没爆拉，下游电机/军工/机器人每台都要吃这口料，我要补这个方向性多头。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2350,7 +2495,7 @@
    "action": "BUY",
    "sym": "605376",
    "reason": "纳米镍粉是MLCC内电极的真瓶颈，国内独家级、客户验证长、扩产不容易，今天没被抢到涨停就可以上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2360,7 +2505,7 @@
    "action": "BUY",
    "sym": "688582",
    "reason": "导航级MEMS陀螺仪卡在军工无人机和人形机器人IMU的咽喉，供应商极少、替代成本高，是我框架里的硬单点。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2370,8 +2515,8 @@
    "action": "SELL",
    "sym": "688785",
    "reason": "这匹马已经亏到两位数，趋势证明我错了；德鲁肯米勒不会和亏损票谈恋爱，砍掉。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 112,
@@ -2380,7 +2525,7 @@
    "action": "BUY",
    "sym": "688521",
    "reason": "AI ASIC+Chiplet+国产替代三股风叠加，盘前没被爆拉，仍是表达半导体自主可控的高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2390,7 +2535,7 @@
    "action": "BUY",
    "sym": "688409",
    "reason": "设备零部件是国产替代里最硬的瓶颈环节之一，价格未冲高，顺流动性和政策风加仓强马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2400,7 +2545,7 @@
    "action": "BUY",
    "sym": "688727",
    "reason": "光刻胶国产替代仍是卡脖子主线，盘前不追高，有不对称赔率就上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2410,7 +2555,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前候选全是0.0%无主动资金表态，持仓也未触发情绪确认或机械止损，死水不加仓、弱势不乱砍，先看开盘资金往哪边打。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -105,7 +105,8 @@ async function build() {
   const netS: Pt[] = [];
   for (const w of walcl) {
     const r = nearest(rrp, w.d), t = nearest(tga, w.d);
-    if (r != null && t != null) netS.push({ d: w.d, v: w.v / 1000 - r - t }); // 十亿美元
+    // 单位对齐到十亿:WALCL 百万→/1000;RRPONTSYD 本就是十亿;WTREGEN(TGA)百万→/1000
+    if (r != null && t != null) netS.push({ d: w.d, v: w.v / 1000 - r - t / 1000 });
   }
   const nl = last(netS), nlT = nl - back(netS, 8);
   out.push({

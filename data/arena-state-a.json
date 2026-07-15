@@ -3,7 +3,7 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 71585.0,
-  "druckenmiller": 216420.0,
+  "druckenmiller": 226570.0,
   "sentiment": 823170.0
  },
  "positions": [
@@ -212,10 +212,10 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "688727",
-   "shares": 1700,
-   "entry": 58.88,
-   "entry_date": "2026-07-14"
+   "sym": "300666",
+   "shares": 300,
+   "entry": 282.14,
+   "entry_date": "2026-07-15"
   }
  ],
  "nav": [
@@ -543,6 +543,31 @@
    "master": "sentiment",
    "date": "2026-07-14",
    "nav": 970934.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-15",
+   "nav": 1043760.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-15",
+   "nav": 1053967.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-15",
+   "nav": 823845.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-15",
+   "nav": 881680.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-15",
+   "nav": 964814.0
   }
  ],
  "trades": [
@@ -1405,6 +1430,26 @@
    "price": 13.63,
    "reason": "持有满 5 个交易日,轮动纪律到点离场(+12.1%)",
    "src": "rule"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688727",
+   "shares": 1700,
+   "price": 55.76,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300666",
+   "shares": 300,
+   "price": 282.14,
+   "reason": "半导体国产替代这股流动性大风还没转，江丰是AI先进制程耗材里弹性足、位置没盘前爆拉的高胜率表达。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -2565,7 +2610,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看得懂，也都是我愿意拿十年的好生意，今天候选虽不差，但没有好到值得我为了调仓而折腾。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2575,7 +2620,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还在我定义的真瓶颈位置，今天候选没有盘前错杀信号，我不为了换手去卖掉卡脖子资产。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2585,7 +2630,7 @@
    "action": "BUY",
    "sym": "300666",
    "reason": "半导体国产替代这股流动性大风还没转，江丰是AI先进制程耗材里弹性足、位置没盘前爆拉的高胜率表达。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2595,7 +2640,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前候选全是0跳，没有资金抢筹信号，死水不下注；盛达资源仍在贵金属情绪线上，先让子弹飞。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2605,7 +2650,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我大体看得懂，价格也没有给我必须调仓的理由；少量现金留着，等待真正打折的好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

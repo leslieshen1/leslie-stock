@@ -2597,8 +2597,18 @@
    "reason": "盘前候选全是0跳，没有资金抢筹信号，死水不下注；盛达资源仍在贵金属情绪线上，先让子弹飞。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 120,
+   "fill_date": "2026-07-15",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我大体看得懂，价格也没有给我必须调仓的理由；少量现金留着，等待真正打折的好公司。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 120,
+ "next_order_id": 121,
  "splits": []
 }

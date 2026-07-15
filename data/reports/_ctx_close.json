@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-14 22:31 ET Tue",
+ "asof_et": "2026-07-14 22:46 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "+0.36%",
@@ -556,9 +556,109 @@
  ],
  "news": [
   {
-   "h": "Trump wants fees for Hormuz just like Iran - is that legal? - Reuters",
+   "h": "Stocks end higher buoyed by light inflation data, bounce in chip stocks",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "Wall Street ends lower as Iran tensions dampen risk appetite; chipmakers drop",
    "src": "Reuters",
-   "sum": "Trump wants fees for Hormuz just like Iran - is that legal?  Reuters"
+   "sum": ""
+  },
+  {
+   "h": "CNBC Daily Open: Trump walks back on Hormuz tolls in TACO Tuesday",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "Stock market today: Dow, S&P 500, Nasdaq rise as Fed rate-hike bets ease, chip stocks rally",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "Stock Market Today: Major Indexes End Higher After Softer-Than-Expected Inflation Data; IBM Holds Gains in Check",
+   "src": "Investopedia",
+   "sum": ""
+  },
+  {
+   "h": "Stock Market News, July 14, 2026: Stocks Rise as Bank Results Point to Strong Economy",
+   "src": "WSJ",
+   "sum": ""
+  },
+  {
+   "h": "Stock Market News, July 14, 2026: Dow ends flat after soft CPI inflation report, Nasdaq and S&P 500 climb as tech stocks rebound; Trump walks back Hormuz tolls; IBM tumbles",
+   "src": "MarketWatch",
+   "sum": ""
+  },
+  {
+   "h": "Dow Jones| Nasdaq | S&P 500 | US Stock Market Today | Live: US stocks rise on cooler inflation data, big ...",
+   "src": "The Economic Times",
+   "sum": ""
+  },
+  {
+   "h": "[SPCX] SpaceX Shares Are Crashing. Here’s the Price I’ll Start Buying.",
+   "src": "24/7 Wall St.",
+   "sum": ""
+  },
+  {
+   "h": "[SPCX] Prediction: $25,000 Invested in SpaceX Today Will Be Worth This Much by 2050",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[MU] Micron Technology, Inc. (MU) Stock Rises After Entering Bear Market",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[MU] President Trump Sells Micron Stock and Buys an AI Stock Up 1,340% Since 2023",
+   "src": "The Motley Fool",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Nvidia (NVDA) Stock Trades Up, Here Is Why",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Here are Tuesday's biggest analyst calls: Nvidia, SK Hynix, Apple, SpaceX, Broadcom, AMD, Netflix & more",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] Why Broadcom Stock Ticked Higher on Tuesday",
+   "src": "The Globe and Mail",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] INTC, AMD, NVDA, AVGO: Chip Stocks Slide As Fresh US-Iran Strikes Test Peace Deal",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] Advanced Micro Devices, Inc. (AMD) Stock Surges as Goldman Sees Big Earnings Coming",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[AMD] Here are Tuesday's biggest analyst calls: Nvidia, SK Hynix, Apple, SpaceX, Broadcom, AMD, Netflix & more",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Arm And Marvell Tumble As Chip Stocks Sell Off",
+   "src": "Investor's Business Daily",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Why is Arm stock sliding today?",
+   "src": "Investing.com",
+   "sum": ""
+  },
+  {
+   "h": "Oil rises after US-Iran hostilities flare again with strikes on energy targets - Reuters",
+   "src": "Reuters",
+   "sum": "Oil rises after US-Iran hostilities flare again with strikes on energy targets  Reuters"
   },
   {
    "h": "Jim Cramer says concerns about AI market froth are overblown. Here's why",
@@ -571,9 +671,9 @@
    "sum": "US Senate Democrats block $1.15 trillion defense bill over Iran war objections  Reuters"
   },
   {
-   "h": "S&P 500 and Nasdaq end higher on cool inflation data, solid bank earnings - Reuters",
+   "h": "Trump wants fees for Hormuz just like Iran - is that legal? - Reuters",
    "src": "Reuters",
-   "sum": "S&P 500 and Nasdaq end higher on cool inflation data, solid bank earnings  Reuters"
+   "sum": "Trump wants fees for Hormuz just like Iran - is that legal?  Reuters"
   },
   {
    "h": "Lawmakers seek to counter China, Iran repression tactics on US soil - Reuters",
@@ -604,46 +704,6 @@
    "h": "Morgan Stanley runs to Broadcom's defense as investors worry about competition",
    "src": "CNBC",
    "sum": "Fears of the the chipmaker losing market share are overblown, analysts say."
-  },
-  {
-   "h": "T. rex sells for $50 million, becoming the most expensive dinosaur fossil ever auctioned",
-   "src": "CNBC",
-   "sum": "It passes a stegosaurus skeleton that billionaire hedge funder Ken Griffin bought for $44.6 million in 2024."
-  },
-  {
-   "h": "Key witness in US probe of Turkey's Halkbank avoids prison time - Reuters",
-   "src": "Reuters",
-   "sum": "Key witness in US probe of Turkey's Halkbank avoids prison time  Reuters"
-  },
-  {
-   "h": "Brent oil structure changes to reflect mounting supply risk as Iran tensions flare - Reuters",
-   "src": "Reuters",
-   "sum": "Brent oil structure changes to reflect mounting supply risk as Iran tensions flare  Reuters"
-  },
-  {
-   "h": "Trump says he thinks Iran and Hezbollah will be added to Russia sanctions bill - Reuters",
-   "src": "Reuters",
-   "sum": "Trump says he thinks Iran and Hezbollah will be added to Russia sanctions bill  Reuters"
-  },
-  {
-   "h": "Jim Cramer says don't bite on Apple sell call; buy his new chip favorite",
-   "src": "CNBC",
-   "sum": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET."
-  },
-  {
-   "h": "China blunted Iran war oil shock, but can it do the same for fuels? - Reuters",
-   "src": "Reuters",
-   "sum": "China blunted Iran war oil shock, but can it do the same for fuels?  Reuters"
-  },
-  {
-   "h": "After Hormuz, Iran turns to Red Sea gateway as new pressure point - Reuters",
-   "src": "Reuters",
-   "sum": "After Hormuz, Iran turns to Red Sea gateway as new pressure point  Reuters"
-  },
-  {
-   "h": "Jim Cramer's top 10 things to watch in the stock market Tuesday",
-   "src": "CNBC",
-   "sum": "S&P 500 futures are up after June inflation data came in weaker than expected and earnings season kicked off with the banks."
   }
  ]
 }

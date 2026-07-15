@@ -4165,9 +4165,69 @@
    "reason": "CBOE 仍是低情绪、低拥挤的机构压舱盘口，没看到资金恐慌流出，不急着卖。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 210,
+   "fill_date": "2026-07-15",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂，文化也没有问题，盘前这点波动不是让我换生意的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 211,
+   "fill_date": "2026-07-15",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "INIO",
+   "reason": "AI 数据中心抢电不是故事而是交付瓶颈，盘前被砸给了我一个不追高的入口；燃气往复机这种即插即用电力缓冲，每座算力园区扩产都要分它一块 BOM。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 212,
+   "fill_date": "2026-07-15",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AVGO",
+   "reason": "AI资本开支和定制ASIC还是今天最顺流的主线，盘前也在走强，我只骑这条趋势里最干净、弹性最高的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 213,
+   "fill_date": "2026-07-15",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "NVDA",
+   "reason": "半导体修复的核心旗手，流动性回补时最容易吃到指数和情绪双重beta，顺风就要加最强载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 214,
+   "fill_date": "2026-07-15",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "AVTR",
+   "reason": "从极度厌恶里刚有资金回头，盘前只小幅跟随不是抢帽子，像聪明钱在冰点后慢慢吸而不是散户狂追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 215,
+   "fill_date": "2026-07-15",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "AUGO",
+   "reason": "黄金资金流还在、转板带来的增量买盘预期没被盘前一次性打满，情绪偏热但尚未到全民拥挤，顺势拿一仓。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 210,
+ "next_order_id": 216,
  "notes": [
   {
    "date": "2026-06-12",

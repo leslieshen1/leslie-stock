@@ -2557,8 +2557,48 @@
    "reason": "盘前候选全是0.0%无主动资金表态，持仓也未触发情绪确认或机械止损，死水不加仓、弱势不乱砍，先看开盘资金往哪边打。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 116,
+   "fill_date": "2026-07-15",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看得懂，也都是我愿意拿十年的好生意，今天候选虽不差，但没有好到值得我为了调仓而折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 117,
+   "fill_date": "2026-07-15",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在我定义的真瓶颈位置，今天候选没有盘前错杀信号，我不为了换手去卖掉卡脖子资产。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 118,
+   "fill_date": "2026-07-15",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300666",
+   "reason": "半导体国产替代这股流动性大风还没转，江丰是AI先进制程耗材里弹性足、位置没盘前爆拉的高胜率表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 119,
+   "fill_date": "2026-07-15",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是0跳，没有资金抢筹信号，死水不下注；盛达资源仍在贵金属情绪线上，先让子弹飞。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 116,
+ "next_order_id": 120,
  "splits": []
 }

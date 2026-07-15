@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 75405.75,
-  "druckenmiller": 382667.3,
-  "sentiment": 902340.53
+  "druckenmiller": 269338.14,
+  "sentiment": 742389.23
  },
  "positions": [
   {
@@ -191,10 +191,24 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "META",
-   "shares": 171,
-   "entry": 667.75,
-   "entry_date": "2026-07-10"
+   "sym": "GEV",
+   "shares": 106,
+   "entry": 1069.25,
+   "entry_date": "2026-07-14"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "GS",
+   "shares": 99,
+   "entry": 1138.78,
+   "entry_date": "2026-07-14"
+  },
+  {
+   "master": "sentiment",
+   "sym": "PSX",
+   "shares": 794,
+   "entry": 201.45,
+   "entry_date": "2026-07-14"
   }
  ],
  "nav": [
@@ -722,6 +736,31 @@
    "master": "sentiment",
    "date": "2026-07-13",
    "nav": 1068064.27
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-14",
+   "nav": 1015281.01
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-14",
+   "nav": 995884.67
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-14",
+   "nav": 929138.18
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-14",
+   "nav": 987252.24
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-14",
+   "nav": 1066778.57
   }
  ],
  "trades": [
@@ -2213,6 +2252,46 @@
    "shares": 286,
    "price": 383.74,
    "reason": "AI半导体里资金在做内部淘汰，AVGO上周五没跟上NVDA、AMD，今早又领跌，载体不够强我先砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "META",
+   "shares": 171,
+   "price": 659.36,
+   "reason": "纳指盘前大反弹它却还红不起来，强流动性日里相对弱就是趋势在告诉我这匹马不顺风，先砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "GEV",
+   "shares": 106,
+   "price": 1069.25,
+   "reason": "AI电力和电网资本开支仍是最干净的大趋势，今天风险偏好回流而它继续顺风上攻，我要加到弹性更纯的载体上。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "GS",
+   "shares": 99,
+   "price": 1138.78,
+   "reason": "罗素和风险资产盘前一起拉，资本市场复苏与交易活跃度这条流动性线重新占优，高盛是这波里高弹性的表达。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-14",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "PSX",
+   "shares": 794,
+   "price": 201.45,
+   "reason": "能源资金还在接科技撤出的避险/通胀对冲筹码，Elliott 催化让盘口顺风但盘前只小幅续涨，不算接最后一棒。",
    "src": "ai"
   }
  ],
@@ -4014,7 +4093,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里这些生意大多仍有我能看懂的护城河，今天的盘前波动没有给我一个用十年眼光必须行动的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4024,7 +4103,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看懂，也都够本分；盘前涨跌不是我卖好公司的理由，今天不为了热闹乱动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4034,7 +4113,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "真瓶颈仓位今天多数在跟随风险偏好修复，候选里最想要的 InP/光互联/存储链盘前已经被抢，我不接盘前最后一棒，现金留着等回落。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4044,7 +4123,7 @@
    "action": "SELL",
    "sym": "META",
    "reason": "纳指盘前大反弹它却还红不起来，强流动性日里相对弱就是趋势在告诉我这匹马不顺风，先砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4054,7 +4133,7 @@
    "action": "BUY",
    "sym": "GEV",
    "reason": "AI电力和电网资本开支仍是最干净的大趋势，今天风险偏好回流而它继续顺风上攻，我要加到弹性更纯的载体上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4064,7 +4143,7 @@
    "action": "BUY",
    "sym": "GS",
    "reason": "罗素和风险资产盘前一起拉，资本市场复苏与交易活跃度这条流动性线重新占优，高盛是这波里高弹性的表达。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4074,7 +4153,7 @@
    "action": "BUY",
    "sym": "PSX",
    "reason": "能源资金还在接科技撤出的避险/通胀对冲筹码，Elliott 催化让盘口顺风但盘前只小幅续涨，不算接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4084,7 +4163,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "CBOE 仍是低情绪、低拥挤的机构压舱盘口，没看到资金恐慌流出，不急着卖。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

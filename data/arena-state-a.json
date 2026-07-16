@@ -2742,8 +2742,18 @@
    "reason": "集合竞价全场几乎零脉冲，候选没有看到资金抢筹，死水不下单；盛达还未触发情绪破位，先让白银线的资金再表态。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 130,
+   "fill_date": "2026-07-16",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选没出现爆拉，手里这批都是真卡脖子单点瓶颈，先不追不换，继续拿着等下游量产洪流兑现；这类高波动主题票我接受回撤，但今天不做动作。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 130,
+ "next_order_id": 131,
  "splits": []
 }

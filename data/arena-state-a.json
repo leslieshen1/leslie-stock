@@ -2652,8 +2652,98 @@
    "reason": "这些生意我大体看得懂，价格也没有给我必须调仓的理由；少量现金留着，等待真正打折的好公司。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 121,
+   "fill_date": "2026-07-16",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓仍是我能看懂、有护城河且价格未到需要卖出的生意；现金不多，也没有必要为了动作而动作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 122,
+   "fill_date": "2026-07-16",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的几门生意我都看得懂，也都够本分，今天没有便宜到让我换仓的机会，现金留着不碍事。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 123,
+   "fill_date": "2026-07-16",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688409",
+   "reason": "富创已经-8%还跑不出强度，半导体风在但它不是最强马，错了先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 124,
+   "fill_date": "2026-07-16",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688347",
+   "reason": "华虹在同一条国产替代主线里持续落后，趋势不确认就不能占我的风险预算。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 125,
+   "fill_date": "2026-07-16",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688521",
+   "reason": "芯原的AI ASIC叙事没有被价格验证，亏损扩大前先撤。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 126,
+   "fill_date": "2026-07-16",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688981",
+   "reason": "中芯是国产替代主线里流动性和政策承载最硬的核心载体，今天没爆拉，可以接一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 127,
+   "fill_date": "2026-07-16",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300346",
+   "reason": "南大光电卡光刻材料瓶颈，国产替代顺风仍在，位置没有盘前抢跑就上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 128,
+   "fill_date": "2026-07-16",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688072",
+   "reason": "拓荆是设备端最锋利的矛，若这轮半导体行情继续，它应当是高弹性表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 129,
+   "fill_date": "2026-07-16",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全场几乎零脉冲，候选没有看到资金抢筹，死水不下单；盛达还未触发情绪破位，先让白银线的资金再表态。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 121,
+ "next_order_id": 130,
  "splits": []
 }

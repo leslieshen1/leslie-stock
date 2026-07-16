@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-15 22:31 ET Wed",
+ "asof_et": "2026-07-15 22:46 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "+0.40%",
@@ -59,8 +59,8 @@
   {
    "sym": "BILL",
    "name": "BILL Holdings Inc.",
-   "close_price": "$44.64",
-   "close_pct": "+7.90%"
+   "close_price": "$44.63",
+   "close_pct": "+7.88%"
   },
   {
    "sym": "ROAD",
@@ -1151,11 +1151,6 @@
  ],
  "news": [
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq slip as semiconductor stocks plummet",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
    "h": "Stock Market Today: Nasdaq, Dow and S&P 500 log back-to-back gains; oil edges up on fresh U.S. Iran strikes; financial stocks score record finish on robust bank earnings",
    "src": "MarketWatch",
    "sum": ""
@@ -1171,13 +1166,13 @@
    "sum": ""
   },
   {
-   "h": "Stocks close higher on Big Tech gains, encouraging inflation signs",
-   "src": "CNBC",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq slip as semiconductor stocks plummet",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "Stock Market News, July 15, 2026: Megacap Tech Names Push Indexes Higher",
-   "src": "WSJ",
+   "h": "Stocks close higher on Big Tech gains, encouraging inflation signs",
+   "src": "CNBC",
    "sum": ""
   },
   {
@@ -1188,6 +1183,11 @@
   {
    "h": "Stock market today: Dow, S&P 500, Nasdaq rise as Apple notches record high",
    "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "Stock Market Today: Dow, S&P 500, Nasdaq 100 Futures Rise on Better-Than-Expected CPI Data—Tower Semicond",
+   "src": "Benzinga",
    "sum": ""
   },
   {
@@ -1216,7 +1216,7 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Wednesday, July 15, 2026: Cramer says he likes this tech giant's stock over Nvidia",
+   "h": "[NVDA] Here are Wednesday's biggest analyst calls: Nvidia, SpaceX, Tesla, Cava, AMD, Palantir, Microsoft & more",
    "src": "CNBC",
    "sum": ""
   },
@@ -1249,6 +1249,11 @@
    "h": "[ARM] Arm And Marvell Tumble As Chip Stocks Sell Off",
    "src": "Investor's Business Daily",
    "sum": ""
+  },
+  {
+   "h": "Oil prices rise for 4th day as US strikes on Iran raise fears of wider conflict - Reuters",
+   "src": "Reuters",
+   "sum": "Oil prices rise for 4th day as US strikes on Iran raise fears of wider conflict  Reuters"
   },
   {
    "h": "Explainer: Who are the Houthis, Iran’s allies in Yemen? - Reuters",
@@ -1294,11 +1299,6 @@
    "h": "Jim Cramer sees more upside for Goldman and addresses Wells Fargo's biggest question",
    "src": "CNBC",
    "sum": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET."
-  },
-  {
-   "h": "Most Gulf markets subdued as US-Iran tensions escalate - Reuters",
-   "src": "Reuters",
-   "sum": "Most Gulf markets subdued as US-Iran tensions escalate  Reuters"
   }
  ]
 }

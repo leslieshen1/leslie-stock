@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 75405.75,
-  "druckenmiller": 269338.14,
-  "sentiment": 742389.23
+  "serenity": 5.75,
+  "druckenmiller": 42100.89,
+  "sentiment": 588954.95
  },
  "positions": [
   {
@@ -169,13 +169,6 @@
    "entry_date": "2026-07-08"
   },
   {
-   "master": "sentiment",
-   "sym": "CBOE",
-   "shares": 598,
-   "entry": 264.98,
-   "entry_date": "2026-07-08"
-  },
-  {
    "master": "buffett",
    "sym": "PEP",
    "shares": 886,
@@ -209,6 +202,41 @@
    "shares": 794,
    "entry": 201.45,
    "entry_date": "2026-07-14"
+  },
+  {
+   "master": "serenity",
+   "sym": "INIO",
+   "shares": 2500,
+   "entry": 30.16,
+   "entry_date": "2026-07-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "AVGO",
+   "shares": 288,
+   "entry": 394.23,
+   "entry_date": "2026-07-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "NVDA",
+   "shares": 537,
+   "entry": 211.73,
+   "entry_date": "2026-07-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "AVTR",
+   "shares": 14248,
+   "entry": 11.2,
+   "entry_date": "2026-07-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "AUGO",
+   "shares": 2906,
+   "entry": 54.91,
+   "entry_date": "2026-07-15"
   }
  ],
  "nav": [
@@ -761,6 +789,31 @@
    "master": "sentiment",
    "date": "2026-07-14",
    "nav": 1066778.57
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-15",
+   "nav": 1029961.71
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-15",
+   "nav": 1007252.8
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-15",
+   "nav": 905601.98
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-15",
+   "nav": 989562.98
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-15",
+   "nav": 1063852.05
   }
  ],
  "trades": [
@@ -2292,6 +2345,66 @@
    "shares": 794,
    "price": 201.45,
    "reason": "能源资金还在接科技撤出的避险/通胀对冲筹码，Elliott 催化让盘口顺风但盘前只小幅续涨，不算接最后一棒。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "INIO",
+   "shares": 2500,
+   "price": 30.16,
+   "reason": "AI 数据中心抢电不是故事而是交付瓶颈，盘前被砸给了我一个不追高的入口；燃气往复机这种即插即用电力缓冲，每座算力园区扩产都要分它一块 BOM。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AVGO",
+   "shares": 288,
+   "price": 394.23,
+   "reason": "AI资本开支和定制ASIC还是今天最顺流的主线，盘前也在走强，我只骑这条趋势里最干净、弹性最高的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "NVDA",
+   "shares": 537,
+   "price": 211.73,
+   "reason": "半导体修复的核心旗手，流动性回补时最容易吃到指数和情绪双重beta，顺风就要加最强载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CBOE",
+   "shares": 598,
+   "price": 277.11,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+4.6%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "AVTR",
+   "shares": 14248,
+   "price": 11.2,
+   "reason": "从极度厌恶里刚有资金回头，盘前只小幅跟随不是抢帽子，像聪明钱在冰点后慢慢吸而不是散户狂追。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "AUGO",
+   "shares": 2906,
+   "price": 54.91,
+   "reason": "黄金资金流还在、转板带来的增量买盘预期没被盘前一次性打满，情绪偏热但尚未到全民拥挤，顺势拿一仓。",
    "src": "ai"
   }
  ],
@@ -4173,7 +4286,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂，文化也没有问题，盘前这点波动不是让我换生意的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4183,7 +4296,7 @@
    "action": "BUY",
    "sym": "INIO",
    "reason": "AI 数据中心抢电不是故事而是交付瓶颈，盘前被砸给了我一个不追高的入口；燃气往复机这种即插即用电力缓冲，每座算力园区扩产都要分它一块 BOM。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4193,7 +4306,7 @@
    "action": "BUY",
    "sym": "AVGO",
    "reason": "AI资本开支和定制ASIC还是今天最顺流的主线，盘前也在走强，我只骑这条趋势里最干净、弹性最高的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4203,7 +4316,7 @@
    "action": "BUY",
    "sym": "NVDA",
    "reason": "半导体修复的核心旗手，流动性回补时最容易吃到指数和情绪双重beta，顺风就要加最强载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4213,7 +4326,7 @@
    "action": "BUY",
    "sym": "AVTR",
    "reason": "从极度厌恶里刚有资金回头，盘前只小幅跟随不是抢帽子，像聪明钱在冰点后慢慢吸而不是散户狂追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4223,7 +4336,7 @@
    "action": "BUY",
    "sym": "AUGO",
    "reason": "黄金资金流还在、转板带来的增量买盘预期没被盘前一次性打满，情绪偏热但尚未到全民拥挤，顺势拿一仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

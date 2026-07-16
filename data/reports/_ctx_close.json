@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-15 22:01 ET Wed",
+ "asof_et": "2026-07-15 22:16 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "+0.40%",
@@ -1151,6 +1151,11 @@
  ],
  "news": [
   {
+   "h": "Stock market today: Dow, S&P 500, Nasdaq slip as semiconductor stocks plummet",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
    "h": "Stock Market Today: Nasdaq, Dow and S&P 500 log back-to-back gains; oil edges up on fresh U.S. Iran strikes; financial stocks score record finish on robust bank earnings",
    "src": "MarketWatch",
    "sum": ""
@@ -1163,11 +1168,6 @@
   {
    "h": "Stock Market Today: Nasdaq Rises Despite Tumble Among Chip Leaders; Apple Paces Mag 7 Rally",
    "src": "Investor's Business Daily",
-   "sum": ""
-  },
-  {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq slip as semiconductor stocks plummet",
-   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -1211,8 +1211,8 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Nvidia Stock Nears Buy Point On These Positive Signs",
-   "src": "Investor's Business Daily",
+   "h": "[NVDA] Prediction: This Will Be Nvidia's Stock Price Next Year (Hint: The Time to Buy Is Now)",
+   "src": "The Motley Fool",
    "sum": ""
   },
   {

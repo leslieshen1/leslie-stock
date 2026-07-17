@@ -1,236 +1,236 @@
 {
- "asof_et": "2026-07-16 08:35 ET Thu",
+ "asof_et": "2026-07-17 08:35 ET Fri",
  "direction": {
   "标普500": {
-   "pm_pct": "-0.38%",
-   "yesterday_pct": "+0.40%"
+   "pm_pct": "-0.86%",
+   "yesterday_pct": "-0.54%"
   },
   "纳指100": {
-   "pm_pct": "-0.96%",
-   "yesterday_pct": "-0.27%"
+   "pm_pct": "-1.83%",
+   "yesterday_pct": "-1.64%"
   },
   "道指": {
-   "pm_pct": "+0.05%",
-   "yesterday_pct": "+0.24%"
+   "pm_pct": "-0.60%",
+   "yesterday_pct": "-0.21%"
   },
   "罗素2000": {
-   "pm_pct": "-0.48%",
-   "yesterday_pct": "+0.43%"
+   "pm_pct": "-0.80%",
+   "yesterday_pct": "-0.06%"
   }
  },
  "market_status": "Pre-Market",
  "premarket_gainers": [
   {
-   "sym": "UNH",
-   "name": "UnitedHealth Group Incorporated Common Stock (DE)",
-   "pm_price": "$446.0203",
-   "pm_pct": "+6.57%",
-   "yesterday_pct": "-1.57%",
-   "yesterday_close": "$418.52"
-  },
-  {
-   "sym": "CBRE",
-   "name": "CBRE Group Inc Common Stock Class A",
-   "pm_price": "$141.41",
-   "pm_pct": "+6.22%",
-   "yesterday_pct": "+6.22%",
-   "yesterday_close": "$141.41"
-  },
-  {
-   "sym": "FRHC",
-   "name": "Freedom Holding Corp.",
-   "pm_price": "$157.68",
-   "pm_pct": "+5.89%",
-   "yesterday_pct": "+5.89%",
-   "yesterday_close": "$157.68"
-  },
-  {
    "sym": "MAAS",
    "name": "Maase Inc. Class A",
-   "pm_price": "$16.99",
-   "pm_pct": "+2.53%",
-   "yesterday_pct": "+17.43%",
-   "yesterday_close": "$16.57"
+   "pm_price": "$21.50",
+   "pm_pct": "+2.63%",
+   "yesterday_pct": "+26.43%",
+   "yesterday_close": "$20.95"
   },
   {
-   "sym": "CIGI",
-   "name": "Colliers International Group Inc. Subordinate Voting Shares",
-   "pm_price": "$102.69",
-   "pm_pct": "+2.00%",
-   "yesterday_pct": "+5.88%",
-   "yesterday_close": "$100.68"
+   "sym": "ERAS",
+   "name": "Erasca Inc.",
+   "pm_price": "$19.392",
+   "pm_pct": "+1.96%",
+   "yesterday_pct": "-10.54%",
+   "yesterday_close": "$19.02"
   },
   {
-   "sym": "BEKE",
-   "name": "KE Holdings Inc American Depositary Shares (each representing three Class A Ordinary Shares)",
-   "pm_price": "$17.35",
-   "pm_pct": "+1.88%",
-   "yesterday_pct": "+5.78%",
-   "yesterday_close": "$17.03"
+   "sym": "XOM",
+   "name": "Exxon Mobil Corporation",
+   "pm_price": "$148.50",
+   "pm_pct": "+1.75%",
+   "yesterday_pct": "+1.00%",
+   "yesterday_close": "$145.95"
   },
   {
-   "sym": "NTSK",
-   "name": "Netskope Inc. Class A",
-   "pm_price": "$13.46",
-   "pm_pct": "+1.58%",
-   "yesterday_pct": "-7.15%",
-   "yesterday_close": "$13.25"
+   "sym": "WMT",
+   "name": "Walmart Inc.",
+   "pm_price": "$116.85",
+   "pm_pct": "+1.65%",
+   "yesterday_pct": "+2.15%",
+   "yesterday_close": "$114.95"
   },
   {
-   "sym": "ZG",
-   "name": "Zillow Group Inc. Class A",
-   "pm_price": "$34.20",
-   "pm_pct": "+1.36%",
-   "yesterday_pct": "+6.10%",
-   "yesterday_close": "$33.74"
+   "sym": "COST",
+   "name": "Costco Wholesale Corporation",
+   "pm_price": "$955.96",
+   "pm_pct": "+1.10%",
+   "yesterday_pct": "+3.17%",
+   "yesterday_close": "$945.57"
+  },
+  {
+   "sym": "MANE",
+   "name": "Veradermics Incorporated",
+   "pm_price": "$106.9933",
+   "pm_pct": "+1.10%",
+   "yesterday_pct": "-14.45%",
+   "yesterday_close": "$105.83"
+  },
+  {
+   "sym": "HD",
+   "name": "Home Depot Inc. (The)",
+   "pm_price": "$350.33",
+   "pm_pct": "+0.66%",
+   "yesterday_pct": "+1.93%",
+   "yesterday_close": "$348.02"
+  },
+  {
+   "sym": "LLY",
+   "name": "Eli Lilly and Company",
+   "pm_price": "$1,174.8222",
+   "pm_pct": "+0.48%",
+   "yesterday_pct": "+1.08%",
+   "yesterday_close": "$1,169.17"
   }
  ],
  "premarket_losers": [
   {
-   "sym": "CHRN",
-   "name": "ChronoScale Corporation",
-   "pm_price": "$27.8162",
-   "pm_pct": "-6.12%",
-   "yesterday_pct": "+28.77%",
-   "yesterday_close": "$29.63"
+   "sym": "NFLX",
+   "name": "Netflix Inc.",
+   "pm_price": "$66.00",
+   "pm_pct": "-11.23%",
+   "yesterday_pct": "+0.91%",
+   "yesterday_close": "$74.35"
   },
   {
-   "sym": "MU",
-   "name": "Micron Technology Inc.",
-   "pm_price": "$857.6657",
-   "pm_pct": "-5.15%",
-   "yesterday_pct": "-8.02%",
-   "yesterday_close": "$904.28"
+   "sym": "UMC",
+   "name": "United Microelectronics Corporation (NEW)",
+   "pm_price": "$20.458",
+   "pm_pct": "-8.22%",
+   "yesterday_pct": "-10.55%",
+   "yesterday_close": "$22.29"
+  },
+  {
+   "sym": "UCTT",
+   "name": "Ultra Clean Holdings Inc.",
+   "pm_price": "$86.25",
+   "pm_pct": "-6.86%",
+   "yesterday_pct": "-9.31%",
+   "yesterday_close": "$92.60"
+  },
+  {
+   "sym": "CRDO",
+   "name": "Credo Technology Group Holding Ltd",
+   "pm_price": "$196.25",
+   "pm_pct": "-5.64%",
+   "yesterday_pct": "-8.28%",
+   "yesterday_close": "$207.97"
+  },
+  {
+   "sym": "ALAB",
+   "name": "Astera Labs Inc.",
+   "pm_price": "$304.00",
+   "pm_pct": "-4.92%",
+   "yesterday_pct": "-8.81%",
+   "yesterday_close": "$319.74"
+  },
+  {
+   "sym": "VICR",
+   "name": "Vicor Corporation",
+   "pm_price": "$219.18",
+   "pm_pct": "-4.87%",
+   "yesterday_pct": "-11.45%",
+   "yesterday_close": "$230.41"
+  },
+  {
+   "sym": "MXL",
+   "name": "MaxLinear Inc.",
+   "pm_price": "$70.78",
+   "pm_pct": "-4.87%",
+   "yesterday_pct": "-16.25%",
+   "yesterday_close": "$74.40"
   },
   {
    "sym": "AAOI",
    "name": "Applied Optoelectronics Inc.",
-   "pm_price": "$103.6501",
-   "pm_pct": "-4.99%",
-   "yesterday_pct": "-13.04%",
-   "yesterday_close": "$109.09"
-  },
-  {
-   "sym": "COHR",
-   "name": "Coherent Corp.",
-   "pm_price": "$284.9089",
-   "pm_pct": "-4.83%",
-   "yesterday_pct": "-3.67%",
-   "yesterday_close": "$299.38"
-  },
-  {
-   "sym": "GLW",
-   "name": "Corning Incorporated",
-   "pm_price": "$166.50",
-   "pm_pct": "-4.54%",
-   "yesterday_pct": "-7.05%",
-   "yesterday_close": "$174.41"
-  },
-  {
-   "sym": "ACMR",
-   "name": "ACM Research Inc. Class A",
-   "pm_price": "$87.80",
-   "pm_pct": "-4.52%",
-   "yesterday_pct": "-7.01%",
-   "yesterday_close": "$91.96"
-  },
-  {
-   "sym": "ARM",
-   "name": "Arm Holdings plc",
-   "pm_price": "$264.98",
-   "pm_pct": "-4.34%",
-   "yesterday_pct": "-1.48%",
-   "yesterday_close": "$277.01"
-  },
-  {
-   "sym": "TSM",
-   "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
-   "pm_price": "$402.70",
-   "pm_pct": "-4.00%",
-   "yesterday_pct": "-0.22%",
-   "yesterday_close": "$419.48"
+   "pm_price": "$95.3655",
+   "pm_pct": "-4.86%",
+   "yesterday_pct": "-8.11%",
+   "yesterday_close": "$100.24"
   }
  ],
  "watchlist": [
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "pm_price": "$134.55",
-   "pm_pct": "-0.53%",
-   "yesterday_pct": "-0.60%",
-   "yesterday_close": "$135.27"
+   "pm_price": "$125.4326",
+   "pm_pct": "-4.33%",
+   "yesterday_pct": "-3.08%",
+   "yesterday_close": "$131.11"
   },
   {
    "sym": "MU",
    "name": "Micron Technology Inc.",
-   "pm_price": "$857.6657",
-   "pm_pct": "-5.15%",
-   "yesterday_pct": "-8.02%",
-   "yesterday_close": "$904.28"
+   "pm_price": "$826.5802",
+   "pm_pct": "-3.12%",
+   "yesterday_pct": "-5.65%",
+   "yesterday_close": "$853.20"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "pm_price": "$208.9474",
-   "pm_pct": "-1.67%",
-   "yesterday_pct": "+0.33%",
-   "yesterday_close": "$212.50"
+   "pm_price": "$202.1763",
+   "pm_pct": "-2.52%",
+   "yesterday_pct": "-2.40%",
+   "yesterday_close": "$207.40"
   },
   {
    "sym": "AVGO",
    "name": "Broadcom Inc.",
-   "pm_price": "$386.0537",
-   "pm_pct": "-2.09%",
-   "yesterday_pct": "+1.33%",
-   "yesterday_close": "$394.28"
+   "pm_price": "$365.5749",
+   "pm_pct": "-2.37%",
+   "yesterday_pct": "-5.03%",
+   "yesterday_close": "$374.45"
   },
   {
    "sym": "AMD",
    "name": "Advanced Micro Devices Inc.",
-   "pm_price": "$511.26",
-   "pm_pct": "-3.38%",
-   "yesterday_pct": "-3.46%",
-   "yesterday_close": "$529.14"
+   "pm_price": "$481.00",
+   "pm_pct": "-3.98%",
+   "yesterday_pct": "-5.33%",
+   "yesterday_close": "$500.94"
   },
   {
    "sym": "ARM",
    "name": "Arm Holdings plc",
-   "pm_price": "$264.98",
-   "pm_pct": "-4.34%",
-   "yesterday_pct": "-1.48%",
-   "yesterday_close": "$277.01"
+   "pm_price": "$251.03",
+   "pm_pct": "-4.19%",
+   "yesterday_pct": "-5.41%",
+   "yesterday_close": "$262.01"
   },
   {
    "sym": "SMCI",
    "name": "Super Micro Computer Inc.",
-   "pm_price": "$26.34",
-   "pm_pct": "-2.05%",
-   "yesterday_pct": "-2.75%",
-   "yesterday_close": "$26.89"
+   "pm_price": "$24.0106",
+   "pm_pct": "-2.71%",
+   "yesterday_pct": "-8.22%",
+   "yesterday_close": "$24.68"
   },
   {
    "sym": "PLTR",
    "name": "Palantir Technologies Inc. Class A",
-   "pm_price": "$133.80",
-   "pm_pct": "+0.03%",
-   "yesterday_pct": "+0.03%",
-   "yesterday_close": "$133.76"
+   "pm_price": "$130.78",
+   "pm_pct": "-2.72%",
+   "yesterday_pct": "+0.51%",
+   "yesterday_close": "$134.44"
   },
   {
    "sym": "TSLA",
    "name": "Tesla Inc.",
-   "pm_price": "$392.70",
-   "pm_pct": "-0.45%",
-   "yesterday_pct": "-0.43%",
-   "yesterday_close": "$394.46"
+   "pm_price": "$382.80",
+   "pm_pct": "-2.11%",
+   "yesterday_pct": "-0.86%",
+   "yesterday_close": "$391.06"
   },
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "pm_price": "$284.9089",
-   "pm_pct": "-4.83%",
-   "yesterday_pct": "-3.67%",
-   "yesterday_close": "$299.38"
+   "pm_price": "$265.89",
+   "pm_pct": "-4.00%",
+   "yesterday_pct": "-7.49%",
+   "yesterday_close": "$276.96"
   }
  ],
  "earnings": [
@@ -338,497 +338,82 @@
    "hour": "bmo",
    "epsEst": 5.4106,
    "date": "2026-07-17"
-  },
-  {
-   "sym": "AA",
-   "name": "Alcoa Corporation",
-   "hour": "amc",
-   "epsEst": 2.3138,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "ABT",
-   "name": "Abbott Laboratories",
-   "hour": "bmo",
-   "epsEst": 1.2922,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "ADN",
-   "name": null,
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "ASII",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "ATLO",
-   "name": "Ames National Corporation",
-   "hour": "",
-   "epsEst": 0.6732,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "AUSI",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "AXXA",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "BANF",
-   "name": "BancFirst Corporation",
-   "hour": "",
-   "epsEst": 1.8326,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "BCBP",
-   "name": "BCB Bancorp Inc. (NJ)",
-   "hour": "",
-   "epsEst": 0.2519,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "BCML",
-   "name": "BayCom Corp",
-   "hour": "",
-   "epsEst": 0.4284,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "BHB",
-   "name": "Bar Harbor Bankshares Inc.",
-   "hour": "",
-   "epsEst": 0.904,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "BSVN",
-   "name": "Bank7 Corp. Common stock",
-   "hour": "bmo",
-   "epsEst": 1.0588,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "BZYR",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CAHO",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CASS",
-   "name": "Cass Information Systems Inc",
-   "hour": "",
-   "epsEst": 0.7364,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CBFC",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CBSH",
-   "name": "Commerce Bancshares Inc.",
-   "hour": "bmo",
-   "epsEst": 1.0706,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CE",
-   "name": "Celanese Corporation",
-   "hour": "amc",
-   "epsEst": 2.3055,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CFG",
-   "name": "Citizens Financial Group Inc.",
-   "hour": "bmo",
-   "epsEst": 1.2534,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CHMG",
-   "name": "Chemung Financial Corp",
-   "hour": "",
-   "epsEst": 1.8003,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CNS",
-   "name": "Cohen & Steers Inc",
-   "hour": "amc",
-   "epsEst": 0.8636,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CPKF",
-   "name": null,
-   "hour": "",
-   "epsEst": 0.8772,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CSBR",
-   "name": "Champions Oncology Inc.",
-   "hour": "amc",
-   "epsEst": -0.051,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CTM",
-   "name": "Castellum Inc.",
-   "hour": "",
-   "epsEst": 0,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "CZNC",
-   "name": "Citizens & Northern Corp",
-   "hour": "",
-   "epsEst": 0.6426,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "ENBP",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "FFIN",
-   "name": "First Financial Bankshares Inc.",
-   "hour": "",
-   "epsEst": 0.5124,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "FMCB",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "FNB",
-   "name": "F.N.B. Corporation",
-   "hour": "amc",
-   "epsEst": 0.4233,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "GE",
-   "name": "GE Aerospace",
-   "hour": "bmo",
-   "epsEst": 1.9151,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "GTPS",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "HOVR",
-   "name": "New Horizon Aircraft Ltd. Class A Ordinary Share",
-   "hour": "bmo",
-   "epsEst": -0.1734,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "HOVR",
-   "name": "New Horizon Aircraft Ltd. Class A Ordinary Share",
-   "hour": "bmo",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "IIIN",
-   "name": "Insteel Industries Inc.",
-   "hour": "bmo",
-   "epsEst": 0.4539,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "INDB",
-   "name": "Independent Bank Corp.",
-   "hour": "amc",
-   "epsEst": 1.8114,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "ISRG",
-   "name": "Intuitive Surgical Inc.",
-   "hour": "amc",
-   "epsEst": 2.5503,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "JUVF",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "MAN",
-   "name": "ManpowerGroup",
-   "hour": "bmo",
-   "epsEst": 0.9611,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "MCBS",
-   "name": "MetroCity Bankshares Inc.",
-   "hour": "",
-   "epsEst": 0.8282,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "NCL",
-   "name": "Northann Corp.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "NFLX",
-   "name": "Netflix Inc.",
-   "hour": "amc",
-   "epsEst": 0.8042,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "OVLY",
-   "name": "Oak Valley Bancorp (CA)",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "PFIS",
-   "name": "Peoples Financial Services Corp.",
-   "hour": "",
-   "epsEst": 1.6677,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "PLD",
-   "name": "Prologis Inc.",
-   "hour": "bmo",
-   "epsEst": 0.7979,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "PUBC",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "SEGG",
-   "name": "Sports Entertainment Gaming Global Corporation",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "SFNC",
-   "name": "Simmons First National Corporation Class A",
-   "hour": "amc",
-   "epsEst": 0.5304,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "SIFY",
-   "name": "Sify Technologies Limited",
-   "hour": "",
-   "epsEst": 0,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "SRCE",
-   "name": "1st Source Corporation",
-   "hour": "",
-   "epsEst": 1.7493,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "STT",
-   "name": "State Street Corporation",
-   "hour": "bmo",
-   "epsEst": 3.3633,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "TETEF",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "TFC",
-   "name": "Truist Financial Corporation",
-   "hour": "",
-   "epsEst": 1.2889,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "TRUX",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "UNH",
-   "name": "UnitedHealth Group Incorporated Common Stock (DE)",
-   "hour": "bmo",
-   "epsEst": 4.9112,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "USB",
-   "name": "U.S. Bancorp",
-   "hour": "bmo",
-   "epsEst": 1.2909,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "USMT",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "VBTX",
-   "name": null,
-   "hour": "",
-   "epsEst": 0.5985,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "WABC",
-   "name": "Westamerica Bancorporation",
-   "hour": "",
-   "epsEst": 1.1189,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "WAFD",
-   "name": "WaFd Inc.",
-   "hour": "",
-   "epsEst": 0.8305,
-   "date": "2026-07-16"
-  },
-  {
-   "sym": "WTER",
-   "name": null,
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-07-16"
   }
  ],
  "news": [
   {
-   "h": "S&P 500 futures edge lower as semiconductors fall: Live updates",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq rise as Apple notches record high",
+   "h": "Stock market today: Nasdaq futures hammered by chips sell-off, Dow and S&P 500 futures fall after Netflix whiff",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "Stocks close higher on Big Tech gains, encouraging inflation signs",
-   "src": "CNBC",
+   "h": "Dow Jones| Nasdaq | S&P 500 | US Stock Market Today | Highlights: S&P 500 and Nasdaq end higher on cool i...",
+   "src": "The Economic Times",
    "sum": ""
   },
   {
-   "h": "Stock Market News, July 15, 2026: Megacap Tech Names Push Indexes Higher",
+   "h": "US Stock Market Today: S&P 500 Futures Slip As Cooling Inflation Meets Tariff Jitters",
+   "src": "simplywall.st",
+   "sum": ""
+  },
+  {
+   "h": "Nasdaq Futures Tumble 1.5% as Chip Rout Deepens: Markets Wrap",
+   "src": "Bloomberg.com",
+   "sum": ""
+  },
+  {
+   "h": "The U.S. stock market is looking like a rubber band ready to snap",
+   "src": "MarketWatch",
+   "sum": ""
+  },
+  {
+   "h": "Nasdaq Declines as Chip Stocks Come Under Pressure",
    "src": "WSJ",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Dow, S&P 500 and Nasdaq set for steady start following softer-than-expected inflation data; retail sales on tap",
-   "src": "MarketWatch",
-   "sum": ""
-  },
-  {
-   "h": "Stocks end higher buoyed by light inflation data, bounce in chip stocks",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market Today: Nasdaq, Dow and S&P 500 log back-to-back gains; oil edges up on fresh U.S. Iran strikes; financial stocks score record finish on robust bank earnings",
-   "src": "MarketWatch",
-   "sum": ""
-  },
-  {
-   "h": "Stock Market Today: Nasdaq Rises Despite Tumble Among Chip Leaders; Apple Paces Mag 7 Rally",
-   "src": "Investor's Business Daily",
-   "sum": ""
-  },
-  {
-   "h": "[SPCX] SpaceX stock hits all-time low, dips below IPO price",
+   "h": "US Stock Market Today: S&P 500 Futures Dip On Tariff And Energy Cost Worries",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX stock sinks below $135 IPO price for the first time",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
-   "h": "[MU] Why Micron (MU) Stock Is Trading Lower Today",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq rise as Fed rate-hike bets ease, chip stocks rally",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[MU] Just How Wide Is the Range of Outcomes for Micron Stock?",
-   "src": "Trefis",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] Prediction: This Will Be Nvidia's Stock Price Next Year (Hint: The Time to Buy Is Now)",
+   "h": "[SPCX] SpaceX stock drops after first test flight since IPO scrubbed",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[NVDA] Wednesday, July 15, 2026: Cramer says he likes this tech giant's stock over Nvidia",
+   "h": "[SPCX] SpaceX stock on watch after hitting all-time low, dips below IPO price",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[MU] Why Micron (MU) Stock Is Down Today",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[MU] Jim Cramer: Here's my rule for protecting profits after parabolic stock rallies",
    "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Nvidia Pushes Into a Big New AI Market That Could Rally the Stock",
+   "src": "Barron's",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Bank of America Sees Nvidia’s Next $20 Billion Business. Here’s Where NVDA Stock Could Go",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[AVGO] Broadcom's AI Moat Keeps Expanding (NASDAQ:AVGO)",
+   "src": "Seeking Alpha",
    "sum": ""
   },
   {
@@ -837,79 +422,74 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] The Real Risk Inside Broadcom Stock",
-   "src": "Trefis",
+   "h": "[AMD] Nvidia and AMD Investors Must Be Prepared for Aug. 4",
+   "src": "The Motley Fool",
    "sum": ""
   },
   {
-   "h": "[AMD] Why AMD (AMD) Stock Is Up Today",
+   "h": "[AMD] SNDK, MU, AMD, NVDA – Is It Time to Buy the Dip in Chip Stocks?",
+   "src": "TipRanks",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Arm (ARM) Stock May Be Priced For Perfection With P B At 35.7x",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[AMD] Micron Drops 8% on China Competition Fears, Dragging Intel, AMD, and Marvell",
-   "src": "Yahoo Finance",
+   "h": "[ARM] Arm — the one that got away from the London Stock Exchange",
+   "src": "The Times",
    "sum": ""
   },
   {
-   "h": "[ARM] Arm And Marvell Tumble As Chip Stocks Sell Off",
-   "src": "Investor's Business Daily",
-   "sum": ""
-  },
-  {
-   "h": "[ARM] This Analyst Just Downgraded ARM Stock. Here's Why.",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "Iran, US escalate in Gulf but release of American signals path to climb down - Reuters",
-   "src": "Reuters",
-   "sum": "Iran, US escalate in Gulf but release of American signals path to climb down  Reuters"
-  },
-  {
-   "h": "UnitedHealth blows past estimates, hikes earnings outlook as it reins in costs",
+   "h": "Obscure volatility measure points to a 'Magnificent Seven’ earnings breakout",
    "src": "CNBC",
-   "sum": "The healthcare giant is working to stabilize margins by shrinking membership, exiting unprofitable contracts and pouring $1.5 billion into AI."
+   "sum": "If the S&P 500 is to make a new record, it may require the \"Magnificent Seven\" to get back into gear."
   },
   {
-   "h": "Vance says some in Israeli government sought to sway US on Iran deal - Reuters",
-   "src": "Reuters",
-   "sum": "Vance says some in Israeli government sought to sway US on Iran deal  Reuters"
+   "h": "Inside the Chinese fraud rings stealing billions from banks and retailers",
+   "src": "CNBC",
+   "sum": "Chinese organized crime groups are making as much as $1 billion annually in tap-to-pay fraud schemes targeting retailers and banks."
   },
   {
-   "h": "Iran war leaves crisis-weary European airlines ready for a shakeout - Reuters",
+   "h": "Suspected pirates seize tanker off Yemen coast in Gulf of Aden, sources say - Reuters",
    "src": "Reuters",
-   "sum": "Iran war leaves crisis-weary European airlines ready for a shakeout  Reuters"
+   "sum": "Suspected pirates seize tanker off Yemen coast in Gulf of Aden, sources say  Reuters"
   },
   {
-   "h": "Explainer: Who are the Houthis, Iran’s allies in Yemen? - Reuters",
+   "h": "Iran strikes eastern Syria, in first such attack during current war - Reuters",
    "src": "Reuters",
-   "sum": "Explainer: Who are the Houthis, Iran’s allies in Yemen?  Reuters"
+   "sum": "Iran strikes eastern Syria, in first such attack during current war  Reuters"
   },
   {
-   "h": "China’s oil fortress will reshape the global order - Reuters",
+   "h": "UK police charge man over Iran-linked spying offences - Reuters",
    "src": "Reuters",
-   "sum": "China’s oil fortress will reshape the global order  Reuters"
+   "sum": "UK police charge man over Iran-linked spying offences  Reuters"
   },
   {
-   "h": "Gold eases as Middle East tensions revive inflation concerns - Reuters",
+   "h": "Strait of Hormuz transits drop as US and Iran escalate attacks across Gulf - Reuters",
    "src": "Reuters",
-   "sum": "Gold eases as Middle East tensions revive inflation concerns  Reuters"
+   "sum": "Strait of Hormuz transits drop as US and Iran escalate attacks across Gulf  Reuters"
   },
   {
-   "h": "Fewer vessels travel through Hormuz after US resumes blockade - Reuters",
+   "h": "Burberry's Europe sales hit by Iran war while US and China grow - Reuters",
    "src": "Reuters",
-   "sum": "Fewer vessels travel through Hormuz after US resumes blockade  Reuters"
+   "sum": "Burberry's Europe sales hit by Iran war while US and China grow  Reuters"
   },
   {
-   "h": "US military says it completed latest strikes on Iran, targets included Bandar Abbas - Reuters",
+   "h": "China's oil imports have plunged during the Iran war. How much will they recover? - Reuters",
    "src": "Reuters",
-   "sum": "US military says it completed latest strikes on Iran, targets included Bandar Abbas  Reuters"
+   "sum": "China's oil imports have plunged during the Iran war. How much will they recover?  Reuters"
   },
   {
-   "h": "Oil eases as traders weigh US-Iran conflict risks - Reuters",
+   "h": "US extends strikes on Iran to bridges and airport in escalation of campaign - Reuters",
    "src": "Reuters",
-   "sum": "Oil eases as traders weigh US-Iran conflict risks  Reuters"
+   "sum": "US extends strikes on Iran to bridges and airport in escalation of campaign  Reuters"
+  },
+  {
+   "h": "Gold heads for biggest weekly loss in six as Middle East war fans inflation worries - Reuters",
+   "src": "Reuters",
+   "sum": "Gold heads for biggest weekly loss in six as Middle East war fans inflation worries  Reuters"
   }
  ]
 }

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 268044.0,
-  "druckenmiller": 373553.0,
-  "sentiment": 962230.0
+  "serenity": 416827.0,
+  "druckenmiller": 588695.0,
+  "sentiment": 558877.0
  },
  "positions": [
   {
@@ -93,20 +93,6 @@
   },
   {
    "master": "serenity",
-   "sym": "301269",
-   "shares": 800,
-   "entry": 115.09,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
-   "sym": "688012",
-   "shares": 200,
-   "entry": 417.6,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
    "sym": "688702",
    "shares": 200,
    "entry": 335.21,
@@ -114,44 +100,9 @@
   },
   {
    "master": "serenity",
-   "sym": "688785",
-   "shares": 200,
-   "entry": 379.11,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "301269",
-   "shares": 1000,
-   "entry": 105.56,
-   "entry_date": "2026-07-03"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688361",
-   "shares": 300,
-   "entry": 351.62,
-   "entry_date": "2026-07-07"
-  },
-  {
-   "master": "serenity",
-   "sym": "605589",
-   "shares": 1600,
-   "entry": 53.7,
-   "entry_date": "2026-07-10"
-  },
-  {
-   "master": "serenity",
    "sym": "600259",
    "shares": 900,
    "entry": 85.88,
-   "entry_date": "2026-07-14"
-  },
-  {
-   "master": "serenity",
-   "sym": "688582",
-   "shares": 1600,
-   "entry": 48.7,
    "entry_date": "2026-07-14"
   },
   {
@@ -163,17 +114,59 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300346",
-   "shares": 1500,
-   "entry": 61.4,
-   "entry_date": "2026-07-16"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688072",
    "shares": 100,
    "entry": 722.0,
    "entry_date": "2026-07-16"
+  },
+  {
+   "master": "serenity",
+   "sym": "605376",
+   "shares": 400,
+   "entry": 149.42,
+   "entry_date": "2026-07-17"
+  },
+  {
+   "master": "serenity",
+   "sym": "002409",
+   "shares": 400,
+   "entry": 145.0,
+   "entry_date": "2026-07-17"
+  },
+  {
+   "master": "serenity",
+   "sym": "300408",
+   "shares": 700,
+   "entry": 99.01,
+   "entry_date": "2026-07-17"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688347",
+   "shares": 200,
+   "entry": 309.0,
+   "entry_date": "2026-07-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688702",
+   "shares": 400,
+   "entry": 312.0,
+   "entry_date": "2026-07-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301589",
+   "shares": 1000,
+   "entry": 135.48,
+   "entry_date": "2026-07-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "600562",
+   "shares": 6300,
+   "entry": 22.71,
+   "entry_date": "2026-07-17"
   }
  ],
  "nav": [
@@ -550,6 +543,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-16",
+   "nav": 962230.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-17",
+   "nav": 1039274.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-17",
+   "nav": 1053144.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-17",
+   "nav": 732947.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-17",
+   "nav": 804331.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-17",
    "nav": 962230.0
   }
  ],
@@ -1553,6 +1571,156 @@
    "price": 20.45,
    "reason": "持有满 5 个交易日,轮动纪律到点离场(-6.7%)",
    "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "301269",
+   "shares": 800,
+   "price": 97.5,
+   "reason": "破位 -15.3%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688012",
+   "shares": 200,
+   "price": 350.69,
+   "reason": "破位 -16.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688785",
+   "shares": 200,
+   "price": 295.0,
+   "reason": "破位 -22.2%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "605589",
+   "shares": 1600,
+   "price": 41.84,
+   "reason": "破位 -22.1%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688582",
+   "shares": 1600,
+   "price": 38.61,
+   "reason": "破位 -20.7%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "605376",
+   "shares": 400,
+   "price": 149.42,
+   "reason": "纳米镍粉卡的是MLCC内电极真瓶颈，今天-10%是把独家卡位砸回给我，接回撤不接追高。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "002409",
+   "shares": 400,
+   "price": 145.0,
+   "reason": "前驱体+电子特气+光刻胶都踩在HBM/3D NAND认证闸门上，供给窄、替代难，今天这口回撤我直接要。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "300408",
+   "shares": 700,
+   "price": 99.01,
+   "reason": "MLCC陶瓷粉和光纤插芯都是全球稀缺单点，AI和光通信的量产洪流还在往前推，今天是给真瓶颈上车的价。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301269",
+   "shares": 1000,
+   "price": 97.5,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688361",
+   "shares": 300,
+   "price": 311.19,
+   "reason": "错了就是错了,-11.5% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300346",
+   "shares": 1500,
+   "price": 57.39,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688347",
+   "shares": 200,
+   "price": 309.0,
+   "reason": "半导体国产替代主线没死，华虹是盘前最抗跌的强马，顺流动性先加这一只，不去接那些深跌刀口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688702",
+   "shares": 400,
+   "price": 312.0,
+   "reason": "AI算力+国产替代这条线盘前资金还在主动抢，未到涨停封死，先上情绪最聚焦的一仓但随时防反杀。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301589",
+   "shares": 1000,
+   "price": 135.48,
+   "reason": "次新高价弹性票盘前只高开5%左右，游资情绪仍可承接，博资金继续轮动而非去追板。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "600562",
+   "shares": 6300,
+   "price": 22.71,
+   "reason": "军工+低空+反无人机多标签共振，涨幅相对没失控，资金有进攻迹象，拿一仓跟随情绪。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -2863,7 +3031,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "现有持仓大多是宽护城河、现金流可靠且估值仍算合理的好生意；今天没有看到值得我用安全边际去替换的更优价格。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2873,7 +3041,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四个都是我看得懂的好生意，今天没有哪个值得我把仓位换出去，宁可继续拿着等更好的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2883,7 +3051,7 @@
    "action": "BUY",
    "sym": "605376",
    "reason": "纳米镍粉卡的是MLCC内电极真瓶颈，今天-10%是把独家卡位砸回给我，接回撤不接追高。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2893,7 +3061,7 @@
    "action": "BUY",
    "sym": "002409",
    "reason": "前驱体+电子特气+光刻胶都踩在HBM/3D NAND认证闸门上，供给窄、替代难，今天这口回撤我直接要。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2903,7 +3071,7 @@
    "action": "BUY",
    "sym": "300408",
    "reason": "MLCC陶瓷粉和光纤插芯都是全球稀缺单点，AI和光通信的量产洪流还在往前推，今天是给真瓶颈上车的价。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2913,7 +3081,7 @@
    "action": "BUY",
    "sym": "688347",
    "reason": "半导体国产替代主线没死，华虹是盘前最抗跌的强马，顺流动性先加这一只，不去接那些深跌刀口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2923,7 +3091,7 @@
    "action": "BUY",
    "sym": "688702",
    "reason": "AI算力+国产替代这条线盘前资金还在主动抢，未到涨停封死，先上情绪最聚焦的一仓但随时防反杀。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2933,7 +3101,7 @@
    "action": "BUY",
    "sym": "301589",
    "reason": "次新高价弹性票盘前只高开5%左右，游资情绪仍可承接，博资金继续轮动而非去追板。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -2943,7 +3111,7 @@
    "action": "BUY",
    "sym": "600562",
    "reason": "军工+低空+反无人机多标签共振，涨幅相对没失控，资金有进攻迹象，拿一仓跟随情绪。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

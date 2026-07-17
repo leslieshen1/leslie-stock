@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-16 22:16 ET Thu",
+ "asof_et": "2026-07-16 22:31 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "-0.54%",
@@ -85,7 +85,7 @@
   {
    "sym": "MANE",
    "name": "Veradermics Incorporated",
-   "close_price": "$105.825",
+   "close_price": "$105.83",
    "close_pct": "-14.45%"
   },
   {
@@ -715,38 +715,38 @@
    "sum": ""
   },
   {
-   "h": "Stock Market News, July 15, 2026: Megacap Tech Names Push Indexes Higher",
-   "src": "WSJ",
+   "h": "Stock futures slip as major averages head for losing week; Netflix tumbles after earnings: Live updates",
+   "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "US Stock Market Today: S&P 500, Nasdaq Slip Into Red As Chip Stocks Crash; SK Hynix Plunges 6%",
-   "src": "NDTV Profit",
+   "h": "Stock Market on July 16, 2026: S&P 500 and Nasdaq end lower as semiconductor stocks struggle; Dow declines as investors weigh earnings results, retail sales and new wave of U.S. strikes against Iran",
+   "src": "MarketWatch",
    "sum": ""
   },
   {
-   "h": "Asian Stocks Drop After Chip Selloff, Oil Gains: Markets Wrap",
-   "src": "Bloomberg.com",
+   "h": "Markets News, July 16, 2026: Nasdaq Drops, Indexes Retreat as AI Spending Concerns Weigh on Chip Stocks",
+   "src": "Investopedia",
    "sum": ""
   },
   {
-   "h": "Nasdaq Declines as Chip Stocks Come Under Pressure",
-   "src": "WSJ",
+   "h": "Stock Market Today: Nasdaq Drops While TSMC Hits Sell Rule; Oil Shipper Steers Into Entry Point",
+   "src": "Investor's Business Daily",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow rises, S&P 500 and Nasdaq fall as chip stocks slide amid AI jitters",
-   "src": "Yahoo! Finance Canada",
+   "h": "Dow drops 100 points; S&P 500 closes lower as Alphabet and chip shares sell off: Live updates",
+   "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq fall as chip stocks tumble, oil surges on US-Iran tensions",
+   "h": "Stock market today: Dow rises, S&P 500 and Nasdaq fall as chip stocks slide after TSMC earnings",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "US Stock Market Today: S&P 500 Futures Edge Higher As Inflation Worries Ease",
-   "src": "Yahoo Finance",
+   "h": "Dow, S&P 500 and Nasdaq close lower as tech sells off",
+   "src": "MarketWatch",
    "sum": ""
   },
   {
@@ -755,7 +755,7 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SPCX Stock Struggles Ahead of August Earnings and Share Unlocks",
+   "h": "[SPCX] SpaceX stock on watch after hitting all-time low, dips below IPO price",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -775,7 +775,7 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Prediction: This Will Be Nvidia's Stock Price Next Year (Hint: The Time to Buy Is Now)",
+   "h": "[NVDA] Where Will Nvidia Stock Be in 2030?",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -785,8 +785,8 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] 1 Unstoppable Stock to Buy Before It Joins Micron and Broadcom in the $1 Trillion Club",
-   "src": "The Motley Fool",
+   "h": "[AVGO] Broadcom (AVGO) Stock Looks Fairly Priced After Its 8x Five Year Run",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -808,6 +808,11 @@
    "h": "[ARM] This Analyst Just Downgraded ARM Stock. Here's Why.",
    "src": "Yahoo Finance",
    "sum": ""
+  },
+  {
+   "h": "Oil rises on intensifying US-Iran hostilities and threat of Red Sea closure - Reuters",
+   "src": "Reuters",
+   "sum": "Oil rises on intensifying US-Iran hostilities and threat of Red Sea closure  Reuters"
   },
   {
    "h": "Microsoft's Nadella rips Anthropic's Fable restrictions in staff meeting: 'Doesn't make sense'",
@@ -853,11 +858,6 @@
    "h": "Here's a rapid-fire update on our stock portfolio, including the 5 names to buy",
    "src": "CNBC",
    "sum": "Jim Cramer and Jeff Marks offered their latest thoughts on the Investing Club's portfolio during the July Monthly Meeting."
-  },
-  {
-   "h": "We're trimming our hedge on lower rates, which may take longer to materialize",
-   "src": "CNBC",
-   "sum": "While we think it a great \"house,\" it is unfortunately in an awful \"neighborhood.\""
   }
  ]
 }

@@ -4485,9 +4485,79 @@
    "reason": "AI硬件拥挤盘在出、金融财报线在接资金，JEF盘前不抢跑但板块盘口有承接，买一仓顺资金迁移，不去追已经爆拉的票。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 223,
+   "fill_date": "2026-07-17",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我的企业没有因为盘前报价变动而失去护城河，今天没有一笔价格让我愿意为了动作而动作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 224,
+   "fill_date": "2026-07-17",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我看这几只都还是好生意，今天市场是在挤AI/芯片这条拥挤交易，不是生意坏了；候选里也没有哪只在我看来好到必须拿现在的仓位去换，所以先不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 225,
+   "fill_date": "2026-07-17",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "AXTI",
+   "reason": "InP衬底就是800G/1.6T光互连的卡脖子原料，今天被半导体去风险砸到位；这是我愿意接的真瓶颈回撤，高波动但逻辑硬。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 226,
+   "fill_date": "2026-07-17",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "AVGO",
+   "reason": "AI芯片这条最拥挤的交易今天继续被资金抽水，Broadcom 是最典型的高弹性表达，趋势先坏先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 227,
+   "fill_date": "2026-07-17",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "NVDA",
+   "reason": "Nvidia 还是龙头，但盘前继续跟着半导体链挨打，既然流动性在逆风，我不跟趋势硬拗，先降暴露。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 228,
+   "fill_date": "2026-07-17",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "MCK",
+   "reason": "纳指杀AI拥挤盘时，医疗防御资金还在安静流入，MCK不是散户狂热票，盘前小涨不算接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 229,
+   "fill_date": "2026-07-17",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "PSX、AVTR、JEF暂时不动：盘口没有资金外逃信号，现金也够，没必要在风险偏好急降时乱换仓。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 223,
+ "next_order_id": 230,
  "notes": [
   {
    "date": "2026-06-12",

@@ -2855,8 +2855,98 @@
    "reason": "盘前候选没出现爆拉，手里这批都是真卡脖子单点瓶颈，先不追不换，继续拿着等下游量产洪流兑现；这类高波动主题票我接受回撤，但今天不做动作。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 131,
+   "fill_date": "2026-07-17",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现有持仓大多是宽护城河、现金流可靠且估值仍算合理的好生意；今天没有看到值得我用安全边际去替换的更优价格。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 132,
+   "fill_date": "2026-07-17",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四个都是我看得懂的好生意，今天没有哪个值得我把仓位换出去，宁可继续拿着等更好的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 133,
+   "fill_date": "2026-07-17",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "605376",
+   "reason": "纳米镍粉卡的是MLCC内电极真瓶颈，今天-10%是把独家卡位砸回给我，接回撤不接追高。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 134,
+   "fill_date": "2026-07-17",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "002409",
+   "reason": "前驱体+电子特气+光刻胶都踩在HBM/3D NAND认证闸门上，供给窄、替代难，今天这口回撤我直接要。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 135,
+   "fill_date": "2026-07-17",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "300408",
+   "reason": "MLCC陶瓷粉和光纤插芯都是全球稀缺单点，AI和光通信的量产洪流还在往前推，今天是给真瓶颈上车的价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 136,
+   "fill_date": "2026-07-17",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688347",
+   "reason": "半导体国产替代主线没死，华虹是盘前最抗跌的强马，顺流动性先加这一只，不去接那些深跌刀口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 137,
+   "fill_date": "2026-07-17",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "688702",
+   "reason": "AI算力+国产替代这条线盘前资金还在主动抢，未到涨停封死，先上情绪最聚焦的一仓但随时防反杀。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 138,
+   "fill_date": "2026-07-17",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "301589",
+   "reason": "次新高价弹性票盘前只高开5%左右，游资情绪仍可承接，博资金继续轮动而非去追板。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 139,
+   "fill_date": "2026-07-17",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "600562",
+   "reason": "军工+低空+反无人机多标签共振，涨幅相对没失控，资金有进攻迹象，拿一仓跟随情绪。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 131,
+ "next_order_id": 140,
  "splits": []
 }

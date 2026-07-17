@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-16 22:01 ET Thu",
+ "asof_et": "2026-07-16 22:16 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "-0.54%",
@@ -85,7 +85,7 @@
   {
    "sym": "MANE",
    "name": "Veradermics Incorporated",
-   "close_price": "$105.83",
+   "close_price": "$105.825",
    "close_pct": "-14.45%"
   },
   {
@@ -715,7 +715,7 @@
    "sum": ""
   },
   {
-   "h": "Stock Market News, July 14, 2026: Stocks Rise as Bank Results Point to Strong Economy",
+   "h": "Stock Market News, July 15, 2026: Megacap Tech Names Push Indexes Higher",
    "src": "WSJ",
    "sum": ""
   },
@@ -725,7 +725,7 @@
    "sum": ""
   },
   {
-   "h": "Asia Stocks to Track US Slide on Chipmaker Selloff: Markets Wrap",
+   "h": "Asian Stocks Drop After Chip Selloff, Oil Gains: Markets Wrap",
    "src": "Bloomberg.com",
    "sum": ""
   },
@@ -750,13 +750,13 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX stock on watch after hitting all-time low, dips below IPO price",
+   "h": "[SPCX] SpaceX stock drops after first test flight since IPO scrubbed",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[SPCX] Cathie Wood buys $36.1 million of tumbling tech stock",
-   "src": "thestreet.com",
+   "h": "[SPCX] SPCX Stock Struggles Ahead of August Earnings and Share Unlocks",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {

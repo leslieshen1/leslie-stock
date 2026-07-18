@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 157097.11,
-  "druckenmiller": 266625.52,
-  "sentiment": 576761.71
+  "serenity": 156545.69,
+  "druckenmiller": 482287.3,
+  "sentiment": 419421.78
  },
  "positions": [
   {
@@ -99,13 +99,6 @@
    "entry_date": "2026-06-10"
   },
   {
-   "master": "serenity",
-   "sym": "MP",
-   "shares": 1777,
-   "entry": 53.45,
-   "entry_date": "2026-06-10"
-  },
-  {
    "master": "buffett",
    "sym": "META",
    "shares": 210,
@@ -176,20 +169,6 @@
    "entry_date": "2026-07-15"
   },
   {
-   "master": "druckenmiller",
-   "sym": "AVGO",
-   "shares": 288,
-   "entry": 394.23,
-   "entry_date": "2026-07-15"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "NVDA",
-   "shares": 537,
-   "entry": 211.73,
-   "entry_date": "2026-07-15"
-  },
-  {
    "master": "sentiment",
    "sym": "AVTR",
    "shares": 14248,
@@ -209,6 +188,20 @@
    "shares": 2836,
    "entry": 55.8,
    "entry_date": "2026-07-16"
+  },
+  {
+   "master": "serenity",
+   "sym": "AXTI",
+   "shares": 1765,
+   "entry": 45.86,
+   "entry_date": "2026-07-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "MCK",
+   "shares": 187,
+   "entry": 841.39,
+   "entry_date": "2026-07-17"
   }
  ],
  "nav": [
@@ -811,6 +804,31 @@
    "master": "sentiment",
    "date": "2026-07-16",
    "nav": 1055291.07
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-17",
+   "nav": 1017087.84
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-17",
+   "nav": 1009671.26
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-17",
+   "nav": 852195.02
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-17",
+   "nav": 948627.16
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-17",
+   "nav": 1054345.23
   }
  ],
  "trades": [
@@ -2482,6 +2500,56 @@
    "shares": 2836,
    "price": 55.8,
    "reason": "AI硬件拥挤盘在出、金融财报线在接资金，JEF盘前不抢跑但板块盘口有承接，买一仓顺资金迁移，不去追已经爆拉的票。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "MP",
+   "shares": 1777,
+   "price": 45.24,
+   "reason": "破位 -15.4%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "AXTI",
+   "shares": 1765,
+   "price": 45.86,
+   "reason": "InP衬底就是800G/1.6T光互连的卡脖子原料，今天被半导体去风险砸到位；这是我愿意接的真瓶颈回撤，高波动但逻辑硬。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "AVGO",
+   "shares": 288,
+   "price": 370.8,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "NVDA",
+   "shares": 537,
+   "price": 202.74,
+   "reason": "Nvidia 还是龙头，但盘前继续跟着半导体链挨打，既然流动性在逆风，我不跟趋势硬拗，先降暴露。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "MCK",
+   "shares": 187,
+   "price": 841.39,
+   "reason": "纳指杀AI拥挤盘时，医疗防御资金还在安静流入，MCK不是散户狂热票，盘前小涨不算接最后一棒。",
    "src": "ai"
   }
  ],
@@ -4493,7 +4561,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我的企业没有因为盘前报价变动而失去护城河，今天没有一笔价格让我愿意为了动作而动作。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4503,7 +4571,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我看这几只都还是好生意，今天市场是在挤AI/芯片这条拥挤交易，不是生意坏了；候选里也没有哪只在我看来好到必须拿现在的仓位去换，所以先不动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4513,7 +4581,7 @@
    "action": "BUY",
    "sym": "AXTI",
    "reason": "InP衬底就是800G/1.6T光互连的卡脖子原料，今天被半导体去风险砸到位；这是我愿意接的真瓶颈回撤，高波动但逻辑硬。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4523,8 +4591,8 @@
    "action": "SELL",
    "sym": "AVGO",
    "reason": "AI芯片这条最拥挤的交易今天继续被资金抽水，Broadcom 是最典型的高弹性表达，趋势先坏先砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 227,
@@ -4533,7 +4601,7 @@
    "action": "SELL",
    "sym": "NVDA",
    "reason": "Nvidia 还是龙头，但盘前继续跟着半导体链挨打，既然流动性在逆风，我不跟趋势硬拗，先降暴露。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4543,7 +4611,7 @@
    "action": "BUY",
    "sym": "MCK",
    "reason": "纳指杀AI拥挤盘时，医疗防御资金还在安静流入，MCK不是散户狂热票，盘前小涨不算接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4553,7 +4621,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "PSX、AVTR、JEF暂时不动：盘口没有资金外逃信号，现金也够，没必要在风险偏好急降时乱换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

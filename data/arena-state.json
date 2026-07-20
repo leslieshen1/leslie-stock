@@ -4623,9 +4623,79 @@
    "reason": "PSX、AVTR、JEF暂时不动：盘口没有资金外逃信号，现金也够，没必要在风险偏好急降时乱换仓。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 230,
+   "fill_date": "2026-07-20",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些都是我愿意按生意所有者心态持有的公司，今天盘前的波动没有给我更好的安全边际，也没有改变护城河。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 231,
+   "fill_date": "2026-07-20",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些都是我看懂的十年好生意，盘前这点波动不改变商业模式和文化，没必要为了市场情绪动来动去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 232,
+   "fill_date": "2026-07-20",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "MTRN",
+   "reason": "绿盘里它反而被压，正好给我补高纯铍这个西方几乎绕不开的军工/半导体材料瓶颈，不追光模块的盘前热闹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 233,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "GS",
+   "reason": "这笔资本市场复苏交易没有给我我要的相对强度，亏损扩大到六个点还不顺风，我先砍，别跟市场争。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 234,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GEV",
+   "reason": "AI电力和电网重建仍是最干净的宏观趋势，盘前强于大盘但没到失控爆拉，GEV是这条线里弹性最足的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 235,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "META",
+   "reason": "如果今天流动性回流纳指，我要买现金流最硬、AI弹性最大的超级平台，而不是去接半导体拥挤筹码。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 236,
+   "fill_date": "2026-07-20",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前反弹更像上周五AI拥挤砍仓后的技术回补，候选里多数已经被资金预先抬高，我不接小盘事件票和生物催化的最后一棒。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 230,
+ "next_order_id": 237,
  "notes": [
   {
    "date": "2026-06-12",

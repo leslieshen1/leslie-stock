@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 416827.0,
-  "druckenmiller": 588695.0,
-  "sentiment": 558877.0
+  "serenity": 157823.0,
+  "druckenmiller": 421696.0,
+  "sentiment": 120825.0
  },
  "positions": [
   {
@@ -100,27 +100,6 @@
   },
   {
    "master": "serenity",
-   "sym": "600259",
-   "shares": 900,
-   "entry": 85.88,
-   "entry_date": "2026-07-14"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688981",
-   "shares": 600,
-   "entry": 151.8,
-   "entry_date": "2026-07-16"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688072",
-   "shares": 100,
-   "entry": 722.0,
-   "entry_date": "2026-07-16"
-  },
-  {
-   "master": "serenity",
    "sym": "605376",
    "shares": 400,
    "entry": 149.42,
@@ -167,6 +146,90 @@
    "shares": 6300,
    "entry": 22.71,
    "entry_date": "2026-07-17"
+  },
+  {
+   "master": "serenity",
+   "sym": "301269",
+   "shares": 700,
+   "entry": 94.03,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "serenity",
+   "sym": "688785",
+   "shares": 200,
+   "entry": 273.49,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "serenity",
+   "sym": "002428",
+   "shares": 1000,
+   "entry": 67.58,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "serenity",
+   "sym": "688582",
+   "shares": 1800,
+   "entry": 37.04,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "serenity",
+   "sym": "002222",
+   "shares": 1200,
+   "entry": 56.65,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 200,
+   "entry": 311.27,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "000977",
+   "shares": 1100,
+   "entry": 81.58,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688652",
+   "shares": 600,
+   "entry": 141.42,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688802",
+   "shares": 100,
+   "entry": 793.05,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000099",
+   "shares": 10700,
+   "entry": 13.62,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000034",
+   "shares": 5900,
+   "entry": 24.92,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000534",
+   "shares": 5800,
+   "entry": 25.05,
+   "entry_date": "2026-07-20"
   }
  ],
  "nav": [
@@ -569,6 +632,31 @@
    "master": "sentiment",
    "date": "2026-07-17",
    "nav": 962230.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-20",
+   "nav": 1060459.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-20",
+   "nav": 1083566.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-20",
+   "nav": 718522.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-20",
+   "nav": 801245.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-20",
+   "nav": 980579.0
   }
  ],
  "trades": [
@@ -1720,6 +1808,156 @@
    "shares": 6300,
    "price": 22.71,
    "reason": "军工+低空+反无人机多标签共振，涨幅相对没失控，资金有进攻迹象，拿一仓跟随情绪。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "600259",
+   "shares": 900,
+   "price": 70.83,
+   "reason": "破位 -17.5%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "301269",
+   "shares": 700,
+   "price": 94.03,
+   "reason": "EDA 是芯片设计的编译器级咽喉，外部禁令越硬，国产独苗的每一份验证进展越值钱。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688785",
+   "shares": 200,
+   "price": 273.49,
+   "reason": "射频电源是刻蚀/PECVD 机台开不了机的单点瓶颈，MKS/AE 垄断缝里能量产替代的就是我要的方向性多头。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "002428",
+   "shares": 1000,
+   "price": 67.58,
+   "reason": "InP 衬底卡在 AI 光通信材料层，供应商少、验证慢、每条高速光链路都要吃它，这种全村唯一我不等别人舒服了再买。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688582",
+   "shares": 1800,
+   "price": 37.04,
+   "reason": "导航级 MEMS 陀螺仪是军工、无人机、人形机器人 IMU 的硬瓶颈，精度和认证周期就是替代成本。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "002222",
+   "shares": 1200,
+   "price": 56.65,
+   "reason": "LBO/BBO/KTP 非线性晶体是激光和硅光链上的小而硬瓶颈，全球供给稀缺、下游量产一动它先被吃紧。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688072",
+   "shares": 100,
+   "price": 644.42,
+   "reason": "错了就是错了,-10.7% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688981",
+   "shares": 600,
+   "price": 141.18,
+   "reason": "这匹马已经逆我走到-8%，大票弹性又不够，德鲁肯米勒式纪律就是先砍掉不顺手的仓位。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 200,
+   "price": 311.27,
+   "reason": "半导体检测设备是国产替代里弹性最锋利的瓶颈，今天没被盘前抢跑，可以上车骑强马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "000977",
+   "shares": 1100,
+   "price": 81.58,
+   "reason": "AI算力仍是全球流动性最愿意追的主线，浪潮是A股表达算力风险偏好的高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688652",
+   "shares": 600,
+   "price": 141.42,
+   "reason": "半导体设备国产替代的政策风还在，京仪这种设备弹性票比大市值制造更适合表达这笔宏观判断。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688802",
+   "shares": 100,
+   "price": 793.05,
+   "reason": "AI芯片加国产替代是最容易被资金重新定价的稀缺叙事，没高开爆拉就给我一个不接最后一棒的位置。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000099",
+   "shares": 10700,
+   "price": 13.62,
+   "reason": "低空经济仍是资金容易抱团的情绪口，盘前没被抢高，不接最后一棒，先拿一仓等开盘资金验证。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000034",
+   "shares": 5900,
+   "price": 24.92,
+   "reason": "AI算力+华为是散户认知最顺的进攻线，当前未溢价爆拉，适合用一仓博资金回流。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000534",
+   "shares": 5800,
+   "price": 25.05,
+   "reason": "军工航发情绪弹性强且与事件预期绑定，盘前平开不拥挤，给一仓做情绪资金面配置。",
    "src": "ai"
   }
  ],
@@ -3121,7 +3359,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河和现金流没有被今天的价格改变，手里已有八个篮子，我不为换仓而换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3131,7 +3369,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四家公司都是我更看得懂的好生意，今天没有便宜到值得换仓的机会，现金留着不难受。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3141,7 +3379,7 @@
    "action": "BUY",
    "sym": "301269",
    "reason": "EDA 是芯片设计的编译器级咽喉，外部禁令越硬，国产独苗的每一份验证进展越值钱。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3151,7 +3389,7 @@
    "action": "BUY",
    "sym": "688785",
    "reason": "射频电源是刻蚀/PECVD 机台开不了机的单点瓶颈，MKS/AE 垄断缝里能量产替代的就是我要的方向性多头。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3161,7 +3399,7 @@
    "action": "BUY",
    "sym": "002428",
    "reason": "InP 衬底卡在 AI 光通信材料层，供应商少、验证慢、每条高速光链路都要吃它，这种全村唯一我不等别人舒服了再买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3171,7 +3409,7 @@
    "action": "BUY",
    "sym": "688582",
    "reason": "导航级 MEMS 陀螺仪是军工、无人机、人形机器人 IMU 的硬瓶颈，精度和认证周期就是替代成本。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3181,7 +3419,7 @@
    "action": "BUY",
    "sym": "002222",
    "reason": "LBO/BBO/KTP 非线性晶体是激光和硅光链上的小而硬瓶颈，全球供给稀缺、下游量产一动它先被吃紧。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3191,7 +3429,7 @@
    "action": "SELL",
    "sym": "688981",
    "reason": "这匹马已经逆我走到-8%，大票弹性又不够，德鲁肯米勒式纪律就是先砍掉不顺手的仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3201,7 +3439,7 @@
    "action": "BUY",
    "sym": "688361",
    "reason": "半导体检测设备是国产替代里弹性最锋利的瓶颈，今天没被盘前抢跑，可以上车骑强马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3211,7 +3449,7 @@
    "action": "BUY",
    "sym": "000977",
    "reason": "AI算力仍是全球流动性最愿意追的主线，浪潮是A股表达算力风险偏好的高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3221,7 +3459,7 @@
    "action": "BUY",
    "sym": "688652",
    "reason": "半导体设备国产替代的政策风还在，京仪这种设备弹性票比大市值制造更适合表达这笔宏观判断。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3231,7 +3469,7 @@
    "action": "BUY",
    "sym": "688802",
    "reason": "AI芯片加国产替代是最容易被资金重新定价的稀缺叙事，没高开爆拉就给我一个不接最后一棒的位置。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3241,7 +3479,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "拓荆和华虹还在半导体国产替代主线里，没触发趋势反转前继续让顺风仓位跑。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3251,7 +3489,7 @@
    "action": "BUY",
    "sym": "000099",
    "reason": "低空经济仍是资金容易抱团的情绪口，盘前没被抢高，不接最后一棒，先拿一仓等开盘资金验证。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3261,7 +3499,7 @@
    "action": "BUY",
    "sym": "000034",
    "reason": "AI算力+华为是散户认知最顺的进攻线，当前未溢价爆拉，适合用一仓博资金回流。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3271,7 +3509,7 @@
    "action": "BUY",
    "sym": "000534",
    "reason": "军工航发情绪弹性强且与事件预期绑定，盘前平开不拥挤，给一仓做情绪资金面配置。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

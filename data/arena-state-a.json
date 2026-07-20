@@ -3113,8 +3113,168 @@
    "reason": "军工+低空+反无人机多标签共振，涨幅相对没失控，资金有进攻迹象，拿一仓跟随情绪。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 140,
+   "fill_date": "2026-07-20",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意的护城河和现金流没有被今天的价格改变，手里已有八个篮子，我不为换仓而换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 141,
+   "fill_date": "2026-07-20",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四家公司都是我更看得懂的好生意，今天没有便宜到值得换仓的机会，现金留着不难受。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 142,
+   "fill_date": "2026-07-20",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "301269",
+   "reason": "EDA 是芯片设计的编译器级咽喉，外部禁令越硬，国产独苗的每一份验证进展越值钱。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 143,
+   "fill_date": "2026-07-20",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688785",
+   "reason": "射频电源是刻蚀/PECVD 机台开不了机的单点瓶颈，MKS/AE 垄断缝里能量产替代的就是我要的方向性多头。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 144,
+   "fill_date": "2026-07-20",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "002428",
+   "reason": "InP 衬底卡在 AI 光通信材料层，供应商少、验证慢、每条高速光链路都要吃它，这种全村唯一我不等别人舒服了再买。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 145,
+   "fill_date": "2026-07-20",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688582",
+   "reason": "导航级 MEMS 陀螺仪是军工、无人机、人形机器人 IMU 的硬瓶颈，精度和认证周期就是替代成本。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 146,
+   "fill_date": "2026-07-20",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "002222",
+   "reason": "LBO/BBO/KTP 非线性晶体是激光和硅光链上的小而硬瓶颈，全球供给稀缺、下游量产一动它先被吃紧。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 147,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688981",
+   "reason": "这匹马已经逆我走到-8%，大票弹性又不够，德鲁肯米勒式纪律就是先砍掉不顺手的仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 148,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688361",
+   "reason": "半导体检测设备是国产替代里弹性最锋利的瓶颈，今天没被盘前抢跑，可以上车骑强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 149,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "000977",
+   "reason": "AI算力仍是全球流动性最愿意追的主线，浪潮是A股表达算力风险偏好的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 150,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688652",
+   "reason": "半导体设备国产替代的政策风还在，京仪这种设备弹性票比大市值制造更适合表达这笔宏观判断。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 151,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688802",
+   "reason": "AI芯片加国产替代是最容易被资金重新定价的稀缺叙事，没高开爆拉就给我一个不接最后一棒的位置。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 152,
+   "fill_date": "2026-07-20",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "拓荆和华虹还在半导体国产替代主线里，没触发趋势反转前继续让顺风仓位跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 153,
+   "fill_date": "2026-07-20",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000099",
+   "reason": "低空经济仍是资金容易抱团的情绪口，盘前没被抢高，不接最后一棒，先拿一仓等开盘资金验证。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 154,
+   "fill_date": "2026-07-20",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000034",
+   "reason": "AI算力+华为是散户认知最顺的进攻线，当前未溢价爆拉，适合用一仓博资金回流。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 155,
+   "fill_date": "2026-07-20",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000534",
+   "reason": "军工航发情绪弹性强且与事件预期绑定，盘前平开不拥挤，给一仓做情绪资金面配置。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 140,
+ "next_order_id": 156,
  "splits": []
 }

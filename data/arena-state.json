@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 156545.69,
-  "druckenmiller": 482287.3,
+  "serenity": 74732.79,
+  "druckenmiller": 369552.61,
   "sentiment": 419421.78
  },
  "positions": [
@@ -148,13 +148,6 @@
    "entry_date": "2026-07-09"
   },
   {
-   "master": "druckenmiller",
-   "sym": "GS",
-   "shares": 99,
-   "entry": 1138.78,
-   "entry_date": "2026-07-14"
-  },
-  {
    "master": "sentiment",
    "sym": "PSX",
    "shares": 794,
@@ -202,6 +195,27 @@
    "shares": 187,
    "entry": 841.39,
    "entry_date": "2026-07-17"
+  },
+  {
+   "master": "serenity",
+   "sym": "MTRN",
+   "shares": 338,
+   "entry": 242.05,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "GEV",
+   "shares": 101,
+   "entry": 1078.0,
+   "entry_date": "2026-07-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "META",
+   "shares": 169,
+   "entry": 643.0,
+   "entry_date": "2026-07-20"
   }
  ],
  "nav": [
@@ -829,6 +843,31 @@
    "master": "sentiment",
    "date": "2026-07-17",
    "nav": 1054345.23
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-20",
+   "nav": 1014651.18
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-20",
+   "nav": 1003616.13
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-20",
+   "nav": 861831.03
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-20",
+   "nav": 948607.25
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-20",
+   "nav": 1049066.16
   }
  ],
  "trades": [
@@ -2550,6 +2589,46 @@
    "shares": 187,
    "price": 841.39,
    "reason": "纳指杀AI拥挤盘时，医疗防御资金还在安静流入，MCK不是散户狂热票，盘前小涨不算接最后一棒。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "MTRN",
+   "shares": 338,
+   "price": 242.05,
+   "reason": "绿盘里它反而被压，正好给我补高纯铍这个西方几乎绕不开的军工/半导体材料瓶颈，不追光模块的盘前热闹。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GS",
+   "shares": 99,
+   "price": 1058.69,
+   "reason": "这笔资本市场复苏交易没有给我我要的相对强度，亏损扩大到六个点还不顺风，我先砍，别跟市场争。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "GEV",
+   "shares": 101,
+   "price": 1078.0,
+   "reason": "AI电力和电网重建仍是最干净的宏观趋势，盘前强于大盘但没到失控爆拉，GEV是这条线里弹性最足的载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "META",
+   "shares": 169,
+   "price": 643.0,
+   "reason": "如果今天流动性回流纳指，我要买现金流最硬、AI弹性最大的超级平台，而不是去接半导体拥挤筹码。",
    "src": "ai"
   }
  ],
@@ -4631,7 +4710,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些都是我愿意按生意所有者心态持有的公司，今天盘前的波动没有给我更好的安全边际，也没有改变护城河。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4641,7 +4720,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些都是我看懂的十年好生意，盘前这点波动不改变商业模式和文化，没必要为了市场情绪动来动去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4651,7 +4730,7 @@
    "action": "BUY",
    "sym": "MTRN",
    "reason": "绿盘里它反而被压，正好给我补高纯铍这个西方几乎绕不开的军工/半导体材料瓶颈，不追光模块的盘前热闹。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4661,7 +4740,7 @@
    "action": "SELL",
    "sym": "GS",
    "reason": "这笔资本市场复苏交易没有给我我要的相对强度，亏损扩大到六个点还不顺风，我先砍，别跟市场争。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4671,7 +4750,7 @@
    "action": "BUY",
    "sym": "GEV",
    "reason": "AI电力和电网重建仍是最干净的宏观趋势，盘前强于大盘但没到失控爆拉，GEV是这条线里弹性最足的载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4681,7 +4760,7 @@
    "action": "BUY",
    "sym": "META",
    "reason": "如果今天流动性回流纳指，我要买现金流最硬、AI弹性最大的超级平台，而不是去接半导体拥挤筹码。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4691,7 +4770,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "纳指盘前反弹更像上周五AI拥挤砍仓后的技术回补，候选里多数已经被资金预先抬高，我不接小盘事件票和生物催化的最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 157823.0,
-  "druckenmiller": 421696.0,
-  "sentiment": 120825.0
+  "serenity": 84663.0,
+  "druckenmiller": 177782.0,
+  "sentiment": 271993.0
  },
  "positions": [
   {
@@ -128,13 +128,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "688702",
-   "shares": 400,
-   "entry": 312.0,
-   "entry_date": "2026-07-17"
-  },
-  {
-   "master": "sentiment",
    "sym": "301589",
    "shares": 1000,
    "entry": 135.48,
@@ -225,11 +218,39 @@
    "entry_date": "2026-07-20"
   },
   {
+   "master": "serenity",
+   "sym": "600259",
+   "shares": 1000,
+   "entry": 73.16,
+   "entry_date": "2026-07-21"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688981",
+   "shares": 600,
+   "entry": 160.0,
+   "entry_date": "2026-07-21"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688041",
+   "shares": 200,
+   "entry": 344.53,
+   "entry_date": "2026-07-21"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688702",
+   "shares": 200,
+   "entry": 395.04,
+   "entry_date": "2026-07-21"
+  },
+  {
    "master": "sentiment",
-   "sym": "000534",
-   "shares": 5800,
-   "entry": 25.05,
-   "entry_date": "2026-07-20"
+   "sym": "000603",
+   "shares": 7400,
+   "entry": 20.52,
+   "entry_date": "2026-07-21"
   }
  ],
  "nav": [
@@ -657,6 +678,31 @@
    "master": "sentiment",
    "date": "2026-07-20",
    "nav": 980579.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-21",
+   "nav": 1057163.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-21",
+   "nav": 1078446.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-21",
+   "nav": 775836.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-21",
+   "nav": 859470.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-21",
+   "nav": 1014384.0
   }
  ],
  "trades": [
@@ -1958,6 +2004,76 @@
    "shares": 5800,
    "price": 25.05,
    "reason": "军工航发情绪弹性强且与事件预期绑定，盘前平开不拥挤，给一仓做情绪资金面配置。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-21",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "600259",
+   "shares": 1000,
+   "price": 73.16,
+   "reason": "中重稀土镝铽就是国家级单点瓶颈，新能源车、机器人、军工电机每台都吃它，今天没爆拉不接飞刀也不追板，我要补这一口井。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-21",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688981",
+   "shares": 600,
+   "price": 160.0,
+   "reason": "中芯是国产半导体这轮流动性风口的旗帜，盘前没爆拉，顺风就先上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-21",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688041",
+   "shares": 200,
+   "price": 344.53,
+   "reason": "海光同时吃信创和AI算力国产化，两条最硬主线叠加，是表达宏观判断的高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-21",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688702",
+   "shares": 200,
+   "price": 395.04,
+   "reason": "盛科卡在AI数据中心网络和国产替代交汇处，若资金继续打科技主线，它应当比指数更猛。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-21",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688702",
+   "shares": 400,
+   "price": 395.04,
+   "reason": "+26.6% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-21",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000534",
+   "shares": 5800,
+   "price": 25.0,
+   "reason": "万泽股份军工航发标签不缺故事但盘口没给溢价，持仓里最像死水资金，先砍掉给更热的钱腾仓。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000603",
+   "shares": 7400,
+   "price": 20.52,
+   "reason": "盛达资源白银ATH叠加预增催化，贵金属情绪资金还在风口，盘前没爆拉不算接最后一棒。",
    "src": "ai"
   }
  ],
@@ -3519,7 +3635,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓大多是我能理解、护城河清楚且价格仍不荒唐的生意，今天没有必要为了动作而动作。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3529,7 +3645,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看得懂，也都是能拿十年的好生意，今天没有必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3539,7 +3655,7 @@
    "action": "BUY",
    "sym": "600259",
    "reason": "中重稀土镝铽就是国家级单点瓶颈，新能源车、机器人、军工电机每台都吃它，今天没爆拉不接飞刀也不追板，我要补这一口井。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3549,7 +3665,7 @@
    "action": "BUY",
    "sym": "688981",
    "reason": "中芯是国产半导体这轮流动性风口的旗帜，盘前没爆拉，顺风就先上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3559,7 +3675,7 @@
    "action": "BUY",
    "sym": "688041",
    "reason": "海光同时吃信创和AI算力国产化，两条最硬主线叠加，是表达宏观判断的高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3569,7 +3685,7 @@
    "action": "BUY",
    "sym": "688702",
    "reason": "盛科卡在AI数据中心网络和国产替代交汇处，若资金继续打科技主线，它应当比指数更猛。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3579,7 +3695,7 @@
    "action": "SELL",
    "sym": "000534",
    "reason": "万泽股份军工航发标签不缺故事但盘口没给溢价，持仓里最像死水资金，先砍掉给更热的钱腾仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3589,7 +3705,7 @@
    "action": "BUY",
    "sym": "000603",
    "reason": "盛达资源白银ATH叠加预增催化，贵金属情绪资金还在风口，盘前没爆拉不算接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

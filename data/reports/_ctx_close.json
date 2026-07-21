@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-20 22:15 ET Mon",
+ "asof_et": "2026-07-20 22:31 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "-0.16%",
@@ -1203,6 +1203,11 @@
    "sum": ""
   },
   {
+   "h": "Stock Market Today: All You Need To Know Before Going Into Trade On July 21",
+   "src": "NDTV Profit",
+   "sum": ""
+  },
+  {
    "h": "U.S. death toll in Iran, 'The Odyssey' box office, WarshGPT and more in Morning Squawk",
    "src": "CNBC",
    "sum": ""
@@ -1224,11 +1229,6 @@
   },
   {
    "h": "Nasdaq falls 4% and suffers worst day since April 2025 as traders flee chip stocks: Live updates",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
-   "h": "Stocks end lower as oil prices surge on renewed Hormuz tensions, SK Hynix leads chip stock sell-off",
    "src": "CNBC",
    "sum": ""
   },

@@ -4772,9 +4772,59 @@
    "reason": "纳指盘前反弹更像上周五AI拥挤砍仓后的技术回补，候选里多数已经被资金预先抬高，我不接小盘事件票和生物催化的最后一棒。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 237,
+   "fill_date": "2026-07-21",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里已经是八门看得懂、护城河尚在的好生意，今天没有哪一个价格便宜到值得我卖掉现有伙伴去腾座位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 238,
+   "fill_date": "2026-07-21",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几家公司生意和文化都还在，我没看到需要因为盘前一点波动就动手的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 239,
+   "fill_date": "2026-07-21",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "PPTA",
+   "reason": "PPTA 仍是美国本土锑源这条军工 BOM 的真卡脖子，供应极少、替代验证慢、下游弹药和夜视的钱在涌，盘前+3.5%还不是最后一棒，我用剩余现金补第十个瓶颈仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 240,
+   "fill_date": "2026-07-21",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天盘前的风在纳指和半导体，但候选里没有我想要的最高弹性AI芯片载体；现有AI电力和平台仓顺风，没必要为买满去追二流马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 241,
+   "fill_date": "2026-07-21",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "AVTR",
+   "reason": "原本押的是极度厌恶后的聪明钱建底，但盘前继续放量走弱、情绪冰点没有反转反而变成资金继续流出，死水没接力就先走，不等机械止损。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 237,
+ "next_order_id": 242,
  "notes": [
   {
    "date": "2026-06-12",

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-20 22:31 ET Mon",
+ "asof_et": "2026-07-20 22:45 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "-0.16%",
@@ -1198,13 +1198,13 @@
    "sum": ""
   },
   {
-   "h": "Jamie Dimon says markets underestimate risks and he wouldn't buy stocks or Treasurys at current prices",
-   "src": "CNBC",
+   "h": "Stock Market Today: All You Need To Know Before Going Into Trade On July 21",
+   "src": "NDTV Profit",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: All You Need To Know Before Going Into Trade On July 21",
-   "src": "NDTV Profit",
+   "h": "Jamie Dimon says markets underestimate risks and he wouldn't buy stocks or Treasurys at current prices",
+   "src": "CNBC",
    "sum": ""
   },
   {
@@ -1238,8 +1238,8 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] Prediction: This Is Where SpaceX Stock Will Finish 2026",
-   "src": "Yahoo Finance",
+   "h": "[SPCX] Why Did NFLX, ORCL, SPCX Stocks Slump To 52-Week Lows Last Week?",
+   "src": "Stocktwits",
    "sum": ""
   },
   {
@@ -1293,6 +1293,11 @@
    "sum": ""
   },
   {
+   "h": "Oil prices dip as mediation efforts offset US-Iran strikes - Reuters",
+   "src": "Reuters",
+   "sum": "Oil prices dip as mediation efforts offset US-Iran strikes  Reuters"
+  },
+  {
    "h": "Wall Street indexes fall, with Iran and earnings season in focus - Reuters",
    "src": "Reuters",
    "sum": "Wall Street indexes fall, with Iran and earnings season in focus  Reuters"
@@ -1301,11 +1306,6 @@
    "h": "Houthi Red Sea blockade would lift oil prices, but workarounds could limit impact - Reuters",
    "src": "Reuters",
    "sum": "Houthi Red Sea blockade would lift oil prices, but workarounds could limit impact  Reuters"
-  },
-  {
-   "h": "Houthis announce Saudi naval blockade, threatening new front in US-Iran war - Reuters",
-   "src": "Reuters",
-   "sum": "Houthis announce Saudi naval blockade, threatening new front in US-Iran war  Reuters"
   },
   {
    "h": "Hamas names Khalil Al-Hayya as new overall leader - Reuters",
@@ -1323,6 +1323,11 @@
    "sum": "After deadly weekend for US troops, Trump vows revenge against Iran  Reuters"
   },
   {
+   "h": "Houthis announce Saudi naval blockade, threatening new front in US-Iran war - Reuters",
+   "src": "Reuters",
+   "sum": "Houthis announce Saudi naval blockade, threatening new front in US-Iran war  Reuters"
+  },
+  {
    "h": "Spain beat Argentina to win World Cup - Reuters",
    "src": "Reuters",
    "sum": "Spain beat Argentina to win World Cup  Reuters"
@@ -1336,11 +1341,6 @@
    "h": "Here's our advice for investors looking to buy the dip in volatile AI stocks",
    "src": "CNBC",
    "sum": "When trading in a sector, industry, or stock changes dramatically, as it has with the hyperscalers and AI stocks in recent days, you must change your scales."
-  },
-  {
-   "h": "2 things capping Monday's market — plus, Alphabet's new AI chip roadmap",
-   "src": "CNBC",
-   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
   }
  ]
 }

@@ -3511,8 +3511,88 @@
    "reason": "军工航发情绪弹性强且与事件预期绑定，盘前平开不拥挤，给一仓做情绪资金面配置。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 156,
+   "fill_date": "2026-07-21",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓大多是我能理解、护城河清楚且价格仍不荒唐的生意，今天没有必要为了动作而动作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 157,
+   "fill_date": "2026-07-21",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看得懂，也都是能拿十年的好生意，今天没有必要为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 158,
+   "fill_date": "2026-07-21",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "600259",
+   "reason": "中重稀土镝铽就是国家级单点瓶颈，新能源车、机器人、军工电机每台都吃它，今天没爆拉不接飞刀也不追板，我要补这一口井。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 159,
+   "fill_date": "2026-07-21",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688981",
+   "reason": "中芯是国产半导体这轮流动性风口的旗帜，盘前没爆拉，顺风就先上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 160,
+   "fill_date": "2026-07-21",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688041",
+   "reason": "海光同时吃信创和AI算力国产化，两条最硬主线叠加，是表达宏观判断的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 161,
+   "fill_date": "2026-07-21",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688702",
+   "reason": "盛科卡在AI数据中心网络和国产替代交汇处，若资金继续打科技主线，它应当比指数更猛。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 162,
+   "fill_date": "2026-07-21",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "000534",
+   "reason": "万泽股份军工航发标签不缺故事但盘口没给溢价，持仓里最像死水资金，先砍掉给更热的钱腾仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 163,
+   "fill_date": "2026-07-21",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000603",
+   "reason": "盛达资源白银ATH叠加预增催化，贵金属情绪资金还在风口，盘前没爆拉不算接最后一棒。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 156,
+ "next_order_id": 164,
  "splits": []
 }

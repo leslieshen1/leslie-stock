@@ -703,6 +703,31 @@
    "master": "sentiment",
    "date": "2026-07-21",
    "nav": 1014384.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-22",
+   "nav": 1068201.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-22",
+   "nav": 1083247.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-22",
+   "nav": 774852.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-22",
+   "nav": 850023.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-22",
+   "nav": 1036474.0
   }
  ],
  "trades": [
@@ -3715,7 +3740,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的公司大多是我能理解、能产生现金且价格尚不疯狂的生意；今天没有足够大的安全边际让我用好公司换另一家好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3725,7 +3750,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看得懂，也都还本分，今天候选没有便宜到值得我卖好公司去换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3735,7 +3760,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "10个仓位已经全是我认的真瓶颈，盘前候选没有给出错杀价，今天不为了把现金打光去换仓追明牌。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3745,7 +3770,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "没有新的盘前价格信号证明趋势反转，半导体国产替代和AI算力仍是顺流动性的主线，赢家继续拿，现金不为买满而追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3755,7 +3780,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前候选全是0波动，资金还没表态，死水无资金我不硬买；现有持仓都有浮盈且题材资金未见撤退，先让利润奔跑。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

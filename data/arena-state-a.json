@@ -3707,8 +3707,58 @@
    "reason": "盛达资源白银ATH叠加预增催化，贵金属情绪资金还在风口，盘前没爆拉不算接最后一棒。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 164,
+   "fill_date": "2026-07-22",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的公司大多是我能理解、能产生现金且价格尚不疯狂的生意；今天没有足够大的安全边际让我用好公司换另一家好公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 165,
+   "fill_date": "2026-07-22",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看得懂，也都还本分，今天候选没有便宜到值得我卖好公司去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 166,
+   "fill_date": "2026-07-22",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "10个仓位已经全是我认的真瓶颈，盘前候选没有给出错杀价，今天不为了把现金打光去换仓追明牌。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 167,
+   "fill_date": "2026-07-22",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "没有新的盘前价格信号证明趋势反转，半导体国产替代和AI算力仍是顺流动性的主线，赢家继续拿，现金不为买满而追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 168,
+   "fill_date": "2026-07-22",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是0波动，资金还没表态，死水无资金我不硬买；现有持仓都有浮盈且题材资金未见撤退，先让利润奔跑。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 164,
+ "next_order_id": 169,
  "splits": []
 }

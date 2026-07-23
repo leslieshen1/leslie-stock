@@ -3,7 +3,7 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 10.73,
-  "druckenmiller": 369552.61,
+  "druckenmiller": 362690.19,
   "sentiment": 744549.68
  },
  "positions": [
@@ -191,13 +191,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "GEV",
-   "shares": 101,
-   "entry": 1078.0,
-   "entry_date": "2026-07-20"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "META",
    "shares": 169,
    "entry": 643.0,
@@ -209,6 +202,13 @@
    "shares": 4013,
    "entry": 18.62,
    "entry_date": "2026-07-21"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "IRDM",
+   "shares": 2304,
+   "entry": 46.86,
+   "entry_date": "2026-07-22"
   }
  ],
  "nav": [
@@ -886,6 +886,31 @@
    "master": "sentiment",
    "date": "2026-07-21",
    "nav": 1060457.4
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-22",
+   "nav": 996225.04
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-22",
+   "nav": 1000326.93
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-22",
+   "nav": 901480.85
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-22",
+   "nav": 939164.38
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-22",
+   "nav": 1055477.72
   }
  ],
  "trades": [
@@ -2677,6 +2702,26 @@
    "shares": 14248,
    "price": 10.99,
    "reason": "原本押的是极度厌恶后的聪明钱建底，但盘前继续放量走弱、情绪冰点没有反转反而变成资金继续流出，死水没接力就先走，不等机械止损。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-22",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GEV",
+   "shares": 101,
+   "price": 1001.02,
+   "reason": "盘前直接砸近5%，电力AI主线可以信，但价格告诉我边际在恶化，德鲁肯式纪律就是先砍再想。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-22",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "IRDM",
+   "shares": 2304,
+   "price": 46.86,
+   "reason": "大盘尤其纳指盘前走弱时它还逆势上行，趋势、新闻和相对强度共振，我要骑当下不怕风的强马。",
    "src": "ai"
   }
  ],
@@ -4878,7 +4923,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我大体都看得懂，护城河还在，而今天盘前的波动没有给我一个足够大的新安全边际去换马或追价。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4888,7 +4933,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都看懂了，今天盘前这点波动跟十年商业模式没什么关系，没必要为了热闹换来换去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4898,7 +4943,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "不动，十个仓位都还在我定义的真实卡脖子位置上，盘前这点回撤不是供应链逻辑破裂；我不为了追 SITM/LITE/STX 这种已被资金盘前扫过的票去砍掉手里的瓶颈筹码。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4908,7 +4953,7 @@
    "action": "SELL",
    "sym": "GEV",
    "reason": "盘前直接砸近5%，电力AI主线可以信，但价格告诉我边际在恶化，德鲁肯式纪律就是先砍再想。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4918,7 +4963,7 @@
    "action": "BUY",
    "sym": "IRDM",
    "reason": "大盘尤其纳指盘前走弱时它还逆势上行，趋势、新闻和相对强度共振，我要骑当下不怕风的强马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4928,7 +4973,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "其余仓位暂不动，GOOGL相对抗跌、LLY大趋势未坏、VST只是跟随风险偏好回撤、META还没给我趋势转坏的信号。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4938,7 +4983,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "昨晚AI/芯片高潮后今早纳指先给-1%，候选全是昨日爆拉票盘前多数回吐，我不接情绪资金的最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

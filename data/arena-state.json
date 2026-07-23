@@ -4985,9 +4985,89 @@
    "reason": "昨晚AI/芯片高潮后今早纳指先给-1%，候选全是昨日爆拉票盘前多数回吐，我不接情绪资金的最后一棒。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 249,
+   "fill_date": "2026-07-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些都是我看得懂、护城河仍在的生意，盘前的报价波动不足以让我用十年眼光去搬动仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 250,
+   "fill_date": "2026-07-23",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几门生意我都看懂了，商业模式和文化没变，盘前这点波动不是让我换来换去的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 251,
+   "fill_date": "2026-07-23",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前指数在砍高 beta，但我手里这些不是靠情绪续命的故事票，而是钨、HALEU、细胞疗法保存液、军工小发动机、并网电力、InP、铍、锑这些每台下游量产都要吃的真瓶颈，今天不因为宏观噪音乱砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 252,
+   "fill_date": "2026-07-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "GOOGL",
+   "reason": "盘前大盘转弱，它又跌得最狠，AI资本开支这条叙事今天没给它顺流动性的风，趋势先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 253,
+   "fill_date": "2026-07-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "META",
+   "reason": "风险偏好在收，META今天不是相对强马，先把不跟风的高beta减掉，别和盘面硬扛。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 254,
+   "fill_date": "2026-07-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "JEF",
+   "reason": "盘前明显弱于大盘，资本市场修复这条线今早没跟上风险偏好，先把这笔周期资金撤回现金，免得情绪一翻脸回撤放大。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 255,
+   "fill_date": "2026-07-23",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "EQT",
+   "reason": "油价/地缘+AI用气发电这条资金叙事还在进，盘前逆市走强说明钱没走，仍属顺风但必须盯紧情绪反转极快的风险。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 256,
+   "fill_date": "2026-07-23",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "MCK继续当防守压舱石，先不动。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 249,
+ "next_order_id": 257,
  "notes": [
   {
    "date": "2026-06-12",

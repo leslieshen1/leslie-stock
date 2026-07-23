@@ -3782,8 +3782,98 @@
    "reason": "盘前候选全是0波动，资金还没表态，死水无资金我不硬买；现有持仓都有浮盈且题材资金未见撤退，先让利润奔跑。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 169,
+   "fill_date": "2026-07-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里已经有八门能看懂、护城河尚在且价格不离谱的生意，今天没有必要为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 170,
+   "fill_date": "2026-07-23",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的几门生意都看得懂，也都还本分；为了换而换不是投资，现金就先放着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 171,
+   "fill_date": "2026-07-23",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "002222",
+   "reason": "福晶是硬核料件，但今天我更想把弹药挪到更正宗的半导体扩产卖铲子上，换掉相对没那么直接吃量产洪流的仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 172,
+   "fill_date": "2026-07-23",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688012",
+   "reason": "中微是刻蚀和MOCVD这类真正卡设备脖子的卖铲子，半导体下游扩产一开，这种位置就是每轮capex都要分一杯羹的方向性多头。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 173,
+   "fill_date": "2026-07-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688041",
+   "reason": "海光在这条AI算力国产化主线里没跑赢，既然资金不认它，我不等亏损扩大。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 174,
+   "fill_date": "2026-07-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688981",
+   "reason": "中芯作为大盘核心弹性不够且已经逆我成本线，半导体风还在但这匹马不够快。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 175,
+   "fill_date": "2026-07-23",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688120",
+   "reason": "半导体设备国产替代仍是政策和资金最顺的方向，华海清科比弱势大票更像高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 176,
+   "fill_date": "2026-07-23",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "301165",
+   "reason": "AI算力网络是算力扩张里边际最强的环节，锐捷网络趋势和弹性都更直接。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 177,
+   "fill_date": "2026-07-23",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选集合竞价全是零波动，盘口没有新增资金抢筹信号，死水不硬上，手里低空、军工、AI算力、贵金属仍有情绪筹码就先让利润跑。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 169,
+ "next_order_id": 178,
  "splits": []
 }

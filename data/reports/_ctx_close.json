@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-22 22:31 ET Wed",
+ "asof_et": "2026-07-22 22:46 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.12%",
@@ -2377,23 +2377,23 @@
    "sum": ""
   },
   {
+   "h": "Stock futures slip as investors eye more earnings; Alphabet falls on higher capex outlook: Live updates",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "Futures Fall; Google's Pain Is AI's Gain",
+   "src": "Investor's Business Daily",
+   "sum": ""
+  },
+  {
    "h": "Stock Market Today: Nasdaq Slides, Nvidia Can't Lift The Dow; Super Micro Shines",
    "src": "Investor's Business Daily",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Dow ends fractionally lower, S&P 500 and Nasdaq fall with Alphabet and Tesla earnings on deck. Oil prices rise sharply as Trump threatens to bomb Iranian infrastructure",
-   "src": "MarketWatch",
-   "sum": ""
-  },
-  {
    "h": "Markets News, July 20, 2026: Major Indexes Close Lower as Stocks Fail to Sustain Early Gains; Oil Rises as Iran War Intensifies",
    "src": "Investopedia",
-   "sum": ""
-  },
-  {
-   "h": "Dow Jones| Nasdaq | S&P 500 | US Stock Market Today | Live: US stocks mixed as caution rises ahead of Big...",
-   "src": "The Economic Times",
    "sum": ""
   },
   {
@@ -2417,7 +2417,7 @@
    "sum": ""
   },
   {
-   "h": "[MU] MU, SNDK, STX, WDC: Beaten-Down Memory Stocks Extend AI Rebound Ahead Of Tech Earnings",
+   "h": "[MU] MU, SNDK, SKHY Stocks Jump: Google's AI Hunger, Elon Musk's Micron Shoutout Send Memory Bulls Charging",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -2462,6 +2462,11 @@
    "sum": ""
   },
   {
+   "h": "Oil prices rise to six-week high as US-Iran tensions escalate - Reuters",
+   "src": "Reuters",
+   "sum": "Oil prices rise to six-week high as US-Iran tensions escalate  Reuters"
+  },
+  {
    "h": "Yemen's Houthis say they targeted two Saudi tankers; source says Encelia hit by missile - Reuters",
    "src": "Reuters",
    "sum": "Yemen's Houthis say they targeted two Saudi tankers; source says Encelia hit by missile  Reuters"
@@ -2470,6 +2475,11 @@
    "h": "Trump attends return of US soldiers killed in Iran war - Reuters",
    "src": "Reuters",
    "sum": "Trump attends return of US soldiers killed in Iran war  Reuters"
+  },
+  {
+   "h": "US House passes $1 trillion defense bill despite Iran, Israel concerns - Reuters",
+   "src": "Reuters",
+   "sum": "US House passes $1 trillion defense bill despite Iran, Israel concerns  Reuters"
   },
   {
    "h": "EXCLUSIVE: Iran strikes on CIA facilities prompt questions about possible Russian role - Reuters",
@@ -2500,16 +2510,6 @@
    "h": "Iran war drains U.S. blood and treasure - Reuters",
    "src": "Reuters",
    "sum": "Iran war drains U.S. blood and treasure  Reuters"
-  },
-  {
-   "h": "DP World to build two new terminals on UAE's eastern coast, reducing Hormuz reliance - Reuters",
-   "src": "Reuters",
-   "sum": "DP World to build two new terminals on UAE's eastern coast, reducing Hormuz reliance  Reuters"
-  },
-  {
-   "h": "Ex-Google recruiter: The No. 1 question that makes me want to hire someone on the spot",
-   "src": "CNBC",
-   "sum": "Former Google recruiter Farah Sharghi reveals the question that makes job candidates stand out to her the most."
   }
  ]
 }

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 84663.0,
-  "druckenmiller": 177782.0,
-  "sentiment": 271993.0
+  "serenity": 115903.0,
+  "druckenmiller": 248751.0,
+  "sentiment": 455735.0
  },
  "positions": [
   {
@@ -169,13 +169,6 @@
    "entry_date": "2026-07-20"
   },
   {
-   "master": "serenity",
-   "sym": "002222",
-   "shares": 1200,
-   "entry": 56.65,
-   "entry_date": "2026-07-20"
-  },
-  {
    "master": "druckenmiller",
    "sym": "688361",
    "shares": 200,
@@ -187,13 +180,6 @@
    "sym": "000977",
    "shares": 1100,
    "entry": 81.58,
-   "entry_date": "2026-07-20"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688652",
-   "shares": 600,
-   "entry": 141.42,
    "entry_date": "2026-07-20"
   },
   {
@@ -226,31 +212,31 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "688981",
-   "shares": 600,
-   "entry": 160.0,
-   "entry_date": "2026-07-21"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688041",
-   "shares": 200,
-   "entry": 344.53,
-   "entry_date": "2026-07-21"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688702",
    "shares": 200,
    "entry": 395.04,
    "entry_date": "2026-07-21"
   },
   {
-   "master": "sentiment",
-   "sym": "000603",
-   "shares": 7400,
-   "entry": 20.52,
-   "entry_date": "2026-07-21"
+   "master": "serenity",
+   "sym": "688012",
+   "shares": 100,
+   "entry": 375.2,
+   "entry_date": "2026-07-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688120",
+   "shares": 300,
+   "entry": 258.55,
+   "entry_date": "2026-07-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301165",
+   "shares": 700,
+   "entry": 126.8,
+   "entry_date": "2026-07-23"
   }
  ],
  "nav": [
@@ -728,6 +714,31 @@
    "master": "sentiment",
    "date": "2026-07-22",
    "nav": 1036474.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-23",
+   "nav": 1074185.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-23",
+   "nav": 1081822.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-23",
+   "nav": 764778.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-23",
+   "nav": 806878.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-23",
+   "nav": 1055855.0
   }
  ],
  "trades": [
@@ -2100,6 +2111,86 @@
    "price": 20.52,
    "reason": "盛达资源白银ATH叠加预增催化，贵金属情绪资金还在风口，盘前没爆拉不算接最后一棒。",
    "src": "ai"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "002222",
+   "shares": 1200,
+   "price": 57.3,
+   "reason": "福晶是硬核料件，但今天我更想把弹药挪到更正宗的半导体扩产卖铲子上，换掉相对没那么直接吃量产洪流的仓位。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688012",
+   "shares": 100,
+   "price": 375.2,
+   "reason": "中微是刻蚀和MOCVD这类真正卡设备脖子的卖铲子，半导体下游扩产一开，这种位置就是每轮capex都要分一杯羹的方向性多头。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688652",
+   "shares": 600,
+   "price": 146.4,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688981",
+   "shares": 600,
+   "price": 145.09,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688041",
+   "shares": 200,
+   "price": 312.0,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688120",
+   "shares": 300,
+   "price": 258.55,
+   "reason": "半导体设备国产替代仍是政策和资金最顺的方向，华海清科比弱势大票更像高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301165",
+   "shares": 700,
+   "price": 126.8,
+   "reason": "AI算力网络是算力扩张里边际最强的环节，锐捷网络趋势和弹性都更直接。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000603",
+   "shares": 7400,
+   "price": 24.83,
+   "reason": "+21.0% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -3790,7 +3881,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里已经有八门能看懂、护城河尚在且价格不离谱的生意，今天没有必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3800,7 +3891,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的几门生意都看得懂，也都还本分；为了换而换不是投资，现金就先放着。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3810,7 +3901,7 @@
    "action": "SELL",
    "sym": "002222",
    "reason": "福晶是硬核料件，但今天我更想把弹药挪到更正宗的半导体扩产卖铲子上，换掉相对没那么直接吃量产洪流的仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3820,7 +3911,7 @@
    "action": "BUY",
    "sym": "688012",
    "reason": "中微是刻蚀和MOCVD这类真正卡设备脖子的卖铲子，半导体下游扩产一开，这种位置就是每轮capex都要分一杯羹的方向性多头。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3830,8 +3921,8 @@
    "action": "SELL",
    "sym": "688041",
    "reason": "海光在这条AI算力国产化主线里没跑赢，既然资金不认它，我不等亏损扩大。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 174,
@@ -3840,8 +3931,8 @@
    "action": "SELL",
    "sym": "688981",
    "reason": "中芯作为大盘核心弹性不够且已经逆我成本线，半导体风还在但这匹马不够快。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 175,
@@ -3850,7 +3941,7 @@
    "action": "BUY",
    "sym": "688120",
    "reason": "半导体设备国产替代仍是政策和资金最顺的方向，华海清科比弱势大票更像高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3860,7 +3951,7 @@
    "action": "BUY",
    "sym": "301165",
    "reason": "AI算力网络是算力扩张里边际最强的环节，锐捷网络趋势和弹性都更直接。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3870,7 +3961,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选集合竞价全是零波动，盘口没有新增资金抢筹信号，死水不硬上，手里低空、军工、AI算力、贵金属仍有情绪筹码就先让利润跑。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

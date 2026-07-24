@@ -7,7 +7,9 @@ import path from "path";
 import { loadWhales } from "@/lib/whales";
 import { T } from "@/lib/i18n";
 
-export const dynamic = "force-dynamic";
+// ISR(不再 force-dynamic):13F 季度数据、只随部署更新,页面缓存 1h ——
+// 81+ 个长尾大佬页被搜索引擎爬虫反复抓时,不再每次都 SSR,省函数调用 / Origin Transfer。
+export const revalidate = 3600;
 
 // 每个大佬页独立 title/description(否则 81+ 个页共用全站默认标题 → 长尾 SEO 作废)
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

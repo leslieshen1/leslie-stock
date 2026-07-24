@@ -11,7 +11,9 @@ export const metadata = {
   description: "每日美股盘前看点 + 收盘复盘(Claude Opus 4.8 生成,Leslie 口吻)+ 市场日历 + 今日大事。非投资建议。",
 };
 
-export const dynamic = "force-dynamic";
+// ISR(不再 force-dynamic):盘报一天才更新几次,页面缓存 600s,不再每次访问都全量 SSR —— 省函数/传输。
+// 日历「相对天」按 ET 日期在再生成时重算,10min 缓存对日粒度足够;今日大事内部各 fetch 自带 30min 缓存。
+export const revalidate = 600;
 
 async function loadJSON<T>(file: string, key: string, fallback: T): Promise<T> {
   try {

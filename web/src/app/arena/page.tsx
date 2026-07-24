@@ -7,7 +7,9 @@ export const metadata = {
   description: "五位投资人格的 AI 模拟虚拟盘对决:每日收盘撮合结账、净值排名。虚拟盘 · 教育用途 · 非投资建议。",
 };
 
-export const dynamic = "force-dynamic";
+// ISR(不再 force-dynamic):对决数据每天收盘才变,页面缓存 120s(与下方 GitHub 拉取的 revalidate 对齐),
+// 命中缓存不再每次访问都 SSR —— 省 Fast Origin Transfer / Active CPU / 函数调用。实时净值走 ArenaClient 客户端轮询。
+export const revalidate = 120;
 
 async function loadArena(file: string): Promise<Arena | null> {
   // 云引擎(GitHub Actions)收盘后直接 commit arena{,-a}.json —— 这里优先实时读仓库,

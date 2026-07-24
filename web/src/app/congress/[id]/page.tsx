@@ -6,7 +6,9 @@ import { loadCongress, loadAvgScores, PARTY_META } from "@/lib/congress";
 import { T } from "@/lib/i18n";
 import CongressMemberDetail from "./MemberDetail";
 
-export const dynamic = "force-dynamic";
+// ISR(不再 force-dynamic):PTR 申报数据只随部署更新,页面缓存 1h ——
+// 96 个长尾议员页被爬虫反复抓时,不再每次都 SSR,省函数调用 / Origin Transfer。
+export const revalidate = 3600;
 
 // 每个议员页独立 title/description(否则 96 个页共用全站默认标题 → 长尾 SEO 作废)
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

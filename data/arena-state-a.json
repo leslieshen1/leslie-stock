@@ -3963,8 +3963,58 @@
    "reason": "候选集合竞价全是零波动，盘口没有新增资金抢筹信号，死水不硬上，手里低空、军工、AI算力、贵金属仍有情绪筹码就先让利润跑。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 178,
+   "fill_date": "2026-07-24",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓大多是我愿意长期拥有的好生意，今天没有足够大的价格错配值得我为了交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 179,
+   "fill_date": "2026-07-24",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这几家公司我都看得懂，生意和文化也过关，今天没有明显更好的机会，不为交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 180,
+   "fill_date": "2026-07-24",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位全是我认的真瓶颈，盘前候选没给错杀价也没有新的单点胜率明显碾压，今天不为了把现金打满去硬换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 181,
+   "fill_date": "2026-07-24",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688629",
+   "reason": "AI服务器高速互联叠加军工升级，流动性还在追硬科技弹性载体，盘前没被爆拉，补一匹顺风高弹性的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 182,
+   "fill_date": "2026-07-24",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价候选全是0轴无明显抢筹，盘口没看到增量资金进场，死水不硬买，先守住低空、军工、AI算力这几条已有活口。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 178,
+ "next_order_id": 183,
  "splits": []
 }

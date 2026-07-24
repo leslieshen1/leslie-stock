@@ -3,8 +3,8 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 115903.0,
-  "druckenmiller": 248751.0,
-  "sentiment": 455735.0
+  "druckenmiller": 156639.0,
+  "sentiment": 738316.0
  },
  "positions": [
   {
@@ -127,20 +127,6 @@
    "entry_date": "2026-07-17"
   },
   {
-   "master": "sentiment",
-   "sym": "301589",
-   "shares": 1000,
-   "entry": 135.48,
-   "entry_date": "2026-07-17"
-  },
-  {
-   "master": "sentiment",
-   "sym": "600562",
-   "shares": 6300,
-   "entry": 22.71,
-   "entry_date": "2026-07-17"
-  },
-  {
    "master": "serenity",
    "sym": "301269",
    "shares": 700,
@@ -237,6 +223,13 @@
    "shares": 700,
    "entry": 126.8,
    "entry_date": "2026-07-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688629",
+   "shares": 600,
+   "entry": 153.52,
+   "entry_date": "2026-07-24"
   }
  ],
  "nav": [
@@ -739,6 +732,31 @@
    "master": "sentiment",
    "date": "2026-07-23",
    "nav": 1055855.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-24",
+   "nav": 1068423.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-24",
+   "nav": 1067846.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-24",
+   "nav": 758386.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-24",
+   "nav": 811943.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-24",
+   "nav": 1040761.0
   }
  ],
  "trades": [
@@ -2190,6 +2208,36 @@
    "shares": 7400,
    "price": 24.83,
    "reason": "+21.0% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688629",
+   "shares": 600,
+   "price": 153.52,
+   "reason": "AI服务器高速互联叠加军工升级，流动性还在追硬科技弹性载体，盘前没被爆拉，补一匹顺风高弹性的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "301589",
+   "shares": 1000,
+   "price": 130.31,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-3.8%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "600562",
+   "shares": 6300,
+   "price": 24.17,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+6.4%)",
    "src": "rule"
   }
  ],
@@ -3971,7 +4019,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓大多是我愿意长期拥有的好生意，今天没有足够大的价格错配值得我为了交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3981,7 +4029,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这几家公司我都看得懂，生意和文化也过关，今天没有明显更好的机会，不为交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -3991,7 +4039,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位全是我认的真瓶颈，盘前候选没给错杀价也没有新的单点胜率明显碾压，今天不为了把现金打满去硬换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4001,7 +4049,7 @@
    "action": "BUY",
    "sym": "688629",
    "reason": "AI服务器高速互联叠加军工升级，流动性还在追硬科技弹性载体，盘前没被爆拉，补一匹顺风高弹性的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4011,7 +4059,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价候选全是0轴无明显抢筹，盘口没看到增量资金进场，死水不硬买，先守住低空、军工、AI算力这几条已有活口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

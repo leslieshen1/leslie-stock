@@ -5116,9 +5116,79 @@
    "reason": "MCK继续当防守压舱石，先不动。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 257,
+   "fill_date": "2026-07-24",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓都是我看得懂、护城河仍在的生意；今天候选里虽有回落，但没有便宜到值得我卖掉好生意去换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 258,
+   "fill_date": "2026-07-24",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看懂了，商业模式和文化没有变，市场一天的情绪不值得让我乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 259,
+   "fill_date": "2026-07-24",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天不为盘前小反弹乱换马，手里十个都是我认的真瓶颈，回撤没有改变『每台量产都要分它一块』这条主线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 260,
+   "fill_date": "2026-07-24",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AXON",
+   "reason": "盘前最强相对强度之一，资金还在追这匹马，顺流动性不逆势。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 261,
+   "fill_date": "2026-07-24",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "CEG",
+   "reason": "AI 算力要电，电力这条主线没变，CEG 是最干净的高弹性表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 262,
+   "fill_date": "2026-07-24",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "LMT",
+   "reason": "昨天防务被资金当避险主线买爆但盘前没继续疯拉，说明不是散户最后一棒，地缘风险资金还在往里挤，顺势上一仓但盯紧情绪急反。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 263,
+   "fill_date": "2026-07-24",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "WEX",
+   "reason": "这票更像冰点反转而不是狂热追高，盘前只小幅承接，价值资金和回购盘在底下接，拥挤度还不高，适合拿一仓等资金继续修复。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 257,
+ "next_order_id": 264,
  "notes": [
   {
    "date": "2026-06-12",

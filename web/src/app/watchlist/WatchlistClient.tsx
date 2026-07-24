@@ -77,7 +77,7 @@ export default function WatchlistClient() {
       }
     }
     poll();
-    const id = setInterval(poll, 60_000); // 60s(原 30s):个股价格列表不用那么即时
+    const id = setInterval(poll, 120_000); // 120s(原 30s):个股价格列表不用那么即时
     return () => { stop = true; clearInterval(id); };
   }, [symMap]);
 

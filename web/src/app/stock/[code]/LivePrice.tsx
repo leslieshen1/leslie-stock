@@ -54,7 +54,7 @@ export default function LivePrice({
         /* 静默 */
       }
     };
-    const id = setInterval(poll, 60_000); // 60s(原 20s):个股价格允许延迟,轮询慢 3 倍 → 省 Edge Requests / 函数调用 / Origin Transfer
+    const id = setInterval(poll, 120_000); // 120s(原 20s):个股价格允许延迟到 2 分钟,轮询慢 6 倍 → 省 Edge Requests / 函数调用 / Origin Transfer
     poll();
     return () => { alive = false; clearInterval(id); clearTimeout(t); };
   }, [ysym]);

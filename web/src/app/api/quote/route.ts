@@ -160,10 +160,10 @@ export async function GET(req: Request) {
   );
   // 全部符号都没拿到价(上游集体失败)→ 不缓存这个"空响应",否则边缘会把空缓存喂给所有人、价格集体卡死。
   const allEmpty = Object.keys(out).length === 0;
-  // 边缘缓存按时段:任一市场(美/A/港/韩)开盘=行情在动→短缓存 60s(个股价格允许延迟,不追秒级);全休市=行情不变→长缓存 600s。
+  // 边缘缓存按时段:任一市场(美/A/港/韩)开盘=行情在动→短缓存 120s(个股价格允许延迟到 2 分钟,不追秒级);全休市=行情不变→长缓存 600s。
   // 关键是拉长 stale-while-revalidate —— 轮询在 SWR 窗口内大量命中边缘、只偶尔后台回源,大削 Vercel 函数调用 + Origin Transfer。
   const anyOpen = (["us", "a", "hk", "kr"] as const).some((m) => marketStatus(new Date(), m).state !== "closed");
-  const cdn = anyOpen ? "max-age=60, stale-while-revalidate=600" : "max-age=600, stale-while-revalidate=1800";
+  const cdn = anyOpen ? "max-age=120, stale-while-revalidate=600" : "max-age=600, stale-while-revalidate=1800";
   return Response.json(
     { quotes: out, ts: Date.now() },
     { headers: allEmpty

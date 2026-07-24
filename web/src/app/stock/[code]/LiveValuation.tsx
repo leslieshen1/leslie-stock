@@ -37,7 +37,7 @@ export default function LiveValuation({
         /* 拿不到就退回静态收盘价 */
       }
     };
-    const id = setInterval(poll, 20_000);
+    const id = setInterval(poll, 60_000); // 60s(原 20s):与 LivePrice 同步放慢,估值基准价不用秒级
     poll();
     return () => { alive = false; clearInterval(id); };
   }, [ysym]);

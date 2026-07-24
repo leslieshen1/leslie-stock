@@ -10,6 +10,11 @@ import { T } from "@/lib/i18n";
 // ISR(不再 force-dynamic):13F 季度数据、只随部署更新,页面缓存 1h ——
 // 81+ 个长尾大佬页被搜索引擎爬虫反复抓时,不再每次都 SSR,省函数调用 / Origin Transfer。
 export const revalidate = 3600;
+// 动态路由段要进 ISR 缓存管线必须有 generateStaticParams。构建时预渲染全部大佬页(仅 81 个,成本极低)
+// → 全部静态缓存,爬虫每次命中都是 HIT、零函数调用。dynamicParams 默认 true:部署间新增 slug 仍按需渲染并缓存。
+export function generateStaticParams() {
+  return (loadWhales().investors || []).map((i) => ({ slug: i.slug }));
+}
 
 // 每个大佬页独立 title/description(否则 81+ 个页共用全站默认标题 → 长尾 SEO 作废)
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

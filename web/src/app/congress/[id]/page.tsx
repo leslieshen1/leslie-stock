@@ -9,6 +9,11 @@ import CongressMemberDetail from "./MemberDetail";
 // ISR(不再 force-dynamic):PTR 申报数据只随部署更新,页面缓存 1h ——
 // 96 个长尾议员页被爬虫反复抓时,不再每次都 SSR,省函数调用 / Origin Transfer。
 export const revalidate = 3600;
+// 动态路由段要进 ISR 缓存管线必须有 generateStaticParams。构建时预渲染全部议员页(96 个)
+// → 全部静态缓存,爬虫命中即 HIT、零函数调用。dynamicParams 默认 true:部署间新增 id 仍按需渲染并缓存。
+export function generateStaticParams() {
+  return (loadCongress().members || []).map((m) => ({ id: m.id }));
+}
 
 // 每个议员页独立 title/description(否则 96 个页共用全站默认标题 → 长尾 SEO 作废)
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

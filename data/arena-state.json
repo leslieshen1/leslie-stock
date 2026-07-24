@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 10.73,
-  "druckenmiller": 362690.19,
-  "sentiment": 744549.68
+  "druckenmiller": 563475.79,
+  "sentiment": 743766.43
  },
  "positions": [
   {
@@ -155,20 +155,6 @@
    "entry_date": "2026-07-15"
   },
   {
-   "master": "druckenmiller",
-   "sym": "GOOGL",
-   "shares": 307,
-   "entry": 357.71,
-   "entry_date": "2026-07-16"
-  },
-  {
-   "master": "sentiment",
-   "sym": "JEF",
-   "shares": 2836,
-   "entry": 55.8,
-   "entry_date": "2026-07-16"
-  },
-  {
    "master": "serenity",
    "sym": "AXTI",
    "shares": 1765,
@@ -190,13 +176,6 @@
    "entry_date": "2026-07-20"
   },
   {
-   "master": "druckenmiller",
-   "sym": "META",
-   "shares": 169,
-   "entry": 643.0,
-   "entry_date": "2026-07-20"
-  },
-  {
    "master": "serenity",
    "sym": "PPTA",
    "shares": 4013,
@@ -209,6 +188,13 @@
    "shares": 2304,
    "entry": 46.86,
    "entry_date": "2026-07-22"
+  },
+  {
+   "master": "sentiment",
+   "sym": "EQT",
+   "shares": 2967,
+   "entry": 53.39,
+   "entry_date": "2026-07-23"
   }
  ],
  "nav": [
@@ -911,6 +897,31 @@
    "master": "sentiment",
    "date": "2026-07-22",
    "nav": 1055477.72
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-23",
+   "nav": 985073.44
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-23",
+   "nav": 992240.87
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-23",
+   "nav": 900616.61
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-23",
+   "nav": 939560.47
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-23",
+   "nav": 1056354.19
   }
  ],
  "trades": [
@@ -2722,6 +2733,46 @@
    "shares": 2304,
    "price": 46.86,
    "reason": "大盘尤其纳指盘前走弱时它还逆势上行，趋势、新闻和相对强度共振，我要骑当下不怕风的强马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GOOGL",
+   "shares": 307,
+   "price": 319.68,
+   "reason": "错了就是错了,-10.6% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "META",
+   "shares": 169,
+   "price": 607.36,
+   "reason": "风险偏好在收，META今天不是相对强马，先把不跟风的高beta减掉，别和盘面硬扛。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "JEF",
+   "shares": 2836,
+   "price": 55.58,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "EQT",
+   "shares": 2967,
+   "price": 53.39,
+   "reason": "油价/地缘+AI用气发电这条资金叙事还在进，盘前逆市走强说明钱没走，仍属顺风但必须盯紧情绪反转极快的风险。",
    "src": "ai"
   }
  ],
@@ -4993,7 +5044,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些都是我看得懂、护城河仍在的生意，盘前的报价波动不足以让我用十年眼光去搬动仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5003,7 +5054,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几门生意我都看懂了，商业模式和文化没变，盘前这点波动不是让我换来换去的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5013,7 +5064,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前指数在砍高 beta，但我手里这些不是靠情绪续命的故事票，而是钨、HALEU、细胞疗法保存液、军工小发动机、并网电力、InP、铍、锑这些每台下游量产都要吃的真瓶颈，今天不因为宏观噪音乱砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5023,8 +5074,8 @@
    "action": "SELL",
    "sym": "GOOGL",
    "reason": "盘前大盘转弱，它又跌得最狠，AI资本开支这条叙事今天没给它顺流动性的风，趋势先砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 253,
@@ -5033,7 +5084,7 @@
    "action": "SELL",
    "sym": "META",
    "reason": "风险偏好在收，META今天不是相对强马，先把不跟风的高beta减掉，别和盘面硬扛。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5043,8 +5094,8 @@
    "action": "SELL",
    "sym": "JEF",
    "reason": "盘前明显弱于大盘，资本市场修复这条线今早没跟上风险偏好，先把这笔周期资金撤回现金，免得情绪一翻脸回撤放大。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 255,
@@ -5053,7 +5104,7 @@
    "action": "BUY",
    "sym": "EQT",
    "reason": "油价/地缘+AI用气发电这条资金叙事还在进，盘前逆市走强说明钱没走，仍属顺风但必须盯紧情绪反转极快的风险。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5063,7 +5114,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "MCK继续当防守压舱石，先不动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

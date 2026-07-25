@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 10.73,
-  "druckenmiller": 563475.79,
-  "sentiment": 743766.43
+  "druckenmiller": 349480.87,
+  "sentiment": 583836.38
  },
  "positions": [
   {
@@ -162,13 +162,6 @@
    "entry_date": "2026-07-17"
   },
   {
-   "master": "sentiment",
-   "sym": "MCK",
-   "shares": 187,
-   "entry": 841.39,
-   "entry_date": "2026-07-17"
-  },
-  {
    "master": "serenity",
    "sym": "MTRN",
    "shares": 338,
@@ -195,6 +188,34 @@
    "shares": 2967,
    "entry": 53.39,
    "entry_date": "2026-07-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "AXON",
+   "shares": 213,
+   "entry": 502.34,
+   "entry_date": "2026-07-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "CEG",
+   "shares": 390,
+   "entry": 274.35,
+   "entry_date": "2026-07-24"
+  },
+  {
+   "master": "sentiment",
+   "sym": "LMT",
+   "shares": 272,
+   "entry": 582.6,
+   "entry_date": "2026-07-24"
+  },
+  {
+   "master": "sentiment",
+   "sym": "WEX",
+   "shares": 901,
+   "entry": 176.15,
+   "entry_date": "2026-07-24"
   }
  ],
  "nav": [
@@ -922,6 +943,31 @@
    "master": "sentiment",
    "date": "2026-07-23",
    "nav": 1056354.19
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-24",
+   "nav": 996186.61
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-24",
+   "nav": 1013026.78
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-24",
+   "nav": 857409.23
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-24",
+   "nav": 932023.33
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-24",
+   "nav": 1058354.74
   }
  ],
  "trades": [
@@ -2773,6 +2819,56 @@
    "shares": 2967,
    "price": 53.39,
    "reason": "油价/地缘+AI用气发电这条资金叙事还在进，盘前逆市走强说明钱没走，仍属顺风但必须盯紧情绪反转极快的风险。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AXON",
+   "shares": 213,
+   "price": 502.34,
+   "reason": "盘前最强相对强度之一，资金还在追这匹马，顺流动性不逆势。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "CEG",
+   "shares": 390,
+   "price": 274.35,
+   "reason": "AI 算力要电，电力这条主线没变，CEG 是最干净的高弹性表达。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "MCK",
+   "shares": 187,
+   "price": 840.9,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "LMT",
+   "shares": 272,
+   "price": 582.6,
+   "reason": "昨天防务被资金当避险主线买爆但盘前没继续疯拉，说明不是散户最后一棒，地缘风险资金还在往里挤，顺势上一仓但盯紧情绪急反。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-24",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "WEX",
+   "shares": 901,
+   "price": 176.15,
+   "reason": "这票更像冰点反转而不是狂热追高，盘前只小幅承接，价值资金和回购盘在底下接，拥挤度还不高，适合拿一仓等资金继续修复。",
    "src": "ai"
   }
  ],
@@ -5124,7 +5220,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓都是我看得懂、护城河仍在的生意；今天候选里虽有回落，但没有便宜到值得我卖掉好生意去换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5134,7 +5230,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看懂了，商业模式和文化没有变，市场一天的情绪不值得让我乱动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5144,7 +5240,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天不为盘前小反弹乱换马，手里十个都是我认的真瓶颈，回撤没有改变『每台量产都要分它一块』这条主线。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5154,7 +5250,7 @@
    "action": "BUY",
    "sym": "AXON",
    "reason": "盘前最强相对强度之一，资金还在追这匹马，顺流动性不逆势。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5164,7 +5260,7 @@
    "action": "BUY",
    "sym": "CEG",
    "reason": "AI 算力要电，电力这条主线没变，CEG 是最干净的高弹性表达。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5174,7 +5270,7 @@
    "action": "BUY",
    "sym": "LMT",
    "reason": "昨天防务被资金当避险主线买爆但盘前没继续疯拉，说明不是散户最后一棒，地缘风险资金还在往里挤，顺势上一仓但盯紧情绪急反。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5184,7 +5280,7 @@
    "action": "BUY",
    "sym": "WEX",
    "reason": "这票更像冰点反转而不是狂热追高，盘前只小幅承接，价值资金和回购盘在底下接，拥挤度还不高，适合拿一仓等资金继续修复。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

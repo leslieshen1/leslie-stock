@@ -4061,8 +4061,58 @@
    "reason": "集合竞价候选全是0轴无明显抢筹，盘口没看到增量资金进场，死水不硬买，先守住低空、军工、AI算力这几条已有活口。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 183,
+   "fill_date": "2026-07-27",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意都看得懂，也都还不错，今天没有必要为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 184,
+   "fill_date": "2026-07-27",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在我定义的真瓶颈链条里，盘前候选也没有给我错杀价，今天不为了把现金花掉去硬换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 185,
+   "fill_date": "2026-07-27",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688702",
+   "reason": "同一条AI国产替代顺风里它没跑赢、还在我账上唯一翻绿，错了就快砍，把火力挪到更强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 186,
+   "fill_date": "2026-07-27",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002979",
+   "reason": "雷赛智能盘前没被爆拉，机器人/运动控制叙事和短线动量都顺风，是此刻更高弹性的表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 187,
+   "fill_date": "2026-07-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是0轴死水，没有看到资金抢筹和预期差发酵，宁可拿着现金等盘口放量确认，不去为买满而硬上。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 183,
+ "next_order_id": 188,
  "splits": []
 }

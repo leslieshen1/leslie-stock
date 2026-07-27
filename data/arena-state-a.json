@@ -4111,8 +4111,18 @@
    "reason": "盘前候选全是0轴死水，没有看到资金抢筹和预期差发酵，宁可拿着现金等盘口放量确认，不去为买满而硬上。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 188,
+   "fill_date": "2026-07-27",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这8笔都是我能看懂的好生意，今天盘前没有哪一笔给出足够新的安全边际，宁可拿现金等真正便宜的机会。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 188,
+ "next_order_id": 189,
  "splits": []
 }

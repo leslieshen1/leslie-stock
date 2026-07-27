@@ -5282,9 +5282,99 @@
    "reason": "这票更像冰点反转而不是狂热追高，盘前只小幅承接，价值资金和回购盘在底下接，拥挤度还不高，适合拿一仓等资金继续修复。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 264,
+   "fill_date": "2026-07-27",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里已经有八门我看得懂、护城河够深的生意；今天没有哪一个价格便宜到值得我卖掉好公司去换另一张票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 265,
+   "fill_date": "2026-07-27",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂了，商业模式和文化都过关，今天盘前涨跌不是我卖掉好生意的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 266,
+   "fill_date": "2026-07-27",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天不为了换仓而换仓：手里这十个仍然是我认的单点瓶颈，盘前反弹只是止血，不是让我砍真瓶颈去追另一个真瓶颈的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 267,
+   "fill_date": "2026-07-27",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "META",
+   "reason": "纳指盘前重新吸流动性，但我不去接最拥挤的二线芯片，META是AI顺风里现金流最硬、弹性还够的旗舰。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 268,
+   "fill_date": "2026-07-27",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "NVDA",
+   "reason": "如果今天是真风险偏好回补，AI资本开支这条大趋势里最干净、最高贝塔的载体仍是NVDA，盘前没爆拉就可以上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 269,
+   "fill_date": "2026-07-27",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "SCCO",
+   "reason": "铜是电气化、AI电力和财政赤字货币化的共同载体，今天没被过度追高，顺长期流动性大风加一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 270,
+   "fill_date": "2026-07-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ADBE",
+   "reason": "AI杀软件后的冰点票今天被资金回补，盘前涨幅还没到失控追高，我愿意拿一仓赌情绪从一致悲观往反转走。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 271,
+   "fill_date": "2026-07-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "GDDY",
+   "reason": "盘口不躁、机构钱在里面、回购现金流叙事顺着走，相比那些已经爆拉的票它还不像最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 272,
+   "fill_date": "2026-07-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "EQT、LMT、WEX都不是今天盘前最热的钱，但还没出现资金彻底撤退的盘口，先不在红盘日被情绪甩下车。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 264,
+ "next_order_id": 273,
  "notes": [
   {
    "date": "2026-06-12",

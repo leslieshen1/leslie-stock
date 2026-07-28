@@ -22,9 +22,8 @@ export type UsPanel = {
   divergence: string;
 };
 
-// 聚合回退缓存:per-stock 文件(us-panels/ / a-panels/)缺失时,从已提交的聚合
-// us-analyses.json / a-analyses.json 取(模块级只读一次)。us-panels/ 被 gitignore 未进 git → CI 部署没有
-// per-stock 文件,否则所有美股详情页都"暂无深度分析"(2026-06-22 抓包)。
+// 聚合判读是自动刷新任务的权威数据源，模块级只读一次。逐股文件只作为历史兼容回退，
+// 避免 a-panels/ 的旧快照遮住已写入 a-analyses.json 的最新判读。
 const AGG_CACHE: Record<string, Record<string, UsPanel> | null> = {};
 function loadAggregate(kind: "us" | "a" | "kr" | "hk"): Record<string, UsPanel> {
   if (AGG_CACHE[kind] !== undefined && AGG_CACHE[kind] !== null) return AGG_CACHE[kind]!;
@@ -55,6 +54,10 @@ export function loadUsPanel(sym: string, market?: string): UsPanel | null {
   const isKr = market === "kr";
   const isHk = market === "hk";  // 港股代码也是数字,同样靠 market 区分走独立 hk-panels/hk-analyses(避开 A 股命名空间)
   const isA = !isKr && !isHk && /^\d+$/.test(c);
+  const kind = isKr ? "kr" : isHk ? "hk" : isA ? "a" : "us";
+  const fromAgg = loadAggregate(kind)[s];
+  if (fromAgg?.panel) return fromAgg;
+
   const dir = isKr ? "kr-panels" : isHk ? "hk-panels" : isA ? "a-panels" : "us-panels";
   const candidates = [
     safeUnder(path.join(process.cwd(), "public", "data", dir), `${s}.json`),
@@ -69,8 +72,5 @@ export function loadUsPanel(sym: string, market?: string): UsPanel | null {
       // try next
     }
   }
-  // per-stock 缺失 → 回退聚合(*-analyses.json 已提交,CI 部署也有)
-  const fromAgg = loadAggregate(isKr ? "kr" : isHk ? "hk" : isA ? "a" : "us")[s];
-  if (fromAgg?.panel) return fromAgg;
   return null;
 }

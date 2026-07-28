@@ -90,7 +90,7 @@ export default function ScanClient() {
   const [dilutionFlags, setDilutionFlags] = useState<Record<string, DilutionFlag>>({});
   const [usPanels, setUsPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });
   const [aPanels, setAPanels] = useState<UsPanelSummary>({ order: [], stocks: {} });  // A股五方
-  // 判读冻结基线价 p0(永久不变):判读后涨幅 = 现价/p0-1。美股锚 06-17、A 股锚 06-19,各自 slim 查表。
+  // 每只股票最近一次判读的基线价 p0:判读后涨幅 = 现价/p0-1。重判后该股锚点单独归零。
   const [usP0, setUsP0] = useState<{ anchor: string; p0: Record<string, number> }>({ anchor: "", p0: {} });
   const [aP0, setAP0] = useState<{ anchor: string; p0: Record<string, number> }>({ anchor: "", p0: {} });
   const [aQuotes, setAQuotes] = useState<Record<string, { price: number | null; pct: number | null; vol: number | null; mcapYi: number | null }>>({});  // A股实时(腾讯)
@@ -790,7 +790,7 @@ function UsScanView({ stocks, flags, panels, flash = {}, market = "us", p0 = {},
  <Th col="mcap" label={secType === "etf" ? t("1年回报", "1Y Return") : secType === "all" ? t("市值 / 1Y", "Mkt Cap / 1Y") : t("市值", "Mkt Cap")} className="text-right" />
  <Th col="div" label={t("五方", "Panel")} className="text-center" />
  <Th col="avg" label={t("均分", "Avg")} className="text-right" />
- <Th col="judged" label={t("判读后", "Since")} className="text-right" title={p0Anchor ? t(`自 ${p0Anchor} 判读锁定以来的涨跌(现价/锚点价−1)`, `Return since panel was frozen on ${p0Anchor}`) : t("判读锁定以来的涨跌", "Return since panel was frozen")} />
+ <Th col="judged" label={t("判读后", "Since")} className="text-right" title={p0Anchor ? t(`自各股票最近一次判读以来的涨跌；初始锚点 ${p0Anchor}`, `Return since each stock's latest panel refresh; initial anchor ${p0Anchor}`) : t("自各股票最近一次判读以来的涨跌", "Return since each stock's latest panel refresh")} />
  <Th col="vol" label={t("成交量", "Volume")} className="hidden text-right sm:table-cell" />
  <th className="hidden px-3 py-2 font-medium text-muted md:table-cell">{t("行业", "Industry")}</th>
  <th className="px-2 py-2"></th>

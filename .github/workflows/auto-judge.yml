@@ -1,8 +1,8 @@
 name: auto-judge
 
-# 五方自动刷新(每周一次)—— 把已覆盖五方库里、本周【大幅异动】的美股/A股,云端用 Claude Opus 4.8 重判五方。
-# 口径(用户 2026-06-22 定):一周一次 · 美股+A股 · 只刷新已覆盖的票 · 有上限控成本(默认 US≤15 + A≤10)。
-# 脚本 scripts/auto_refresh_panels.py 纯读 JSON(无 leslie.db 依赖),只覆盖 panel+divergence,保留 name/sector/desc/chain。
+# 五方自动刷新(每周一次)—— 按本周异动 + 判读以来价格漂移识别过期内容，云端重判五方。
+# 默认 US≤15 + A≤10；手动 dispatch 可提高 cap，分批清理历史积压。
+# 脚本纯读写 JSON(无 leslie.db 依赖)，并同步详情、scan、热力图、p0 和观察列表文案。
 #
 # 触发:GitHub schedule 兜底(周六,不可靠)+ workflow_dispatch(手动/可勾 dry 只检测)+ cron-job.org 打 /api/cron/auto-judge 准点。
 
@@ -15,6 +15,26 @@ on:
         description: "只检测不调 LLM(看本周会刷哪些票,不花 token)"
         type: boolean
         default: false
+      cap_us:
+        description: "本次美股刷新上限(空=15)"
+        type: string
+        default: "15"
+      cap_a:
+        description: "本次 A 股刷新上限(空=10)"
+        type: string
+        default: "10"
+      drift_us:
+        description: "美股判读后涨跌触发阈值 %(空=15)"
+        type: string
+        default: "15"
+      drift_a:
+        description: "A 股判读后涨跌触发阈值 %(空=20)"
+        type: string
+        default: "20"
+      workers:
+        description: "LLM 并发数(空=4)"
+        type: string
+        default: "4"
 
 permissions:
   contents: write
@@ -26,7 +46,7 @@ concurrency:
 jobs:
   judge:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -44,15 +64,28 @@ jobs:
           NDT_API_KEY: ${{ secrets.NDT_API_KEY }}
           NDT_BASE_URL: ${{ secrets.NDT_BASE_URL }}
           AUTOJUDGE_DRY: ${{ inputs.dry && '1' || '' }}
+          AUTOJUDGE_CAP_US: ${{ inputs.cap_us || '15' }}
+          AUTOJUDGE_CAP_A: ${{ inputs.cap_a || '10' }}
+          AUTOJUDGE_DRIFT_US: ${{ inputs.drift_us || '15' }}
+          AUTOJUDGE_DRIFT_A: ${{ inputs.drift_a || '20' }}
+          AUTOJUDGE_WORKERS: ${{ inputs.workers || '4' }}
         run: uv run python scripts/auto_refresh_panels.py
-      - name: 提交并推送(只 add 这两个五方 JSON,绝不碰 leslie.db / 代码)
+      - name: 提交并推送(只提交判读派生 JSON,绝不碰 leslie.db)
         if: ${{ !inputs.dry }}
         run: |
           git config user.name "judge-bot"
           git config user.email "judge-bot@users.noreply.github.com"
-          git add web/public/data/us-analyses.json web/public/data/a-analyses.json 2>/dev/null || true
+          git add \
+            web/public/data/us-analyses.json \
+            web/public/data/a-analyses.json \
+            web/public/data/us-panel-summary.json \
+            web/public/data/a-panel-summary.json \
+            web/public/data/judgment-p0-us.json \
+            web/public/data/judgment-p0-a.json \
+            web/public/data/us-blurbs.json \
+            web/public/data/pulse-scores.json
           if git diff --cached --quiet; then echo "本周无异动需刷新,跳过"; exit 0; fi
-          git commit -m "chore: 五方自动刷新(本周异动) $(TZ=America/New_York date +%F)"
+          git commit -m "chore: 刷新过期五方判读 $(TZ=America/New_York date +%F)"
           for i in 1 2 3; do git push && break || { git pull --rebase --autostash; sleep 3; }; done
       - name: Deploy to Vercel(显式兜底)
         if: ${{ success() && !inputs.dry }}

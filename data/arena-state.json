@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 10.73,
-  "druckenmiller": 349480.87,
-  "sentiment": 583836.38
+  "druckenmiller": 29128.47,
+  "sentiment": 267093.25
  },
  "positions": [
   {
@@ -216,6 +216,41 @@
    "shares": 901,
    "entry": 176.15,
    "entry_date": "2026-07-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "META",
+   "shares": 179,
+   "entry": 594.97,
+   "entry_date": "2026-07-27"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "NVDA",
+   "shares": 545,
+   "entry": 196.29,
+   "entry_date": "2026-07-27"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "SCCO",
+   "shares": 596,
+   "entry": 179.32,
+   "entry_date": "2026-07-27"
+  },
+  {
+   "master": "sentiment",
+   "sym": "ADBE",
+   "shares": 666,
+   "entry": 237.75,
+   "entry_date": "2026-07-27"
+  },
+  {
+   "master": "sentiment",
+   "sym": "GDDY",
+   "shares": 1643,
+   "entry": 96.41,
+   "entry_date": "2026-07-27"
   }
  ],
  "nav": [
@@ -968,6 +1003,31 @@
    "master": "sentiment",
    "date": "2026-07-24",
    "nav": 1058354.74
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-27",
+   "nav": 1001126.23
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-27",
+   "nav": 1010764.08
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-27",
+   "nav": 864743.81
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-27",
+   "nav": 930529.27
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-27",
+   "nav": 1056240.36
   }
  ],
  "trades": [
@@ -2869,6 +2929,56 @@
    "shares": 901,
    "price": 176.15,
    "reason": "这票更像冰点反转而不是狂热追高，盘前只小幅承接，价值资金和回购盘在底下接，拥挤度还不高，适合拿一仓等资金继续修复。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-27",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "META",
+   "shares": 179,
+   "price": 594.97,
+   "reason": "纳指盘前重新吸流动性，但我不去接最拥挤的二线芯片，META是AI顺风里现金流最硬、弹性还够的旗舰。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-27",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "NVDA",
+   "shares": 545,
+   "price": 196.29,
+   "reason": "如果今天是真风险偏好回补，AI资本开支这条大趋势里最干净、最高贝塔的载体仍是NVDA，盘前没爆拉就可以上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-27",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "SCCO",
+   "shares": 596,
+   "price": 179.32,
+   "reason": "铜是电气化、AI电力和财政赤字货币化的共同载体，今天没被过度追高，顺长期流动性大风加一仓。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-27",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "ADBE",
+   "shares": 666,
+   "price": 237.75,
+   "reason": "AI杀软件后的冰点票今天被资金回补，盘前涨幅还没到失控追高，我愿意拿一仓赌情绪从一致悲观往反转走。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-27",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "GDDY",
+   "shares": 1643,
+   "price": 96.41,
+   "reason": "盘口不躁、机构钱在里面、回购现金流叙事顺着走，相比那些已经爆拉的票它还不像最后一棒。",
    "src": "ai"
   }
  ],
@@ -5290,7 +5400,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里已经有八门我看得懂、护城河够深的生意；今天没有哪一个价格便宜到值得我卖掉好公司去换另一张票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5300,7 +5410,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，商业模式和文化都过关，今天盘前涨跌不是我卖掉好生意的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5310,7 +5420,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天不为了换仓而换仓：手里这十个仍然是我认的单点瓶颈，盘前反弹只是止血，不是让我砍真瓶颈去追另一个真瓶颈的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5320,7 +5430,7 @@
    "action": "BUY",
    "sym": "META",
    "reason": "纳指盘前重新吸流动性，但我不去接最拥挤的二线芯片，META是AI顺风里现金流最硬、弹性还够的旗舰。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5330,7 +5440,7 @@
    "action": "BUY",
    "sym": "NVDA",
    "reason": "如果今天是真风险偏好回补，AI资本开支这条大趋势里最干净、最高贝塔的载体仍是NVDA，盘前没爆拉就可以上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5340,7 +5450,7 @@
    "action": "BUY",
    "sym": "SCCO",
    "reason": "铜是电气化、AI电力和财政赤字货币化的共同载体，今天没被过度追高，顺长期流动性大风加一仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5350,7 +5460,7 @@
    "action": "BUY",
    "sym": "ADBE",
    "reason": "AI杀软件后的冰点票今天被资金回补，盘前涨幅还没到失控追高，我愿意拿一仓赌情绪从一致悲观往反转走。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5360,7 +5470,7 @@
    "action": "BUY",
    "sym": "GDDY",
    "reason": "盘口不躁、机构钱在里面、回购现金流叙事顺着走，相比那些已经爆拉的票它还不像最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5370,7 +5480,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "EQT、LMT、WEX都不是今天盘前最热的钱，但还没出现资金彻底撤退的盘口，先不在红盘日被情绪甩下车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -4181,8 +4181,78 @@
    "reason": "手里这8笔都是我能看懂的好生意，今天盘前没有哪一笔给出足够新的安全边际，宁可拿现金等真正便宜的机会。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 189,
+   "fill_date": "2026-07-28",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现有持仓都是我愿意长期持有的好生意，今天盘前没有出现值得我用现金去换的更大安全边际。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 190,
+   "fill_date": "2026-07-28",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这几门生意都看得懂、模式好、文化也还本分，今天没有便宜到让我换仓的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 191,
+   "fill_date": "2026-07-28",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天盘前候选全是平开，没给我新的错杀点；我手里这批已经都是链条里的真瓶颈，没必要为了“买满”去乱换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 192,
+   "fill_date": "2026-07-28",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002270",
+   "reason": "AI数据中心电力和电网投资是顺流动性的硬主线，盘前没被抢高，华明是这个判断里弹性够强的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 193,
+   "fill_date": "2026-07-28",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "000975",
+   "reason": "黄金仍是央行购金和避险流动性共振的宏观顺风，山金国际给组合加一条不相关的强趋势。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 194,
+   "fill_date": "2026-07-28",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688506",
+   "reason": "创新药出海是当下资金愿意给弹性的主线，百利天恒趋势未被盘前透支，赔率还不差。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 195,
+   "fill_date": "2026-07-28",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全线0波动，资金还没表态，死水盘口不硬上，宁可等第一波真实流向。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 189,
+ "next_order_id": 196,
  "splits": []
 }

@@ -5482,9 +5482,99 @@
    "reason": "EQT、LMT、WEX都不是今天盘前最热的钱，但还没出现资金彻底撤退的盘口，先不在红盘日被情绪甩下车。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 273,
+   "fill_date": "2026-07-28",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我没有看到哪一门已持有的好生意变坏，也没有看到候选里出现足够大的安全边际；让我为了热闹去换仓，那不是投资，是手痒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 274,
+   "fill_date": "2026-07-28",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看懂，今天盘前的涨跌不是让我改变判断的理由，好公司不用因为市场情绪换来换去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 275,
+   "fill_date": "2026-07-28",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "AXTI",
+   "reason": "AXTI我已经从高确信降到观察，盘前再被砸说明它不是此刻账户里最硬的不可替代瓶颈，先让位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 276,
+   "fill_date": "2026-07-28",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "STX",
+   "reason": "STX被盘前砸到我愿意接，HAMR良率和大容量nearline盘是AI数据落盘的真窄门，每一轮算力扩产都要吞它的BOM。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 277,
+   "fill_date": "2026-07-28",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "NVDA",
+   "reason": "AI芯片昨天被重新定价，今天纳指继续弱，最拥挤的抵押品不再顺风，我不等它证明我错。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 278,
+   "fill_date": "2026-07-28",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "IRDM",
+   "reason": "这笔交易买的是强马，但价格没有继续确认，弱于盘面就砍掉，不和没风的票耗时间。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 279,
+   "fill_date": "2026-07-28",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "KKR",
+   "reason": "资金正在从AI权重往金融和非科技扩散，降息/资本市场重开这条流动性线里KKR是高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 280,
+   "fill_date": "2026-07-28",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "BMA",
+   "reason": "阿根廷财政转向、通胀下行和资本管制松绑仍是清晰宏观再定价，盘前没被追爆，赔率还不坏。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 281,
+   "fill_date": "2026-07-28",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指权重和AI芯片资金还在流出，非科技扩散是顺风但候选多数昨夜已被资金抢跑，盘前再追容易接情绪最后一棒，我宁愿拿现金等回落。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 273,
+ "next_order_id": 282,
  "notes": [
   {
    "date": "2026-06-12",

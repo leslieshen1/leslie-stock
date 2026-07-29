@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 10.73,
-  "druckenmiller": 29128.47,
+  "serenity": 144383.84,
+  "druckenmiller": 147027.8,
   "sentiment": 267093.25
  },
  "positions": [
@@ -79,20 +79,6 @@
   },
   {
    "master": "serenity",
-   "sym": "ALM",
-   "shares": 6209,
-   "entry": 15.3,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "serenity",
-   "sym": "GLW",
-   "shares": 564,
-   "entry": 168.17,
-   "entry_date": "2026-06-10"
-  },
-  {
-   "master": "serenity",
    "sym": "LEU",
    "shares": 647,
    "entry": 146.61,
@@ -127,13 +113,6 @@
    "entry_date": "2026-06-26"
   },
   {
-   "master": "druckenmiller",
-   "sym": "VST",
-   "shares": 804,
-   "entry": 158.63,
-   "entry_date": "2026-06-30"
-  },
-  {
    "master": "serenity",
    "sym": "CORZ",
    "shares": 3464,
@@ -156,13 +135,6 @@
   },
   {
    "master": "serenity",
-   "sym": "AXTI",
-   "shares": 1765,
-   "entry": 45.86,
-   "entry_date": "2026-07-17"
-  },
-  {
-   "master": "serenity",
    "sym": "MTRN",
    "shares": 338,
    "entry": 242.05,
@@ -174,13 +146,6 @@
    "shares": 4013,
    "entry": 18.62,
    "entry_date": "2026-07-21"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "IRDM",
-   "shares": 2304,
-   "entry": 46.86,
-   "entry_date": "2026-07-22"
   },
   {
    "master": "sentiment",
@@ -226,13 +191,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "NVDA",
-   "shares": 545,
-   "entry": 196.29,
-   "entry_date": "2026-07-27"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "SCCO",
    "shares": 596,
    "entry": 179.32,
@@ -251,6 +209,27 @@
    "shares": 1643,
    "entry": 96.41,
    "entry_date": "2026-07-27"
+  },
+  {
+   "master": "serenity",
+   "sym": "STX",
+   "shares": 104,
+   "entry": 751.0,
+   "entry_date": "2026-07-28"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "KKR",
+   "shares": 1036,
+   "entry": 102.66,
+   "entry_date": "2026-07-28"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "BMA",
+   "shares": 1171,
+   "entry": 90.83,
+   "entry_date": "2026-07-28"
   }
  ],
  "nav": [
@@ -1028,6 +1007,31 @@
    "master": "sentiment",
    "date": "2026-07-27",
    "nav": 1056240.36
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-28",
+   "nav": 1015015.87
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-28",
+   "nav": 1018375.67
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-28",
+   "nav": 825062.84
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-28",
+   "nav": 925414.01
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-28",
+   "nav": 1078311.11
   }
  ],
  "trades": [
@@ -2979,6 +2983,96 @@
    "shares": 1643,
    "price": 96.41,
    "reason": "盘口不躁、机构钱在里面、回购现金流叙事顺着走，相比那些已经爆拉的票它还不像最后一棒。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "ALM",
+   "shares": 6209,
+   "price": 12.23,
+   "reason": "破位 -20.1%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "GLW",
+   "shares": 564,
+   "price": 126.01,
+   "reason": "破位 -25.1%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "AXTI",
+   "shares": 1765,
+   "price": 42.76,
+   "reason": "AXTI我已经从高确信降到观察，盘前再被砸说明它不是此刻账户里最硬的不可替代瓶颈，先让位。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "STX",
+   "shares": 104,
+   "price": 751.0,
+   "reason": "STX被盘前砸到我愿意接，HAMR良率和大容量nearline盘是AI数据落盘的真窄门，每一轮算力扩产都要吞它的BOM。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "VST",
+   "shares": 804,
+   "price": 148.64,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "IRDM",
+   "shares": 2304,
+   "price": 45.44,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "NVDA",
+   "shares": 545,
+   "price": 195.26,
+   "reason": "AI芯片昨天被重新定价，今天纳指继续弱，最拥挤的抵押品不再顺风，我不等它证明我错。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "KKR",
+   "shares": 1036,
+   "price": 102.66,
+   "reason": "资金正在从AI权重往金融和非科技扩散，降息/资本市场重开这条流动性线里KKR是高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-28",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "BMA",
+   "shares": 1171,
+   "price": 90.83,
+   "reason": "阿根廷财政转向、通胀下行和资本管制松绑仍是清晰宏观再定价，盘前没被追爆，赔率还不坏。",
    "src": "ai"
   }
  ],
@@ -5490,7 +5584,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我没有看到哪一门已持有的好生意变坏，也没有看到候选里出现足够大的安全边际；让我为了热闹去换仓，那不是投资，是手痒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5500,7 +5594,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看懂，今天盘前的涨跌不是让我改变判断的理由，好公司不用因为市场情绪换来换去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5510,7 +5604,7 @@
    "action": "SELL",
    "sym": "AXTI",
    "reason": "AXTI我已经从高确信降到观察，盘前再被砸说明它不是此刻账户里最硬的不可替代瓶颈，先让位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5520,7 +5614,7 @@
    "action": "BUY",
    "sym": "STX",
    "reason": "STX被盘前砸到我愿意接，HAMR良率和大容量nearline盘是AI数据落盘的真窄门，每一轮算力扩产都要吞它的BOM。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5530,7 +5624,7 @@
    "action": "SELL",
    "sym": "NVDA",
    "reason": "AI芯片昨天被重新定价，今天纳指继续弱，最拥挤的抵押品不再顺风，我不等它证明我错。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5540,8 +5634,8 @@
    "action": "SELL",
    "sym": "IRDM",
    "reason": "这笔交易买的是强马，但价格没有继续确认，弱于盘面就砍掉，不和没风的票耗时间。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 279,
@@ -5550,7 +5644,7 @@
    "action": "BUY",
    "sym": "KKR",
    "reason": "资金正在从AI权重往金融和非科技扩散，降息/资本市场重开这条流动性线里KKR是高弹性载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5560,7 +5654,7 @@
    "action": "BUY",
    "sym": "BMA",
    "reason": "阿根廷财政转向、通胀下行和资本管制松绑仍是清晰宏观再定价，盘前没被追爆，赔率还不坏。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5570,7 +5664,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "纳指权重和AI芯片资金还在流出，非科技扩散是顺风但候选多数昨夜已被资金抢跑，盘前再追容易接情绪最后一棒，我宁愿拿现金等回落。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

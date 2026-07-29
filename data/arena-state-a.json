@@ -4333,8 +4333,78 @@
    "reason": "集合竞价全线0波动，资金还没表态，死水盘口不硬上，宁可等第一波真实流向。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 196,
+   "fill_date": "2026-07-29",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的八门生意都有可理解的护城河和不错的现金回报，今天没有出现足够大的安全边际让我用好生意去换另一门好生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 197,
+   "fill_date": "2026-07-29",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里这四个都算看得懂的好生意，今天也没见到更好的价格和更好的替代品；仓位已经满了，不为买满去折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 198,
+   "fill_date": "2026-07-29",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里已经是十个真瓶颈点位，盘前候选没有给出错杀价，也没有必要为了把现金打满去换掉还在卡脖子位置上的仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 199,
+   "fill_date": "2026-07-29",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "301165",
+   "reason": "-9%已经告诉我这笔不顺，错了就砍，不能等引擎替我止损。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 200,
+   "fill_date": "2026-07-29",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002396",
+   "reason": "AI算力网络仍是流动性最愿意冲的方向，锐捷走坏就换成更强的星网锐捷表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 201,
+   "fill_date": "2026-07-29",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300750",
+   "reason": "海外储能和全球电动化这条宏观风还在，宁德是最干净、最有流动性的高弹性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 202,
+   "fill_date": "2026-07-29",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全线0波动，看不到抢筹和资金方向，死水盘我不硬上，宁可等第一笔真金白银表态。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 196,
+ "next_order_id": 203,
  "splits": []
 }

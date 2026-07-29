@@ -5666,9 +5666,89 @@
    "reason": "纳指权重和AI芯片资金还在流出，非科技扩散是顺风但候选多数昨夜已被资金抢跑，盘前再追容易接情绪最后一棒，我宁愿拿现金等回落。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 282,
+   "fill_date": "2026-07-29",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里的生意护城河仍在，今天候选里也没有足够便宜到值得我卖掉好公司去换的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 283,
+   "fill_date": "2026-07-29",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四个都是我看得懂的好生意，今天市场是在拆芯片拥挤交易，不是在奖励便宜；我不为盘前几分钱去折腾本分的生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 284,
+   "fill_date": "2026-07-29",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "MTRN",
+   "reason": "盘前已经砸到机械止损边上，这种高波动主题票先按纪律出掉，别让系统替我在更差的位置卖；真卡脖子不等于我必须硬扛。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 285,
+   "fill_date": "2026-07-29",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "SITM",
+   "reason": "AI 服务器时钟抖动这道窄门还在，今天随芯片拥挤交易被错杀，我要的是还没彻底 rerate 的瓶颈入口；高波动主题票，但下游量产洪流没停。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 286,
+   "fill_date": "2026-07-29",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "MTSI",
+   "reason": "AI 数据中心光互连的 driver/TIA/laser 端还是每台都要过的卡点，盘前回落不给追高，正好顺着 capex 洪流做方向性多头。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 287,
+   "fill_date": "2026-07-29",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "KKR",
+   "reason": "这笔原来是骑流动性和私募信贷的顺风，但现在资金在撤离高β金融，我不和盘面逆风硬扛，先砍掉这条弱腿。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 288,
+   "fill_date": "2026-07-29",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GD",
+   "reason": "地缘对抗和国防开支的顺风还在，今天盘前也相对抗跌，我要把弹药换到更顺流动性的老经济高弹性载体上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 289,
+   "fill_date": "2026-07-29",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天候选基本都是昨日报复性重估后的票，我不想在资金刚轮动、盘口还没确认二次承接时去接最后一棒，现有仓位资金面仍顺就先按兵不动。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 282,
+ "next_order_id": 290,
  "notes": [
   {
    "date": "2026-06-12",

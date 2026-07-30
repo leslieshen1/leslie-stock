@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 115903.0,
-  "druckenmiller": 187961.0,
+  "serenity": 161843.0,
+  "druckenmiller": 256710.0,
   "sentiment": 1039866.0
  },
  "positions": [
@@ -128,13 +128,6 @@
   },
   {
    "master": "serenity",
-   "sym": "688785",
-   "shares": 200,
-   "entry": 273.49,
-   "entry_date": "2026-07-20"
-  },
-  {
-   "master": "serenity",
    "sym": "002428",
    "shares": 1000,
    "entry": 67.58,
@@ -145,13 +138,6 @@
    "sym": "688582",
    "shares": 1800,
    "entry": 37.04,
-   "entry_date": "2026-07-20"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "000977",
-   "shares": 1100,
-   "entry": 81.58,
    "entry_date": "2026-07-20"
   },
   {
@@ -170,13 +156,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "002979",
-   "shares": 1500,
-   "entry": 58.61,
-   "entry_date": "2026-07-27"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "002270",
    "shares": 4500,
    "entry": 19.56,
@@ -187,13 +166,6 @@
    "sym": "000975",
    "shares": 4000,
    "entry": 21.94,
-   "entry_date": "2026-07-28"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688506",
-   "shares": 200,
-   "entry": 307.01,
    "entry_date": "2026-07-28"
   },
   {
@@ -209,6 +181,20 @@
    "shares": 200,
    "entry": 396.84,
    "entry_date": "2026-07-29"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 200,
+   "entry": 323.15,
+   "entry_date": "2026-07-30"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "302132",
+   "shares": 1400,
+   "entry": 58.74,
+   "entry_date": "2026-07-30"
   }
  ],
  "nav": [
@@ -810,6 +796,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-29",
+   "nav": 1039866.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-30",
+   "nav": 1121169.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-30",
+   "nav": 1142003.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-30",
+   "nav": 693266.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-30",
+   "nav": 749681.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-30",
    "nav": 1039866.0
   }
  ],
@@ -2442,6 +2453,66 @@
    "shares": 200,
    "price": 396.84,
    "reason": "海外储能和全球电动化这条宏观风还在，宁德是最干净、最有流动性的高弹性载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-30",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688785",
+   "shares": 200,
+   "price": 229.7,
+   "reason": "破位 -16.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-30",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "000977",
+   "shares": 1100,
+   "price": 69.08,
+   "reason": "错了就是错了,-15.3% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-30",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002979",
+   "shares": 1500,
+   "price": 52.15,
+   "reason": "错了就是错了,-11.0% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-30",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688506",
+   "shares": 200,
+   "price": 307.01,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-30",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 200,
+   "price": 323.15,
+   "reason": "集合竞价没被爆拉，国产半导体设备替代仍是政策和订单双顺风，中科飞测是这条线里弹性最硬的载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-30",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "302132",
+   "shares": 1400,
+   "price": 58.74,
+   "reason": "国防扩张和地缘风险是最干净的自上而下顺风，中航成飞没高开透支，可以用它表达军工主线。",
    "src": "ai"
   }
  ],
@@ -4473,7 +4544,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河和现金流仍在，价格没有荒唐到让我卖出，也没有足够便宜的新机会值得换马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4483,7 +4554,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里四个都是我看得懂的好生意，盘前候选也没见到明显更好的便宜货，没必要为了凑仓位去折腾。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4493,7 +4564,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位里基本都是我认的真瓶颈，今天候选也没给我错杀价，没必要为了买满去把手里的卡脖子筹码倒来倒去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4503,8 +4574,8 @@
    "action": "SELL",
    "sym": "000977",
    "reason": "AI算力顺风还在，但这匹马已经逆着我的仓位走到-8%，不够强就砍，不能等引擎替我止损。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 207,
@@ -4513,7 +4584,7 @@
    "action": "BUY",
    "sym": "688361",
    "reason": "集合竞价没被爆拉，国产半导体设备替代仍是政策和订单双顺风，中科飞测是这条线里弹性最硬的载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4523,7 +4594,7 @@
    "action": "BUY",
    "sym": "302132",
    "reason": "国防扩张和地缘风险是最干净的自上而下顺风，中航成飞没高开透支，可以用它表达军工主线。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4533,7 +4604,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价全是0.0%，没有资金抢筹也没有情绪溢价，死水盘口我不硬买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -4465,8 +4465,78 @@
    "reason": "集合竞价全线0波动，看不到抢筹和资金方向，死水盘我不硬上，宁可等第一笔真金白银表态。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 203,
+   "fill_date": "2026-07-30",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意的护城河和现金流仍在，价格没有荒唐到让我卖出，也没有足够便宜的新机会值得换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 204,
+   "fill_date": "2026-07-30",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里四个都是我看得懂的好生意，盘前候选也没见到明显更好的便宜货，没必要为了凑仓位去折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 205,
+   "fill_date": "2026-07-30",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位里基本都是我认的真瓶颈，今天候选也没给我错杀价，没必要为了买满去把手里的卡脖子筹码倒来倒去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 206,
+   "fill_date": "2026-07-30",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "000977",
+   "reason": "AI算力顺风还在，但这匹马已经逆着我的仓位走到-8%，不够强就砍，不能等引擎替我止损。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 207,
+   "fill_date": "2026-07-30",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688361",
+   "reason": "集合竞价没被爆拉，国产半导体设备替代仍是政策和订单双顺风，中科飞测是这条线里弹性最硬的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 208,
+   "fill_date": "2026-07-30",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "302132",
+   "reason": "国防扩张和地缘风险是最干净的自上而下顺风，中航成飞没高开透支，可以用它表达军工主线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 209,
+   "fill_date": "2026-07-30",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全是0.0%，没有资金抢筹也没有情绪溢价，死水盘口我不硬买。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 203,
+ "next_order_id": 210,
  "splits": []
 }

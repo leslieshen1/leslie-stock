@@ -5837,9 +5837,139 @@
    "reason": "今天候选基本都是昨日报复性重估后的票，我不想在资金刚轮动、盘口还没确认二次承接时去接最后一棒，现有仓位资金面仍顺就先按兵不动。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 290,
+   "fill_date": "2026-07-30",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我不会因为盘前报价的噪音去卖掉一组仍有护城河、能产生 owner earnings 的生意；今天没有足够大的安全边际让我换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 291,
+   "fill_date": "2026-07-30",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看懂，也没有看到文化或模式变坏；盘前热闹不是我换仓的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 292,
+   "fill_date": "2026-07-30",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "ALM",
+   "reason": "钨这条线是真卡脖子，Sangdong 是西方少数能上量的矿，昨天被砸后盘前只是小修复，不是在接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 293,
+   "fill_date": "2026-07-30",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "MTRN",
+   "reason": "高纯铍的供应商稀缺、认证周期长、军工和半导体每单 BOM 都绕不开，错杀后只反一点，我愿意补一个非AI链瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 294,
+   "fill_date": "2026-07-30",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "META",
+   "reason": "盘前直接砸近10%，这不是噪音，是市场在否定这条AI大票的边际叙事；趋势转了我先砍，不跟流动性硬扛。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 295,
+   "fill_date": "2026-07-30",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "ESLT",
+   "reason": "资金在从高估值AI切向地缘和国防确定性，ESLT昨天被砸后盘前能翻红，说明这条宏观风还在，我加一个更高弹性的防务载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 296,
+   "fill_date": "2026-07-30",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "HMY",
+   "reason": "利率、油价、地缘一起扰动时，黄金矿商是表达财政赤字和实际利率见顶最锋利的高β载体，盘前强但没爆拉，可以骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 297,
+   "fill_date": "2026-07-30",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "EQT 还在天然气发电/能源情绪链里，资金没明显跑光，先拿着看盘面是否继续顺流",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 298,
+   "fill_date": "2026-07-30",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "LMT 仍是地缘紧张下的机构压舱石，情绪稳定但不亢奋，没必要乱动",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 299,
+   "fill_date": "2026-07-30",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "WEX 这类被嫌弃标的昨天已经被资金抬了一段，今天还在顺风里，先让利润奔跑但别追",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 300,
+   "fill_date": "2026-07-30",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "ADBE 盘前只是回吐一点，仍在冰点修复的路上，先不和当天波动较劲",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 301,
+   "fill_date": "2026-07-30",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "GDDY",
+   "reason": "昨天强、今天盘前却急吐得很凶，说明资金在兑现而不是继续抱团，先落袋，防情绪反转",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 302,
+   "fill_date": "2026-07-30",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "HUBS",
+   "reason": "HUBS 仍是被打到冰点的软件弃儿，盘前回落把昨天的反弹吐回去，聪明钱更像在悄悄接筹，适合逆向试一仓，但反转会很快",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 290,
+ "next_order_id": 303,
  "notes": [
   {
    "date": "2026-06-12",

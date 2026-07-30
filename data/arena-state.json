@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 144383.84,
-  "druckenmiller": 147027.8,
+  "serenity": 177525.8,
+  "druckenmiller": 259025.4,
   "sentiment": 267093.25
  },
  "positions": [
@@ -113,32 +113,11 @@
    "entry_date": "2026-06-26"
   },
   {
-   "master": "serenity",
-   "sym": "CORZ",
-   "shares": 3464,
-   "entry": 23.5,
-   "entry_date": "2026-07-08"
-  },
-  {
    "master": "buffett",
    "sym": "PEP",
    "shares": 886,
    "entry": 137.73,
    "entry_date": "2026-07-09"
-  },
-  {
-   "master": "serenity",
-   "sym": "INIO",
-   "shares": 2500,
-   "entry": 30.16,
-   "entry_date": "2026-07-15"
-  },
-  {
-   "master": "serenity",
-   "sym": "MTRN",
-   "shares": 338,
-   "entry": 242.05,
-   "entry_date": "2026-07-20"
   },
   {
    "master": "serenity",
@@ -153,13 +132,6 @@
    "shares": 2967,
    "entry": 53.39,
    "entry_date": "2026-07-23"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "AXON",
-   "shares": 213,
-   "entry": 502.34,
-   "entry_date": "2026-07-24"
   },
   {
    "master": "druckenmiller",
@@ -219,17 +191,31 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "KKR",
-   "shares": 1036,
-   "entry": 102.66,
-   "entry_date": "2026-07-28"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "BMA",
    "shares": 1171,
    "entry": 90.83,
    "entry_date": "2026-07-28"
+  },
+  {
+   "master": "serenity",
+   "sym": "SITM",
+   "shares": 160,
+   "entry": 462.16,
+   "entry_date": "2026-07-29"
+  },
+  {
+   "master": "serenity",
+   "sym": "MTSI",
+   "shares": 324,
+   "entry": 228.71,
+   "entry_date": "2026-07-29"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "GD",
+   "shares": 273,
+   "entry": 380.96,
+   "entry_date": "2026-07-29"
   }
  ],
  "nav": [
@@ -1032,6 +1018,31 @@
    "master": "sentiment",
    "date": "2026-07-28",
    "nav": 1078311.11
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-29",
+   "nav": 1002275.86
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-29",
+   "nav": 1018526.92
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-29",
+   "nav": 780807.55
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-29",
+   "nav": 904492.78
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-29",
+   "nav": 1095771.93
   }
  ],
  "trades": [
@@ -3073,6 +3084,86 @@
    "shares": 1171,
    "price": 90.83,
    "reason": "阿根廷财政转向、通胀下行和资本管制松绑仍是清晰宏观再定价，盘前没被追爆，赔率还不坏。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "CORZ",
+   "shares": 3464,
+   "price": 18.12,
+   "reason": "破位 -22.9%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "INIO",
+   "shares": 2500,
+   "price": 21.77,
+   "reason": "破位 -27.8%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "MTRN",
+   "shares": 338,
+   "price": 189.34,
+   "reason": "破位 -21.8%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "SITM",
+   "shares": 160,
+   "price": 462.16,
+   "reason": "AI 服务器时钟抖动这道窄门还在，今天随芯片拥挤交易被错杀，我要的是还没彻底 rerate 的瓶颈入口；高波动主题票，但下游量产洪流没停。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "MTSI",
+   "shares": 324,
+   "price": 228.71,
+   "reason": "AI 数据中心光互连的 driver/TIA/laser 端还是每台都要过的卡点，盘前回落不给追高，正好顺着 capex 洪流做方向性多头。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "AXON",
+   "shares": 213,
+   "price": 531.2,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "KKR",
+   "shares": 1036,
+   "price": 99.28,
+   "reason": "这笔原来是骑流动性和私募信贷的顺风，但现在资金在撤离高β金融，我不和盘面逆风硬扛，先砍掉这条弱腿。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-29",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "GD",
+   "shares": 273,
+   "price": 380.96,
+   "reason": "地缘对抗和国防开支的顺风还在，今天盘前也相对抗跌，我要把弹药换到更顺流动性的老经济高弹性载体上。",
    "src": "ai"
   }
  ],
@@ -5674,7 +5765,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里的生意护城河仍在，今天候选里也没有足够便宜到值得我卖掉好公司去换的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5684,7 +5775,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四个都是我看得懂的好生意，今天市场是在拆芯片拥挤交易，不是在奖励便宜；我不为盘前几分钱去折腾本分的生意。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5694,8 +5785,8 @@
    "action": "SELL",
    "sym": "MTRN",
    "reason": "盘前已经砸到机械止损边上，这种高波动主题票先按纪律出掉，别让系统替我在更差的位置卖；真卡脖子不等于我必须硬扛。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 285,
@@ -5704,7 +5795,7 @@
    "action": "BUY",
    "sym": "SITM",
    "reason": "AI 服务器时钟抖动这道窄门还在，今天随芯片拥挤交易被错杀，我要的是还没彻底 rerate 的瓶颈入口；高波动主题票，但下游量产洪流没停。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5714,7 +5805,7 @@
    "action": "BUY",
    "sym": "MTSI",
    "reason": "AI 数据中心光互连的 driver/TIA/laser 端还是每台都要过的卡点，盘前回落不给追高，正好顺着 capex 洪流做方向性多头。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5724,7 +5815,7 @@
    "action": "SELL",
    "sym": "KKR",
    "reason": "这笔原来是骑流动性和私募信贷的顺风，但现在资金在撤离高β金融，我不和盘面逆风硬扛，先砍掉这条弱腿。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5734,7 +5825,7 @@
    "action": "BUY",
    "sym": "GD",
    "reason": "地缘对抗和国防开支的顺风还在，今天盘前也相对抗跌，我要把弹药换到更顺流动性的老经济高弹性载体上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5744,7 +5835,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天候选基本都是昨日报复性重估后的票，我不想在资金刚轮动、盘口还没确认二次承接时去接最后一棒，现有仓位资金面仍顺就先按兵不动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

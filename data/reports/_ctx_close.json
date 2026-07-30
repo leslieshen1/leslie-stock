@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-29 22:01 ET Wed",
+ "asof_et": "2026-07-29 22:16 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-1.54%",
@@ -4505,12 +4505,12 @@
  "news": [
   {
    "h": "Dow drops 1,100 points for worst day since April 2025 on fear the Fed is falling behind on inflation: Live updates",
-   "src": "cnbc.com",
+   "src": "CNBC",
    "sum": ""
   },
   {
    "h": "Stock market today: Dow plunges by 1,100 points, S&P 500 and Nasdaq sink as yields rise on Fed's hawkish hold",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -4520,12 +4520,12 @@
   },
   {
    "h": "Stocks Fall on AI, War Worries Before Fed Decision: Markets Wrap",
-   "src": "Bloomberg.com",
+   "src": "Bloomberg",
    "sum": ""
   },
   {
    "h": "Two key takeaways from the Fed’s unusually unpredictable meeting",
-   "src": "cnn.com",
+   "src": "CNN",
    "sum": ""
   },
   {
@@ -4535,7 +4535,7 @@
   },
   {
    "h": "Stock futures rise as Microsoft jumps after earnings; traders hope to recover from Fed Day sell-off: Live updates",
-   "src": "cnbc.com",
+   "src": "CNBC",
    "sum": ""
   },
   {
@@ -4560,17 +4560,17 @@
   },
   {
    "h": "[MU] Micron Stock Has Surged 637% in a Year. History Has a Clear Answer Where It Will Be in 2027",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Overlooked AI stock is growing faster than Nvidia",
+   "src": "thestreet.com",
    "sum": ""
   },
   {
    "h": "[NVDA] If I Were in My 20s, I'd Buy These 3 Stocks and Hold Them Until Retirement",
    "src": "The Motley Fool",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] Nvidia drops nearly 5%, leading chip stocks lower amid renewed worries of circular financing",
-   "src": "finance.yahoo.com",
    "sum": ""
   },
   {
@@ -4585,22 +4585,22 @@
   },
   {
    "h": "[AMD] Prediction: AMD Stock Could Double by 2028. Here's Why",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
    "h": "[AMD] Nvidia, Micron, AMD sink after SK Hynix results fail to impress, AI trade unwinds",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
    "h": "[ARM] Arm Holdings (ARM) Could Be 40% Undervalued As Earnings Near",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
    "h": "[ARM] Qualcomm and Arm see momentum in AI, but smartphone weakness weighs on both stocks",
-   "src": "siliconangle.com",
+   "src": "SiliconANGLE",
    "sum": ""
   },
   {

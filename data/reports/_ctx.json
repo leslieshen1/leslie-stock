@@ -1,236 +1,236 @@
 {
- "asof_et": "2026-07-30 08:36 ET Thu",
+ "asof_et": "2026-07-31 08:36 ET Fri",
  "direction": {
   "标普500": {
-   "pm_pct": "+0.65%",
-   "yesterday_pct": "-1.54%"
+   "pm_pct": "+0.20%",
+   "yesterday_pct": "+1.68%"
   },
   "纳指100": {
-   "pm_pct": "+1.49%",
-   "yesterday_pct": "-2.04%"
+   "pm_pct": "+0.81%",
+   "yesterday_pct": "+3.30%"
   },
   "道指": {
-   "pm_pct": "+0.41%",
-   "yesterday_pct": "-2.18%"
+   "pm_pct": "+0.37%",
+   "yesterday_pct": "+1.18%"
   },
   "罗素2000": {
-   "pm_pct": "+0.63%",
-   "yesterday_pct": "-1.64%"
+   "pm_pct": "+0.25%",
+   "yesterday_pct": "+1.39%"
   }
  },
  "market_status": "Pre-Market",
  "premarket_gainers": [
   {
-   "sym": "ARM",
-   "name": "Arm Holdings plc",
-   "pm_price": "$250.99",
-   "pm_pct": "+11.61%",
-   "yesterday_pct": "-8.11%",
-   "yesterday_close": "$224.89"
+   "sym": "IESC",
+   "name": "IES Holdings Inc.",
+   "pm_price": "$645.875",
+   "pm_pct": "+13.01%",
+   "yesterday_pct": "+15.18%",
+   "yesterday_close": "$571.54"
   },
   {
-   "sym": "MSFT",
-   "name": "Microsoft Corporation",
-   "pm_price": "$427.25",
-   "pm_pct": "+9.40%",
-   "yesterday_pct": "-0.71%",
-   "yesterday_close": "$390.54"
+   "sym": "AMZN",
+   "name": "Amazon.com Inc.",
+   "pm_price": "$260.3291",
+   "pm_pct": "+10.54%",
+   "yesterday_pct": "+3.90%",
+   "yesterday_close": "$235.50"
   },
   {
    "sym": "NBIS",
    "name": "Nebius Group N.V. Class A",
-   "pm_price": "$162.15",
-   "pm_pct": "+9.40%",
-   "yesterday_pct": "-12.65%",
-   "yesterday_close": "$148.22"
+   "pm_price": "$202.00",
+   "pm_pct": "+7.20%",
+   "yesterday_pct": "+27.13%",
+   "yesterday_close": "$188.43"
   },
   {
-   "sym": "IREN",
-   "name": "IREN Limited",
-   "pm_price": "$31.9166",
-   "pm_pct": "+8.89%",
-   "yesterday_pct": "-13.62%",
-   "yesterday_close": "$29.31"
+   "sym": "ALAB",
+   "name": "Astera Labs Inc.",
+   "pm_price": "$321.01",
+   "pm_pct": "+7.11%",
+   "yesterday_pct": "+20.00%",
+   "yesterday_close": "$299.69"
   },
   {
-   "sym": "CRWV",
-   "name": "CoreWeave Inc. Class A",
-   "pm_price": "$66.05",
-   "pm_pct": "+8.60%",
-   "yesterday_pct": "-9.63%",
-   "yesterday_close": "$60.82"
-  },
-  {
-   "sym": "HUT",
-   "name": "Hut 8 Corp.",
-   "pm_price": "$95.2961",
-   "pm_pct": "+8.07%",
-   "yesterday_pct": "-12.81%",
-   "yesterday_close": "$88.18"
+   "sym": "COHR",
+   "name": "Coherent Corp.",
+   "pm_price": "$265.37",
+   "pm_pct": "+6.55%",
+   "yesterday_pct": "+12.16%",
+   "yesterday_close": "$249.06"
   },
   {
    "sym": "AAOI",
    "name": "Applied Optoelectronics Inc.",
-   "pm_price": "$82.25",
-   "pm_pct": "+7.49%",
-   "yesterday_pct": "-13.18%",
-   "yesterday_close": "$76.52"
+   "pm_price": "$96.00",
+   "pm_pct": "+6.54%",
+   "yesterday_pct": "+17.76%",
+   "yesterday_close": "$90.11"
   },
   {
-   "sym": "INIO",
-   "name": "INNIO N.V.",
-   "pm_price": "$23.37",
-   "pm_pct": "+7.35%",
-   "yesterday_pct": "-16.97%",
-   "yesterday_close": "$21.77"
+   "sym": "ACMR",
+   "name": "ACM Research Inc. Class A",
+   "pm_price": "$83.5502",
+   "pm_pct": "+6.23%",
+   "yesterday_pct": "+20.44%",
+   "yesterday_close": "$78.65"
+  },
+  {
+   "sym": "SIMO",
+   "name": "Silicon Motion Technology Corporation",
+   "pm_price": "$268.99",
+   "pm_pct": "+5.44%",
+   "yesterday_pct": "+21.66%",
+   "yesterday_close": "$255.10"
   }
  ],
  "premarket_losers": [
   {
-   "sym": "META",
-   "name": "Meta Platforms Inc. Class A",
-   "pm_price": "$527.4461",
-   "pm_pct": "-9.93%",
-   "yesterday_pct": "-1.31%",
-   "yesterday_close": "$585.61"
+   "sym": "AAPL",
+   "name": "Apple Inc.",
+   "pm_price": "$307.20",
+   "pm_pct": "-7.87%",
+   "yesterday_pct": "-1.41%",
+   "yesterday_close": "$333.43"
   },
   {
-   "sym": "QCOM",
-   "name": "QUALCOMM Incorporated",
-   "pm_price": "$151.50",
+   "sym": "COIN",
+   "name": "Coinbase Global Inc. Class A",
+   "pm_price": "$153.48",
+   "pm_pct": "-6.17%",
+   "yesterday_pct": "+2.18%",
+   "yesterday_close": "$163.58"
+  },
+  {
+   "sym": "WHD",
+   "name": "Cactus Inc. Class A",
+   "pm_price": "$60.34",
    "pm_pct": "-2.68%",
-   "yesterday_pct": "-4.42%",
-   "yesterday_close": "$155.68"
+   "yesterday_pct": "+18.50%",
+   "yesterday_close": "$62.00"
   },
   {
-   "sym": "NP",
-   "name": "Neptune Insurance Holdings Inc. Class A",
-   "pm_price": "$34.2253",
-   "pm_pct": "-2.52%",
-   "yesterday_pct": "+10.13%",
-   "yesterday_close": "$35.11"
+   "sym": "MSTR",
+   "name": "Strategy Inc Common Stock Class A",
+   "pm_price": "$95.27",
+   "pm_pct": "-2.53%",
+   "yesterday_pct": "+4.73%",
+   "yesterday_close": "$97.74"
   },
   {
-   "sym": "MANH",
-   "name": "Manhattan Associates Inc.",
-   "pm_price": "$199.47",
-   "pm_pct": "-2.23%",
-   "yesterday_pct": "+21.32%",
-   "yesterday_close": "$204.02"
+   "sym": "RTO",
+   "name": "Rentokil Initial plc American Depositary Shares (each representing five (5) Ordinary Shares)",
+   "pm_price": "$23.84",
+   "pm_pct": "-1.69%",
+   "yesterday_pct": "-17.60%",
+   "yesterday_close": "$24.25"
   },
   {
-   "sym": "LLY",
-   "name": "Eli Lilly and Company",
-   "pm_price": "$1,185.99",
-   "pm_pct": "-1.99%",
-   "yesterday_pct": "-0.87%",
-   "yesterday_close": "$1,210.02"
-  },
-  {
-   "sym": "WSO",
-   "name": "Watsco Inc.",
-   "pm_price": "$314.06",
-   "pm_pct": "-1.86%",
-   "yesterday_pct": "-12.92%",
-   "yesterday_close": "$320.02"
+   "sym": "XOM",
+   "name": "Exxon Mobil Corporation",
+   "pm_price": "$155.0984",
+   "pm_pct": "-1.19%",
+   "yesterday_pct": "+0.14%",
+   "yesterday_close": "$156.97"
   },
   {
    "sym": "NFLX",
    "name": "Netflix Inc.",
-   "pm_price": "$72.29",
-   "pm_pct": "-1.82%",
-   "yesterday_pct": "+1.71%",
-   "yesterday_close": "$73.63"
+   "pm_price": "$72.299",
+   "pm_pct": "-1.19%",
+   "yesterday_pct": "-0.62%",
+   "yesterday_close": "$73.17"
   },
   {
-   "sym": "MAS",
-   "name": "Masco Corporation",
-   "pm_price": "$71.26",
-   "pm_pct": "-1.79%",
-   "yesterday_pct": "-11.09%",
-   "yesterday_close": "$72.56"
+   "sym": "PBF",
+   "name": "PBF Energy Inc. Class A",
+   "pm_price": "$72.30",
+   "pm_pct": "-1.09%",
+   "yesterday_pct": "+15.39%",
+   "yesterday_close": "$73.10"
   }
  ],
  "watchlist": [
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies Corp. Class A",
-   "pm_price": "$115.68",
-   "pm_pct": "+2.78%",
-   "yesterday_pct": "-3.32%",
-   "yesterday_close": "$112.55"
+   "pm_price": "$112.72",
+   "pm_pct": "+0.46%",
+   "yesterday_pct": "-0.31%",
+   "yesterday_close": "$112.20"
   },
   {
    "sym": "MU",
    "name": "Micron Technology Inc.",
-   "pm_price": "$776.50",
-   "pm_pct": "+5.07%",
-   "yesterday_pct": "-9.94%",
-   "yesterday_close": "$739.00"
+   "pm_price": "$906.99",
+   "pm_pct": "+3.70%",
+   "yesterday_pct": "+18.36%",
+   "yesterday_close": "$874.66"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "pm_price": "$194.03",
-   "pm_pct": "+2.12%",
-   "yesterday_pct": "-3.55%",
-   "yesterday_close": "$190.01"
+   "pm_price": "$196.85",
+   "pm_pct": "+0.93%",
+   "yesterday_pct": "+2.65%",
+   "yesterday_close": "$195.04"
   },
   {
    "sym": "AVGO",
    "name": "Broadcom Inc.",
-   "pm_price": "$378.82",
-   "pm_pct": "+2.30%",
-   "yesterday_pct": "-2.78%",
-   "yesterday_close": "$370.32"
+   "pm_price": "$391.4788",
+   "pm_pct": "+0.94%",
+   "yesterday_pct": "+4.73%",
+   "yesterday_close": "$387.84"
   },
   {
    "sym": "AMD",
    "name": "Advanced Micro Devices Inc.",
-   "pm_price": "$453.70",
-   "pm_pct": "+5.62%",
-   "yesterday_pct": "-5.51%",
-   "yesterday_close": "$429.56"
+   "pm_price": "$503.50",
+   "pm_pct": "+3.73%",
+   "yesterday_pct": "+13.00%",
+   "yesterday_close": "$485.39"
   },
   {
    "sym": "ARM",
    "name": "Arm Holdings plc",
-   "pm_price": "$250.99",
-   "pm_pct": "+11.61%",
-   "yesterday_pct": "-8.11%",
-   "yesterday_close": "$224.89"
+   "pm_price": "$253.89",
+   "pm_pct": "+5.11%",
+   "yesterday_pct": "+7.40%",
+   "yesterday_close": "$241.54"
   },
   {
    "sym": "SMCI",
    "name": "Super Micro Computer Inc.",
-   "pm_price": "$26.83",
-   "pm_pct": "+4.40%",
-   "yesterday_pct": "-9.67%",
-   "yesterday_close": "$25.70"
+   "pm_price": "$28.345",
+   "pm_pct": "+2.22%",
+   "yesterday_pct": "+7.90%",
+   "yesterday_close": "$27.73"
   },
   {
    "sym": "PLTR",
    "name": "Palantir Technologies Inc. Class A",
-   "pm_price": "$122.09",
-   "pm_pct": "-0.74%",
-   "yesterday_pct": "-0.43%",
-   "yesterday_close": "$123.00"
+   "pm_price": "$122.78",
+   "pm_pct": "+0.43%",
+   "yesterday_pct": "-0.60%",
+   "yesterday_close": "$122.26"
   },
   {
    "sym": "TSLA",
    "name": "Tesla Inc.",
-   "pm_price": "$305.0082",
-   "pm_pct": "+2.24%",
-   "yesterday_pct": "-2.97%",
-   "yesterday_close": "$298.32"
+   "pm_price": "$311.7997",
+   "pm_pct": "+0.96%",
+   "yesterday_pct": "+3.53%",
+   "yesterday_close": "$308.85"
   },
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "pm_price": "$234.83",
-   "pm_pct": "+5.76%",
-   "yesterday_pct": "-8.75%",
-   "yesterday_close": "$222.05"
+   "pm_price": "$265.37",
+   "pm_pct": "+6.55%",
+   "yesterday_pct": "+12.16%",
+   "yesterday_close": "$249.06"
   }
  ],
  "earnings": [
@@ -238,7 +238,7 @@
    "sym": "ABBV",
    "name": "AbbVie Inc.",
    "hour": "bmo",
-   "epsEst": 3.6746,
+   "epsEst": 3.6761,
    "date": "2026-07-31"
   },
   {
@@ -246,6 +246,13 @@
    "name": "Arbor Realty Trust",
    "hour": "bmo",
    "epsEst": 0.0545,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "AIRS",
+   "name": "AirSculpt Technologies Inc.",
+   "hour": "bmo",
+   "epsEst": 0.0068,
    "date": "2026-07-31"
   },
   {
@@ -263,10 +270,31 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "ATHM",
+   "name": "Autohome Inc. American Depositary Shares each representing four class A ordinary shares.",
+   "hour": "",
+   "epsEst": 2.3129,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "AU",
    "name": "AngloGold Ashanti PLC",
-   "hour": "",
+   "hour": "bmo",
    "epsEst": 2.2485,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "BANX",
+   "name": "ArrowMark Financial Corp.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "BBOT",
+   "name": "BridgeBio Oncology Therapeutics Inc.",
+   "hour": "",
+   "epsEst": -0.5766,
    "date": "2026-07-31"
   },
   {
@@ -287,7 +315,14 @@
    "sym": "BEPC",
    "name": "Brookfield Renewable Corporation Brookfield Renewable Corporation Class A Subordinate Voting Shares",
    "hour": "bmo",
-   "epsEst": -0.4692,
+   "epsEst": -0.6273,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "BTM",
+   "name": null,
+   "hour": "",
+   "epsEst": -0.5555,
    "date": "2026-07-31"
   },
   {
@@ -301,7 +336,7 @@
    "sym": "CBOE",
    "name": "Cboe Global Markets Inc.",
    "hour": "bmo",
-   "epsEst": 3.5476,
+   "epsEst": 3.5456,
    "date": "2026-07-31"
   },
   {
@@ -326,6 +361,13 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "COCH",
+   "name": "Envoy Medical Inc. Class A",
+   "hour": "",
+   "epsEst": -0.0918,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "CRI",
    "name": "Carter's Inc.",
    "hour": "bmo",
@@ -336,7 +378,7 @@
    "sym": "CVX",
    "name": "Chevron Corporation",
    "hour": "bmo",
-   "epsEst": 5.6155,
+   "epsEst": 5.615,
    "date": "2026-07-31"
   },
   {
@@ -354,10 +396,38 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "DOUG",
+   "name": "Douglas Elliman Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "EMCG",
+   "name": null,
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "ETN",
    "name": "Eaton Corporation PLC",
    "hour": "bmo",
-   "epsEst": 3.1021,
+   "epsEst": 3.1015,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "FBLG",
+   "name": "FibroBiologics Inc.",
+   "hour": "",
+   "epsEst": -0.7344,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "FRGE",
+   "name": null,
+   "hour": "",
+   "epsEst": -0.6212,
    "date": "2026-07-31"
   },
   {
@@ -368,8 +438,22 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "FSHP",
+   "name": "Flag Ship Acquisition Corp.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "GCL",
    "name": "GCL Global Holdings Ltd",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "GSIW",
+   "name": "Garden Stage Limited Class A",
    "hour": "",
    "epsEst": null,
    "date": "2026-07-31"
@@ -382,10 +466,31 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "HUBC",
+   "name": "Hub Cyber Security Ltd.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "HUBG",
+   "name": "Hub Group Inc. Class A",
+   "hour": "amc",
+   "epsEst": 0.3832,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "IESC",
    "name": "IES Holdings Inc.",
    "hour": "bmo",
    "epsEst": 4.9266,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "IMA",
+   "name": "ImageneBio Inc.",
+   "hour": "amc",
+   "epsEst": -0.904,
    "date": "2026-07-31"
   },
   {
@@ -417,6 +522,13 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "LENZ",
+   "name": "LENZ Therapeutics Inc.",
+   "hour": "",
+   "epsEst": -1.0962,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "LIN",
    "name": "Linde plc",
    "hour": "bmo",
@@ -424,10 +536,31 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "LSB",
+   "name": null,
+   "hour": "amc",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "LYB",
    "name": "LyondellBasell Industries NV Ordinary Shares Class A (Netherlands)",
    "hour": "bmo",
    "epsEst": 3.4478,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "MATH",
+   "name": "Metalpha Technology Holding Limited",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "MIMI",
+   "name": "Mint Incorporation Limited Class A",
+   "hour": "",
+   "epsEst": null,
    "date": "2026-07-31"
   },
   {
@@ -448,7 +581,7 @@
    "sym": "MRNA",
    "name": "Moderna Inc.",
    "hour": "bmo",
-   "epsEst": -2.1213,
+   "epsEst": -2.1247,
    "date": "2026-07-31"
   },
   {
@@ -459,10 +592,24 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "NEXA",
+   "name": "Nexa Resources S.A.",
+   "hour": "amc",
+   "epsEst": 0.6242,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "NHC",
    "name": "National HealthCare Corporation",
    "hour": "",
    "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "NRSN",
+   "name": "NeuroSense Therapeutics Ltd.",
+   "hour": "",
+   "epsEst": -0.1632,
    "date": "2026-07-31"
   },
   {
@@ -480,6 +627,13 @@
    "date": "2026-07-31"
   },
   {
+   "sym": "OLOX",
+   "name": "Olenox Industries Inc.",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
    "sym": "OXSQ",
    "name": "Oxford Square Capital Corp.",
    "hour": "bmo",
@@ -489,22 +643,15 @@
   {
    "sym": "PAX",
    "name": "Patria Investments Limited Class A",
-   "hour": "",
-   "epsEst": 0.2879,
-   "date": "2026-07-31"
-  },
-  {
-   "sym": "PAYP",
-   "name": "PayPay Corporation American Depository Shares",
    "hour": "bmo",
-   "epsEst": 0.1412,
+   "epsEst": 0.2879,
    "date": "2026-07-31"
   },
   {
    "sym": "POR",
    "name": "Portland General Electric Co",
    "hour": "bmo",
-   "epsEst": 0.6921,
+   "epsEst": 0.6864,
    "date": "2026-07-31"
   },
   {
@@ -536,10 +683,24 @@
    "date": "2026-07-31"
   },
   {
-   "sym": "SAMG",
-   "name": "Silvercrest Asset Management Group Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.1071,
+   "sym": "SEGG",
+   "name": "Sports Entertainment Gaming Global Corporation",
+   "hour": "",
+   "epsEst": null,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "STEL",
+   "name": "Stellar Bancorp Inc.",
+   "hour": "",
+   "epsEst": 0.5406,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "SVCC",
+   "name": "Stellar V Capital Corp. Class A",
+   "hour": "",
+   "epsEst": null,
    "date": "2026-07-31"
   },
   {
@@ -553,14 +714,21 @@
    "sym": "TROW",
    "name": "T. Rowe Price Group Inc.",
    "hour": "bmo",
-   "epsEst": 2.5511,
+   "epsEst": 2.5493,
+   "date": "2026-07-31"
+  },
+  {
+   "sym": "TTRX",
+   "name": "Turn Therapeutics Inc.",
+   "hour": "",
+   "epsEst": -0.0255,
    "date": "2026-07-31"
   },
   {
    "sym": "VEON",
    "name": "VEON Ltd. ADS",
    "hour": "bmo",
-   "epsEst": 1.6371,
+   "epsEst": 1.4892,
    "date": "2026-07-31"
   },
   {
@@ -571,2172 +739,29 @@
    "date": "2026-07-31"
   },
   {
-   "sym": "AAMI",
-   "name": "Acadian Asset Management Inc.",
-   "hour": "bmo",
-   "epsEst": 1.0455,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AAPL",
-   "name": "Apple Inc.",
-   "hour": "amc",
-   "epsEst": 1.9271,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ABUS",
-   "name": "Arbutus Biopharma Corporation",
-   "hour": "",
-   "epsEst": -0.0306,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ACCO",
-   "name": "Acco Brands Corporation",
-   "hour": "amc",
-   "epsEst": 0.272,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ACCS",
-   "name": "ACCESS Newswire Inc.",
-   "hour": "",
-   "epsEst": 0.0765,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ACIU",
-   "name": "AC Immune SA",
-   "hour": "",
-   "epsEst": -0.1136,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AD",
-   "name": "Array Digital Infrastructure Inc.",
-   "hour": "",
-   "epsEst": 0.6386,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ADC",
-   "name": "Agree Realty Corporation",
-   "hour": "amc",
-   "epsEst": 0.4792,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ADNH",
-   "name": null,
+   "sym": "WTF",
+   "name": "Waton Financial Limited",
    "hour": "",
    "epsEst": null,
-   "date": "2026-07-30"
+   "date": "2026-07-31"
   },
   {
-   "sym": "ADT",
-   "name": "ADT Inc.",
-   "hour": "bmo",
-   "epsEst": 0.227,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AEE",
-   "name": "Ameren Corporation",
-   "hour": "amc",
-   "epsEst": 1.0976,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AEP",
-   "name": "American Electric Power Company Inc.",
-   "hour": "bmo",
-   "epsEst": 1.5103,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AGCO",
-   "name": "AGCO Corporation",
-   "hour": "bmo",
-   "epsEst": 1.5056,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AGIO",
-   "name": "Agios Pharmaceuticals Inc.",
-   "hour": "bmo",
-   "epsEst": -1.7013,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AGM",
-   "name": "Federal Agricultural Mortgage Corporation",
-   "hour": "amc",
-   "epsEst": 4.9153,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AHRO",
-   "name": null,
+   "sym": "ZSTK",
+   "name": "ZeroStack Corp.",
    "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AJG",
-   "name": "Arthur J. Gallagher & Co.",
-   "hour": "amc",
-   "epsEst": 2.8452,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ALEC",
-   "name": "Alector Inc.",
-   "hour": "",
-   "epsEst": -0.2326,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ALGM",
-   "name": "Allegro MicroSystems Inc.",
-   "hour": "bmo",
-   "epsEst": 0.2142,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ALHC",
-   "name": "Alignment Healthcare Inc.",
-   "hour": "amc",
-   "epsEst": 0.132,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ALNY",
-   "name": "Alnylam Pharmaceuticals Inc.",
-   "hour": "bmo",
-   "epsEst": 1.5858,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AMCX",
-   "name": "AMC Global Media Inc. Class A",
-   "hour": "bmo",
-   "epsEst": -0.0609,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AMG",
-   "name": "Affiliated Managers Group Inc.",
-   "hour": "bmo",
-   "epsEst": 7.9984,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AMH",
-   "name": "American Homes 4 Rent Common Shares of Beneficial Interest",
-   "hour": "amc",
-   "epsEst": 0.1768,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AMRX",
-   "name": "Amneal Pharmaceuticals Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.2259,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AMZN",
-   "name": "Amazon.com Inc.",
-   "hour": "amc",
-   "epsEst": 1.8556,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AOS",
-   "name": "A.O. Smith Corporation",
-   "hour": "bmo",
-   "epsEst": 0.9327,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "APG",
-   "name": "APi Group Corporation",
-   "hour": "bmo",
-   "epsEst": 0.4385,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AQMS",
-   "name": "Aqua Metals Inc.",
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ASUR",
-   "name": "Asure Software Inc",
-   "hour": "amc",
-   "epsEst": 0.1204,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ATR",
-   "name": "AptarGroup Inc.",
-   "hour": "amc",
-   "epsEst": 1.3678,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AUPH",
-   "name": "Aurinia Pharmaceuticals Inc",
-   "hour": "",
-   "epsEst": 0.2448,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AUSI",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AVY",
-   "name": "Avery Dennison Corporation",
-   "hour": "bmo",
-   "epsEst": 2.4943,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AX",
-   "name": "Axos Financial Inc.",
-   "hour": "amc",
-   "epsEst": 2.2214,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "AXTI",
-   "name": "AXT Inc",
-   "hour": "amc",
-   "epsEst": 0.0751,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BAX",
-   "name": "Baxter International Inc.",
-   "hour": "bmo",
-   "epsEst": 0.368,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BBIO",
-   "name": "BridgeBio Pharma Inc.",
-   "hour": "",
-   "epsEst": -0.5917,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BC",
-   "name": "Brunswick Corporation",
-   "hour": "bmo",
-   "epsEst": 1.2705,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BDC",
-   "name": "Belden Inc",
-   "hour": "bmo",
-   "epsEst": 2.0378,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BFAM",
-   "name": "Bright Horizons Family Solutions Inc.",
-   "hour": "amc",
-   "epsEst": 1.2263,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BFLY",
-   "name": "Butterfly Network Inc. Class A",
-   "hour": "bmo",
-   "epsEst": -0.0587,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BFS",
-   "name": "Saul Centers Inc.",
-   "hour": "",
-   "epsEst": 0.1414,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BGC",
-   "name": "BGC Group Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.3384,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BIP",
-   "name": null,
-   "hour": "bmo",
-   "epsEst": 0.2318,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BIPC",
-   "name": "Brookfield Infrastructure Corporation Brookfield Infrastructure Corporation",
-   "hour": "bmo",
-   "epsEst": 0.3876,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BJRI",
-   "name": "BJ's Restaurants Inc.",
-   "hour": "amc",
-   "epsEst": 0.9024,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BLDR",
-   "name": "Builders FirstSource Inc.",
-   "hour": "bmo",
-   "epsEst": 1.2944,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BMY",
-   "name": "Bristol-Myers Squibb Company",
-   "hour": "bmo",
-   "epsEst": 1.6016,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BWIN",
-   "name": "The Baldwin Insurance Group Inc. Class A",
-   "hour": "amc",
-   "epsEst": 0.4801,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "BXMT",
-   "name": "Blackstone Mortgage Trust Inc.",
-   "hour": "bmo",
-   "epsEst": 0.3596,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CCB",
-   "name": "Coastal Financial Corporation",
-   "hour": "bmo",
-   "epsEst": 1.0176,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CCC",
-   "name": "CCC Intelligent Solutions Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": 0.0985,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CDNA",
-   "name": "CareDx Inc.",
-   "hour": "amc",
-   "epsEst": 0.2375,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CDRO",
-   "name": "Codere Online Luxembourg S.A.",
-   "hour": "bmo",
-   "epsEst": 0.0408,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CERS",
-   "name": "Cerus Corporation",
-   "hour": "amc",
-   "epsEst": -0.0136,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CFR",
-   "name": "Cullen/Frost Bankers Inc.",
-   "hour": "bmo",
-   "epsEst": 2.5732,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CHKP",
-   "name": "Check Point Software Technologies Ltd.",
-   "hour": "bmo",
-   "epsEst": 2.4956,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CI",
-   "name": "The Cigna Group",
-   "hour": "bmo",
-   "epsEst": 7.826,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CMCO",
-   "name": "Columbus McKinnon Corporation",
-   "hour": "bmo",
-   "epsEst": 0.278,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CNK",
-   "name": "Cinemark Holdings Inc Cinemark Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": 1.01,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CNO",
-   "name": "CNO Financial Group Inc.",
-   "hour": "amc",
-   "epsEst": 0.9666,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CNX",
-   "name": "CNX Resources Corporation",
-   "hour": "bmo",
-   "epsEst": 0.5987,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "COHU",
-   "name": "Cohu Inc.",
-   "hour": "amc",
-   "epsEst": 0.1415,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "COIN",
-   "name": "Coinbase Global Inc. Class A",
-   "hour": "amc",
-   "epsEst": -0.1151,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "COLM",
-   "name": "Columbia Sportswear Company",
-   "hour": "amc",
-   "epsEst": -0.3975,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CPSH",
-   "name": "CPS Technologies Corp.",
-   "hour": "",
-   "epsEst": 0,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CPT",
-   "name": "Camden Property Trust",
-   "hour": "amc",
-   "epsEst": 0.2083,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CRDF",
-   "name": "Cardiff Oncology Inc.",
-   "hour": "amc",
-   "epsEst": -0.1645,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CRH",
-   "name": "CRH PLC",
-   "hour": "bmo",
-   "epsEst": 2.0334,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CROX",
-   "name": "Crocs Inc.",
-   "hour": "bmo",
-   "epsEst": 4.4241,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CRS",
-   "name": "Carpenter Technology Corporation",
-   "hour": "bmo",
-   "epsEst": 3.1142,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CSTL",
-   "name": "Castle Biosciences Inc.",
-   "hour": "amc",
-   "epsEst": -0.4148,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CSW",
-   "name": "CSW Industrials Inc.",
-   "hour": "bmo",
-   "epsEst": 3.4966,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CTVA",
-   "name": "Corteva Inc.",
-   "hour": "amc",
-   "epsEst": 2.2683,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CUBE",
-   "name": "CubeSmart",
-   "hour": "amc",
-   "epsEst": 0.3652,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CUZ",
-   "name": "Cousins Properties Incorporated",
-   "hour": "amc",
-   "epsEst": 0.0707,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CVCO",
-   "name": "Cavco Industries Inc. Common Stock When Issued",
-   "hour": "amc",
-   "epsEst": 5.8038,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CVEO",
-   "name": "Civeo Corporation (Canada)",
-   "hour": "bmo",
-   "epsEst": -0.153,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CWT",
-   "name": "California Water Service Group",
-   "hour": "bmo",
-   "epsEst": 0.7575,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "CZFS",
-   "name": "Citizens Financial Services Inc.",
-   "hour": "bmo",
-   "epsEst": 2.0196,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DAIO",
-   "name": "Data I/O Corporation",
-   "hour": "amc",
-   "epsEst": -0.0714,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DAR",
-   "name": "Darling Ingredients Inc.",
-   "hour": "bmo",
-   "epsEst": 1.3559,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DFCO",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DFH",
-   "name": "Dream Finders Homes Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.3,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DFIN",
-   "name": "Donnelley Financial Solutions Inc.",
-   "hour": "bmo",
-   "epsEst": 1.666,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DGICA",
-   "name": "Donegal Group Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.4326,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DLB",
-   "name": "Dolby Laboratories",
-   "hour": "amc",
-   "epsEst": 0.6767,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DMLP",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DOUG",
-   "name": "Douglas Elliman Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DRH",
-   "name": "Diamondrock Hospitality Company",
-   "hour": "amc",
-   "epsEst": 0.2188,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DRS",
-   "name": "Leonardo DRS Inc.",
-   "hour": "bmo",
-   "epsEst": 0.2761,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DSX",
-   "name": "Diana Shipping inc. common stock",
-   "hour": "bmo",
-   "epsEst": 0.1,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DTM",
-   "name": "DT Midstream Inc.",
-   "hour": "bmo",
-   "epsEst": 1.1676,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DXC",
-   "name": "DXC Technology Company",
-   "hour": "amc",
-   "epsEst": 0.4179,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DXCM",
-   "name": "DexCom Inc.",
-   "hour": "amc",
-   "epsEst": 0.622,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "DYN",
-   "name": "Dyne Therapeutics Inc.",
-   "hour": "",
-   "epsEst": -0.7582,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EEFT",
-   "name": "Euronet Worldwide Inc.",
-   "hour": "bmo",
-   "epsEst": 3.0281,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EIX",
-   "name": "Edison International",
-   "hour": "amc",
-   "epsEst": 1.1743,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ELC",
-   "name": "Entergy Louisiana Inc. Collateral Trust Mortgage Bonds 4.875 % Series due September 1 2066",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EME",
-   "name": "EMCOR Group Inc.",
-   "hour": "bmo",
-   "epsEst": 7.2954,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EMN",
-   "name": "Eastman Chemical Company",
-   "hour": "amc",
-   "epsEst": 1.8348,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EPD",
-   "name": "Enterprise Products Partners L.P.",
-   "hour": "bmo",
-   "epsEst": 0.7423,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ERIE",
-   "name": "Erie Indemnity Company Class A",
-   "hour": "amc",
-   "epsEst": 3.4435,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ERKH",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ES",
-   "name": "Eversource Energy (D/B/A)",
-   "hour": "amc",
-   "epsEst": 0.9384,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ESCA",
-   "name": "Escalade Incorporated",
-   "hour": "bmo",
-   "epsEst": 0.1632,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ETHE",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EXC",
-   "name": "Exelon Corporation",
-   "hour": "bmo",
-   "epsEst": 0.4419,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EXPO",
-   "name": "Exponent Inc.",
-   "hour": "amc",
-   "epsEst": 0.561,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "EZRA",
-   "name": "Reliance Global Group Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FATN",
-   "name": "FatPipe Inc.",
-   "hour": "amc",
-   "epsEst": 0.0714,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FBIZ",
-   "name": "First Business Financial Services Inc.",
-   "hour": "amc",
-   "epsEst": 1.5958,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FBLG",
-   "name": "FibroBiologics Inc.",
-   "hour": "",
-   "epsEst": -0.7344,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FCN",
-   "name": "FTI Consulting Inc.",
-   "hour": "bmo",
-   "epsEst": 2.2826,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FDUS",
-   "name": "Fidus Investment Corporation",
-   "hour": "",
-   "epsEst": 0.5139,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FET",
-   "name": "Forum Energy Technologies Inc.",
-   "hour": "amc",
-   "epsEst": 0.5707,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FHI",
-   "name": "Federated Hermes Inc.",
-   "hour": "amc",
-   "epsEst": 1.1922,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FLGT",
-   "name": "Fulgent Genetics Inc.",
-   "hour": "amc",
-   "epsEst": -0.4692,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FMCC",
-   "name": null,
-   "hour": "bmo",
-   "epsEst": 0.9044,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FND",
-   "name": "Floor & Decor Holdings Inc.",
-   "hour": "amc",
-   "epsEst": 0.5695,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FORR",
-   "name": "Forrester Research Inc.",
-   "hour": "amc",
-   "epsEst": 0.2703,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FSHP",
-   "name": "Flag Ship Acquisition Corp.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FSLR",
-   "name": "First Solar Inc.",
-   "hour": "amc",
-   "epsEst": 2.8925,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FSS",
-   "name": "Federal Signal Corporation",
-   "hour": "bmo",
-   "epsEst": 1.2997,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "FTI",
-   "name": "TechnipFMC plc Ordinary Share",
-   "hour": "bmo",
-   "epsEst": 0.8158,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GATX",
-   "name": "GATX Corporation",
-   "hour": "bmo",
-   "epsEst": 2.5082,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GDDY",
-   "name": "GoDaddy Inc. Class A",
-   "hour": "amc",
-   "epsEst": 1.7199,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GDOT",
-   "name": "Green Dot Corporation Class A Common Stock $0.001 par value",
-   "hour": "",
-   "epsEst": 0.3774,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GDYN",
-   "name": "Grid Dynamics Holdings Inc. Class A",
-   "hour": "amc",
-   "epsEst": 0.1088,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GECC",
-   "name": "Great Elm Capital Corp.",
-   "hour": "",
-   "epsEst": 0.357,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GFF",
-   "name": "Griffon Corporation",
-   "hour": "bmo",
-   "epsEst": 1.3601,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GH",
-   "name": "Guardant Health Inc.",
-   "hour": "amc",
-   "epsEst": -0.4199,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GLPI",
-   "name": "Gaming and Leisure Properties Inc.",
-   "hour": "amc",
-   "epsEst": 0.8242,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GOAI",
-   "name": "Eva Live Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GPI",
-   "name": "Group 1 Automotive Inc.",
-   "hour": "bmo",
-   "epsEst": 10.9189,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GSIT",
-   "name": "GSI Technology",
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GVA",
-   "name": "Granite Construction Incorporated",
-   "hour": "bmo",
-   "epsEst": 2.3533,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "GVFF",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "H",
-   "name": "Hyatt Hotels Corporation Class A",
-   "hour": "bmo",
-   "epsEst": 0.9284,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HGV",
-   "name": "Hilton Grand Vacations Inc.",
-   "hour": "bmo",
-   "epsEst": 0.9915,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HII",
-   "name": "Huntington Ingalls Industries Inc.",
-   "hour": "bmo",
-   "epsEst": 3.84,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HIPO",
-   "name": "Hippo Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": -0.1734,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HNI",
-   "name": "HNI Corporation",
-   "hour": "bmo",
-   "epsEst": 1.0479,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HR",
-   "name": "Healthcare Realty Trust Incorporated",
-   "hour": "amc",
-   "epsEst": -0.0144,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HSY",
-   "name": "The Hershey Company",
-   "hour": "bmo",
-   "epsEst": 1.4406,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HTGC",
-   "name": "Hercules Capital Inc.",
-   "hour": "amc",
-   "epsEst": 0.4934,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HUN",
-   "name": "Huntsman Corporation",
-   "hour": "amc",
-   "epsEst": 0.0541,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "HYI",
-   "name": "Western Asset High Yield Opportunity Fund Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ICE",
-   "name": "Intercontinental Exchange Inc.",
-   "hour": "bmo",
-   "epsEst": 1.8567,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "IDA",
-   "name": "IDACORP Inc.",
-   "hour": "bmo",
-   "epsEst": 1.7876,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "IDCC",
-   "name": "InterDigital Inc.",
-   "hour": "bmo",
-   "epsEst": 0.9282,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ILMN",
-   "name": "Illumina Inc.",
-   "hour": "amc",
-   "epsEst": 1.2507,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "INBK",
-   "name": "First Internet Bancorp",
-   "hour": "amc",
-   "epsEst": 0.1536,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "INGM",
-   "name": "Ingram Micro Holding Corporation",
-   "hour": "amc",
-   "epsEst": 0.7438,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "IP",
-   "name": "International Paper Company",
-   "hour": "bmo",
-   "epsEst": -0.006,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "IR",
-   "name": "Ingersoll Rand Inc.",
-   "hour": "amc",
-   "epsEst": 0.8495,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "IVR",
-   "name": "INVESCO MORTGAGE CAPITAL INC",
-   "hour": "amc",
-   "epsEst": 0.5151,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "JANL",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "JLL",
-   "name": "Jones Lang LaSalle Incorporated",
-   "hour": "bmo",
-   "epsEst": 4.5695,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "JSDA",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KBR",
-   "name": "KBR Inc.",
-   "hour": "bmo",
-   "epsEst": 0.9127,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KCLI",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KKR",
-   "name": "KKR & Co. Inc.",
-   "hour": "bmo",
-   "epsEst": 1.4263,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KPTI",
-   "name": "Karyopharm Therapeutics Inc.",
-   "hour": "",
-   "epsEst": -1.3022,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KRG",
-   "name": "Kite Realty Group Trust",
-   "hour": "bmo",
-   "epsEst": 0.1111,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KURA",
-   "name": "Kura Oncology Inc.",
-   "hour": "",
-   "epsEst": -0.8952,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KWR",
-   "name": "Quaker Houghton",
-   "hour": "amc",
-   "epsEst": 1.6636,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "KYN",
-   "name": "Kayne Anderson Energy Infrastructure Fund Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LAUR",
-   "name": "Laureate Education Inc.",
-   "hour": "bmo",
-   "epsEst": 0.9767,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LECO",
-   "name": "Lincoln Electric Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": 2.8652,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LH",
-   "name": "Labcorp Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": 4.9212,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LKQ",
-   "name": "LKQ Corporation",
-   "hour": "bmo",
-   "epsEst": 0.7196,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LNC",
-   "name": "Lincoln National Corporation",
-   "hour": "bmo",
-   "epsEst": 1.9784,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LNT",
-   "name": "Alliant Energy Corporation",
-   "hour": "amc",
-   "epsEst": 0.6162,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LOPE",
-   "name": "Grand Canyon Education Inc.",
-   "hour": "amc",
-   "epsEst": 1.7068,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LPLA",
-   "name": "LPL Financial Holdings Inc.",
-   "hour": "amc",
-   "epsEst": 5.51,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LTH",
-   "name": "Life Time Group Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": 0.4026,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LXRX",
-   "name": "Lexicon Pharmaceuticals Inc.",
-   "hour": "",
-   "epsEst": -0.0512,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "LYV",
-   "name": "Live Nation Entertainment Inc.",
-   "hour": "amc",
-   "epsEst": 0.672,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MA",
-   "name": "Mastercard Incorporated",
-   "hour": "bmo",
-   "epsEst": 4.9086,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MAIR",
-   "name": "Madison Air Solutions Corporation Class A",
-   "hour": "bmo",
-   "epsEst": 0.2474,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MCHX",
-   "name": "Marchex Inc. Class B",
-   "hour": "",
-   "epsEst": 0.0204,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MCS",
-   "name": "Marcus Corporation (The)",
-   "hour": "bmo",
-   "epsEst": 0.3333,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MDGL",
-   "name": "Madrigal Pharmaceuticals Inc.",
-   "hour": "bmo",
-   "epsEst": -2.6543,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MDRX",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MGEE",
-   "name": "MGE Energy Inc",
-   "hour": "",
-   "epsEst": 0.7854,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MHK",
-   "name": "Mohawk Industries Inc.",
-   "hour": "amc",
-   "epsEst": 2.61,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MIRM",
-   "name": "Mirum Pharmaceuticals Inc.",
-   "hour": "amc",
-   "epsEst": -0.6944,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MLAB",
-   "name": "Mesa Laboratories Inc.",
-   "hour": "",
-   "epsEst": 0.0306,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MLM",
-   "name": "Martin Marietta Materials Inc.",
-   "hour": "bmo",
-   "epsEst": 4.7933,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MMSI",
-   "name": "Merit Medical Systems Inc.",
-   "hour": "amc",
-   "epsEst": 0.9782,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MNST",
-   "name": "Monster Beverage Corporation",
-   "hour": "amc",
-   "epsEst": 0.5933,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MO",
-   "name": "Altria Group Inc.",
-   "hour": "bmo",
-   "epsEst": 1.542,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MPWR",
-   "name": "Monolithic Power Systems Inc.",
-   "hour": "amc",
-   "epsEst": 5.9836,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MSA",
-   "name": "MSA Safety Incorporated",
-   "hour": "amc",
-   "epsEst": 2.1565,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MSEX",
-   "name": "Middlesex Water Company",
-   "hour": "amc",
-   "epsEst": 0.6698,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MSTR",
-   "name": "Strategy Inc Common Stock Class A",
-   "hour": "amc",
-   "epsEst": -2.8962,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MTD",
-   "name": "Mettler-Toledo International Inc.",
-   "hour": "amc",
-   "epsEst": 10.8959,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MTX",
-   "name": "Minerals Technologies Inc.",
-   "hour": "amc",
-   "epsEst": 1.6514,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MTZ",
-   "name": "MasTec Inc.",
-   "hour": "amc",
-   "epsEst": 2.2528,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MYE",
-   "name": "Myers Industries Inc.",
-   "hour": "bmo",
-   "epsEst": 0.3636,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "MYGN",
-   "name": "Myriad Genetics Inc.",
-   "hour": "amc",
-   "epsEst": -0.059,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NBIX",
-   "name": "Neurocrine Biosciences Inc.",
-   "hour": "amc",
-   "epsEst": 1.3601,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NCLH",
-   "name": "Norwegian Cruise Line Holdings Ltd.",
-   "hour": "bmo",
-   "epsEst": 0.3988,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NCSM",
-   "name": "NCS Multistage Holdings Inc.",
-   "hour": "",
-   "epsEst": -0.3774,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NEXT",
-   "name": "NextDecade Corporation",
-   "hour": "bmo",
-   "epsEst": -0.6446,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NLST",
-   "name": null,
-   "hour": "bmo",
-   "epsEst": 0,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NMIH",
-   "name": "NMI Holdings Inc.",
-   "hour": "amc",
-   "epsEst": 1.3056,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NRSN",
-   "name": "NeuroSense Therapeutics Ltd.",
-   "hour": "",
-   "epsEst": -0.1632,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NTLA",
-   "name": "Intellia Therapeutics Inc.",
-   "hour": "",
-   "epsEst": -0.8152,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NTRA",
-   "name": "Natera Inc.",
-   "hour": "amc",
-   "epsEst": -0.5036,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "NXT",
-   "name": "Nextpower Inc. Class A",
-   "hour": "amc",
-   "epsEst": 1.0643,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "OCFC",
-   "name": "OceanFirst Financial Corp.",
-   "hour": "amc",
-   "epsEst": 0.4298,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "OFS",
-   "name": "OFS Capital Corporation",
-   "hour": "amc",
-   "epsEst": 0.1414,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "OIS",
-   "name": "Oil States International Inc.",
-   "hour": "bmo",
-   "epsEst": 0.1212,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "OLED",
-   "name": "Universal Display Corporation",
-   "hour": "amc",
-   "epsEst": 1.0503,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "OLN",
-   "name": "Olin Corporation",
-   "hour": "amc",
-   "epsEst": 0.1018,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "OMCL",
-   "name": "Omnicell Inc. Common Stock ($0.001 par value)",
-   "hour": "bmo",
-   "epsEst": 0.4769,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "ONEW",
-   "name": "OneWater Marine Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.8282,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "OWL",
-   "name": "Blue Owl Capital Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.2182,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PACK",
-   "name": "Ranpak Holdings Corp Class A",
-   "hour": "bmo",
-   "epsEst": -0.0765,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PATK",
-   "name": "Patrick Industries Inc.",
-   "hour": "bmo",
-   "epsEst": 1.326,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PBF",
-   "name": "PBF Energy Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 4.1527,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PBH",
-   "name": "Prestige Consumer Healthcare Inc.",
-   "hour": "",
-   "epsEst": 0.8879,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PFO",
-   "name": "Flaherty & Crumrine Preferred and Income Opportunity Fund Incorporated",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PGY",
-   "name": "Pagaya Technologies Ltd. Class A",
-   "hour": "bmo",
-   "epsEst": 0.3322,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PHAT",
-   "name": "Phathom Pharmaceuticals Inc.",
-   "hour": "bmo",
-   "epsEst": -0.2565,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PHIN",
-   "name": "PHINIA Inc.",
-   "hour": "bmo",
-   "epsEst": 1.5968,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PIPR",
-   "name": "Piper Sandler Companies",
-   "hour": "bmo",
-   "epsEst": 0.8831,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PRQR",
-   "name": "ProQR Therapeutics N.V.",
-   "hour": "",
-   "epsEst": -0.1163,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PTCT",
-   "name": "PTC Therapeutics Inc.",
-   "hour": "amc",
-   "epsEst": 0.4132,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "PWR",
-   "name": "Quanta Services Inc.",
-   "hour": "bmo",
-   "epsEst": 3.3328,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "RAL",
-   "name": "Ralliant Corporation",
-   "hour": "bmo",
-   "epsEst": 0.6283,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "RBLX",
-   "name": "Roblox Corporation Class A",
-   "hour": "amc",
-   "epsEst": -0.351,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "RDDT",
-   "name": "Reddit Inc. Class A",
-   "hour": "amc",
-   "epsEst": 0.97,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "REFR",
-   "name": "Research Frontiers Incorporated",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "REGN",
-   "name": "Regeneron Pharmaceuticals Inc.",
-   "hour": "bmo",
-   "epsEst": 10.528,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "RES",
-   "name": "RPC Inc.",
-   "hour": "bmo",
-   "epsEst": 0.0412,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "RIVN",
-   "name": "Rivian Automotive Inc. Class A",
-   "hour": "amc",
-   "epsEst": -0.6423,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "RMNI",
-   "name": "Rimini Street Inc. (DE)",
-   "hour": "amc",
-   "epsEst": 0.0646,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "RYAN",
-   "name": "Ryan Specialty Holdings Inc. Class A",
-   "hour": "amc",
-   "epsEst": 0.6122,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SAH",
-   "name": "Sonic Automotive Inc.",
-   "hour": "bmo",
-   "epsEst": 1.76,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SAIA",
-   "name": "Saia Inc.",
-   "hour": "bmo",
-   "epsEst": 3.4405,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SANA",
-   "name": "Sana Biotechnology Inc.",
-   "hour": "amc",
-   "epsEst": -0.1487,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SBSAA",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SCIA",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SCKT",
-   "name": "Socket Mobile Inc.",
-   "hour": "amc",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SHOO",
-   "name": "Steven Madden Ltd.",
-   "hour": "bmo",
-   "epsEst": 0.3309,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SIGA",
-   "name": "SIGA Technologies Inc.",
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SIRI",
-   "name": "SiriusXM Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": 0.8004,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SNCY",
-   "name": null,
-   "hour": "amc",
-   "epsEst": -0.0741,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SNDR",
-   "name": "Schneider National Inc.",
-   "hour": "amc",
-   "epsEst": 0.2367,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SO",
-   "name": "Southern Company (The)",
-   "hour": "bmo",
-   "epsEst": 1.0312,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SOLS",
-   "name": "Solstice Advanced Materials Inc.",
-   "hour": "bmo",
-   "epsEst": 0.7879,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SPSC",
-   "name": "SPS Commerce Inc.",
-   "hour": "amc",
-   "epsEst": 1.1161,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SPXC",
-   "name": "SPX Technologies Inc.",
-   "hour": "amc",
-   "epsEst": 1.8844,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SRTS",
-   "name": "Sensus Healthcare Inc.",
-   "hour": "amc",
-   "epsEst": -0.1275,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SSYS",
-   "name": "Stratasys Ltd. Ordinary Shares (Israel)",
-   "hour": "",
-   "epsEst": 0.0077,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "STGW",
-   "name": "Stagwell Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.1923,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "STNG",
-   "name": "Scorpio Tankers Inc.",
-   "hour": "bmo",
-   "epsEst": 5.6081,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SXC",
-   "name": "SunCoke Energy Inc.",
-   "hour": "bmo",
-   "epsEst": 0.0758,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SXI",
-   "name": "Standex International Corporation",
-   "hour": "amc",
-   "epsEst": 2.3775,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "SYK",
-   "name": "Stryker Corporation",
-   "hour": "amc",
-   "epsEst": 3.5223,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TAL",
-   "name": "TAL Education Group",
-   "hour": "bmo",
-   "epsEst": 0.3454,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TARA",
-   "name": "Protara Therapeutics Inc.",
-   "hour": "",
-   "epsEst": -0.3322,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TBBK",
-   "name": "The Bancorp Inc",
-   "hour": "amc",
-   "epsEst": 1.3906,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TDS",
-   "name": "Telephone and Data Systems Inc.",
-   "hour": "",
-   "epsEst": 0.0838,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TEM",
-   "name": "Tempus AI Inc. Class A",
-   "hour": "amc",
-   "epsEst": -0.1411,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TEX",
-   "name": "Terex Corporation",
-   "hour": "bmo",
-   "epsEst": 1.2538,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TNET",
-   "name": "TriNet Group Inc.",
-   "hour": "bmo",
-   "epsEst": 0.9515,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TRC",
-   "name": "Tejon Ranch Co",
-   "hour": "",
-   "epsEst": 0.0202,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TRMB",
-   "name": "Trimble Inc.",
-   "hour": "",
-   "epsEst": 0.8171,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TRN",
-   "name": "Trinity Industries Inc.",
-   "hour": "bmo",
-   "epsEst": 1.3484,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TRS",
-   "name": "TriMas Corporation",
-   "hour": "bmo",
-   "epsEst": 0.4984,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TRTN PR A",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TT",
-   "name": "Trane Technologies plc",
-   "hour": "bmo",
-   "epsEst": 4.3922,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TW",
-   "name": "Tradeweb Markets Inc. Class A",
-   "hour": "bmo",
-   "epsEst": 0.9776,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TWI",
-   "name": "Titan International Inc. (DE)",
-   "hour": "bmo",
-   "epsEst": -0.048,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "TXNM",
-   "name": "TXNM Energy Inc.",
-   "hour": "",
-   "epsEst": 0.5495,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "UEIC",
-   "name": "Universal Electronics Inc.",
-   "hour": "",
-   "epsEst": 0.0306,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "UNIT",
-   "name": "Uniti Group Inc.",
-   "hour": "bmo",
-   "epsEst": -0.4712,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "UPBD",
-   "name": "Upbound Group Inc.",
-   "hour": "bmo",
-   "epsEst": 1.0688,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "UPLD",
-   "name": "Upland Software Inc.",
-   "hour": "",
-   "epsEst": 1.6116,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "USEA",
-   "name": "United Maritime Corporation",
-   "hour": "bmo",
-   "epsEst": 0.0102,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "VCEL",
-   "name": "Vericel Corporation",
-   "hour": "bmo",
-   "epsEst": -0.0287,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "VCYT",
-   "name": "Veracyte Inc.",
-   "hour": "amc",
-   "epsEst": 0.2419,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "VLO",
-   "name": "Valero Energy Corporation",
-   "hour": "bmo",
-   "epsEst": 10.2192,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "VRTS",
-   "name": "Virtus Investment Partners Inc.",
-   "hour": "bmo",
-   "epsEst": 6.2381,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "VXRT",
-   "name": null,
-   "hour": "",
-   "epsEst": -0.1209,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "VYGR",
-   "name": "Voyager Therapeutics Inc.",
-   "hour": "",
-   "epsEst": -0.4939,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "VYST",
-   "name": null,
-   "hour": "",
-   "epsEst": null,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "WBX",
-   "name": "Wallbox N.V. Class A",
-   "hour": "bmo",
-   "epsEst": -0.404,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "WCC",
-   "name": "WESCO International Inc.",
-   "hour": "bmo",
-   "epsEst": 4.0058,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "WTW",
-   "name": "Willis Towers Watson Public Limited Company",
-   "hour": "bmo",
-   "epsEst": 3.1467,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "WU",
-   "name": "Western Union Company (The)",
-   "hour": "amc",
-   "epsEst": 0.4348,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "WVE",
-   "name": "Wave Life Sciences Ltd.",
-   "hour": "bmo",
-   "epsEst": -0.3121,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "WY",
-   "name": "Weyerhaeuser Company",
-   "hour": "amc",
-   "epsEst": 0.0893,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "XEL",
-   "name": "Xcel Energy Inc.",
-   "hour": "bmo",
-   "epsEst": 0.7892,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "XHR",
-   "name": "Xenia Hotels & Resorts Inc.",
-   "hour": "bmo",
-   "epsEst": 0.1919,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "XPO",
-   "name": "XPO Inc.",
-   "hour": "bmo",
-   "epsEst": 1.486,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "XRX",
-   "name": "Xerox Holdings Corporation",
-   "hour": "bmo",
-   "epsEst": -0.1459,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "XTNT",
-   "name": "Xtant Medical Holdings Inc.",
-   "hour": "",
-   "epsEst": -0.0204,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "YORW",
-   "name": "York Water Company (The)",
-   "hour": "",
-   "epsEst": 0.4029,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "YUM",
-   "name": "Yum! Brands Inc.",
-   "hour": "bmo",
-   "epsEst": 1.5964,
-   "date": "2026-07-30"
-  },
-  {
-   "sym": "YUMC",
-   "name": "Yum China Holdings Inc.",
-   "hour": "bmo",
-   "epsEst": 0.685,
-   "date": "2026-07-30"
+   "epsEst": -0.1122,
+   "date": "2026-07-31"
   }
  ],
  "news": [
   {
-   "h": "Stock futures rise as traders digest Big Tech earnings and hope to recover from Fed Day sell-off: Live updates",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
-   "h": "Dow drops 1,100 points for worst day since April 2025 on fear the Fed is falling behind on inflation: Live updates",
-   "src": "CNBC",
-   "sum": ""
-  },
-  {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq futures steady after Korean stocks fall, Iran resumes attacks",
+   "h": "Stock market today: Nasdaq soars nearly 3%, Dow and S&P 500 rebound as Microsoft posts record 1-day value gain",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "Wall Street closes down sharply after Fed holds rates unchanged",
-   "src": "Reuters",
-   "sum": ""
-  },
-  {
-   "h": "Stocks Gain as Microsoft Results Ease AI Worries: Markets Wrap",
-   "src": "bloomberg.com",
+   "h": "Stock Market Today: Dow, S&P 500 and Nasdaq poised for strong session as Amazon climbs on earnings, chips gain following surge for South Korea's Kospi",
+   "src": "MarketWatch",
    "sum": ""
   },
   {
@@ -2745,58 +770,68 @@
    "sum": ""
   },
   {
-   "h": "Dow Jones Futures Rise; Microsoft, Meta Lead Big Earnings After Market Tumbles, Oil Prices Soar",
-   "src": "Investor's Business Daily",
+   "h": "US Stock Market Today: S&P 500 Futures Edge Higher On Cooling Inflation And Solid GDP",
+   "src": "simplywall.st",
    "sum": ""
   },
   {
-   "h": "Stock Market July 28, 2026: Dow Rallies, Chip Stocks Slide",
-   "src": "WSJ",
+   "h": "Asia Stocks to Gain as US Peers Rebound, Yen Gains: Markets Wrap",
+   "src": "Bloomberg.com",
    "sum": ""
   },
   {
-   "h": "[SPCX] If SpaceX Stock Falls Below $100, One Analyst Shares This Warning",
+   "h": "Stock Market Today: S&P 500, Dow Jones Futures Rise After Cooler June PCE Inflation Data—Apple, Amazon, C",
+   "src": "Benzinga",
+   "sum": ""
+  },
+  {
+   "h": "Microsoft's best day since 2008 leads US stocks, while inflation worries remain in the bond market",
+   "src": "AP News",
+   "sum": ""
+  },
+  {
+   "h": "US Stock Market Today: S&P 500 Futures Inch Higher As Inflation Data Looms",
+   "src": "Yahoo Finance Singapore",
+   "sum": ""
+  },
+  {
+   "h": "[SPCX] SpaceX stock sags again to a new low as Q2 earnings approach",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[SPCX] Tracking Cathie Wood: Betting on XE and SPCX, Cutting Genius Sports",
-   "src": "Moomoo",
+   "h": "[SPCX] 5 Charts on What to Watch in SpaceX Earnings",
+   "src": "Morningstar",
    "sum": ""
   },
   {
-   "h": "[MU] Micron Stock Is Getting Hit After SK Hynix’s Fumbled Earnings Moment",
+   "h": "[MU] Micron Stock Has Surged 637% in a Year. History Has a Clear Answer Where It Will Be in 2027",
+   "src": "Yahoo Finance",
+   "sum": ""
+  },
+  {
+   "h": "[MU] AMD and Micron surge, Lam Research climbs 17% as chip stocks rip higher",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "[NVDA] Why Nvidia (NVDA) Stock Is Bouncing Back Today",
    "src": "Barron's",
    "sum": ""
   },
   {
-   "h": "[MU] Micron Stock: Buy When There's Blood In The Streets (Rating Upgrade)",
-   "src": "Seeking Alpha",
+   "h": "[NVDA] Morningstar says Nvidia is an 'undervalued' high-upside stock play",
+   "src": "LinkedIn",
    "sum": ""
   },
   {
-   "h": "[NVDA] Overlooked AI stock is growing faster than Nvidia",
-   "src": "thestreet.com",
-   "sum": ""
-  },
-  {
-   "h": "[NVDA] What Could Push NVDA Stock Higher From Here?",
-   "src": "trefis.com",
-   "sum": ""
-  },
-  {
-   "h": "[AVGO] Is Broadcom (AVGO) Stock Below Fair Value After Its AI Deals?",
+   "h": "[AVGO] Broadcom Just Signed a $200 Billion AI Agreement. It Solves the Company’s Biggest Problem.",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[AVGO] Broadcom Secures Memory Chip Deal With Samsung. What This Means for AVGO Stock Investors.",
-   "src": "Barchart.com",
-   "sum": ""
-  },
-  {
-   "h": "[AMD] Advanced Micro Devices vs. BigBear.ai: Which Technology Stock Is a Better Buy in 2026?",
-   "src": "The Motley Fool",
+   "h": "[AVGO] Broadcom: The $30 Billion Order Book Nobody's Pricing In (NASDAQ:AVGO)",
+   "src": "Seeking Alpha",
    "sum": ""
   },
   {
@@ -2805,64 +840,69 @@
    "sum": ""
   },
   {
-   "h": "[ARM] Arm shares dive after hours despite forecasts above estimates",
+   "h": "[AMD] AMD and Micron surge, Lam Research climbs 17% as chip stocks rip higher",
+   "src": "CNBC",
+   "sum": ""
+  },
+  {
+   "h": "[ARM] Why Arm Stock Is Surging Today",
    "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "[ARM] Arm Holdings beats Q1 estimates, but shares tumble",
-   "src": "Yahoo! Finance Canada",
+   "h": "[ARM] Arm (ARM) Stock Looks Pricey On Book Value Yet Strong On AI Growth",
+   "src": "Yahoo Finance Singapore",
    "sum": ""
   },
   {
-   "h": "Ferrari raises 2026 guidance after Q2 earnings beat",
+   "h": "The Tech Download: Anduril CEO Brian Schimpf talks AI in warfare and manufacturing push",
    "src": "CNBC",
-   "sum": "Ferrari is bumping up its 2026 guidance after beating Wall Street's second quarter expectations amid \"healthy\" demand for its products."
+   "sum": "CNBC's Arjun Kharpal sits down on The Tech Download podcast with the defense company chief."
   },
   {
-   "h": "Egypt says drone hit two ships at Mediterranean port as attacks on energy infrastructure widen",
+   "h": "Trump convenes Cabinet at Camp David amid simmering Iran war - Reuters",
+   "src": "Reuters",
+   "sum": "Trump convenes Cabinet at Camp David amid simmering Iran war  Reuters"
+  },
+  {
+   "h": "Illicit Iranian gambling network helped pull off a $4 billion sanctions dodge - Reuters",
+   "src": "Reuters",
+   "sum": "Illicit Iranian gambling network helped pull off a $4 billion sanctions dodge  Reuters"
+  },
+  {
+   "h": "Man suspected of spying on UK military base for Iran arrested in Cyprus - Reuters",
+   "src": "Reuters",
+   "sum": "Man suspected of spying on UK military base for Iran arrested in Cyprus  Reuters"
+  },
+  {
+   "h": "British Airways-owner IAG trims capacity outlook; jet fuel bill eases - Reuters",
+   "src": "Reuters",
+   "sum": "British Airways-owner IAG trims capacity outlook; jet fuel bill eases  Reuters"
+  },
+  {
+   "h": "Oil rises over 1% as traders assess shipping flows; monthly gains in sight - Reuters",
+   "src": "Reuters",
+   "sum": "Oil rises over 1% as traders assess shipping flows; monthly gains in sight  Reuters"
+  },
+  {
+   "h": "IBM CEO says quantum computing will have a 'measurable impact' on earnings by 2028 or 2029",
    "src": "CNBC",
-   "sum": "The unclaimed attack comes as Iran, its Houthi alllies in Yemen and Iraqi militias have widen strikes on energy infrastructure across the region."
+   "sum": "IBM CEO Arvind Krishna said the company's investments in quantum computing should begin to have \"a measurable impact\" on revenue and earnings by 2028 or 2029."
   },
   {
-   "h": "Wealth managers face a new challenger: their clients’ AI chatbots",
-   "src": "CNBC",
-   "sum": "Large language models may give financial advisors a run for their money, but wealth management leaders say the human touch can't be replaced."
-  },
-  {
-   "h": "Treasury sell-off continues after divided Fed holds interest rates steady",
-   "src": "CNBC",
-   "sum": "U.S. Treasury yields continued their upward climb on Thursday as investors weighed the Federal Reserve's decision to hold interest rates steady."
-  },
-  {
-   "h": "Drone strike at Egypt's Damietta port raises new security threat near Suez - Reuters",
+   "h": "US cyber defense agency warns hackers are increasingly targeting water systems - Reuters",
    "src": "Reuters",
-   "sum": "Drone strike at Egypt's Damietta port raises new security threat near Suez  Reuters"
+   "sum": "US cyber defense agency warns hackers are increasingly targeting water systems  Reuters"
   },
   {
-   "h": "Shell profit more than doubles to $9.8 billion, second-highest on record, as Iran war lifts prices - Reuters",
+   "h": "Egypt confirms drone caused fire on two gas vessels at Damietta - Reuters",
    "src": "Reuters",
-   "sum": "Shell profit more than doubles to $9.8 billion, second-highest on record, as Iran war lifts prices  Reuters"
+   "sum": "Egypt confirms drone caused fire on two gas vessels at Damietta  Reuters"
   },
   {
-   "h": "EXCLUSIVE: QatarEnergy buys 33 US LNG cargoes to offset Hormuz disruption, sources say - Reuters",
+   "h": "Drone strike in Egypt sparks security concerns about Suez oil exports - Reuters",
    "src": "Reuters",
-   "sum": "EXCLUSIVE: QatarEnergy buys 33 US LNG cargoes to offset Hormuz disruption, sources say  Reuters"
-  },
-  {
-   "h": "US military says latest strikes on Iran last two hours, hitting dozens of targets - Reuters",
-   "src": "Reuters",
-   "sum": "US military says latest strikes on Iran last two hours, hitting dozens of targets  Reuters"
-  },
-  {
-   "h": "QatarEnergy-controlled LNG tanker exits Hormuz, first in nearly three weeks - Reuters",
-   "src": "Reuters",
-   "sum": "QatarEnergy-controlled LNG tanker exits Hormuz, first in nearly three weeks  Reuters"
-  },
-  {
-   "h": "Gold gains on softer dollar as markets assess Fed stance, Middle East tensions - Reuters",
-   "src": "Reuters",
-   "sum": "Gold gains on softer dollar as markets assess Fed stance, Middle East tensions  Reuters"
+   "sum": "Drone strike in Egypt sparks security concerns about Suez oil exports  Reuters"
   }
  ]
 }

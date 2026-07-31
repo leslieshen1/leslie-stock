@@ -4606,8 +4606,68 @@
    "reason": "集合竞价全是0.0%，没有资金抢筹也没有情绪溢价，死水盘口我不硬买。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 210,
+   "fill_date": "2026-07-31",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意我都愿意长期拥有，今天没有明显低到足以让我卖掉一门好生意去换另一门的价格。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 211,
+   "fill_date": "2026-07-31",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看得懂，也都是能拿十年的好生意，今天候选没有便宜到让我换掉手里的好公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 212,
+   "fill_date": "2026-07-31",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002396",
+   "reason": "这笔AI网络仓位没有顺着我的判断走，亏到-7%还不反弹就是资金不认，先砍掉不讲故事。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 213,
+   "fill_date": "2026-07-31",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "000977",
+   "reason": "AI算力仍是最顺流动性的大趋势，浪潮信息是服务器高弹性核心载体，盘前没被爆拉，可以上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 214,
+   "fill_date": "2026-07-31",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "301165",
+   "reason": "卖掉弱的星网锐捷，换到更强的锐捷网络，同一AI算力网络风口里只骑跑得最猛的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 215,
+   "fill_date": "2026-07-31",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价候选全是0溢价，盘口没有抢筹也没有资金主动表态，死水无资金我不硬买。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 210,
+ "next_order_id": 216,
  "splits": []
 }

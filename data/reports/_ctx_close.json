@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-30 22:31 ET Thu",
+ "asof_et": "2026-07-30 22:46 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "+1.68%",
@@ -2669,7 +2669,7 @@
   },
   {
    "h": "Nasdaq 100 Gains 3% in AI Trade Revival After Rout: Markets Wrap",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "sum": ""
   },
   {
@@ -2678,13 +2678,18 @@
    "sum": ""
   },
   {
-   "h": "US Stock Market Today: S&P 500 Futures Edge Higher As Fed And Oil Risks Loom",
-   "src": "simplywall.st",
+   "h": "Microsoft's best day since 2008 leads US stocks, while inflation worries remain in the bond market",
+   "src": "AP News",
    "sum": ""
   },
   {
-   "h": "Stock Market Today: Dow Craters 1,110 Points As Bond Yields Jump On Fed Worries; Meta Extends Losses",
+   "h": "Dow Jones Futures Rise; Microsoft, Meta Lead Big Earnings After Market Tumbles, Oil Prices Soar",
    "src": "Investor's Business Daily",
+   "sum": ""
+  },
+  {
+   "h": "US Stock Market Today: S&P 500 Futures Edge Higher As Fed And Oil Risks Loom",
+   "src": "simplywall.st",
    "sum": ""
   },
   {
@@ -2693,13 +2698,8 @@
    "sum": ""
   },
   {
-   "h": "US Stock Market Today: Dow Plummets 1,100 Points on AI Sell-Off",
-   "src": "stl.news",
-   "sum": ""
-  },
-  {
-   "h": "Microsoft's best day since 2008 leads US stocks, while inflation worries remain in the bond market",
-   "src": "AP News",
+   "h": "Stock Market Today: Dow Craters 1,110 Points As Bond Yields Jump On Fed Worries; Meta Extends Losses",
+   "src": "Investor's Business Daily",
    "sum": ""
   },
   {
@@ -2763,6 +2763,11 @@
    "sum": ""
   },
   {
+   "h": "US cyber defense agency warns hackers are increasingly targeting water systems - Reuters",
+   "src": "Reuters",
+   "sum": "US cyber defense agency warns hackers are increasingly targeting water systems  Reuters"
+  },
+  {
    "h": "Drone strike in Egypt sparks security concerns about Suez oil exports - Reuters",
    "src": "Reuters",
    "sum": "Drone strike in Egypt sparks security concerns about Suez oil exports  Reuters"
@@ -2806,11 +2811,6 @@
    "h": "Bank of England keeps rates on hold, awaits clearer sign of Iran war inflation hit - Reuters",
    "src": "Reuters",
    "sum": "Bank of England keeps rates on hold, awaits clearer sign of Iran war inflation hit  Reuters"
-  },
-  {
-   "h": "Cramer predicts a breakout for Starbucks shares as CEO Niccol's turnaround accelerates",
-   "src": "CNBC",
-   "sum": "\"There are so many good things ahead here,\" Jim Cramer said Thursday."
   }
  ]
 }

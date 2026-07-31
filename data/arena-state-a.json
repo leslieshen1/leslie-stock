@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 161843.0,
-  "druckenmiller": 256710.0,
+  "serenity": 112643.0,
+  "druckenmiller": 174558.0,
   "sentiment": 1039866.0
  },
  "positions": [
@@ -170,13 +170,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "002396",
-   "shares": 3300,
-   "entry": 26.32,
-   "entry_date": "2026-07-29"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300750",
    "shares": 200,
    "entry": 396.84,
@@ -195,6 +188,27 @@
    "shares": 1400,
    "entry": 58.74,
    "entry_date": "2026-07-30"
+  },
+  {
+   "master": "serenity",
+   "sym": "688785",
+   "shares": 200,
+   "entry": 246.0,
+   "entry_date": "2026-07-31"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "000977",
+   "shares": 1200,
+   "entry": 72.88,
+   "entry_date": "2026-07-31"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301165",
+   "shares": 700,
+   "entry": 116.22,
+   "entry_date": "2026-07-31"
   }
  ],
  "nav": [
@@ -821,6 +835,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-30",
+   "nav": 1039866.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-31",
+   "nav": 1103209.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-31",
+   "nav": 1128091.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-31",
+   "nav": 734441.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-31",
+   "nav": 762705.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-31",
    "nav": 1039866.0
   }
  ],
@@ -2513,6 +2552,46 @@
    "shares": 1400,
    "price": 58.74,
    "reason": "国防扩张和地缘风险是最干净的自上而下顺风，中航成飞没高开透支，可以用它表达军工主线。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688785",
+   "shares": 200,
+   "price": 246.0,
+   "reason": "射频电源就是刻蚀/PECVD 的开机卡脖子件，供应商极少、验证周期长、下游一扩产每台都得吃它，今天平开不追高，正是我该拿的真瓶颈。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002396",
+   "shares": 3300,
+   "price": 26.26,
+   "reason": "这笔AI网络仓位没有顺着我的判断走，亏到-7%还不反弹就是资金不认，先砍掉不讲故事。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "000977",
+   "shares": 1200,
+   "price": 72.88,
+   "reason": "AI算力仍是最顺流动性的大趋势，浪潮信息是服务器高弹性核心载体，盘前没被爆拉，可以上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301165",
+   "shares": 700,
+   "price": 116.22,
+   "reason": "卖掉弱的星网锐捷，换到更强的锐捷网络，同一AI算力网络风口里只骑跑得最猛的马。",
    "src": "ai"
   }
  ],
@@ -4614,7 +4693,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都愿意长期拥有，今天没有明显低到足以让我卖掉一门好生意去换另一门的价格。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4624,7 +4703,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看得懂，也都是能拿十年的好生意，今天候选没有便宜到让我换掉手里的好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4634,7 +4713,7 @@
    "action": "SELL",
    "sym": "002396",
    "reason": "这笔AI网络仓位没有顺着我的判断走，亏到-7%还不反弹就是资金不认，先砍掉不讲故事。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4644,7 +4723,7 @@
    "action": "BUY",
    "sym": "000977",
    "reason": "AI算力仍是最顺流动性的大趋势，浪潮信息是服务器高弹性核心载体，盘前没被爆拉，可以上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4654,7 +4733,7 @@
    "action": "BUY",
    "sym": "301165",
    "reason": "卖掉弱的星网锐捷，换到更强的锐捷网络，同一AI算力网络风口里只骑跑得最猛的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4664,7 +4743,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价候选全是0溢价，盘口没有抢筹也没有资金主动表态，死水无资金我不硬买。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4674,7 +4753,7 @@
    "action": "BUY",
    "sym": "688785",
    "reason": "射频电源就是刻蚀/PECVD 的开机卡脖子件，供应商极少、验证周期长、下游一扩产每台都得吃它，今天平开不追高，正是我该拿的真瓶颈。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

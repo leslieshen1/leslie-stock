@@ -6086,9 +6086,59 @@
    "reason": "HUBS 仍是被打到冰点的软件弃儿，盘前回落把昨天的反弹吐回去，聪明钱更像在悄悄接筹，适合逆向试一仓，但反转会很快",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 303,
+   "fill_date": "2026-07-31",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里的几门生意护城河仍在，今天没有哪一个候选价钱便宜到值得我卖掉好生意去换它。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 304,
+   "fill_date": "2026-07-31",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里这四家都是看得懂的十年好生意，今天盘前的涨跌更多是价格噪音，不是商业模式或文化出了问题，我不为这种波动折腾仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 305,
+   "fill_date": "2026-07-31",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天不追高也不腾仓，手里这九个都还在真瓶颈位置，候选里AI电力/光互连/军工材料盘前普遍被抢，没必要用我的瓶颈票去换最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 306,
+   "fill_date": "2026-07-31",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AVGO",
+   "reason": "AI资本开支这股流动性风又回来了，Broadcom是定制ASIC里最干净、弹性最大的载体，盘前不算失控，我加第八仓骑主线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 307,
+   "fill_date": "2026-07-31",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HUBS",
+   "reason": "盘前直接被砸近5%，说明软件这条腿资金还在流出，AI杀软件的情绪没反转，死水票我不陪它耗。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 303,
+ "next_order_id": 308,
  "notes": [
   {
    "date": "2026-06-12",

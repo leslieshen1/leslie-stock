@@ -4666,8 +4666,18 @@
    "reason": "集合竞价候选全是0溢价，盘口没有抢筹也没有资金主动表态，死水无资金我不硬买。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 216,
+   "fill_date": "2026-07-31",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688785",
+   "reason": "射频电源就是刻蚀/PECVD 的开机卡脖子件，供应商极少、验证周期长、下游一扩产每台都得吃它，今天平开不追高，正是我该拿的真瓶颈。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 216,
+ "next_order_id": 217,
  "splits": []
 }

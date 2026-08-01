@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-31 22:01 ET Fri",
+ "asof_et": "2026-07-31 22:16 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.72%",
@@ -177,8 +177,8 @@
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "close_price": "$262.89",
-   "close_pct": "+5.55%"
+   "close_price": "$263.30",
+   "close_pct": "+5.72%"
   }
  ],
  "earnings": [
@@ -726,12 +726,12 @@
   },
   {
    "h": "Stock market today: Dow, S&P 500, Nasdaq futures edge up ahead of inflation data",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
    "h": "Stock market today: Dow, S&P 500, Nasdaq rise to cap volatile July as Big Tech AI spending ramps up",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -751,7 +751,7 @@
   },
   {
    "h": "[SPCX] SpaceX stock hits new closing low in rocky week ahead of earnings",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -760,8 +760,8 @@
    "sum": ""
   },
   {
-   "h": "[MU] Why Micron Stock Keeps Falling?",
-   "src": "finance.yahoo.com",
+   "h": "[MU] Micron Stock Falls. Here’s What’s Overshadowing Big Tech Spending.",
+   "src": "Barron's",
    "sum": ""
   },
   {
@@ -781,7 +781,7 @@
   },
   {
    "h": "[AVGO] Is It Worth Investing in Broadcom Inc. (AVGO) Based on Wall Street's Bullish Views?",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -791,7 +791,7 @@
   },
   {
    "h": "[AMD] MU, SKHY, NVDA, AMD, INTC Extend Rally Premarket, But Chip Stocks Still On Track For Worst Month Since 2002",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -801,7 +801,7 @@
   },
   {
    "h": "[ARM] 1 Key Metric To Watch That Could Send Arm Stock Soaring",
-   "src": "finance.yahoo.com",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-07-31 22:16 ET Fri",
+ "asof_et": "2026-07-31 22:31 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.72%",
@@ -177,8 +177,8 @@
   {
    "sym": "COHR",
    "name": "Coherent Corp.",
-   "close_price": "$263.30",
-   "close_pct": "+5.72%"
+   "close_price": "$262.89",
+   "close_pct": "+5.55%"
   }
  ],
  "earnings": [
@@ -720,13 +720,13 @@
    "sum": ""
   },
   {
-   "h": "Stock Market News, July 30, 2026: Nasdaq Leaps, Fueled by Big Rally in Microsoft Shares",
-   "src": "WSJ",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq futures edge up ahead of inflation data",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq futures edge up ahead of inflation data",
-   "src": "Yahoo Finance",
+   "h": "Stock Market News, July 30, 2026: Nasdaq Leaps, Fueled by Big Rally in Microsoft Shares",
+   "src": "wsj.com",
    "sum": ""
   },
   {

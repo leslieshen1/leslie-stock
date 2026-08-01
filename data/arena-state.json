@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 19587.86,
-  "druckenmiller": 147076.66,
-  "sentiment": 425377.81
+  "druckenmiller": 169240.16,
+  "sentiment": 916587.17
  },
  "positions": [
   {
@@ -92,13 +92,6 @@
    "entry_date": "2026-06-18"
   },
   {
-   "master": "druckenmiller",
-   "sym": "LLY",
-   "shares": 110,
-   "entry": 1107.45,
-   "entry_date": "2026-06-23"
-  },
-  {
    "master": "serenity",
    "sym": "BLFS",
    "shares": 3581,
@@ -131,20 +124,6 @@
    "sym": "CEG",
    "shares": 390,
    "entry": 274.35,
-   "entry_date": "2026-07-24"
-  },
-  {
-   "master": "sentiment",
-   "sym": "LMT",
-   "shares": 272,
-   "entry": 582.6,
-   "entry_date": "2026-07-24"
-  },
-  {
-   "master": "sentiment",
-   "sym": "WEX",
-   "shares": 901,
-   "entry": 176.15,
    "entry_date": "2026-07-24"
   },
   {
@@ -225,11 +204,11 @@
    "entry_date": "2026-07-30"
   },
   {
-   "master": "sentiment",
-   "sym": "HUBS",
-   "shares": 692,
-   "entry": 233.1,
-   "entry_date": "2026-07-30"
+   "master": "druckenmiller",
+   "sym": "AVGO",
+   "shares": 269,
+   "entry": 387.5,
+   "entry_date": "2026-07-31"
   }
  ],
  "nav": [
@@ -1082,6 +1061,31 @@
    "master": "sentiment",
    "date": "2026-07-30",
    "nav": 1075888.73
+  },
+  {
+   "master": "buffett",
+   "date": "2026-07-31",
+   "nav": 1010567.09
+  },
+  {
+   "master": "duan",
+   "date": "2026-07-31",
+   "nav": 1004097.53
+  },
+  {
+   "master": "serenity",
+   "date": "2026-07-31",
+   "nav": 826393.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-07-31",
+   "nav": 906917.58
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-07-31",
+   "nav": 1083360.23
   }
  ],
  "trades": [
@@ -3283,6 +3287,56 @@
    "shares": 692,
    "price": 233.1,
    "reason": "HUBS 仍是被打到冰点的软件弃儿，盘前回落把昨天的反弹吐回去，聪明钱更像在悄悄接筹，适合逆向试一仓，但反转会很快",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "LLY",
+   "shares": 110,
+   "price": 1149.1,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AVGO",
+   "shares": 269,
+   "price": 387.5,
+   "reason": "AI资本开支这股流动性风又回来了，Broadcom是定制ASIC里最干净、弹性最大的载体，盘前不算失控，我加第八仓骑主线。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "LMT",
+   "shares": 272,
+   "price": 582.74,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "WEX",
+   "shares": 901,
+   "price": 186.96,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+6.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-07-31",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "HUBS",
+   "shares": 692,
+   "price": 237.36,
+   "reason": "盘前直接被砸近5%，说明软件这条腿资金还在流出，AI杀软件的情绪没反转，死水票我不陪它耗。",
    "src": "ai"
   }
  ],
@@ -6094,7 +6148,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里的几门生意护城河仍在，今天没有哪一个候选价钱便宜到值得我卖掉好生意去换它。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6104,7 +6158,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里这四家都是看得懂的十年好生意，今天盘前的涨跌更多是价格噪音，不是商业模式或文化出了问题，我不为这种波动折腾仓位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6114,7 +6168,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天不追高也不腾仓，手里这九个都还在真瓶颈位置，候选里AI电力/光互连/军工材料盘前普遍被抢，没必要用我的瓶颈票去换最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6124,7 +6178,7 @@
    "action": "BUY",
    "sym": "AVGO",
    "reason": "AI资本开支这股流动性风又回来了，Broadcom是定制ASIC里最干净、弹性最大的载体，盘前不算失控，我加第八仓骑主线。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6134,7 +6188,7 @@
    "action": "SELL",
    "sym": "HUBS",
    "reason": "盘前直接被砸近5%，说明软件这条腿资金还在流出，AI杀软件的情绪没反转，死水票我不陪它耗。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

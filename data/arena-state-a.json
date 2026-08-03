@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 112643.0,
-  "druckenmiller": 174558.0,
+  "serenity": 192934.0,
+  "druckenmiller": 151754.0,
   "sentiment": 1039866.0
  },
  "positions": [
@@ -107,13 +107,6 @@
   },
   {
    "master": "serenity",
-   "sym": "002409",
-   "shares": 400,
-   "entry": 145.0,
-   "entry_date": "2026-07-17"
-  },
-  {
-   "master": "serenity",
    "sym": "300408",
    "shares": 700,
    "entry": 99.01,
@@ -148,13 +141,6 @@
    "entry_date": "2026-07-21"
   },
   {
-   "master": "serenity",
-   "sym": "688012",
-   "shares": 100,
-   "entry": 375.2,
-   "entry_date": "2026-07-23"
-  },
-  {
    "master": "druckenmiller",
    "sym": "002270",
    "shares": 4500,
@@ -174,13 +160,6 @@
    "shares": 200,
    "entry": 396.84,
    "entry_date": "2026-07-29"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688361",
-   "shares": 200,
-   "entry": 323.15,
-   "entry_date": "2026-07-30"
   },
   {
    "master": "druckenmiller",
@@ -209,6 +188,13 @@
    "shares": 700,
    "entry": 116.22,
    "entry_date": "2026-07-31"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002396",
+   "shares": 3400,
+   "entry": 24.87,
+   "entry_date": "2026-08-03"
   }
  ],
  "nav": [
@@ -860,6 +846,31 @@
   {
    "master": "sentiment",
    "date": "2026-07-31",
+   "nav": 1039866.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-03",
+   "nav": 1107114.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-03",
+   "nav": 1121525.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-03",
+   "nav": 707789.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-03",
+   "nav": 739069.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-03",
    "nav": 1039866.0
   }
  ],
@@ -2592,6 +2603,46 @@
    "shares": 700,
    "price": 116.22,
    "reason": "卖掉弱的星网锐捷，换到更强的锐捷网络，同一AI算力网络风口里只骑跑得最猛的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-03",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "002409",
+   "shares": 400,
+   "price": 121.85,
+   "reason": "破位 -16.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-03",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688012",
+   "shares": 100,
+   "price": 315.51,
+   "reason": "破位 -15.9%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-03",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688361",
+   "shares": 200,
+   "price": 308.77,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002396",
+   "shares": 3400,
+   "price": 24.87,
+   "reason": "AI算力网络仍是流动性最愿意给弹性的主线，星网锐捷此前逆势大涨证明资金在抱团，今天没高开爆拉就给我一个顺风上车点。",
    "src": "ai"
   }
  ],
@@ -4763,7 +4814,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓仍是我愿意长期拥有的生意，候选虽有好公司但没有明显到值得我卖掉现有好生意去换仓的安全边际。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4773,7 +4824,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的几门生意都看得懂，也都是十年还能在的好生意，今天没有必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4783,7 +4834,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天候选没有给我新的错杀价，手里这十个仍然是材料、设备、EDA、稀土、MEMS、交换芯片这些真卡脖子位，没必要为了买满去换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4793,7 +4844,7 @@
    "action": "BUY",
    "sym": "002396",
    "reason": "AI算力网络仍是流动性最愿意给弹性的主线，星网锐捷此前逆势大涨证明资金在抱团，今天没高开爆拉就给我一个顺风上车点。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -4803,7 +4854,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "集合竞价全线0波动，盘口没有抢筹也没有资金方向，情绪资金面看不到钱在进，宁可空仓等第一波真实流向。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

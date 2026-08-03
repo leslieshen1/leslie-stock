@@ -4755,8 +4755,58 @@
    "reason": "射频电源就是刻蚀/PECVD 的开机卡脖子件，供应商极少、验证周期长、下游一扩产每台都得吃它，今天平开不追高，正是我该拿的真瓶颈。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 217,
+   "fill_date": "2026-08-03",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓仍是我愿意长期拥有的生意，候选虽有好公司但没有明显到值得我卖掉现有好生意去换仓的安全边际。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 218,
+   "fill_date": "2026-08-03",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的几门生意都看得懂，也都是十年还能在的好生意，今天没有必要为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 219,
+   "fill_date": "2026-08-03",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天候选没有给我新的错杀价，手里这十个仍然是材料、设备、EDA、稀土、MEMS、交换芯片这些真卡脖子位，没必要为了买满去换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 220,
+   "fill_date": "2026-08-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002396",
+   "reason": "AI算力网络仍是流动性最愿意给弹性的主线，星网锐捷此前逆势大涨证明资金在抱团，今天没高开爆拉就给我一个顺风上车点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 221,
+   "fill_date": "2026-08-03",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价全线0波动，盘口没有抢筹也没有资金方向，情绪资金面看不到钱在进，宁可空仓等第一波真实流向。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 217,
+ "next_order_id": 222,
  "splits": []
 }

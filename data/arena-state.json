@@ -6190,9 +6190,69 @@
    "reason": "盘前直接被砸近5%，说明软件这条腿资金还在流出，AI杀软件的情绪没反转，死水票我不陪它耗。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 308,
+   "fill_date": "2026-08-03",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些都是我看得懂、护城河仍在的生意；今天没有哪一个价格便宜到值得换马，也没有哪一个坏到需要离开。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 309,
+   "fill_date": "2026-08-03",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "MTSI",
+   "reason": "瓶颈不是没了，但盘前继续大跌说明它已经从单点卡脖子变成拥挤明牌，我把这格仓位让给更早期的电力/机柜卡口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 310,
+   "fill_date": "2026-08-03",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "CORZ",
+   "reason": "AI capex 最诚实的瓶颈现在是可通电机柜，CORZ 手里是已并网兆瓦和长约，今天被当矿工砸反而给了我上车真瓶颈的窗口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 311,
+   "fill_date": "2026-08-03",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "ETN",
+   "reason": "AI算力最后要落到电力和配电设备上，ETN今天没被追爆，顺着电气化资本开支大潮在小回落里加一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 312,
+   "fill_date": "2026-08-03",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我先拿着ADBE，前期冰点反向埋伏还没坏，没必要在情绪回暖时把筹码交出去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 313,
+   "fill_date": "2026-08-03",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "AADX",
+   "reason": "防务盘里还在进钱，昨晚已经被重新定价但盘前没继续爆拉，属于顺着资金做而不是追最后一棒。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 308,
+ "next_order_id": 314,
  "notes": [
   {
    "date": "2026-06-12",

@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-03 22:31 ET Mon",
+ "asof_et": "2026-08-03 22:46 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "+1.42%",
@@ -4144,11 +4144,6 @@
    "sum": ""
   },
   {
-   "h": "US stock market today: Nasdaq rises as Amazon rallies strongly",
-   "src": "The Times of India",
-   "sum": ""
-  },
-  {
    "h": "Stock Market Today: SPY, QQQ Power Higher as Trump Pushes U.S.-Iran Talks, Urges Oil Kingpins to Slash Prices",
    "src": "TipRanks",
    "sum": ""
@@ -4159,13 +4154,18 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] Ahead of SpaceX Earnings, Here's What Barchart Data Says Comes Next for SPCX Stock",
-   "src": "Barchart.com",
+   "h": "US Stock Market Today: S&P 500 Futures Rise On Stronger Sentiment And High-Rate Test",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
    "h": "[SPCX] What to watch ahead of SpaceX's first earnings report and a huge unlock of company stock",
    "src": "Business Insider",
+   "sum": ""
+  },
+  {
+   "h": "[SPCX] Ahead of SpaceX Earnings, Here's What Barchart Data Says Comes Next for SPCX Stock",
+   "src": "barchart.com",
    "sum": ""
   },
   {
@@ -4210,7 +4210,7 @@
   },
   {
    "h": "[ARM] ARM Stock: A $1 Billion AGI CPU Opportunity Could End Up Being Much Bigger Than Wall Street Expects",
-   "src": "Barchart.com",
+   "src": "barchart.com",
    "sum": ""
   },
   {

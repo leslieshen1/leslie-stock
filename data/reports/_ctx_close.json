@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-03 22:16 ET Mon",
+ "asof_et": "2026-08-03 22:31 ET Mon",
  "indices": {
   "标普500": {
    "close_pct": "+1.42%",
@@ -4144,17 +4144,17 @@
    "sum": ""
   },
   {
+   "h": "US stock market today: Nasdaq rises as Amazon rallies strongly",
+   "src": "The Times of India",
+   "sum": ""
+  },
+  {
    "h": "Stock Market Today: SPY, QQQ Power Higher as Trump Pushes U.S.-Iran Talks, Urges Oil Kingpins to Slash Prices",
    "src": "TipRanks",
    "sum": ""
   },
   {
    "h": "Stock market today: Dow, S&P 500, Nasdaq futures rise as Trump calls off Iran attack, oil and bond yields ease",
-   "src": "Yahoo Finance",
-   "sum": ""
-  },
-  {
-   "h": "US Stock Market Today: S&P 500 Futures Rise On Stronger Sentiment And High-Rate Test",
    "src": "Yahoo Finance",
    "sum": ""
   },
@@ -4219,6 +4219,11 @@
    "sum": ""
   },
   {
+   "h": "Oil ticks up after selloff as talks to end US-Iran war remain uncertain - Reuters",
+   "src": "Reuters",
+   "sum": "Oil ticks up after selloff as talks to end US-Iran war remain uncertain  Reuters"
+  },
+  {
    "h": "Wall Street rallies, Dow closes at record on Iran talks optimism - Reuters",
    "src": "Reuters",
    "sum": "Wall Street rallies, Dow closes at record on Iran talks optimism  Reuters"
@@ -4254,19 +4259,14 @@
    "sum": "After deadly day, Gazans say Trump's touting of plan jars with grim reality  Reuters"
   },
   {
+   "h": "Trump blasts Exxon, Chevron for making 'too much money,' demands lower gasoline prices - Reuters",
+   "src": "Reuters",
+   "sum": "Trump blasts Exxon, Chevron for making 'too much money,' demands lower gasoline prices  Reuters"
+  },
+  {
    "h": "Trump says Iran faces 'decapitation' if it doesn't strike deal - Reuters",
    "src": "Reuters",
    "sum": "Trump says Iran faces 'decapitation' if it doesn't strike deal  Reuters"
-  },
-  {
-   "h": "Trump sours on Pirro over Reflecting Pool case, won't say her job is safe",
-   "src": "CNBC",
-   "sum": "President Donald Trump said Jeanine Pirro, the U.S. attorney for the District of Columbia, \"choked\" and \"folded like an umbrella\" in the Reflecting Pool case."
-  },
-  {
-   "h": "A trio of positive developments has Boeing shares soaring",
-   "src": "CNBC",
-   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
   }
  ]
 }

@@ -6332,9 +6332,79 @@
    "reason": "防务盘里还在进钱，昨晚已经被重新定价但盘前没继续爆拉，属于顺着资金做而不是追最后一棒。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 314,
+   "fill_date": "2026-08-04",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我已经拥有八门看得懂、护城河够深、能长期把留存利润变成更多价值的生意；今天没有哪一个候选价格便宜到值得我卖掉手里的好公司去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 315,
+   "fill_date": "2026-08-04",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天盘面是风险偏好回来了，但我手里这几门生意都没坏，也没看到盘前有哪个新票好到值得我卖掉现有的好生意去换，所以先不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 316,
+   "fill_date": "2026-08-04",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "真瓶颈仓位还在下游量产洪流里，今天候选里光互联/离子注入这些盘前已经被抢得太急，我不为买满去接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 317,
+   "fill_date": "2026-08-04",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "BMA",
+   "reason": "这笔是我组合里今天最弱的相对流动性载体，盘前转弱而且不在当下最强风口，先砍掉把火力挪去更顺风的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 318,
+   "fill_date": "2026-08-04",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "LEU",
+   "reason": "核复兴这条大趋势还在加速，盘前继续走强且弹性高，适合用来表达我对AI电力短缺与能源再定价的判断。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 319,
+   "fill_date": "2026-08-04",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "AADX 盘前仍有承接，防务主题没坏，先拿着不追更热的票，但这类情绪一旦撤钱反转会很快",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 320,
+   "fill_date": "2026-08-04",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CBRS",
+   "reason": "AI算力基础设施是今天最强资金主线，CBRS 盘前仍红且弹性大、钱还在进，我顺势拿一个仓位吃情绪，但拥挤和反转都很快",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 314,
+ "next_order_id": 321,
  "notes": [
   {
    "date": "2026-06-12",

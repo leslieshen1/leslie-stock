@@ -4992,8 +4992,88 @@
    "reason": "集合竞价候选全线0%，看不到增量资金抢筹，情绪资金面宁可空仓等第一笔真流入，不在死水里硬买。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 228,
+   "fill_date": "2026-08-05",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现有八仓大多是我喜欢的好生意，今天没有看到足够便宜的新机会，也没有任何一笔需要我因为价格或基本面而认错退出。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 229,
+   "fill_date": "2026-08-05",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看得懂，也都还本分，今天候选没有便宜到值得我卖掉更好的去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 230,
+   "fill_date": "2026-08-05",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "605376",
+   "reason": "博迁这条粉体线瓶颈还在，但高位急跌后已经从冷门狙击变成拥挤波动票，我把确信度让给更硬的单点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 231,
+   "fill_date": "2026-08-05",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688281",
+   "reason": "华秦是军用隐身吸波材料近乎独家的真卡脖子，五代机、无人机、导弹每放量都要吃它的料，今天没爆拉就直接换进去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 232,
+   "fill_date": "2026-08-05",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "301165",
+   "reason": "锐捷已经从强马变成弱马，亏到-7%还不反包，我不跟市场争，先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 233,
+   "fill_date": "2026-08-05",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "300750",
+   "reason": "宁德这笔没有错到要死，但它不是此刻弹性最猛的载体，资金风口不在这里，换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 234,
+   "fill_date": "2026-08-05",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "000960",
+   "reason": "锡价新高叠加供给扰动，这是宏观通胀与AI硬需求共振的高弹性周期马，盘前没被抢就上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 235,
+   "fill_date": "2026-08-05",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002130",
+   "reason": "AI服务器内部互连仍是算力链最硬瓶颈之一，沃尔没高开给我追涨风险，可以切进去骑更猛的风。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 228,
+ "next_order_id": 236,
  "splits": []
 }

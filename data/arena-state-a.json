@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 55765.0,
   "duan": 62445.0,
-  "serenity": 63160.0,
-  "druckenmiller": 68385.0,
-  "sentiment": 1039866.0
+  "serenity": 53665.0,
+  "druckenmiller": 52157.0,
+  "sentiment": 419211.0
  },
  "positions": [
   {
@@ -100,13 +100,6 @@
   },
   {
    "master": "serenity",
-   "sym": "605376",
-   "shares": 400,
-   "entry": 149.42,
-   "entry_date": "2026-07-17"
-  },
-  {
-   "master": "serenity",
    "sym": "300408",
    "shares": 700,
    "entry": 99.01,
@@ -156,13 +149,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300750",
-   "shares": 200,
-   "entry": 396.84,
-   "entry_date": "2026-07-29"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "302132",
    "shares": 1400,
    "entry": 58.74,
@@ -180,13 +166,6 @@
    "sym": "000977",
    "shares": 1200,
    "entry": 72.88,
-   "entry_date": "2026-07-31"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "301165",
-   "shares": 700,
-   "entry": 116.22,
    "entry_date": "2026-07-31"
   },
   {
@@ -216,6 +195,55 @@
    "shares": 1300,
    "entry": 64.13,
    "entry_date": "2026-08-04"
+  },
+  {
+   "master": "serenity",
+   "sym": "688281",
+   "shares": 1500,
+   "entry": 48.37,
+   "entry_date": "2026-08-05"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "000960",
+   "shares": 2300,
+   "entry": 38.6,
+   "entry_date": "2026-08-05"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002130",
+   "shares": 5100,
+   "entry": 17.52,
+   "entry_date": "2026-08-05"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000603",
+   "shares": 5300,
+   "entry": 29.15,
+   "entry_date": "2026-08-05"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000099",
+   "shares": 10700,
+   "entry": 14.56,
+   "entry_date": "2026-08-05"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000034",
+   "shares": 6000,
+   "entry": 25.9,
+   "entry_date": "2026-08-05"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000400",
+   "shares": 6600,
+   "entry": 23.48,
+   "entry_date": "2026-08-05"
   }
  ],
  "nav": [
@@ -917,6 +945,31 @@
   {
    "master": "sentiment",
    "date": "2026-08-04",
+   "nav": 1039866.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-05",
+   "nav": 1080293.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-05",
+   "nav": 1093571.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-05",
+   "nav": 779775.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-05",
+   "nav": 778396.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-05",
    "nav": 1039866.0
   }
  ],
@@ -2719,6 +2772,106 @@
    "shares": 1300,
    "price": 64.13,
    "reason": "核电复兴叠加AI吃电和铀供给缺口，仍在顺流动性的大趋势里，且这是最像高弹性表达的那匹马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "605376",
+   "shares": 400,
+   "price": 157.65,
+   "reason": "博迁这条粉体线瓶颈还在，但高位急跌后已经从冷门狙击变成拥挤波动票，我把确信度让给更硬的单点。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688281",
+   "shares": 1500,
+   "price": 48.37,
+   "reason": "华秦是军用隐身吸波材料近乎独家的真卡脖子，五代机、无人机、导弹每放量都要吃它的料，今天没爆拉就直接换进去。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301165",
+   "shares": 700,
+   "price": 115.52,
+   "reason": "锐捷已经从强马变成弱马，亏到-7%还不反包，我不跟市场争，先砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300750",
+   "shares": 200,
+   "price": 405.2,
+   "reason": "宁德这笔没有错到要死，但它不是此刻弹性最猛的载体，资金风口不在这里，换马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "000960",
+   "shares": 2300,
+   "price": 38.6,
+   "reason": "锡价新高叠加供给扰动，这是宏观通胀与AI硬需求共振的高弹性周期马，盘前没被抢就上。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002130",
+   "shares": 5100,
+   "price": 17.52,
+   "reason": "AI服务器内部互连仍是算力链最硬瓶颈之一，沃尔没高开给我追涨风险，可以切进去骑更猛的风。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000603",
+   "shares": 5300,
+   "price": 29.15,
+   "reason": "白银高位叙事还在、预增催化有预期差，贵金属资金当下仍是进攻抱团口，盘前没被抢到高开可以先上车一仓。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000099",
+   "shares": 10700,
+   "price": 14.56,
+   "reason": "低空经济是资金记忆最深的弹性题材之一，中信海直有稀缺牌照辨识度，集合竞价未爆拉，适合埋一仓等情绪点火。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000034",
+   "shares": 6000,
+   "price": 25.9,
+   "reason": "AI算力+华为双标签仍是活跃资金最爱去处，盘前平开说明没到一致高潮，拿一仓博聪明钱回流。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-05",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000400",
+   "shares": 6600,
+   "price": 23.48,
+   "reason": "特高压属于反复有资金做的主线，海外/电网催化容易形成预期差，当前未高开不算接最后一棒。",
    "src": "ai"
   }
  ],
@@ -5000,7 +5153,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "现有八仓大多是我喜欢的好生意，今天没有看到足够便宜的新机会，也没有任何一笔需要我因为价格或基本面而认错退出。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5010,7 +5163,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看得懂，也都还本分，今天候选没有便宜到值得我卖掉更好的去换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5020,7 +5173,7 @@
    "action": "SELL",
    "sym": "605376",
    "reason": "博迁这条粉体线瓶颈还在，但高位急跌后已经从冷门狙击变成拥挤波动票，我把确信度让给更硬的单点。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5030,7 +5183,7 @@
    "action": "BUY",
    "sym": "688281",
    "reason": "华秦是军用隐身吸波材料近乎独家的真卡脖子，五代机、无人机、导弹每放量都要吃它的料，今天没爆拉就直接换进去。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5040,7 +5193,7 @@
    "action": "SELL",
    "sym": "301165",
    "reason": "锐捷已经从强马变成弱马，亏到-7%还不反包，我不跟市场争，先砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5050,7 +5203,7 @@
    "action": "SELL",
    "sym": "300750",
    "reason": "宁德这笔没有错到要死，但它不是此刻弹性最猛的载体，资金风口不在这里，换马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5060,7 +5213,7 @@
    "action": "BUY",
    "sym": "000960",
    "reason": "锡价新高叠加供给扰动，这是宏观通胀与AI硬需求共振的高弹性周期马，盘前没被抢就上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5070,7 +5223,7 @@
    "action": "BUY",
    "sym": "002130",
    "reason": "AI服务器内部互连仍是算力链最硬瓶颈之一，沃尔没高开给我追涨风险，可以切进去骑更猛的风。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5080,7 +5233,7 @@
    "action": "BUY",
    "sym": "000603",
    "reason": "白银高位叙事还在、预增催化有预期差，贵金属资金当下仍是进攻抱团口，盘前没被抢到高开可以先上车一仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5090,7 +5243,7 @@
    "action": "BUY",
    "sym": "000099",
    "reason": "低空经济是资金记忆最深的弹性题材之一，中信海直有稀缺牌照辨识度，集合竞价未爆拉，适合埋一仓等情绪点火。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5100,7 +5253,7 @@
    "action": "BUY",
    "sym": "000034",
    "reason": "AI算力+华为双标签仍是活跃资金最爱去处，盘前平开说明没到一致高潮，拿一仓博聪明钱回流。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5110,7 +5263,7 @@
    "action": "BUY",
    "sym": "000400",
    "reason": "特高压属于反复有资金做的主线，海外/电网催化容易形成预期差，当前未高开不算接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

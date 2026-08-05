@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-04 22:01 ET Tue",
+ "asof_et": "2026-08-04 22:15 ET Tue",
  "indices": {
   "标普500": {
    "close_pct": "+1.80%",
@@ -6191,7 +6191,7 @@
   },
   {
    "h": "US stocks near record high, oil falls as Trump claims Iran talks under way",
-   "src": "aljazeera.com",
+   "src": "Al Jazeera",
    "sum": ""
   },
   {
@@ -6206,7 +6206,7 @@
   },
   {
    "h": "Trading Day: The only way is up",
-   "src": "reuters.com",
+   "src": "Reuters",
    "sum": ""
   },
   {
@@ -6220,7 +6220,7 @@
    "sum": ""
   },
   {
-   "h": "[MU] Micron Technology Stock Is Plummeting, but Here's Why I'm Not Buying the Dip",
+   "h": "[MU] Micron Stock Is Down 39% From Its High. History Suggests a $5,000 Investment Now Will Be Worth This Much by Mid-2028.",
    "src": "The Motley Fool",
    "sum": ""
   },
@@ -6231,7 +6231,7 @@
   },
   {
    "h": "[NVDA] Musk Praises Vera Rubin Platform on SpaceX Earnings Call, Nvidia Stock Climbs",
-   "src": "benzinga.com",
+   "src": "Benzinga",
    "sum": ""
   },
   {
@@ -6250,13 +6250,13 @@
    "sum": ""
   },
   {
-   "h": "[AMD] AMD to report Q2 earnings as chip stocks continue to waver",
-   "src": "Yahoo Finance",
+   "h": "[AMD] AMD's revenue climbs 50% and data center sales doubled, but the stock is down",
+   "src": "CNBC",
    "sum": ""
   },
   {
    "h": "[AMD] AMD Shares Fall 8% as Elon Musk Commits to Nvidia Chips for SpaceX",
-   "src": "wsj.com",
+   "src": "WSJ",
    "sum": ""
   },
   {

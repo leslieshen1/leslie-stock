@@ -6464,9 +6464,129 @@
    "reason": "AI算力基础设施是今天最强资金主线，CBRS 盘前仍红且弹性大、钱还在进，我顺势拿一个仓位吃情绪，但拥挤和反转都很快",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 321,
+   "fill_date": "2026-08-05",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这八家生意都是又宽又深的护城河,昨天市场普涨没让它们变贵到该卖,我一股都不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 322,
+   "fill_date": "2026-08-05",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里ACGL、CB、CHUBB这类保险和COST、AXP我都懂,但今天满盘飘红、AI链爆拉的日子,正是我最不该追价的时候——现金留着等好价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 323,
+   "fill_date": "2026-08-05",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "四门生意——Costco、台积电、VeriSign、苹果——我都看了很多年,商业模式和文化没变,拿着就好,不为盘面动手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 324,
+   "fill_date": "2026-08-05",
+   "master": "duan",
+   "action": "BUY",
+   "sym": "KO",
+   "reason": "可口可乐这种不需要天才也能经营好的生意,盘前才+0.57%没被追高,现金正好补一仓,价格从来不是我关心的。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 325,
+   "fill_date": "2026-08-05",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现金只剩$21k、整仓买不进,九个持仓全是四件套真瓶颈、逻辑没被推翻,今晨候选清一色已爆拉(LPTH+11.7%/LASR+10.1%/GLW+9%),我不接最后一棒,按兵不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 326,
+   "fill_date": "2026-08-05",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "电力主线我已经用ETN和LEU表达了,CEG成本套牢-2.6%还没弹起来,同一个风上骑三匹马是浪费,砍掉换弹药。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 327,
+   "fill_date": "2026-08-05",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "NVDA",
+   "reason": "AI资本开支还是这轮最大的流动性主浪,昨天纳指+3.4%是AI重新夺权,NVDA盘前才+1.5%没爆拉,骑最强最干净的马我不犹豫。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 328,
+   "fill_date": "2026-08-05",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "黄金链HMY今晨盘前+7.35%已经在飞,不追高;贵金属和铜的仓位我已经拿满,让子弹飞,错了机械止损自己会砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 329,
+   "fill_date": "2026-08-05",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "防务是当下最硬的资金主线,AADX盘前只微跌、情绪没散,继续拿。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 330,
+   "fill_date": "2026-08-05",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "CBRS",
+   "reason": "次新AI芯片盘前-2.42%、成本线附近,解禁和拥挤度这把刀悬着,资金一松就砸,趁没亏先撤。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 331,
+   "fill_date": "2026-08-05",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ENTG",
+   "reason": "半导体材料这条线机构持仓稳、资金持续流入,情绪温和偏多不极端,今日涨幅里最不拥挤、盘前没爆拉,是全场最健康的接力位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 332,
+   "fill_date": "2026-08-05",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "IT",
+   "reason": "人人喊'AI受害者'、股价腰斩的一边倒悲观里,今日才刚起22%、盘前+1.19%仍温和,反向埋伏的情绪拐点值得押一注。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 321,
+ "next_order_id": 333,
  "notes": [
   {
    "date": "2026-06-12",

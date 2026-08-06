@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-05 22:01 ET Wed",
+ "asof_et": "2026-08-05 22:16 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.20%",
@@ -23,8 +23,8 @@
   {
    "sym": "MTRN",
    "name": "Materion Corporation",
-   "close_price": "$297.08",
-   "close_pct": "+30.81%"
+   "close_price": "$297.28",
+   "close_pct": "+30.90%"
   },
   {
    "sym": "TWST",
@@ -7557,7 +7557,7 @@
  "news": [
   {
    "h": "Dow jumps more than 250 points for record close and fifth winning day: Live updates",
-   "src": "CNBC",
+   "src": "cnbc.com",
    "sum": ""
   },
   {
@@ -7577,12 +7577,12 @@
   },
   {
    "h": "Dow futures inch higher after blue-chip index posts new record close: Live updates",
-   "src": "CNBC",
+   "src": "cnbc.com",
    "sum": ""
   },
   {
    "h": "Dow surges nearly 700 points for record close as Big Tech stocks rise, oil prices slide",
-   "src": "CNBC",
+   "src": "cnbc.com",
    "sum": ""
   },
   {
@@ -7597,7 +7597,7 @@
   },
   {
    "h": "[SPCX] SpaceX stock falls 13% as AI spending surge rattles investors and massive share unlock looms",
-   "src": "CNBC",
+   "src": "cnbc.com",
    "sum": ""
   },
   {
@@ -7631,13 +7631,13 @@
    "sum": ""
   },
   {
-   "h": "[AVGO] What Is Going on With Broadcom Stock on Tuesday?",
-   "src": "Benzinga",
+   "h": "[AVGO] Broadcom Stock (AVGO) Falls as Goldman Sachs Removes It From the ‘Conviction List’",
+   "src": "TipRanks",
    "sum": ""
   },
   {
    "h": "[AMD] Lisa Su brushes off Musk's Nvidia commitment as AMD stock sinks after earnings",
-   "src": "CNBC",
+   "src": "cnbc.com",
    "sum": ""
   },
   {
@@ -7656,14 +7656,29 @@
    "sum": ""
   },
   {
+   "h": "Gold touches seven-week high on Strait of Hormuz reopening hopes - Reuters",
+   "src": "Reuters",
+   "sum": "Gold touches seven-week high on Strait of Hormuz reopening hopes  Reuters"
+  },
+  {
    "h": "Dow closes at record on Mideast optimism; SpaceX, AMD drag Nasdaq - Reuters",
    "src": "Reuters",
    "sum": "Dow closes at record on Mideast optimism; SpaceX, AMD drag Nasdaq  Reuters"
   },
   {
+   "h": "Proposed Hormuz deal would give Iran control of inbound traffic, sources say - Reuters",
+   "src": "Reuters",
+   "sum": "Proposed Hormuz deal would give Iran control of inbound traffic, sources say  Reuters"
+  },
+  {
    "h": "Jim Cramer says investors should consider buying SpaceX for their kids",
    "src": "CNBC",
    "sum": "CNBC’s Jim Cramer said investors should view SpaceX as a multigenerational investment, whose biggest opportunities may take decades to fully materialize."
+  },
+  {
+   "h": "FAA says Marine One was briefly too close to passenger airplane - Reuters",
+   "src": "Reuters",
+   "sum": "FAA says Marine One was briefly too close to passenger airplane  Reuters"
   },
   {
    "h": "EXCLUSIVE: Iran threatens to hit Gulf states if US launches new strikes - Reuters",
@@ -7676,6 +7691,11 @@
    "sum": "Box office analysts say the resurgence of billion-dollar releases bodes well for a film industry that's still chasing pre-Covid levels, even with higher prices."
   },
   {
+   "h": "Oil prices mixed as investors ponder Strait of Hormuz reopening hopes - Reuters",
+   "src": "Reuters",
+   "sum": "Oil prices mixed as investors ponder Strait of Hormuz reopening hopes  Reuters"
+  },
+  {
    "h": "Israeli military strikes southern Lebanon after evacuation warning to village - Reuters",
    "src": "Reuters",
    "sum": "Israeli military strikes southern Lebanon after evacuation warning to village  Reuters"
@@ -7684,26 +7704,6 @@
    "h": "Alphabet slumps on more AI brain drain. We're not too worried",
    "src": "CNBC",
    "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
-  },
-  {
-   "h": "Phillips 66 beats quarterly estimates as Iran war boosts US refining margins - Reuters",
-   "src": "Reuters",
-   "sum": "Phillips 66 beats quarterly estimates as Iran war boosts US refining margins  Reuters"
-  },
-  {
-   "h": "Yemen's Houthis say they attacked Saudi oil tankers in Red Sea, Gulf of Aden - Reuters",
-   "src": "Reuters",
-   "sum": "Yemen's Houthis say they attacked Saudi oil tankers in Red Sea, Gulf of Aden  Reuters"
-  },
-  {
-   "h": "Gulf oil exports steady in July, still 40% below pre-war mark - Reuters",
-   "src": "Reuters",
-   "sum": "Gulf oil exports steady in July, still 40% below pre-war mark  Reuters"
-  },
-  {
-   "h": "Flutter shares plummet on earnings miss and another key leadership change",
-   "src": "CNBC",
-   "sum": "FanDuel, Flutter's most important business, has been losing its dominance in market share in the United States."
   }
  ]
 }

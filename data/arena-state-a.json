@@ -5265,8 +5265,178 @@
    "reason": "特高压属于反复有资金做的主线，海外/电网催化容易形成预期差，当前未高开不算接最后一棒。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 240,
+   "fill_date": "2026-08-06",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里这八门生意——福耀、五粮液、长电、美的、招行、凤凰、双汇、豪迈——个个是我看得懂、有真护城河的好生意，眼下都在合理区间，没有理由为了做点什么而卖掉它们。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 241,
+   "fill_date": "2026-08-06",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里不少是好公司，但今天全线零涨幅、我又没有比昨天更便宜的价，安全边际不够就宁可空着现金等，绝不为‘买满’去付蠢价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 242,
+   "fill_date": "2026-08-06",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这四个都是看得懂的好生意、文化也本分,茅台五粮液福耀迈瑞我拿得住,涨了跌了都不影响生意本身,没道理动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 243,
+   "fill_date": "2026-08-06",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选三个都是好生意,但今天都没跌出安全边际来,汾酒万华钢联价位不便宜,我不为好生意付蠢价,现金留着等好价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 244,
+   "fill_date": "2026-08-06",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "满仓10个瓶颈狙击位全在,现金只剩5万不够开新仓,今天所有候选盘前全平、无回落接口,我不追高也不为腾仓砍掉任何一根还卡在位上的独苗。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 245,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "302132",
+   "reason": "成飞已经-1.3%趴着不动,国防这匹马跑不过大盘,占着仓位没意义,砍掉换弹药。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 246,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "星网锐捷+15.4%,AI算力网络还在风口上,动量没转,骑住不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 247,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "山金国际+10.4%,金价ATH+央行购金,黄金顺风未变,继续骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 248,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "华明装备+7.6%,电力+特高压三重顺风还在,趋势没坏就拿着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 249,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "浪潮信息+5.9%,AI算力最强主线,趋势在就尊重它。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 250,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "中国铀业+2.1%,核电+AI吃电产业顺风叠满,拿住。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 251,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "锡业股份持平,锡价新高逻辑还在,但不加不减先观察。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 252,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "沃尔核材持平,AI服务器互连硬顺风,给它点时间。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 253,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "四只持仓昨收=成本，全是0盈亏的新建仓，情绪还没验证，先让子弹飞一会儿看资金认不认。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 254,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "000034",
+   "reason": "神州数码AI算力这段拥挤度已高、资金抱团松动，情绪反转极快，趁平盘先落袋换现金等更性感的段位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 255,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000506",
+   "reason": "招金黄金盘前平开没爆拉，白银我已有盛达、黄金+避险这条线资金正往里涌，pre-rerating阶段接得干净。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 256,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000534",
+   "reason": "万泽评分最高军工航发人气足，盘前0%没被抢跑，军工是有事件就点火的长青段，低位埋伏赔率好。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 240,
+ "next_order_id": 257,
  "splits": []
 }

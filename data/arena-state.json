@@ -6666,9 +6666,149 @@
    "reason": "人人喊'AI受害者'、股价腰斩的一边倒悲观里,今日才刚起22%、盘前+1.19%仍温和,反向埋伏的情绪拐点值得押一注。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 333,
+   "fill_date": "2026-08-06",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这八个持仓都是有宽护城河的好生意,盘前那点波动不构成任何理性行动的理由,我不为噪音换手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 334,
+   "fill_date": "2026-08-06",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "CB",
+   "reason": "Evan Greenberg经营、承保有纪律的财险巨头,盘前才+0.69%没被追高,$352这个价离我认的内在价值不远,值得用现金上一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 335,
+   "fill_date": "2026-08-06",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "四门生意我都看懂了,商业模式和文化没变,盘前这点波动不是我该操心的事,拿住就行。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 336,
+   "fill_date": "2026-08-06",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "九仓全是真瓶颈,今天钱在从拥挤AI/半导体往旧经济轮动,我的STX盘前回吐、SITM盘前+28.7%是抛物线式冲高——都不因价格波动动我的方向性多头,不追不砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 337,
+   "fill_date": "2026-08-06",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现金仅$21k凑不齐一个满仓,候选里LPTH盘前+8.3%已在爆拉不接最后一棒,MIR/ACLS虽被错杀但不值得为它砍掉同样是真瓶颈的CORZ,宁可空等好价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 338,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "NVDA",
+   "reason": "AMD暴雷后AI二线叙事被证伪,钱在从最拥挤的半导体交易里往外抽,NVDA昨日虽逆势拉但今天盘前只象征性+1%、纳指领跌,我不等它跟跌确认再砍——趋势松动的边际已经在变,先落袋这个零成本仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 339,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "AVGO",
+   "reason": "同一逻辑:AI capex这条最拥挤的赛道正在被认真质疑,轮动而非崩盘,但我不在轮动的下风口硬扛二线载体,+8.7%的利润先收,保留SCCO/铜、黄金、国防这些独立于AI的顺风仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 340,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "CEG",
+   "reason": "电力是AI+再工业化里独立于半导体估值争议的最干净宏观风口,CEG盘前+6.13%是财报催化的动量确认而非透支性爆拉,这是我要骑的强马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 341,
+   "fill_date": "2026-08-06",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "SCCO铜、HMY黄金、GD/ESLT国防、ETN电力、LEU核燃料——这些都顺着'钱从AI往旧经济/防御/实物挪'的今日主潮,继续骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 342,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "ENTG",
+   "reason": "半导体链今晨在被抽血——AMD证伪引发设备/材料获利了结,ENTG盘前又跌、我这仓零盈亏没安全垫,资金在往外走的板块不值得替它扛。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 343,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "防务主题资金还在进、情绪偏热未极端,盘前微跌属正常回踩,顺势拿住。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 344,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "一边倒悲观里的反向埋伏,盘还没有资金明确回流的信号,继续潜伏等催化。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 345,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CRL",
+   "reason": "情绪冰点+Politan/Elliott维权聪明钱已进场,盘前+1.4%是资金回流的第一口气,这种冰点遇聪明钱的反向盘正是我要的段位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 346,
+   "fill_date": "2026-08-06",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "AUGO",
+   "reason": "金价新高、贵金属净流入,刚转板Nasdaq带增量美国买盘和指数纳入预期,盘口热但没到全民癫狂,顺势咬一口龙头逻辑。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 333,
+ "next_order_id": 347,
  "notes": [
   {
    "date": "2026-06-12",

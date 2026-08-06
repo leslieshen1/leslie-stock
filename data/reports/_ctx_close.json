@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-05 22:16 ET Wed",
+ "asof_et": "2026-08-05 22:31 ET Wed",
  "indices": {
   "标普500": {
    "close_pct": "-0.20%",
@@ -23,8 +23,8 @@
   {
    "sym": "MTRN",
    "name": "Materion Corporation",
-   "close_price": "$297.28",
-   "close_pct": "+30.90%"
+   "close_price": "$297.08",
+   "close_pct": "+30.81%"
   },
   {
    "sym": "TWST",
@@ -7557,17 +7557,12 @@
  "news": [
   {
    "h": "Dow jumps more than 250 points for record close and fifth winning day: Live updates",
-   "src": "cnbc.com",
+   "src": "CNBC",
    "sum": ""
   },
   {
-   "h": "The S&P 500 is back at a record high and the Dow just hit 54,000",
-   "src": "CNN",
-   "sum": ""
-  },
-  {
-   "h": "US stock market today: Wall Street rallies over 1% on falling oil prices, hopes of deal with Iran",
-   "src": "The Times of India",
+   "h": "Stock market today: Dow, S&P 500 climb as Trump says Hormuz deal is close, Nasdaq gives up gains",
+   "src": "finance.yahoo.com",
    "sum": ""
   },
   {
@@ -7576,28 +7571,33 @@
    "sum": ""
   },
   {
+   "h": "US stock market today: Wall Street rallies over 1% on falling oil prices, hopes of deal with Iran",
+   "src": "The Times of India",
+   "sum": ""
+  },
+  {
    "h": "Dow futures inch higher after blue-chip index posts new record close: Live updates",
-   "src": "cnbc.com",
+   "src": "CNBC",
    "sum": ""
   },
   {
    "h": "Dow surges nearly 700 points for record close as Big Tech stocks rise, oil prices slide",
-   "src": "cnbc.com",
+   "src": "CNBC",
    "sum": ""
   },
   {
    "h": "Stock market today: Dow, S&P 500, Nasdaq futures rise as Trump calls off Iran attack, oil and bond yields ease",
-   "src": "Yahoo Finance",
+   "src": "finance.yahoo.com",
    "sum": ""
   },
   {
    "h": "US Stock Market Today: S&P 500 Futures Rise On Stronger Sentiment And High-Rate Test",
-   "src": "Yahoo Finance",
+   "src": "finance.yahoo.com",
    "sum": ""
   },
   {
    "h": "[SPCX] SpaceX stock falls 13% as AI spending surge rattles investors and massive share unlock looms",
-   "src": "cnbc.com",
+   "src": "CNBC",
    "sum": ""
   },
   {
@@ -7637,12 +7637,12 @@
   },
   {
    "h": "[AMD] Lisa Su brushes off Musk's Nvidia commitment as AMD stock sinks after earnings",
-   "src": "cnbc.com",
+   "src": "CNBC",
    "sum": ""
   },
   {
    "h": "[AMD] 'This was not an exceptional result': Why AMD stock tanked 10% after earnings",
-   "src": "Yahoo Finance",
+   "src": "finance.yahoo.com",
    "sum": ""
   },
   {
@@ -7656,19 +7656,24 @@
    "sum": ""
   },
   {
+   "h": "Asia shares ease on tech pullback, oil stable as Iran talks stay in focus - Reuters",
+   "src": "Reuters",
+   "sum": "Asia shares ease on tech pullback, oil stable as Iran talks stay in focus  Reuters"
+  },
+  {
    "h": "Gold touches seven-week high on Strait of Hormuz reopening hopes - Reuters",
    "src": "Reuters",
    "sum": "Gold touches seven-week high on Strait of Hormuz reopening hopes  Reuters"
   },
   {
+   "h": "Oil prices slip as Iran-Oman talks fuel hopes for US-Iran peace deal - Reuters",
+   "src": "Reuters",
+   "sum": "Oil prices slip as Iran-Oman talks fuel hopes for US-Iran peace deal  Reuters"
+  },
+  {
    "h": "Dow closes at record on Mideast optimism; SpaceX, AMD drag Nasdaq - Reuters",
    "src": "Reuters",
    "sum": "Dow closes at record on Mideast optimism; SpaceX, AMD drag Nasdaq  Reuters"
-  },
-  {
-   "h": "Proposed Hormuz deal would give Iran control of inbound traffic, sources say - Reuters",
-   "src": "Reuters",
-   "sum": "Proposed Hormuz deal would give Iran control of inbound traffic, sources say  Reuters"
   },
   {
    "h": "Jim Cramer says investors should consider buying SpaceX for their kids",
@@ -7691,19 +7696,14 @@
    "sum": "Box office analysts say the resurgence of billion-dollar releases bodes well for a film industry that's still chasing pre-Covid levels, even with higher prices."
   },
   {
-   "h": "Oil prices mixed as investors ponder Strait of Hormuz reopening hopes - Reuters",
+   "h": "Etsy lays off 12% of workforce as part of restructuring plan - Reuters",
    "src": "Reuters",
-   "sum": "Oil prices mixed as investors ponder Strait of Hormuz reopening hopes  Reuters"
+   "sum": "Etsy lays off 12% of workforce as part of restructuring plan  Reuters"
   },
   {
-   "h": "Israeli military strikes southern Lebanon after evacuation warning to village - Reuters",
+   "h": "EBay forecasts upbeat quarterly revenue as high-value categories drive momentum - Reuters",
    "src": "Reuters",
-   "sum": "Israeli military strikes southern Lebanon after evacuation warning to village  Reuters"
-  },
-  {
-   "h": "Alphabet slumps on more AI brain drain. We're not too worried",
-   "src": "CNBC",
-   "sum": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading."
+   "sum": "EBay forecasts upbeat quarterly revenue as high-value categories drive momentum  Reuters"
   }
  ]
 }

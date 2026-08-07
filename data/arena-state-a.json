@@ -5503,8 +5503,228 @@
    "reason": "万泽评分最高军工航发人气足，盘前0%没被抢跑，军工是有事件就点火的长青段，低位埋伏赔率好。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 257,
+   "fill_date": "2026-08-07",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这八家都是我看得懂的好生意，护城河都在，没理由为了动手而动手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 258,
+   "fill_date": "2026-08-07",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "全球汽车玻璃霸主，专注一件事做到极致，继续拿着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 259,
+   "fill_date": "2026-08-07",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "高端白酒是教科书级护城河，估值合理，安心持有。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 260,
+   "fill_date": "2026-08-07",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "近乎永续的水电、像债券一样的现金流，这种生意越久越香。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 261,
+   "fill_date": "2026-08-07",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "格力便宜、护城河宽，但我现金只够开一仓，还没到非买不可的价，继续观察。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 262,
+   "fill_date": "2026-08-07",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四家都是我看得懂的好生意,茅台五粮液福耀迈瑞都拿得住,没理由动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 263,
+   "fill_date": "2026-08-07",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "汾酒是好生意,可我现金只剩6万多，一仓要24%NAV根本买不动，不凑合。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 264,
+   "fill_date": "2026-08-07",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "满仓10个瓶颈狙击位全在,现金只剩5.3万不够开新仓,没必要拆掉任何一根独苗去换候选——它们的卡位没变。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 265,
+   "fill_date": "2026-08-07",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002130",
+   "reason": "沃尔核材成本线下方磨了这么久还没跟上互连主线的爆发，逆着我自己的仓位纪律，弱马砍掉换现金。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 266,
+   "fill_date": "2026-08-07",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "黄金金价ATH+央行购金+避险宏观，这是当下最硬的顺风，+16%浮盈让利润奔跑，一股不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 267,
+   "fill_date": "2026-08-07",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "星网锐捷逆势涨、AI算力网络+资金动量双确认，趋势没转就骑着，不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 268,
+   "fill_date": "2026-08-07",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "华明装备电力三重顺风还在吹，浮盈继续跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 269,
+   "fill_date": "2026-08-07",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "中国铀业核电+AI吃电+铀缺口叙事完整，趴着等它发力。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 270,
+   "fill_date": "2026-08-07",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "锡业股份锡价历史新高+供给扰动，周期最强马之一，持。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 271,
+   "fill_date": "2026-08-07",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "302132",
+   "reason": "中航成飞今日0涨幅没爆拉、评分80、国防扩张+台海地缘政策顺风最硬，还没被市场追起来，正是我要骑的最强马，加这一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 272,
+   "fill_date": "2026-08-07",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "000099",
+   "reason": "低空+航母这波资金早撤了，死水横盘一个月无量，聪明钱不在这，割了换弹药。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 273,
+   "fill_date": "2026-08-07",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "000400",
+   "reason": "特高压主线冷了，无海外催化就没情绪点火，浮亏扩大前先退，不陪拥挤盘磨。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 274,
+   "fill_date": "2026-08-07",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "白银ATH+预增，贵金属是当下最性感的题材，资金还在涌，情绪未到狂热顶，继续拿。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 275,
+   "fill_date": "2026-08-07",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "黄金避险资金持续流入，情绪周期还在上半段，拥挤度未过热，留着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 276,
+   "fill_date": "2026-08-07",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "军工+航发人气标签资金愿给溢价，横在成本线等催化，先不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 277,
+   "fill_date": "2026-08-07",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000426",
+   "reason": "贵金属涨价资金抱团带出小金属+银板块，兴业银锡跟主线情绪，昨收未爆拉、还能上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 278,
+   "fill_date": "2026-08-07",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000795",
+   "reason": "稀土永磁+机器人是资金反复轮炒的热点带，评分64最高、盘前未拉，趁没狂热埋伏。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 257,
+ "next_order_id": 279,
  "splits": []
 }

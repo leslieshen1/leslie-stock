@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-06 22:16 ET Thu",
+ "asof_et": "2026-08-06 22:31 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "-0.16%",
@@ -51,16 +51,16 @@
    "close_pct": "+22.62%"
   },
   {
+   "sym": "CACI",
+   "name": "CACI International Inc. Class A",
+   "close_price": "$630.14",
+   "close_pct": "+21.64%"
+  },
+  {
    "sym": "CAI",
    "name": "Caris Life Sciences Inc.",
    "close_price": "$20.00",
    "close_pct": "+21.58%"
-  },
-  {
-   "sym": "CACI",
-   "name": "CACI International Inc. Class A",
-   "close_price": "$628.79",
-   "close_pct": "+21.38%"
   },
   {
    "sym": "CHYM",
@@ -4459,7 +4459,7 @@
   },
   {
    "h": "Stock Market Today: Dow Poised to Break Winning Streak — Live Updates",
-   "src": "WSJ",
+   "src": "wsj.com",
    "sum": ""
   },
   {
@@ -4499,7 +4499,7 @@
   },
   {
    "h": "[MU] Micron Pares Most of Its Losses Even as Other Memory Stocks Reel",
-   "src": "barrons.com",
+   "src": "Barron's",
    "sum": ""
   },
   {

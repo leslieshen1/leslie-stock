@@ -38,7 +38,7 @@ ASSETS = ROOT / "assets" / "brand-ainvest"
 OUT_DIR = Path.home() / "Downloads" / "AInvest卡片"   # 专属文件夹,好找
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 KEY = os.environ.get("NDT_API_KEY", "")
-BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
+BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nxtpath.ai").rstrip("/")
 
 # 标杆同款内容(盘前 Jun 9,来自当日盘前报告)—— 作为 DEMO 兼 A/B 基准
 DEMO = {

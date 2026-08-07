@@ -13,7 +13,7 @@ import requests
 
 
 def _env():
-    base = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
+    base = (os.environ.get("NDT_BASE_URL") or "https://api.nxtpath.ai").rstrip("/")
     claude_key = os.environ.get("NDT_CLAUDE_KEY") or os.environ.get("NDT_API_KEY") or ""
     gpt_key = os.environ.get("NDT_API_KEY") or ""
     claude_model = os.environ.get("NDT_REPORT_MODEL", "claude-opus-4-8")

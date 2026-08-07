@@ -11,7 +11,7 @@ export const maxDuration = 120; // NDT 生成一篇 20-60s,Vercel 函数上限�
 type Quote = { price?: number | null; pct?: number | null };
 
 async function ndt(system: string, user: string): Promise<string> {
-  const base = (process.env.NDT_BASE_URL || "https://api.nadoutong.org").replace(/\/$/, "");
+  const base = (process.env.NDT_BASE_URL || "https://api.nxtpath.ai").replace(/\/$/, "");
   const key = process.env.NDT_CLAUDE_KEY || process.env.NDT_API_KEY || "";
   if (!key) throw new Error("no-key");
   const model = process.env.NDT_REPORT_MODEL || "claude-opus-4-8";

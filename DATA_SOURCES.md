@@ -78,7 +78,7 @@
 ### 2.4 LLM(AI 判读 / 报告 / 卡片标题)
 | 用途 | 源 | 端点 | Key |
 |---|---|---|---|
-| 报告/卡片/arena/判读 | **NDT 中继** | `api.nadoutong.org/v1/messages`(Opus 4.8)· `/v1/responses`(gpt-5.5 兜底) | **NDT_CLAUDE_KEY + NDT_API_KEY** |
+| 报告/卡片/arena/判读 | **NDT 中继** | `api.nxtpath.ai/v1/messages`(Opus 4.8)· `/v1/responses`(gpt-5.5 兜底) | **NDT_CLAUDE_KEY + NDT_API_KEY** |
 
 ---
 

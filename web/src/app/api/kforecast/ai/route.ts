@@ -10,7 +10,7 @@ export type Scenario = { name: string; prob: number; path: number[]; why: string
 export type AiRead = { read: string; scenarios: Scenario[] };
 
 async function ndt(system: string, user: string, modelOverride?: string): Promise<string> {
-  const base = (process.env.NDT_BASE_URL || "https://api.nadoutong.org").replace(/\/$/, "");
+  const base = (process.env.NDT_BASE_URL || "https://api.nxtpath.ai").replace(/\/$/, "");
   const key = process.env.NDT_CLAUDE_KEY || process.env.NDT_API_KEY || "";
   if (!key) throw new Error("no-key");
   const model = modelOverride || process.env.NDT_REPORT_MODEL || "claude-opus-4-8";
@@ -34,7 +34,7 @@ async function ndt(system: string, user: string, modelOverride?: string): Promis
 
 // 降级通道:NDT OpenAI 式 /v1/responses,必须 stream:true(非流式一律 MODEL_NOT_AVAILABLE)。key 用 NDT_API_KEY。
 async function ndtGpt(prompt: string): Promise<string> {
-  const base = (process.env.NDT_BASE_URL || "https://api.nadoutong.org").replace(/\/$/, "");
+  const base = (process.env.NDT_BASE_URL || "https://api.nxtpath.ai").replace(/\/$/, "");
   const key = process.env.NDT_API_KEY || "";
   if (!key) throw new Error("no-gpt-key");
   const r = await fetch(`${base}/v1/responses`, {

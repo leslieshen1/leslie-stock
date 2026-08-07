@@ -29,7 +29,7 @@ import os
 
 DB = ROOT / "data" / "leslie.db"
 ET = timezone(timedelta(hours=-4))
-NDT_BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
+NDT_BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nxtpath.ai").rstrip("/")
 # 2026-06-18 五神决策从 gpt-5.5 换 Claude Opus 4.8(与盘报同模型、同 NDT Anthropic /v1/messages 通道)。
 # Claude 走 NDT_CLAUDE_KEY(NDT 的 gpt key 不带 Claude);无该 key 时回退 NDT_API_KEY(届时调用失败→规则兜底)。
 NDT_KEY = os.environ.get("NDT_CLAUDE_KEY") or os.environ.get("NDT_API_KEY") or ""

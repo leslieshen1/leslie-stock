@@ -33,7 +33,7 @@ OUT = ROOT / "assets" / "brand-ainvest"
 REF = OUT / "aime-head.png"
 CUTOUT = ROOT / "scripts" / "cutout.swift"
 KEY = os.environ.get("NDT_API_KEY", "")
-BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nadoutong.org").rstrip("/")
+BASE = (os.environ.get("NDT_BASE_URL") or "https://api.nxtpath.ai").rstrip("/")
 
 STYLE = ("Full body of this exact robot mascot character. Keep the head design IDENTICAL to the "
          "reference: glossy white round head, dark navy glass visor with two glowing white oval eyes, "

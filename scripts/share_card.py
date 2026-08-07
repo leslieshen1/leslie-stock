@@ -208,7 +208,7 @@ def gather(card_type: str) -> dict:
 def relay_headline(ctx: dict) -> str | None:
     """gpt-5.5 写标题。喂卡片实际展示的双向数据(指数 + 各 panel top movers + 已出宏观),
     不再只喂跌幅榜(那会写出 'semis lagging' 这类与面板打架的话)。输出再过方向一致性校验。"""
-    key, base = os.environ.get("NDT_API_KEY"), os.environ.get("NDT_BASE_URL", "https://api.nadoutong.org")
+    key, base = os.environ.get("NDT_API_KEY"), os.environ.get("NDT_BASE_URL", "https://api.nxtpath.ai")
     if not key:
         return None
     try:

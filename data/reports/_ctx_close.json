@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-06 22:31 ET Thu",
+ "asof_et": "2026-08-06 22:46 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "-0.16%",
@@ -4459,7 +4459,7 @@
   },
   {
    "h": "Stock Market Today: Dow Poised to Break Winning Streak — Live Updates",
-   "src": "wsj.com",
+   "src": "WSJ",
    "sum": ""
   },
   {
@@ -4553,6 +4553,11 @@
    "sum": "CNBC’s Jim Cramer said earnings season reinforced five investing themes he thinks will produce the market's best buying opportunities."
   },
   {
+   "h": "Stocks fall ahead of Friday's US jobs data; oil gains on Iran concerns - Reuters",
+   "src": "Reuters",
+   "sum": "Stocks fall ahead of Friday's US jobs data; oil gains on Iran concerns  Reuters"
+  },
+  {
    "h": "Houthi attack on Saudi Arabia wounds 11 civilians as kingdom warns of wider threat - Reuters",
    "src": "Reuters",
    "sum": "Houthi attack on Saudi Arabia wounds 11 civilians as kingdom warns of wider threat  Reuters"
@@ -4591,11 +4596,6 @@
    "h": "Genius Sports' media surge shows shift beyond sportsbook data",
    "src": "CNBC",
    "sum": "Genius Sports, which provides real-time sports data, reported revenue rose 65% in the second quarter."
-  },
-  {
-   "h": "ConocoPhillips says any Qatar LNG project delays likely limited to months - Reuters",
-   "src": "Reuters",
-   "sum": "ConocoPhillips says any Qatar LNG project delays likely limited to months  Reuters"
   }
  ]
 }

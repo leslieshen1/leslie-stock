@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-06 22:01 ET Thu",
+ "asof_et": "2026-08-06 22:16 ET Thu",
  "indices": {
   "标普500": {
    "close_pct": "-0.16%",
@@ -4459,7 +4459,7 @@
   },
   {
    "h": "Stock Market Today: Dow Poised to Break Winning Streak — Live Updates",
-   "src": "wsj.com",
+   "src": "WSJ",
    "sum": ""
   },
   {
@@ -4488,7 +4488,7 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX earnings takeaways: Soaring AI costs outweigh revenue beat in first report since IPO",
+   "h": "[SPCX] SpaceX stock could face further pressure as first batch of shares unlock since IPO",
    "src": "CNBC",
    "sum": ""
   },
@@ -4499,7 +4499,7 @@
   },
   {
    "h": "[MU] Micron Pares Most of Its Losses Even as Other Memory Stocks Reel",
-   "src": "Barron's",
+   "src": "barrons.com",
    "sum": ""
   },
   {
@@ -4508,8 +4508,8 @@
    "sum": ""
   },
   {
-   "h": "[NVDA] Nvidia Stock Blows Gain, Ends 5-Day Winning Streak",
-   "src": "Barron's",
+   "h": "[NVDA] History Says This Is What Will Happen to Nvidia Stock After Aug. 26",
+   "src": "The Motley Fool",
    "sum": ""
   },
   {
@@ -4588,14 +4588,14 @@
    "sum": "American Airlines will no longer give elite frequent flyers free upgrades from economy class to business on some of its longest domestic routes"
   },
   {
-   "h": "Gold pares gains to trade steady as oil rises on Iran proposal to bar 'hostile' vessels in Hormuz - Reuters",
-   "src": "Reuters",
-   "sum": "Gold pares gains to trade steady as oil rises on Iran proposal to bar 'hostile' vessels in Hormuz  Reuters"
-  },
-  {
    "h": "Genius Sports' media surge shows shift beyond sportsbook data",
    "src": "CNBC",
    "sum": "Genius Sports, which provides real-time sports data, reported revenue rose 65% in the second quarter."
+  },
+  {
+   "h": "ConocoPhillips says any Qatar LNG project delays likely limited to months - Reuters",
+   "src": "Reuters",
+   "sum": "ConocoPhillips says any Qatar LNG project delays likely limited to months  Reuters"
   }
  ]
 }

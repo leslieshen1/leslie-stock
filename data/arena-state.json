@@ -3,7 +3,7 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 21243.8,
-  "druckenmiller": 170135.29,
+  "druckenmiller": 59074.57,
   "sentiment": 419065.81
  },
  "positions": [
@@ -230,6 +230,13 @@
    "shares": 2485,
    "entry": 65.63,
    "entry_date": "2026-08-06"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "AVGO",
+   "shares": 261,
+   "entry": 425.52,
+   "entry_date": "2026-08-07"
   }
  ],
  "nav": [
@@ -1207,6 +1214,31 @@
    "master": "sentiment",
    "date": "2026-08-06",
    "nav": 1087289.8
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-07",
+   "nav": 1019359.16
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-07",
+   "nav": 1020590.66
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-07",
+   "nav": 974998.08
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-07",
+   "nav": 966953.77
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-07",
+   "nav": 1112681.38
   }
  ],
  "trades": [
@@ -3648,6 +3680,16 @@
    "shares": 2485,
    "price": 65.63,
    "reason": "金价新高、贵金属净流入,刚转板Nasdaq带增量美国买盘和指数纳入预期,盘口热但没到全民癫狂,顺势咬一口龙头逻辑。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-07",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AVGO",
+   "shares": 261,
+   "price": 425.52,
+   "reason": "AI资本开支这股流动性还在，今天纳指和半导体龙头给了顺风，AVGO盘前只是温和上行，不是爆拉接棒，我要用它补上最干净的ASIC高弹性表达。",
    "src": "ai"
   }
  ],
@@ -6899,7 +6941,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里这八门生意的护城河没有因为一个盘前报价变窄，而候选名单里也没有便宜到值得我卖掉好公司去腾位置的价格。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6909,7 +6951,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看得懂，文化也本分，今天盘前这点波动不构成我卖好公司、追别的好公司的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6919,7 +6961,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天不为买满去追盘前高开；手里这九个仍是供应链单点瓶颈，盘前多数顺风，先让不可替代的位置继续吃下游量产洪流。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6929,7 +6971,7 @@
    "action": "BUY",
    "sym": "AVGO",
    "reason": "AI资本开支这股流动性还在，今天纳指和半导体龙头给了顺风，AVGO盘前只是温和上行，不是爆拉接棒，我要用它补上最干净的ASIC高弹性表达。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6939,7 +6981,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前指数转暖但候选池多数已经被资金抢出一大段，我不接情绪末端的最后一棒，现有仓位里防务、黄金和反向修复都有资金痕迹，先让利润自己说话。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

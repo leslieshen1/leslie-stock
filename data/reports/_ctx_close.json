@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-07 22:31 ET Fri",
+ "asof_et": "2026-08-07 22:46 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.61%",
@@ -85,8 +85,8 @@
   {
    "sym": "ELAN",
    "name": "Elanco Animal Health Incorporated",
-   "close_price": "$22.12",
-   "close_pct": "-8.60%"
+   "close_price": "$22.11",
+   "close_pct": "-8.64%"
   },
   {
    "sym": "ARW",
@@ -661,8 +661,8 @@
  ],
  "news": [
   {
-   "h": "Stock market today: Dow, S&P 500, Nasdaq rise after July jobs report surprises to the downside",
-   "src": "uk.finance.yahoo.com",
+   "h": "Stock market today: Dow, S&P 500, Nasdaq jump to cap winning week as Fed rate hike fears fade",
+   "src": "Yahoo Finance UK",
    "sum": ""
   },
   {
@@ -682,7 +682,7 @@
   },
   {
    "h": "The US economy unexpectedly lost 23,000 jobs last month",
-   "src": "cnn.com",
+   "src": "CNN",
    "sum": ""
   },
   {
@@ -692,7 +692,7 @@
   },
   {
    "h": "Markets News, Aug. 6, 2026: Dow’s Winning Streak Ends as Major Indexes Close Lower; Oil Rises as Investors Await Strait of Hormuz News",
-   "src": "Investopedia",
+   "src": "investopedia.com",
    "sum": ""
   },
   {
@@ -707,7 +707,7 @@
   },
   {
    "h": "[SPCX] SpaceX Stock Surges 16% to Close Out a Wild Week of Trading",
-   "src": "Investopedia",
+   "src": "investopedia.com",
    "sum": ""
   },
   {
@@ -757,7 +757,7 @@
   },
   {
    "h": "[ARM] ARM (NASDAQ:ARM) Trading Down 1.4% - Should You Sell?",
-   "src": "MarketBeat",
+   "src": "marketbeat.com",
    "sum": ""
   },
   {

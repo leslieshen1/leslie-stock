@@ -1,5 +1,5 @@
 {
- "asof_et": "2026-08-07 22:16 ET Fri",
+ "asof_et": "2026-08-07 22:31 ET Fri",
  "indices": {
   "标普500": {
    "close_pct": "+0.61%",
@@ -662,7 +662,7 @@
  "news": [
   {
    "h": "Stock market today: Dow, S&P 500, Nasdaq rise after July jobs report surprises to the downside",
-   "src": "Yahoo Finance UK",
+   "src": "uk.finance.yahoo.com",
    "sum": ""
   },
   {
@@ -682,7 +682,7 @@
   },
   {
    "h": "The US economy unexpectedly lost 23,000 jobs last month",
-   "src": "CNN",
+   "src": "cnn.com",
    "sum": ""
   },
   {
@@ -706,8 +706,8 @@
    "sum": ""
   },
   {
-   "h": "[SPCX] SpaceX stock below $100 is a buying opportunity: Panel on end of lockup period",
-   "src": "Yahoo Finance",
+   "h": "[SPCX] SpaceX Stock Surges 16% to Close Out a Wild Week of Trading",
+   "src": "Investopedia",
    "sum": ""
   },
   {
@@ -746,8 +746,8 @@
    "sum": ""
   },
   {
-   "h": "[AMD] AMD's revenue climbs 50% and data center sales doubled, but the stock is down",
-   "src": "CNBC",
+   "h": "[AMD] 'This was not an exceptional result': Why AMD stock tanked 10% after earnings",
+   "src": "Yahoo Finance",
    "sum": ""
   },
   {
@@ -757,7 +757,7 @@
   },
   {
    "h": "[ARM] ARM (NASDAQ:ARM) Trading Down 1.4% - Should You Sell?",
-   "src": "marketbeat.com",
+   "src": "MarketBeat",
    "sum": ""
   },
   {

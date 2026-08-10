@@ -5811,8 +5811,58 @@
    "reason": "稀土永磁+机器人是资金反复轮炒的热点带，评分64最高、盘前未拉，趁没狂热埋伏。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 279,
+   "fill_date": "2026-08-10",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的八家公司都还是我能理解、护城河清楚且价格不算荒唐的生意，今天没有必要为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 280,
+   "fill_date": "2026-08-10",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位里大多仍是每台下游量产都绕不开的真瓶颈，候选里中国稀土、罗博特科这类盘前已经爆拉我不接最后一棒，现金留着等错杀。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 281,
+   "fill_date": "2026-08-10",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "601138",
+   "reason": "AI服务器仍是流动性最愿意下注的主线，工业富联盘前没爆拉，顺风且不是接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 282,
+   "fill_date": "2026-08-10",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002842",
+   "reason": "钨出口管制这条战略金属风还在，盘前强但未失控，小盘弹性是表达宏观资源安全交易的好载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 283,
+   "fill_date": "2026-08-10",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选票盘前集体10%-20%爆拉，资金已经把预期差打满，我不去接最后一棒，现有黄金/军工/小金属/稀土仓位先让情绪继续验证。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 279,
+ "next_order_id": 284,
  "splits": []
 }

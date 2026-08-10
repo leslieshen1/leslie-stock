@@ -3,8 +3,8 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 227728.0,
-  "sentiment": 426822.0
+  "druckenmiller": 49132.0,
+  "sentiment": 612264.0
  },
  "positions": [
   {
@@ -198,13 +198,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "000506",
-   "shares": 9300,
-   "entry": 16.48,
-   "entry_date": "2026-08-06"
-  },
-  {
-   "master": "sentiment",
    "sym": "000534",
    "shares": 5800,
    "entry": 26.4,
@@ -230,6 +223,20 @@
    "shares": 18600,
    "entry": 8.72,
    "entry_date": "2026-08-07"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "601138",
+   "shares": 1300,
+   "entry": 69.18,
+   "entry_date": "2026-08-10"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002842",
+   "shares": 2100,
+   "entry": 42.22,
+   "entry_date": "2026-08-10"
   }
  ],
  "nav": [
@@ -1007,6 +1014,31 @@
    "master": "sentiment",
    "date": "2026-08-07",
    "nav": 1081543.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-10",
+   "nav": 1076053.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-10",
+   "nav": 1106484.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-10",
+   "nav": 827872.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-10",
+   "nav": 799738.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-10",
+   "nav": 1106237.0
   }
  ],
  "trades": [
@@ -3029,6 +3061,36 @@
    "price": 8.72,
    "reason": "稀土永磁+机器人是资金反复轮炒的热点带，评分64最高、盘前未拉，趁没狂热埋伏。",
    "src": "ai"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "601138",
+   "shares": 1300,
+   "price": 69.18,
+   "reason": "AI服务器仍是流动性最愿意下注的主线，工业富联盘前没爆拉，顺风且不是接最后一棒。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002842",
+   "shares": 2100,
+   "price": 42.22,
+   "reason": "钨出口管制这条战略金属风还在，盘前强但未失控，小盘弹性是表达宏观资源安全交易的好载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000506",
+   "shares": 9300,
+   "price": 19.94,
+   "reason": "+21.0% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -5819,7 +5881,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的八家公司都还是我能理解、护城河清楚且价格不算荒唐的生意，今天没有必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5829,7 +5891,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位里大多仍是每台下游量产都绕不开的真瓶颈，候选里中国稀土、罗博特科这类盘前已经爆拉我不接最后一棒，现金留着等错杀。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5839,7 +5901,7 @@
    "action": "BUY",
    "sym": "601138",
    "reason": "AI服务器仍是流动性最愿意下注的主线，工业富联盘前没爆拉，顺风且不是接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5849,7 +5911,7 @@
    "action": "BUY",
    "sym": "002842",
    "reason": "钨出口管制这条战略金属风还在，盘前强但未失控，小盘弹性是表达宏观资源安全交易的好载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5859,7 +5921,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选票盘前集体10%-20%爆拉，资金已经把预期差打满，我不去接最后一棒，现有黄金/军工/小金属/稀土仓位先让情绪继续验证。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

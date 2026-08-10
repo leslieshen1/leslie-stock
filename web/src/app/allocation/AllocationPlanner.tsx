@@ -15,7 +15,7 @@ import {
   Upload,
   X,
 } from "lucide-react";
-import { Cell, Pie, PieChart, Tooltip } from "recharts";
+import AllocationDonut3D from "./AllocationDonut3D";
 
 type Category = "核心指数" | "AI与机器人" | "医疗" | "资源能源" | "防守资产";
 
@@ -77,6 +77,7 @@ export default function AllocationPlanner() {
   const [hydrated, setHydrated] = useState(false);
   const [filter, setFilter] = useState<Category | "全部">("全部");
   const [editingId, setEditingId] = useState<string | "new" | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -111,6 +112,17 @@ export default function AllocationPlanner() {
     return assets.reduce((sum, asset) => sum + asset.weight * asset.risk, 0) / total;
   }, [assets, total]);
   const overallBand = riskBand(weightedRisk);
+  const hoveredAsset = hoveredId ? assets.find((asset) => asset.id === hoveredId) : undefined;
+  const hoveredBand = hoveredAsset ? riskBand(hoveredAsset.risk) : overallBand;
+
+  const ringAssets = useMemo(() => assets.filter((asset) => asset.weight > 0).map((asset) => ({
+    id: asset.id,
+    ticker: asset.ticker,
+    name: asset.name,
+    weight: asset.weight,
+    risk: asset.risk,
+    color: riskBand(asset.risk).color,
+  })), [assets]);
 
   const categoryTotals = useMemo(() => CATEGORY_ORDER.map((category) => ({
     category,
@@ -214,37 +226,28 @@ export default function AllocationPlanner() {
       </header>
 
       <main className="mx-auto max-w-[1440px] px-4 pb-14 sm:px-6 lg:px-8">
-        <section className="grid border-b border-white/[0.08] lg:grid-cols-[minmax(420px,0.9fr)_minmax(480px,1.1fr)]">
-          <div className="flex min-h-[420px] items-center justify-center border-b border-white/[0.08] py-5 lg:min-h-[540px] lg:border-b-0 lg:border-r lg:border-white/[0.08] lg:pr-8">
-            <div className="relative aspect-square w-full max-w-[440px]">
+        <section className="grid border-b border-white/[0.08] lg:grid-cols-[minmax(440px,0.88fr)_minmax(520px,1.12fr)]">
+          <div className="flex min-h-[430px] items-center justify-center border-b border-white/[0.08] py-4 lg:min-h-[660px] lg:border-b-0 lg:border-r lg:border-white/[0.08] lg:pr-8">
+            <div className="relative aspect-square w-full max-w-[520px]">
               {hydrated && (
-                <PieChart responsive style={{ width: "100%", height: "100%" }}>
-                  <Pie
-                    data={assets.filter((asset) => asset.weight > 0)}
-                    dataKey="weight"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    innerRadius="61%"
-                    outerRadius="94%"
-                    paddingAngle={1.5}
-                    cornerRadius={3}
-                    stroke="#0b0c0c"
-                    strokeWidth={3}
-                    isAnimationActive={false}
-                  >
-                    {assets.filter((asset) => asset.weight > 0).map((asset) => (
-                      <Cell key={asset.id} fill={riskBand(asset.risk).color} />
-                    ))}
-                  </Pie>
-                  <Tooltip content={<AllocationTooltip />} />
-                </PieChart>
+                <AllocationDonut3D assets={ringAssets} onHover={setHoveredId} onSelect={setEditingId} />
               )}
               <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span className="font-mono text-[11px] uppercase text-[#6f716d]">组合风险</span>
-                <span className="mt-1 font-mono text-6xl font-medium tabular-nums" style={{ color: overallBand.color }}>{weightedRisk.toFixed(0)}</span>
-                <span className="mt-1 text-sm font-medium" style={{ color: overallBand.color }}>{overallBand.label}</span>
-                <span className="mt-5 font-mono text-[10px] text-[#747672]">{formatWeight(total)}% 已分配</span>
+                {hoveredAsset ? (
+                  <>
+                    <span className="font-mono text-[10px] uppercase text-[#777974]">{hoveredAsset.ticker}</span>
+                    <span className="mt-2 max-w-[145px] text-lg font-semibold leading-tight text-[#f1f0eb]">{hoveredAsset.name}</span>
+                    <span className="mt-3 font-mono text-3xl font-medium tabular-nums" style={{ color: hoveredBand.color }}>{formatWeight(hoveredAsset.weight)}%</span>
+                    <span className="mt-1 text-[11px] font-medium" style={{ color: hoveredBand.color }}>{hoveredBand.label} · {hoveredAsset.risk}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="font-mono text-[11px] uppercase text-[#6f716d]">组合风险</span>
+                    <span className="mt-1 font-mono text-6xl font-medium tabular-nums" style={{ color: overallBand.color }}>{weightedRisk.toFixed(0)}</span>
+                    <span className="mt-1 text-sm font-medium" style={{ color: overallBand.color }}>{overallBand.label}</span>
+                    <span className="mt-5 font-mono text-[10px] text-[#747672]">{formatWeight(total)}% 已分配</span>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -277,6 +280,36 @@ export default function AllocationPlanner() {
                   </button>
                 );
               })}
+            </div>
+
+            <div className="mt-5 border-t border-white/[0.08] pt-5">
+              <div className="mb-3 flex items-center justify-between">
+                <span className="text-[10px] text-[#777974]">圆环图例</span>
+                <span className="font-mono text-[8px] uppercase text-[#555753]">点击编辑</span>
+              </div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3">
+                {assets.filter((asset) => asset.weight > 0).map((asset) => {
+                  const band = riskBand(asset.risk);
+                  const active = hoveredId === asset.id;
+                  return (
+                    <button
+                      key={asset.id}
+                      type="button"
+                      onPointerEnter={() => setHoveredId(asset.id)}
+                      onPointerLeave={() => setHoveredId(null)}
+                      onClick={() => setEditingId(asset.id)}
+                      className={`grid min-w-0 grid-cols-[7px_minmax(0,1fr)_30px] items-center gap-2 rounded-sm px-1.5 py-2 text-left transition ${active ? "bg-white/[0.06]" : "hover:bg-white/[0.035]"}`}
+                    >
+                      <span className="h-5 w-1 rounded-full" style={{ backgroundColor: band.color, boxShadow: active ? `0 0 12px ${band.color}` : "none" }} />
+                      <span className="min-w-0">
+                        <span className="block truncate text-[10px] font-medium text-[#d7d6d1]">{asset.name}</span>
+                        <span className="mt-0.5 block truncate font-mono text-[8px] text-[#5f615d]">{asset.ticker}</span>
+                      </span>
+                      <span className="text-right font-mono text-[10px] text-[#9a9c96]">{formatWeight(asset.weight)}%</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="mt-6">
@@ -410,24 +443,6 @@ export default function AllocationPlanner() {
           .allocation-icon-button:nth-of-type(3) { display: none; }
         }
       `}</style>
-    </div>
-  );
-}
-
-function AllocationTooltip({ active, payload }: { active?: boolean; payload?: Array<{ payload: Asset }> }) {
-  if (!active || !payload?.[0]) return null;
-  const asset = payload[0].payload;
-  const band = riskBand(asset.risk);
-  return (
-    <div className="min-w-44 rounded-md border border-white/[0.12] bg-[#151715] px-3 py-2.5 shadow-2xl">
-      <div className="flex items-baseline justify-between gap-5">
-        <span className="text-xs font-medium text-[#f1f0eb]">{asset.name}</span>
-        <span className="font-mono text-sm text-[#f1f0eb]">{formatWeight(asset.weight)}%</span>
-      </div>
-      <div className="mt-1.5 flex items-center justify-between text-[10px]">
-        <span className="font-mono text-[#6f716d]">{asset.ticker}</span>
-        <span style={{ color: band.color }}>{band.label} · {asset.risk}</span>
-      </div>
     </div>
   );
 }

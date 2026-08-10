@@ -31,7 +31,7 @@ export default function TopNav() {
   const { lang, t } = useLang();
   const [searchOpen, setSearchOpen] = useState(false);
 
-  if (pathname?.startsWith("/notes")) return null; // 投资笔记:纸感独立壳,站点导航退场
+  if (pathname?.startsWith("/notes") || pathname?.startsWith("/allocation")) return null; // 独立工具页不使用站点壳
 
   return (
  <header className="sticky top-0 z-40 border-b border-line bg-base/85 backdrop-blur-md lg:hidden">
@@ -137,4 +137,3 @@ export default function TopNav() {
     </header>
   );
 }
-

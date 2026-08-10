@@ -86,7 +86,7 @@ export default function MobileTabBar() {
   const pathname = usePathname();
   const { lang } = useLang();
   const newReport = useNewReport(); // 盘报有新 → 「盘报」图标右上角亮点
-  if (pathname?.startsWith("/notes")) return null; // 投资笔记:纸感独立壳
+  if (pathname?.startsWith("/notes") || pathname?.startsWith("/allocation")) return null; // 独立工具页不使用站点壳
   return (
     <nav
       className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-base/92 backdrop-blur-md lg:hidden"

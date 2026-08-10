@@ -6,6 +6,6 @@ import { usePathname } from "next/navigation";
 // 无法用 usePathname,统一包进这个 client 网关按路径隐藏。
 export default function HideOnNotes({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  if (pathname?.startsWith("/notes")) return null;
+  if (pathname?.startsWith("/notes") || pathname?.startsWith("/allocation")) return null;
   return <>{children}</>;
 }

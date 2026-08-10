@@ -22,7 +22,7 @@ export default function WatchlistSidebar() {
  return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  if (pathname?.startsWith("/notes")) return null; // 投资笔记:纸感独立壳
+  if (pathname?.startsWith("/notes") || pathname?.startsWith("/allocation")) return null; // 独立工具页不使用站点壳
   if (!ready) return null;
 
   return (

@@ -182,8 +182,8 @@ export default function AllocationPlanner() {
   const editingAsset = editingId && editingId !== "new" ? assets.find((asset) => asset.id === editingId) : undefined;
 
   return (
-    <div className="allocation-root min-h-screen bg-[#0b0c0c] text-[#f1f0eb]">
-      <header className="border-b border-white/[0.08] bg-[#0b0c0c]/95">
+    <div className="allocation-root fixed inset-0 z-[90] overflow-y-auto overscroll-contain bg-[#0b0c0c] text-[#f1f0eb]">
+      <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#0b0c0c]/95 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:px-8">
           <a href="https://stockgod.xyz" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/[0.1] bg-white/[0.04] text-[#a3a39d] transition hover:text-white" title="返回我不是股神">
             <ArrowLeft className="h-4 w-4" />

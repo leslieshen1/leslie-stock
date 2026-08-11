@@ -7159,9 +7159,79 @@
    "reason": "AI capex 仍是这轮流动性最强主线，NVDA 今天没被盘前追爆，给我一个不接最后一棒的入口。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 356,
+   "fill_date": "2026-08-11",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我看不出今天有哪桩伟大生意突然以明显低于内在价值的价格递到我手上；既然手里已经是我愿意长期拥有的收费桥、品牌和浮存金机器，就不必为了热闹而换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 357,
+   "fill_date": "2026-08-11",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂，也都本分，今天没有哪一个因为盘前一点波动就变坏，没必要为了热闹换来换去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 358,
+   "fill_date": "2026-08-11",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "MTRN",
+   "reason": "铍瓶颈没坏，但它已经从冷门卡口变成分析师集体围观的拥挤明牌，我宁愿把这格仓位让给更贴近下游 capex 洪流的真卡点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 359,
+   "fill_date": "2026-08-11",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "LITE",
+   "reason": "800G/1.6T 光互联不是故事，是每个 AI 数据中心机柜都要吃的 EML/InP 瓶颈，今天被砸不是 thesis 坏了，是给真瓶颈一个重新上车的窗口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 360,
+   "fill_date": "2026-08-11",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "ESLT",
+   "reason": "盘前直接砸出-7%，这不是我要骑的顺风，趋势一旦被打穿我先砍，不和价格争辩。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 361,
+   "fill_date": "2026-08-11",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GOOGL",
+   "reason": "AI资本开支和纳指流动性还在顺风里，GOOGL今天没被追爆，是换掉弱马后更干净的宏观表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 362,
+   "fill_date": "2026-08-11",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前指数只是温和 risk-on，候选多数已经被资金先手拉过，我不接最后一棒；现有仓里CLB/HNRG虽盘前急冲但还像资金挤压段，先让利润跑、盯开盘后是否放量回落。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 356,
+ "next_order_id": 363,
  "notes": [
   {
    "date": "2026-06-12",

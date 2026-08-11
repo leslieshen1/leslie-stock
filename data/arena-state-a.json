@@ -5923,8 +5923,68 @@
    "reason": "候选票盘前集体10%-20%爆拉，资金已经把预期差打满，我不去接最后一棒，现有黄金/军工/小金属/稀土仓位先让情绪继续验证。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 284,
+   "fill_date": "2026-08-11",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "组合已满，手里这些都是我愿意长期持有的好生意；今天候选虽不差，但没有一只便宜到值得我卖掉现有仓位去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 285,
+   "fill_date": "2026-08-11",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几门生意都是真看得懂的好生意，今天盘前又没有给出足够便宜的价格，我不为凑仓位去换手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 286,
+   "fill_date": "2026-08-11",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十仓已满，盘前没有任何一个真瓶颈票出现失去卡位或被市场最后一棒接走的信号，今天不追不换，继续拿住真卡脖子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 287,
+   "fill_date": "2026-08-11",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "302132",
+   "reason": "军工仍是主题，但此刻我更想把火力挪到AI服务器内部互连这种更直接吃算力资本开支、弹性更大的马",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 288,
+   "fill_date": "2026-08-11",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002130",
+   "reason": "AI服务器内部互连正顺着流动性的风，位置更像高弹性载体，赔率比防御主题更不对称",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 289,
+   "fill_date": "2026-08-11",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是平盘死水，看不到新增资金抢筹，现有三仓也未出现明显出货信号，宁可拿现金等情绪点火，不为买满去硬上。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 284,
+ "next_order_id": 290,
  "splits": []
 }

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 21243.8,
-  "druckenmiller": 59074.57,
-  "sentiment": 419065.81
+  "serenity": 11.16,
+  "druckenmiller": 56223.88,
+  "sentiment": 112504.51
  },
  "positions": [
   {
@@ -141,13 +141,6 @@
    "entry_date": "2026-07-29"
   },
   {
-   "master": "druckenmiller",
-   "sym": "GD",
-   "shares": 273,
-   "entry": 380.96,
-   "entry_date": "2026-07-29"
-  },
-  {
    "master": "serenity",
    "sym": "ALM",
    "shares": 6775,
@@ -190,13 +183,6 @@
    "entry_date": "2026-08-03"
   },
   {
-   "master": "sentiment",
-   "sym": "AADX",
-   "shares": 8459,
-   "entry": 19.22,
-   "entry_date": "2026-08-03"
-  },
-  {
    "master": "druckenmiller",
    "sym": "LEU",
    "shares": 570,
@@ -225,18 +211,53 @@
    "entry_date": "2026-08-06"
   },
   {
-   "master": "sentiment",
-   "sym": "AUGO",
-   "shares": 2485,
-   "entry": 65.63,
-   "entry_date": "2026-08-06"
-  },
-  {
    "master": "druckenmiller",
    "sym": "AVGO",
    "shares": 261,
    "entry": 425.52,
    "entry_date": "2026-08-07"
+  },
+  {
+   "master": "serenity",
+   "sym": "SOLS",
+   "shares": 352,
+   "entry": 60.32,
+   "entry_date": "2026-08-10"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "NVDA",
+   "shares": 510,
+   "entry": 217.55,
+   "entry_date": "2026-08-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "RIG",
+   "shares": 29639,
+   "entry": 5.72,
+   "entry_date": "2026-08-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "RBRK",
+   "shares": 1731,
+   "entry": 97.91,
+   "entry_date": "2026-08-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CLB",
+   "shares": 13873,
+   "entry": 12.22,
+   "entry_date": "2026-08-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "HNRG",
+   "shares": 10676,
+   "entry": 15.88,
+   "entry_date": "2026-08-10"
   }
  ],
  "nav": [
@@ -1239,6 +1260,31 @@
    "master": "sentiment",
    "date": "2026-08-07",
    "nav": 1112681.38
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-10",
+   "nav": 1021647.9
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-10",
+   "nav": 1016335.25
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-10",
+   "nav": 958015.66
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-10",
+   "nav": 965672.27
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-10",
+   "nav": 1130266.0
   }
  ],
  "trades": [
@@ -3691,6 +3737,96 @@
    "price": 425.52,
    "reason": "AI资本开支这股流动性还在，今天纳指和半导体龙头给了顺风，AVGO盘前只是温和上行，不是爆拉接棒，我要用它补上最干净的ASIC高弹性表达。",
    "src": "ai"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "SOLS",
+   "shares": 352,
+   "price": 60.32,
+   "reason": "从产业链卡位看，它仍是少数能同时卡住氟源、低GWP制冷剂和电子级含氟材料的上游瓶颈。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GD",
+   "shares": 273,
+   "price": 395.97,
+   "reason": "GD 是好趋势但弹性不够，今天流动性风在降息预期、AI 和高贝塔成长，不是低弹性防务，我把慢马换成快马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "NVDA",
+   "shares": 510,
+   "price": 217.55,
+   "reason": "AI capex 仍是这轮流动性最强主线，NVDA 今天没被盘前追爆，给我一个不接最后一棒的入口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "AADX",
+   "shares": 8459,
+   "price": 21.52,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+12.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "AUGO",
+   "shares": 2485,
+   "price": 76.25,
+   "reason": "+16.2% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "RIG",
+   "shares": 29639,
+   "price": 5.72,
+   "reason": "散户当它彩票、空头压着仓位,情绪在地板上——而聪明钱在悄悄捡积压订单受益方。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "RBRK",
+   "shares": 1731,
+   "price": 97.91,
+   "reason": "次新股 + 网络安全热门标签,机构持续建仓、卖方一路唱多,盘面是顺风的动量,但拥挤度在升。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CLB",
+   "shares": 13873,
+   "price": 12.22,
+   "reason": "情绪深冰、空头堆积、机构开始低位回补,典型可以反向埋伏的死角小盘。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "HNRG",
+   "shares": 10676,
+   "price": 15.88,
+   "reason": "数据中心电力是当下的热钱风口,资金正往这类小盘电力股里涌,情绪在升温段,顺势但别接最后一棒。",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -6991,7 +7127,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我今天看不到哪一门现有生意的护城河被破坏，也看不到候选名单里有足够大的安全边际值得我卖掉好生意去腾位置。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7001,7 +7137,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，也都能拿十年；今天盘前这点波动不构成任何改变判断的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7011,7 +7147,7 @@
    "action": "SELL",
    "sym": "GD",
    "reason": "GD 是好趋势但弹性不够，今天流动性风在降息预期、AI 和高贝塔成长，不是低弹性防务，我把慢马换成快马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7021,7 +7157,7 @@
    "action": "BUY",
    "sym": "NVDA",
    "reason": "AI capex 仍是这轮流动性最强主线，NVDA 今天没被盘前追爆，给我一个不接最后一棒的入口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

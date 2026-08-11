@@ -3,7 +3,7 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 49132.0,
+  "druckenmiller": 47608.0,
   "sentiment": 612264.0
  },
  "positions": [
@@ -204,13 +204,6 @@
    "entry_date": "2026-08-06"
   },
   {
-   "master": "druckenmiller",
-   "sym": "302132",
-   "shares": 1500,
-   "entry": 56.96,
-   "entry_date": "2026-08-07"
-  },
-  {
    "master": "sentiment",
    "sym": "000426",
    "shares": 4100,
@@ -237,6 +230,13 @@
    "shares": 2100,
    "entry": 42.22,
    "entry_date": "2026-08-10"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002130",
+   "shares": 5200,
+   "entry": 17.07,
+   "entry_date": "2026-08-11"
   }
  ],
  "nav": [
@@ -1039,6 +1039,31 @@
    "master": "sentiment",
    "date": "2026-08-10",
    "nav": 1106237.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-11",
+   "nav": 1066796.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-11",
+   "nav": 1094891.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-11",
+   "nav": 822061.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-11",
+   "nav": 776244.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-11",
+   "nav": 1092049.0
   }
  ],
  "trades": [
@@ -3091,6 +3116,26 @@
    "price": 19.94,
    "reason": "+21.0% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
    "src": "rule"
+  },
+  {
+   "date": "2026-08-11",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "302132",
+   "shares": 1500,
+   "price": 58.16,
+   "reason": "军工仍是主题，但此刻我更想把火力挪到AI服务器内部互连这种更直接吃算力资本开支、弹性更大的马",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-11",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002130",
+   "shares": 5200,
+   "price": 17.07,
+   "reason": "AI服务器内部互连正顺着流动性的风，位置更像高弹性载体，赔率比防御主题更不对称",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -5931,7 +5976,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "组合已满，手里这些都是我愿意长期持有的好生意；今天候选虽不差，但没有一只便宜到值得我卖掉现有仓位去换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5941,7 +5986,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几门生意都是真看得懂的好生意，今天盘前又没有给出足够便宜的价格，我不为凑仓位去换手。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5951,7 +5996,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十仓已满，盘前没有任何一个真瓶颈票出现失去卡位或被市场最后一棒接走的信号，今天不追不换，继续拿住真卡脖子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5961,7 +6006,7 @@
    "action": "SELL",
    "sym": "302132",
    "reason": "军工仍是主题，但此刻我更想把火力挪到AI服务器内部互连这种更直接吃算力资本开支、弹性更大的马",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5971,7 +6016,7 @@
    "action": "BUY",
    "sym": "002130",
    "reason": "AI服务器内部互连正顺着流动性的风，位置更像高弹性载体，赔率比防御主题更不对称",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -5981,7 +6026,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前候选全是平盘死水，看不到新增资金抢筹，现有三仓也未出现明显出货信号，宁可拿现金等情绪点火，不为买满去硬上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

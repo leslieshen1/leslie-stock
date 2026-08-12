@@ -6028,8 +6028,88 @@
    "reason": "盘前候选全是平盘死水，看不到新增资金抢筹，现有三仓也未出现明显出货信号，宁可拿现金等情绪点火，不为买满去硬上。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 290,
+   "fill_date": "2026-08-12",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个都是我愿意长期拿的好生意，今天没有哪个被市场明显错杀，也没有哪个贵到非换不可，先不折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 291,
+   "fill_date": "2026-08-12",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还踩在真瓶颈位置上，盘前候选没有给我一个必须换仓的错杀价，今天不为了买满去追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 292,
+   "fill_date": "2026-08-12",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "601138",
+   "reason": "AI服务器是大风口，但这匹马没有跟上风，亏损扩大前先砍，资金去更强的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 293,
+   "fill_date": "2026-08-12",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002842",
+   "reason": "钨的叙事够硬，但价格不确认就是错，德鲁肯米勒式纪律是弱马先下。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 294,
+   "fill_date": "2026-08-12",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002371",
+   "reason": "半导体设备叠加出口管制和国产替代，是政策流动性最顺的核心载体，今天没爆拉，可以上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 295,
+   "fill_date": "2026-08-12",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002428",
+   "reason": "锗管制叠加AI光通信稀缺性，高弹性最能表达资源安全与算力瓶颈这条宏观判断。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 296,
+   "fill_date": "2026-08-12",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000603",
+   "reason": "白银ATH叠加预增催化，贵金属是当下最容易聚起情绪资金的方向，盘前没被狠狠干高，先卡位吃资金溢价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 297,
+   "fill_date": "2026-08-12",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000099",
+   "reason": "低空经济+稀缺牌照是典型情绪龙头口，若资金继续找高弹性出口，它最容易被点火接力。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 290,
+ "next_order_id": 298,
  "splits": []
 }

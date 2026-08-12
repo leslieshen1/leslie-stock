@@ -3,8 +3,8 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 47608.0,
-  "sentiment": 612264.0
+  "druckenmiller": 59779.0,
+  "sentiment": 287026.0
  },
  "positions": [
   {
@@ -219,24 +219,38 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "601138",
-   "shares": 1300,
-   "entry": 69.18,
-   "entry_date": "2026-08-10"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002842",
-   "shares": 2100,
-   "entry": 42.22,
-   "entry_date": "2026-08-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "002130",
    "shares": 5200,
    "entry": 17.07,
    "entry_date": "2026-08-11"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002371",
+   "shares": 100,
+   "entry": 760.0,
+   "entry_date": "2026-08-12"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002428",
+   "shares": 800,
+   "entry": 105.98,
+   "entry_date": "2026-08-12"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000603",
+   "shares": 4700,
+   "entry": 34.41,
+   "entry_date": "2026-08-12"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000099",
+   "shares": 11300,
+   "entry": 14.47,
+   "entry_date": "2026-08-12"
   }
  ],
  "nav": [
@@ -1064,6 +1078,31 @@
    "master": "sentiment",
    "date": "2026-08-11",
    "nav": 1092049.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-12",
+   "nav": 1061512.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-12",
+   "nav": 1093582.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-12",
+   "nav": 832319.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-12",
+   "nav": 784543.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-12",
+   "nav": 1096487.0
   }
  ],
  "trades": [
@@ -3135,6 +3174,66 @@
    "shares": 5200,
    "price": 17.07,
    "reason": "AI服务器内部互连正顺着流动性的风，位置更像高弹性载体，赔率比防御主题更不对称",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-12",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "601138",
+   "shares": 1300,
+   "price": 65.6,
+   "reason": "AI服务器是大风口，但这匹马没有跟上风，亏损扩大前先砍，资金去更强的载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-12",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002842",
+   "shares": 2100,
+   "price": 41.75,
+   "reason": "钨的叙事够硬，但价格不确认就是错，德鲁肯米勒式纪律是弱马先下。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-12",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002371",
+   "shares": 100,
+   "price": 760.0,
+   "reason": "半导体设备叠加出口管制和国产替代，是政策流动性最顺的核心载体，今天没爆拉，可以上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-12",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002428",
+   "shares": 800,
+   "price": 105.98,
+   "reason": "锗管制叠加AI光通信稀缺性，高弹性最能表达资源安全与算力瓶颈这条宏观判断。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-12",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000603",
+   "shares": 4700,
+   "price": 34.41,
+   "reason": "白银ATH叠加预增催化，贵金属是当下最容易聚起情绪资金的方向，盘前没被狠狠干高，先卡位吃资金溢价。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-12",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000099",
+   "shares": 11300,
+   "price": 14.47,
+   "reason": "低空经济+稀缺牌照是典型情绪龙头口，若资金继续找高弹性出口，它最容易被点火接力。",
    "src": "ai"
   }
  ],
@@ -6036,7 +6135,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个都是我愿意长期拿的好生意，今天没有哪个被市场明显错杀，也没有哪个贵到非换不可，先不折腾。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6046,7 +6145,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还踩在真瓶颈位置上，盘前候选没有给我一个必须换仓的错杀价，今天不为了买满去追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6056,7 +6155,7 @@
    "action": "SELL",
    "sym": "601138",
    "reason": "AI服务器是大风口，但这匹马没有跟上风，亏损扩大前先砍，资金去更强的载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6066,7 +6165,7 @@
    "action": "SELL",
    "sym": "002842",
    "reason": "钨的叙事够硬，但价格不确认就是错，德鲁肯米勒式纪律是弱马先下。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6076,7 +6175,7 @@
    "action": "BUY",
    "sym": "002371",
    "reason": "半导体设备叠加出口管制和国产替代，是政策流动性最顺的核心载体，今天没爆拉，可以上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6086,7 +6185,7 @@
    "action": "BUY",
    "sym": "002428",
    "reason": "锗管制叠加AI光通信稀缺性，高弹性最能表达资源安全与算力瓶颈这条宏观判断。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6096,7 +6195,7 @@
    "action": "BUY",
    "sym": "000603",
    "reason": "白银ATH叠加预增催化，贵金属是当下最容易聚起情绪资金的方向，盘前没被狠狠干高，先卡位吃资金溢价。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6106,7 +6205,7 @@
    "action": "BUY",
    "sym": "000099",
    "reason": "低空经济+稀缺牌照是典型情绪龙头口，若资金继续找高弹性出口，它最容易被点火接力。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

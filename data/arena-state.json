@@ -7294,9 +7294,29 @@
    "reason": "盘前指数只是温和 risk-on，候选多数已经被资金先手拉过，我不接最后一棒；现有仓里CLB/HNRG虽盘前急冲但还像资金挤压段，先让利润跑、盯开盘后是否放量回落。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 363,
+   "fill_date": "2026-08-12",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个都是我看得懂的十年好生意，今天盘前也没有便宜到值得我为了换仓去折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 364,
+   "fill_date": "2026-08-12",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前风险偏好继续回流，我手里这八个都还在AI、电力、黄金、铜的顺风里，没有更好的换手点，今天不和趋势作对。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 363,
+ "next_order_id": 365,
  "notes": [
   {
    "date": "2026-06-12",

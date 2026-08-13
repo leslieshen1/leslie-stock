@@ -6207,8 +6207,58 @@
    "reason": "低空经济+稀缺牌照是典型情绪龙头口，若资金继续找高弹性出口，它最容易被点火接力。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 298,
+   "fill_date": "2026-08-13",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的八门生意都还在我的能力圈和合理估值内，今天没有必要为了交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 299,
+   "fill_date": "2026-08-13",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的几门生意我都看得懂，也都还算本分；候选虽好，但没有好到让我今天为了换仓而动手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 300,
+   "fill_date": "2026-08-13",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在真瓶颈位置，今天候选没有给我新的错杀价，我不为了买满去乱换筹码。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 301,
+   "fill_date": "2026-08-13",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前没有新的价格信号证明流动性风向转了，手里几条主线还在顺风里，不为买满去乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 302,
+   "fill_date": "2026-08-13",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是平开，没看到资金抢跑和情绪定方向，先守住现有主题仓位，不在静水里追新票",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 298,
+ "next_order_id": 303,
  "splits": []
 }

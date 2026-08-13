@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 53665.0,
   "druckenmiller": 59779.0,
-  "sentiment": 287026.0
+  "sentiment": 444496.0
  },
  "positions": [
   {
@@ -195,13 +195,6 @@
    "shares": 2300,
    "entry": 38.6,
    "entry_date": "2026-08-05"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000534",
-   "shares": 5800,
-   "entry": 26.4,
-   "entry_date": "2026-08-06"
   },
   {
    "master": "sentiment",
@@ -1103,6 +1096,31 @@
    "master": "sentiment",
    "date": "2026-08-12",
    "nav": 1096487.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-13",
+   "nav": 1061425.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-13",
+   "nav": 1092539.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-13",
+   "nav": 821782.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-13",
+   "nav": 774105.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-13",
+   "nav": 1068529.0
   }
  ],
  "trades": [
@@ -3235,6 +3253,16 @@
    "price": 14.47,
    "reason": "低空经济+稀缺牌照是典型情绪龙头口，若资金继续找高弹性出口，它最容易被点火接力。",
    "src": "ai"
+  },
+  {
+   "date": "2026-08-13",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000534",
+   "shares": 5800,
+   "price": 27.15,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.8%)",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -6215,7 +6243,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的八门生意都还在我的能力圈和合理估值内，今天没有必要为了交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6225,7 +6253,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的几门生意我都看得懂，也都还算本分；候选虽好，但没有好到让我今天为了换仓而动手。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6235,7 +6263,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还在真瓶颈位置，今天候选没有给我新的错杀价，我不为了买满去乱换筹码。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6245,7 +6273,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前没有新的价格信号证明流动性风向转了，手里几条主线还在顺风里，不为买满去乱动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6255,7 +6283,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前候选全是平开，没看到资金抢跑和情绪定方向，先守住现有主题仓位，不在静水里追新票",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

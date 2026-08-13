@@ -12,15 +12,17 @@ import {
   RotateCcw,
   Scale,
   ShieldCheck,
+  Target,
   Trash2,
   Upload,
+  WalletCards,
   X,
 } from "lucide-react";
 import AllocationDonut3D, { type DonutTarget } from "./AllocationDonut3D";
 
-type Category = "核心仓位" | "防守板块" | "进攻板块" | "现金";
+export type Category = "核心仓位" | "防守板块" | "进攻板块" | "现金";
 
-type Asset = {
+export type Asset = {
   id: string;
   ticker: string;
   name: string;
@@ -42,19 +44,19 @@ type AssetResearch = {
   historical: string;
 };
 
-const STORAGE_KEY = "stockgod-future-allocation-v2";
+export const STORAGE_KEY = "stockgod-future-allocation-v2";
 const AS_OF = "2026-08-11";
 
-const CATEGORY_ORDER: Category[] = ["核心仓位", "防守板块", "进攻板块", "现金"];
+export const CATEGORY_ORDER: Category[] = ["核心仓位", "防守板块", "进攻板块", "现金"];
 
-const CATEGORY_META: Record<Category, { code: string; color: string }> = {
+export const CATEGORY_META: Record<Category, { code: string; color: string }> = {
   核心仓位: { code: "CORE", color: "#c9b158" },
   防守板块: { code: "DEFENSIVE", color: "#79a06c" },
   进攻板块: { code: "OFFENSIVE", color: "#d27c50" },
   现金: { code: "CASH", color: "#50a38d" },
 };
 
-const DEFAULT_ASSETS: Asset[] = [
+export const DEFAULT_ASSETS: Asset[] = [
   {
     id: "qqq", ticker: "QQQ", name: "纳斯达克100", category: "核心仓位", theme: "全球科技", weight: 13, risk: 72, role: "美国创新资产底仓",
     research: { current: "$720.87", starter: "$650–690", priority: "$590–630", confidence: "中", model: "指数估值40% · 盈利30% · 历史20% · 流动性10%", fundamental: "龙头盈利仍强，但权重集中和估值扩张提高了容错要求。", historical: "现价接近近52周区间上沿；分批区按盈利增长消化估值后的回撤幅度设置。" },
@@ -340,10 +342,19 @@ export default function AllocationPlanner() {
             </div>
             <p className="mt-0.5 font-mono text-[9px] uppercase text-[#686a66]">Target allocation · {AS_OF}</p>
           </div>
+          <nav className="ml-2 hidden h-9 items-center rounded-md border border-white/[0.08] bg-white/[0.025] p-0.5 md:flex" aria-label="仓位视图">
+            <a href="/allocation/current" className="inline-flex h-7 items-center gap-1.5 rounded px-2.5 text-[10px] text-[#777974] transition hover:text-[#e8e7e2]">
+              <WalletCards className="h-3.5 w-3.5" />当前持仓
+            </a>
+            <span className="inline-flex h-7 items-center gap-1.5 rounded bg-[#f1f0eb] px-2.5 text-[10px] font-medium text-[#111210]">
+              <Target className="h-3.5 w-3.5" />目标配置
+            </span>
+          </nav>
           <div className="ml-auto flex items-center gap-1.5">
             <span className="mr-2 hidden items-center gap-1.5 text-[11px] text-[#777974] sm:flex">
               <Check className="h-3.5 w-3.5 text-[#3fb889]" />{hydrated ? "已保存" : "读取中"}
             </span>
+            <a href="/allocation/current" title="查看当前持仓" className="allocation-icon-button md:hidden"><WalletCards /></a>
             <button type="button" onClick={normalizeWeights} title="归一到100%" className="allocation-icon-button"><Scale /></button>
             <button type="button" onClick={exportPlan} title="导出配置" className="allocation-icon-button"><Download /></button>
             <label title="导入配置" className="allocation-icon-button cursor-pointer">

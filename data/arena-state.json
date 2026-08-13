@@ -7362,9 +7362,59 @@
    "reason": "盘前风险偏好继续回流，我手里这八个都还在AI、电力、黄金、铜的顺风里，没有更好的换手点，今天不和趋势作对。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 365,
+   "fill_date": "2026-08-13",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我拥有的是一组能理解、能长期赚钱、护城河尚在的生意；今天盘前这点价格波动不足以让我用好公司换另一家好公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 366,
+   "fill_date": "2026-08-13",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看懂了，商业模式和文化都没变，盘前这点波动不是让我动手的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 367,
+   "fill_date": "2026-08-13",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天不为了买满去换仓：手里十个仓位仍然大多是真瓶颈四件套，盘前这点回撤不是推翻下游量产洪流的证据。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 368,
+   "fill_date": "2026-08-13",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "TSM",
+   "reason": "AI资本开支这股流动性主风还没转，TSM盘前没被追爆，是在主趋势里加一只最干净的核心载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 369,
+   "fill_date": "2026-08-13",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前指数没给出方向性突破，候选里多数已经被情绪资金提前爆拉或开始回吐，我不在这种位置接最后一棒。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 365,
+ "next_order_id": 370,
  "notes": [
   {
    "date": "2026-06-12",

@@ -7457,9 +7457,89 @@
    "reason": "盘前指数没给出方向性突破，候选里多数已经被情绪资金提前爆拉或开始回吐，我不在这种位置接最后一棒。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 370,
+   "fill_date": "2026-08-14",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里的八门生意都有我能理解的护城河和长期经济性，今天没有哪一个价格便宜到值得换马，也没有哪一个基本面坏到需要卖掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 371,
+   "fill_date": "2026-08-14",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四门生意我都看得懂，也都够本分；今天盘口这点波动不构成让我换掉十年好生意的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 372,
+   "fill_date": "2026-08-14",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位里没有一个真瓶颈被证伪，候选今天盘前多数已经被抢高，我不为买满或换手去接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 373,
+   "fill_date": "2026-08-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "AVGO",
+   "reason": "纳指盘前是绿的它却大幅逆风下杀，AI ASIC 这条表达今天不再是最强马，错了我先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 374,
+   "fill_date": "2026-08-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TSM",
+   "reason": "风险偏好回流时它还红不起来，这不是我要的高弹性载体，资金要骑最快的马而不是最稳的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 375,
+   "fill_date": "2026-08-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "WDC",
+   "reason": "AI 基建外溢到存储、供给紧张和价格动量同向，盘前强但没到失控爆拉，这是今天更干净的高弹性表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 376,
+   "fill_date": "2026-08-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GEV",
+   "reason": "AI 电力和电网资本开支是最顺的宏观大潮，GEV 盘前继续确认强势，我要把仓位压到最干净的趋势上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 377,
+   "fill_date": "2026-08-14",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前指数只是温和偏多，候选里不是爆拉就是绿盘里翻红失败，资金面没有给我舒服的新入场点，宁可拿现金等回落。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 370,
+ "next_order_id": 378,
  "notes": [
   {
    "date": "2026-06-12",

@@ -3,8 +3,8 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 59779.0,
-  "sentiment": 444496.0
+  "druckenmiller": 60738.0,
+  "sentiment": 908768.0
  },
  "positions": [
   {
@@ -197,20 +197,6 @@
    "entry_date": "2026-08-05"
   },
   {
-   "master": "sentiment",
-   "sym": "000426",
-   "shares": 4100,
-   "entry": 39.48,
-   "entry_date": "2026-08-07"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000795",
-   "shares": 18600,
-   "entry": 8.72,
-   "entry_date": "2026-08-07"
-  },
-  {
    "master": "druckenmiller",
    "sym": "002130",
    "shares": 5200,
@@ -225,25 +211,18 @@
    "entry_date": "2026-08-12"
   },
   {
-   "master": "druckenmiller",
-   "sym": "002428",
-   "shares": 800,
-   "entry": 105.98,
-   "entry_date": "2026-08-12"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000603",
-   "shares": 4700,
-   "entry": 34.41,
-   "entry_date": "2026-08-12"
-  },
-  {
    "master": "sentiment",
    "sym": "000099",
    "shares": 11300,
    "entry": 14.47,
    "entry_date": "2026-08-12"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300394",
+   "shares": 300,
+   "entry": 267.71,
+   "entry_date": "2026-08-14"
   }
  ],
  "nav": [
@@ -1121,6 +1100,31 @@
    "master": "sentiment",
    "date": "2026-08-13",
    "nav": 1068529.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-14",
+   "nav": 1060329.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-14",
+   "nav": 1087111.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-14",
+   "nav": 835841.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-14",
+   "nav": 779804.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-14",
+   "nav": 1068098.0
   }
  ],
  "trades": [
@@ -3263,6 +3267,56 @@
    "price": 27.15,
    "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.8%)",
    "src": "rule"
+  },
+  {
+   "date": "2026-08-14",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002428",
+   "shares": 800,
+   "price": 101.59,
+   "reason": "锗这条线给了我三重顺风却还亏5个点，价格不确认就是错，先砍掉。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-14",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300394",
+   "shares": 300,
+   "price": 267.71,
+   "reason": "AI光通信仍是算力链里弹性最硬的载体，盘前没爆拉，趋势修复后我愿意把仓位挪到更强的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000426",
+   "shares": 4100,
+   "price": 37.89,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000795",
+   "shares": 18600,
+   "price": 8.5,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-2.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000603",
+   "shares": 4700,
+   "price": 32.09,
+   "reason": "白银线从性感题材变成拥挤交易，盛达资源已亏到-6.4%贴近机械止损，盘口没有新增资金承接我先撤掉最弱一环。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -6293,7 +6347,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓都是我愿意长期拥有的生意，今天候选里没有明显好到值得卖掉现有宽护城河资产去换的便宜货。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6303,7 +6357,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的几家公司我都看得懂，商业模式和文化也都过关，今天候选里没有让我愿意为了换仓去动它们的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6313,7 +6367,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还在真瓶颈位置，候选也没有盘前错杀到让我必须换血，今天不为买满去乱动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6323,7 +6377,7 @@
    "action": "SELL",
    "sym": "002428",
    "reason": "锗这条线给了我三重顺风却还亏5个点，价格不确认就是错，先砍掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6333,7 +6387,7 @@
    "action": "BUY",
    "sym": "300394",
    "reason": "AI光通信仍是算力链里弹性最硬的载体，盘前没爆拉，趋势修复后我愿意把仓位挪到更强的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6343,7 +6397,7 @@
    "action": "SELL",
    "sym": "000603",
    "reason": "白银线从性感题材变成拥挤交易，盛达资源已亏到-6.4%贴近机械止损，盘口没有新增资金承接我先撤掉最弱一环。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

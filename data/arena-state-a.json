@@ -6285,8 +6285,68 @@
    "reason": "盘前候选全是平开，没看到资金抢跑和情绪定方向，先守住现有主题仓位，不在静水里追新票",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 303,
+   "fill_date": "2026-08-14",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓都是我愿意长期拥有的生意，今天候选里没有明显好到值得卖掉现有宽护城河资产去换的便宜货。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 304,
+   "fill_date": "2026-08-14",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的几家公司我都看得懂，商业模式和文化也都过关，今天候选里没有让我愿意为了换仓去动它们的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 305,
+   "fill_date": "2026-08-14",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在真瓶颈位置，候选也没有盘前错杀到让我必须换血，今天不为买满去乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 306,
+   "fill_date": "2026-08-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002428",
+   "reason": "锗这条线给了我三重顺风却还亏5个点，价格不确认就是错，先砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 307,
+   "fill_date": "2026-08-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300394",
+   "reason": "AI光通信仍是算力链里弹性最硬的载体，盘前没爆拉，趋势修复后我愿意把仓位挪到更强的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 308,
+   "fill_date": "2026-08-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "000603",
+   "reason": "白银线从性感题材变成拥挤交易，盛达资源已亏到-6.4%贴近机械止损，盘口没有新增资金承接我先撤掉最弱一环。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 303,
+ "next_order_id": 309,
  "splits": []
 }

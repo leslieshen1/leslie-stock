@@ -3,7 +3,7 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 60738.0,
+  "druckenmiller": 48587.0,
   "sentiment": 908768.0
  },
  "positions": [
@@ -204,13 +204,6 @@
    "entry_date": "2026-08-11"
   },
   {
-   "master": "druckenmiller",
-   "sym": "002371",
-   "shares": 100,
-   "entry": 760.0,
-   "entry_date": "2026-08-12"
-  },
-  {
    "master": "sentiment",
    "sym": "000099",
    "shares": 11300,
@@ -223,6 +216,13 @@
    "shares": 300,
    "entry": 267.71,
    "entry_date": "2026-08-14"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "000977",
+   "shares": 1100,
+   "entry": 80.68,
+   "entry_date": "2026-08-17"
   }
  ],
  "nav": [
@@ -1125,6 +1125,31 @@
    "master": "sentiment",
    "date": "2026-08-14",
    "nav": 1068098.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-17",
+   "nav": 1061707.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-17",
+   "nav": 1069332.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-17",
+   "nav": 863752.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-17",
+   "nav": 807741.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-17",
+   "nav": 1070245.0
   }
  ],
  "trades": [
@@ -3316,6 +3341,26 @@
    "shares": 4700,
    "price": 32.09,
    "reason": "白银线从性感题材变成拥挤交易，盛达资源已亏到-6.4%贴近机械止损，盘口没有新增资金承接我先撤掉最弱一环。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-17",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002371",
+   "shares": 100,
+   "price": 765.97,
+   "reason": "北方华创没有按半导体设备国产替代这条顺风跑出应有弹性，小亏但相对强度不够，错了就快砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-17",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "000977",
+   "shares": 1100,
+   "price": 80.68,
+   "reason": "AI算力服务器仍是流动性最愿意给弹性的主线，浪潮今天小幅低开不是爆拉接棒，是把仓位换到更顺风、更高弹性的载体上。",
    "src": "ai"
   }
  ],
@@ -6407,7 +6452,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的八门生意都还在能力圈和合理价格内，今天候选里没有一个便宜到值得我卖掉好公司去换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6417,7 +6462,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看得懂，也都还本分，今天没有看到非换不可的更好机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6427,7 +6472,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这十个还都在真瓶颈位置，候选里中国稀土已经顶到涨停我不接最后一棒，其他虽好但没有好到让我盘前强行砍掉现有卡位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6437,7 +6482,7 @@
    "action": "SELL",
    "sym": "002371",
    "reason": "北方华创没有按半导体设备国产替代这条顺风跑出应有弹性，小亏但相对强度不够，错了就快砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6447,7 +6492,7 @@
    "action": "BUY",
    "sym": "000977",
    "reason": "AI算力服务器仍是流动性最愿意给弹性的主线，浪潮今天小幅低开不是爆拉接棒，是把仓位换到更顺风、更高弹性的载体上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6457,7 +6502,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选清一色高开5%-11%，资金在抢但已偏竞价高潮，我不接最后一棒，先拿现金等分歧回落。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

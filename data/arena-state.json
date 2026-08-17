@@ -7602,9 +7602,59 @@
    "reason": "盘前指数只是温和偏多，候选里不是爆拉就是绿盘里翻红失败，资金面没有给我舒服的新入场点，宁可拿现金等回落。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 378,
+   "fill_date": "2026-08-17",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我已经持有八门看得懂、护城河较宽且价格大体合理的生意，今天没有任何一个候选价格便宜到值得我卖掉现有资产去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 379,
+   "fill_date": "2026-08-17",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看懂，也都能安心拿十年；今天没有便宜到让我换掉它们的更好机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 380,
+   "fill_date": "2026-08-17",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还踩在真瓶颈上，候选里今天能买的不是已被拉起来就是没有比手里这些更硬的卡脖子，我不为了把现金花掉去接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 381,
+   "fill_date": "2026-08-17",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前只是温和顺风、广度不够，我手里的铜、金、AI电力、核能和NVDA/WDC都还在主趋势里，没必要为了买满去追候选里的拥挤票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 382,
+   "fill_date": "2026-08-17",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ERII",
+   "reason": "这票不是盘前尖叫追高，而是腰斩后资金悄悄回补的冰点反转盘，今天小涨还能下手，但情绪反转会很快。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 378,
+ "next_order_id": 383,
  "notes": [
   {
    "date": "2026-06-12",

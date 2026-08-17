@@ -6399,8 +6399,68 @@
    "reason": "白银线从性感题材变成拥挤交易，盛达资源已亏到-6.4%贴近机械止损，盘口没有新增资金承接我先撤掉最弱一环。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 309,
+   "fill_date": "2026-08-17",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的八门生意都还在能力圈和合理价格内，今天候选里没有一个便宜到值得我卖掉好公司去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 310,
+   "fill_date": "2026-08-17",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看得懂，也都还本分，今天没有看到非换不可的更好机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 311,
+   "fill_date": "2026-08-17",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这十个还都在真瓶颈位置，候选里中国稀土已经顶到涨停我不接最后一棒，其他虽好但没有好到让我盘前强行砍掉现有卡位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 312,
+   "fill_date": "2026-08-17",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002371",
+   "reason": "北方华创没有按半导体设备国产替代这条顺风跑出应有弹性，小亏但相对强度不够，错了就快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 313,
+   "fill_date": "2026-08-17",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "000977",
+   "reason": "AI算力服务器仍是流动性最愿意给弹性的主线，浪潮今天小幅低开不是爆拉接棒，是把仓位换到更顺风、更高弹性的载体上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 314,
+   "fill_date": "2026-08-17",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选清一色高开5%-11%，资金在抢但已偏竞价高潮，我不接最后一棒，先拿现金等分歧回落。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 309,
+ "next_order_id": 315,
  "splits": []
 }

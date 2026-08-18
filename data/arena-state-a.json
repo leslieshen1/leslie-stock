@@ -6504,8 +6504,48 @@
    "reason": "候选清一色高开5%-11%，资金在抢但已偏竞价高潮，我不接最后一棒，先拿现金等分歧回落。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 315,
+   "fill_date": "2026-08-18",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "好生意都在手里，当前价位没有足够大的安全边际去换仓或加仓，宁可继续等更好的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 316,
+   "fill_date": "2026-08-18",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个持仓的生意和文化都还看得懂，候选也没有便宜到让我愿意换掉手里的好公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 317,
+   "fill_date": "2026-08-18",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前没有出现必须立刻换仓的真信号；手里这十个大多还是各自链条里的卡脖子位，今天不追、不砍、不换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 318,
+   "fill_date": "2026-08-18",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前全线0波动、看不到资金抢筹和情绪方向，死水盘不值得为了开仓而开仓，中信海直小亏但未见资金砸盘先观察。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 315,
+ "next_order_id": 319,
  "splits": []
 }

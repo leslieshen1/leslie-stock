@@ -3,7 +3,7 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 48587.0,
+  "druckenmiller": 59954.0,
   "sentiment": 908768.0
  },
  "positions": [
@@ -219,10 +219,10 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "000977",
-   "shares": 1100,
-   "entry": 80.68,
-   "entry_date": "2026-08-17"
+   "sym": "002371",
+   "shares": 100,
+   "entry": 777.0,
+   "entry_date": "2026-08-18"
   }
  ],
  "nav": [
@@ -1150,6 +1150,31 @@
    "master": "sentiment",
    "date": "2026-08-17",
    "nav": 1070245.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-18",
+   "nav": 1062064.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-18",
+   "nav": 1074122.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-18",
+   "nav": 855863.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-18",
+   "nav": 803799.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-18",
+   "nav": 1066742.0
   }
  ],
  "trades": [
@@ -3362,6 +3387,26 @@
    "price": 80.68,
    "reason": "AI算力服务器仍是流动性最愿意给弹性的主线，浪潮今天小幅低开不是爆拉接棒，是把仓位换到更顺风、更高弹性的载体上。",
    "src": "ai"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "000977",
+   "shares": 1100,
+   "price": 80.97,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002371",
+   "shares": 100,
+   "price": 777.0,
+   "reason": "出口管制+大基金三期+先进制程国产化,这是当下A股最强的政策顺风马。",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -6512,7 +6557,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "好生意都在手里，当前价位没有足够大的安全边际去换仓或加仓，宁可继续等更好的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6522,7 +6567,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个持仓的生意和文化都还看得懂，候选也没有便宜到让我愿意换掉手里的好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6532,7 +6577,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前没有出现必须立刻换仓的真信号；手里这十个大多还是各自链条里的卡脖子位，今天不追、不砍、不换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6542,7 +6587,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前全线0波动、看不到资金抢筹和情绪方向，死水盘不值得为了开仓而开仓，中信海直小亏但未见资金砸盘先观察。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

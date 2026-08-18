@@ -4,7 +4,7 @@
   "duan": 40172.16,
   "serenity": 15348.87,
   "druckenmiller": 44052.51,
-  "sentiment": 274454.4
+  "sentiment": 800803.61
  },
  "positions": [
   {
@@ -197,34 +197,6 @@
    "entry_date": "2026-08-10"
   },
   {
-   "master": "sentiment",
-   "sym": "RIG",
-   "shares": 29639,
-   "entry": 5.72,
-   "entry_date": "2026-08-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "RBRK",
-   "shares": 1731,
-   "entry": 97.91,
-   "entry_date": "2026-08-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "CLB",
-   "shares": 13873,
-   "entry": 12.22,
-   "entry_date": "2026-08-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "HNRG",
-   "shares": 10676,
-   "entry": 15.88,
-   "entry_date": "2026-08-10"
-  },
-  {
    "master": "serenity",
    "sym": "LITE",
    "shares": 111,
@@ -251,6 +223,13 @@
    "shares": 102,
    "entry": 1063.25,
    "entry_date": "2026-08-14"
+  },
+  {
+   "master": "sentiment",
+   "sym": "ERII",
+   "shares": 20936,
+   "entry": 8.14,
+   "entry_date": "2026-08-17"
   }
  ],
  "nav": [
@@ -1378,6 +1357,31 @@
    "master": "sentiment",
    "date": "2026-08-14",
    "nav": 1135464.91
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-17",
+   "nav": 1005407.69
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-17",
+   "nav": 1004523.53
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-17",
+   "nav": 1025151.55
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-17",
+   "nav": 957558.11
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-17",
+   "nav": 1136160.08
   }
  ],
  "trades": [
@@ -4049,6 +4053,56 @@
    "shares": 102,
    "price": 1063.25,
    "reason": "AI 电力和电网资本开支是最顺的宏观大潮，GEV 盘前继续确认强势，我要把仓位压到最干净的趋势上。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "RIG",
+   "shares": 29639,
+   "price": 5.87,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.6%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "RBRK",
+   "shares": 1731,
+   "price": 101.02,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CLB",
+   "shares": 13873,
+   "price": 12.62,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "HNRG",
+   "shares": 10676,
+   "price": 16.19,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "ERII",
+   "shares": 20936,
+   "price": 8.14,
+   "reason": "这票不是盘前尖叫追高，而是腰斩后资金悄悄回补的冰点反转盘，今天小涨还能下手，但情绪反转会很快。",
    "src": "ai"
   }
  ],
@@ -7610,7 +7664,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我已经持有八门看得懂、护城河较宽且价格大体合理的生意，今天没有任何一个候选价格便宜到值得我卖掉现有资产去换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7620,7 +7674,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这四门生意我都看懂，也都能安心拿十年；今天没有便宜到让我换掉它们的更好机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7630,7 +7684,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还踩在真瓶颈上，候选里今天能买的不是已被拉起来就是没有比手里这些更硬的卡脖子，我不为了把现金花掉去接最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7640,7 +7694,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "纳指盘前只是温和顺风、广度不够，我手里的铜、金、AI电力、核能和NVDA/WDC都还在主趋势里，没必要为了买满去追候选里的拥挤票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7650,7 +7704,7 @@
    "action": "BUY",
    "sym": "ERII",
    "reason": "这票不是盘前尖叫追高，而是腰斩后资金悄悄回补的冰点反转盘，今天小涨还能下手，但情绪反转会很快。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

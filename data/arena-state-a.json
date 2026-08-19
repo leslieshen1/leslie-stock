@@ -3,8 +3,8 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 59954.0,
-  "sentiment": 908768.0
+  "druckenmiller": 231481.0,
+  "sentiment": 1063013.0
  },
  "positions": [
   {
@@ -155,13 +155,6 @@
    "entry_date": "2026-07-31"
   },
   {
-   "master": "druckenmiller",
-   "sym": "002396",
-   "shares": 3400,
-   "entry": 24.87,
-   "entry_date": "2026-08-03"
-  },
-  {
    "master": "serenity",
    "sym": "688008",
    "shares": 300,
@@ -204,25 +197,11 @@
    "entry_date": "2026-08-11"
   },
   {
-   "master": "sentiment",
-   "sym": "000099",
-   "shares": 11300,
-   "entry": 14.47,
-   "entry_date": "2026-08-12"
-  },
-  {
    "master": "druckenmiller",
    "sym": "300394",
    "shares": 300,
    "entry": 267.71,
    "entry_date": "2026-08-14"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002371",
-   "shares": 100,
-   "entry": 777.0,
-   "entry_date": "2026-08-18"
   }
  ],
  "nav": [
@@ -1175,6 +1154,31 @@
    "master": "sentiment",
    "date": "2026-08-18",
    "nav": 1066742.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-19",
+   "nav": 1067910.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-19",
+   "nav": 1082270.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-19",
+   "nav": 794771.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-19",
+   "nav": 765623.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-19",
+   "nav": 1063013.0
   }
  ],
  "trades": [
@@ -3406,6 +3410,36 @@
    "shares": 100,
    "price": 777.0,
    "reason": "出口管制+大基金三期+先进制程国产化,这是当下A股最强的政策顺风马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002396",
+   "shares": 3400,
+   "price": 29.48,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002371",
+   "shares": 100,
+   "price": 712.95,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000099",
+   "shares": 11300,
+   "price": 13.65,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.7%)",
    "src": "rule"
   }
  ],
@@ -6597,7 +6631,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河和现金流判断没有改变，价格也未到需要用好公司换另一家好公司的程度，今天不为交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6607,7 +6641,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看得懂，也都还算本分，今天没有便宜到让我换仓的机会，坐着不动就好。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6617,7 +6651,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位全是我框架里的真瓶颈，今天盘前没有错杀、也没有持仓基本面破位信号，我不为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6627,7 +6661,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前没有新的价格确认，现有仓位已站在AI、电力、黄金、半导体和核能这些顺风主线上，我不为凑仓位去追高。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6637,7 +6671,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前所有候选都没给出资金抢跑，既没爆拉也没出现明显预期差，死水里不追票，先守现金等情绪点火。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

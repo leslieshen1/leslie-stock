@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 15348.87,
-  "druckenmiller": 44052.51,
-  "sentiment": 800803.61
+  "serenity": 4.97,
+  "druckenmiller": 42182.59,
+  "sentiment": 125955.73
  },
  "positions": [
   {
@@ -155,13 +155,6 @@
    "entry_date": "2026-07-30"
   },
   {
-   "master": "serenity",
-   "sym": "CORZ",
-   "shares": 3562,
-   "entry": 22.83,
-   "entry_date": "2026-08-03"
-  },
-  {
    "master": "druckenmiller",
    "sym": "ETN",
    "shares": 242,
@@ -211,25 +204,60 @@
    "entry_date": "2026-08-12"
   },
   {
-   "master": "druckenmiller",
-   "sym": "WDC",
-   "shares": 213,
-   "entry": 508.8,
-   "entry_date": "2026-08-14"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "GEV",
-   "shares": 102,
-   "entry": 1063.25,
-   "entry_date": "2026-08-14"
-  },
-  {
    "master": "sentiment",
    "sym": "ERII",
    "shares": 20936,
    "entry": 8.14,
    "entry_date": "2026-08-17"
+  },
+  {
+   "master": "serenity",
+   "sym": "CORZ",
+   "shares": 4376,
+   "entry": 18.85,
+   "entry_date": "2026-08-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "AAOI",
+   "shares": 801,
+   "entry": 131.41,
+   "entry_date": "2026-08-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "AXON",
+   "shares": 169,
+   "entry": 619.85,
+   "entry_date": "2026-08-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "NUVB",
+   "shares": 24250,
+   "entry": 6.96,
+   "entry_date": "2026-08-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "TRGP",
+   "shares": 566,
+   "entry": 297.77,
+   "entry_date": "2026-08-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CRMD",
+   "shares": 20658,
+   "entry": 8.17,
+   "entry_date": "2026-08-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "PODD",
+   "shares": 1140,
+   "entry": 148.03,
+   "entry_date": "2026-08-18"
   }
  ],
  "nav": [
@@ -1382,6 +1410,31 @@
    "master": "sentiment",
    "date": "2026-08-17",
    "nav": 1136160.08
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-18",
+   "nav": 1001979.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-18",
+   "nav": 1003092.34
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-18",
+   "nav": 971030.69
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-18",
+   "nav": 916070.98
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-18",
+   "nav": 1125219.76
   }
  ],
  "trades": [
@@ -4104,6 +4157,106 @@
    "price": 8.14,
    "reason": "这票不是盘前尖叫追高，而是腰斩后资金悄悄回补的冰点反转盘，今天小涨还能下手，但情绪反转会很快。",
    "src": "ai"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "CORZ",
+   "shares": 3562,
+   "price": 18.85,
+   "reason": "破位 -17.4%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "CORZ",
+   "shares": 4376,
+   "price": 18.85,
+   "reason": "这就是明牌底下的真瓶颈——AI 算力卡在『可通电的机柜』上，而 CORZ 手里攥着已并网的兆瓦和长约，市场还在用矿工的估值给它。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "WDC",
+   "shares": 213,
+   "price": 496.16,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "GEV",
+   "shares": 102,
+   "price": 1004.53,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AAOI",
+   "shares": 801,
+   "price": 131.41,
+   "reason": "AI 后端网络的资本开支顺风还在，股价趋势也仍然强，属于他会继续骑的那类票。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AXON",
+   "shares": 169,
+   "price": 619.85,
+   "reason": "当前它就是市场愿意追的强马，趋势没坏前不和价格作对。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "NUVB",
+   "shares": 24250,
+   "price": 6.96,
+   "reason": "获批是实打实的预期差催化,资金和情绪在 launch 叙事这一段偏正向、还没到过热,顺势但随时可能反转。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "TRGP",
+   "shares": 566,
+   "price": 297.77,
+   "reason": "股价创历史新高、机构和散户都在回补中游,资金在进、动能在,但已经不便宜,我顺着拿但盯紧拥挤度。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CRMD",
+   "shares": 20658,
+   "price": 8.17,
+   "reason": "DefenCath 放量节奏喂养着小盘生物科技的资金回流,情绪在中段偏热但还没到拥挤顶。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "PODD",
+   "shares": 1140,
+   "price": 148.03,
+   "reason": "机构底仓、成长型多头扎堆,盘口是典型的优质医疗成长共识股,情绪偏暖但谈不上冰点也没到疯狂逼空。",
+   "src": "rule"
   }
  ],
  "orders": [

@@ -6589,8 +6589,58 @@
    "reason": "盘前全线0波动、看不到资金抢筹和情绪方向，死水盘不值得为了开仓而开仓，中信海直小亏但未见资金砸盘先观察。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 319,
+   "fill_date": "2026-08-19",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些生意的护城河和现金流判断没有改变，价格也未到需要用好公司换另一家好公司的程度，今天不为交易而交易。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 320,
+   "fill_date": "2026-08-19",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看得懂，也都还算本分，今天没有便宜到让我换仓的机会，坐着不动就好。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 321,
+   "fill_date": "2026-08-19",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位全是我框架里的真瓶颈，今天盘前没有错杀、也没有持仓基本面破位信号，我不为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 322,
+   "fill_date": "2026-08-19",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前没有新的价格确认，现有仓位已站在AI、电力、黄金、半导体和核能这些顺风主线上，我不为凑仓位去追高。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 323,
+   "fill_date": "2026-08-19",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前所有候选都没给出资金抢跑，既没爆拉也没出现明显预期差，死水里不追票，先守现金等情绪点火。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 319,
+ "next_order_id": 324,
  "splits": []
 }

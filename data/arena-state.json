@@ -7859,9 +7859,109 @@
    "reason": "这票不是盘前尖叫追高，而是腰斩后资金悄悄回补的冰点反转盘，今天小涨还能下手，但情绪反转会很快。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 383,
+   "fill_date": "2026-08-19",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "COST 这门生意我看了二十年也挑不出毛病，本分、稳定、定价权都在，不必为今天的盘面折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 384,
+   "fill_date": "2026-08-19",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "TSM 是别人替它养研发和客户的好生意，护城河深，今天也没必要因为一点盘前波动去动它。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 385,
+   "fill_date": "2026-08-19",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "VRSN 这种几乎不用操心还能持续涨价的生意太少了，价格不是今天决定去留的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 386,
+   "fill_date": "2026-08-19",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "AAPL 的生态和文化我看得懂，还是那句话：好生意就拿着，不为了追别的票去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 387,
+   "fill_date": "2026-08-19",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "CORZ",
+   "reason": "CORZ有瓶颈味，但更像算力配套层，我把这格腾给更纯的AI光互联上游卡点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 388,
+   "fill_date": "2026-08-19",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "GLW",
+   "reason": "GLW卡的是AI数据中心光互联的玻璃/光纤预制棒，hyperscaler capex一开就是每台机柜都要分它一块，今天回撤给了我更好的切口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 389,
+   "fill_date": "2026-08-19",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "LEU",
+   "reason": "核能大方向没变，但它最近明显跑输盘面，今早又不强，我先砍掉这匹失速的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 390,
+   "fill_date": "2026-08-19",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "LRCX",
+   "reason": "AI资本开支这条主线还在，LRCX是更直接、更高弹性的工具链表达，昨天下杀后盘前未被追高，赔率更顺流动性。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 391,
+   "fill_date": "2026-08-19",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "ERII",
+   "reason": "这是冰点反弹票，但今天更强的钱流在软件/AI主线，先腾出仓位给更明确的资金流。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 392,
+   "fill_date": "2026-08-19",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CLBT",
+   "reason": "成长软件里资金在进，盘前回落不改顺风，属于中段承接而不是狂热顶，顺着聪明钱做一档轮动。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 383,
+ "next_order_id": 393,
  "notes": [
   {
    "date": "2026-06-12",

@@ -8047,9 +8047,69 @@
    "reason": "成长软件里资金在进，盘前回落不改顺风，属于中段承接而不是狂热顶，顺着聪明钱做一档轮动。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 393,
+   "fill_date": "2026-08-20",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓大多仍是我看得懂、护城河宽、能长期复利的生意；今天盘前这点波动不足以让我用企业主的眼光改变判断。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 394,
+   "fill_date": "2026-08-20",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看懂了，文化也过关，今天盘前这点波动不改变十年判断，没必要为了热闹换来换去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 395,
+   "fill_date": "2026-08-20",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前指数发冷不是卖出真瓶颈的理由；我手里这十个都是下游量产洪流会持续吃 BOM 的卡口，今天不为了换仓去追候选里的明牌波动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 396,
+   "fill_date": "2026-08-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "AAOI",
+   "reason": "这笔后端光通信没有按预期成为最强载体，亏损逼近纪律线，流动性转冷时我不等机器止损，先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 397,
+   "fill_date": "2026-08-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "LEU",
+   "reason": "大盘盘前一片红它还能翻绿，核燃料禁俄和核复兴这条顺风最硬，LEU是今天更强、更干净的高弹性表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 398,
+   "fill_date": "2026-08-20",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前四大指数一起转弱，候选里不是昨日爆拉后回吐就是加密/矿股拥挤延续，我不在资金开始犹豫时去接最后一棒，先让现金当仓位。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 393,
+ "next_order_id": 399,
  "notes": [
   {
    "date": "2026-06-12",

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 4.97,
-  "druckenmiller": 42182.59,
-  "sentiment": 125955.73
+  "serenity": 52.67,
+  "druckenmiller": 39677.86,
+  "sentiment": 273182.36
  },
  "positions": [
   {
@@ -163,13 +163,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "LEU",
-   "shares": 570,
-   "entry": 189.24,
-   "entry_date": "2026-08-04"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "CEG",
    "shares": 413,
    "entry": 261.1,
@@ -195,27 +188,6 @@
    "shares": 111,
    "entry": 820.59,
    "entry_date": "2026-08-11"
-  },
-  {
-   "master": "sentiment",
-   "sym": "HPE",
-   "shares": 2863,
-   "entry": 58.79,
-   "entry_date": "2026-08-12"
-  },
-  {
-   "master": "sentiment",
-   "sym": "ERII",
-   "shares": 20936,
-   "entry": 8.14,
-   "entry_date": "2026-08-17"
-  },
-  {
-   "master": "serenity",
-   "sym": "CORZ",
-   "shares": 4376,
-   "entry": 18.85,
-   "entry_date": "2026-08-18"
   },
   {
    "master": "druckenmiller",
@@ -258,6 +230,27 @@
    "shares": 1140,
    "entry": 148.03,
    "entry_date": "2026-08-18"
+  },
+  {
+   "master": "serenity",
+   "sym": "GLW",
+   "shares": 537,
+   "entry": 152.46,
+   "entry_date": "2026-08-19"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "LRCX",
+   "shares": 349,
+   "entry": 307.17,
+   "entry_date": "2026-08-19"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CLBT",
+   "shares": 15168,
+   "entry": 11.24,
+   "entry_date": "2026-08-19"
   }
  ],
  "nav": [
@@ -1435,6 +1428,31 @@
    "master": "sentiment",
    "date": "2026-08-18",
    "nav": 1125219.76
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-19",
+   "nav": 1006912.22
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-19",
+   "nav": 1003759.63
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-19",
+   "nav": 966979.6
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-19",
+   "nav": 933763.48
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-19",
+   "nav": 1136606.18
   }
  ],
  "trades": [
@@ -4257,6 +4275,76 @@
    "price": 148.03,
    "reason": "机构底仓、成长型多头扎堆,盘口是典型的优质医疗成长共识股,情绪偏暖但谈不上冰点也没到疯狂逼空。",
    "src": "rule"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "CORZ",
+   "shares": 4376,
+   "price": 18.72,
+   "reason": "CORZ有瓶颈味，但更像算力配套层，我把这格腾给更纯的AI光互联上游卡点。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "GLW",
+   "shares": 537,
+   "price": 152.46,
+   "reason": "GLW卡的是AI数据中心光互联的玻璃/光纤预制棒，hyperscaler capex一开就是每台机柜都要分它一块，今天回撤给了我更好的切口。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "LEU",
+   "shares": 570,
+   "price": 183.68,
+   "reason": "核能大方向没变，但它最近明显跑输盘面，今早又不强，我先砍掉这匹失速的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "LRCX",
+   "shares": 349,
+   "price": 307.17,
+   "reason": "AI资本开支这条主线还在，LRCX是更直接、更高弹性的工具链表达，昨天下杀后盘前未被追高，赔率更顺流动性。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "HPE",
+   "shares": 2863,
+   "price": 53.13,
+   "reason": "-9.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "ERII",
+   "shares": 20936,
+   "price": 7.91,
+   "reason": "这是冰点反弹票，但今天更强的钱流在软件/AI主线，先腾出仓位给更明确的资金流。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-19",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CLBT",
+   "shares": 15168,
+   "price": 11.24,
+   "reason": "成长软件里资金在进，盘前回落不改顺风，属于中段承接而不是狂热顶，顺着聪明钱做一档轮动。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -7867,7 +7955,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "COST 这门生意我看了二十年也挑不出毛病，本分、稳定、定价权都在，不必为今天的盘面折腾。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7877,7 +7965,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "TSM 是别人替它养研发和客户的好生意，护城河深，今天也没必要因为一点盘前波动去动它。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7887,7 +7975,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "VRSN 这种几乎不用操心还能持续涨价的生意太少了，价格不是今天决定去留的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7897,7 +7985,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "AAPL 的生态和文化我看得懂，还是那句话：好生意就拿着，不为了追别的票去换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7907,7 +7995,7 @@
    "action": "SELL",
    "sym": "CORZ",
    "reason": "CORZ有瓶颈味，但更像算力配套层，我把这格腾给更纯的AI光互联上游卡点。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7917,7 +8005,7 @@
    "action": "BUY",
    "sym": "GLW",
    "reason": "GLW卡的是AI数据中心光互联的玻璃/光纤预制棒，hyperscaler capex一开就是每台机柜都要分它一块，今天回撤给了我更好的切口。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7927,7 +8015,7 @@
    "action": "SELL",
    "sym": "LEU",
    "reason": "核能大方向没变，但它最近明显跑输盘面，今早又不强，我先砍掉这匹失速的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7937,7 +8025,7 @@
    "action": "BUY",
    "sym": "LRCX",
    "reason": "AI资本开支这条主线还在，LRCX是更直接、更高弹性的工具链表达，昨天下杀后盘前未被追高，赔率更顺流动性。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7947,7 +8035,7 @@
    "action": "SELL",
    "sym": "ERII",
    "reason": "这是冰点反弹票，但今天更强的钱流在软件/AI主线，先腾出仓位给更明确的资金流。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7957,7 +8045,7 @@
    "action": "BUY",
    "sym": "CLBT",
    "reason": "成长软件里资金在进，盘前回落不改顺风，属于中段承接而不是狂热顶，顺着聪明钱做一档轮动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

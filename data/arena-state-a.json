@@ -3,7 +3,7 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 231481.0,
+  "druckenmiller": 71938.0,
   "sentiment": 1063013.0
  },
  "positions": [
@@ -202,6 +202,20 @@
    "shares": 300,
    "entry": 267.71,
    "entry_date": "2026-08-14"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300398",
+   "shares": 2500,
+   "entry": 35.37,
+   "entry_date": "2026-08-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 200,
+   "entry": 355.59,
+   "entry_date": "2026-08-20"
   }
  ],
  "nav": [
@@ -1178,6 +1192,31 @@
   {
    "master": "sentiment",
    "date": "2026-08-19",
+   "nav": 1063013.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-20",
+   "nav": 1066416.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-20",
+   "nav": 1091906.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-20",
+   "nav": 792080.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-20",
+   "nav": 770262.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-20",
    "nav": 1063013.0
   }
  ],
@@ -3441,6 +3480,26 @@
    "price": 13.65,
    "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.7%)",
    "src": "rule"
+  },
+  {
+   "date": "2026-08-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300398",
+   "shares": 2500,
+   "price": 35.37,
+   "reason": "飞凯材料本周已经跑成板块里的强马，今天没爆拉，顺着资金和趋势先上车。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 200,
+   "price": 355.59,
+   "reason": "中科飞测是国产替代里最顺流动性的半导体设备载体，订单动量还在，赔率不差。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -6681,7 +6740,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个都是我看得懂的好生意，手里四个仓位也都不差，今天没有看到足够好的替换，就先不折腾。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6691,7 +6750,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天盘前没有出现能让我把真瓶颈仓位换出去的东西，现有十只都还在不可替代卡位里，宁可继续拿着等下游量产洪流，不追不换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6701,7 +6760,7 @@
    "action": "BUY",
    "sym": "300398",
    "reason": "飞凯材料本周已经跑成板块里的强马，今天没爆拉，顺着资金和趋势先上车。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6711,7 +6770,7 @@
    "action": "BUY",
    "sym": "688361",
    "reason": "中科飞测是国产替代里最顺流动性的半导体设备载体，订单动量还在，赔率不差。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6721,7 +6780,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前全员零涨幅，没看到真钱进场和情绪点火，死水阶段先不赌开盘方向，等集合竞价给资金答案。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

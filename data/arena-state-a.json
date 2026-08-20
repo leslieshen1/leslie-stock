@@ -6673,8 +6673,58 @@
    "reason": "盘前所有候选都没给出资金抢跑，既没爆拉也没出现明显预期差，死水里不追票，先守现金等情绪点火。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 324,
+   "fill_date": "2026-08-20",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个都是我看得懂的好生意，手里四个仓位也都不差，今天没有看到足够好的替换，就先不折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 325,
+   "fill_date": "2026-08-20",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天盘前没有出现能让我把真瓶颈仓位换出去的东西，现有十只都还在不可替代卡位里，宁可继续拿着等下游量产洪流，不追不换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 326,
+   "fill_date": "2026-08-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300398",
+   "reason": "飞凯材料本周已经跑成板块里的强马，今天没爆拉，顺着资金和趋势先上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 327,
+   "fill_date": "2026-08-20",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688361",
+   "reason": "中科飞测是国产替代里最顺流动性的半导体设备载体，订单动量还在，赔率不差。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 328,
+   "fill_date": "2026-08-20",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前全员零涨幅，没看到真钱进场和情绪点火，死水阶段先不赌开盘方向，等集合竞价给资金答案。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 324,
+ "next_order_id": 329,
  "splits": []
 }

@@ -3,8 +3,8 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 71938.0,
-  "sentiment": 1063013.0
+  "druckenmiller": 76966.0,
+  "sentiment": 430691.0
  },
  "positions": [
   {
@@ -191,13 +191,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "002130",
-   "shares": 5200,
-   "entry": 17.07,
-   "entry_date": "2026-08-11"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300394",
    "shares": 300,
    "entry": 267.71,
@@ -216,6 +209,41 @@
    "shares": 200,
    "entry": 355.59,
    "entry_date": "2026-08-20"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "600183",
+   "shares": 600,
+   "entry": 132.8,
+   "entry_date": "2026-08-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000099",
+   "shares": 11600,
+   "entry": 13.73,
+   "entry_date": "2026-08-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000603",
+   "shares": 4300,
+   "entry": 36.61,
+   "entry_date": "2026-08-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000034",
+   "shares": 6700,
+   "entry": 23.71,
+   "entry_date": "2026-08-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000534",
+   "shares": 5800,
+   "entry": 27.03,
+   "entry_date": "2026-08-21"
   }
  ],
  "nav": [
@@ -1217,6 +1245,31 @@
   {
    "master": "sentiment",
    "date": "2026-08-20",
+   "nav": 1063013.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-21",
+   "nav": 1048135.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-21",
+   "nav": 1074156.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-21",
+   "nav": 791880.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-21",
+   "nav": 771096.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-21",
    "nav": 1063013.0
   }
  ],
@@ -3499,6 +3552,66 @@
    "shares": 200,
    "price": 355.59,
    "reason": "中科飞测是国产替代里最顺流动性的半导体设备载体，订单动量还在，赔率不差。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-21",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002130",
+   "shares": 5200,
+   "price": 16.29,
+   "reason": "AI内部互连这条风没错，但沃尔没跑出我需要的弹性，弱马不恋战，砍掉换更强载体。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-21",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "600183",
+   "shares": 600,
+   "price": 132.8,
+   "reason": "AI硬件链仍是顺流动性与产业趋势的主风，生益科技是PCB/材料端更强的高弹性马，盘前没爆拉，可以上。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000099",
+   "shares": 11600,
+   "price": 13.73,
+   "reason": "集合竞价没爆拉，低空经济这条线一旦有资金回流最容易被抱团，先拿一仓等盘口确认。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000603",
+   "shares": 4300,
+   "price": 36.61,
+   "reason": "贵金属情绪仍是市场最有辨识度的资金避风口之一，今日未抢高，适合用一仓跟随资金预期。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000034",
+   "shares": 6700,
+   "price": 23.71,
+   "reason": "AI算力+华为标签散户认知强、资金活跃，平开不算追最后一棒，拿一仓博情绪点火。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000534",
+   "shares": 5800,
+   "price": 27.03,
+   "reason": "军工航发题材有事件驱动弹性，当前未被竞价抢到拥挤位，配一仓等催化资金。",
    "src": "ai"
   }
  ],
@@ -6790,7 +6903,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的几家公司我都看得懂，生意和文化都过关，今天候选也没有便宜到让我必须换掉现有持仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6800,7 +6913,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位里都还是我认的真瓶颈，候选今天也没有给出必须腾仓去追的错杀窗口，我宁可让现金趴着等下一次被砸出来的卡脖子。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6810,7 +6923,7 @@
    "action": "SELL",
    "sym": "002130",
    "reason": "AI内部互连这条风没错，但沃尔没跑出我需要的弹性，弱马不恋战，砍掉换更强载体。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6820,7 +6933,7 @@
    "action": "BUY",
    "sym": "600183",
    "reason": "AI硬件链仍是顺流动性与产业趋势的主风，生益科技是PCB/材料端更强的高弹性马，盘前没爆拉，可以上。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6830,7 +6943,7 @@
    "action": "BUY",
    "sym": "000099",
    "reason": "集合竞价没爆拉，低空经济这条线一旦有资金回流最容易被抱团，先拿一仓等盘口确认。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6840,7 +6953,7 @@
    "action": "BUY",
    "sym": "000603",
    "reason": "贵金属情绪仍是市场最有辨识度的资金避风口之一，今日未抢高，适合用一仓跟随资金预期。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6850,7 +6963,7 @@
    "action": "BUY",
    "sym": "000034",
    "reason": "AI算力+华为标签散户认知强、资金活跃，平开不算追最后一棒，拿一仓博情绪点火。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6860,7 +6973,7 @@
    "action": "BUY",
    "sym": "000534",
    "reason": "军工航发题材有事件驱动弹性，当前未被竞价抢到拥挤位，配一仓等催化资金。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

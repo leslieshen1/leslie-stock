@@ -8152,9 +8152,39 @@
    "reason": "盘前四大指数一起转弱，候选里不是昨日爆拉后回吐就是加密/矿股拥挤延续，我不在资金开始犹豫时去接最后一棒，先让现金当仓位。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 399,
+   "fill_date": "2026-08-21",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "ETN",
+   "reason": "这票不是坏生意，但现在盘面奖励的是更纯的 AI 半导体弹性；我把相对落后的 ETN 让位给更顺流的主线",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 400,
+   "fill_date": "2026-08-21",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "TSM",
+   "reason": "AI 资本开支这条大潮还在往前冲，今天半导体领风向，TSM 是最干净、最有流动性的主表达",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 401,
+   "fill_date": "2026-08-21",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "EGO",
+   "reason": "黄金矿工链今天有真资金在追，盘口是顺风加速而不是死水，我顺着做EGO吃这一段情绪扩散，但这类拥挤热门反转会非常快，若开盘承接不住要小心被反杀。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 399,
+ "next_order_id": 402,
  "notes": [
   {
    "date": "2026-06-12",

@@ -6782,8 +6782,88 @@
    "reason": "盘前全员零涨幅，没看到真钱进场和情绪点火，死水阶段先不赌开盘方向，等集合竞价给资金答案。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 329,
+   "fill_date": "2026-08-21",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的几家公司我都看得懂，生意和文化都过关，今天候选也没有便宜到让我必须换掉现有持仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 330,
+   "fill_date": "2026-08-21",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位里都还是我认的真瓶颈，候选今天也没有给出必须腾仓去追的错杀窗口，我宁可让现金趴着等下一次被砸出来的卡脖子。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 331,
+   "fill_date": "2026-08-21",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002130",
+   "reason": "AI内部互连这条风没错，但沃尔没跑出我需要的弹性，弱马不恋战，砍掉换更强载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 332,
+   "fill_date": "2026-08-21",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "600183",
+   "reason": "AI硬件链仍是顺流动性与产业趋势的主风，生益科技是PCB/材料端更强的高弹性马，盘前没爆拉，可以上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 333,
+   "fill_date": "2026-08-21",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000099",
+   "reason": "集合竞价没爆拉，低空经济这条线一旦有资金回流最容易被抱团，先拿一仓等盘口确认。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 334,
+   "fill_date": "2026-08-21",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000603",
+   "reason": "贵金属情绪仍是市场最有辨识度的资金避风口之一，今日未抢高，适合用一仓跟随资金预期。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 335,
+   "fill_date": "2026-08-21",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000034",
+   "reason": "AI算力+华为标签散户认知强、资金活跃，平开不算追最后一棒，拿一仓博情绪点火。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 336,
+   "fill_date": "2026-08-21",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000534",
+   "reason": "军工航发题材有事件驱动弹性，当前未被竞价抢到拥挤位，配一仓等催化资金。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 329,
+ "next_order_id": 337,
  "splits": []
 }

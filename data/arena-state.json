@@ -8244,9 +8244,49 @@
    "reason": "黄金矿工链今天有真资金在追，盘口是顺风加速而不是死水，我顺着做EGO吃这一段情绪扩散，但这类拥挤热门反转会非常快，若开盘承接不住要小心被反杀。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 402,
+   "fill_date": "2026-08-24",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四家都是我看得懂的好生意，盘前这点波动不改商业本质，我不为了今天的情绪去换仓",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 403,
+   "fill_date": "2026-08-24",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前只是温和risk-off，AI、电力、铜、黄金这些顺流主线都还没转坏；我不追不砍，先让利润奔跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 404,
+   "fill_date": "2026-08-24",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "CLBT",
+   "reason": "纳指盘前转弱时成长软件最怕资金从偏热段瞬间抽走，CLBT盘口没有继续放量表态，我先把这仓让给更顺风的波动资金。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 405,
+   "fill_date": "2026-08-24",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "VIRT",
+   "reason": "指数盘前发冷、波动抬头，VIRT是典型乱市吸金筹码，资金逻辑比追那些已经爆拉的小盘题材更干净。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 402,
+ "next_order_id": 406,
  "notes": [
   {
    "date": "2026-06-12",

@@ -3,8 +3,8 @@
   "buffett": 55765.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 76966.0,
-  "sentiment": 430691.0
+  "druckenmiller": 141029.0,
+  "sentiment": 571805.0
  },
  "positions": [
   {
@@ -135,13 +135,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "002270",
-   "shares": 4500,
-   "entry": 19.56,
-   "entry_date": "2026-07-28"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "000975",
    "shares": 4000,
    "entry": 21.94,
@@ -204,20 +197,6 @@
    "entry_date": "2026-08-20"
   },
   {
-   "master": "druckenmiller",
-   "sym": "688361",
-   "shares": 200,
-   "entry": 355.59,
-   "entry_date": "2026-08-20"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "600183",
-   "shares": 600,
-   "entry": 132.8,
-   "entry_date": "2026-08-21"
-  },
-  {
    "master": "sentiment",
    "sym": "000099",
    "shares": 11600,
@@ -239,11 +218,18 @@
    "entry_date": "2026-08-21"
   },
   {
-   "master": "sentiment",
-   "sym": "000534",
-   "shares": 5800,
-   "entry": 27.03,
-   "entry_date": "2026-08-21"
+   "master": "druckenmiller",
+   "sym": "601138",
+   "shares": 1400,
+   "entry": 60.4,
+   "entry_date": "2026-08-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688160",
+   "shares": 900,
+   "entry": 94.33,
+   "entry_date": "2026-08-24"
   }
  ],
  "nav": [
@@ -1271,6 +1257,31 @@
    "master": "sentiment",
    "date": "2026-08-21",
    "nav": 1063013.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-24",
+   "nav": 1055461.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-24",
+   "nav": 1087372.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-24",
+   "nav": 768651.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-24",
+   "nav": 763625.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-24",
+   "nav": 1056040.0
   }
  ],
  "trades": [
@@ -3613,6 +3624,66 @@
    "price": 27.03,
    "reason": "军工航发题材有事件驱动弹性，当前未被竞价抢到拥挤位，配一仓等催化资金。",
    "src": "ai"
+  },
+  {
+   "date": "2026-08-24",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688361",
+   "shares": 200,
+   "price": 349.5,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-24",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002270",
+   "shares": 4500,
+   "price": 19.52,
+   "reason": "华明装备还在顺风里，但不是今天最顺流动性的龙头，我先把仓位让给更直接的AI主线表达。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-24",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "600183",
+   "shares": 600,
+   "price": 126.3,
+   "reason": "生益科技不是坏票，但相对AI服务器和高弹性主线，当前这把仓位不够锋利，先换掉。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "601138",
+   "shares": 1400,
+   "price": 60.4,
+   "reason": "工业富联是AI服务器这条主线最直接的载体之一，盘前仍在风口里，我要骑龙头。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688160",
+   "shares": 900,
+   "price": 94.33,
+   "reason": "步科股份盘前几乎不回撤，强趋势没坏，这是机器人/自动化里更高弹性的表达。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-24",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000534",
+   "shares": 5800,
+   "price": 24.33,
+   "reason": "-10.0% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -6983,7 +7054,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里这八家都是看得懂的好生意，护城河都还在，没有理由为了动作而动作。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -6993,7 +7064,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "四个仓位都是我看得懂的顶级好生意,茅台福耀迈瑞在赚钱、五粮液微亏我一点不慌,好公司拿住就行,不折腾。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7003,7 +7074,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天不为买满而换仓，手里十个位置仍然是我认的真瓶颈，盘前候选没有便宜到值得我砍掉现有卡位。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7013,7 +7084,7 @@
    "action": "SELL",
    "sym": "002270",
    "reason": "华明装备还在顺风里，但不是今天最顺流动性的龙头，我先把仓位让给更直接的AI主线表达。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7023,7 +7094,7 @@
    "action": "SELL",
    "sym": "600183",
    "reason": "生益科技不是坏票，但相对AI服务器和高弹性主线，当前这把仓位不够锋利，先换掉。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7033,7 +7104,7 @@
    "action": "BUY",
    "sym": "601138",
    "reason": "工业富联是AI服务器这条主线最直接的载体之一，盘前仍在风口里，我要骑龙头。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7043,7 +7114,7 @@
    "action": "BUY",
    "sym": "688160",
    "reason": "步科股份盘前几乎不回撤，强趋势没坏，这是机器人/自动化里更高弹性的表达。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7053,7 +7124,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选票盘前集体高开，资金情绪偏热但多数已被抢价，我不接最后一棒，先拿住现有四个资金抱团口等分歧。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

@@ -7126,8 +7126,78 @@
    "reason": "候选票盘前集体高开，资金情绪偏热但多数已被抢价，我不接最后一棒，先拿住现有四个资金抱团口等分歧。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 345,
+   "fill_date": "2026-08-25",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这四个都是我愿意长期拿的好生意，今天盘前没有看到足够诱人的价格，也不值得为买满去折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 346,
+   "fill_date": "2026-08-25",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天候选全是平开，没给我新的安全入场点；我手里这些真卡脖子仓位继续抱着，不为买满去追价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 347,
+   "fill_date": "2026-08-25",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688808",
+   "reason": "AI光模块叠加半导体国产替代，属于顺流资金最愿意抬的卖铲子，盘前未爆拉，赔率还在。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 348,
+   "fill_date": "2026-08-25",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "中信海直这条低空线若没继续点火就容易来回磨，我先守着等资金表态，不碰死水。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 349,
+   "fill_date": "2026-08-25",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盛达资源的白银情绪还热，但位置已经不便宜，我先让利润跑，不在盘前追拥挤。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 350,
+   "fill_date": "2026-08-25",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "神州数码的AI/华为线还在活跃名单里，先拿着看盘中承接，别在情绪没确认时乱换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 351,
+   "fill_date": "2026-08-25",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000534",
+   "reason": "万泽股份军工/航发/国产替代的情绪溢价还在，盘前没被爆拉，我愿意先试一笔资金。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 345,
+ "next_order_id": 352,
  "splits": []
 }

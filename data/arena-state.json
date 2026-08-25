@@ -8329,9 +8329,89 @@
    "reason": "指数盘前发冷、波动抬头，VIRT是典型乱市吸金筹码，资金逻辑比追那些已经爆拉的小盘题材更干净。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 406,
+   "fill_date": "2026-08-25",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里这八门生意都有我能理解的护城河，今天没有哪一个坏到该卖，也没有哪一个候选便宜到值得我腾仓去追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 407,
+   "fill_date": "2026-08-25",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都看懂了，商业模式和文化都过关，今天盘前这点波动不构成让我换来换去的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 408,
+   "fill_date": "2026-08-25",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "SITM",
+   "reason": "它还是真瓶颈，但已经从错杀卡点变成市场明牌且今早又高开，我先把这笔拥挤仓位换给更直接的AI电力瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 409,
+   "fill_date": "2026-08-25",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "CORZ",
+   "reason": "AI 算力洪流缺的不是故事而是已并网的机柜和长约电力，CORZ 就卡在这条不可替代的位置上，属于高波动主题票里的方向性多头。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 410,
+   "fill_date": "2026-08-25",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前风险偏好回来了，但我现有仓位已经站在AI、电力、铜、金这些大趋势上，今天没有足够好的新赔率让我去追，也不想为买满去乱换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 411,
+   "fill_date": "2026-08-25",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "TRGP",
+   "reason": "中游能源现在不是盘面资金最爱，今天风险偏好回到成长和高弹性，我先把这份钝仓腾出来，不跟不在流里的钱死耗。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 412,
+   "fill_date": "2026-08-25",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CLBT",
+   "reason": "成长软件里资金在进、机构在加仓，盘面又是纳指领涨，我顺着更顺的钱去接，但不追最后一棒，情绪一旦反转会非常快。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 413,
+   "fill_date": "2026-08-25",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "其余仓位先拿着，等盘中确认资金是继续扩散还是快速退潮。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 406,
+ "next_order_id": 414,
  "notes": [
   {
    "date": "2026-06-12",

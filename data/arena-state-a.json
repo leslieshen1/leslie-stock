@@ -7241,8 +7241,88 @@
    "reason": "万泽股份军工/航发/国产替代的情绪溢价还在，盘前没被爆拉，我愿意先试一笔资金。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 352,
+   "fill_date": "2026-08-26",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓大多是我能理解、护城河清楚、现金流可预期的生意，今天没有看到足够大的价格错误值得换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 353,
+   "fill_date": "2026-08-26",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意都看得懂也够好，今天候选没有便宜到值得我换掉更确定的东西。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 354,
+   "fill_date": "2026-08-26",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还在真瓶颈链条里，候选虽平开但我没有空仓位，不为换手而换手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 355,
+   "fill_date": "2026-08-26",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "000960",
+   "reason": "锡这笔没有跟上最强流动性，亏到接近纪律线还不跑就是自欺，砍掉换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 356,
+   "fill_date": "2026-08-26",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "001389",
+   "reason": "AI服务器PCB是这轮硬件链里弹性最直接的载体，盘前没被爆拉，我要买顺风里最猛的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 357,
+   "fill_date": "2026-08-26",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "002428",
+   "reason": "锗的供给管制叠加AI光通信需求，宏观瓶颈和价格动量同向，赔率仍偏不对称。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 358,
+   "fill_date": "2026-08-26",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "600183",
+   "reason": "AI硬件链资金还在，生益趋势重新转强且盘前没追高，适合补上核心PCB材料敞口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 359,
+   "fill_date": "2026-08-26",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "集合竞价一片0波动，看不到新增资金抢筹信号，死水盘不硬买，现有四仓也未出现情绪破位，先按兵不动。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 352,
+ "next_order_id": 360,
  "splits": []
 }

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 52.67,
+  "serenity": 1929.63,
   "druckenmiller": 24948.84,
-  "sentiment": 112821.7
+  "sentiment": 619426.23
  },
  "positions": [
   {
@@ -135,13 +135,6 @@
   },
   {
    "master": "serenity",
-   "sym": "SITM",
-   "shares": 160,
-   "entry": 462.16,
-   "entry_date": "2026-07-29"
-  },
-  {
-   "master": "serenity",
    "sym": "ALM",
    "shares": 6775,
    "entry": 11.67,
@@ -190,34 +183,6 @@
    "entry_date": "2026-08-18"
   },
   {
-   "master": "sentiment",
-   "sym": "NUVB",
-   "shares": 24250,
-   "entry": 6.96,
-   "entry_date": "2026-08-18"
-  },
-  {
-   "master": "sentiment",
-   "sym": "TRGP",
-   "shares": 566,
-   "entry": 297.77,
-   "entry_date": "2026-08-18"
-  },
-  {
-   "master": "sentiment",
-   "sym": "CRMD",
-   "shares": 20658,
-   "entry": 8.17,
-   "entry_date": "2026-08-18"
-  },
-  {
-   "master": "sentiment",
-   "sym": "PODD",
-   "shares": 1140,
-   "entry": 148.03,
-   "entry_date": "2026-08-18"
-  },
-  {
    "master": "serenity",
    "sym": "GLW",
    "shares": 537,
@@ -258,6 +223,20 @@
    "shares": 2522,
    "entry": 66.29,
    "entry_date": "2026-08-24"
+  },
+  {
+   "master": "serenity",
+   "sym": "CORZ",
+   "shares": 5168,
+   "entry": 18.03,
+   "entry_date": "2026-08-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CLBT",
+   "shares": 14869,
+   "entry": 11.29,
+   "entry_date": "2026-08-25"
   }
  ],
  "nav": [
@@ -1535,6 +1514,31 @@
    "master": "sentiment",
    "date": "2026-08-24",
    "nav": 1114770.88
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-25",
+   "nav": 1028074.74
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-25",
+   "nav": 1019175.72
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-25",
+   "nav": 980964.18
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-25",
+   "nav": 971731.25
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-25",
+   "nav": 1119189.24
   }
  ],
  "trades": [
@@ -4496,6 +4500,76 @@
    "shares": 2522,
    "price": 66.29,
    "reason": "指数盘前发冷、波动抬头，VIRT是典型乱市吸金筹码，资金逻辑比追那些已经爆拉的小盘题材更干净。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-25",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "SITM",
+   "shares": 160,
+   "price": 594.1,
+   "reason": "它还是真瓶颈，但已经从错杀卡点变成市场明牌且今早又高开，我先把这笔拥挤仓位换给更直接的AI电力瓶颈。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "CORZ",
+   "shares": 5168,
+   "price": 18.03,
+   "reason": "AI 算力洪流缺的不是故事而是已并网的机柜和长约电力，CORZ 就卡在这条不可替代的位置上，属于高波动主题票里的方向性多头。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-08-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "NUVB",
+   "shares": 24250,
+   "price": 7.1,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "TRGP",
+   "shares": 566,
+   "price": 286.91,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-3.6%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CRMD",
+   "shares": 20658,
+   "price": 8.56,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+4.8%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "PODD",
+   "shares": 1140,
+   "price": 143.05,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-3.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CLBT",
+   "shares": 14869,
+   "price": 11.29,
+   "reason": "成长软件里资金在进、机构在加仓，盘面又是纳指领涨，我顺着更顺的钱去接，但不追最后一棒，情绪一旦反转会非常快。",
    "src": "ai"
   }
  ],
@@ -8337,7 +8411,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里这八门生意都有我能理解的护城河，今天没有哪一个坏到该卖，也没有哪一个候选便宜到值得我腾仓去追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8347,7 +8421,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个生意我都看懂了，商业模式和文化都过关，今天盘前这点波动不构成让我换来换去的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8357,7 +8431,7 @@
    "action": "SELL",
    "sym": "SITM",
    "reason": "它还是真瓶颈，但已经从错杀卡点变成市场明牌且今早又高开，我先把这笔拥挤仓位换给更直接的AI电力瓶颈。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8367,7 +8441,7 @@
    "action": "BUY",
    "sym": "CORZ",
    "reason": "AI 算力洪流缺的不是故事而是已并网的机柜和长约电力，CORZ 就卡在这条不可替代的位置上，属于高波动主题票里的方向性多头。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8377,7 +8451,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前风险偏好回来了，但我现有仓位已经站在AI、电力、铜、金这些大趋势上，今天没有足够好的新赔率让我去追，也不想为买满去乱换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8387,8 +8461,8 @@
    "action": "SELL",
    "sym": "TRGP",
    "reason": "中游能源现在不是盘面资金最爱，今天风险偏好回到成长和高弹性，我先把这份钝仓腾出来，不跟不在流里的钱死耗。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 412,
@@ -8397,7 +8471,7 @@
    "action": "BUY",
    "sym": "CLBT",
    "reason": "成长软件里资金在进、机构在加仓，盘面又是纳指领涨，我顺着更顺的钱去接，但不追最后一棒，情绪一旦反转会非常快。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8407,7 +8481,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "其余仓位先拿着，等盘中确认资金是继续扩散还是快速退潮。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

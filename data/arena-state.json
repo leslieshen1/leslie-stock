@@ -8483,9 +8483,49 @@
    "reason": "其余仓位先拿着，等盘中确认资金是继续扩散还是快速退潮。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 414,
+   "fill_date": "2026-08-26",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓都是我愿意长期拥有的好生意，而候选里虽有好公司，却没有便宜到值得我卖掉手里的收费站去换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 415,
+   "fill_date": "2026-08-26",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的四门生意我都看得懂，也都还是十年好生意，今天盘前这点波动不构成让我换来换去的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 416,
+   "fill_date": "2026-08-26",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前只是轻微风险偏弱，但我的仓位基本都站在AI、电力、铜、黄金这些大趋势里，主线没变就不和流动性作对，先按兵不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 417,
+   "fill_date": "2026-08-26",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CLFD",
+   "reason": "这是冰点回暖里最像聪明钱试仓的位置，资金从死水里开始捞筹码但还没到全民狂热；我只顺早期反转，不追最热那一棒，盘面若续不上情绪会瞬间回吐。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 414,
+ "next_order_id": 418,
  "notes": [
   {
    "date": "2026-06-12",

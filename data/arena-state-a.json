@@ -7400,8 +7400,68 @@
    "reason": "集合竞价一片0波动，看不到新增资金抢筹信号，死水盘不硬买，现有四仓也未出现情绪破位，先按兵不动。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 360,
+   "fill_date": "2026-08-27",
+   "master": "buffett",
+   "action": "SELL",
+   "sym": "000895",
+   "reason": "双汇是好现金牛，但护城河不如我手里更强的生意；我宁愿把资金挪向今天更便宜的品牌龙头。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 361,
+   "fill_date": "2026-08-27",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "000651",
+   "reason": "格力今天回落后安全边际更厚，品牌和渠道护城河仍在，价格比生意更有吸引力。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 362,
+   "fill_date": "2026-08-27",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几门生意我都看得懂，今天盘前没看到足够好的错价，不为凑仓位去折腾。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 363,
+   "fill_date": "2026-08-27",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现有仓位已经覆盖黄金、铀、AI硬件等顺风主线，今天候选虽然强但多数已先涨，不追最后一棒，先守住已有趋势仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 364,
+   "fill_date": "2026-08-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "688183",
+   "reason": "AIPC+PCB还是资金主线，今天高开11.3%但还没到极端拥挤，属于聪明钱仍在进的强趋势票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 365,
+   "fill_date": "2026-08-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "688449",
+   "reason": "AI存储叙事偏预期差，盘前+8.4%还没被打满，像是情绪继续发酵而不是最后一棒。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 360,
+ "next_order_id": 366,
  "splits": []
 }

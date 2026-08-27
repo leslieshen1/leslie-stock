@@ -8523,9 +8523,79 @@
    "reason": "这是冰点回暖里最像聪明钱试仓的位置，资金从死水里开始捞筹码但还没到全民狂热；我只顺早期反转，不追最热那一棒，盘面若续不上情绪会瞬间回吐。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 418,
+   "fill_date": "2026-08-27",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "HMY",
+   "reason": "盘前重挫近9%，金矿今天明显逆风，趋势像是开始转弱；按我的纪律，错了先砍，不跟流动性对着干。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 419,
+   "fill_date": "2026-08-27",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GEV",
+   "reason": "AI算力要电和电网，这条大趋势还在加速；GEV盘前继续走强，是更干净、更高弹性的顺风载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 420,
+   "fill_date": "2026-08-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "贵金属资金还没完全退潮，但已经偏拥挤；先拿着，不追不砍，盯盘中是否出现情绪反转",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 421,
+   "fill_date": "2026-08-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "波动一来它就有钱，属于组合里的情绪对冲筹码，今天先留着吃尾部波动",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 422,
+   "fill_date": "2026-08-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "成长软件里仍有机构在加，资金没走坏，继续拿住但警惕开盘后冲高回落",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 423,
+   "fill_date": "2026-08-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "INIO",
+   "reason": "盘前顺风、AI电力接力AI算力，钱在往这个新共识里进，情绪还没到全民狂热，适合先上仓",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 424,
+   "fill_date": "2026-08-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "SIMO",
+   "reason": "存储链仍是资金追逐方向，盘面有延续但还没到最拥挤的最后一棒，顺势做一笔",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 418,
+ "next_order_id": 425,
  "notes": [
   {
    "date": "2026-06-12",

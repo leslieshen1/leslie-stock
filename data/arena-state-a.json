@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 53665.0,
   "druckenmiller": 74271.0,
-  "sentiment": 417245.0
+  "sentiment": 136273.0
  },
  "positions": [
   {
@@ -190,27 +190,6 @@
    "entry_date": "2026-08-20"
   },
   {
-   "master": "sentiment",
-   "sym": "000099",
-   "shares": 11600,
-   "entry": 13.73,
-   "entry_date": "2026-08-21"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000603",
-   "shares": 4300,
-   "entry": 36.61,
-   "entry_date": "2026-08-21"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000034",
-   "shares": 6700,
-   "entry": 23.71,
-   "entry_date": "2026-08-21"
-  },
-  {
    "master": "druckenmiller",
    "sym": "601138",
    "shares": 1400,
@@ -244,6 +223,41 @@
    "shares": 600,
    "entry": 130.01,
    "entry_date": "2026-08-26"
+  },
+  {
+   "master": "sentiment",
+   "sym": "920179",
+   "shares": 2800,
+   "entry": 55.0,
+   "entry_date": "2026-08-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300401",
+   "shares": 10300,
+   "entry": 15.2,
+   "entry_date": "2026-08-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300037",
+   "shares": 2400,
+   "entry": 65.39,
+   "entry_date": "2026-08-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688627",
+   "shares": 300,
+   "entry": 513.5,
+   "entry_date": "2026-08-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300033",
+   "shares": 600,
+   "entry": 233.22,
+   "entry_date": "2026-08-28"
   }
  ],
  "nav": [
@@ -1346,6 +1360,31 @@
    "master": "sentiment",
    "date": "2026-08-26",
    "nav": 1046233.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-08-28",
+   "nav": 1047029.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-08-28",
+   "nav": 1090900.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-08-28",
+   "nav": 808596.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-08-28",
+   "nav": 791103.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-08-28",
+   "nav": 1050071.0
   }
  ],
  "trades": [
@@ -3808,6 +3847,86 @@
    "price": 130.01,
    "reason": "AI硬件链资金还在，生益趋势重新转强且盘前没追高，适合补上核心PCB材料敞口。",
    "src": "ai"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000099",
+   "shares": 11600,
+   "price": 13.69,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000603",
+   "shares": 4300,
+   "price": 37.98,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.7%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000034",
+   "shares": 6700,
+   "price": 23.64,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "920179",
+   "shares": 2800,
+   "price": 55.0,
+   "reason": "半导体国产替代+光通信概念叠加,北交所小盘情绪偏热。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300401",
+   "shares": 10300,
+   "price": 15.2,
+   "reason": "维生素板块价格与情绪双冰点,涨价催化一来弹性大。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300037",
+   "shares": 2400,
+   "price": 65.39,
+   "reason": "特斯拉+液冷+半导体多题材叠加,资金关注度高。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688627",
+   "shares": 300,
+   "price": 513.5,
+   "reason": "HBM+存储芯片热门题材,百元股有资金追捧。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-08-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300033",
+   "shares": 600,
+   "price": 233.22,
+   "reason": "散户软件天生是情绪放大器,行情一热它就是高关注度的资金抱团口。",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -7408,8 +7527,8 @@
    "action": "SELL",
    "sym": "000895",
    "reason": "双汇是好现金牛，但护城河不如我手里更强的生意；我宁愿把资金挪向今天更便宜的品牌龙头。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-08-28 ≠ 下单日 2026-08-27"
   },
   {
    "id": 361,
@@ -7418,8 +7537,8 @@
    "action": "BUY",
    "sym": "000651",
    "reason": "格力今天回落后安全边际更厚，品牌和渠道护城河仍在，价格比生意更有吸引力。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-08-28 ≠ 下单日 2026-08-27"
   },
   {
    "id": 362,
@@ -7428,8 +7547,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几门生意我都看得懂，今天盘前没看到足够好的错价，不为凑仓位去折腾。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-08-28 ≠ 下单日 2026-08-27"
   },
   {
    "id": 363,
@@ -7438,8 +7557,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "现有仓位已经覆盖黄金、铀、AI硬件等顺风主线，今天候选虽然强但多数已先涨，不追最后一棒，先守住已有趋势仓位。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-08-28 ≠ 下单日 2026-08-27"
   },
   {
    "id": 364,
@@ -7448,8 +7567,8 @@
    "action": "BUY",
    "sym": "688183",
    "reason": "AIPC+PCB还是资金主线，今天高开11.3%但还没到极端拥挤，属于聪明钱仍在进的强趋势票。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-08-28 ≠ 下单日 2026-08-27"
   },
   {
    "id": 365,
@@ -7458,8 +7577,8 @@
    "action": "BUY",
    "sym": "688449",
    "reason": "AI存储叙事偏预期差，盘前+8.4%还没被打满，像是情绪继续发酵而不是最后一棒。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-08-28 ≠ 下单日 2026-08-27"
   }
  ],
  "next_order_id": 366,

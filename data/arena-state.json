@@ -8593,9 +8593,159 @@
    "reason": "存储链仍是资金追逐方向，盘面有延续但还没到最拥挤的最后一棒，顺势做一笔",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 425,
+   "fill_date": "2026-08-28",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里的都是能看十年的好生意，今天没有任何一只候选在这个价位比它们更值得我用现金去换掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 426,
+   "fill_date": "2026-08-28",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几家都是我看得懂的十年好生意，今天没有哪一个值得让我为了追一点盘前波动去换仓，先按兵不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 427,
+   "fill_date": "2026-08-28",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天盘面还是在给真瓶颈溢价，但我手里这十个仓位都还在各自的卡脖子位上，没有哪个需要为涨了就下车，也没有哪个新候选值得让我去追最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 428,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "铜的宏观风还在，盘前也没破位，我不去和顺风资产作对。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 429,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "黄金大趋势没坏，今天这点回落不足以让我逆风砍仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 430,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "AI 算力要电的主线还在，盘前继续站在多头一侧。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 431,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这是流动性最敏感的 AI 核心载体，轻微回吐不构成趋势转折。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 432,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "趋势还活着，价格没给我明确出场信号，我先让它跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 433,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "AI capex 这条链没坏，盘前小跌我不当成反转。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 434,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "核复兴这条线仍是顺流，没必要在没出问题时自己打自己。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 435,
+   "fill_date": "2026-08-28",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "AI 资本开支的大浪还在，台积电还是最干净的主趋势载体之一。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 436,
+   "fill_date": "2026-08-28",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "黄金矿工仍有资金流，板块没死水，先拿着但盯紧拥挤后的快速反转",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 437,
+   "fill_date": "2026-08-28",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "市场一旦情绪翻脸它还是对冲筹码，先留着吃波动",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 438,
+   "fill_date": "2026-08-28",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "软件里资金还在，情绪偏热但未到崩点，继续跟随",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 439,
+   "fill_date": "2026-08-28",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "INIO",
+   "reason": "AI电力是新资金共识，盘面有机构加仓味道，没到全民狂热，给一笔仓位试水",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 425,
+ "next_order_id": 440,
  "notes": [
   {
    "date": "2026-06-12",

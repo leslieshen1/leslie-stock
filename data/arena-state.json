@@ -8743,9 +8743,49 @@
    "reason": "AI电力是新资金共识，盘面有机构加仓味道，没到全民狂热，给一笔仓位试水",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 440,
+   "fill_date": "2026-08-31",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "AXON",
+   "reason": "它不是我现在最核心的宏观表达，盘前又偏弱；在AI/电力/金属这条主风里，我先砍掉这个相对次要的持仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 441,
+   "fill_date": "2026-08-31",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "META",
+   "reason": "这是更直接的流动性与AI风向载体，盘前还在稳住，赔率比继续抱着AXON更好。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 442,
+   "fill_date": "2026-08-31",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "GFL",
+   "reason": "这票是典型的资金安静搬进来，盘面不喧闹但承接在，适合在指数微绿时拿低拥挤筹码，不追热闹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 443,
+   "fill_date": "2026-08-31",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CHDN",
+   "reason": "情绪还在冰点附近、机构底部慢慢加的味道更浓，当前位置不是全民狂热的最后一棒，值得顺着资金埋伏一笔。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 440,
+ "next_order_id": 444,
  "notes": [
   {
    "date": "2026-06-12",

@@ -7579,8 +7579,48 @@
    "reason": "AI存储叙事偏预期差，盘前+8.4%还没被打满，像是情绪继续发酵而不是最后一棒。",
    "status": "expired",
    "note": "撮合日 2026-08-28 ≠ 下单日 2026-08-27"
+  },
+  {
+   "id": 366,
+   "fill_date": "2026-08-31",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里的八门生意都还能看懂，价格也没有贵到要卖；候选里有些好公司但此刻没有足够大的安全边际值得我腾挪。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 367,
+   "fill_date": "2026-08-31",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个生意我都还能看懂，也没有看到文化变坏；今天候选里没有便宜到让我换掉手里好公司的机会。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 368,
+   "fill_date": "2026-08-31",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这十个仍然都是我认的真瓶颈，今天候选里没有便宜到值得我砍掉现有卡位去换仓的单点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 369,
+   "fill_date": "2026-08-31",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "603505",
+   "reason": "资源+液冷题材有资金主动聚拢，涨幅还没到最拥挤那一档，我做换手不追最后一棒",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 366,
+ "next_order_id": 370,
  "splits": []
 }

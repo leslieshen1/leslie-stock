@@ -7644,8 +7644,88 @@
    "reason": "资源+液冷题材有资金主动聚拢，涨幅还没到最拥挤那一档，我做换手不追最后一棒",
    "status": "rejected",
    "note": "仓位已满"
+  },
+  {
+   "id": 370,
+   "fill_date": "2026-09-01",
+   "master": "buffett",
+   "action": "SELL",
+   "sym": "000895",
+   "reason": "双汇是好公司但不是宽护城河，我更愿把资本留给更可预测、定价权更强的生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 371,
+   "fill_date": "2026-09-01",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "600690",
+   "reason": "海尔智家有品牌、渠道和规模的真护城河，价格也还不贵，值得用更差的仓位去换。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 372,
+   "fill_date": "2026-09-01",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几门生意都还算看得懂，也都没到让我非换不可的地步；今天盘前价格没有给出明显的好机会，我宁可先拿着，不为凑仓位去做傻事。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 373,
+   "fill_date": "2026-09-01",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现有仓位已经把几条真卡脖子链条铺满了，盘前没有哪个新标的给到足够舒服的折价，我今天不追高也不乱换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 374,
+   "fill_date": "2026-09-01",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "300398",
+   "reason": "飞凯材料这条线还在，但相对今天更纯的半导体国产替代设备，我不愿继续拿着它占仓位，先换成更高弹性的顺风马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 375,
+   "fill_date": "2026-09-01",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "688361",
+   "reason": "中科飞测盘前回吐1.1%，但国产替代和订单动量没坏，这是我想要的回踩上车点，买更纯的政策顺风高弹性表达。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 376,
+   "fill_date": "2026-09-01",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "300401",
+   "reason": "维生素这条线盘面没看到持续抢筹，属于死水里等催化，先腾位给当下更有资金追着跑的强情绪题材。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 377,
+   "fill_date": "2026-09-01",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "000801",
+   "reason": "低空经济+军工+5G叠加，盘前已被资金往上抬，属于顺风且未到全民拥挤的情绪票，值得跟随。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 370,
+ "next_order_id": 378,
  "splits": []
 }

@@ -1,10 +1,10 @@
 {
  "cash": {
-  "buffett": 55765.0,
+  "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 74271.0,
-  "sentiment": 136273.0
+  "druckenmiller": 91919.0,
+  "sentiment": 423884.0
  },
  "positions": [
   {
@@ -47,13 +47,6 @@
    "sym": "601928",
    "shares": 13600,
    "entry": 8.78,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "buffett",
-   "sym": "000895",
-   "shares": 5200,
-   "entry": 22.82,
    "entry_date": "2026-06-26"
   },
   {
@@ -184,24 +177,10 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300398",
-   "shares": 2500,
-   "entry": 35.37,
-   "entry_date": "2026-08-20"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "601138",
    "shares": 1400,
    "entry": 60.4,
    "entry_date": "2026-08-24"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000534",
-   "shares": 6400,
-   "entry": 24.15,
-   "entry_date": "2026-08-25"
   },
   {
    "master": "druckenmiller",
@@ -233,23 +212,9 @@
   },
   {
    "master": "sentiment",
-   "sym": "300401",
-   "shares": 10300,
-   "entry": 15.2,
-   "entry_date": "2026-08-28"
-  },
-  {
-   "master": "sentiment",
    "sym": "300037",
    "shares": 2400,
    "entry": 65.39,
-   "entry_date": "2026-08-28"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688627",
-   "shares": 300,
-   "entry": 513.5,
    "entry_date": "2026-08-28"
   },
   {
@@ -258,6 +223,27 @@
    "shares": 600,
    "entry": 233.22,
    "entry_date": "2026-08-28"
+  },
+  {
+   "master": "buffett",
+   "sym": "600690",
+   "shares": 5800,
+   "entry": 21.42,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 200,
+   "entry": 349.26,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000801",
+   "shares": 12000,
+   "entry": 12.67,
+   "entry_date": "2026-09-01"
   }
  ],
  "nav": [
@@ -1410,6 +1396,31 @@
    "master": "sentiment",
    "date": "2026-08-31",
    "nav": 1045365.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-01",
+   "nav": 1044318.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-01",
+   "nav": 1111544.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-01",
+   "nav": 784945.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-01",
+   "nav": 769813.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-01",
+   "nav": 1014186.0
   }
  ],
  "trades": [
@@ -3952,6 +3963,86 @@
    "price": 233.22,
    "reason": "散户软件天生是情绪放大器,行情一热它就是高关注度的资金抱团口。",
    "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "buffett",
+   "side": "SELL",
+   "sym": "000895",
+   "shares": 5200,
+   "price": 23.94,
+   "reason": "双汇是好公司但不是宽护城河，我更愿把资本留给更可预测、定价权更强的生意。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "buffett",
+   "side": "BUY",
+   "sym": "600690",
+   "shares": 5800,
+   "price": 21.42,
+   "reason": "海尔智家有品牌、渠道和规模的真护城河，价格也还不贵，值得用更差的仓位去换。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300398",
+   "shares": 2500,
+   "price": 35.0,
+   "reason": "飞凯材料这条线还在，但相对今天更纯的半导体国产替代设备，我不愿继续拿着它占仓位，先换成更高弹性的顺风马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 200,
+   "price": 349.26,
+   "reason": "中科飞测盘前回吐1.1%，但国产替代和订单动量没坏，这是我想要的回踩上车点，买更纯的政策顺风高弹性表达。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000534",
+   "shares": 6400,
+   "price": 23.11,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688627",
+   "shares": 300,
+   "price": 475.0,
+   "reason": "-7.5% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300401",
+   "shares": 10300,
+   "price": 14.49,
+   "reason": "维生素这条线盘面没看到持续抢筹，属于死水里等催化，先腾位给当下更有资金追着跑的强情绪题材。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000801",
+   "shares": 12000,
+   "price": 12.67,
+   "reason": "低空经济+军工+5G叠加，盘前已被资金往上抬，属于顺风且未到全民拥挤的情绪票，值得跟随。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -7652,7 +7743,7 @@
    "action": "SELL",
    "sym": "000895",
    "reason": "双汇是好公司但不是宽护城河，我更愿把资本留给更可预测、定价权更强的生意。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7662,7 +7753,7 @@
    "action": "BUY",
    "sym": "600690",
    "reason": "海尔智家有品牌、渠道和规模的真护城河，价格也还不贵，值得用更差的仓位去换。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7672,7 +7763,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几门生意都还算看得懂，也都没到让我非换不可的地步；今天盘前价格没有给出明显的好机会，我宁可先拿着，不为凑仓位去做傻事。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7682,7 +7773,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "现有仓位已经把几条真卡脖子链条铺满了，盘前没有哪个新标的给到足够舒服的折价，我今天不追高也不乱换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7692,7 +7783,7 @@
    "action": "SELL",
    "sym": "300398",
    "reason": "飞凯材料这条线还在，但相对今天更纯的半导体国产替代设备，我不愿继续拿着它占仓位，先换成更高弹性的顺风马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7702,7 +7793,7 @@
    "action": "BUY",
    "sym": "688361",
    "reason": "中科飞测盘前回吐1.1%，但国产替代和订单动量没坏，这是我想要的回踩上车点，买更纯的政策顺风高弹性表达。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7712,7 +7803,7 @@
    "action": "SELL",
    "sym": "300401",
    "reason": "维生素这条线盘面没看到持续抢筹，属于死水里等催化，先腾位给当下更有资金追着跑的强情绪题材。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7722,7 +7813,7 @@
    "action": "BUY",
    "sym": "000801",
    "reason": "低空经济+军工+5G叠加，盘前已被资金往上抬，属于顺风且未到全民拥挤的情绪票，值得跟随。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

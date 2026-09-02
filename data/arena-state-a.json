@@ -3,7 +3,7 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 91919.0,
+  "druckenmiller": 167749.0,
   "sentiment": 423884.0
  },
  "positions": [
@@ -170,20 +170,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300394",
-   "shares": 300,
-   "entry": 267.71,
-   "entry_date": "2026-08-14"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "601138",
-   "shares": 1400,
-   "entry": 60.4,
-   "entry_date": "2026-08-24"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "001389",
    "shares": 500,
    "entry": 151.71,
@@ -244,6 +230,13 @@
    "shares": 12000,
    "entry": 12.67,
    "entry_date": "2026-09-01"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "000977",
+   "shares": 1000,
+   "entry": 85.69,
+   "entry_date": "2026-09-02"
   }
  ],
  "nav": [
@@ -1421,6 +1414,31 @@
    "master": "sentiment",
    "date": "2026-09-01",
    "nav": 1014186.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-02",
+   "nav": 1035746.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-02",
+   "nav": 1098972.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-02",
+   "nav": 777432.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-02",
+   "nav": 760697.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-02",
+   "nav": 1003904.0
   }
  ],
  "trades": [
@@ -4042,6 +4060,36 @@
    "shares": 12000,
    "price": 12.67,
    "reason": "低空经济+军工+5G叠加，盘前已被资金往上抬，属于顺风且未到全民拥挤的情绪票，值得跟随。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-02",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "601138",
+   "shares": 1400,
+   "price": 61.8,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-02",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300394",
+   "shares": 300,
+   "price": 250.0,
+   "reason": "天孚这笔没有按预期立刻赚钱，AI链里它不是最顺的马，错了先砍。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-02",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "000977",
+   "shares": 1000,
+   "price": 85.69,
+   "reason": "算力服务器仍是市场最强宏观表达，浪潮信息比掉队持仓更顺流动性的风。",
    "src": "ai"
   }
  ],
@@ -7823,7 +7871,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓仍是我能理解、现金流和护城河相对清楚的生意，眼前价格没有给我足够理由把好公司换成不确定性更高的东西。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7833,7 +7881,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个持仓都是我愿意用十年眼光拿的好生意，今天候选也没有便宜到让我换掉手里的顶级公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7843,7 +7891,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个仓位都还踩在真瓶颈位置上，盘前候选没有给我必须砍掉现有独苗去追的新信息，今天不为买满而乱动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7853,7 +7901,7 @@
    "action": "SELL",
    "sym": "300394",
    "reason": "天孚这笔没有按预期立刻赚钱，AI链里它不是最顺的马，错了先砍。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7863,7 +7911,7 @@
    "action": "BUY",
    "sym": "000977",
    "reason": "算力服务器仍是市场最强宏观表达，浪潮信息比掉队持仓更顺流动性的风。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7873,7 +7921,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前候选全是零溢价，盘口没有新增资金表态，死水不追，先拿现金等真正的情绪点火。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

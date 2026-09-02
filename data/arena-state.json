@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 1929.63,
-  "druckenmiller": 24948.84,
-  "sentiment": 619426.23
+  "druckenmiller": 9271.73,
+  "sentiment": 105810.52
  },
  "positions": [
   {
@@ -176,13 +176,6 @@
    "entry_date": "2026-08-11"
   },
   {
-   "master": "druckenmiller",
-   "sym": "AXON",
-   "shares": 169,
-   "entry": 619.85,
-   "entry_date": "2026-08-18"
-  },
-  {
    "master": "serenity",
    "sym": "GLW",
    "shares": 537,
@@ -198,31 +191,10 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "LEU",
-   "shares": 614,
-   "entry": 176.13,
-   "entry_date": "2026-08-20"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "TSM",
    "shares": 266,
    "entry": 418.95,
    "entry_date": "2026-08-21"
-  },
-  {
-   "master": "sentiment",
-   "sym": "EGO",
-   "shares": 4010,
-   "entry": 41.76,
-   "entry_date": "2026-08-21"
-  },
-  {
-   "master": "sentiment",
-   "sym": "VIRT",
-   "shares": 2522,
-   "entry": 66.29,
-   "entry_date": "2026-08-24"
   },
   {
    "master": "serenity",
@@ -237,6 +209,55 @@
    "shares": 14869,
    "entry": 11.29,
    "entry_date": "2026-08-25"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "LLY",
+   "shares": 89,
+   "entry": 1160.0,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "XE",
+   "shares": 5615,
+   "entry": 18.41,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "sentiment",
+   "sym": "EIX",
+   "shares": 2877,
+   "entry": 58.8,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "sentiment",
+   "sym": "EGO",
+   "shares": 4051,
+   "entry": 41.76,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "sentiment",
+   "sym": "KLRA",
+   "shares": 10309,
+   "entry": 16.41,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "sentiment",
+   "sym": "BWXT",
+   "shares": 1047,
+   "entry": 161.54,
+   "entry_date": "2026-09-01"
+  },
+  {
+   "master": "sentiment",
+   "sym": "PCG",
+   "shares": 12032,
+   "entry": 14.06,
+   "entry_date": "2026-09-01"
   }
  ],
  "nav": [
@@ -1539,6 +1560,31 @@
    "master": "sentiment",
    "date": "2026-08-25",
    "nav": 1119189.24
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-01",
+   "nav": 1012240.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-01",
+   "nav": 1020334.6
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-01",
+   "nav": 917629.62
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-01",
+   "nav": 898931.6
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-01",
+   "nav": 1127818.52
   }
  ],
  "trades": [
@@ -4571,6 +4617,116 @@
    "price": 11.29,
    "reason": "成长软件里资金在进、机构在加仓，盘面又是纳指领涨，我顺着更顺的钱去接，但不追最后一棒，情绪一旦反转会非常快。",
    "src": "ai"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "AXON",
+   "shares": 169,
+   "price": 518.3,
+   "reason": "错了就是错了,-16.4% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "LEU",
+   "shares": 614,
+   "price": 168.31,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "LLY",
+   "shares": 89,
+   "price": 1160.0,
+   "reason": "肥胖症是十年一遇的结构性大趋势,而Lilly是这条赛道弹性最高、确定性又最强的载体——这种主升浪里的龙头,我骑趋势、加仓、不跟它谈估值。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "XE",
+   "shares": 5615,
+   "price": 18.41,
+   "reason": "AI数据中心要电、核能受政策支持、风险偏好又在回流，这种宏观顺风下它仍是最有弹性的表达之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "EGO",
+   "shares": 4010,
+   "price": 41.76,
+   "reason": "持有满 6 个交易日,轮动纪律到点离场(+0.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "VIRT",
+   "shares": 2522,
+   "price": 65.32,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-1.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "EIX",
+   "shares": 2877,
+   "price": 58.8,
+   "reason": "Eaton 火灾把情绪砸到冰点、估值打到地板、股息率逼近 6%,这种全市场都知道的利空里往往埋着事件落地后的均值回归,适合逆向埋伏。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "EGO",
+   "shares": 4051,
+   "price": 41.76,
+   "reason": "整个贵金属板块资金正在涌入,黄金矿工是当下最不缺关注度的拥挤热门,顺着走但盯紧过热。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "KLRA",
+   "shares": 10309,
+   "price": 16.41,
+   "reason": "顶级 VC 背书 + GLP-1 风口,聪明钱已经在场,但这种事件驱动的情绪反转极快。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "BWXT",
+   "shares": 1047,
+   "price": 161.54,
+   "reason": "核能板块情绪高涨、机构持仓在加、动量漂亮,盘面是顺风的,但拥挤度已经不低,追要带止损。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-01",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "PCG",
+   "shares": 12032,
+   "price": 14.06,
+   "reason": "盘口上它已经从破产弃儿翻身成'AI电力'叙事的受益标的,机构和被动资金稳步回流、波动率压缩,情绪从冰点修复到温和顺风,但还没到拥挤过热。",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -8491,8 +8647,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓都是我愿意长期拥有的好生意，而候选里虽有好公司，却没有便宜到值得我卖掉手里的收费站去换仓。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-26"
   },
   {
    "id": 415,
@@ -8501,8 +8657,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里的四门生意我都看得懂，也都还是十年好生意，今天盘前这点波动不构成让我换来换去的理由。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-26"
   },
   {
    "id": 416,
@@ -8511,8 +8667,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盘前只是轻微风险偏弱，但我的仓位基本都站在AI、电力、铜、黄金这些大趋势里，主线没变就不和流动性作对，先按兵不动。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-26"
   },
   {
    "id": 417,
@@ -8521,8 +8677,8 @@
    "action": "BUY",
    "sym": "CLFD",
    "reason": "这是冰点回暖里最像聪明钱试仓的位置，资金从死水里开始捞筹码但还没到全民狂热；我只顺早期反转，不追最热那一棒，盘面若续不上情绪会瞬间回吐。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-26"
   },
   {
    "id": 418,
@@ -8531,8 +8687,8 @@
    "action": "SELL",
    "sym": "HMY",
    "reason": "盘前重挫近9%，金矿今天明显逆风，趋势像是开始转弱；按我的纪律，错了先砍，不跟流动性对着干。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-27"
   },
   {
    "id": 419,
@@ -8541,8 +8697,8 @@
    "action": "BUY",
    "sym": "GEV",
    "reason": "AI算力要电和电网，这条大趋势还在加速；GEV盘前继续走强，是更干净、更高弹性的顺风载体。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-27"
   },
   {
    "id": 420,
@@ -8551,8 +8707,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "贵金属资金还没完全退潮，但已经偏拥挤；先拿着，不追不砍，盯盘中是否出现情绪反转",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-27"
   },
   {
    "id": 421,
@@ -8561,8 +8717,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "波动一来它就有钱，属于组合里的情绪对冲筹码，今天先留着吃尾部波动",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-27"
   },
   {
    "id": 422,
@@ -8571,8 +8727,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "成长软件里仍有机构在加，资金没走坏，继续拿住但警惕开盘后冲高回落",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-27"
   },
   {
    "id": 423,
@@ -8581,8 +8737,8 @@
    "action": "BUY",
    "sym": "INIO",
    "reason": "盘前顺风、AI电力接力AI算力，钱在往这个新共识里进，情绪还没到全民狂热，适合先上仓",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-27"
   },
   {
    "id": 424,
@@ -8591,8 +8747,8 @@
    "action": "BUY",
    "sym": "SIMO",
    "reason": "存储链仍是资金追逐方向，盘面有延续但还没到最拥挤的最后一棒，顺势做一笔",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-27"
   },
   {
    "id": 425,
@@ -8601,8 +8757,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我手里的都是能看十年的好生意，今天没有任何一只候选在这个价位比它们更值得我用现金去换掉。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 426,
@@ -8611,8 +8767,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几家都是我看得懂的十年好生意，今天没有哪一个值得让我为了追一点盘前波动去换仓，先按兵不动。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 427,
@@ -8621,8 +8777,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天盘面还是在给真瓶颈溢价，但我手里这十个仓位都还在各自的卡脖子位上，没有哪个需要为涨了就下车，也没有哪个新候选值得让我去追最后一棒。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 428,
@@ -8631,8 +8787,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "铜的宏观风还在，盘前也没破位，我不去和顺风资产作对。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 429,
@@ -8641,8 +8797,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "黄金大趋势没坏，今天这点回落不足以让我逆风砍仓。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 430,
@@ -8651,8 +8807,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "AI 算力要电的主线还在，盘前继续站在多头一侧。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 431,
@@ -8661,8 +8817,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这是流动性最敏感的 AI 核心载体，轻微回吐不构成趋势转折。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 432,
@@ -8671,8 +8827,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "趋势还活着，价格没给我明确出场信号，我先让它跑。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 433,
@@ -8681,8 +8837,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "AI capex 这条链没坏，盘前小跌我不当成反转。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 434,
@@ -8691,8 +8847,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "核复兴这条线仍是顺流，没必要在没出问题时自己打自己。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 435,
@@ -8701,8 +8857,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "AI 资本开支的大浪还在，台积电还是最干净的主趋势载体之一。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 436,
@@ -8711,8 +8867,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "黄金矿工仍有资金流，板块没死水，先拿着但盯紧拥挤后的快速反转",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 437,
@@ -8721,8 +8877,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "市场一旦情绪翻脸它还是对冲筹码，先留着吃波动",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 438,
@@ -8731,8 +8887,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "软件里资金还在，情绪偏热但未到崩点，继续跟随",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 439,
@@ -8741,8 +8897,8 @@
    "action": "BUY",
    "sym": "INIO",
    "reason": "AI电力是新资金共识，盘面有机构加仓味道，没到全民狂热，给一笔仓位试水",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-28"
   },
   {
    "id": 440,
@@ -8751,8 +8907,8 @@
    "action": "SELL",
    "sym": "AXON",
    "reason": "它不是我现在最核心的宏观表达，盘前又偏弱；在AI/电力/金属这条主风里，我先砍掉这个相对次要的持仓。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-31"
   },
   {
    "id": 441,
@@ -8761,8 +8917,8 @@
    "action": "BUY",
    "sym": "META",
    "reason": "这是更直接的流动性与AI风向载体，盘前还在稳住，赔率比继续抱着AXON更好。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-31"
   },
   {
    "id": 442,
@@ -8771,8 +8927,8 @@
    "action": "BUY",
    "sym": "GFL",
    "reason": "这票是典型的资金安静搬进来，盘面不喧闹但承接在，适合在指数微绿时拿低拥挤筹码，不追热闹。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-31"
   },
   {
    "id": 443,
@@ -8781,8 +8937,8 @@
    "action": "BUY",
    "sym": "CHDN",
    "reason": "情绪还在冰点附近、机构底部慢慢加的味道更浓，当前位置不是全民狂热的最后一棒，值得顺着资金埋伏一笔。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-09-01 ≠ 下单日 2026-08-31"
   }
  ],
  "next_order_id": 444,

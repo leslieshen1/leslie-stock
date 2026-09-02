@@ -7815,8 +7815,68 @@
    "reason": "低空经济+军工+5G叠加，盘前已被资金往上抬，属于顺风且未到全民拥挤的情绪票，值得跟随。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 378,
+   "fill_date": "2026-09-02",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓仍是我能理解、现金流和护城河相对清楚的生意，眼前价格没有给我足够理由把好公司换成不确定性更高的东西。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 379,
+   "fill_date": "2026-09-02",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个持仓都是我愿意用十年眼光拿的好生意，今天候选也没有便宜到让我换掉手里的顶级公司。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 380,
+   "fill_date": "2026-09-02",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个仓位都还踩在真瓶颈位置上，盘前候选没有给我必须砍掉现有独苗去追的新信息，今天不为买满而乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 381,
+   "fill_date": "2026-09-02",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "300394",
+   "reason": "天孚这笔没有按预期立刻赚钱，AI链里它不是最顺的马，错了先砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 382,
+   "fill_date": "2026-09-02",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "000977",
+   "reason": "算力服务器仍是市场最强宏观表达，浪潮信息比掉队持仓更顺流动性的风。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 383,
+   "fill_date": "2026-09-02",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前候选全是零溢价，盘口没有新增资金表态，死水不追，先拿现金等真正的情绪点火。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 378,
+ "next_order_id": 384,
  "splits": []
 }

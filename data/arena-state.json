@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 1929.63,
-  "druckenmiller": 9271.73,
-  "sentiment": 105810.52
+  "druckenmiller": 109895.41,
+  "sentiment": 273380.55
  },
  "positions": [
   {
@@ -184,13 +184,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "LRCX",
-   "shares": 349,
-   "entry": 307.17,
-   "entry_date": "2026-08-19"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "TSM",
    "shares": 266,
    "entry": 418.95,
@@ -201,13 +194,6 @@
    "sym": "CORZ",
    "shares": 5168,
    "entry": 18.03,
-   "entry_date": "2026-08-25"
-  },
-  {
-   "master": "sentiment",
-   "sym": "CLBT",
-   "shares": 14869,
-   "entry": 11.29,
    "entry_date": "2026-08-25"
   },
   {
@@ -222,13 +208,6 @@
    "sym": "XE",
    "shares": 5615,
    "entry": 18.41,
-   "entry_date": "2026-09-01"
-  },
-  {
-   "master": "sentiment",
-   "sym": "EIX",
-   "shares": 2877,
-   "entry": 58.8,
    "entry_date": "2026-09-01"
   },
   {
@@ -258,6 +237,13 @@
    "shares": 12032,
    "entry": 14.06,
    "entry_date": "2026-09-01"
+  },
+  {
+   "master": "sentiment",
+   "sym": "AGRO",
+   "shares": 13921,
+   "entry": 11.78,
+   "entry_date": "2026-09-02"
   }
  ],
  "nav": [
@@ -1585,6 +1571,31 @@
    "master": "sentiment",
    "date": "2026-09-01",
    "nav": 1127818.52
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-02",
+   "nav": 1012986.03
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-02",
+   "nav": 1019598.54
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-02",
+   "nav": 924450.75
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-02",
+   "nav": 907521.56
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-02",
+   "nav": 1093310.39
   }
  ],
  "trades": [
@@ -4727,6 +4738,46 @@
    "price": 14.06,
    "reason": "盘口上它已经从破产弃儿翻身成'AI电力'叙事的受益标的,机构和被动资金稳步回流、波动率压缩,情绪从冰点修复到温和顺风,但还没到拥挤过热。",
    "src": "rule"
+  },
+  {
+   "date": "2026-09-02",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "LRCX",
+   "shares": 349,
+   "price": 288.32,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-02",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CLBT",
+   "shares": 14869,
+   "price": 11.62,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.9%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-02",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "EIX",
+   "shares": 2877,
+   "price": 55.19,
+   "reason": "这票盘面没有持续资金，情绪修复后还是死水，我把一格仓位换去更有流入痕迹的低拥挤标的。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-02",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "AGRO",
+   "shares": 13921,
+   "price": 11.78,
+   "reason": "Tether 式增持把地板垫出来，今早仍是小红说明聪明钱还在推，低拥挤比死水 utility 更值得占一格，但这种情绪反转会很快。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -8947,7 +8998,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意的护城河没有因为一个盘前报价变窄，而候选名单里也没有便宜到让我卖掉现有好生意去换的机会。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8957,7 +9008,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这四门生意我都看懂了，商业模式和文化没有变，盘前这点波动不值得让我为了交易而交易。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8967,7 +9018,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "当前仓位已经把AI电力、铜、黄金和核能主线都装进去了，今天盘前只是温和风险偏好，没有出现足够强的边际催化让我为追新票去砍掉正在顺风的持仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8977,7 +9028,7 @@
    "action": "SELL",
    "sym": "EIX",
    "reason": "这票盘面没有持续资金，情绪修复后还是死水，我把一格仓位换去更有流入痕迹的低拥挤标的。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8987,7 +9038,7 @@
    "action": "BUY",
    "sym": "AGRO",
    "reason": "Tether 式增持把地板垫出来，今早仍是小红说明聪明钱还在推，低拥挤比死水 utility 更值得占一格，但这种情绪反转会很快。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

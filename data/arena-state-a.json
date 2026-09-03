@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 167749.0,
-  "sentiment": 423884.0
+  "druckenmiller": 157280.0,
+  "sentiment": 555584.0
  },
  "positions": [
   {
@@ -204,24 +204,10 @@
    "entry_date": "2026-08-28"
   },
   {
-   "master": "sentiment",
-   "sym": "300033",
-   "shares": 600,
-   "entry": 233.22,
-   "entry_date": "2026-08-28"
-  },
-  {
    "master": "buffett",
    "sym": "600690",
    "shares": 5800,
    "entry": 21.42,
-   "entry_date": "2026-09-01"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688361",
-   "shares": 200,
-   "entry": 349.26,
    "entry_date": "2026-09-01"
   },
   {
@@ -237,6 +223,13 @@
    "shares": 1000,
    "entry": 85.69,
    "entry_date": "2026-09-02"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300394",
+   "shares": 300,
+   "entry": 248.81,
+   "entry_date": "2026-09-03"
   }
  ],
  "nav": [
@@ -1439,6 +1432,31 @@
    "master": "sentiment",
    "date": "2026-09-02",
    "nav": 1003904.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-03",
+   "nav": 1037994.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-03",
+   "nav": 1101383.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-03",
+   "nav": 774537.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-03",
+   "nav": 758127.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-03",
+   "nav": 1011344.0
   }
  ],
  "trades": [
@@ -4090,6 +4108,36 @@
    "shares": 1000,
    "price": 85.69,
    "reason": "算力服务器仍是市场最强宏观表达，浪潮信息比掉队持仓更顺流动性的风。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-03",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688361",
+   "shares": 200,
+   "price": 320.87,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300394",
+   "shares": 300,
+   "price": 248.81,
+   "reason": "AI光通信仍是算力资本开支里弹性最大的载体之一，盘前没爆拉，不是在接最后一棒，我要加一匹更快的马。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-03",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300033",
+   "shares": 600,
+   "price": 219.5,
+   "reason": "同花顺这种散户情绪放大器跌到接近-7%机械线，说明盘口资金没接力，先撤掉避免情绪反杀扩大。",
    "src": "ai"
   }
  ],
@@ -7931,7 +7979,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓大多是我愿意长期拥有的好生意，今天没有看到足够大的错误定价值得用换马来冒险。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7941,7 +7989,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些生意我都看得懂，也都还算本分；今天候选没有便宜到让我换掉手里的好公司，现金放着也没关系。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7951,7 +7999,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "今天候选没有盘前错杀、持仓里的真瓶颈也没被基本面证伪，我不为了换手而换手，继续押每台下游量产都绕不过的那些单点。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7961,7 +8009,7 @@
    "action": "BUY",
    "sym": "300394",
    "reason": "AI光通信仍是算力资本开支里弹性最大的载体之一，盘前没爆拉，不是在接最后一棒，我要加一匹更快的马。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -7971,7 +8019,7 @@
    "action": "SELL",
    "sym": "300033",
    "reason": "同花顺这种散户情绪放大器跌到接近-7%机械线，说明盘口资金没接力，先撤掉避免情绪反杀扩大。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

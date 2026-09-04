@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 1929.63,
-  "druckenmiller": 109895.41,
-  "sentiment": 273380.55
+  "druckenmiller": 1014.43,
+  "sentiment": 108078.99
  },
  "positions": [
   {
@@ -204,13 +204,6 @@
    "entry_date": "2026-09-01"
   },
   {
-   "master": "druckenmiller",
-   "sym": "XE",
-   "shares": 5615,
-   "entry": 18.41,
-   "entry_date": "2026-09-01"
-  },
-  {
    "master": "sentiment",
    "sym": "EGO",
    "shares": 4051,
@@ -244,6 +237,27 @@
    "shares": 13921,
    "entry": 11.78,
    "entry_date": "2026-09-02"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "META",
+   "shares": 171,
+   "entry": 610.68,
+   "entry_date": "2026-09-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "AUGO",
+   "shares": 1190,
+   "entry": 88.11,
+   "entry_date": "2026-09-03"
+  },
+  {
+   "master": "sentiment",
+   "sym": "WYFI",
+   "shares": 8802,
+   "entry": 18.78,
+   "entry_date": "2026-09-03"
   }
  ],
  "nav": [
@@ -1596,6 +1610,31 @@
    "master": "sentiment",
    "date": "2026-09-02",
    "nav": 1093310.39
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-03",
+   "nav": 1024492.76
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-03",
+   "nav": 1025234.45
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-03",
+   "nav": 929552.78
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-03",
+   "nav": 912328.86
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-03",
+   "nav": 1102046.04
   }
  ],
  "trades": [
@@ -4778,6 +4817,46 @@
    "price": 11.78,
    "reason": "Tether 式增持把地板垫出来，今早仍是小红说明聪明钱还在推，低拥挤比死水 utility 更值得占一格，但这种情绪反转会很快。",
    "src": "ai"
+  },
+  {
+   "date": "2026-09-03",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "XE",
+   "shares": 5615,
+   "price": 17.88,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "META",
+   "shares": 171,
+   "price": 610.68,
+   "reason": "这就是我要的载体:AI + 流动性大趋势里现金流最硬、弹性最足、还能自己印钞养军备的超级旗舰,赔率不对称。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-03",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "AUGO",
+   "shares": 1190,
+   "price": 88.11,
+   "reason": "央行扩表、实际利率见顶回落、去美元化抢金，黄金是这轮货币贬值大趋势里最干净的载体，而中型金矿就是带杠杆的金价期权——这正是我要的不对称。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-03",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "WYFI",
+   "shares": 8802,
+   "price": 18.78,
+   "reason": "顶着 AI 算力概念加新股光环,资金愿意给故事,但筹码不厚、大客户暂停的雷一响情绪会瞬间反转。",
+   "src": "rule"
   }
  ],
  "orders": [

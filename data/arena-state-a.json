@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 157280.0,
-  "sentiment": 555584.0
+  "druckenmiller": 67335.0,
+  "sentiment": 109342.0
  },
  "positions": [
   {
@@ -170,38 +170,10 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "001389",
-   "shares": 500,
-   "entry": 151.71,
-   "entry_date": "2026-08-26"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002428",
-   "shares": 900,
-   "entry": 93.47,
-   "entry_date": "2026-08-26"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "600183",
    "shares": 600,
    "entry": 130.01,
    "entry_date": "2026-08-26"
-  },
-  {
-   "master": "sentiment",
-   "sym": "920179",
-   "shares": 2800,
-   "entry": 55.0,
-   "entry_date": "2026-08-28"
-  },
-  {
-   "master": "sentiment",
-   "sym": "300037",
-   "shares": 2400,
-   "entry": 65.39,
-   "entry_date": "2026-08-28"
   },
   {
    "master": "buffett",
@@ -230,6 +202,62 @@
    "shares": 300,
    "entry": 248.81,
    "entry_date": "2026-09-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301018",
+   "shares": 800,
+   "entry": 102.92,
+   "entry_date": "2026-09-04"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "302132",
+   "shares": 1300,
+   "entry": 63.3,
+   "entry_date": "2026-09-04"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300684",
+   "shares": 900,
+   "entry": 88.9,
+   "entry_date": "2026-09-04"
+  },
+  {
+   "master": "sentiment",
+   "sym": "603228",
+   "shares": 1500,
+   "entry": 96.34,
+   "entry_date": "2026-09-04"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002385",
+   "shares": 43500,
+   "entry": 3.46,
+   "entry_date": "2026-09-04"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002438",
+   "shares": 10300,
+   "entry": 14.53,
+   "entry_date": "2026-09-04"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688563",
+   "shares": 2800,
+   "entry": 52.91,
+   "entry_date": "2026-09-04"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688291",
+   "shares": 3500,
+   "entry": 43.05,
+   "entry_date": "2026-09-04"
   }
  ],
  "nav": [
@@ -1457,6 +1485,31 @@
    "master": "sentiment",
    "date": "2026-09-03",
    "nav": 1011344.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-04",
+   "nav": 1048264.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-04",
+   "nav": 1117079.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-04",
+   "nav": 754423.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-04",
+   "nav": 737484.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-04",
+   "nav": 1005004.0
   }
  ],
  "trades": [
@@ -4139,6 +4192,126 @@
    "price": 219.5,
    "reason": "同花顺这种散户情绪放大器跌到接近-7%机械线，说明盘口资金没接力，先撤掉避免情绪反杀扩大。",
    "src": "ai"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "001389",
+   "shares": 500,
+   "price": 152.62,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002428",
+   "shares": 900,
+   "price": 87.09,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301018",
+   "shares": 800,
+   "price": 102.92,
+   "reason": "前一次的趋势逆风已经修复，价格重新回到顺风状态。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "302132",
+   "shares": 1300,
+   "price": 63.3,
+   "reason": "国防扩张 + 台海地缘 + 六代机叙事,政策顺风最硬的主线之一,骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300684",
+   "shares": 900,
+   "price": 88.9,
+   "reason": "趋势仍站在AI散热这条主线上，价格也在验证资金偏好。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "920179",
+   "shares": 2800,
+   "price": 52.55,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300037",
+   "shares": 2400,
+   "price": 62.55,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "603228",
+   "shares": 1500,
+   "price": 96.34,
+   "reason": "CPO+英伟达+特斯拉+5G多题材叠加，AI硬件链资金活跃。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002385",
+   "shares": 43500,
+   "price": 3.46,
+   "reason": "转基因是反复活跃的强题材,政策催化一来就点火。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002438",
+   "shares": 10300,
+   "price": 14.53,
+   "reason": "核电是有持续叙事的硬科技题材,情绪偏暖适合顺势。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688563",
+   "shares": 2800,
+   "price": 52.91,
+   "reason": "大飞机+航发+卡脖子三标签叠加，是散户高认知度的硬科技题材。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-04",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688291",
+   "shares": 3500,
+   "price": 43.05,
+   "reason": "3D打印+激光+国产替代是有人气的小盘题材,情绪偏暖。",
+   "src": "rule"
   }
  ],
  "orders": [

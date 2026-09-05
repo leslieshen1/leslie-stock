@@ -1635,6 +1635,31 @@
    "master": "sentiment",
    "date": "2026-09-03",
    "nav": 1102046.04
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-04",
+   "nav": 1021897.29
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-04",
+   "nav": 1022020.84
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-04",
+   "nav": 942791.39
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-04",
+   "nav": 914895.71
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-04",
+   "nav": 1117459.4
   }
  ],
  "trades": [

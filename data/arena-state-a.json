@@ -3,7 +3,7 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 67335.0,
+  "druckenmiller": 59993.0,
   "sentiment": 109342.0
  },
  "positions": [
@@ -191,13 +191,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "000977",
-   "shares": 1000,
-   "entry": 85.69,
-   "entry_date": "2026-09-02"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300394",
    "shares": 300,
    "entry": 248.81,
@@ -258,6 +251,13 @@
    "shares": 3500,
    "entry": 43.05,
    "entry_date": "2026-09-04"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301095",
+   "shares": 1100,
+   "entry": 74.62,
+   "entry_date": "2026-09-07"
   }
  ],
  "nav": [
@@ -1510,6 +1510,31 @@
    "master": "sentiment",
    "date": "2026-09-04",
    "nav": 1005004.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-07",
+   "nav": 1034200.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-07",
+   "nav": 1103984.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-07",
+   "nav": 772594.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-07",
+   "nav": 759064.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-07",
+   "nav": 1021132.0
   }
  ],
  "trades": [
@@ -4311,6 +4336,26 @@
    "shares": 3500,
    "price": 43.05,
    "reason": "3D打印+激光+国产替代是有人气的小盘题材,情绪偏暖。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-07",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "000977",
+   "shares": 1000,
+   "price": 74.74,
+   "reason": "错了就是错了,-12.8% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-07",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301095",
+   "shares": 1100,
+   "price": 74.62,
+   "reason": "半导体国产替代+出口管制,产业顺风最硬。",
    "src": "rule"
   }
  ],

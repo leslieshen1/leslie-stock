@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 53665.0,
   "druckenmiller": 59993.0,
-  "sentiment": 109342.0
+  "sentiment": 106661.0
  },
  "positions": [
   {
@@ -183,13 +183,6 @@
    "entry_date": "2026-09-01"
   },
   {
-   "master": "sentiment",
-   "sym": "000801",
-   "shares": 12000,
-   "entry": 12.67,
-   "entry_date": "2026-09-01"
-  },
-  {
    "master": "druckenmiller",
    "sym": "300394",
    "shares": 300,
@@ -258,6 +251,13 @@
    "shares": 1100,
    "entry": 74.62,
    "entry_date": "2026-09-07"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002483",
+   "shares": 24100,
+   "entry": 6.41,
+   "entry_date": "2026-09-08"
   }
  ],
  "nav": [
@@ -1535,6 +1535,31 @@
    "master": "sentiment",
    "date": "2026-09-07",
    "nav": 1021132.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-08",
+   "nav": 1027875.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-08",
+   "nav": 1097099.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-08",
+   "nav": 769335.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-08",
+   "nav": 737664.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-08",
+   "nav": 1030736.0
   }
  ],
  "trades": [
@@ -4356,6 +4381,26 @@
    "shares": 1100,
    "price": 74.62,
    "reason": "半导体国产替代+出口管制,产业顺风最硬。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-08",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000801",
+   "shares": 12000,
+   "price": 12.65,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-08",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002483",
+   "shares": 24100,
+   "price": 6.41,
+   "reason": "海风是绿电主线里反复活跃的题材，复苏预期有资金共鸣。",
    "src": "rule"
   }
  ],

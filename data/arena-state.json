@@ -3,7 +3,7 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 1929.63,
-  "druckenmiller": 1014.43,
+  "druckenmiller": 332.12,
   "sentiment": 108078.99
  },
  "positions": [
@@ -197,13 +197,6 @@
    "entry_date": "2026-08-25"
   },
   {
-   "master": "druckenmiller",
-   "sym": "LLY",
-   "shares": 89,
-   "entry": 1160.0,
-   "entry_date": "2026-09-01"
-  },
-  {
    "master": "sentiment",
    "sym": "EGO",
    "shares": 4051,
@@ -258,6 +251,13 @@
    "shares": 8802,
    "entry": 18.78,
    "entry_date": "2026-09-03"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "WDC",
+   "shares": 211,
+   "entry": 477.3,
+   "entry_date": "2026-09-08"
   }
  ],
  "nav": [
@@ -1660,6 +1660,31 @@
    "master": "sentiment",
    "date": "2026-09-04",
    "nav": 1117459.4
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-08",
+   "nav": 1011164.91
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-08",
+   "nav": 1015270.74
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-08",
+   "nav": 988160.38
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-08",
+   "nav": 918485.04
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-08",
+   "nav": 1152927.43
   }
  ],
  "trades": [
@@ -4881,6 +4906,26 @@
    "shares": 8802,
    "price": 18.78,
    "reason": "顶着 AI 算力概念加新股光环,资金愿意给故事,但筹码不厚、大客户暂停的雷一响情绪会瞬间反转。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "LLY",
+   "shares": 89,
+   "price": 1123.91,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-08",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "WDC",
+   "shares": 211,
+   "price": 477.3,
+   "reason": "现在市场要的就是 AI 基建外溢和存储供给紧张，WDC 是本周最强的马之一。",
    "src": "rule"
   }
  ],

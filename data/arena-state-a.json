@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 53665.0,
   "druckenmiller": 59993.0,
-  "sentiment": 92041.0
+  "sentiment": 114607.0
  },
  "positions": [
   {
@@ -211,34 +211,6 @@
    "entry_date": "2026-09-04"
   },
   {
-   "master": "sentiment",
-   "sym": "603228",
-   "shares": 1500,
-   "entry": 96.34,
-   "entry_date": "2026-09-04"
-  },
-  {
-   "master": "sentiment",
-   "sym": "002385",
-   "shares": 43500,
-   "entry": 3.46,
-   "entry_date": "2026-09-04"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688563",
-   "shares": 2800,
-   "entry": 52.91,
-   "entry_date": "2026-09-04"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688291",
-   "shares": 3500,
-   "entry": 43.05,
-   "entry_date": "2026-09-04"
-  },
-  {
    "master": "druckenmiller",
    "sym": "301095",
    "shares": 1100,
@@ -258,6 +230,34 @@
    "shares": 4700,
    "entry": 32.63,
    "entry_date": "2026-09-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688279",
+   "shares": 800,
+   "entry": 185.0,
+   "entry_date": "2026-09-11"
+  },
+  {
+   "master": "sentiment",
+   "sym": "920640",
+   "shares": 5600,
+   "entry": 27.0,
+   "entry_date": "2026-09-11"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002130",
+   "shares": 8400,
+   "entry": 17.93,
+   "entry_date": "2026-09-11"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688277",
+   "shares": 9800,
+   "entry": 15.49,
+   "entry_date": "2026-09-11"
   }
  ],
  "nav": [
@@ -1610,6 +1610,31 @@
    "master": "sentiment",
    "date": "2026-09-10",
    "nav": 1023217.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-11",
+   "nav": 1019554.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-11",
+   "nav": 1071165.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-11",
+   "nav": 758622.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-11",
+   "nav": 728500.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-11",
+   "nav": 1014039.0
   }
  ],
  "trades": [
@@ -4471,6 +4496,86 @@
    "shares": 4700,
    "price": 32.63,
    "reason": "基金重仓+双热门主题,A股最爱的'政策+太空+低空'故事,情绪资金都在。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "603228",
+   "shares": 1500,
+   "price": 111.75,
+   "reason": "+16.0% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002385",
+   "shares": 43500,
+   "price": 3.37,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-2.6%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688563",
+   "shares": 2800,
+   "price": 55.2,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+4.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688291",
+   "shares": 3500,
+   "price": 44.4,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688279",
+   "shares": 800,
+   "price": 185.0,
+   "reason": "汽车芯片+半导体+百元股，机器人电机想象力给情绪加柴。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "920640",
+   "shares": 5600,
+   "price": 27.0,
+   "reason": "军工+6G+量子+铜缆高速连接,概念叠满,北交所小盘易爆。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002130",
+   "shares": 8400,
+   "price": 17.93,
+   "reason": "铜缆高速连接是AI主线里资金正热的题材分支。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688277",
+   "shares": 9800,
+   "price": 15.49,
+   "reason": "亏损+破发情绪低位,装机放量可催化。",
    "src": "rule"
   }
  ],

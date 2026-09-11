@@ -4,7 +4,7 @@
   "duan": 40172.16,
   "serenity": 1929.63,
   "druckenmiller": 332.12,
-  "sentiment": 108078.99
+  "sentiment": 104641.7
  },
  "positions": [
   {
@@ -198,34 +198,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "EGO",
-   "shares": 4051,
-   "entry": 41.76,
-   "entry_date": "2026-09-01"
-  },
-  {
-   "master": "sentiment",
-   "sym": "KLRA",
-   "shares": 10309,
-   "entry": 16.41,
-   "entry_date": "2026-09-01"
-  },
-  {
-   "master": "sentiment",
-   "sym": "BWXT",
-   "shares": 1047,
-   "entry": 161.54,
-   "entry_date": "2026-09-01"
-  },
-  {
-   "master": "sentiment",
-   "sym": "PCG",
-   "shares": 12032,
-   "entry": 14.06,
-   "entry_date": "2026-09-01"
-  },
-  {
-   "master": "sentiment",
    "sym": "AGRO",
    "shares": 13921,
    "entry": 11.78,
@@ -258,6 +230,34 @@
    "shares": 211,
    "entry": 477.3,
    "entry_date": "2026-09-08"
+  },
+  {
+   "master": "sentiment",
+   "sym": "CLOV",
+   "shares": 34979,
+   "entry": 4.71,
+   "entry_date": "2026-09-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "TYRA",
+   "shares": 6998,
+   "entry": 23.54,
+   "entry_date": "2026-09-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "QRVO",
+   "shares": 1466,
+   "entry": 112.36,
+   "entry_date": "2026-09-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "FUBO",
+   "shares": 14439,
+   "entry": 11.41,
+   "entry_date": "2026-09-10"
   }
  ],
  "nav": [
@@ -1685,6 +1685,31 @@
    "master": "sentiment",
    "date": "2026-09-08",
    "nav": 1152927.43
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-10",
+   "nav": 1009639.89
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-10",
+   "nav": 1020985.65
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-10",
+   "nav": 930902.04
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-10",
+   "nav": 900215.15
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-10",
+   "nav": 1098341.45
   }
  ],
  "trades": [
@@ -4926,6 +4951,86 @@
    "shares": 211,
    "price": 477.3,
    "reason": "现在市场要的就是 AI 基建外溢和存储供给紧张，WDC 是本周最强的马之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "EGO",
+   "shares": 4051,
+   "price": 42.79,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "KLRA",
+   "shares": 10309,
+   "price": 14.91,
+   "reason": "-9.1% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "BWXT",
+   "shares": 1047,
+   "price": 152.49,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.6%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "PCG",
+   "shares": 12032,
+   "price": 14.03,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CLOV",
+   "shares": 34979,
+   "price": 4.71,
+   "reason": "高空头 + 散户人气票 + 盈利转正催化，钱在往里挤，但这种情绪翻脸比谁都快。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "TYRA",
+   "shares": 6998,
+   "price": 23.54,
+   "reason": "机构持仓集中、临床里程碑临近,资金在往这类有明确 catalyst 的小盘生科里钻,但情绪反转极快。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "QRVO",
+   "shares": 1466,
+   "price": 112.36,
+   "reason": "情绪在冰点、股价腰斩、Starboard 进场,这是没人想碰但聪明钱在捡的反向位。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-10",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "FUBO",
+   "shares": 14439,
+   "price": 11.41,
+   "reason": "迪士尼入股的预期差点燃了散户和事件资金，情绪和盘口偏暖，但这是靠消息撑着、反转极快的牌。",
    "src": "rule"
   }
  ],

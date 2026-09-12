@@ -4,7 +4,7 @@
   "duan": 40172.16,
   "serenity": 1929.63,
   "druckenmiller": 332.12,
-  "sentiment": 104641.7
+  "sentiment": 104085.87
  },
  "positions": [
   {
@@ -197,13 +197,6 @@
    "entry_date": "2026-08-25"
   },
   {
-   "master": "sentiment",
-   "sym": "AGRO",
-   "shares": 13921,
-   "entry": 11.78,
-   "entry_date": "2026-09-02"
-  },
-  {
    "master": "druckenmiller",
    "sym": "META",
    "shares": 171,
@@ -258,6 +251,13 @@
    "shares": 14439,
    "entry": 11.41,
    "entry_date": "2026-09-10"
+  },
+  {
+   "master": "sentiment",
+   "sym": "NTAP",
+   "shares": 825,
+   "entry": 199.28,
+   "entry_date": "2026-09-11"
   }
  ],
  "nav": [
@@ -1710,6 +1710,31 @@
    "master": "sentiment",
    "date": "2026-09-10",
    "nav": 1098341.45
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-11",
+   "nav": 1017014.96
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-11",
+   "nav": 1032533.56
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-11",
+   "nav": 914550.78
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-11",
+   "nav": 902591.2
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-11",
+   "nav": 1097217.44
   }
  ],
  "trades": [
@@ -5031,6 +5056,26 @@
    "shares": 14439,
    "price": 11.41,
    "reason": "迪士尼入股的预期差点燃了散户和事件资金，情绪和盘口偏暖，但这是靠消息撑着、反转极快的牌。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "AGRO",
+   "shares": 13921,
+   "price": 11.77,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-11",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "NTAP",
+   "shares": 825,
+   "price": 199.28,
+   "reason": "被打上'AI 存储'标签后机构愿意给溢价,资金面温和向上但远没到逼空式拥挤。",
    "src": "rule"
   }
  ],

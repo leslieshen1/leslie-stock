@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 76175.0,
-  "sentiment": 109384.0
+  "druckenmiller": 108422.0,
+  "sentiment": 122256.0
  },
  "positions": [
   {
@@ -127,13 +127,6 @@
    "entry_date": "2026-07-21"
   },
   {
-   "master": "druckenmiller",
-   "sym": "000975",
-   "shares": 4000,
-   "entry": 21.94,
-   "entry_date": "2026-07-28"
-  },
-  {
    "master": "serenity",
    "sym": "688785",
    "shares": 200,
@@ -190,20 +183,6 @@
    "entry_date": "2026-09-04"
   },
   {
-   "master": "druckenmiller",
-   "sym": "300684",
-   "shares": 900,
-   "entry": 88.9,
-   "entry_date": "2026-09-04"
-  },
-  {
-   "master": "sentiment",
-   "sym": "002483",
-   "shares": 24100,
-   "entry": 6.41,
-   "entry_date": "2026-09-08"
-  },
-  {
    "master": "sentiment",
    "sym": "688279",
    "shares": 800,
@@ -258,6 +237,27 @@
    "shares": 4600,
    "entry": 31.9,
    "entry_date": "2026-09-14"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "001389",
+   "shares": 400,
+   "entry": 170.91,
+   "entry_date": "2026-09-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002396",
+   "shares": 2300,
+   "entry": 35.3,
+   "entry_date": "2026-09-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688072",
+   "shares": 200,
+   "entry": 649.0,
+   "entry_date": "2026-09-15"
   }
  ],
  "nav": [
@@ -1660,6 +1660,31 @@
    "master": "sentiment",
    "date": "2026-09-14",
    "nav": 995890.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-15",
+   "nav": 1024362.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-15",
+   "nav": 1071186.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-15",
+   "nav": 768630.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-15",
+   "nav": 722483.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-15",
+   "nav": 971108.0
   }
  ],
  "trades": [
@@ -4681,6 +4706,66 @@
    "shares": 4600,
    "price": 31.9,
    "reason": "稀缺资源+半导体材料+制裁概念,题材浓度极高。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "000975",
+   "shares": 4000,
+   "price": 25.45,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300684",
+   "shares": 900,
+   "price": 88.89,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "001389",
+   "shares": 400,
+   "price": 170.91,
+   "reason": "北美CSP资本开支+国内算力中心双轮，AI server PCB是单台ASP数倍跳升的最强弹性环节。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002396",
+   "shares": 2300,
+   "price": 35.3,
+   "reason": "判读后逆势涨37%,AI算力网络顺风+资金动量双确认。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002483",
+   "shares": 24100,
+   "price": 5.92,
+   "reason": "-7.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688072",
+   "shares": 200,
+   "price": 649.0,
+   "reason": "中芯概念+高带宽内存+基金重仓,机构和散户共识强。",
    "src": "rule"
   }
  ],

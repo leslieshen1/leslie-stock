@@ -3,8 +3,8 @@
   "buffett": 36360.23,
   "duan": 40172.16,
   "serenity": 1929.63,
-  "druckenmiller": 332.12,
-  "sentiment": 104085.87
+  "druckenmiller": 2954.35,
+  "sentiment": 90080.43
  },
  "positions": [
   {
@@ -148,24 +148,10 @@
    "entry_date": "2026-07-30"
   },
   {
-   "master": "druckenmiller",
-   "sym": "CEG",
-   "shares": 413,
-   "entry": 261.1,
-   "entry_date": "2026-08-06"
-  },
-  {
    "master": "serenity",
    "sym": "SOLS",
    "shares": 352,
    "entry": 60.32,
-   "entry_date": "2026-08-10"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "NVDA",
-   "shares": 510,
-   "entry": 217.55,
    "entry_date": "2026-08-10"
   },
   {
@@ -212,20 +198,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "WYFI",
-   "shares": 8802,
-   "entry": 18.78,
-   "entry_date": "2026-09-03"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "WDC",
-   "shares": 211,
-   "entry": 477.3,
-   "entry_date": "2026-09-08"
-  },
-  {
-   "master": "sentiment",
    "sym": "CLOV",
    "shares": 34979,
    "entry": 4.71,
@@ -258,6 +230,34 @@
    "shares": 825,
    "entry": 199.28,
    "entry_date": "2026-09-11"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "GFI",
+   "shares": 2329,
+   "entry": 42.91,
+   "entry_date": "2026-09-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "HOOD",
+   "shares": 905,
+   "entry": 110.45,
+   "entry_date": "2026-09-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "IAG",
+   "shares": 5089,
+   "entry": 19.64,
+   "entry_date": "2026-09-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "RIG",
+   "shares": 27282,
+   "entry": 5.94,
+   "entry_date": "2026-09-15"
   }
  ],
  "nav": [
@@ -1735,6 +1735,31 @@
    "master": "sentiment",
    "date": "2026-09-11",
    "nav": 1097217.44
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-15",
+   "nav": 1018612.43
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-15",
+   "nav": 1023283.21
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-15",
+   "nav": 861971.96
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-15",
+   "nav": 869242.37
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-15",
+   "nav": 1080394.49
   }
  ],
  "trades": [
@@ -5076,6 +5101,86 @@
    "shares": 825,
    "price": 199.28,
    "reason": "被打上'AI 存储'标签后机构愿意给溢价,资金面温和向上但远没到逼空式拥挤。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "CEG",
+   "shares": 413,
+   "price": 259.89,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "NVDA",
+   "shares": 510,
+   "price": 212.17,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "WDC",
+   "shares": 211,
+   "price": 411.96,
+   "reason": "错了就是错了,-13.7% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "GFI",
+   "shares": 2329,
+   "price": 42.91,
+   "reason": "黄金正处在央行扫货+实际利率见顶+去美元化的大趋势里,GFI是高弹性的纯多头载体——这种不对称我要骑,而且要骑大的。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "HOOD",
+   "shares": 905,
+   "price": 110.45,
+   "reason": "金融科技加加密顺风叠加最强动量,HOOD 就是德鲁肯要骑的那匹最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "IAG",
+   "shares": 5089,
+   "price": 19.64,
+   "reason": "实际利率见顶、央行疯狂买金、财政赤字货币化——这是教科书级的黄金大趋势,而IAG是带最高弹性的载体,我要的就是这个。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "WYFI",
+   "shares": 8802,
+   "price": 16.82,
+   "reason": "-10.4% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "RIG",
+   "shares": 27282,
+   "price": 5.94,
+   "reason": "散户当它彩票、空头压着仓位,情绪在地板上——而聪明钱在悄悄捡积压订单受益方。",
    "src": "rule"
   }
  ],

@@ -3,7 +3,7 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 108422.0,
+  "druckenmiller": 108606.0,
   "sentiment": 122256.0
  },
  "positions": [
@@ -219,13 +219,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "000703",
-   "shares": 4800,
-   "entry": 17.07,
-   "entry_date": "2026-09-14"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "002130",
    "shares": 4700,
    "entry": 17.58,
@@ -258,6 +251,13 @@
    "shares": 200,
    "entry": 649.0,
    "entry_date": "2026-09-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300398",
+   "shares": 2300,
+   "entry": 36.4,
+   "entry_date": "2026-09-16"
   }
  ],
  "nav": [
@@ -1685,6 +1685,31 @@
    "master": "sentiment",
    "date": "2026-09-15",
    "nav": 971108.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-16",
+   "nav": 1011089.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-16",
+   "nav": 1059115.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-16",
+   "nav": 796861.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-16",
+   "nav": 740762.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-16",
+   "nav": 997342.0
   }
  ],
  "trades": [
@@ -4766,6 +4791,26 @@
    "shares": 200,
    "price": 649.0,
    "reason": "中芯概念+高带宽内存+基金重仓,机构和散户共识强。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-16",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "000703",
+   "shares": 4800,
+   "price": 17.48,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-16",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300398",
+   "shares": 2300,
+   "price": 36.4,
+   "reason": "短线最重要的是趋势，飞凯材料本周已经跑成板块里很强的马。",
    "src": "rule"
   }
  ],

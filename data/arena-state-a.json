@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 108606.0,
-  "sentiment": 139592.0
+  "druckenmiller": 266213.0,
+  "sentiment": 433072.0
  },
  "positions": [
   {
@@ -177,55 +177,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "302132",
-   "shares": 1300,
-   "entry": 63.3,
-   "entry_date": "2026-09-04"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688279",
-   "shares": 800,
-   "entry": 185.0,
-   "entry_date": "2026-09-11"
-  },
-  {
-   "master": "sentiment",
-   "sym": "920640",
-   "shares": 5600,
-   "entry": 27.0,
-   "entry_date": "2026-09-11"
-  },
-  {
-   "master": "sentiment",
-   "sym": "002130",
-   "shares": 8400,
-   "entry": 17.93,
-   "entry_date": "2026-09-11"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688277",
-   "shares": 9800,
-   "entry": 15.49,
-   "entry_date": "2026-09-11"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "920045",
-   "shares": 100,
-   "entry": 581.0,
-   "entry_date": "2026-09-14"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002130",
-   "shares": 4700,
-   "entry": 17.58,
-   "entry_date": "2026-09-14"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "001389",
    "shares": 400,
    "entry": 170.91,
@@ -258,6 +209,27 @@
    "shares": 3900,
    "entry": 38.96,
    "entry_date": "2026-09-17"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300394",
+   "shares": 200,
+   "entry": 284.66,
+   "entry_date": "2026-09-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000099",
+   "shares": 12000,
+   "entry": 12.95,
+   "entry_date": "2026-09-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000603",
+   "shares": 4400,
+   "entry": 34.76,
+   "entry_date": "2026-09-18"
   }
  ],
  "nav": [
@@ -1735,6 +1707,31 @@
    "master": "sentiment",
    "date": "2026-09-17",
    "nav": 1021884.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-18",
+   "nav": 1007435.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-18",
+   "nav": 1056844.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-18",
+   "nav": 810866.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-18",
+   "nav": 738806.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-18",
+   "nav": 1040102.0
   }
  ],
  "trades": [
@@ -4857,6 +4854,106 @@
    "price": 38.96,
    "reason": "AI眼镜是全市场最当红的硬件叙事,国产硅基OLED稀缺标的天然吸金。",
    "src": "rule"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "302132",
+   "shares": 1300,
+   "price": 59.14,
+   "reason": "六代机叙事没兑现价格，动量已转弱亏6%逼近止损线，逆趋势不留恋，砍掉换弹性更好的算力主线。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "920045",
+   "shares": 100,
+   "price": 570.99,
+   "reason": "高价小盘票量能跟不上，动量已破坏亏4.3%，我只骑跑得动的马，退出。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002130",
+   "shares": 4700,
+   "price": 17.14,
+   "reason": "互连叙事没错但价格给不出确认，亏4.7%趴着走不动，砍掉腾出子弹。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300394",
+   "shares": 200,
+   "price": 284.66,
+   "reason": "AI光通信是当下最硬的顺风，天孚是高弹性载体，今日平开未追高，赔率不对称，加仓最强的风。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688279",
+   "shares": 800,
+   "price": 209.43,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+13.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "920640",
+   "shares": 5600,
+   "price": 25.66,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002130",
+   "shares": 8400,
+   "price": 17.14,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688277",
+   "shares": 9800,
+   "price": 14.96,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-3.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000099",
+   "shares": 12000,
+   "price": 12.95,
+   "reason": "低空+航母稀缺牌照抱团口，盘前平开未爆拉，资金抱团情绪未拥挤，性价比进场。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000603",
+   "shares": 4400,
+   "price": 34.76,
+   "reason": "白银ATH+预增双催化正是当下最性感的贵金属情绪，平开不追高，钱正在往这段涌。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -8747,7 +8844,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里四个都是我看得懂的好生意,茅台迈瑞福酒质地都在,没有理由为了换仓去卖掉好公司。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8757,7 +8854,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选三个评分80的生意不错,但都不比我现有的持仓更值得下手,现金也不够开新仓,不为买满去追高。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8767,7 +8864,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十仓已满且全是活着的真瓶颈——稀土/内存接口/EDA/InP/隐身材料没一个营收掉头或内部人跑路,现金5.3万不够开新仓,候选今晨全平开没一个爆拉值得我砍手里的卡位去追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8777,7 +8874,7 @@
    "action": "SELL",
    "sym": "302132",
    "reason": "六代机叙事没兑现价格，动量已转弱亏6%逼近止损线，逆趋势不留恋，砍掉换弹性更好的算力主线。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8787,7 +8884,7 @@
    "action": "SELL",
    "sym": "920045",
    "reason": "高价小盘票量能跟不上，动量已破坏亏4.3%，我只骑跑得动的马，退出。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8797,7 +8894,7 @@
    "action": "SELL",
    "sym": "002130",
    "reason": "互连叙事没错但价格给不出确认，亏4.7%趴着走不动，砍掉腾出子弹。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8807,7 +8904,7 @@
    "action": "BUY",
    "sym": "300394",
    "reason": "AI光通信是当下最硬的顺风，天孚是高弹性载体，今日平开未追高，赔率不对称，加仓最强的风。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8817,7 +8914,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "生益、星网、飞凯、广合都在AI硬件顺风上顺势跑，继续骑着，不动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8827,8 +8924,8 @@
    "action": "SELL",
    "sym": "920640",
    "reason": "概念叠满但资金没接盘，浮亏扩大，死水一潭没戏，情绪不认这只小盘就先撤。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 398,
@@ -8837,8 +8934,8 @@
    "action": "SELL",
    "sym": "688277",
    "reason": "破发低位埋伏迟迟不催化，资金持续流出无反转信号，割了换弹药。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 399,
@@ -8847,7 +8944,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "峰岹、拓荆机构共识仍在，视涯AI眼镜叙事当红，先拿住看资金续不续。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8857,7 +8954,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "沃尔核材铜缆题材仍是AI资金分支，浮亏未触止损，观察资金回流。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8867,7 +8964,7 @@
    "action": "BUY",
    "sym": "000099",
    "reason": "低空+航母稀缺牌照抱团口，盘前平开未爆拉，资金抱团情绪未拥挤，性价比进场。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -8877,7 +8974,7 @@
    "action": "BUY",
    "sym": "000603",
    "reason": "白银ATH+预增双催化正是当下最性感的贵金属情绪，平开不追高，钱正在往这段涌。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

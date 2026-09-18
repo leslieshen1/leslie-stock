@@ -4,7 +4,7 @@
   "duan": 40172.16,
   "serenity": 1929.63,
   "druckenmiller": 2954.35,
-  "sentiment": 90080.43
+  "sentiment": 105110.53
  },
  "positions": [
   {
@@ -198,34 +198,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "CLOV",
-   "shares": 34979,
-   "entry": 4.71,
-   "entry_date": "2026-09-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "TYRA",
-   "shares": 6998,
-   "entry": 23.54,
-   "entry_date": "2026-09-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "QRVO",
-   "shares": 1466,
-   "entry": 112.36,
-   "entry_date": "2026-09-10"
-  },
-  {
-   "master": "sentiment",
-   "sym": "FUBO",
-   "shares": 14439,
-   "entry": 11.41,
-   "entry_date": "2026-09-10"
-  },
-  {
-   "master": "sentiment",
    "sym": "NTAP",
    "shares": 825,
    "entry": 199.28,
@@ -258,6 +230,34 @@
    "shares": 27282,
    "entry": 5.94,
    "entry_date": "2026-09-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "ALMR",
+   "shares": 4943,
+   "entry": 32.01,
+   "entry_date": "2026-09-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "FTK",
+   "shares": 5170,
+   "entry": 30.6,
+   "entry_date": "2026-09-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "SVM",
+   "shares": 13023,
+   "entry": 12.15,
+   "entry_date": "2026-09-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "VZLA",
+   "shares": 39458,
+   "entry": 4.01,
+   "entry_date": "2026-09-17"
   }
  ],
  "nav": [
@@ -1760,6 +1760,31 @@
    "master": "sentiment",
    "date": "2026-09-15",
    "nav": 1080394.49
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-17",
+   "nav": 1025503.19
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-17",
+   "nav": 1039812.35
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-17",
+   "nav": 889898.54
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-17",
+   "nav": 889126.31
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-17",
+   "nav": 1054869.11
   }
  ],
  "trades": [
@@ -5181,6 +5206,86 @@
    "shares": 27282,
    "price": 5.94,
    "reason": "散户当它彩票、空头压着仓位,情绪在地板上——而聪明钱在悄悄捡积压订单受益方。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "CLOV",
+   "shares": 34979,
+   "price": 4.54,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-3.6%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "TYRA",
+   "shares": 6998,
+   "price": 24.43,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.8%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "QRVO",
+   "shares": 1466,
+   "price": 119.51,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+6.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "FUBO",
+   "shares": 14439,
+   "price": 9.9,
+   "reason": "-13.2% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "ALMR",
+   "shares": 4943,
+   "price": 32.01,
+   "reason": "次新热门小盘+阿尔茨海默早筛的故事自带流量,情绪偏热、资金在追,但这种盘情绪反转极快,得顺着也得防着。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "FTK",
+   "shares": 5170,
+   "price": 30.6,
+   "reason": "数据中心+天然气的故事正当红,散户和题材资金在往里挤,情绪是顺风,但这种热度反转极快,得拿好止盈。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "SVM",
+   "shares": 13023,
+   "price": 12.15,
+   "reason": "贵金属这波债务货币化叙事下资金在进、散户在追银，钱还在涌、情绪未到狂热，但拥挤度在快速抬升。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "VZLA",
+   "shares": 39458,
+   "price": 4.01,
+   "reason": "贬值叙事下资金正往白银和初级银矿里灌，情绪在升温段、顺着做，但这种票反转极快得盯紧。",
    "src": "rule"
   }
  ],

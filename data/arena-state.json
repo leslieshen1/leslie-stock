@@ -4,7 +4,7 @@
   "duan": 40172.16,
   "serenity": 1929.63,
   "druckenmiller": 2954.35,
-  "sentiment": 105110.53
+  "sentiment": 107309.78
  },
  "positions": [
   {
@@ -197,13 +197,6 @@
    "entry_date": "2026-09-03"
   },
   {
-   "master": "sentiment",
-   "sym": "NTAP",
-   "shares": 825,
-   "entry": 199.28,
-   "entry_date": "2026-09-11"
-  },
-  {
    "master": "druckenmiller",
    "sym": "GFI",
    "shares": 2329,
@@ -258,6 +251,13 @@
    "shares": 39458,
    "entry": 4.01,
    "entry_date": "2026-09-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "RIOT",
+   "shares": 6778,
+   "entry": 23.75,
+   "entry_date": "2026-09-18"
   }
  ],
  "nav": [
@@ -1785,6 +1785,31 @@
    "master": "sentiment",
    "date": "2026-09-17",
    "nav": 1054869.11
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-18",
+   "nav": 1020271.35
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-18",
+   "nav": 1042913.04
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-18",
+   "nav": 898486.47
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-18",
+   "nav": 894379.28
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-18",
+   "nav": 1073242.57
   }
  ],
  "trades": [
@@ -5286,6 +5311,26 @@
    "shares": 39458,
    "price": 4.01,
    "reason": "贬值叙事下资金正往白银和初级银矿里灌，情绪在升温段、顺着做，但这种票反转极快得盯紧。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "NTAP",
+   "shares": 825,
+   "price": 197.79,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.7%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "RIOT",
+   "shares": 6778,
+   "price": 23.75,
+   "reason": "盘口就是 BTC 的情绪放大器+散户和期权赌徒的游乐场,资金和 gamma 跟着币价潮汐进出。",
    "src": "rule"
   }
  ],

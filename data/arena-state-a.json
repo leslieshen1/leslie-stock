@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 266213.0,
-  "sentiment": 433072.0
+  "druckenmiller": 107230.0,
+  "sentiment": 126656.0
  },
  "positions": [
   {
@@ -230,6 +230,34 @@
    "shares": 4400,
    "entry": 34.76,
    "entry_date": "2026-09-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 200,
+   "entry": 386.99,
+   "entry_date": "2026-09-21"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002979",
+   "shares": 1500,
+   "entry": 54.39,
+   "entry_date": "2026-09-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688331",
+   "shares": 1200,
+   "entry": 125.0,
+   "entry_date": "2026-09-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002965",
+   "shares": 4700,
+   "entry": 33.28,
+   "entry_date": "2026-09-21"
   }
  ],
  "nav": [
@@ -1732,6 +1760,31 @@
    "master": "sentiment",
    "date": "2026-09-18",
    "nav": 1040102.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-21",
+   "nav": 1000702.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-21",
+   "nav": 1060966.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-21",
+   "nav": 810261.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-21",
+   "nav": 742478.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-21",
+   "nav": 1054057.0
   }
  ],
  "trades": [
@@ -4954,6 +5007,46 @@
    "price": 34.76,
    "reason": "白银ATH+预增双催化正是当下最性感的贵金属情绪，平开不追高，钱正在往这段涌。",
    "src": "ai"
+  },
+  {
+   "date": "2026-09-21",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 200,
+   "price": 386.99,
+   "reason": "国产替代政策顺风加订单动量,骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-21",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002979",
+   "shares": 1500,
+   "price": 54.39,
+   "reason": "短线趋势极强，宏观叙事和动量资金都站在多头一边。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688331",
+   "shares": 1200,
+   "price": 125.0,
+   "reason": "创新药出海是当前医药板块最热主线,百元股+ADC龙头自带话题,License-out消息是情绪引爆点。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002965",
+   "shares": 4700,
+   "price": 33.28,
+   "reason": "液冷+特斯拉+AI 多重题材叠加,散户最爱,资金愿意给故事。",
+   "src": "rule"
   }
  ],
  "orders": [

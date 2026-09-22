@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 53665.0,
   "druckenmiller": 107230.0,
-  "sentiment": 126656.0
+  "sentiment": 156233.0
  },
  "positions": [
   {
@@ -190,25 +190,11 @@
    "entry_date": "2026-09-15"
   },
   {
-   "master": "sentiment",
-   "sym": "688072",
-   "shares": 200,
-   "entry": 649.0,
-   "entry_date": "2026-09-15"
-  },
-  {
    "master": "druckenmiller",
    "sym": "300398",
    "shares": 2300,
    "entry": 36.4,
    "entry_date": "2026-09-16"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688781",
-   "shares": 3900,
-   "entry": 38.96,
-   "entry_date": "2026-09-17"
   },
   {
    "master": "druckenmiller",
@@ -258,6 +244,20 @@
    "shares": 4700,
    "entry": 33.28,
    "entry_date": "2026-09-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688258",
+   "shares": 1700,
+   "entry": 94.33,
+   "entry_date": "2026-09-22"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301132",
+   "shares": 2300,
+   "entry": 68.33,
+   "entry_date": "2026-09-22"
   }
  ],
  "nav": [
@@ -1785,6 +1785,31 @@
    "master": "sentiment",
    "date": "2026-09-21",
    "nav": 1054057.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-22",
+   "nav": 1005983.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-22",
+   "nav": 1058008.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-22",
+   "nav": 818297.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-22",
+   "nav": 740534.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-22",
+   "nav": 1082059.0
   }
  ],
  "trades": [
@@ -5046,6 +5071,46 @@
    "shares": 4700,
    "price": 33.28,
    "reason": "液冷+特斯拉+AI 多重题材叠加,散户最爱,资金愿意给故事。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688072",
+   "shares": 200,
+   "price": 722.46,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+11.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688781",
+   "shares": 3900,
+   "price": 51.95,
+   "reason": "+33.3% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-22",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688258",
+   "shares": 1700,
+   "price": 94.33,
+   "reason": "华为海思+AIPC+百元股,信创+国产算力双题材,资金活跃。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-22",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301132",
+   "shares": 2300,
+   "price": 68.33,
+   "reason": "AI硬件题材活跃，PCB是市场反复炒作的算力支线。",
    "src": "rule"
   }
  ],

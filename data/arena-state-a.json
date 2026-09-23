@@ -9134,8 +9134,88 @@
    "reason": "白银ATH+预增双催化正是当下最性感的贵金属情绪，平开不追高，钱正在往这段涌。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 403,
+   "fill_date": "2026-09-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "仓位已满八席、皆是我看懂的好生意,现金无几,没有非动不可的理由,坐着不动就是最好的操作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 404,
+   "fill_date": "2026-09-23",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十个瓶颈仓全是我梦里的卡脖子成色,盈利仓在跑、亏损仓卡位没变,不因跌降信念、不因涨止盈,方向性做多就得拿住。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 405,
+   "fill_date": "2026-09-23",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选全是评分84-86的真瓶颈,但今日盘前一律+0.0%无信号、现金仅¥53665不足一仓,追高接棒不是我的风格,宁可空着等错杀。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 406,
+   "fill_date": "2026-09-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "300394",
+   "reason": "AI光通信这条风口里它却跑成最弱的马，-3.1%相对走弱就是趋势没修复的诚实信号，砍掉换现金。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 407,
+   "fill_date": "2026-09-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "688361",
+   "reason": "国产替代顺风还在，但价格持续偏弱不跟涨，我只骑最强的马，弱马先下。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 408,
+   "fill_date": "2026-09-23",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "广合、生益、星网这些盈利的强马继续骑，候选盘前全部平开没有新的动量确认，不追高、宁可空仓等好价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 409,
+   "fill_date": "2026-09-23",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "六仓已满，候选盘前清一色0.0%无资金异动、无情绪点火信号，死水不追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 410,
+   "fill_date": "2026-09-23",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盛达资源-3.9%贴近止损但白银仍是当下最性感的资金抱团口，让引擎的-7%机械线去管，我不手动割在情绪反复段。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 403,
+ "next_order_id": 411,
  "splits": []
 }

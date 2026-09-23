@@ -3,7 +3,7 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 107230.0,
+  "druckenmiller": 238574.0,
   "sentiment": 156233.0
  },
  "positions": [
@@ -197,13 +197,6 @@
    "entry_date": "2026-09-16"
   },
   {
-   "master": "druckenmiller",
-   "sym": "300394",
-   "shares": 200,
-   "entry": 284.66,
-   "entry_date": "2026-09-18"
-  },
-  {
    "master": "sentiment",
    "sym": "000099",
    "shares": 12000,
@@ -216,13 +209,6 @@
    "shares": 4400,
    "entry": 34.76,
    "entry_date": "2026-09-18"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688361",
-   "shares": 200,
-   "entry": 386.99,
-   "entry_date": "2026-09-21"
   },
   {
    "master": "druckenmiller",
@@ -1810,6 +1796,31 @@
    "master": "sentiment",
    "date": "2026-09-22",
    "nav": 1082059.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-23",
+   "nav": 1002731.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-23",
+   "nav": 1054923.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-23",
+   "nav": 820103.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-23",
+   "nav": 738278.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-23",
+   "nav": 1090241.0
   }
  ],
  "trades": [
@@ -5112,6 +5123,26 @@
    "price": 68.33,
    "reason": "AI硬件题材活跃，PCB是市场反复炒作的算力支线。",
    "src": "rule"
+  },
+  {
+   "date": "2026-09-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300394",
+   "shares": 200,
+   "price": 275.4,
+   "reason": "AI光通信这条风口里它却跑成最弱的马，-3.1%相对走弱就是趋势没修复的诚实信号，砍掉换现金。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-09-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688361",
+   "shares": 200,
+   "price": 381.32,
+   "reason": "国产替代顺风还在，但价格持续偏弱不跟涨，我只骑最强的马，弱马先下。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -9142,7 +9173,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "仓位已满八席、皆是我看懂的好生意,现金无几,没有非动不可的理由,坐着不动就是最好的操作。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -9152,7 +9183,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "十个瓶颈仓全是我梦里的卡脖子成色,盈利仓在跑、亏损仓卡位没变,不因跌降信念、不因涨止盈,方向性做多就得拿住。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -9162,7 +9193,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选全是评分84-86的真瓶颈,但今日盘前一律+0.0%无信号、现金仅¥53665不足一仓,追高接棒不是我的风格,宁可空着等错杀。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -9172,7 +9203,7 @@
    "action": "SELL",
    "sym": "300394",
    "reason": "AI光通信这条风口里它却跑成最弱的马，-3.1%相对走弱就是趋势没修复的诚实信号，砍掉换现金。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -9182,7 +9213,7 @@
    "action": "SELL",
    "sym": "688361",
    "reason": "国产替代顺风还在，但价格持续偏弱不跟涨，我只骑最强的马，弱马先下。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -9192,7 +9223,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "广合、生益、星网这些盈利的强马继续骑，候选盘前全部平开没有新的动量确认，不追高、宁可空仓等好价。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -9202,7 +9233,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "六仓已满，候选盘前清一色0.0%无资金异动、无情绪点火信号，死水不追。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -9212,7 +9243,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "盛达资源-3.9%贴近止损但白银仍是当下最性感的资金抱团口，让引擎的-7%机械线去管，我不手动割在情绪反复段。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

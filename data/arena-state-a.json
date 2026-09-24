@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 238574.0,
-  "sentiment": 156233.0
+  "druckenmiller": 69004.0,
+  "sentiment": 142881.0
  },
  "positions": [
   {
@@ -170,13 +170,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "301018",
-   "shares": 800,
-   "entry": 102.92,
-   "entry_date": "2026-09-04"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "001389",
    "shares": 400,
    "entry": 170.91,
@@ -201,13 +194,6 @@
    "sym": "000099",
    "shares": 12000,
    "entry": 12.95,
-   "entry_date": "2026-09-18"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000603",
-   "shares": 4400,
-   "entry": 34.76,
    "entry_date": "2026-09-18"
   },
   {
@@ -244,6 +230,34 @@
    "shares": 2300,
    "entry": 68.33,
    "entry_date": "2026-09-22"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688521",
+   "shares": 400,
+   "entry": 207.45,
+   "entry_date": "2026-09-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300442",
+   "shares": 1200,
+   "entry": 68.01,
+   "entry_date": "2026-09-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300814",
+   "shares": 600,
+   "entry": 138.43,
+   "entry_date": "2026-09-24"
+  },
+  {
+   "master": "sentiment",
+   "sym": "600641",
+   "shares": 3000,
+   "entry": 51.56,
+   "entry_date": "2026-09-24"
   }
  ],
  "nav": [
@@ -1821,6 +1835,31 @@
    "master": "sentiment",
    "date": "2026-09-23",
    "nav": 1090241.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-24",
+   "nav": 997704.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-24",
+   "nav": 1040960.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-24",
+   "nav": 797149.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-24",
+   "nav": 723667.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-24",
+   "nav": 1052879.0
   }
  ],
  "trades": [
@@ -5143,6 +5182,66 @@
    "price": 381.32,
    "reason": "国产替代顺风还在，但价格持续偏弱不跟涨，我只骑最强的马，弱马先下。",
    "src": "ai"
+  },
+  {
+   "date": "2026-09-24",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301018",
+   "shares": 800,
+   "price": 97.6,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688521",
+   "shares": 400,
+   "price": 207.45,
+   "reason": "AI ASIC定制+Chiplet+国产替代,三股顺风同时吹,骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300442",
+   "shares": 1200,
+   "price": 68.01,
+   "reason": "东数西算+AI算力+液冷,政策与产业双顺风,资金主线标的。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-24",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300814",
+   "shares": 600,
+   "price": 138.43,
+   "reason": "从趋势交易角度看，价格已重新站回强势，二线 AI PCB 的动量交易明显修复。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-24",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000603",
+   "shares": 4400,
+   "price": 32.12,
+   "reason": "-7.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-24",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "600641",
+   "shares": 3000,
+   "price": 51.56,
+   "reason": "稀缺资源+半导体材料+制裁概念,题材浓度极高。",
+   "src": "rule"
   }
  ],
  "orders": [

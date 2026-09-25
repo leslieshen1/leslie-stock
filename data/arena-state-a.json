@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 69004.0,
-  "sentiment": 142881.0
+  "druckenmiller": 77342.0,
+  "sentiment": 141229.0
  },
  "positions": [
   {
@@ -155,13 +155,6 @@
    "entry_date": "2026-08-05"
   },
   {
-   "master": "druckenmiller",
-   "sym": "600183",
-   "shares": 600,
-   "entry": 130.01,
-   "entry_date": "2026-08-26"
-  },
-  {
    "master": "buffett",
    "sym": "600690",
    "shares": 5800,
@@ -188,13 +181,6 @@
    "shares": 2300,
    "entry": 36.4,
    "entry_date": "2026-09-16"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000099",
-   "shares": 12000,
-   "entry": 12.95,
-   "entry_date": "2026-09-18"
   },
   {
    "master": "druckenmiller",
@@ -258,6 +244,20 @@
    "shares": 3000,
    "entry": 51.56,
    "entry_date": "2026-09-24"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 200,
+   "entry": 370.3,
+   "entry_date": "2026-09-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000021",
+   "shares": 4400,
+   "entry": 35.53,
+   "entry_date": "2026-09-25"
   }
  ],
  "nav": [
@@ -1859,6 +1859,31 @@
   {
    "master": "sentiment",
    "date": "2026-09-24",
+   "nav": 1052879.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-25",
+   "nav": 997704.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-25",
+   "nav": 1040960.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-25",
+   "nav": 797149.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-25",
+   "nav": 723667.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-25",
    "nav": 1052879.0
   }
  ],
@@ -5241,6 +5266,46 @@
    "shares": 3000,
    "price": 51.56,
    "reason": "稀缺资源+半导体材料+制裁概念,题材浓度极高。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-25",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "600183",
+   "shares": 600,
+   "price": 137.33,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-25",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 200,
+   "price": 370.3,
+   "reason": "国产替代政策顺风加订单动量,骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000099",
+   "shares": 12000,
+   "price": 12.89,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000021",
+   "shares": 4400,
+   "price": 35.53,
+   "reason": "半导体+存储芯片+AI多题材叠加，散户认知度高。",
    "src": "rule"
   }
  ],

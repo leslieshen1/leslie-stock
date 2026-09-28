@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 53665.0,
-  "druckenmiller": 77342.0,
-  "sentiment": 141229.0
+  "druckenmiller": 83713.0,
+  "sentiment": 118255.0
  },
  "positions": [
   {
@@ -170,45 +170,10 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "002396",
-   "shares": 2300,
-   "entry": 35.3,
-   "entry_date": "2026-09-15"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300398",
    "shares": 2300,
    "entry": 36.4,
    "entry_date": "2026-09-16"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002979",
-   "shares": 1500,
-   "entry": 54.39,
-   "entry_date": "2026-09-21"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688331",
-   "shares": 1200,
-   "entry": 125.0,
-   "entry_date": "2026-09-21"
-  },
-  {
-   "master": "sentiment",
-   "sym": "002965",
-   "shares": 4700,
-   "entry": 33.28,
-   "entry_date": "2026-09-21"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688258",
-   "shares": 1700,
-   "entry": 94.33,
-   "entry_date": "2026-09-22"
   },
   {
    "master": "sentiment",
@@ -232,13 +197,6 @@
    "entry_date": "2026-09-24"
   },
   {
-   "master": "druckenmiller",
-   "sym": "300814",
-   "shares": 600,
-   "entry": 138.43,
-   "entry_date": "2026-09-24"
-  },
-  {
    "master": "sentiment",
    "sym": "600641",
    "shares": 3000,
@@ -258,6 +216,48 @@
    "shares": 4400,
    "entry": 35.53,
    "entry_date": "2026-09-25"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301393",
+   "shares": 1100,
+   "entry": 66.05,
+   "entry_date": "2026-09-28"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300684",
+   "shares": 700,
+   "entry": 109.2,
+   "entry_date": "2026-09-28"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300718",
+   "shares": 1300,
+   "entry": 57.31,
+   "entry_date": "2026-09-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688561",
+   "shares": 5000,
+   "entry": 29.77,
+   "entry_date": "2026-09-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "600206",
+   "shares": 2900,
+   "entry": 51.63,
+   "entry_date": "2026-09-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002896",
+   "shares": 2300,
+   "entry": 63.31,
+   "entry_date": "2026-09-28"
   }
  ],
  "nav": [
@@ -1885,6 +1885,31 @@
    "master": "sentiment",
    "date": "2026-09-25",
    "nav": 1052879.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-28",
+   "nav": 994202.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-28",
+   "nav": 1049503.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-28",
+   "nav": 759320.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-28",
+   "nav": 687735.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-28",
+   "nav": 1007192.0
   }
  ],
  "trades": [
@@ -5306,6 +5331,126 @@
    "shares": 4400,
    "price": 35.53,
    "reason": "半导体+存储芯片+AI多题材叠加，散户认知度高。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002396",
+   "shares": 2300,
+   "price": 32.99,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002979",
+   "shares": 1500,
+   "price": 52.0,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300814",
+   "shares": 600,
+   "price": 126.82,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301393",
+   "shares": 1100,
+   "price": 66.05,
+   "reason": "GLP-1产业顺风+资金动量,最强的马还在跑。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300684",
+   "shares": 700,
+   "price": 109.2,
+   "reason": "趋势仍站在AI散热这条主线上，价格也在验证资金偏好。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300718",
+   "shares": 1300,
+   "price": 57.31,
+   "reason": "不管估值，本周强度已经说明它是短线资金正在骑的强马之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688331",
+   "shares": 1200,
+   "price": 115.34,
+   "reason": "-7.7% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002965",
+   "shares": 4700,
+   "price": 30.44,
+   "reason": "-8.5% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688258",
+   "shares": 1700,
+   "price": 82.2,
+   "reason": "-12.9% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688561",
+   "shares": 5000,
+   "price": 29.77,
+   "reason": "信创/数据安全主题活跃,龙头有资金号召力。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "600206",
+   "shares": 2900,
+   "price": 51.63,
+   "reason": "半导体材料加稀土双标签，是资金长期偏爱的硬科技主线。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002896",
+   "shares": 2300,
+   "price": 63.31,
+   "reason": "人形机器人是顶流题材,执行器是核心环节,中大力德弹性足、人气旺。",
    "src": "rule"
   }
  ],

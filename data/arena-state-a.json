@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 53665.0,
   "druckenmiller": 83713.0,
-  "sentiment": 118255.0
+  "sentiment": 148233.0
  },
  "positions": [
   {
@@ -176,13 +176,6 @@
    "entry_date": "2026-09-16"
   },
   {
-   "master": "sentiment",
-   "sym": "301132",
-   "shares": 2300,
-   "entry": 68.33,
-   "entry_date": "2026-09-22"
-  },
-  {
    "master": "druckenmiller",
    "sym": "688521",
    "shares": 400,
@@ -258,6 +251,13 @@
    "shares": 2300,
    "entry": 63.31,
    "entry_date": "2026-09-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "001389",
+   "shares": 700,
+   "entry": 191.84,
+   "entry_date": "2026-09-29"
   }
  ],
  "nav": [
@@ -1910,6 +1910,31 @@
    "master": "sentiment",
    "date": "2026-09-28",
    "nav": 1007192.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-29",
+   "nav": 994609.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-29",
+   "nav": 1049042.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-29",
+   "nav": 764069.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-29",
+   "nav": 687552.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-29",
+   "nav": 1010885.0
   }
  ],
  "trades": [
@@ -5451,6 +5476,26 @@
    "shares": 2300,
    "price": 63.31,
    "reason": "人形机器人是顶流题材,执行器是核心环节,中大力德弹性足、人气旺。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-29",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "301132",
+   "shares": 2300,
+   "price": 71.42,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+4.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-29",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "001389",
+   "shares": 700,
+   "price": 191.84,
+   "reason": "AI算力+PCB+预增+百元股，题材热但还没到全民追的极端拥挤。",
    "src": "rule"
   }
  ],

@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 53665.0,
-  "druckenmiller": 83713.0,
-  "sentiment": 148233.0
+  "serenity": 42098.0,
+  "druckenmiller": 100231.0,
+  "sentiment": 124698.0
  },
  "positions": [
   {
@@ -82,13 +82,6 @@
    "sym": "300760",
    "shares": 1700,
    "entry": 134.89,
-   "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
-   "sym": "688702",
-   "shares": 200,
-   "entry": 335.21,
    "entry_date": "2026-06-26"
   },
   {
@@ -177,13 +170,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "688521",
-   "shares": 400,
-   "entry": 207.45,
-   "entry_date": "2026-09-24"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300442",
    "shares": 1200,
    "entry": 68.01,
@@ -201,13 +187,6 @@
    "sym": "688361",
    "shares": 200,
    "entry": 370.3,
-   "entry_date": "2026-09-25"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000021",
-   "shares": 4400,
-   "entry": 35.53,
    "entry_date": "2026-09-25"
   },
   {
@@ -240,24 +219,45 @@
   },
   {
    "master": "sentiment",
-   "sym": "600206",
-   "shares": 2900,
-   "entry": 51.63,
-   "entry_date": "2026-09-28"
-  },
-  {
-   "master": "sentiment",
    "sym": "002896",
    "shares": 2300,
    "entry": 63.31,
    "entry_date": "2026-09-28"
   },
   {
+   "master": "serenity",
+   "sym": "000831",
+   "shares": 1300,
+   "entry": 52.73,
+   "entry_date": "2026-09-30"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300394",
+   "shares": 200,
+   "entry": 260.77,
+   "entry_date": "2026-09-30"
+  },
+  {
    "master": "sentiment",
-   "sym": "001389",
-   "shares": 700,
-   "entry": 191.84,
-   "entry_date": "2026-09-29"
+   "sym": "688046",
+   "shares": 3800,
+   "entry": 37.94,
+   "entry_date": "2026-09-30"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300489",
+   "shares": 500,
+   "entry": 278.35,
+   "entry_date": "2026-09-30"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688218",
+   "shares": 3500,
+   "entry": 41.0,
+   "entry_date": "2026-09-30"
   }
  ],
  "nav": [
@@ -1935,6 +1935,31 @@
    "master": "sentiment",
    "date": "2026-09-29",
    "nav": 1010885.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-09-30",
+   "nav": 1001091.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-09-30",
+   "nav": 1064431.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-09-30",
+   "nav": 747773.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-09-30",
+   "nav": 667420.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-09-30",
+   "nav": 983881.0
   }
  ],
  "trades": [
@@ -5496,6 +5521,106 @@
    "shares": 700,
    "price": 191.84,
    "reason": "AI算力+PCB+预增+百元股，题材热但还没到全民追的极端拥挤。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688702",
+   "shares": 200,
+   "price": 284.91,
+   "reason": "破位 -15.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "000831",
+   "shares": 1300,
+   "price": 52.73,
+   "reason": "这就是教科书级的卡脖子:中重稀土镝铽全球~90%出自中国,这家是南方稀土整合主平台,出口管制是政策亲手按下的产能阀门。全村唯一,我要的就是这个。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688521",
+   "shares": 400,
+   "price": 171.68,
+   "reason": "错了就是错了,-17.2% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300394",
+   "shares": 200,
+   "price": 260.77,
+   "reason": "自上而下AI光通信叙事叠加个股强动量，趋势交易框架已从前次破坏修复为强顺风。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000021",
+   "shares": 4400,
+   "price": 32.83,
+   "reason": "-7.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "600206",
+   "shares": 2900,
+   "price": 46.62,
+   "reason": "-9.7% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "001389",
+   "shares": 700,
+   "price": 176.66,
+   "reason": "-7.9% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688046",
+   "shares": 3800,
+   "price": 37.94,
+   "reason": "资金重新发现这只小鼠龙头，情绪由冷转热。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300489",
+   "shares": 500,
+   "price": 278.35,
+   "reason": "第三代半导体+战略资源+百元股,资金题材丰富。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-09-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688218",
+   "shares": 3500,
+   "price": 41.0,
+   "reason": "特斯拉+机器人概念,题材弹性足。",
    "src": "rule"
   }
  ],

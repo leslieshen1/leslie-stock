@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 42098.0,
-  "druckenmiller": 100231.0,
-  "sentiment": 119443.0
+  "druckenmiller": 92519.0,
+  "sentiment": 105720.0
  },
  "positions": [
   {
@@ -163,24 +163,10 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300398",
-   "shares": 2300,
-   "entry": 36.4,
-   "entry_date": "2026-09-16"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300442",
    "shares": 1200,
    "entry": 68.01,
    "entry_date": "2026-09-24"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688361",
-   "shares": 200,
-   "entry": 370.3,
-   "entry_date": "2026-09-25"
   },
   {
    "master": "druckenmiller",
@@ -190,52 +176,10 @@
    "entry_date": "2026-09-28"
   },
   {
-   "master": "druckenmiller",
-   "sym": "300684",
-   "shares": 700,
-   "entry": 109.2,
-   "entry_date": "2026-09-28"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "300718",
-   "shares": 1300,
-   "entry": 57.31,
-   "entry_date": "2026-09-28"
-  },
-  {
    "master": "serenity",
    "sym": "000831",
    "shares": 1300,
    "entry": 52.73,
-   "entry_date": "2026-09-30"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "300394",
-   "shares": 200,
-   "entry": 260.77,
-   "entry_date": "2026-09-30"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688046",
-   "shares": 3800,
-   "entry": 37.94,
-   "entry_date": "2026-09-30"
-  },
-  {
-   "master": "sentiment",
-   "sym": "300489",
-   "shares": 500,
-   "entry": 278.35,
-   "entry_date": "2026-09-30"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688218",
-   "shares": 3500,
-   "entry": 41.0,
    "entry_date": "2026-09-30"
   },
   {
@@ -258,6 +202,62 @@
    "shares": 13200,
    "entry": 11.13,
    "entry_date": "2026-10-06"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688361",
+   "shares": 200,
+   "entry": 331.48,
+   "entry_date": "2026-10-08"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300684",
+   "shares": 700,
+   "entry": 90.1,
+   "entry_date": "2026-10-08"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "000045",
+   "shares": 6500,
+   "entry": 11.06,
+   "entry_date": "2026-10-08"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301589",
+   "shares": 400,
+   "entry": 152.96,
+   "entry_date": "2026-10-08"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "603893",
+   "shares": 300,
+   "entry": 199.56,
+   "entry_date": "2026-10-08"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688375",
+   "shares": 2000,
+   "entry": 69.2,
+   "entry_date": "2026-10-08"
+  },
+  {
+   "master": "sentiment",
+   "sym": "605100",
+   "shares": 3700,
+   "entry": 38.4,
+   "entry_date": "2026-10-08"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300045",
+   "shares": 12100,
+   "entry": 11.83,
+   "entry_date": "2026-10-08"
   }
  ],
  "nav": [
@@ -2060,6 +2060,31 @@
    "master": "sentiment",
    "date": "2026-10-07",
    "nav": 983881.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-08",
+   "nav": 1003456.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-08",
+   "nav": 1048726.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-08",
+   "nav": 731272.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-08",
+   "nav": 626140.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-08",
+   "nav": 961175.0
   }
  ],
  "trades": [
@@ -5781,6 +5806,166 @@
    "shares": 13200,
    "price": 11.13,
    "reason": "OLED/显示+国产替代+大基金故事性强，资金有抓手。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300398",
+   "shares": 2300,
+   "price": 31.72,
+   "reason": "错了就是错了,-12.9% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688361",
+   "shares": 200,
+   "price": 331.48,
+   "reason": "错了就是错了,-10.5% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300684",
+   "shares": 700,
+   "price": 90.1,
+   "reason": "错了就是错了,-17.5% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300718",
+   "shares": 1300,
+   "price": 50.2,
+   "reason": "错了就是错了,-12.4% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300394",
+   "shares": 200,
+   "price": 235.07,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688361",
+   "shares": 200,
+   "price": 331.48,
+   "reason": "国产替代政策顺风加订单动量,骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300684",
+   "shares": 700,
+   "price": 90.1,
+   "reason": "趋势仍站在AI散热这条主线上，价格也在验证资金偏好。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "000045",
+   "shares": 6500,
+   "price": 11.06,
+   "reason": "显示材料国产替代+大基金二期入股，政策与资金双顺风。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301589",
+   "shares": 400,
+   "price": 152.96,
+   "reason": "踩中 Mini/Micro LED + XR 虚拟拍摄双产业趋势的小盘强势马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "603893",
+   "shares": 300,
+   "price": 199.56,
+   "reason": "边缘 AI+具身智能+AI 眼镜,瑞芯微卡在多条最强主线交汇处。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688046",
+   "shares": 3800,
+   "price": 35.5,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-6.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300489",
+   "shares": 500,
+   "price": 263.0,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688218",
+   "shares": 3500,
+   "price": 41.0,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688375",
+   "shares": 2000,
+   "price": 69.2,
+   "reason": "第三代半导体+军工双题材，资金愿意给溢价。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "605100",
+   "shares": 3700,
+   "price": 38.4,
+   "reason": "军工配套题材有热度，资金阶段性参与。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-08",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300045",
+   "shares": 12100,
+   "price": 11.83,
+   "reason": "卫星互联网是高弹性热门主线,稀缺芯片标的资金抢筹。",
    "src": "rule"
   }
  ],

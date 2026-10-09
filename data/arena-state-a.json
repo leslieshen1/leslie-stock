@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 42098.0,
-  "druckenmiller": 92519.0,
-  "sentiment": 105720.0
+  "druckenmiller": 90030.0,
+  "sentiment": 101052.0
  },
  "positions": [
   {
@@ -156,20 +156,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "001389",
-   "shares": 400,
-   "entry": 170.91,
-   "entry_date": "2026-09-15"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "300442",
-   "shares": 1200,
-   "entry": 68.01,
-   "entry_date": "2026-09-24"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "301393",
    "shares": 1100,
    "entry": 66.05,
@@ -181,13 +167,6 @@
    "shares": 1300,
    "entry": 52.73,
    "entry_date": "2026-09-30"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000021",
-   "shares": 4400,
-   "entry": 32.83,
-   "entry_date": "2026-10-01"
   },
   {
    "master": "sentiment",
@@ -258,6 +237,27 @@
    "shares": 12100,
    "entry": 11.83,
    "entry_date": "2026-10-08"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301269",
+   "shares": 700,
+   "entry": 92.25,
+   "entry_date": "2026-10-09"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300045",
+   "shares": 5500,
+   "entry": 12.74,
+   "entry_date": "2026-10-09"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688248",
+   "shares": 2800,
+   "entry": 52.0,
+   "entry_date": "2026-10-09"
   }
  ],
  "nav": [
@@ -2085,6 +2085,31 @@
    "master": "sentiment",
    "date": "2026-10-08",
    "nav": 961175.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-09",
+   "nav": 1017850.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-09",
+   "nav": 1069017.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-09",
+   "nav": 728042.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-09",
+   "nav": 619775.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-09",
+   "nav": 972676.0
   }
  ],
  "trades": [
@@ -5966,6 +5991,66 @@
    "shares": 12100,
    "price": 11.83,
    "reason": "卫星互联网是高弹性热门主线,稀缺芯片标的资金抢筹。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-09",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "001389",
+   "shares": 400,
+   "price": 154.5,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-09",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300442",
+   "shares": 1200,
+   "price": 58.63,
+   "reason": "错了就是错了,-13.8% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-09",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301269",
+   "shares": 700,
+   "price": 92.25,
+   "reason": "新思楷登被禁是核心催化，半导体自主可控最强主线。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-09",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300045",
+   "shares": 5500,
+   "price": 12.74,
+   "reason": "卫星互联网+国产芯片双主线叠加,这是最强的政策顺风之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-09",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000021",
+   "shares": 4400,
+   "price": 32.03,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-2.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-09",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688248",
+   "shares": 2800,
+   "price": 52.0,
+   "reason": "储能/虚拟电厂题材活跃,中盘成长有散户跟风。",
    "src": "rule"
   }
  ],

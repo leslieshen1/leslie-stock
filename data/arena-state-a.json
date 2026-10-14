@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 42098.0,
-  "druckenmiller": 90030.0,
-  "sentiment": 101052.0
+  "serenity": 90410.0,
+  "druckenmiller": 216750.0,
+  "sentiment": 231920.0
  },
  "positions": [
   {
@@ -107,31 +107,10 @@
   },
   {
    "master": "serenity",
-   "sym": "688582",
-   "shares": 1800,
-   "entry": 37.04,
-   "entry_date": "2026-07-20"
-  },
-  {
-   "master": "serenity",
-   "sym": "600259",
-   "shares": 1000,
-   "entry": 73.16,
-   "entry_date": "2026-07-21"
-  },
-  {
-   "master": "serenity",
    "sym": "688785",
    "shares": 200,
    "entry": 246.0,
    "entry_date": "2026-07-31"
-  },
-  {
-   "master": "serenity",
-   "sym": "688008",
-   "shares": 300,
-   "entry": 203.25,
-   "entry_date": "2026-08-04"
   },
   {
    "master": "serenity",
@@ -155,32 +134,11 @@
    "entry_date": "2026-09-01"
   },
   {
-   "master": "druckenmiller",
-   "sym": "301393",
-   "shares": 1100,
-   "entry": 66.05,
-   "entry_date": "2026-09-28"
-  },
-  {
    "master": "serenity",
    "sym": "000831",
    "shares": 1300,
    "entry": 52.73,
    "entry_date": "2026-09-30"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000034",
-   "shares": 6300,
-   "entry": 23.21,
-   "entry_date": "2026-10-06"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000045",
-   "shares": 13200,
-   "entry": 11.13,
-   "entry_date": "2026-10-06"
   },
   {
    "master": "druckenmiller",
@@ -219,13 +177,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "688375",
-   "shares": 2000,
-   "entry": 69.2,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "sentiment",
    "sym": "605100",
    "shares": 3700,
    "entry": 38.4,
@@ -246,18 +197,39 @@
    "entry_date": "2026-10-09"
   },
   {
-   "master": "druckenmiller",
-   "sym": "300045",
-   "shares": 5500,
-   "entry": 12.74,
-   "entry_date": "2026-10-09"
+   "master": "serenity",
+   "sym": "002222",
+   "shares": 1200,
+   "entry": 52.19,
+   "entry_date": "2026-10-14"
+  },
+  {
+   "master": "serenity",
+   "sym": "003021",
+   "shares": 1000,
+   "entry": 63.0,
+   "entry_date": "2026-10-14"
   },
   {
    "master": "sentiment",
-   "sym": "688248",
-   "shares": 2800,
-   "entry": 52.0,
-   "entry_date": "2026-10-09"
+   "sym": "300748",
+   "shares": 6000,
+   "entry": 22.78,
+   "entry_date": "2026-10-14"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688605",
+   "shares": 2000,
+   "entry": 66.2,
+   "entry_date": "2026-10-14"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688282",
+   "shares": 2400,
+   "entry": 55.92,
+   "entry_date": "2026-10-14"
   }
  ],
  "nav": [
@@ -2135,6 +2107,31 @@
    "master": "sentiment",
    "date": "2026-10-13",
    "nav": 947875.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-14",
+   "nav": 1031055.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-14",
+   "nav": 1083329.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-14",
+   "nav": 696872.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-14",
+   "nav": 600714.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-14",
+   "nav": 915245.0
   }
  ],
  "trades": [
@@ -6077,6 +6074,146 @@
    "price": 52.0,
    "reason": "储能/虚拟电厂题材活跃,中盘成长有散户跟风。",
    "src": "rule"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688582",
+   "shares": 1800,
+   "price": 31.4,
+   "reason": "破位 -15.2%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688008",
+   "shares": 300,
+   "price": 173.8,
+   "reason": "澜起是真瓶颈但这仓不是现在最锋利的刀，DDR5/CXL逻辑已被充分盯住且当前浮亏拖仓位，我先把拥挤但有效的票降权，腾给更纯的单点瓶颈。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "600259",
+   "shares": 1000,
+   "price": 65.28,
+   "reason": "中稀有色和中国稀土本质是同一口中重稀土井，主题票高波动下不需要双倍押同一风险，我砍掉更弱的一条保留主平台。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "002222",
+   "shares": 1200,
+   "price": 52.19,
+   "reason": "福晶今天低开给了我机会，LBO/BBO/KTP非线性晶体是激光、CPO、TFLN上游少数真稀缺料，每台下游扩产都要吃它，供应商极少且验证替代成本高。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "003021",
+   "shares": 1000,
+   "price": 63.0,
+   "reason": "兆威小幅低开不是追高，微型行星齿轮/微传动卡在灵巧手量产BOM里，机器人量产洪流只要兑现它就按件分肉，但这是高波动主题票。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301393",
+   "shares": 1100,
+   "price": 58.3,
+   "reason": "错了就是错了,-11.7% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300045",
+   "shares": 5500,
+   "price": 11.38,
+   "reason": "错了就是错了,-10.7% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000034",
+   "shares": 6300,
+   "price": 20.8,
+   "reason": "-10.4% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000045",
+   "shares": 13200,
+   "price": 10.55,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688375",
+   "shares": 2000,
+   "price": 63.3,
+   "reason": "-8.5% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688248",
+   "shares": 2800,
+   "price": 49.02,
+   "reason": "南网科技储能/虚拟电厂这条线当前资金温度不如半导体和机器人，死水票不恋战。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300748",
+   "shares": 6000,
+   "price": 22.78,
+   "reason": "金力永磁今日高开不极端，机器人+特斯拉仍是资金抱团方向，情绪在升温但尚非涨停接力。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688605",
+   "shares": 2000,
+   "price": 66.2,
+   "reason": "先锋精科半导体设备小盘弹性强，盘前温和上冲说明有资金试探，不算最后一棒。",
+   "src": "ai"
+  },
+  {
+   "date": "2026-10-14",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688282",
+   "shares": 2400,
+   "price": 55.92,
+   "reason": "理工导航军工+无人机主线顺风，涨幅温和、拥挤度低于半导体核心，适合换入活水。",
+   "src": "ai"
   }
  ],
  "orders": [
@@ -10247,7 +10384,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这些持仓大多是我能理解、护城河清楚且价格仍不离谱的生意；手里现金不多，而候选里没有一个便宜到让我必须卖掉现有好公司去换仓。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10257,7 +10394,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "这几个都还是能看懂的好生意，今天没有看到必须动手的便宜，也没必要为了动而动。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10267,7 +10404,7 @@
    "action": "SELL",
    "sym": "688008",
    "reason": "澜起是真瓶颈但这仓不是现在最锋利的刀，DDR5/CXL逻辑已被充分盯住且当前浮亏拖仓位，我先把拥挤但有效的票降权，腾给更纯的单点瓶颈。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10277,7 +10414,7 @@
    "action": "SELL",
    "sym": "600259",
    "reason": "中稀有色和中国稀土本质是同一口中重稀土井，主题票高波动下不需要双倍押同一风险，我砍掉更弱的一条保留主平台。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10287,7 +10424,7 @@
    "action": "BUY",
    "sym": "002222",
    "reason": "福晶今天低开给了我机会，LBO/BBO/KTP非线性晶体是激光、CPO、TFLN上游少数真稀缺料，每台下游扩产都要吃它，供应商极少且验证替代成本高。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10297,7 +10434,7 @@
    "action": "BUY",
    "sym": "003021",
    "reason": "兆威小幅低开不是追高，微型行星齿轮/微传动卡在灵巧手量产BOM里，机器人量产洪流只要兑现它就按件分肉，但这是高波动主题票。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10307,7 +10444,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "其余仓位继续拿，云南锗业、恒运昌、华秦、华大九天这些还在不可替代瓶颈位，短线波动不是我卖掉真卡脖子的理由。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10317,8 +10454,8 @@
    "action": "SELL",
    "sym": "301393",
    "reason": "GLP-1这匹马已经跌到我快没理由辩护，逆着资金流就先砍，别让小亏变大亏。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 425,
@@ -10327,8 +10464,8 @@
    "action": "SELL",
    "sym": "300045",
    "reason": "卫星互联网叙事没被价格确认，亏到这个位置说明我看错了，德鲁肯米勒式处理就是快砍。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 426,
@@ -10337,7 +10474,7 @@
    "action": "HOLD",
    "sym": "",
    "reason": "其余仓位要么仍在半导体自主可控、AI硬件这些主线里有价格验证，要么亏损尚未证明趋势死亡，先让强者继续跑。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10347,8 +10484,8 @@
    "action": "SELL",
    "sym": "000034",
    "reason": "神州数码浮亏已到情绪票危险区，AI算力+华为今天没有看到资金重新抢筹，先撤掉弱筹码。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 428,
@@ -10357,8 +10494,8 @@
    "action": "SELL",
    "sym": "688375",
    "reason": "国博电子已触及-7%附近，第三代半导体/军工题材若无盘前资金回流，容易被更强主线抽血，先认错。",
-   "status": "pending",
-   "note": ""
+   "status": "rejected",
+   "note": "未持有或无行情(可能已被机械止损)"
   },
   {
    "id": 429,
@@ -10367,7 +10504,7 @@
    "action": "SELL",
    "sym": "688248",
    "reason": "南网科技储能/虚拟电厂这条线当前资金温度不如半导体和机器人，死水票不恋战。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10377,7 +10514,7 @@
    "action": "BUY",
    "sym": "300748",
    "reason": "金力永磁今日高开不极端，机器人+特斯拉仍是资金抱团方向，情绪在升温但尚非涨停接力。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10387,7 +10524,7 @@
    "action": "BUY",
    "sym": "688605",
    "reason": "先锋精科半导体设备小盘弹性强，盘前温和上冲说明有资金试探，不算最后一棒。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   },
   {
@@ -10397,7 +10534,7 @@
    "action": "BUY",
    "sym": "688282",
    "reason": "理工导航军工+无人机主线顺风，涨幅温和、拥挤度低于半导体核心，适合换入活水。",
-   "status": "pending",
+   "status": "filled",
    "note": ""
   }
  ],

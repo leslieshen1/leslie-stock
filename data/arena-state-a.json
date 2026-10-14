@@ -10239,8 +10239,168 @@
    "reason": "虚拟电厂这条线此刻没有明显资金脉冲，死水仓先撤，宁可留现金等情绪回落后的好价。",
    "status": "expired",
    "note": "撮合日 2026-10-13 ≠ 下单日 2026-10-12"
+  },
+  {
+   "id": 417,
+   "fill_date": "2026-10-14",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这些持仓大多是我能理解、护城河清楚且价格仍不离谱的生意；手里现金不多，而候选里没有一个便宜到让我必须卖掉现有好公司去换仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 418,
+   "fill_date": "2026-10-14",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "这几个都还是能看懂的好生意，今天没有看到必须动手的便宜，也没必要为了动而动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 419,
+   "fill_date": "2026-10-14",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "688008",
+   "reason": "澜起是真瓶颈但这仓不是现在最锋利的刀，DDR5/CXL逻辑已被充分盯住且当前浮亏拖仓位，我先把拥挤但有效的票降权，腾给更纯的单点瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 420,
+   "fill_date": "2026-10-14",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "600259",
+   "reason": "中稀有色和中国稀土本质是同一口中重稀土井，主题票高波动下不需要双倍押同一风险，我砍掉更弱的一条保留主平台。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 421,
+   "fill_date": "2026-10-14",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "002222",
+   "reason": "福晶今天低开给了我机会，LBO/BBO/KTP非线性晶体是激光、CPO、TFLN上游少数真稀缺料，每台下游扩产都要吃它，供应商极少且验证替代成本高。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 422,
+   "fill_date": "2026-10-14",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "003021",
+   "reason": "兆威小幅低开不是追高，微型行星齿轮/微传动卡在灵巧手量产BOM里，机器人量产洪流只要兑现它就按件分肉，但这是高波动主题票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 423,
+   "fill_date": "2026-10-14",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "其余仓位继续拿，云南锗业、恒运昌、华秦、华大九天这些还在不可替代瓶颈位，短线波动不是我卖掉真卡脖子的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 424,
+   "fill_date": "2026-10-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "301393",
+   "reason": "GLP-1这匹马已经跌到我快没理由辩护，逆着资金流就先砍，别让小亏变大亏。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 425,
+   "fill_date": "2026-10-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "300045",
+   "reason": "卫星互联网叙事没被价格确认，亏到这个位置说明我看错了，德鲁肯米勒式处理就是快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 426,
+   "fill_date": "2026-10-14",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "其余仓位要么仍在半导体自主可控、AI硬件这些主线里有价格验证，要么亏损尚未证明趋势死亡，先让强者继续跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 427,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "000034",
+   "reason": "神州数码浮亏已到情绪票危险区，AI算力+华为今天没有看到资金重新抢筹，先撤掉弱筹码。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 428,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "688375",
+   "reason": "国博电子已触及-7%附近，第三代半导体/军工题材若无盘前资金回流，容易被更强主线抽血，先认错。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 429,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "688248",
+   "reason": "南网科技储能/虚拟电厂这条线当前资金温度不如半导体和机器人，死水票不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 430,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "300748",
+   "reason": "金力永磁今日高开不极端，机器人+特斯拉仍是资金抱团方向，情绪在升温但尚非涨停接力。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 431,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "688605",
+   "reason": "先锋精科半导体设备小盘弹性强，盘前温和上冲说明有资金试探，不算最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 432,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "688282",
+   "reason": "理工导航军工+无人机主线顺风，涨幅温和、拥挤度低于半导体核心，适合换入活水。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 417,
+ "next_order_id": 433,
  "splits": []
 }

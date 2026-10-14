@@ -9874,9 +9874,149 @@
    "reason": "数据中心电力热钱还在往小盘电力里挤，盘前+4.60%是资金确认但不再加码追第二仓，防最后一棒。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 477,
+   "fill_date": "2026-10-14",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里的八门生意都仍然有我看得懂的护城河，价格没有荒唐到必须卖，而候选里也没有便宜到让我愿意把一美元好生意换成另一美元好生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 478,
+   "fill_date": "2026-10-14",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这四门生意我都看懂了，COST、TSM、VRSN、AAPL 都是可以十年睡得着的好生意；今天候选里也有好公司，但没有便宜到需要我为了调仓去卖掉同样好的生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 479,
+   "fill_date": "2026-10-14",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前纳指和罗素一起发冷，手里已经是10个真瓶颈篮子，现金只剩$1,930；今天不为了买满去追任何候选，也不在主题票高波动里乱砍真瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 480,
+   "fill_date": "2026-10-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "GFI",
+   "reason": "这笔已经逆着黄金股内部相对强弱走坏，亏损接近纪律线还没有动量，德鲁肯不会把资本困在最弱载体里。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 481,
+   "fill_date": "2026-10-14",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "IAG",
+   "reason": "同样是黄金多头表达，但IAG没有给我顺风反馈，盘前还弱，趋势没跟上宏观就砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 482,
+   "fill_date": "2026-10-14",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GOOGL",
+   "reason": "今天盘前大盘科技普遍回撤时它逆势走强，AI资本开支加现金流机器仍是最干净的顺流动性载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 483,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "ALMR",
+   "reason": "盘前继续逆势走弱，次新小盘故事票一旦资金不接就是情绪塌方，先砍掉这个死水加速流出的仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 484,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "RIOT",
+   "reason": "BTC情绪放大器在纳指转弱时盘前还跌，散户和期权钱明显退潮，不能陪它等下一轮潮水。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 485,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SVM",
+   "reason": "贵金属线已有分化，SVM盘前不跟ORLA这类强票反而走弱，说明资金不在这只上，弱银矿先让。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 486,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "VZLA",
+   "reason": "初级银矿情绪反转极快，今天盘前没有承接、仍贴着亏损泥潭，资金效率太差先撤。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 487,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "RIG盘前有买盘回流，能源冷门仓位至少不是死水，先看开盘后资金能否延续。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 488,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "FTK盘前+5.54%说明天然气/数据中心题材钱还在进，但不追不加，拿着让情绪资金自己证明。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 489,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "PSX",
+   "reason": "Elliott催化还在、盘前只温和上涨不是爆拉，机构资金站多头一边，适合把烂情绪仓换到有资金推手的票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 490,
+   "fill_date": "2026-10-14",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "BP",
+   "reason": "全场嫌弃但激进股东和价值资金在悄悄进，盘前涨幅克制，仍像冰点反转早段而不是拥挤末端。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 477,
+ "next_order_id": 491,
  "notes": [
   {
    "date": "2026-06-12",

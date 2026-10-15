@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 90410.0,
-  "druckenmiller": 216750.0,
-  "sentiment": 231920.0
+  "serenity": 28570.0,
+  "druckenmiller": 78350.0,
+  "sentiment": 93764.0
  },
  "positions": [
   {
@@ -149,13 +149,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300684",
-   "shares": 700,
-   "entry": 90.1,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "000045",
    "shares": 6500,
    "entry": 11.06,
@@ -180,13 +173,6 @@
    "sym": "605100",
    "shares": 3700,
    "entry": 38.4,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "sentiment",
-   "sym": "300045",
-   "shares": 12100,
-   "entry": 11.83,
    "entry_date": "2026-10-08"
   },
   {
@@ -230,6 +216,48 @@
    "shares": 2400,
    "entry": 55.92,
    "entry_date": "2026-10-14"
+  },
+  {
+   "master": "serenity",
+   "sym": "600259",
+   "shares": 1000,
+   "entry": 61.84,
+   "entry_date": "2026-10-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002294",
+   "shares": 2200,
+   "entry": 30.58,
+   "entry_date": "2026-10-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "302132",
+   "shares": 1100,
+   "entry": 61.88,
+   "entry_date": "2026-10-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688652",
+   "shares": 400,
+   "entry": 149.74,
+   "entry_date": "2026-10-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300633",
+   "shares": 6800,
+   "entry": 19.58,
+   "entry_date": "2026-10-15"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688311",
+   "shares": 5300,
+   "entry": 25.1,
+   "entry_date": "2026-10-15"
   }
  ],
  "nav": [
@@ -2132,6 +2160,31 @@
    "master": "sentiment",
    "date": "2026-10-14",
    "nav": 915245.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-15",
+   "nav": 1031003.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-15",
+   "nav": 1093343.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-15",
+   "nav": 679971.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-15",
+   "nav": 593135.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-15",
+   "nav": 891113.0
   }
  ],
  "trades": [
@@ -6214,6 +6267,86 @@
    "price": 55.92,
    "reason": "理工导航军工+无人机主线顺风，涨幅温和、拥挤度低于半导体核心，适合换入活水。",
    "src": "ai"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "600259",
+   "shares": 1000,
+   "price": 61.84,
+   "reason": "中重稀土的镝铽就是全村唯一那口井,而且这口井是国家拿在手里当武器的——这才是我梦里的卡脖子。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300684",
+   "shares": 700,
+   "price": 81.2,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002294",
+   "shares": 2200,
+   "price": 30.58,
+   "reason": "不管基本面争议，短线它现在就是强趋势里的强马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "302132",
+   "shares": 1100,
+   "price": 61.88,
+   "reason": "国防扩张 + 台海地缘 + 六代机叙事,政策顺风最硬的主线之一,骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688652",
+   "shares": 400,
+   "price": 149.74,
+   "reason": "半导体国产替代是最硬的政策主线。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300045",
+   "shares": 12100,
+   "price": 10.58,
+   "reason": "-10.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300633",
+   "shares": 6800,
+   "price": 19.58,
+   "reason": "医疗设备更新+国产替代,机构偏好品种。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-15",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688311",
+   "shares": 5300,
+   "price": 25.1,
+   "reason": "卫星互联网是A股反复炒的硬题材,有事件就有资金,情绪面偏暖。",
+   "src": "rule"
   }
  ],
  "orders": [

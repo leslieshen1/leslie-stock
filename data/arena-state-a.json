@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 28570.0,
-  "druckenmiller": 78350.0,
-  "sentiment": 93764.0
+  "druckenmiller": 54696.0,
+  "sentiment": 102208.0
  },
  "positions": [
   {
@@ -156,27 +156,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "301589",
-   "shares": 400,
-   "entry": 152.96,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "603893",
-   "shares": 300,
-   "entry": 199.56,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "sentiment",
-   "sym": "605100",
-   "shares": 3700,
-   "entry": 38.4,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "301269",
    "shares": 700,
    "entry": 92.25,
@@ -258,6 +237,27 @@
    "shares": 5300,
    "entry": 25.1,
    "entry_date": "2026-10-15"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002270",
+   "shares": 3500,
+   "entry": 18.85,
+   "entry_date": "2026-10-16"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002438",
+   "shares": 5000,
+   "entry": 13.35,
+   "entry_date": "2026-10-16"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688568",
+   "shares": 4400,
+   "entry": 30.54,
+   "entry_date": "2026-10-16"
   }
  ],
  "nav": [
@@ -2185,6 +2185,31 @@
    "master": "sentiment",
    "date": "2026-10-15",
    "nav": 891113.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-16",
+   "nav": 1028638.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-16",
+   "nav": 1100745.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-16",
+   "nav": 682095.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-16",
+   "nav": 584507.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-16",
+   "nav": 897312.0
   }
  ],
  "trades": [
@@ -6346,6 +6371,66 @@
    "shares": 5300,
    "price": 25.1,
    "reason": "卫星互联网是A股反复炒的硬题材,有事件就有资金,情绪面偏暖。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-16",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301589",
+   "shares": 400,
+   "price": 144.42,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-16",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "603893",
+   "shares": 300,
+   "price": 171.01,
+   "reason": "错了就是错了,-14.3% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-16",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002270",
+   "shares": 3500,
+   "price": 18.85,
+   "reason": "AI数据中心电力+特高压+海外电网，三重顺风叠加的最强马之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-16",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002438",
+   "shares": 5000,
+   "price": 13.35,
+   "reason": "核电核准提速+能源安全+设备出口,三重产业顺风叠加。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-16",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "605100",
+   "shares": 3700,
+   "price": 38.6,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-16",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688568",
+   "shares": 4400,
+   "price": 30.54,
+   "reason": "基金重仓+双热门主题,A股最爱的'政策+太空+低空'故事,情绪资金都在。",
    "src": "rule"
   }
  ],

@@ -3,7 +3,7 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 28570.0,
-  "druckenmiller": 54696.0,
+  "druckenmiller": 49373.0,
   "sentiment": 102208.0
  },
  "positions": [
@@ -142,20 +142,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "688361",
-   "shares": 200,
-   "entry": 331.48,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "000045",
-   "shares": 6500,
-   "entry": 11.06,
-   "entry_date": "2026-10-08"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "301269",
    "shares": 700,
    "entry": 92.25,
@@ -258,6 +244,20 @@
    "shares": 4400,
    "entry": 30.54,
    "entry_date": "2026-10-16"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "301393",
+   "shares": 1100,
+   "entry": 59.39,
+   "entry_date": "2026-10-19"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300045",
+   "shares": 5100,
+   "entry": 13.02,
+   "entry_date": "2026-10-19"
   }
  ],
  "nav": [
@@ -2210,6 +2210,31 @@
    "master": "sentiment",
    "date": "2026-10-16",
    "nav": 897312.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-19",
+   "nav": 1042878.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-19",
+   "nav": 1105960.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-19",
+   "nav": 676831.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-19",
+   "nav": 577626.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-19",
+   "nav": 906046.0
   }
  ],
  "trades": [
@@ -6431,6 +6456,46 @@
    "shares": 4400,
    "price": 30.54,
    "reason": "基金重仓+双热门主题,A股最爱的'政策+太空+低空'故事,情绪资金都在。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-19",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688361",
+   "shares": 200,
+   "price": 301.19,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-19",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "000045",
+   "shares": 6500,
+   "price": 10.18,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-19",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "301393",
+   "shares": 1100,
+   "price": 59.39,
+   "reason": "GLP-1产业顺风+资金动量,最强的马还在跑。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-19",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300045",
+   "shares": 5100,
+   "price": 13.02,
+   "reason": "卫星互联网+国产芯片双主线叠加,这是最强的政策顺风之一。",
    "src": "rule"
   }
  ],

@@ -3,7 +3,7 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 28570.0,
-  "druckenmiller": 49373.0,
+  "druckenmiller": 50643.0,
   "sentiment": 102208.0
  },
  "positions": [
@@ -204,13 +204,6 @@
    "entry_date": "2026-10-15"
   },
   {
-   "master": "druckenmiller",
-   "sym": "688652",
-   "shares": 400,
-   "entry": 149.74,
-   "entry_date": "2026-10-15"
-  },
-  {
    "master": "sentiment",
    "sym": "300633",
    "shares": 6800,
@@ -258,6 +251,13 @@
    "shares": 5100,
    "entry": 13.02,
    "entry_date": "2026-10-19"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688506",
+   "shares": 200,
+   "entry": 253.23,
+   "entry_date": "2026-10-20"
   }
  ],
  "nav": [
@@ -2235,6 +2235,31 @@
    "master": "sentiment",
    "date": "2026-10-19",
    "nav": 906046.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-20",
+   "nav": 1037106.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-20",
+   "nav": 1110208.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-20",
+   "nav": 691648.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-20",
+   "nav": 579802.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-20",
+   "nav": 924219.0
   }
  ],
  "trades": [
@@ -6496,6 +6521,26 @@
    "shares": 5100,
    "price": 13.02,
    "reason": "卫星互联网+国产芯片双主线叠加,这是最强的政策顺风之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-20",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688652",
+   "shares": 400,
+   "price": 129.79,
+   "reason": "错了就是错了,-13.3% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688506",
+   "shares": 200,
+   "price": 253.23,
+   "reason": "创新药出海政策顺风叠加+29.8%强势动量，正是骑最强的马。",
    "src": "rule"
   }
  ],

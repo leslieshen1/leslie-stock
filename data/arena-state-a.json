@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 28570.0,
   "druckenmiller": 50643.0,
-  "sentiment": 102208.0
+  "sentiment": 116253.0
  },
  "positions": [
   {
@@ -162,27 +162,6 @@
    "entry_date": "2026-10-14"
   },
   {
-   "master": "sentiment",
-   "sym": "300748",
-   "shares": 6000,
-   "entry": 22.78,
-   "entry_date": "2026-10-14"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688605",
-   "shares": 2000,
-   "entry": 66.2,
-   "entry_date": "2026-10-14"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688282",
-   "shares": 2400,
-   "entry": 55.92,
-   "entry_date": "2026-10-14"
-  },
-  {
    "master": "serenity",
    "sym": "600259",
    "shares": 1000,
@@ -258,6 +237,27 @@
    "shares": 200,
    "entry": 253.23,
    "entry_date": "2026-10-20"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688686",
+   "shares": 1000,
+   "entry": 131.81,
+   "entry_date": "2026-10-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002881",
+   "shares": 3300,
+   "entry": 41.24,
+   "entry_date": "2026-10-21"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300489",
+   "shares": 500,
+   "entry": 257.33,
+   "entry_date": "2026-10-21"
   }
  ],
  "nav": [
@@ -2260,6 +2260,31 @@
    "master": "sentiment",
    "date": "2026-10-20",
    "nav": 924219.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-21",
+   "nav": 1017447.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-21",
+   "nav": 1084935.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-21",
+   "nav": 701344.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-21",
+   "nav": 578130.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-21",
+   "nav": 918642.0
   }
  ],
  "trades": [
@@ -6541,6 +6566,66 @@
    "shares": 200,
    "price": 253.23,
    "reason": "创新药出海政策顺风叠加+29.8%强势动量，正是骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-21",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300748",
+   "shares": 6000,
+   "price": 24.55,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+7.8%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-21",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688605",
+   "shares": 2000,
+   "price": 62.38,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-5.8%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-21",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688282",
+   "shares": 2400,
+   "price": 57.73,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688686",
+   "shares": 1000,
+   "price": 131.81,
+   "reason": "苹果概念+机器视觉+机器人,资金主线抓手清晰。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002881",
+   "shares": 3300,
+   "price": 41.24,
+   "reason": "AI眼镜+华为海思双标签,散户题材弹性大,情绪有得炒。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-21",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300489",
+   "shares": 500,
+   "price": 257.33,
+   "reason": "第三代半导体+战略资源+百元股,资金题材丰富。",
    "src": "rule"
   }
  ],

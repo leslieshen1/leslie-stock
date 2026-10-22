@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 28570.0,
-  "druckenmiller": 50643.0,
-  "sentiment": 116253.0
+  "serenity": 32981.0,
+  "druckenmiller": 48990.0,
+  "sentiment": 96285.0
  },
  "positions": [
   {
@@ -114,13 +114,6 @@
   },
   {
    "master": "serenity",
-   "sym": "605589",
-   "shares": 1900,
-   "entry": 36.21,
-   "entry_date": "2026-08-04"
-  },
-  {
-   "master": "serenity",
    "sym": "688281",
    "shares": 1500,
    "entry": 48.37,
@@ -183,20 +176,6 @@
    "entry_date": "2026-10-15"
   },
   {
-   "master": "sentiment",
-   "sym": "300633",
-   "shares": 6800,
-   "entry": 19.58,
-   "entry_date": "2026-10-15"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688311",
-   "shares": 5300,
-   "entry": 25.1,
-   "entry_date": "2026-10-15"
-  },
-  {
    "master": "druckenmiller",
    "sym": "002270",
    "shares": 3500,
@@ -216,13 +195,6 @@
    "shares": 4400,
    "entry": 30.54,
    "entry_date": "2026-10-16"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "301393",
-   "shares": 1100,
-   "entry": 59.39,
-   "entry_date": "2026-10-19"
   },
   {
    "master": "druckenmiller",
@@ -253,11 +225,39 @@
    "entry_date": "2026-10-21"
   },
   {
+   "master": "serenity",
+   "sym": "688012",
+   "shares": 200,
+   "entry": 264.18,
+   "entry_date": "2026-10-22"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "300516",
+   "shares": 1700,
+   "entry": 37.79,
+   "entry_date": "2026-10-22"
+  },
+  {
    "master": "sentiment",
-   "sym": "300489",
-   "shares": 500,
-   "entry": 257.33,
-   "entry_date": "2026-10-21"
+   "sym": "920139",
+   "shares": 9100,
+   "entry": 14.65,
+   "entry_date": "2026-10-22"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300045",
+   "shares": 9300,
+   "entry": 14.32,
+   "entry_date": "2026-10-22"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002164",
+   "shares": 8000,
+   "entry": 16.6,
+   "entry_date": "2026-10-22"
   }
  ],
  "nav": [
@@ -2285,6 +2285,31 @@
    "master": "sentiment",
    "date": "2026-10-21",
    "nav": 918642.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-22",
+   "nav": 1015841.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-22",
+   "nav": 1090646.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-22",
+   "nav": 688846.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-22",
+   "nav": 573478.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-22",
+   "nav": 893846.0
   }
  ],
  "trades": [
@@ -6626,6 +6651,106 @@
    "shares": 500,
    "price": 257.33,
    "reason": "第三代半导体+战略资源+百元股,资金题材丰富。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "605589",
+   "shares": 1900,
+   "price": 30.13,
+   "reason": "破位 -16.8%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688012",
+   "shares": 200,
+   "price": 264.18,
+   "reason": "这才是我要的——MOCVD + 电介质刻蚀,化合物半导体那条链上亚洲唯一能打的国产单点,Aixtron 的镜像。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301393",
+   "shares": 1100,
+   "price": 56.9,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300516",
+   "shares": 1700,
+   "price": 37.79,
+   "reason": "海军装备升级+国防开支上行，军工是明确产业顺风。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300633",
+   "shares": 6800,
+   "price": 19.88,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+1.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688311",
+   "shares": 5300,
+   "price": 24.93,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-0.7%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300489",
+   "shares": 500,
+   "price": 224.02,
+   "reason": "-12.9% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "920139",
+   "shares": 9100,
+   "price": 14.65,
+   "reason": "半导体+军工+北交所三热点共振,情绪和资金都偏多。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300045",
+   "shares": 9300,
+   "price": 14.32,
+   "reason": "卫星互联网是高弹性热门主线,稀缺芯片标的资金抢筹。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-22",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002164",
+   "shares": 8000,
+   "price": 16.6,
+   "reason": "机器人执行器概念是热门赛道,情绪资金活跃度高。",
    "src": "rule"
   }
  ],

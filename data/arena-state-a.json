@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 32981.0,
   "druckenmiller": 48990.0,
-  "sentiment": 96285.0
+  "sentiment": 109068.0
  },
  "positions": [
   {
@@ -190,13 +190,6 @@
    "entry_date": "2026-10-16"
   },
   {
-   "master": "sentiment",
-   "sym": "688568",
-   "shares": 4400,
-   "entry": 30.54,
-   "entry_date": "2026-10-16"
-  },
-  {
    "master": "druckenmiller",
    "sym": "300045",
    "shares": 5100,
@@ -209,13 +202,6 @@
    "shares": 200,
    "entry": 253.23,
    "entry_date": "2026-10-20"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688686",
-   "shares": 1000,
-   "entry": 131.81,
-   "entry_date": "2026-10-21"
   },
   {
    "master": "sentiment",
@@ -258,6 +244,20 @@
    "shares": 8000,
    "entry": 16.6,
    "entry_date": "2026-10-22"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301607",
+   "shares": 4100,
+   "entry": 33.77,
+   "entry_date": "2026-10-23"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688561",
+   "shares": 4700,
+   "entry": 30.0,
+   "entry_date": "2026-10-23"
   }
  ],
  "nav": [
@@ -2310,6 +2310,31 @@
    "master": "sentiment",
    "date": "2026-10-22",
    "nav": 893846.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-23",
+   "nav": 1019378.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-23",
+   "nav": 1114709.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-23",
+   "nav": 710748.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-23",
+   "nav": 583630.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-23",
+   "nav": 943028.0
   }
  ],
  "trades": [
@@ -6751,6 +6776,46 @@
    "shares": 8000,
    "price": 16.6,
    "reason": "机器人执行器概念是热门赛道,情绪资金活跃度高。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688568",
+   "shares": 4400,
+   "price": 31.6,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688686",
+   "shares": 1000,
+   "price": 153.2,
+   "reason": "+16.2% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301607",
+   "shares": 4100,
+   "price": 33.77,
+   "reason": "由冷转热,资金进场情绪回暖。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688561",
+   "shares": 4700,
+   "price": 30.0,
+   "reason": "信创/数据安全主题活跃,龙头有资金号召力。",
    "src": "rule"
   }
  ],

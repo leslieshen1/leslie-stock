@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 36360.23,
   "duan": 40172.16,
-  "serenity": 8.47,
-  "druckenmiller": 12574.02,
-  "sentiment": 86129.8
+  "serenity": 6489.99,
+  "druckenmiller": 47865.69,
+  "sentiment": 89190.71
  },
  "positions": [
   {
@@ -92,13 +92,6 @@
    "entry_date": "2026-06-25"
   },
   {
-   "master": "serenity",
-   "sym": "KTOS",
-   "shares": 2060,
-   "entry": 47.21,
-   "entry_date": "2026-06-26"
-  },
-  {
    "master": "buffett",
    "sym": "PEP",
    "shares": 886,
@@ -113,20 +106,6 @@
    "entry_date": "2026-07-21"
   },
   {
-   "master": "druckenmiller",
-   "sym": "SCCO",
-   "shares": 596,
-   "entry": 179.32,
-   "entry_date": "2026-07-27"
-  },
-  {
-   "master": "serenity",
-   "sym": "STX",
-   "shares": 104,
-   "entry": 751.0,
-   "entry_date": "2026-07-28"
-  },
-  {
    "master": "serenity",
    "sym": "SOLS",
    "shares": 352,
@@ -139,27 +118,6 @@
    "shares": 111,
    "entry": 820.59,
    "entry_date": "2026-08-11"
-  },
-  {
-   "master": "serenity",
-   "sym": "GLW",
-   "shares": 537,
-   "entry": 152.46,
-   "entry_date": "2026-08-19"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "META",
-   "shares": 171,
-   "entry": 610.68,
-   "entry_date": "2026-09-03"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "AUGO",
-   "shares": 1190,
-   "entry": 88.11,
-   "entry_date": "2026-09-03"
   },
   {
    "master": "serenity",
@@ -211,53 +169,95 @@
    "entry_date": "2026-10-16"
   },
   {
+   "master": "serenity",
+   "sym": "GLW",
+   "shares": 553,
+   "entry": 123.69,
+   "entry_date": "2026-10-23"
+  },
+  {
+   "master": "serenity",
+   "sym": "KTOS",
+   "shares": 1769,
+   "entry": 38.68,
+   "entry_date": "2026-10-23"
+  },
+  {
+   "master": "serenity",
+   "sym": "OLED",
+   "shares": 786,
+   "entry": 86.98,
+   "entry_date": "2026-10-23"
+  },
+  {
    "master": "druckenmiller",
-   "sym": "IMOS",
-   "shares": 1568,
-   "entry": 61.42,
-   "entry_date": "2026-10-16"
+   "sym": "SEZL",
+   "shares": 692,
+   "entry": 132.12,
+   "entry_date": "2026-10-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "TENB",
+   "shares": 2051,
+   "entry": 44.59,
+   "entry_date": "2026-10-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "VST",
+   "shares": 652,
+   "entry": 140.16,
+   "entry_date": "2026-10-23"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "MANH",
+   "shares": 384,
+   "entry": 238.19,
+   "entry_date": "2026-10-23"
   },
   {
    "master": "sentiment",
-   "sym": "ALOY",
-   "shares": 17812,
-   "entry": 7.23,
-   "entry_date": "2026-10-16"
+   "sym": "RITM",
+   "shares": 13893,
+   "entry": 9.39,
+   "entry_date": "2026-10-23"
   },
   {
    "master": "sentiment",
-   "sym": "AR",
-   "shares": 3332,
-   "entry": 38.65,
-   "entry_date": "2026-10-16"
+   "sym": "FCNCA",
+   "shares": 54,
+   "entry": 2375.84,
+   "entry_date": "2026-10-23"
   },
   {
    "master": "sentiment",
-   "sym": "ORLA",
-   "shares": 13642,
-   "entry": 9.44,
-   "entry_date": "2026-10-16"
+   "sym": "HSAI",
+   "shares": 9935,
+   "entry": 13.13,
+   "entry_date": "2026-10-23"
   },
   {
    "master": "sentiment",
-   "sym": "DNOW",
-   "shares": 8213,
-   "entry": 15.68,
-   "entry_date": "2026-10-16"
+   "sym": "LQDA",
+   "shares": 3058,
+   "entry": 42.65,
+   "entry_date": "2026-10-23"
   },
   {
    "master": "sentiment",
-   "sym": "TRGP",
-   "shares": 436,
-   "entry": 294.9,
-   "entry_date": "2026-10-16"
+   "sym": "CUBI",
+   "shares": 1543,
+   "entry": 84.54,
+   "entry_date": "2026-10-23"
   },
   {
    "master": "sentiment",
-   "sym": "RRC",
-   "shares": 2979,
-   "entry": 43.22,
-   "entry_date": "2026-10-16"
+   "sym": "SUPV",
+   "shares": 16854,
+   "entry": 7.74,
+   "entry_date": "2026-10-23"
   }
  ],
  "nav": [
@@ -1835,6 +1835,31 @@
    "master": "sentiment",
    "date": "2026-10-16",
    "nav": 858581.46
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-23",
+   "nav": 1031891.56
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-23",
+   "nav": 1066995.96
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-23",
+   "nav": 720267.9
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-23",
+   "nav": 795549.05
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-23",
+   "nav": 869706.77
   }
  ],
  "trades": [
@@ -5636,6 +5661,266 @@
    "shares": 2979,
    "price": 43.22,
    "reason": "盘口在讲'AI 耗电=买天然气'这条最顺手的叙事,资金从机构到散户都在往 gas 名字里搬,RRC 是被点名的那几个之一,情绪是顺的但还没到人人尖叫的过热。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "KTOS",
+   "shares": 2060,
+   "price": 38.68,
+   "reason": "破位 -18.1%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "STX",
+   "shares": 104,
+   "price": 630.49,
+   "reason": "破位 -16.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "GLW",
+   "shares": 537,
+   "price": 123.69,
+   "reason": "破位 -18.9%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "GLW",
+   "shares": 553,
+   "price": 123.69,
+   "reason": "AI数据中心光互联的玻璃与光纤瓶颈就长在康宁手里,下游hyperscaler capex爆发但上游能拉这种特种光纤预制棒的产能极度集中,这就是反明牌的卡点。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "KTOS",
+   "shares": 1769,
+   "price": 38.68,
+   "reason": "别人盯着花哨的 Valkyrie,我盯的是没人愿意做的那台小涡喷发动机——巡航导弹和攻击型无人机的真实卡脖子环节,产能就在 Kratos 手里。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "OLED",
+   "shares": 786,
+   "price": 86.98,
+   "reason": "磷光发光材料的独家卡脖子点,每块 OLED 屏的 BOM 都得分它一块——四件套齐了。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "SCCO",
+   "shares": 596,
+   "price": 185.01,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "META",
+   "shares": 171,
+   "price": 642.62,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "AUGO",
+   "shares": 1190,
+   "price": 78.07,
+   "reason": "错了就是错了,-11.4% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "IMOS",
+   "shares": 1568,
+   "price": 56.1,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "SEZL",
+   "shares": 692,
+   "price": 132.12,
+   "reason": "短线趋势非常强，业绩催化、盘后跳涨和动量资金共振，是现在市场愿意买单的强马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "TENB",
+   "shares": 2051,
+   "price": 44.59,
+   "reason": "短线我只看最强的马，TENB这周就是强势突破。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "VST",
+   "shares": 652,
+   "price": 140.16,
+   "reason": "AI 算力对电力的结构性需求叠加宽松预期,这是未来三年最确定的宏观大趋势,而它是弹性最高的纯正载体之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "MANH",
+   "shares": 384,
+   "price": 238.19,
+   "reason": "趋势没有转坏，强势本身就是顺风信号。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "ALOY",
+   "shares": 17812,
+   "price": 7.0,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-3.2%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "AR",
+   "shares": 3332,
+   "price": 40.16,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.9%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "ORLA",
+   "shares": 13642,
+   "price": 9.44,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "DNOW",
+   "shares": 8213,
+   "price": 15.69,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "TRGP",
+   "shares": 436,
+   "price": 302.37,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.5%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "RRC",
+   "shares": 2979,
+   "price": 45.52,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+5.3%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "RITM",
+   "shares": 13893,
+   "price": 9.39,
+   "reason": "近 9% 的股息把一大批收益型资金和散户黏在票上,盘口稳、换手不极端,属于有资金托底、情绪温和偏暖的那一类。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "FCNCA",
+   "shares": 54,
+   "price": 2375.84,
+   "reason": "近 2000 块的天价股价天然过滤散户、是机构和指数的玩物,SVB 暴利+大额回购托底,资金面温和顺风但不拥挤。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "HSAI",
+   "shares": 9935,
+   "price": 13.13,
+   "reason": "物理 AI/机器人叙事正热、资金在往里走,顺势可做,但拥挤度上来了、情绪反转会非常快。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "LQDA",
+   "shares": 3058,
+   "price": 42.65,
+   "reason": "股价站在高位、市场在押注它赢官司放量,钱在进,但这是极易反转的事件驱动情绪。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "CUBI",
+   "shares": 1543,
+   "price": 84.54,
+   "reason": "股价贴着前高、资金在追区域银行修复主题，情绪是顺的，但拥挤度开始抬头要留个心眼。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-23",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "SUPV",
+   "shares": 16854,
+   "price": 7.74,
+   "reason": "钱还在顺着阿根廷改革故事往里涌,情绪顺风可以顺势,但这种主题票反转起来快得吓人。",
    "src": "rule"
   }
  ],

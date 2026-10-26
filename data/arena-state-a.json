@@ -3,7 +3,7 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 32981.0,
-  "druckenmiller": 48990.0,
+  "druckenmiller": 43414.0,
   "sentiment": 109068.0
  },
  "positions": [
@@ -83,13 +83,6 @@
    "shares": 1700,
    "entry": 134.89,
    "entry_date": "2026-06-26"
-  },
-  {
-   "master": "serenity",
-   "sym": "300408",
-   "shares": 700,
-   "entry": 99.01,
-   "entry_date": "2026-07-17"
   },
   {
    "master": "serenity",
@@ -184,13 +177,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "002438",
-   "shares": 5000,
-   "entry": 13.35,
-   "entry_date": "2026-10-16"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300045",
    "shares": 5100,
    "entry": 13.02,
@@ -215,13 +201,6 @@
    "sym": "688012",
    "shares": 200,
    "entry": 264.18,
-   "entry_date": "2026-10-22"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "300516",
-   "shares": 1700,
-   "entry": 37.79,
    "entry_date": "2026-10-22"
   },
   {
@@ -258,6 +237,27 @@
    "shares": 4700,
    "entry": 30.0,
    "entry_date": "2026-10-23"
+  },
+  {
+   "master": "serenity",
+   "sym": "300408",
+   "shares": 700,
+   "entry": 82.59,
+   "entry_date": "2026-10-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002979",
+   "shares": 1200,
+   "entry": 54.16,
+   "entry_date": "2026-10-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688160",
+   "shares": 600,
+   "entry": 98.98,
+   "entry_date": "2026-10-26"
   }
  ],
  "nav": [
@@ -2335,6 +2335,31 @@
    "master": "sentiment",
    "date": "2026-10-23",
    "nav": 943028.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-26",
+   "nav": 1026784.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-26",
+   "nav": 1134693.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-26",
+   "nav": 685013.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-26",
+   "nav": 575296.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-26",
+   "nav": 908241.0
   }
  ],
  "trades": [
@@ -6816,6 +6841,66 @@
    "shares": 4700,
    "price": 30.0,
    "reason": "信创/数据安全主题活跃,龙头有资金号召力。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-26",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "300408",
+   "shares": 700,
+   "price": 82.59,
+   "reason": "破位 -16.6%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-26",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "300408",
+   "shares": 700,
+   "price": 82.59,
+   "reason": "Layer 4 材料层的硬核命中——MLCC 陶瓷粉大陆唯一规模化自供,光纤插芯全球份额第一,这是真隐形冠军。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002438",
+   "shares": 5000,
+   "price": 13.01,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300516",
+   "shares": 1700,
+   "price": 31.62,
+   "reason": "错了就是错了,-16.3% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002979",
+   "shares": 1200,
+   "price": 54.16,
+   "reason": "短线趋势极强，宏观叙事和动量资金都站在多头一边。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688160",
+   "shares": 600,
+   "price": 98.98,
+   "reason": "从交易角度看，当前就是强趋势里的强马。",
    "src": "rule"
   }
  ],

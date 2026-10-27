@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 32981.0,
+  "serenity": 35501.0,
   "druckenmiller": 43414.0,
-  "sentiment": 109068.0
+  "sentiment": 86325.0
  },
  "positions": [
   {
@@ -106,13 +106,6 @@
    "entry_date": "2026-07-31"
   },
   {
-   "master": "serenity",
-   "sym": "688281",
-   "shares": 1500,
-   "entry": 48.37,
-   "entry_date": "2026-08-05"
-  },
-  {
    "master": "buffett",
    "sym": "600690",
    "shares": 5800,
@@ -212,27 +205,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "300045",
-   "shares": 9300,
-   "entry": 14.32,
-   "entry_date": "2026-10-22"
-  },
-  {
-   "master": "sentiment",
-   "sym": "002164",
-   "shares": 8000,
-   "entry": 16.6,
-   "entry_date": "2026-10-22"
-  },
-  {
-   "master": "sentiment",
-   "sym": "301607",
-   "shares": 4100,
-   "entry": 33.77,
-   "entry_date": "2026-10-23"
-  },
-  {
-   "master": "sentiment",
    "sym": "688561",
    "shares": 4700,
    "entry": 30.0,
@@ -258,6 +230,34 @@
    "shares": 600,
    "entry": 98.98,
    "entry_date": "2026-10-26"
+  },
+  {
+   "master": "serenity",
+   "sym": "688702",
+   "shares": 300,
+   "entry": 193.0,
+   "entry_date": "2026-10-27"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002703",
+   "shares": 8600,
+   "entry": 15.32,
+   "entry_date": "2026-10-27"
+  },
+  {
+   "master": "sentiment",
+   "sym": "603121",
+   "shares": 10600,
+   "entry": 12.38,
+   "entry_date": "2026-10-27"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002929",
+   "shares": 2400,
+   "entry": 54.04,
+   "entry_date": "2026-10-27"
   }
  ],
  "nav": [
@@ -2360,6 +2360,31 @@
    "master": "sentiment",
    "date": "2026-10-26",
    "nav": 908241.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-27",
+   "nav": 1025515.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-27",
+   "nav": 1125731.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-27",
+   "nav": 664141.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-27",
+   "nav": 561206.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-27",
+   "nav": 879734.0
   }
  ],
  "trades": [
@@ -6901,6 +6926,86 @@
    "shares": 600,
    "price": 98.98,
    "reason": "从交易角度看，当前就是强趋势里的强马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688281",
+   "shares": 1500,
+   "price": 40.28,
+   "reason": "破位 -16.7%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688702",
+   "shares": 300,
+   "price": 193.0,
+   "reason": "国内唯一商用以太网交换芯片提供商,Broadcom/Marvell/Nvidia 三家垄断下的独苗国产替代——这正是我要的全村唯一一家。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300045",
+   "shares": 9300,
+   "price": 12.81,
+   "reason": "-10.5% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002164",
+   "shares": 8000,
+   "price": 15.36,
+   "reason": "-7.5% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "301607",
+   "shares": 4100,
+   "price": 31.2,
+   "reason": "-7.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002703",
+   "shares": 8600,
+   "price": 15.32,
+   "reason": "小米汽车+线控转向+人形机器人三重题材叠加,资金人气活跃。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "603121",
+   "shares": 10600,
+   "price": 12.38,
+   "reason": "昨日一字板+多板，液冷概念正热，资金在里面。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-27",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002929",
+   "shares": 2400,
+   "price": 54.04,
+   "reason": "算力/东数西算是情绪主线,资金愿意给溢价。",
    "src": "rule"
   }
  ],

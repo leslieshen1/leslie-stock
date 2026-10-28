@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 35501.0,
   "druckenmiller": 43414.0,
-  "sentiment": 86325.0
+  "sentiment": 95037.0
  },
  "positions": [
   {
@@ -183,13 +183,6 @@
    "entry_date": "2026-10-20"
   },
   {
-   "master": "sentiment",
-   "sym": "002881",
-   "shares": 3300,
-   "entry": 41.24,
-   "entry_date": "2026-10-21"
-  },
-  {
    "master": "serenity",
    "sym": "688012",
    "shares": 200,
@@ -258,6 +251,13 @@
    "shares": 2400,
    "entry": 54.04,
    "entry_date": "2026-10-27"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688114",
+   "shares": 2300,
+   "entry": 57.75,
+   "entry_date": "2026-10-28"
   }
  ],
  "nav": [
@@ -2385,6 +2385,31 @@
    "master": "sentiment",
    "date": "2026-10-27",
    "nav": 879734.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-28",
+   "nav": 1016453.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-28",
+   "nav": 1108795.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-28",
+   "nav": 686534.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-28",
+   "nav": 565373.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-28",
+   "nav": 896576.0
   }
  ],
  "trades": [
@@ -7006,6 +7031,26 @@
    "shares": 2400,
    "price": 54.04,
    "reason": "算力/东数西算是情绪主线,资金愿意给溢价。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-28",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002881",
+   "shares": 3300,
+   "price": 42.89,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+4.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-28",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688114",
+   "shares": 2300,
+   "price": 57.75,
+   "reason": "国产替代+基因科技双标签,资金愿意给溢价。",
    "src": "rule"
   }
  ],

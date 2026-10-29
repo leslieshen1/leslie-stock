@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 35501.0,
   "druckenmiller": 43414.0,
-  "sentiment": 95037.0
+  "sentiment": 85095.0
  },
  "positions": [
   {
@@ -190,20 +190,6 @@
    "entry_date": "2026-10-22"
   },
   {
-   "master": "sentiment",
-   "sym": "920139",
-   "shares": 9100,
-   "entry": 14.65,
-   "entry_date": "2026-10-22"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688561",
-   "shares": 4700,
-   "entry": 30.0,
-   "entry_date": "2026-10-23"
-  },
-  {
    "master": "serenity",
    "sym": "300408",
    "shares": 700,
@@ -258,6 +244,20 @@
    "shares": 2300,
    "entry": 57.75,
    "entry_date": "2026-10-28"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300102",
+   "shares": 8600,
+   "entry": 14.97,
+   "entry_date": "2026-10-29"
+  },
+  {
+   "master": "sentiment",
+   "sym": "605100",
+   "shares": 3400,
+   "entry": 36.88,
+   "entry_date": "2026-10-29"
   }
  ],
  "nav": [
@@ -2410,6 +2410,31 @@
    "master": "sentiment",
    "date": "2026-10-28",
    "nav": 896576.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-29",
+   "nav": 1028811.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-29",
+   "nav": 1120103.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-29",
+   "nav": 655806.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-29",
+   "nav": 560538.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-29",
+   "nav": 860078.0
   }
  ],
  "trades": [
@@ -7051,6 +7076,46 @@
    "shares": 2300,
    "price": 57.75,
    "reason": "国产替代+基因科技双标签,资金愿意给溢价。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-29",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "920139",
+   "shares": 9100,
+   "price": 13.54,
+   "reason": "-7.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-29",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688561",
+   "shares": 4700,
+   "price": 25.74,
+   "reason": "-14.2% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-29",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300102",
+   "shares": 8600,
+   "price": 14.97,
+   "reason": "CPO+MicroLED+第三代半导体多题材共振，是散户资金的香饽饽。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-29",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "605100",
+   "shares": 3400,
+   "price": 36.88,
+   "reason": "军工配套题材有热度，资金阶段性参与。",
    "src": "rule"
   }
  ],

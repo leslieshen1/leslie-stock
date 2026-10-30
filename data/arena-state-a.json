@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 35501.0,
+  "serenity": 30485.0,
   "druckenmiller": 43414.0,
-  "sentiment": 85095.0
+  "sentiment": 87223.0
  },
  "positions": [
   {
@@ -128,13 +128,6 @@
   },
   {
    "master": "serenity",
-   "sym": "002222",
-   "shares": 1200,
-   "entry": 52.19,
-   "entry_date": "2026-10-14"
-  },
-  {
-   "master": "serenity",
    "sym": "003021",
    "shares": 1000,
    "entry": 63.0,
@@ -184,13 +177,6 @@
   },
   {
    "master": "serenity",
-   "sym": "688012",
-   "shares": 200,
-   "entry": 264.18,
-   "entry_date": "2026-10-22"
-  },
-  {
-   "master": "serenity",
    "sym": "300408",
    "shares": 700,
    "entry": 82.59,
@@ -211,41 +197,6 @@
    "entry_date": "2026-10-26"
   },
   {
-   "master": "serenity",
-   "sym": "688702",
-   "shares": 300,
-   "entry": 193.0,
-   "entry_date": "2026-10-27"
-  },
-  {
-   "master": "sentiment",
-   "sym": "002703",
-   "shares": 8600,
-   "entry": 15.32,
-   "entry_date": "2026-10-27"
-  },
-  {
-   "master": "sentiment",
-   "sym": "603121",
-   "shares": 10600,
-   "entry": 12.38,
-   "entry_date": "2026-10-27"
-  },
-  {
-   "master": "sentiment",
-   "sym": "002929",
-   "shares": 2400,
-   "entry": 54.04,
-   "entry_date": "2026-10-27"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688114",
-   "shares": 2300,
-   "entry": 57.75,
-   "entry_date": "2026-10-28"
-  },
-  {
    "master": "sentiment",
    "sym": "300102",
    "shares": 8600,
@@ -253,11 +204,60 @@
    "entry_date": "2026-10-29"
   },
   {
+   "master": "serenity",
+   "sym": "688012",
+   "shares": 200,
+   "entry": 213.69,
+   "entry_date": "2026-10-30"
+  },
+  {
+   "master": "serenity",
+   "sym": "688702",
+   "shares": 300,
+   "entry": 163.68,
+   "entry_date": "2026-10-30"
+  },
+  {
+   "master": "serenity",
+   "sym": "688582",
+   "shares": 1800,
+   "entry": 32.0,
+   "entry_date": "2026-10-30"
+  },
+  {
    "master": "sentiment",
-   "sym": "605100",
-   "shares": 3400,
-   "entry": 36.88,
-   "entry_date": "2026-10-29"
+   "sym": "301413",
+   "shares": 1600,
+   "entry": 71.88,
+   "entry_date": "2026-10-30"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002164",
+   "shares": 6300,
+   "entry": 19.03,
+   "entry_date": "2026-10-30"
+  },
+  {
+   "master": "sentiment",
+   "sym": "920438",
+   "shares": 2300,
+   "entry": 50.72,
+   "entry_date": "2026-10-30"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300461",
+   "shares": 2800,
+   "entry": 41.6,
+   "entry_date": "2026-10-30"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301607",
+   "shares": 3700,
+   "entry": 32.33,
+   "entry_date": "2026-10-30"
   }
  ],
  "nav": [
@@ -2435,6 +2435,31 @@
    "master": "sentiment",
    "date": "2026-10-29",
    "nav": 860078.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-10-30",
+   "nav": 1047513.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-10-30",
+   "nav": 1140273.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-10-30",
+   "nav": 618874.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-10-30",
+   "nav": 544757.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-10-30",
+   "nav": 802243.0
   }
  ],
  "trades": [
@@ -7116,6 +7141,166 @@
    "shares": 3400,
    "price": 36.88,
    "reason": "军工配套题材有热度，资金阶段性参与。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "002222",
+   "shares": 1200,
+   "price": 43.82,
+   "reason": "破位 -16.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688012",
+   "shares": 200,
+   "price": 213.69,
+   "reason": "破位 -19.1%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688702",
+   "shares": 300,
+   "price": 163.68,
+   "reason": "破位 -15.2%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688012",
+   "shares": 200,
+   "price": 213.69,
+   "reason": "这才是我要的——MOCVD + 电介质刻蚀,化合物半导体那条链上亚洲唯一能打的国产单点,Aixtron 的镜像。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688702",
+   "shares": 300,
+   "price": 163.68,
+   "reason": "国内唯一商用以太网交换芯片提供商,Broadcom/Marvell/Nvidia 三家垄断下的独苗国产替代——这正是我要的全村唯一一家。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688582",
+   "shares": 1800,
+   "price": 32.0,
+   "reason": "导航级 MEMS 陀螺仪——对标霍尼韦尔/ADI,军工+无人机+人形机器人 IMU 的单点瓶颈,绝对技术深度。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002703",
+   "shares": 8600,
+   "price": 13.69,
+   "reason": "-10.6% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "603121",
+   "shares": 10600,
+   "price": 10.99,
+   "reason": "-11.2% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002929",
+   "shares": 2400,
+   "price": 49.58,
+   "reason": "-8.3% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688114",
+   "shares": 2300,
+   "price": 53.08,
+   "reason": "-8.1% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "605100",
+   "shares": 3400,
+   "price": 33.67,
+   "reason": "-8.7% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301413",
+   "shares": 1600,
+   "price": 71.88,
+   "reason": "小米汽车+传感器国产替代故事，散户买账。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002164",
+   "shares": 6300,
+   "price": 19.03,
+   "reason": "机器人执行器概念是热门赛道,情绪资金活跃度高。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "920438",
+   "shares": 2300,
+   "price": 50.72,
+   "reason": "AR玻璃基板题材热，北交所小盘是资金最爱的弹性品种。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300461",
+   "shares": 2800,
+   "price": 41.6,
+   "reason": "机器人+苹果+无线充电,题材组合诱人。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-10-30",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301607",
+   "shares": 3700,
+   "price": 32.33,
+   "reason": "由冷转热,资金进场情绪回暖。",
    "src": "rule"
   }
  ],

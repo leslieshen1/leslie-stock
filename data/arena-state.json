@@ -10604,9 +10604,179 @@
    "reason": "全场嫌弃但激进股东和价值资金在悄悄进，盘前涨幅克制，仍像冰点反转早段而不是拥挤末端。",
    "status": "expired",
    "note": "撮合日 2026-10-16 ≠ 下单日 2026-10-14"
+  },
+  {
+   "id": 491,
+   "fill_date": "2026-11-04",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这八个仓位个个是我看得懂、拿得住的好生意,没理由在今晨普涨里乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 492,
+   "fill_date": "2026-11-04",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "四个持仓都是我看懂的顶级好生意,文化本分,拿着就是了,价格从来不是我每天盯的事。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 493,
+   "fill_date": "2026-11-04",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "LITE",
+   "reason": "Lumentum瓶颈逻辑没变但价位从820砸到680、盘前继续跌,这不是pre-rerating而是营收兑现被质疑的下跌刀,认错减震、把子弹腾给更干净的瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 494,
+   "fill_date": "2026-11-04",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "UAMY",
+   "reason": "锑的卡脖子四件套齐、和PPTA同链共振,$2.88小盘冷门未被充分定价、盘前+3.12%温和不是爆拉,正是被错杀的瓶颈加仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 495,
+   "fill_date": "2026-11-04",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "SHC",
+   "reason": "钴-60+写进FDA文件的灭菌产能是医械链最硬单点,今日-9.6%被错杀、盘前转正企稳,正好低吸这类验证周期长到替不掉的瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 496,
+   "fill_date": "2026-11-04",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "PPTA盘前+7.31%锑链在发酵、BLFS/CORZ/LEU/MP瓶颈逻辑都没破,CORZ盘前-6%是机柜明牌的高波动震荡不是逻辑变坏,按兵不动继续拿。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 497,
+   "fill_date": "2026-11-04",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "电力AI主线今晨盘前-6.33%整条塌,趋势已转我不恋战,砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 498,
+   "fill_date": "2026-11-04",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "同样是电力链,盘前-4.15%且已亏-2.9%,主线破位我不逆风加码。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 499,
+   "fill_date": "2026-11-04",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TLN",
+   "reason": "AI电力三兄弟齐跌盘前-6.87%,利润回吐锁死,顺势出清这匹失速马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 500,
+   "fill_date": "2026-11-04",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "SEZL",
+   "reason": "已亏-7.3%逼近机械止损,盘前反抽给我出场窗口,先走。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 501,
+   "fill_date": "2026-11-04",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GD",
+   "reason": "国防开支超级周期是最清晰的世俗大趋势,盘前-2.53%回落反而给了不追高的好入场。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 502,
+   "fill_date": "2026-11-04",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "KKR",
+   "reason": "降息+私募信贷双击的高β弹簧,盘前+1.26%温和不狂热,赔率不对称向上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 503,
+   "fill_date": "2026-11-04",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "盘前+7%反抽给了出逃窗口,但这票已亏-22.7%、阿根廷主题情绪早就翻脸,反抽就是流动性出口,我借光跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 504,
+   "fill_date": "2026-11-04",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HSAI",
+   "reason": "盘前+6.1%把-8.1%的亏损修回来一截,物理AI拥挤度早上来、情绪反转极快,我趁这口反弹气减掉这块烫手筹码。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 505,
+   "fill_date": "2026-11-04",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "INIO",
+   "reason": "AI电力接力AI算力成为新资金共识,机构在加但还没全民狂热的甜蜜段,盘前-5.52%的回落正好给我不追高的入场点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 506,
+   "fill_date": "2026-11-04",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "CORZ",
+   "reason": "AI电力纯标的叙事资金在线、评分最高,盘前-6%把拥挤的追高者洗了一遍,这种回落反而是我顺势埋伏的好价而非接刀。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 507,
+   "fill_date": "2026-11-04",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "RITM股息黏资金、FCNCA机构玩物、LQDA/CUBI情绪顺风但事件型,先按兵不动看资金是否续流。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 491,
+ "next_order_id": 508,
  "notes": [
   {
    "date": "2026-06-12",

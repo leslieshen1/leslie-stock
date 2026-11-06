@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 24924.0,
   "druckenmiller": 39514.0,
-  "sentiment": 72084.0
+  "sentiment": 92290.0
  },
  "positions": [
   {
@@ -183,13 +183,6 @@
    "entry_date": "2026-10-26"
   },
   {
-   "master": "sentiment",
-   "sym": "300102",
-   "shares": 8600,
-   "entry": 14.97,
-   "entry_date": "2026-10-29"
-  },
-  {
    "master": "serenity",
    "sym": "688012",
    "shares": 200,
@@ -258,6 +251,13 @@
    "shares": 1500,
    "entry": 83.76,
    "entry_date": "2026-11-05"
+  },
+  {
+   "master": "sentiment",
+   "sym": "600038",
+   "shares": 4200,
+   "entry": 28.77,
+   "entry_date": "2026-11-06"
   }
  ],
  "nav": [
@@ -2535,6 +2535,31 @@
    "master": "sentiment",
    "date": "2026-11-05",
    "nav": 842145.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-06",
+   "nav": 1072965.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-06",
+   "nav": 1170012.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-06",
+   "nav": 663273.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-06",
+   "nav": 571091.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-06",
+   "nav": 815432.0
   }
  ],
  "trades": [
@@ -7456,6 +7481,26 @@
    "shares": 1500,
    "price": 83.76,
    "reason": "华为海思+AIPC+百元股,信创+国产算力双题材,资金活跃。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-06",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300102",
+   "shares": 8600,
+   "price": 16.4,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+9.6%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-06",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "600038",
+   "shares": 4200,
+   "price": 28.77,
+   "reason": "军工核心标的，地缘扰动即有资金照顾。",
    "src": "rule"
   }
  ],

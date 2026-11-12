@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 24924.0,
-  "druckenmiller": 39514.0,
-  "sentiment": 93999.0
+  "druckenmiller": 40067.0,
+  "sentiment": 108160.0
  },
  "positions": [
   {
@@ -120,13 +120,6 @@
    "entry_date": "2026-09-30"
   },
   {
-   "master": "druckenmiller",
-   "sym": "301269",
-   "shares": 700,
-   "entry": 92.25,
-   "entry_date": "2026-10-09"
-  },
-  {
    "master": "serenity",
    "sym": "003021",
    "shares": 1000,
@@ -219,20 +212,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "688046",
-   "shares": 3700,
-   "entry": 33.35,
-   "entry_date": "2026-11-05"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688258",
-   "shares": 1500,
-   "entry": 83.76,
-   "entry_date": "2026-11-05"
-  },
-  {
-   "master": "sentiment",
    "sym": "600038",
    "shares": 4200,
    "entry": 28.77,
@@ -253,11 +232,32 @@
    "entry_date": "2026-11-10"
   },
   {
-   "master": "sentiment",
-   "sym": "603228",
+   "master": "druckenmiller",
+   "sym": "300398",
    "shares": 2100,
-   "entry": 57.59,
-   "entry_date": "2026-11-10"
+   "entry": 29.71,
+   "entry_date": "2026-11-13"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300629",
+   "shares": 6400,
+   "entry": 19.53,
+   "entry_date": "2026-11-13"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688282",
+   "shares": 2600,
+   "entry": 48.11,
+   "entry_date": "2026-11-13"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301413",
+   "shares": 1600,
+   "entry": 77.68,
+   "entry_date": "2026-11-13"
   }
  ],
  "nav": [
@@ -2610,6 +2610,31 @@
    "master": "sentiment",
    "date": "2026-11-11",
    "nav": 845605.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-13",
+   "nav": 1052764.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-13",
+   "nav": 1141177.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-13",
+   "nav": 698194.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-13",
+   "nav": 558059.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-13",
+   "nav": 834620.0
   }
  ],
  "trades": [
@@ -7611,6 +7636,86 @@
    "shares": 2100,
    "price": 57.59,
    "reason": "CPO+英伟达+特斯拉+5G多题材叠加，AI硬件链资金活跃。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "301269",
+   "shares": 700,
+   "price": 89.92,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300398",
+   "shares": 2100,
+   "price": 29.71,
+   "reason": "短线最重要的是趋势，飞凯材料本周已经跑成板块里很强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688046",
+   "shares": 3700,
+   "price": 34.5,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.4%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688258",
+   "shares": 1500,
+   "price": 80.3,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-4.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "603228",
+   "shares": 2100,
+   "price": 66.87,
+   "reason": "+16.1% 止盈落袋 —— 情绪给的钱要趁情绪还在时拿走",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300629",
+   "shares": 6400,
+   "price": 19.53,
+   "reason": "军工主题活跃时小盘弹性最大。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688282",
+   "shares": 2600,
+   "price": 48.11,
+   "reason": "军工+无人机+国产替代是当前最热主线之一,资金顺风。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-13",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301413",
+   "shares": 1600,
+   "price": 77.68,
+   "reason": "小米汽车+传感器国产替代故事，散户买账。",
    "src": "rule"
   }
  ],

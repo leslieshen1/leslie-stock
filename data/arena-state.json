@@ -10774,9 +10774,159 @@
    "reason": "RITM股息黏资金、FCNCA机构玩物、LQDA/CUBI情绪顺风但事件型,先按兵不动看资金是否续流。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 508,
+   "fill_date": "2026-11-13",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我满仓拿的都是看得懂、有宽护城河的生意,没有哪一个到了贵得必须卖的地步,屁股坐稳不动最省力。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 509,
+   "fill_date": "2026-11-13",
+   "master": "buffett",
+   "action": "SELL",
+   "sym": "GOOG",
+   "reason": "账上同时拿着GOOG又看着GOOGM这张优先股壳,重复押注同一门生意没必要,先把普通股这笔浮亏的仓位清掉腾出子弹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 510,
+   "fill_date": "2026-11-13",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "BAC",
+   "reason": "用账面附近的价钱买美国第二大存款特许经营权,我自己就拿着,现金趴着不如换成这门能看十年的好生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 511,
+   "fill_date": "2026-11-13",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里四门生意我看了多年，COST、TSM、VRSN、AAPL全是我挑不出毛病的好生意，没理由动它。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 512,
+   "fill_date": "2026-11-13",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "十一个瓶颈仓已经铺满组合,四件套齐的真卡脖子我一个都不卖——LITE/KTOS/LEU这些回撤是波动不是逻辑崩,只要下游量产洪流还在涌我就拿着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 513,
+   "fill_date": "2026-11-13",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "UAMY",
+   "reason": "现金只剩$6490,根本不够开新仓;但记一笔:UAMY今日-6.7%被砸、西半球极少数能冶炼锑的玩家,等有现金这种错杀小盘才是我该抠的加分项——今天空仓等好价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 514,
+   "fill_date": "2026-11-13",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TENB",
+   "reason": "逆风的持仓,盘前抽一下就是出逃窗口,亏7.9%趋势没转好,我不扛烂马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 515,
+   "fill_date": "2026-11-13",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "同样电力主题我手里CEG和TLN更顺,VST亏4%相对最弱,砍掉集中到更强的马上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 516,
+   "fill_date": "2026-11-13",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "TLN/LLY/CEG/BB/SEZL/MANH都在赢钱且顺流动性,主升浪里的赢家我不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 517,
+   "fill_date": "2026-11-13",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "阿根廷主题盘前再杀-4.75%、已亏26.6%,资金在夺命出逃,死水里继续砸,不等止损先走。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 518,
+   "fill_date": "2026-11-13",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "LQDA",
+   "reason": "事件驱动的官司情绪盘最易反转,盘前-2.62%、浮盈36%先落袋,拥挤的狂热我不贪最后一口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 519,
+   "fill_date": "2026-11-13",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HSAI",
+   "reason": "物理AI拥挤度早被我标红,盘前-1.2%情绪转冷,浮盈8%该收就收,反转起来只在一根阴线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 520,
+   "fill_date": "2026-11-13",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "IRTC",
+   "reason": "利空出清后机构回补+空头回补,情绪从冰点往上修,盘前微跌没爆拉,正是顺一程的干净入场位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 521,
+   "fill_date": "2026-11-13",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "STVN",
+   "reason": "腰斩到冰点、散户不看,正是聪明钱悄悄捡GLP-1卖铲子的时候,盘前+2.88%温和不追高。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 522,
+   "fill_date": "2026-11-13",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ORLA",
+   "reason": "贵金属是当下资金抢着进的热赛道、情绪偏热但未全民癫狂,盘前+5.59%动能顺但需防见顶。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 508,
+ "next_order_id": 523,
  "notes": [
   {
    "date": "2026-06-12",

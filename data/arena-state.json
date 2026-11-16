@@ -10924,9 +10924,139 @@
    "reason": "贵金属是当下资金抢着进的热赛道、情绪偏热但未全民癫狂,盘前+5.59%动能顺但需防见顶。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 523,
+   "fill_date": "2026-11-16",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里这八门生意——台积电、VeriSign、Alphabet、Meta、百事、Zoetis、Arch、BlackRock——都是我愿意拿十年的宽护城河,今晨普跌只是市场的情绪波动,不是生意变坏,我按兵不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 524,
+   "fill_date": "2026-11-16",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里Costco仍贵我只看不买,其余好生意没有给到足够安全边际,现金$36,360不够也不急,宁可空着等好价也不追高接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 525,
+   "fill_date": "2026-11-16",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "COST、VRSN、AAPL都是我看了多年的好生意好文化,盘前这点波动跟我没关系,拿着就是了。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 526,
+   "fill_date": "2026-11-16",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "TSM盘前跌4.76%,这生意好到极致,别人替它养客户做研发,跌下来我只会更安心,不卖。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 527,
+   "fill_date": "2026-11-16",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "现金只剩4万,不够开一个像样的新仓,今天盘前整体杀跌,我不急着动,空着等好价完全合法。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 528,
+   "fill_date": "2026-11-16",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "全市场盘前普跌、纳指-1.36%,我的瓶颈持仓清一色在流血,这不是瓶颈逻辑被推翻、是β在杀估值,方向性多头不因一天回撤动摇。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 529,
+   "fill_date": "2026-11-16",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "MIR",
+   "reason": "核复兴卡脖子单点、辐射检测写进每座堆的BOM,盘前只跌-0.23%最抗跌,是今天唯一不接下跌刀的好价入场点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 530,
+   "fill_date": "2026-11-16",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TENB",
+   "reason": "逆风下盘前又杀-4%,成本已亏8.6%,错了就砍,不等机械止损。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 531,
+   "fill_date": "2026-11-16",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "亏5%还在跌,电力主线今天没领涨,弱马先清,不占仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 532,
+   "fill_date": "2026-11-16",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指-1.36%领跌,流动性今天在抽水,盘前不接任何刀,现金就是仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 533,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HSAI",
+   "reason": "盘前-4.32%,物理AI拥挤度早就上来了,情绪反转极快,高位获利该先落袋。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 534,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "-23%深套、盘前仍阴跌,阿根廷主题这票资金早已掉头,死水拖着不如割。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 535,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前-1.36%、风险偏好收缩的早盘,不追任何盘前阴跌的候选,宁可握现金等回落。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 523,
+ "next_order_id": 536,
  "notes": [
   {
    "date": "2026-06-12",

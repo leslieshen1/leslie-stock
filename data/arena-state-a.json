@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 24924.0,
   "druckenmiller": 40067.0,
-  "sentiment": 108160.0
+  "sentiment": 74766.0
  },
  "positions": [
   {
@@ -212,20 +212,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "600038",
-   "shares": 4200,
-   "entry": 28.77,
-   "entry_date": "2026-11-06"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688102",
-   "shares": 4400,
-   "entry": 27.58,
-   "entry_date": "2026-11-10"
-  },
-  {
-   "master": "sentiment",
    "sym": "301361",
    "shares": 3900,
    "entry": 31.21,
@@ -240,24 +226,38 @@
   },
   {
    "master": "sentiment",
-   "sym": "300629",
-   "shares": 6400,
-   "entry": 19.53,
-   "entry_date": "2026-11-13"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688282",
-   "shares": 2600,
-   "entry": 48.11,
-   "entry_date": "2026-11-13"
-  },
-  {
-   "master": "sentiment",
    "sym": "301413",
    "shares": 1600,
    "entry": 77.68,
    "entry_date": "2026-11-13"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002549",
+   "shares": 10100,
+   "entry": 11.91,
+   "entry_date": "2026-11-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000400",
+   "shares": 4600,
+   "entry": 26.19,
+   "entry_date": "2026-11-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "300706",
+   "shares": 3000,
+   "entry": 40.06,
+   "entry_date": "2026-11-17"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301421",
+   "shares": 1700,
+   "entry": 68.77,
+   "entry_date": "2026-11-17"
   }
  ],
  "nav": [
@@ -2635,6 +2635,31 @@
    "master": "sentiment",
    "date": "2026-11-13",
    "nav": 834620.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-17",
+   "nav": 1081251.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-17",
+   "nav": 1171215.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-17",
+   "nav": 645780.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-17",
+   "nav": 533053.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-17",
+   "nav": 807615.0
   }
  ],
  "trades": [
@@ -7717,6 +7742,86 @@
    "price": 77.68,
    "reason": "小米汽车+传感器国产替代故事，散户买账。",
    "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "600038",
+   "shares": 4200,
+   "price": 26.22,
+   "reason": "-8.9% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688102",
+   "shares": 4400,
+   "price": 24.19,
+   "reason": "-12.3% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300629",
+   "shares": 6400,
+   "price": 17.45,
+   "reason": "-10.7% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688282",
+   "shares": 2600,
+   "price": 44.7,
+   "reason": "-7.1% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002549",
+   "shares": 10100,
+   "price": 11.91,
+   "reason": "半导体+特气+稀有气体涨价,题材热度与资金都在线。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000400",
+   "shares": 4600,
+   "price": 26.19,
+   "reason": "特高压主线常年有资金,海外催化时情绪点火。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "300706",
+   "shares": 3000,
+   "price": 40.06,
+   "reason": "复合集流体+玻璃基板+半导体三标签，是游资点火的活靶子。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-17",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301421",
+   "shares": 1700,
+   "price": 68.77,
+   "reason": "AI眼镜+光刻机题材活跃,L3小盘弹性大,有人气。",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -12197,8 +12302,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里这八家都是我看懂的好生意，价格合理或有安全边际，没有理由为换手而换手。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 449,
@@ -12207,8 +12312,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "豪迈、鼎阳、莱特这些回撤的候选虽便宜，但现金只剩¥56千、不足一仓，我不为凑满仓去追，宁可空着等更肥的球。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 450,
@@ -12217,8 +12322,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里四个都是看得懂的好生意、好文化，拿着不动就是最好的操作。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 451,
@@ -12227,8 +12332,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "满仓10个瓶颈位全在位，现金只剩2.4万，今天整条板块盘前普跌是情绪而非基本面——卡位没变，不砍不追。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 452,
@@ -12237,8 +12342,8 @@
    "action": "SELL",
    "sym": "000831",
    "reason": "中国稀土-9.7%逼近止损线、是我持仓里卡位最虚的一个（整合平台而非最硬的独苗），中稀有色+600259才是我真爱的那口井，腾出子弹换更锋利的瓶颈。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 453,
@@ -12247,8 +12352,8 @@
    "action": "BUY",
    "sym": "603308",
    "reason": "应流今日-9.5%被错杀，航发单晶/定向叶片热端全村就那几家浇得出、军工+核电下游量产洪流在涌，这种回落正是我要的pre-rerating上车点。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 454,
@@ -12257,8 +12362,8 @@
    "action": "SELL",
    "sym": "300398",
    "reason": "飞凯今天板块里不再是最强的马，-2.1%趋势转弱，错了快砍不恋战。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 455,
@@ -12267,8 +12372,8 @@
    "action": "SELL",
    "sym": "002294",
    "reason": "信立泰亏3%且不是任何大流动性主线上最猛的载体，占着仓位没意义，砍掉。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 456,
@@ -12277,8 +12382,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "成飞、华明、华力、北方稀土都是最硬的政策顺风主线，继续骑着不动。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 457,
@@ -12287,8 +12392,8 @@
    "action": "SELL",
    "sym": "301361",
    "reason": "AI电力死水无催化,盘前没资金照顾,拥挤度低却不涨,砍了换弹性。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 458,
@@ -12297,8 +12402,8 @@
    "action": "SELL",
    "sym": "301413",
    "reason": "小米汽车故事散户买账但已-2.4%阴跌，情绪冷却、无增量资金，出。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 459,
@@ -12307,8 +12412,8 @@
    "action": "BUY",
    "sym": "688343",
    "reason": "AI芯片+AI眼镜双热标签,盘前+6.9%是散户情绪天选弹性,钱明显在进这段。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 460,
@@ -12317,8 +12422,8 @@
    "action": "BUY",
    "sym": "688636",
    "reason": "军工无人机小盘，盘前+4.9%被资金点燃，情绪顺风接力还没到最后一棒。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   },
   {
    "id": 461,
@@ -12327,8 +12432,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "军工持仓盘前虽弱但主线未散,北向军工情绪未到冰点,先握不加。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
   }
  ],
  "next_order_id": 462,

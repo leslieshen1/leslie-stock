@@ -12189,8 +12189,148 @@
    "reason": "由冷转热资金刚进场,情绪回暖继续看。",
    "status": "filled",
    "note": ""
+  },
+  {
+   "id": 448,
+   "fill_date": "2026-11-16",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里这八家都是我看懂的好生意，价格合理或有安全边际，没有理由为换手而换手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 449,
+   "fill_date": "2026-11-16",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "豪迈、鼎阳、莱特这些回撤的候选虽便宜，但现金只剩¥56千、不足一仓，我不为凑满仓去追，宁可空着等更肥的球。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 450,
+   "fill_date": "2026-11-16",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里四个都是看得懂的好生意、好文化，拿着不动就是最好的操作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 451,
+   "fill_date": "2026-11-16",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "满仓10个瓶颈位全在位，现金只剩2.4万，今天整条板块盘前普跌是情绪而非基本面——卡位没变，不砍不追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 452,
+   "fill_date": "2026-11-16",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "000831",
+   "reason": "中国稀土-9.7%逼近止损线、是我持仓里卡位最虚的一个（整合平台而非最硬的独苗），中稀有色+600259才是我真爱的那口井，腾出子弹换更锋利的瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 453,
+   "fill_date": "2026-11-16",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "603308",
+   "reason": "应流今日-9.5%被错杀，航发单晶/定向叶片热端全村就那几家浇得出、军工+核电下游量产洪流在涌，这种回落正是我要的pre-rerating上车点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 454,
+   "fill_date": "2026-11-16",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "300398",
+   "reason": "飞凯今天板块里不再是最强的马，-2.1%趋势转弱，错了快砍不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 455,
+   "fill_date": "2026-11-16",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002294",
+   "reason": "信立泰亏3%且不是任何大流动性主线上最猛的载体，占着仓位没意义，砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 456,
+   "fill_date": "2026-11-16",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "成飞、华明、华力、北方稀土都是最硬的政策顺风主线，继续骑着不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 457,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "301361",
+   "reason": "AI电力死水无催化,盘前没资金照顾,拥挤度低却不涨,砍了换弹性。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 458,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "301413",
+   "reason": "小米汽车故事散户买账但已-2.4%阴跌，情绪冷却、无增量资金，出。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 459,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "688343",
+   "reason": "AI芯片+AI眼镜双热标签,盘前+6.9%是散户情绪天选弹性,钱明显在进这段。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 460,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "688636",
+   "reason": "军工无人机小盘，盘前+4.9%被资金点燃，情绪顺风接力还没到最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 461,
+   "fill_date": "2026-11-16",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "军工持仓盘前虽弱但主线未散,北向军工情绪未到冰点,先握不加。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 448,
+ "next_order_id": 462,
  "splits": []
 }

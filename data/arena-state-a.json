@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 24924.0,
-  "druckenmiller": 40067.0,
-  "sentiment": 74766.0
+  "druckenmiller": 43821.0,
+  "sentiment": 81968.0
  },
  "positions": [
   {
@@ -114,13 +114,6 @@
   },
   {
    "master": "serenity",
-   "sym": "000831",
-   "shares": 1300,
-   "entry": 52.73,
-   "entry_date": "2026-09-30"
-  },
-  {
-   "master": "serenity",
    "sym": "003021",
    "shares": 1000,
    "entry": 63.0,
@@ -131,13 +124,6 @@
    "sym": "600259",
    "shares": 1000,
    "entry": 61.84,
-   "entry_date": "2026-10-15"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002294",
-   "shares": 2200,
-   "entry": 30.58,
    "entry_date": "2026-10-15"
   },
   {
@@ -153,13 +139,6 @@
    "shares": 3500,
    "entry": 18.85,
    "entry_date": "2026-10-16"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "300045",
-   "shares": 5100,
-   "entry": 13.02,
-   "entry_date": "2026-10-19"
   },
   {
    "master": "druckenmiller",
@@ -205,20 +184,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "600111",
-   "shares": 1800,
-   "entry": 36.5,
-   "entry_date": "2026-11-04"
-  },
-  {
-   "master": "sentiment",
-   "sym": "301361",
-   "shares": 3900,
-   "entry": 31.21,
-   "entry_date": "2026-11-10"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "300398",
    "shares": 2100,
    "entry": 29.71,
@@ -258,6 +223,41 @@
    "shares": 1700,
    "entry": 68.77,
    "entry_date": "2026-11-17"
+  },
+  {
+   "master": "serenity",
+   "sym": "000831",
+   "shares": 1300,
+   "entry": 44.82,
+   "entry_date": "2026-11-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688376",
+   "shares": 1100,
+   "entry": 50.36,
+   "entry_date": "2026-11-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002050",
+   "shares": 1800,
+   "entry": 32.88,
+   "entry_date": "2026-11-18"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688981",
+   "shares": 500,
+   "entry": 113.45,
+   "entry_date": "2026-11-18"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688629",
+   "shares": 1300,
+   "entry": 90.82,
+   "entry_date": "2026-11-18"
   }
  ],
  "nav": [
@@ -2660,6 +2660,31 @@
    "master": "sentiment",
    "date": "2026-11-17",
    "nav": 807615.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-18",
+   "nav": 1088030.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-18",
+   "nav": 1177292.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-18",
+   "nav": 626116.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-18",
+   "nav": 514959.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-18",
+   "nav": 824663.0
   }
  ],
  "trades": [
@@ -7821,6 +7846,106 @@
    "shares": 1700,
    "price": 68.77,
    "reason": "AI眼镜+光刻机题材活跃,L3小盘弹性大,有人气。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "000831",
+   "shares": 1300,
+   "price": 44.82,
+   "reason": "破位 -15.0%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "000831",
+   "shares": 1300,
+   "price": 44.82,
+   "reason": "这就是教科书级的卡脖子:中重稀土镝铽全球~90%出自中国,这家是南方稀土整合主平台,出口管制是政策亲手按下的产能阀门。全村唯一,我要的就是这个。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002294",
+   "shares": 2200,
+   "price": 26.67,
+   "reason": "错了就是错了,-12.8% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300045",
+   "shares": 5100,
+   "price": 11.47,
+   "reason": "错了就是错了,-11.9% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "600111",
+   "shares": 1800,
+   "price": 32.16,
+   "reason": "错了就是错了,-11.9% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688376",
+   "shares": 1100,
+   "price": 50.36,
+   "reason": "只看盘面和趋势，它现在就是本周最强的马之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002050",
+   "shares": 1800,
+   "price": 32.88,
+   "reason": "特斯拉机器人+新能源双顺风，骑最强的马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688981",
+   "shares": 500,
+   "price": 113.45,
+   "reason": "半导体国产替代是国家级顺风,这条政策风我必须站在里面。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "301361",
+   "shares": 3900,
+   "price": 32.12,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+2.9%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-18",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688629",
+   "shares": 1300,
+   "price": 90.82,
+   "reason": "AI硬件+国产替代题材热度高,情绪偏顺风。",
    "src": "rule"
   }
  ],

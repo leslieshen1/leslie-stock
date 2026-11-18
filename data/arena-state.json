@@ -11054,9 +11054,179 @@
    "reason": "纳指盘前-1.36%、风险偏好收缩的早盘,不追任何盘前阴跌的候选,宁可握现金等回落。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 536,
+   "fill_date": "2026-11-18",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我的生意都还在赚钱,护城河没变窄,盘前这点噪音不值得我动手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 537,
+   "fill_date": "2026-11-18",
+   "master": "buffett",
+   "action": "SELL",
+   "sym": "GOOG",
+   "reason": "账上已有GOOG,候选里GOOGM是同一门生意套了优先股外壳,我不需要重复暴露,但搜索护城河我依然信——这单先不动,留着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 538,
+   "fill_date": "2026-11-18",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这四家都是看了十几年的顶级好生意,文化本分、定价权在,价格波动从来不是我卖的理由,拿住就好。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 539,
+   "fill_date": "2026-11-18",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "LITE",
+   "reason": "亏32%已触情绪止损区,EML瓶颈逻辑没错但我在$820成本高位接了最后一棒,认错换子弹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 540,
+   "fill_date": "2026-11-18",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "KTOS",
+   "reason": "小涡喷瓶颈还在但盘前又-1.9%、亏近20%且无催化,军工无人机链这票我追得太贵,出。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 541,
+   "fill_date": "2026-11-18",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "MIR",
+   "reason": "核复兴辐射检测的真·卡脖子单点,验证周期长到替不掉,盘前+4.97%但仍属未充分定价的瓶颈,方向性多头建仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 542,
+   "fill_date": "2026-11-18",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "UAMY",
+   "reason": "西半球稀缺炼锑玩家,中国掐出口、军工弹药每单吃锑,今日-7%被错杀的冷门小盘正是我要的加分项。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 543,
+   "fill_date": "2026-11-18",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "BLFS/PPTA/SOLS/CORZ/LEU/MP/GLW/OLED瓶颈四件套齐全,CORZ机柜瓶颈盘前+4.88%兑现中,继续攥着量产洪流的方向性多头。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 544,
+   "fill_date": "2026-11-18",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TENB",
+   "reason": "亏13%已破机械止损逻辑,逆风不抱,错了快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 545,
+   "fill_date": "2026-11-18",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "同为电力载体却亏9%相对弱,CEG/TLN已占这条风,砍掉最弱的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 546,
+   "fill_date": "2026-11-18",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AVGO",
+   "reason": "AI资本开支是这轮最大流动性叙事,AVGO盘前再涨仍是定制ASIC最干净的高弹性载体,我骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 547,
+   "fill_date": "2026-11-18",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "盘前再杀-7.74%、已亏29%,阿根廷主题情绪反转钱在夺路而逃,死水不救,砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 548,
+   "fill_date": "2026-11-18",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "RITM",
+   "reason": "亏近10%、盘前微反弹无量,息票黏性撑不住资金流出,把子弹收回。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 549,
+   "fill_date": "2026-11-18",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "LQDA",
+   "reason": "+33%的事件驱动盈利盘,盘前转平、情绪见顶信号,事件票反转极快,落袋。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 550,
+   "fill_date": "2026-11-18",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ORLA",
+   "reason": "金价创高、资金正抢进贵金属,情绪偏热但未到全民癫狂,盘前+5.59%动能顺,顺势卡位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 551,
+   "fill_date": "2026-11-18",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ESLT",
+   "reason": "防务是当下资金避风港、评分最高,盘前小跌反而是不追高的入场点,顺情绪持。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 552,
+   "fill_date": "2026-11-18",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "HSAI物理AI热钱仍在、LQDA已卖、CUBI/FCNCA资金温和托底,先稳住。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 536,
+ "next_order_id": 553,
  "notes": [
   {
    "date": "2026-06-12",

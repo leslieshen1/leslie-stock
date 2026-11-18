@@ -2,8 +2,8 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 24924.0,
-  "druckenmiller": 43821.0,
+  "serenity": 15152.0,
+  "druckenmiller": 51449.0,
   "sentiment": 81968.0
  },
  "positions": [
@@ -120,20 +120,6 @@
    "entry_date": "2026-10-14"
   },
   {
-   "master": "serenity",
-   "sym": "600259",
-   "shares": 1000,
-   "entry": 61.84,
-   "entry_date": "2026-10-15"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "302132",
-   "shares": 1100,
-   "entry": 61.88,
-   "entry_date": "2026-10-15"
-  },
-  {
    "master": "druckenmiller",
    "sym": "002270",
    "shares": 3500,
@@ -148,13 +134,6 @@
    "entry_date": "2026-10-20"
   },
   {
-   "master": "druckenmiller",
-   "sym": "688160",
-   "shares": 600,
-   "entry": 98.98,
-   "entry_date": "2026-10-26"
-  },
-  {
    "master": "serenity",
    "sym": "688012",
    "shares": 200,
@@ -166,13 +145,6 @@
    "sym": "688702",
    "shares": 300,
    "entry": 163.68,
-   "entry_date": "2026-10-30"
-  },
-  {
-   "master": "serenity",
-   "sym": "688582",
-   "shares": 1800,
-   "entry": 32.0,
    "entry_date": "2026-10-30"
   },
   {
@@ -258,6 +230,34 @@
    "shares": 1300,
    "entry": 90.82,
    "entry_date": "2026-11-18"
+  },
+  {
+   "master": "serenity",
+   "sym": "600259",
+   "shares": 1100,
+   "entry": 50.66,
+   "entry_date": "2026-11-19"
+  },
+  {
+   "master": "serenity",
+   "sym": "300408",
+   "shares": 800,
+   "entry": 66.88,
+   "entry_date": "2026-11-19"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002371",
+   "shares": 100,
+   "entry": 574.04,
+   "entry_date": "2026-11-19"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688160",
+   "shares": 600,
+   "entry": 87.58,
+   "entry_date": "2026-11-19"
   }
  ],
  "nav": [
@@ -2685,6 +2685,31 @@
    "master": "sentiment",
    "date": "2026-11-18",
    "nav": 824663.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-19",
+   "nav": 1087662.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-19",
+   "nav": 1173106.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-19",
+   "nav": 612336.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-19",
+   "nav": 505165.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-19",
+   "nav": 827055.0
   }
  ],
  "trades": [
@@ -7946,6 +7971,86 @@
    "shares": 1300,
    "price": 90.82,
    "reason": "AI硬件+国产替代题材热度高,情绪偏顺风。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "600259",
+   "shares": 1000,
+   "price": 50.66,
+   "reason": "破位 -18.1%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688582",
+   "shares": 1800,
+   "price": 27.11,
+   "reason": "破位 -15.3%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "600259",
+   "shares": 1100,
+   "price": 50.66,
+   "reason": "中重稀土的镝铽就是全村唯一那口井,而且这口井是国家拿在手里当武器的——这才是我梦里的卡脖子。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "300408",
+   "shares": 800,
+   "price": 66.88,
+   "reason": "Layer 4 材料层的硬核命中——MLCC 陶瓷粉大陆唯一规模化自供,光纤插芯全球份额第一,这是真隐形冠军。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "302132",
+   "shares": 1100,
+   "price": 59.12,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688160",
+   "shares": 600,
+   "price": 87.58,
+   "reason": "错了就是错了,-11.5% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002371",
+   "shares": 100,
+   "price": 574.04,
+   "reason": "出口管制+大基金三期+先进制程国产化,这是当下A股最强的政策顺风马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-19",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688160",
+   "shares": 600,
+   "price": 87.58,
+   "reason": "从交易角度看，当前就是强趋势里的强马。",
    "src": "rule"
   }
  ],

@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 15152.0,
-  "druckenmiller": 51449.0,
-  "sentiment": 81968.0
+  "druckenmiller": 48833.0,
+  "sentiment": 69316.0
  },
  "positions": [
   {
@@ -163,13 +163,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "301413",
-   "shares": 1600,
-   "entry": 77.68,
-   "entry_date": "2026-11-13"
-  },
-  {
-   "master": "sentiment",
    "sym": "002549",
    "shares": 10100,
    "entry": 11.91,
@@ -254,10 +247,17 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "688160",
-   "shares": 600,
-   "entry": 87.58,
-   "entry_date": "2026-11-19"
+   "sym": "300054",
+   "shares": 900,
+   "entry": 59.52,
+   "entry_date": "2026-11-20"
+  },
+  {
+   "master": "sentiment",
+   "sym": "301095",
+   "shares": 2100,
+   "entry": 57.08,
+   "entry_date": "2026-11-20"
   }
  ],
  "nav": [
@@ -2710,6 +2710,31 @@
    "master": "sentiment",
    "date": "2026-11-19",
    "nav": 827055.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-20",
+   "nav": 1094121.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-20",
+   "nav": 1175187.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-20",
+   "nav": 603159.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-20",
+   "nav": 511783.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-20",
+   "nav": 805633.0
   }
  ],
  "trades": [
@@ -8051,6 +8076,46 @@
    "shares": 600,
    "price": 87.58,
    "reason": "从交易角度看，当前就是强趋势里的强马。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-20",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688160",
+   "shares": 600,
+   "price": 84.92,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-20",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "300054",
+   "shares": 900,
+   "price": 59.52,
+   "reason": "半导体材料国产替代是最硬的政策顺风,CMP耗材又是先进制程刚需,趋势资金双顺。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-20",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "301413",
+   "shares": 1600,
+   "price": 67.01,
+   "reason": "-13.7% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-20",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "301095",
+   "shares": 2100,
+   "price": 57.08,
+   "reason": "半导体自主可控是主线,资金持续抱团。",
    "src": "rule"
   }
  ],

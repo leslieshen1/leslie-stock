@@ -11224,9 +11224,179 @@
    "reason": "HSAI物理AI热钱仍在、LQDA已卖、CUBI/FCNCA资金温和托底,先稳住。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 553,
+   "fill_date": "2026-11-19",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我满仓的都是宽护城河的生意——TSM、GOOG、META、VRSN这些,一时的账面涨跌我根本不看,十年后它们还在收过路费。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 554,
+   "fill_date": "2026-11-19",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里COST、AXP、NVR都是好生意,但好生意配上今天这种盘前爆拉的价,我宁可坐板凳上等,现金36万不够我追高也不急。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 555,
+   "fill_date": "2026-11-19",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "四门生意我都看了很多年，COST、VRSN、AAPL本分又好，TSM制程全球第一，暂时套着不要紧，好生意拿着就是了。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 556,
+   "fill_date": "2026-11-19",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "大盘盘前+2%普涨,我的瓶颈持仓LITE/CORZ/LEU/MP/GLW都在反抽,这种普涨反抽日不追高、不割肉,瓶颈逻辑没变就坐着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 557,
+   "fill_date": "2026-11-19",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "STVN",
+   "reason": "GLP-1上游硼硅玻璃cartridge+无菌灌装的真瓶颈,盘前-8.85%被错杀,这种逆大盘的回落正是我进场的位置,方向性做多。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 558,
+   "fill_date": "2026-11-19",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "WLFC",
+   "reason": "全行业LEAP/GTF排队待修、备用发动机就是那个卡脖子单点,盘前-3.66%逆大盘回落,不追高、接这口便宜的。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 559,
+   "fill_date": "2026-11-19",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "骑了一路-10.4%,今天盘前反弹就是出逃窗口,错了快砍,我不跟亏损谈恋爱。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 560,
+   "fill_date": "2026-11-19",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "MANH",
+   "reason": "没判词、没动量催化,占着仓位不如换成风口最锋利的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 561,
+   "fill_date": "2026-11-19",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "AVGO",
+   "reason": "纳指+2%领涨、AI资本开支就是这轮最大的流动性风,Broadcom定制ASIC是最干净最弹的载体,盘前+2.58%还没爆拉,我骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 562,
+   "fill_date": "2026-11-19",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "PWR",
+   "reason": "电气化+AI用电这股capex直接变现,盘前+3.72%动量正点,电力主线今晨全线转强,我顺风加这匹马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 563,
+   "fill_date": "2026-11-19",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "TLN/CEG电力主线盘前齐涨、LLY肥胖龙头主升浪不动,强马继续骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 564,
+   "fill_date": "2026-11-19",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "阿根廷主题票亏31%、资金早就不顺了,盘前这点抽水是流动性出口不是回暖,情绪反转早已发生,割。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 565,
+   "fill_date": "2026-11-19",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "CUBI",
+   "reason": "区域银行修复拥挤度抬头、盘前-1.32%资金在退,顺风转逆风,不恋战先出。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 566,
+   "fill_date": "2026-11-19",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "RITM",
+   "reason": "股息托底的死水票,亏11.5%、盘前几乎不动,没有新资金进来情绪也不热,占着仓位不如换弹性。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 567,
+   "fill_date": "2026-11-19",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "GNRC",
+   "reason": "飓风+AI电力叙事资金回流、盘前+4.65%没冲到涨停,拥挤度还没到人人喊单,这段情绪我顺。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 568,
+   "fill_date": "2026-11-19",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "SRRK",
+   "reason": "Phase3阳性后机构和biotech专户在持续建仓、盘前-1.75%反而给了不追高的入场,聪明钱在里面。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 569,
+   "fill_date": "2026-11-19",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "LQDA事件驱动还在赢面上盈利32%拿着、HSAI物理AI资金还在进继续顺,FCNCA机构玩物不拥挤留着。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 553,
+ "next_order_id": 570,
  "notes": [
   {
    "date": "2026-06-12",

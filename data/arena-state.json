@@ -11394,9 +11394,179 @@
    "reason": "LQDA事件驱动还在赢面上盈利32%拿着、HSAI物理AI资金还在进继续顺,FCNCA机构玩物不拥挤留着。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 570,
+   "fill_date": "2026-11-20",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前大跌是市场情绪,不是我这些生意的内在价值变化,我不为噪音动手。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 571,
+   "fill_date": "2026-11-20",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这四门生意——Costco、台积电、VeriSign、苹果——商业模式十年都挑不出毛病,文化本分,大盘今早杀估值跟我没关系,我不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 572,
+   "fill_date": "2026-11-20",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前-1.71%、满仓风险资产全线盘前杀跌,今天不是追加瓶颈的日子,所有候选都在往下砸、没一个是接刀的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 573,
+   "fill_date": "2026-11-20",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "LITE",
+   "reason": "已跌-34.8%还盘前-5.93%,光模块瓶颈逻辑我认但这仓成本$820太高、营收叙事已被机构消化,流动性收紧的盘面里它是最该止血的高位套牢票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 574,
+   "fill_date": "2026-11-20",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "KTOS",
+   "reason": "-23.3%且今天继续-2.5%,涡喷发动机瓶颈仍在但这不是会放量的小盘冷门、是拥挤的军工明牌,留着挡不住系统性回撤,换现金等真被错杀的入场。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 575,
+   "fill_date": "2026-11-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "逆流动性大潮里它-11.4%还在跌，趋势已转、持续流血，砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 576,
+   "fill_date": "2026-11-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "同样电力主线但-7.1%且盘前再跌，宏观风向下它弹性兑现不出来，砍掉不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 577,
+   "fill_date": "2026-11-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "SEZL",
+   "reason": "纳指-1.7%的风里它盘前-6.4%，高beta顺风马此刻在逆风，锁利离场。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 578,
+   "fill_date": "2026-11-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "BB",
+   "reason": "短线强马已失速，盘前-3.8%趋势转弱，弱票先清。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 579,
+   "fill_date": "2026-11-20",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TLN",
+   "reason": "盘前-5.8%，电力叙事今晨被集体抛售，错了就快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 580,
+   "fill_date": "2026-11-20",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "LLY盘前翻红、肥胖症独立于AI杀跌，主升浪龙头我继续骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 581,
+   "fill_date": "2026-11-20",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "今天逆风，纳指大跌日不加任何仓，宁可空着现金等反杀确认。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 582,
+   "fill_date": "2026-11-20",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "盘前再崩-10%，阿根廷主题票情绪反转来得比谁都快，资金在夺门而出，不等它触止损我先走。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 583,
+   "fill_date": "2026-11-20",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HSAI",
+   "reason": "物理AI拥挤度已上来、盘前-1.33%领跌，纳指重挫时这种高β最先被砍，情绪一变就是踩踏，先落袋。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 584,
+   "fill_date": "2026-11-20",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "LQDA",
+   "reason": "+32%浮盈落在事件驱动票上，盘前转弱-1.54%，这种官司预期差一反转就打回原形，锁利离场。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 585,
+   "fill_date": "2026-11-20",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "PDD",
+   "reason": "纳指-1.71%的恐慌日里，中概在地板上没人要却有南向和聪明钱偷捡，这种又冷又有钱进的盘正是我反向埋伏的位置。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 586,
+   "fill_date": "2026-11-20",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "JD",
+   "reason": "情绪极度悲观、估值打到地板，盘前小跌不改冷门有钱进的格局，恐慌盘里逆向低吸死水之外的活水。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 570,
+ "next_order_id": 587,
  "notes": [
   {
    "date": "2026-06-12",

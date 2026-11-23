@@ -12729,8 +12729,148 @@
    "reason": "军工持仓盘前虽弱但主线未散,北向军工情绪未到冰点,先握不加。",
    "status": "expired",
    "note": "撮合日 2026-11-17 ≠ 下单日 2026-11-16"
+  },
+  {
+   "id": 462,
+   "fill_date": "2026-11-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里八只都是我看懂的好生意,护城河完好、现金流稳,没理由因为价格波动就乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 463,
+   "fill_date": "2026-11-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里不少是今日爆拉或仍需验证护城河的,我不为好故事付贵价,也不接最后一棒。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 464,
+   "fill_date": "2026-11-23",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里四个都是看得懂的好生意，文化也本分，拿着不动就是最好的操作。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 465,
+   "fill_date": "2026-11-23",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "688785",
+   "reason": "恒运昌-5.6%向止损靠，先砍掉换子弹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 466,
+   "fill_date": "2026-11-23",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "688281",
+   "reason": "华秦科技隐身吸波材料近乎独家、小盘覆盖不足、盘前-0.1%没爆拉，正是我要的全村唯一、还在pre-rerating的冷门军工单点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 467,
+   "fill_date": "2026-11-23",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "稀土两兄弟虽绿但政策卡脖子逻辑未变、不止损不加仓，兆威中微高位利润继续让子弹飞。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 468,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我满仓8仓已经骑在半导体国产替代这条最强政策风里，候选没一个比手里的马更锋利，不追高。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 469,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "300398",
+   "reason": "飞凯材料-2.8%且不在今晨半导体设备/材料最强主线的核心弹性上，趋势比不过中芯北方华创鼎龙，先砍它腾出子弹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 470,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "002050",
+   "reason": "三花智控机器人逻辑最近钝了，-1%趴着不动，表达机器人我更信正海磁材的弹性，但此刻宁可空现金也不换马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 471,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "300346",
+   "reason": "南大光电半导体材料主线+4.8%动量顺风，小盘卡位、pre-rerating还在，正是最锋利的矛，换掉钝掉的票站进去。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 472,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "波长光电+8.2%、华丰科技+9.3%已进狂热段,盘口聪明钱在吃散户,我不加码只盯情绪有没有反转。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 473,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "002549",
+   "reason": "凯美特气资金没进来、盘面死水,-0.4%磨着占仓位,情绪资金不碰死票,先清出来等活钱。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 474,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "000400",
+   "reason": "许继电气-1.5%、特高压这波没催化没资金,拥挤度低但也没人气,死水无资金=没戏,砍了。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 475,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选清一色半导体今日普涨4%~10%,耐科、大港已接近涨停是最后一棒,我不接;中芯龙芯广立微这类抱团票还没极端拥挤但价位也不便宜,盘前空着仓位等回落更干净。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 462,
+ "next_order_id": 476,
  "splits": []
 }

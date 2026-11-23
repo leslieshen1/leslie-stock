@@ -2,9 +2,9 @@
  "cash": {
   "buffett": 56017.0,
   "duan": 62445.0,
-  "serenity": 15152.0,
+  "serenity": 830.0,
   "druckenmiller": 48833.0,
-  "sentiment": 69316.0
+  "sentiment": 61028.0
  },
  "positions": [
   {
@@ -99,13 +99,6 @@
    "entry_date": "2026-07-20"
   },
   {
-   "master": "serenity",
-   "sym": "688785",
-   "shares": 200,
-   "entry": 246.0,
-   "entry_date": "2026-07-31"
-  },
-  {
    "master": "buffett",
    "sym": "600690",
    "shares": 5800,
@@ -173,13 +166,6 @@
    "sym": "000400",
    "shares": 4600,
    "entry": 26.19,
-   "entry_date": "2026-11-17"
-  },
-  {
-   "master": "sentiment",
-   "sym": "300706",
-   "shares": 3000,
-   "entry": 40.06,
    "entry_date": "2026-11-17"
   },
   {
@@ -258,6 +244,20 @@
    "shares": 2100,
    "entry": 57.08,
    "entry_date": "2026-11-20"
+  },
+  {
+   "master": "serenity",
+   "sym": "688582",
+   "shares": 2100,
+   "entry": 26.54,
+   "entry_date": "2026-11-24"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688781",
+   "shares": 2300,
+   "entry": 49.06,
+   "entry_date": "2026-11-24"
   }
  ],
  "nav": [
@@ -2735,6 +2735,31 @@
    "master": "sentiment",
    "date": "2026-11-20",
    "nav": 805633.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-24",
+   "nav": 1085200.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-24",
+   "nav": 1162439.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-24",
+   "nav": 589572.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-24",
+   "nav": 500784.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-24",
+   "nav": 766789.0
   }
  ],
  "trades": [
@@ -8117,6 +8142,46 @@
    "price": 57.08,
    "reason": "半导体自主可控是主线,资金持续抱团。",
    "src": "rule"
+  },
+  {
+   "date": "2026-11-24",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "688785",
+   "shares": 200,
+   "price": 207.06,
+   "reason": "破位 -15.8%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-24",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "688582",
+   "shares": 2100,
+   "price": 26.54,
+   "reason": "导航级 MEMS 陀螺仪——对标霍尼韦尔/ADI,军工+无人机+人形机器人 IMU 的单点瓶颈,绝对技术深度。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-24",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "300706",
+   "shares": 3000,
+   "price": 34.85,
+   "reason": "-13.0% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-24",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688781",
+   "shares": 2300,
+   "price": 49.06,
+   "reason": "AI眼镜是全市场最当红的硬件叙事,国产硅基OLED稀缺标的天然吸金。",
+   "src": "rule"
   }
  ],
  "orders": [
@@ -12737,8 +12802,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里八只都是我看懂的好生意,护城河完好、现金流稳,没理由因为价格波动就乱动。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 463,
@@ -12747,8 +12812,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选里不少是今日爆拉或仍需验证护城河的,我不为好故事付贵价,也不接最后一棒。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 464,
@@ -12757,8 +12822,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "手里四个都是看得懂的好生意，文化也本分，拿着不动就是最好的操作。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 465,
@@ -12767,8 +12832,8 @@
    "action": "SELL",
    "sym": "688785",
    "reason": "恒运昌-5.6%向止损靠，先砍掉换子弹。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 466,
@@ -12777,8 +12842,8 @@
    "action": "BUY",
    "sym": "688281",
    "reason": "华秦科技隐身吸波材料近乎独家、小盘覆盖不足、盘前-0.1%没爆拉，正是我要的全村唯一、还在pre-rerating的冷门军工单点。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 467,
@@ -12787,8 +12852,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "稀土两兄弟虽绿但政策卡脖子逻辑未变、不止损不加仓，兆威中微高位利润继续让子弹飞。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 468,
@@ -12797,8 +12862,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "我满仓8仓已经骑在半导体国产替代这条最强政策风里，候选没一个比手里的马更锋利，不追高。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 469,
@@ -12807,8 +12872,8 @@
    "action": "SELL",
    "sym": "300398",
    "reason": "飞凯材料-2.8%且不在今晨半导体设备/材料最强主线的核心弹性上，趋势比不过中芯北方华创鼎龙，先砍它腾出子弹。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 470,
@@ -12817,8 +12882,8 @@
    "action": "SELL",
    "sym": "002050",
    "reason": "三花智控机器人逻辑最近钝了，-1%趴着不动，表达机器人我更信正海磁材的弹性，但此刻宁可空现金也不换马。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 471,
@@ -12827,8 +12892,8 @@
    "action": "BUY",
    "sym": "300346",
    "reason": "南大光电半导体材料主线+4.8%动量顺风，小盘卡位、pre-rerating还在，正是最锋利的矛，换掉钝掉的票站进去。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 472,
@@ -12837,8 +12902,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "波长光电+8.2%、华丰科技+9.3%已进狂热段,盘口聪明钱在吃散户,我不加码只盯情绪有没有反转。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 473,
@@ -12847,8 +12912,8 @@
    "action": "SELL",
    "sym": "002549",
    "reason": "凯美特气资金没进来、盘面死水,-0.4%磨着占仓位,情绪资金不碰死票,先清出来等活钱。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 474,
@@ -12857,8 +12922,8 @@
    "action": "SELL",
    "sym": "000400",
    "reason": "许继电气-1.5%、特高压这波没催化没资金,拥挤度低但也没人气,死水无资金=没戏,砍了。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   },
   {
    "id": 475,
@@ -12867,8 +12932,8 @@
    "action": "HOLD",
    "sym": "",
    "reason": "候选清一色半导体今日普涨4%~10%,耐科、大港已接近涨停是最后一棒,我不接;中芯龙芯广立微这类抱团票还没极端拥挤但价位也不便宜,盘前空着仓位等回落更干净。",
-   "status": "pending",
-   "note": ""
+   "status": "expired",
+   "note": "撮合日 2026-11-24 ≠ 下单日 2026-11-23"
   }
  ],
  "next_order_id": 476,

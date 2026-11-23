@@ -11564,9 +11564,199 @@
    "reason": "情绪极度悲观、估值打到地板，盘前小跌不改冷门有钱进的格局，恐慌盘里逆向低吸死水之外的活水。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 587,
+   "fill_date": "2026-11-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我的持仓都是看得懂、有宽护城河的生意,盘前普涨是情绪不是基本面,我不会因为一天的K线去动十年的仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 588,
+   "fill_date": "2026-11-23",
+   "master": "buffett",
+   "action": "SELL",
+   "sym": "TSM",
+   "reason": "台积电是好生意,但我持有它更接近押注半导体周期而非真正的安全边际,盘前反弹+6.5%正好给我一个减少不在能力圈核心的仓位的机会——不过这单我仅在确有更好价位时考虑,今天先不急,收回成命继续HOLD。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 589,
+   "fill_date": "2026-11-23",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里AXP、BAC、CSX、CRH、NDSN今日都在下跌,但我手头现金只有3.6万,不足以建一个有意义的仓位,与其追盘前反弹不如坐在板凳上等真正的好价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 590,
+   "fill_date": "2026-11-23",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "手里COST、TSM、VRSN、AAPL都是我看了多年的顶级好生意,文化本分,拿着就行,今晨大涨更不是我追加的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 591,
+   "fill_date": "2026-11-23",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "候选里都是好生意,但纳指盘前+3%、ASML/CDNS/GOOG这些盘前都爆拉5%以上,我不接最后一棒,宁可空着现金等好价。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 592,
+   "fill_date": "2026-11-23",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "大盘盘前集体暴力反弹(纳指+3.24%),我满手卡脖子瓶颈票今天全在修复,此刻不追盘前已拉5-7%的候选,也不在反弹第一根K线里乱卖我的真瓶颈仓位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 593,
+   "fill_date": "2026-11-23",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "LITE",
+   "reason": "成本$820昨收$460已腰斩-44%,800G/1.6T的EML/InP瓶颈逻辑没变但这仓位在高位单吃巨亏,借今晨+4.9%的普涨反弹砍掉这只拖累、腾现金给方向更干净的瓶颈票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 594,
+   "fill_date": "2026-11-23",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "OLED",
+   "reason": "磷光材料四件套仍齐,但它是全场唯一盘前逆势-6.49%的票,大盘暴涨它独跌说明有基本面坏消息在走,先出观望、不替它接盘。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 595,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "-17.8%深套,机械止损早该砍,逆流动性的失败载体不留。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 596,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "-12.5%已破位,同一宏观主线我留更强的TLN,这匹马掉队了砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 597,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TENB",
+   "reason": "-5.8%不涨,盘前跟风反弹但趋势没确认,不是最强的马,换手给β更大的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 598,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "APP",
+   "reason": "纳指+3.24%大水漫灌,AI+广告的高beta纯软件载体,盘前+5.37%顺风,我骑这匹最锋利的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 599,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "PWR",
+   "reason": "电气化+AI用电最确定的大趋势,盘前+6.08%是资金直接表达,高弹性载体顺风上车。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 600,
+   "fill_date": "2026-11-23",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "LLY/TLN/SEZL/MANH都在趋势里且今晨普涨风顺,继续骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 601,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "盘前再杀-5.15%、累计-41.7%,阿根廷主题票资金撤退、情绪已经反转透了,死水止损不等它砸穿引擎线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 602,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "FCNCA",
+   "reason": "盘前-3.05%逆大盘而跌,机构玩物今天没资金托底,留着占仓位不如换成有资金流的票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 603,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "ORLA",
+   "reason": "贵金属是当下资金抢着进的赛道、盘前+5.59%动能顺、情绪偏热但还没全民癫狂,顺势进一枪。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 604,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "UNH",
+   "reason": "全市场+2.44%普涨、唯独它盘前-6.36%被砸,13F聪明钱在冰点悄悄捡megacap,这种错配正是反向埋伏位。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 605,
+   "fill_date": "2026-11-23",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "HSAI盘前+3.63%资金还在往物理AI里涌,顺风持有但盯紧拥挤度随时准备跑。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 587,
+ "next_order_id": 606,
  "notes": [
   {
    "date": "2026-06-12",

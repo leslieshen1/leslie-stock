@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 830.0,
   "druckenmiller": 48833.0,
-  "sentiment": 61028.0
+  "sentiment": 68266.0
  },
  "positions": [
   {
@@ -155,34 +155,6 @@
    "entry_date": "2026-11-13"
   },
   {
-   "master": "sentiment",
-   "sym": "002549",
-   "shares": 10100,
-   "entry": 11.91,
-   "entry_date": "2026-11-17"
-  },
-  {
-   "master": "sentiment",
-   "sym": "000400",
-   "shares": 4600,
-   "entry": 26.19,
-   "entry_date": "2026-11-17"
-  },
-  {
-   "master": "sentiment",
-   "sym": "301421",
-   "shares": 1700,
-   "entry": 68.77,
-   "entry_date": "2026-11-17"
-  },
-  {
-   "master": "serenity",
-   "sym": "000831",
-   "shares": 1300,
-   "entry": 44.82,
-   "entry_date": "2026-11-18"
-  },
-  {
    "master": "druckenmiller",
    "sym": "688376",
    "shares": 1100,
@@ -258,6 +230,34 @@
    "shares": 2300,
    "entry": 49.06,
    "entry_date": "2026-11-24"
+  },
+  {
+   "master": "serenity",
+   "sym": "000831",
+   "shares": 1300,
+   "entry": 37.11,
+   "entry_date": "2026-11-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "000158",
+   "shares": 8500,
+   "entry": 13.86,
+   "entry_date": "2026-11-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688708",
+   "shares": 3700,
+   "entry": 31.69,
+   "entry_date": "2026-11-25"
+  },
+  {
+   "master": "sentiment",
+   "sym": "688183",
+   "shares": 1500,
+   "entry": 74.55,
+   "entry_date": "2026-11-25"
   }
  ],
  "nav": [
@@ -2760,6 +2760,31 @@
    "master": "sentiment",
    "date": "2026-11-24",
    "nav": 766789.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-25",
+   "nav": 1081829.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-25",
+   "nav": 1154702.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-25",
+   "nav": 594796.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-25",
+   "nav": 508239.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-25",
+   "nav": 788673.0
   }
  ],
  "trades": [
@@ -8181,6 +8206,86 @@
    "shares": 2300,
    "price": 49.06,
    "reason": "AI眼镜是全市场最当红的硬件叙事,国产硅基OLED稀缺标的天然吸金。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "serenity",
+   "side": "SELL",
+   "sym": "000831",
+   "shares": 1300,
+   "price": 37.11,
+   "reason": "破位 -17.2%,纪律止损 —— 瓶颈逻辑没死也得先离场,活着才有下一枪",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "serenity",
+   "side": "BUY",
+   "sym": "000831",
+   "shares": 1300,
+   "price": 37.11,
+   "reason": "这就是教科书级的卡脖子:中重稀土镝铽全球~90%出自中国,这家是南方稀土整合主平台,出口管制是政策亲手按下的产能阀门。全村唯一,我要的就是这个。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "002549",
+   "shares": 10100,
+   "price": 11.2,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(-6.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000400",
+   "shares": 4600,
+   "price": 26.22,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+0.1%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "301421",
+   "shares": 1700,
+   "price": 70.82,
+   "reason": "持有满 5 个交易日,轮动纪律到点离场(+3.0%)",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "000158",
+   "shares": 8500,
+   "price": 13.86,
+   "reason": "鸿蒙概念是阶段性热门题材，事件驱动时弹性大。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688708",
+   "shares": 3700,
+   "price": 31.69,
+   "reason": "军工硬科技+次新+小盘,正是资金偏好的画像。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-25",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "688183",
+   "shares": 1500,
+   "price": 74.55,
+   "reason": "AIPC+PCB+百元成长股，算力硬件情绪持续偏热，尚未到极端拥挤。",
    "src": "rule"
   }
  ],

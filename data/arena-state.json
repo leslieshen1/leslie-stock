@@ -11754,9 +11754,199 @@
    "reason": "HSAI盘前+3.63%资金还在往物理AI里涌,顺风持有但盯紧拥挤度随时准备跑。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 606,
+   "fill_date": "2026-11-24",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手里全是看得懂的好生意——收费桥、保险浮存、动物雀巢，这种东西我买来是拿十年的，开盘前几个点的红绿与我无关。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 607,
+   "fill_date": "2026-11-24",
+   "master": "buffett",
+   "action": "SELL",
+   "sym": "GOOG",
+   "reason": "不是看空这门生意,而是我同时持有GOOG又看着GOOGM候选,底层是同一家Alphabet,没理由为同一门生意付两份,我的TSM和GOOG都浮亏但护城河没变,继续拿着不动更合理——撤回此单。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 608,
+   "fill_date": "2026-11-24",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "大盘盘前杀科技杀银行,AXP、BAC、CRH都在跌,但没一个跌到让我拍桌子的安全边际,好生意的公道价不等于便宜价,我宁可空着现金等更好的击球点。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 609,
+   "fill_date": "2026-11-24",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这几家生意的商业模式和文化我看了多年,没变,大盘今天恐慌杀估值跟我无关,拿住就是了。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 610,
+   "fill_date": "2026-11-24",
+   "master": "duan",
+   "action": "BUY",
+   "sym": "ASML",
+   "reason": "先进制程的印钞许可证,今天恐慌砸下来-6.6%,这种顶级好生意我等的就是这种便宜,加一仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 611,
+   "fill_date": "2026-11-24",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前纳指-1.82%全线杀估值,我手里全是真瓶颈四件套的方向性多头,风险偏好退潮时不割肉也不接刀,这些卡脖子位置没被推翻,等洪流兑现。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 612,
+   "fill_date": "2026-11-24",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "LITE",
+   "reason": "800G/1.6T的EML和InP瓶颈逻辑没错,但-43.9%加盘前再杀-4.94%,这笔已经吃干红利、趋势掉头,现金6490太薄,砍掉这刀换弹药。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 613,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "逆流动性大潮还在亏17.8%,电力AI叙事今天被普遍杀估值,趋势已转,砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 614,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "同一条电力链,亏12.5%且盘前继续弱,风向反了,砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 615,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "BB",
+   "reason": "短线强马已经熄火,盘前-3%还跌破成本,错了快砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 616,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TENB",
+   "reason": "软件网络安全今天逆风,持仓已亏5.8%且盘前继续走弱,不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 617,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TLN",
+   "reason": "盘前+9.7%给我漂亮的出场机会,电力链整体转弱,趁反弹走人。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 618,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "肥胖症结构性主升浪的最强龙头,盘前逆市翻红,继续骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 619,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "仍在盈利且相对抗跌,动量未破,留着。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 620,
+   "fill_date": "2026-11-24",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "小幅盈利、相对强,没理由在普跌日里乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 621,
+   "fill_date": "2026-11-24",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "阿根廷主题浮亏41%又逢全市场risk-off日,钱在撤、这种反转快的题材票不能再扛,盘前虚弹是出货窗口。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 622,
+   "fill_date": "2026-11-24",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HSAI",
+   "reason": "物理AI拥挤度早已抬头,盘前又逆势-1%,情绪一旦反转这种拥挤票砸得最狠,先减掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 623,
+   "fill_date": "2026-11-24",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "CUBI",
+   "reason": "区域银行修复主题拥挤度抬头,风险日里盘前+2.67%是逃命弹,顺势了结浮亏仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 624,
+   "fill_date": "2026-11-24",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前-1.82%全面risk-off,聪明钱在抽离β,今天不接任何追高的刀。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 606,
+ "next_order_id": 625,
  "notes": [
   {
    "date": "2026-06-12",

@@ -11944,9 +11944,159 @@
    "reason": "纳指盘前-1.82%全面risk-off,聪明钱在抽离β,今天不接任何追高的刀。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 625,
+   "fill_date": "2026-11-25",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "全市场盘前大跌,我手里八门生意的护城河一条没变,恐慌是别人的事,我按兵不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 626,
+   "fill_date": "2026-11-25",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "搜索这座收费站的内在价值没动,跌21%只让它更便宜,我绝不在恐慌里卖掉伟大生意。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 627,
+   "fill_date": "2026-11-25",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "全球唯一稳定量产最先进制程的代工厂,盘前再跌我也拿得住,十年眼光不看今天的K线。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 628,
+   "fill_date": "2026-11-25",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这四门生意——Costco、台积电、VeriSign、苹果——商业模式和文化我看了十几二十年,一根大跌的K线动摇不了它们十年的存续,台积电跌我更不会卖,好生意便宜了只会让我高兴。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 629,
+   "fill_date": "2026-11-25",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "盘前全市场血洗(纳指-2.88%),我的瓶颈票今晨普遍-2%到-6%,这是β恐慌不是逻辑崩坏,现金只剩$6490没子弹也不该在恐慌日追刀。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 630,
+   "fill_date": "2026-11-25",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "逆流动性大潮砸盘,-13.9%已击穿我的忍耐线,错了快砍,不等止损来救我。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 631,
+   "fill_date": "2026-11-25",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "同一条电力主线今天被流动性抽走,-9.8%且盘前再杀,趋势转了就认,不摊不扛。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 632,
+   "fill_date": "2026-11-25",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "SEZL",
+   "reason": "消费弹性票在风险off的日子最先被踩踏,盘前-4.6%,落袋利润别等它吐光。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 633,
+   "fill_date": "2026-11-25",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "BB",
+   "reason": "短线强马已经熄火,盘前-3.88%逆风,我只骑活马不骑死马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 634,
+   "fill_date": "2026-11-25",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "TENB",
+   "reason": "突破失败盘前-3%,薄利我不恋战,现金为王留弹药。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 635,
+   "fill_date": "2026-11-25",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前-2.88%是流动性在集体抽水,今天不逆风加仓,握住LLY这匹最硬的结构性龙头观望。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 636,
+   "fill_date": "2026-11-25",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "亏40%的死水主题票,阿根廷改革故事的情绪资金早撤了,钱不进了没托底,风险日砍掉。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 637,
+   "fill_date": "2026-11-25",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HSAI",
+   "reason": "盘前-3.86%领跌,物理AI拥挤度已顶、情绪开始反转,风险日里资金最先从这种高拥挤叙事票撤,先落袋。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 638,
+   "fill_date": "2026-11-25",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "LQDA",
+   "reason": "+37.5%事件驱动浮盈,盘前-2.83%在风险日松动,这种官司预期差的情绪反转极快,兑现利润不恋战。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 639,
+   "fill_date": "2026-11-25",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "纳指盘前-2.88%系统性杀β,情绪冰点里不接任何催化票的刀,现金为王等情绪企稳再埋伏。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 625,
+ "next_order_id": 640,
  "notes": [
   {
    "date": "2026-06-12",

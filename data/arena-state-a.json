@@ -3,8 +3,8 @@
   "buffett": 56017.0,
   "duan": 62445.0,
   "serenity": 830.0,
-  "druckenmiller": 48833.0,
-  "sentiment": 68266.0
+  "druckenmiller": 65744.0,
+  "sentiment": 79325.0
  },
  "positions": [
   {
@@ -114,13 +114,6 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "002270",
-   "shares": 3500,
-   "entry": 18.85,
-   "entry_date": "2026-10-16"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688506",
    "shares": 200,
    "entry": 253.23,
@@ -149,37 +142,9 @@
   },
   {
    "master": "druckenmiller",
-   "sym": "300398",
-   "shares": 2100,
-   "entry": 29.71,
-   "entry_date": "2026-11-13"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "688376",
-   "shares": 1100,
-   "entry": 50.36,
-   "entry_date": "2026-11-18"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002050",
-   "shares": 1800,
-   "entry": 32.88,
-   "entry_date": "2026-11-18"
-  },
-  {
-   "master": "druckenmiller",
    "sym": "688981",
    "shares": 500,
    "entry": 113.45,
-   "entry_date": "2026-11-18"
-  },
-  {
-   "master": "sentiment",
-   "sym": "688629",
-   "shares": 1300,
-   "entry": 90.82,
    "entry_date": "2026-11-18"
   },
   {
@@ -195,20 +160,6 @@
    "shares": 800,
    "entry": 66.88,
    "entry_date": "2026-11-19"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "002371",
-   "shares": 100,
-   "entry": 574.04,
-   "entry_date": "2026-11-19"
-  },
-  {
-   "master": "druckenmiller",
-   "sym": "300054",
-   "shares": 900,
-   "entry": 59.52,
-   "entry_date": "2026-11-20"
   },
   {
    "master": "sentiment",
@@ -240,13 +191,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "000158",
-   "shares": 8500,
-   "entry": 13.86,
-   "entry_date": "2026-11-25"
-  },
-  {
-   "master": "sentiment",
    "sym": "688708",
    "shares": 3700,
    "entry": 31.69,
@@ -258,6 +202,62 @@
    "shares": 1500,
    "entry": 74.55,
    "entry_date": "2026-11-25"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688019",
+   "shares": 200,
+   "entry": 195.86,
+   "entry_date": "2026-11-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688629",
+   "shares": 600,
+   "entry": 83.06,
+   "entry_date": "2026-11-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "688729",
+   "shares": 2800,
+   "entry": 19.28,
+   "entry_date": "2026-11-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "000400",
+   "shares": 2100,
+   "entry": 25.6,
+   "entry_date": "2026-11-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "002179",
+   "shares": 1600,
+   "entry": 32.7,
+   "entry_date": "2026-11-26"
+  },
+  {
+   "master": "druckenmiller",
+   "sym": "603501",
+   "shares": 600,
+   "entry": 83.84,
+   "entry_date": "2026-11-26"
+  },
+  {
+   "master": "sentiment",
+   "sym": "603766",
+   "shares": 6900,
+   "entry": 16.0,
+   "entry_date": "2026-11-26"
+  },
+  {
+   "master": "sentiment",
+   "sym": "603129",
+   "shares": 300,
+   "entry": 312.63,
+   "entry_date": "2026-11-26"
   }
  ],
  "nav": [
@@ -2785,6 +2785,31 @@
    "master": "sentiment",
    "date": "2026-11-25",
    "nav": 788673.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-26",
+   "nav": 1078423.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-26",
+   "nav": 1156431.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-26",
+   "nav": 555304.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-26",
+   "nav": 478572.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-26",
+   "nav": 743770.0
   }
  ],
  "trades": [
@@ -8286,6 +8311,166 @@
    "shares": 1500,
    "price": 74.55,
    "reason": "AIPC+PCB+百元成长股，算力硬件情绪持续偏热，尚未到极端拥挤。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002270",
+   "shares": 3500,
+   "price": 17.94,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300398",
+   "shares": 2100,
+   "price": 24.62,
+   "reason": "错了就是错了,-17.1% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "688376",
+   "shares": 1100,
+   "price": 42.6,
+   "reason": "错了就是错了,-15.4% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002050",
+   "shares": 1800,
+   "price": 31.91,
+   "reason": "20 日动量翻负,趋势不在了 —— 先下车,看对了再上",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "002371",
+   "shares": 100,
+   "price": 495.0,
+   "reason": "错了就是错了,-13.8% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "SELL",
+   "sym": "300054",
+   "shares": 900,
+   "price": 53.33,
+   "reason": "错了就是错了,-10.4% 砍掉 —— 仓位是用来表达判断的,不是用来证明自尊的",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688019",
+   "shares": 200,
+   "price": 195.86,
+   "reason": "半导体材料国产替代是最强政策顺风之一，龙头耗材骑。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688629",
+   "shares": 600,
+   "price": 83.06,
+   "reason": "AI服务器+军工升级双顺风,高速互联是最硬的方向。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "688729",
+   "shares": 2800,
+   "price": 19.28,
+   "reason": "半导体设备国产化+先进制程+出口管制博弈，政策顺风最强主线。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "000400",
+   "shares": 2100,
+   "price": 25.6,
+   "reason": "特高压+柔直+电网出海是当下最硬的产业政策顺风之一。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "002179",
+   "shares": 1600,
+   "price": 32.7,
+   "reason": "军工+800VDC直流配电+AI服务器三条政策与产业顺风叠一块。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "druckenmiller",
+   "side": "BUY",
+   "sym": "603501",
+   "shares": 600,
+   "price": 83.84,
+   "reason": "智能驾驶+手机高端化+国产替代,趋势三重共振。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688629",
+   "shares": 1300,
+   "price": 83.06,
+   "reason": "-8.5% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "000158",
+   "shares": 8500,
+   "price": 12.62,
+   "reason": "-8.9% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "603766",
+   "shares": 6900,
+   "price": 16.0,
+   "reason": "低空经济是阶段性热门题材，发电机/无人机概念能聚资金，情绪偏顺。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-26",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "603129",
+   "shares": 300,
+   "price": 312.63,
+   "reason": "之前的低关注状态已被价格表现打破，资金开始把它当成强势出海消费股交易。",
    "src": "rule"
   }
  ],

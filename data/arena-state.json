@@ -12094,9 +12094,209 @@
    "reason": "纳指盘前-2.88%系统性杀β,情绪冰点里不接任何催化票的刀,现金为王等情绪企稳再埋伏。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 640,
+   "fill_date": "2026-11-26",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我账上这八门生意——台积电、VeriSign、Arch、黑石、谷歌、Zoetis、Meta、百事——护城河都还在,盘前那点波动不是我卖出伟大生意的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 641,
+   "fill_date": "2026-11-26",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "谷歌账面浮亏23%,但搜索收费站的经济性没变,价格更便宜反而让我更安心,绝不割。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 642,
+   "fill_date": "2026-11-26",
+   "master": "buffett",
+   "action": "BUY",
+   "sym": "BAC",
+   "reason": "美国第二大存款特许经营权,盘前几乎不动、仍在账面附近,我自己就拿着,这个价我乐意加。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 643,
+   "fill_date": "2026-11-26",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "四门生意我都看了十几二十年，COST、VRSN、AAPL本分又能涨价，TSM替全世界做研发养客户、模式好到极致，账面浮亏不是我卖它的理由。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 644,
+   "fill_date": "2026-11-26",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "LITE",
+   "reason": "从$820成本砍到$476，已腰斩触及我风险纪律的底线，瓶颈逻辑没错但这笔仓位我拿得太重、认栽换现金。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 645,
+   "fill_date": "2026-11-26",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "UAMY",
+   "reason": "锑的西半球冶炼卡脖子，和我PPTA一条链，盘前才+1.15%没爆拉、小盘未被充分定价，正是pre-rerating阶段加码方向性做多。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 646,
+   "fill_date": "2026-11-26",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "SHC",
+   "reason": "钴-60加写进FDA的灭菌产能是医械链最硬单点，盘前-1.29%被错杀的冷门小盘，验证周期长到替不掉——四件套齐，低位接。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 647,
+   "fill_date": "2026-11-26",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "PPTA盘前+6%、KTOS/OLED走强，瓶颈票各自发酵，被错杀的LEU/MP/GLW我继续扛，不因浮亏砍真瓶颈。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 648,
+   "fill_date": "2026-11-26",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "电力这匹马今晨盘前又-3.9%,-13.3%的亏损趋势已经转坏,逆流动性的风不扛,砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 649,
+   "fill_date": "2026-11-26",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "同样是电力载体,-13.4%深套,叙事再性感也要砍错的单,别和趋势硬顶。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 650,
+   "fill_date": "2026-11-26",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "LLY",
+   "reason": "肥胖赛道我仍信,但盘前-1.09%且纳指走弱,我把筹码换到弹性更高的VKTX那匹强马上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 651,
+   "fill_date": "2026-11-26",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "VKTX",
+   "reason": "肥胖药β里相对强度最猛的高弹性载体,盘前+6.45%趋势确认,我骑最强的马。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 652,
+   "fill_date": "2026-11-26",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "GD",
+   "reason": "国防开支超级周期是今晨道指逆势走强里最干净的顺风,GD是高质量承接流动性的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 653,
+   "fill_date": "2026-11-26",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "TLN/BB/SEZL/TENB/MANH趋势未坏,盘前都站得住,继续骑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 654,
+   "fill_date": "2026-11-26",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "阿根廷主题票已经-38%深套，情绪反转后资金早跑光，这是死水套牢盘不是埋伏位，割了换子弹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 655,
+   "fill_date": "2026-11-26",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "LQDA",
+   "reason": "+32%浮盈建立在赢官司的事件情绪上，盘前-4%是资金开始撤的信号，事件驱动反转极快，落袋为安。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 656,
+   "fill_date": "2026-11-26",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "HSAI",
+   "reason": "物理AI叙事拥挤度已满、盘前-2.6%资金边际在出，情绪票一旦转向杀得很快，先撤。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 657,
+   "fill_date": "2026-11-26",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "BZ",
+   "reason": "中概被打到地板人人嫌弃、盘口冷清正是聪明钱悄悄回补的位置，今日+12.6%是情绪冰点转暖的首发枪，但中概反转也快得带着仓位跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 658,
+   "fill_date": "2026-11-26",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "INIO",
+   "reason": "AI电力接力AI算力成为新资金共识，机构在加但还没全民狂热的甜蜜段，评分70最高、顺势埋这段；情绪共识一旦变冷要立刻走。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 659,
+   "fill_date": "2026-11-26",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "RITM股息黏资金有托底、FCNCA天价股机构玩物不拥挤、CUBI区域银行主题仍顺，三只资金面温和的继续拿。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 640,
+ "next_order_id": 660,
  "notes": [
   {
    "date": "2026-06-12",

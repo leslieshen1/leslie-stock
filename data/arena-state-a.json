@@ -4,7 +4,7 @@
   "duan": 62445.0,
   "serenity": 830.0,
   "druckenmiller": 65744.0,
-  "sentiment": 79325.0
+  "sentiment": 76314.0
  },
  "positions": [
   {
@@ -191,13 +191,6 @@
   },
   {
    "master": "sentiment",
-   "sym": "688708",
-   "shares": 3700,
-   "entry": 31.69,
-   "entry_date": "2026-11-25"
-  },
-  {
-   "master": "sentiment",
    "sym": "688183",
    "shares": 1500,
    "entry": 74.55,
@@ -258,6 +251,13 @@
    "shares": 300,
    "entry": 312.63,
    "entry_date": "2026-11-26"
+  },
+  {
+   "master": "sentiment",
+   "sym": "002261",
+   "shares": 5300,
+   "entry": 20.96,
+   "entry_date": "2026-11-27"
   }
  ],
  "nav": [
@@ -2810,6 +2810,31 @@
    "master": "sentiment",
    "date": "2026-11-26",
    "nav": 743770.0
+  },
+  {
+   "master": "buffett",
+   "date": "2026-11-27",
+   "nav": 1072184.0
+  },
+  {
+   "master": "duan",
+   "date": "2026-11-27",
+   "nav": 1149027.0
+  },
+  {
+   "master": "serenity",
+   "date": "2026-11-27",
+   "nav": 551017.0
+  },
+  {
+   "master": "druckenmiller",
+   "date": "2026-11-27",
+   "nav": 477056.0
+  },
+  {
+   "master": "sentiment",
+   "date": "2026-11-27",
+   "nav": 751217.0
   }
  ],
  "trades": [
@@ -8471,6 +8496,26 @@
    "shares": 300,
    "price": 312.63,
    "reason": "之前的低关注状态已被价格表现打破，资金开始把它当成强势出海消费股交易。",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-27",
+   "master": "sentiment",
+   "side": "SELL",
+   "sym": "688708",
+   "shares": 3700,
+   "price": 29.21,
+   "reason": "-7.8% 触止损,情绪票不恋战,反转比谁都快",
+   "src": "rule"
+  },
+  {
+   "date": "2026-11-27",
+   "master": "sentiment",
+   "side": "BUY",
+   "sym": "002261",
+   "shares": 5300,
+   "price": 20.96,
+   "reason": "华为+AI算力+信创三标签叠加,散户与游资活跃度高。",
    "src": "rule"
   }
  ],

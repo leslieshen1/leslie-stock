@@ -12294,9 +12294,189 @@
    "reason": "RITM股息黏资金有托底、FCNCA天价股机构玩物不拥挤、CUBI区域银行主题仍顺，三只资金面温和的继续拿。",
    "status": "pending",
    "note": ""
+  },
+  {
+   "id": 660,
+   "fill_date": "2026-11-27",
+   "master": "buffett",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我手上这八门生意都是我愿意拿十年的宽护城河，今晨普涨不是加仓的理由，我不追高也不乱动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 661,
+   "fill_date": "2026-11-27",
+   "master": "duan",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "我这四门生意——好市多、台积电、威瑞信、苹果，商业模式都看了几十年挑不出毛病，文化本分，拿着就是，价格不是我关心的事。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 662,
+   "fill_date": "2026-11-27",
+   "master": "serenity",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "大盘普涨+2%,我的瓶颈股全线盘前反弹,但这是β修复不是逻辑变化,不追高也不砍逻辑未破的票。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 663,
+   "fill_date": "2026-11-27",
+   "master": "serenity",
+   "action": "SELL",
+   "sym": "LITE",
+   "reason": "亏41.9%、成本$820却只剩$476,盘前+7.68%反弹但这是深套票的空头回补,逻辑没错但我这个仓位买贵了,借反弹减掉释放现金。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 664,
+   "fill_date": "2026-11-27",
+   "master": "serenity",
+   "action": "BUY",
+   "sym": "STX",
+   "reason": "HAMR良率+玻璃基板+磁头双寡头供给,nearline是AI数据落盘的真实卡点,盘前+6.12%但才昨日-2.1%回落后的启动,仍在pre-rerating,四件套齐,方向性做多。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 665,
+   "fill_date": "2026-11-27",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "CEG",
+   "reason": "电力载体-13.3%还在亏,趋势没证明给我看,逆着我的纪律，砍。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 666,
+   "fill_date": "2026-11-27",
+   "master": "druckenmiller",
+   "action": "SELL",
+   "sym": "VST",
+   "reason": "同样-13.4%的死仓,盘前反抽我不信,错了就快砍,不摊钱。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 667,
+   "fill_date": "2026-11-27",
+   "master": "druckenmiller",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "LLY肥胖龙头+10.8%、SEZL+10.3%、BB强马,这些顺风的赢家我继续骑,不动。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 668,
+   "fill_date": "2026-11-27",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "APP",
+   "reason": "大盘全线放量risk-on,AI+广告高beta纯软件,盘前+4.37%动能在,这就是涨最猛的载体。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 669,
+   "fill_date": "2026-11-27",
+   "master": "druckenmiller",
+   "action": "BUY",
+   "sym": "KKR",
+   "reason": "降息周期私募信贷carry+AUM双击,盘前+2.90%顺流动性大潮,赔率不对称向上。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 670,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "SUPV",
+   "reason": "阿根廷主题浮亏38%、情绪资金早已撤离,这种死水反转票没资金托底再等就是慢性失血。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 671,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "SELL",
+   "sym": "FCNCA",
+   "reason": "浮亏9%、盘前-0.09%资金面已转冷不顺风,机构玩物也没动能,砍掉换子弹。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 672,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "物理AI叙事资金还在涌入、盘前+5.65%动能延续,顺势拿着但拥挤度高随时准备跑。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 673,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "官司事件驱动钱还在进、盈利32%,让利润奔跑但情绪反转极快不加仓。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 674,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "高股息黏住收益资金、盘口稳有托底,温暖不拥挤继续拿。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 675,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "HOLD",
+   "sym": "",
+   "reason": "区域银行修复主题顺风但拥挤度抬头,持平观察不追。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 676,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "INIO",
+   "reason": "AI电力接棒AI算力成新资金共识,机构加仓还没全民狂热的甜蜜段,盘前+3.66%钱在进,这是我要的那一段。",
+   "status": "pending",
+   "note": ""
+  },
+  {
+   "id": 677,
+   "fill_date": "2026-11-27",
+   "master": "sentiment",
+   "action": "BUY",
+   "sym": "BZ",
+   "reason": "中概被打到地板人人嫌、盘口冷清正是聪明钱悄悄回补位,今晨大盘普涨+2.25%风偏回来,冷门埋伏比追高安全。",
+   "status": "pending",
+   "note": ""
   }
  ],
- "next_order_id": 660,
+ "next_order_id": 678,
  "notes": [
   {
    "date": "2026-06-12",
